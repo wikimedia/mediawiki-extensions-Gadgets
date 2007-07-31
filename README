@@ -23,14 +23,15 @@ LocalSettings.php file (near the end):
   require_once( "$IP/extensions/Gadgets/Gadgets.php" );
 
 == Usage ==
-The list of available gadgets is defined on MediaWiki:Gadgets. Gadgets
-defined there show up in the "Gadgets" section of Special:Preferences, so
-users can pick the gadgets they would like to use. An overview of the
-gadgets defined by MediaWiki:Gadgets is also shown on Special:Gadgets,
-along with links to the respective system messages, for easy editing.
+The list of available gadgets is defined on MediaWiki:Gadgets-definition.
+Gadgets defined there show up in the "Gadgets" section of
+Special:Preferences, so users can pick the gadgets they would like to use.
+An overview of the gadgets defined by MediaWiki:Gadgets-definition is also
+shown on Special:Gadgets, along with links to the respective system
+messages, for easy editing.
 
-Each line in MediaWiki:Gadgets that start with one or more "*" (asterisc)
-characters defines a gadget; it must have the following form:
+Each line in MediaWiki:Gadgets-definition that start with one or more "*"
+(asterisc) characters defines a gadget; it must have the following form:
 
   * mygadget|mygadget.js|mygadget.css
 
@@ -51,7 +52,7 @@ used by several gadgets, in addition to their own specific code, e.g:
   * frobinator|commonStuff.js|frob.js|frob.css|pretty.css
   * l33t|commonStuff.js|tools.js|l33t.js
 
-The list of gadgets in MediaWiki:Gadgets can be broken into sections using 
+The list of gadgets in MediaWiki:Gadgets-definition can be broken into sections using 
 lines that start and end with two or more "=" (equals) characters, enclosing
 the name of a system message that defines the section's name - for example:
 
@@ -71,7 +72,7 @@ MediaWiki:Editing-gadgets
 * Gadget code is included after user code - that means that user JS has no 
   access to things defined in gadgets, and user CSS is overwritten by CSS 
   from gadgets. (pending a better way to insert things into the HTML head) 
-* MediaWiki:Gadgets is parsed for every page request by a logged in user.
+* MediaWiki:Gadgets-definition is parsed for every page request by a logged in user.
   It would be nice to make the MessageCache more flexible, so it can store
-  a parsed version of the MediaWiki:Gadgets.
+  a parsed version of the MediaWiki:Gadgets-definition.
 

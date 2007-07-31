@@ -28,6 +28,7 @@ $wgHooks['InitPreferencesForm'][] = 'wfGadgetsInitPreferencesForm';
 $wgHooks['RenderPreferencesForm'][] = 'wfGadgetsRenderPreferencesForm';
 $wgHooks['ResetPreferences'][] = 'wfGadgetsResetPreferences';
 $wgHooks['BeforePageDisplay'][] = 'wfGadgetsBeforePageDisplay';
+$wgHooks['LoadAllMessages'][] = "loadGadgetsI18n";
 
 $wgAutoloadClasses['SpecialGadgets'] = dirname( __FILE__ ) . '/SpecialGadgets.php';
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
@@ -56,8 +57,9 @@ function wfLoadGadgetsStructured() {
 
 	if ( $gadgets !== NULL ) return $gadgets;
 
-	$g = wfMsgForContentNoTrans( "Gadgets" );
-	if ( wfEmptyMsg( "Gadgets", $g ) ) {
+	$g = wfMsgForContentNoTrans( "Gadgets-definition" );
+	if ( wfEmptyMsg( "Gadgets-definition", $g ) ) {
+		print "((NO GADGETS))";
 		$gadgets = false;
 		return $gadgets;
 	}
@@ -115,10 +117,9 @@ function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
 
 	loadGadgetsI18n();
 
-	$out->addHtml( "\n<fieldset>\n<legend>" . wfMsgHtml( 'gadgetprefs' ) . "</legend>\n" );
+	$out->addHtml( "\n<fieldset>\n<legend>" . wfMsgHtml( 'gadgets-prefs' ) . "</legend>\n" );
 
-	$out->addHtml( "<p>" . wfMsgWikiHtml( 'gadgetprefstext' ) . "</p>\n" );
-	#$out->addHtml( "<p>" . wfMsgWikiHtml( 'gadgetreloadhint' ) . "</p>\n" );
+	$out->addHtml( "<p>" . wfMsgWikiHtml( 'gadgets-prefstext' ) . "</p>\n" );
 
 	$msgOpt = array( 'parseinline', 'parsemag' );
 
@@ -139,7 +140,6 @@ function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
 		}
 	}
 
-	#$out->addHtml( "<p>" . wfMsgWikiHtml( 'gadgetreloadhint' ) . "</p>\n" );
 	$out->addHtml( "</fieldset>\n\n" );
 
 	return true;
@@ -211,6 +211,8 @@ function loadGadgetsI18n() {
 	
 	$initialized = true;
 	$wgMessageCache->addMessages( $messages );
+
+	return true;
 }
 
 ?>
