@@ -53,6 +53,8 @@ function wfLoadGadgets() {
 }
 
 function wfLoadGadgetsStructured() {
+	global $wgContLang, $wgCapitalLinks;
+
 	static $gadgets = NULL;
 
 	if ( $gadgets !== NULL ) return $gadgets;
@@ -74,8 +76,13 @@ function wfLoadGadgetsStructured() {
 		if ( preg_match( '/^==+ *([^*:\s|]+?)\s*==+\s*$/', $line, $m ) ) {
 			$section = $m[1];
 		}
-		else if ( preg_match( '/^\*+ *(\w[-\w\d]*)((\|[^|]*)+)\s*$/', $line, $m ) ) {
-			$name = $m[1];
+		else if ( preg_match( '/^\*+ *([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)\s*((\|[^|]*)+)\s*$/', $line, $m ) ) {
+			//NOTE: the gadget name is used as part of the name of a form field,
+			//      and must follow the rules defined in http://www.w3.org/TR/html4/types.html#type-cdata
+			//      Also, title-normalization applies.
+			$name = str_replace(' ', '_', $m[1]); 
+			if ( $wgCapitalLinks ) $name = $wgContLang->ucfirst( $name );
+
 			$code = preg_split( '/\s*\|\s*/', $m[2], -1, PREG_SPLIT_NO_EMPTY );
 
 			if ( $code ) {

@@ -40,7 +40,9 @@ The first field ("mygadget" in the example) is the gadgets internal name,
 and references a system message (MediaWiki:Mygadget in the example) 
 that contains a short descriptiopn of the gadget, using wiki syntax.
 Note that the internal name must start with a ASCII letter, and must
-contain only ASCII letter and numbers.
+contain only ASCII letter and numbers, hyphens ("-"), underscores ("_"),
+colons (":"), and periods (".") (spaces are also allowed but converted to
+underscored ("_"), like for page titles).
 
 The remaining fields on the line refer to the JavaScript or CSS code that
 makes up the gadget, contained in system messages (MediaWiki:Mygadget.js
