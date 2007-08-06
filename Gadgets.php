@@ -206,20 +206,19 @@ function loadGadgetsI18n() {
 
 	static $initialized = false;
 
-	if ( $initialized ) return;
+	if ( $initialized )
+		return true;
 
 	$messages= array();
-	
+
 	$f= dirname( __FILE__ ) . '/Gadgets.i18n.php';
 	include( $f );
-	
+
 	$f= dirname( __FILE__ ) . '/Gadgets.i18n.' . $wgLang->getCode() . '.php';
 	if ( file_exists( $f ) ) include( $f );
-	
+
 	$initialized = true;
 	$wgMessageCache->addMessages( $messages );
 
 	return true;
 }
-
-?>
