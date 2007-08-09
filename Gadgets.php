@@ -28,10 +28,23 @@ $wgHooks['InitPreferencesForm'][] = 'wfGadgetsInitPreferencesForm';
 $wgHooks['RenderPreferencesForm'][] = 'wfGadgetsRenderPreferencesForm';
 $wgHooks['ResetPreferences'][] = 'wfGadgetsResetPreferences';
 $wgHooks['BeforePageDisplay'][] = 'wfGadgetsBeforePageDisplay';
+$wgHooks['ArticleSave'][] = 'wfGadgetsArticleSave';
 $wgHooks['LoadAllMessages'][] = "loadGadgetsI18n";
 
 $wgAutoloadClasses['SpecialGadgets'] = dirname( __FILE__ ) . '/SpecialGadgets.php';
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
+
+function wfGadgetsArticleSave( &$article ) {
+	//purge from cache if need be
+	$title =& $article->mTitle;
+	if( $title->getNamespace() == NS_MEDIAWIKI && $title->getText() == 'Gadgets-definition' ) {
+		global $wgMemc, $wgDBname;
+		$key = "$wgDBname:gadgets-definition";
+		$wgMemc->delete( $key );
+		wfDebug("wfGadgetsArticleSave: MediaWiki:Gadgets-definition edited, cache entry $key purged\n");
+	}
+	return true;
+}
 
 function wfLoadGadgets() {
 	static $gadgets = NULL;
@@ -54,9 +67,15 @@ function wfLoadGadgets() {
 
 function wfLoadGadgetsStructured() {
 	global $wgContLang, $wgCapitalLinks;
+	global $wgMemc, $wgDBname;
 
 	static $gadgets = NULL;
+	if ( $gadgets !== NULL ) return $gadgets;
 
+	$key = "$wgDBname:gadgets-definition";
+
+	//cached?
+	$gadgets = $wgMemc->get( $key );
 	if ( $gadgets !== NULL ) return $gadgets;
 
 	$g = wfMsgForContentNoTrans( "Gadgets-definition" );
@@ -90,6 +109,10 @@ function wfLoadGadgetsStructured() {
 			}
 		}
 	}
+
+	//cache for a while. gets purged automatically when MediaWiki:Gadgets-definition is edited
+	$wgMemc->set( $key, $gadgets, 900 );
+	wfDebug("wfLoadGadgetsStructured: MediaWiki:Gadgets-definition parsed, cache entry $key updated\n");
 
 	return $gadgets;
 }
