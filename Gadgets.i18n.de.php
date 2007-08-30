@@ -1,7 +1,7 @@
 <?php
 
 /**
- * German iternationalisation file for the ContactPage extension
+ * German iternationalisation file for the Gadgets extension
  *
  * @package MediaWiki
  * @subpackage Extensions

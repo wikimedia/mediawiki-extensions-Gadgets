@@ -10,7 +10,6 @@
  * @licence GNU General Public Licence 2.0 or later
  */
 
-/* Inherit zh-Hant localisation messages */
-require_once('Gadgets.i18n.zh-hant.php');
-
+/* Inherit yue localisation messages */
+require_once('Gadgets.i18n.yue.php');
 

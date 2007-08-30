@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Internationalisation file for the ContactPage extension
+ * Internationalisation file for the Gadgets extension
  *
  * @package MediaWiki
  * @subpackage Extensions
@@ -11,5 +11,6 @@
  */
 
 /* Inherit zh-Hant localisation messages */
-require_once('CategoryTree.i18n.zh-hant.php');
+require_once('Gadgets.i18n.zh-hant.php');
+
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Internationalisation file for the ContactPage extension
+ * Chinese (Simplified) internationalisation file for the Gadgets extension
  *
  * @package MediaWiki
  * @subpackage Extensions
@@ -25,4 +25,5 @@ $messages['gadgets-title'] = '小工具';
 $messages['gadgets-pagetext'] = '以下是一个按照[[MediaWiki:Gadgets-definition]]的定义特殊小工具列表，用户可以在它们的参数设置页面中激活它们。
 这个概览提供的系统信息页面的简易存取，可以定义每个小工具的描述以及源码。';
 $messages['gadgets-uses'] = '使用';
+
 
