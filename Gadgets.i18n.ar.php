@@ -11,5 +11,8 @@
  */
 
 $messages = array(
+	'gadgets-prefs' => 'إضافات',
+	'gadgets' => 'إضافات',
+	'gadgets-title' => 'إضافات',
 	'gadgets-uses' => 'تستخدم',
 );
