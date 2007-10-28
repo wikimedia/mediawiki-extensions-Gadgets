@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Arabic iternationalisation file for the Gadgets extension
+ * Internationalisation file for the Gadgets extension
  *
  * @package MediaWiki
  * @subpackage Extensions
