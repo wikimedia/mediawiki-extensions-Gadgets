@@ -11,5 +11,8 @@
  */
 
 $messages = array(
+	'gadgets-prefs' => 'Trebellos',
+	'gadgets' => 'Trebellos',
+	'gadgets-title' => 'Trebellos',
 	'gadgets-uses' => 'Usos',
 );
