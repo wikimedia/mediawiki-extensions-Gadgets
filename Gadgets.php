@@ -80,7 +80,6 @@ function wfLoadGadgetsStructured() {
 
 	$g = wfMsgForContentNoTrans( "Gadgets-definition" );
 	if ( wfEmptyMsg( "Gadgets-definition", $g ) ) {
-		print "((NO GADGETS))";
 		$gadgets = false;
 		return $gadgets;
 	}
