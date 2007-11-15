@@ -237,7 +237,14 @@ function loadGadgetsI18n() {
 	include( $f );
 
 	$f= dirname( __FILE__ ) . '/Gadgets.i18n.' . $wgLang->getCode() . '.php';
-	if ( file_exists( $f ) ) include( $f );
+	if ( file_exists( $f ) ) {
+		$messages_base= $messages;
+		$messages= array();
+
+		include( $f );
+
+		$messages = array_merge( $messages_base, $messages_base );
+	}
 
 	$initialized = true;
 	$wgMessageCache->addMessages( $messages );
