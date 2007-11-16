@@ -1,11 +1,11 @@
 <?php
 /**
- * Speclial:Gadgets, provides a preview of MediaWiki:Gadgets.
+ * Special:Gadgets, provides a preview of MediaWiki:Gadgets.
  * 
  * @addtogroup SpecialPage
  * @author Daniel Kinzler, brightbyte.de
  * @copyright © 2007 Daniel Kinzler
- * @licence GNU General Public Licence 2.0 or later
+ * @license GNU General Public License 2.0 or later
  */
 
 if( !defined( 'MEDIAWIKI' ) ) {
@@ -22,10 +22,9 @@ class SpecialGadgets extends SpecialPage {
 	 * Constructor
 	 */
 	function __construct() {
-		global $wgOut;
 		SpecialPage::SpecialPage( 'Gadgets', '', true );
 
-		#inject messages
+		// inject messages
 		loadGadgetsI18n();
 	}
 	
@@ -35,7 +34,7 @@ class SpecialGadgets extends SpecialPage {
 	 */
 	function execute( $par ) {
 		global $wgOut, $wgUser;
-		$skin =& $wgUser->getSkin();
+		$skin = $wgUser->getSkin();
 
 		$wgOut->setPagetitle( wfMsg( "gadgets-title" ) );
 		$wgOut->addWikiText( wfMsg( "gadgets-pagetext" ) );
@@ -43,26 +42,34 @@ class SpecialGadgets extends SpecialPage {
 		$gadgets = wfLoadGadgetsStructured();
 		if ( !$gadgets ) return;
 
-		$wgOut->addHTML( '<ul>' );
+		$listOpen = false;
 
 		$msgOpt = array( 'parseinline', 'parsemag' );
 
 		foreach ( $gadgets as $section => $entries ) {
 			if ( $section !== false && $section !== '' ) {
-				$t = Title::makeTitleSafe( NS_MEDIAWIKI, $section );
+				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-section-$section" );
 				$lnk = $t ? $skin->makeLinkObj( $t, wfMsgHTML("edit") ) : htmlspecialchars($section);
-				$ttext = wfMsgExt( $section, $msgOpt );
+				$ttext = wfMsgExt( "gadget-section-$section", $msgOpt );
 
+				if( $listOpen ) {
+					$wgOut->addHTML( '</ul>' );
+					$listOpen = false;
+				}
 				$wgOut->addHTML( "\n<h2>$ttext &nbsp; &nbsp; [$lnk]</h2>\n" );
 			}
 	
 			foreach ( $entries as $gname => $code ) {
-				$t = Title::makeTitleSafe( NS_MEDIAWIKI, $gname );
+				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$gname" );
 				if ( !$t ) continue;
 
 				$lnk = $skin->makeLinkObj( $t, wfMsgHTML("edit") );
-				$ttext = wfMsgExt( $gname, $msgOpt );
+				$ttext = wfMsgExt( "gadget-$gname", $msgOpt );
 		
+				if( !$listOpen ) {
+					$listOpen = true;
+					$wgOut->addHTML( '<ul>' );					
+				}
 				$wgOut->addHTML( "<li>" );
 				$wgOut->addHTML( "$ttext &nbsp; &nbsp; [$lnk]<br/>" );
 
@@ -70,7 +77,7 @@ class SpecialGadgets extends SpecialPage {
 
 				$first = true;
 				foreach ( $code as $codePage ) {
-					$t = Title::makeTitleSafe( NS_MEDIAWIKI, $codePage );
+					$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$codePage" );
 					if ( !$t ) continue;
 
 					if ( $first ) $first = false;
@@ -84,7 +91,9 @@ class SpecialGadgets extends SpecialPage {
 			}
 		}
 
-		$wgOut->addHTML( '</ul>' );
+		if( $listOpen ) {
+			$wgOut->addHTML( '</ul>' );
+		}
 	}
 }
 ?>

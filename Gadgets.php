@@ -36,7 +36,7 @@ $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 
 function wfGadgetsArticleSave( &$article ) {
 	//purge from cache if need be
-	$title =& $article->mTitle;
+	$title = $article->mTitle;
 	if( $title->getNamespace() == NS_MEDIAWIKI && $title->getText() == 'Gadgets-definition' ) {
 		global $wgMemc, $wgDBname;
 		$key = "$wgDBname:gadgets-definition";
@@ -66,7 +66,7 @@ function wfLoadGadgets() {
 }
 
 function wfLoadGadgetsStructured() {
-	global $wgContLang, $wgCapitalLinks;
+	global $wgContLang;
 	global $wgMemc, $wgDBname;
 
 	static $gadgets = NULL;
@@ -78,8 +78,8 @@ function wfLoadGadgetsStructured() {
 	$gadgets = $wgMemc->get( $key );
 	if ( $gadgets !== NULL ) return $gadgets;
 
-	$g = wfMsgForContentNoTrans( "Gadgets-definition" );
-	if ( wfEmptyMsg( "Gadgets-definition", $g ) ) {
+	$g = wfMsgForContentNoTrans( "gadgets-definition" );
+	if ( wfEmptyMsg( "gadgets-definition", $g ) ) {
 		$gadgets = false;
 		return $gadgets;
 	}
@@ -98,10 +98,9 @@ function wfLoadGadgetsStructured() {
 			//NOTE: the gadget name is used as part of the name of a form field,
 			//      and must follow the rules defined in http://www.w3.org/TR/html4/types.html#type-cdata
 			//      Also, title-normalization applies.
-			$name = str_replace(' ', '_', $m[1]); 
-			if ( $wgCapitalLinks ) $name = $wgContLang->ucfirst( $name );
+			$name = $wgContLang->lcfirst( str_replace(' ', '_', $m[1] ) );
 
-			$code = preg_split( '/\s*\|\s*/', $m[2], -1, PREG_SPLIT_NO_EMPTY );
+			$code = $wgContLang->lcfirst( preg_split( '/\s*\|\s*/', $m[2], -1, PREG_SPLIT_NO_EMPTY ) );
 
 			if ( $code ) {
 				$gadgets[$section][$name] = $code;
@@ -122,7 +121,7 @@ function wfGadgetsInitPreferencesForm( &$prefs, &$request ) {
 
 	foreach ( $gadgets as $gname => $code ) {
 		$tname = "gadget-$gname";
-		$prefs->mToggles[ $tname ] = $request->getCheck( "wpOp$tname" ) ? 1 : 0;
+		$prefs->mToggles[$tname] = $request->getCheck( "wpOp$tname" ) ? 1 : 0;
 	}
 
 	return true;
@@ -134,7 +133,7 @@ function wfGadgetsResetPreferences( &$prefs, &$user ) {
 
 	foreach ( $gadgets as $gname => $code ) {
 		$tname = "gadget-$gname";
-		$prefs->mToggles[ $tname ] = $user->getOption( $tname );
+		$prefs->mToggles[$tname] = $user->getOption( $tname );
 	}
 
 	return true;
@@ -154,14 +153,14 @@ function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
 
 	foreach ( $gadgets as $section => $entries ) {
 		if ( $section !== false && $section !== '' ) {
-			$ttext = wfMsgExt( $section, $msgOpt );
+			$ttext = wfMsgExt( "gadget-section-$section", $msgOpt );
 			$out->addHtml( "\n<h2>" . $ttext . "</h2>\n" );
 		}
 
 		foreach ( $entries as $gname => $code ) {
 			$tname = "gadget-$gname";
-			$ttext = wfMsgExt( $gname, $msgOpt );
-			$checked = @$prefs->mToggles[ $tname ] == 1 ? ' checked="checked"' : '';
+			$ttext = wfMsgExt( $tname, $msgOpt );
+			$checked = @$prefs->mToggles[$tname] == 1 ? ' checked="checked"' : '';
 			$disabled = '';
 	
 			$out->addHtml( "<div class='toggle'><input type='checkbox' value='1' id=\"$tname\" name=\"wpOp$tname\"$checked$disabled />" .
@@ -203,21 +202,21 @@ function wfApplyGadgetCode( $code, &$out, &$done ) {
 	global $wgSkin, $wgJsMimeType;
 
 	//FIXME: stuff added via $out->addScript appears below usercss and userjs in the head tag.
-	//       but we'd want it to appear above explicite user stuff, so it can be overwritten.
+	//       but we'd want it to appear above explicit user stuff, so it can be overwritten.
 	foreach ( $code as $codePage ) {
 		//include only once
-		if ( isset( $done[ $codePage ] ) ) continue;
-		$done[ $codePage ] = true;
+		if ( isset( $done[$codePage] ) ) continue;
+		$done[$codePage] = true;
 
-		$t = Title::makeTitleSafe( NS_MEDIAWIKI, $codePage );
+		$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$codePage" );
 		if ( !$t ) continue;
 
 		if ( preg_match( '/\.js/', $codePage ) ) {
-			$u = $t->getFullURL( 'action=raw&ctype=' . $wgJsMimeType );
+			$u = $t->getLocalURL( 'action=raw&ctype=' . $wgJsMimeType );
 			$out->addScript( '<script type="' . $wgJsMimeType . '" src="' . htmlspecialchars( $u ) . '"></script>' . "\n" );
 		}
 		else if ( preg_match( '/\.css/', $codePage ) ) {
-			$u = $t->getFullURL( 'action=raw&ctype=text/css' );
+			$u = $t->getLocalURL( 'action=raw&ctype=text/css' );
 			$out->addScript( '<style type="text/css">/*<![CDATA[*/ @import "' . $u . '"; /*]]>*/</style>' . "\n" );
 		}
 	}
@@ -231,15 +230,15 @@ function loadGadgetsI18n() {
 	if ( $initialized )
 		return true;
 
-	$messages= array();
+	$messages = array();
 
-	$f= dirname( __FILE__ ) . '/Gadgets.i18n.php';
+	$f = dirname( __FILE__ ) . '/Gadgets.i18n.php';
 	include( $f );
 
-	$f= dirname( __FILE__ ) . '/Gadgets.i18n.' . $wgLang->getCode() . '.php';
+	$f = dirname( __FILE__ ) . '/Gadgets.i18n.' . $wgLang->getCode() . '.php';
 	if ( file_exists( $f ) ) {
-		$messages_base= $messages;
-		$messages= array();
+		$messages_base = $messages;
+		$messages = array();
 
 		include( $f );
 
