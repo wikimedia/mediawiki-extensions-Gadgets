@@ -98,9 +98,9 @@ function wfLoadGadgetsStructured() {
 			//NOTE: the gadget name is used as part of the name of a form field,
 			//      and must follow the rules defined in http://www.w3.org/TR/html4/types.html#type-cdata
 			//      Also, title-normalization applies.
-			$name = $wgContLang->lcfirst( str_replace(' ', '_', $m[1] ) );
+			$name = str_replace(' ', '_', $m[1] );
 
-			$code = $wgContLang->lcfirst( preg_split( '/\s*\|\s*/', $m[2], -1, PREG_SPLIT_NO_EMPTY ) );
+			$code = preg_split( '/\s*\|\s*/', $m[2], -1, PREG_SPLIT_NO_EMPTY );
 
 			if ( $code ) {
 				$gadgets[$section][$name] = $code;
