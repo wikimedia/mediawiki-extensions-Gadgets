@@ -37,7 +37,7 @@ Each line in MediaWiki:Gadgets-definition that start with one or more "*"
 
 That is, each line consists of fields separated by a "|" (pipe) character.
 The first field ("mygadget" in the example) is the gadgets internal name,
-and references a system message (MediaWiki:Mygadget in the example) 
+and references a system message (MediaWiki:Gadget-mygadget in the example) 
 that contains a short description of the gadget, using wiki syntax.
 Note that the internal name must start with a ASCII letter, and must
 contain only ASCII letter and numbers, hyphens ("-"), underscores ("_"),
@@ -45,23 +45,25 @@ colons (":"), and periods (".") (spaces are also allowed but converted to
 underscores ("_"), like for page titles).
 
 The remaining fields on the line refer to the JavaScript or CSS code that
-makes up the gadget, contained in system messages (MediaWiki:Mygadget.js
-and MediaWiki:Mygadget.css in the example); the names of those messages
-must end with ".js" or ".css", respectively. A gadget can use any number
-of code messages, specifically, common code can be put into a code message
-used by several gadgets, in addition to their own specific code, e.g:
+makes up the gadget, contained in system messages
+(MediaWiki:Gadget-mygadget.js and MediaWiki:Gadget-mygadget.css in the
+example); the names of those messages must end with ".js" or ".css",
+respectively. A gadget can use any number of code messages, specifically,
+common code can be put into a code message used by several gadgets, in
+addition to their own specific code, e.g:
 
   * frobinator|commonStuff.js|frob.js|frob.css|pretty.css
   * l33t|commonStuff.js|tools.js|l33t.js
 
-The list of gadgets in MediaWiki:Gadgets-definition can be broken into sections using 
-lines that start and end with two or more "=" (equals) characters, enclosing
-the name of a system message that defines the section's name - for example:
+The list of gadgets in MediaWiki:Gadgets-definition can be broken into
+sections using lines that start and end with two or more "=" (equals)
+characters, enclosing the name of a system message that defines the
+section's name - for example:
 
   == editing-gadgets ==
 
 This would define a new section, with the title defined on the page
-MediaWiki:Editing-gadgets
+MediaWiki:Gadget-section-editing-gadgets
 
 
 == Caveats ==
@@ -74,7 +76,4 @@ MediaWiki:Editing-gadgets
 * Gadget code is included after user code - that means that user JS has no 
   access to things defined in gadgets, and user CSS is overwritten by CSS 
   from gadgets. (pending a better way to insert things into the HTML head) 
-* MediaWiki:Gadgets-definition is parsed for every page request by a logged in user.
-  It would be nice to make the MessageCache more flexible, so it can store
-  a parsed version of the MediaWiki:Gadgets-definition.
 
