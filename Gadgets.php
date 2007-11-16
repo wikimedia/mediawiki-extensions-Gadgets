@@ -243,7 +243,7 @@ function loadGadgetsI18n() {
 
 		include( $f );
 
-		$messages = array_merge( $messages_base, $messages_base );
+		$messages = array_merge( $messages_base, $messages );
 	}
 
 	$initialized = true;
