@@ -14,4 +14,5 @@ $messages = array(
 	'gadgets-prefs' => 'Συσκευές',
 	'gadgets' => 'Συσκευές',
 	'gadgets-title' => 'Συσκευές',
+	'gadgets-uses' => 'Χρήσεις',
 );
