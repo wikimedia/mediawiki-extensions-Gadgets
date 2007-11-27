@@ -28,20 +28,17 @@ $wgHooks['InitPreferencesForm'][] = 'wfGadgetsInitPreferencesForm';
 $wgHooks['RenderPreferencesForm'][] = 'wfGadgetsRenderPreferencesForm';
 $wgHooks['ResetPreferences'][] = 'wfGadgetsResetPreferences';
 $wgHooks['BeforePageDisplay'][] = 'wfGadgetsBeforePageDisplay';
-$wgHooks['ArticleSave'][] = 'wfGadgetsArticleSave';
+$wgHooks['ArticleSaveComplete'][] = 'wfGadgetsArticleSaveComplete';
 $wgHooks['LoadAllMessages'][] = "loadGadgetsI18n";
 
 $wgAutoloadClasses['SpecialGadgets'] = dirname( __FILE__ ) . '/SpecialGadgets.php';
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 
-function wfGadgetsArticleSave( &$article ) {
-	//purge from cache if need be
+function wfGadgetsArticleSaveComplete( &$article, &$wgUser, &$text ) {
+	//update cache if MediaWiki:Gadgets-definition was edited
 	$title = $article->mTitle;
 	if( $title->getNamespace() == NS_MEDIAWIKI && $title->getText() == 'Gadgets-definition' ) {
-		global $wgMemc, $wgDBname;
-		$key = "$wgDBname:gadgets-definition";
-		$wgMemc->delete( $key );
-		wfDebug("wfGadgetsArticleSave: MediaWiki:Gadgets-definition edited, cache entry $key purged\n");
+		wfLoadGadgetsStructured( $text );
 	}
 	return true;
 }
@@ -65,23 +62,28 @@ function wfLoadGadgets() {
 	return $gadgets;
 }
 
-function wfLoadGadgetsStructured() {
+function wfLoadGadgetsStructured( $forceNewText = NULL ) {
 	global $wgContLang;
 	global $wgMemc, $wgDBname;
 
 	static $gadgets = NULL;
-	if ( $gadgets !== NULL ) return $gadgets;
+	if ( $gadgets !== NULL && $forceNewText !== NULL ) return $gadgets;
 
 	$key = "$wgDBname:gadgets-definition";
 
-	//cached?
-	$gadgets = $wgMemc->get( $key );
-	if ( $gadgets !== NULL ) return $gadgets;
-
-	$g = wfMsgForContentNoTrans( "gadgets-definition" );
-	if ( wfEmptyMsg( "gadgets-definition", $g ) ) {
-		$gadgets = false;
-		return $gadgets;
+	if ( $forceNewText == NULL ) {
+		//cached?
+		$gadgets = $wgMemc->get( $key );
+		if ( $gadgets !== NULL ) return $gadgets;
+	
+		$g = wfMsgForContentNoTrans( "gadgets-definition" );
+		if ( wfEmptyMsg( "gadgets-definition", $g ) ) {
+			$gadgets = false;
+			return $gadgets;
+		}
+	}
+	else {
+		$g = $forceNewText;
 	}
 
 	$g = preg_replace( '/<!--.*-->/s', '', $g );
