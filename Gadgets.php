@@ -165,7 +165,10 @@ function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
 			$checked = @$prefs->mToggles[$tname] == 1 ? ' checked="checked"' : '';
 			$disabled = '';
 	
-			$out->addHtml( "<div class='toggle'><input type='checkbox' value='1' id=\"$tname\" name=\"wpOp$tname\"$checked$disabled />" .
+			# NOTE: No label for checkmarks as this causes the checks to toggle
+			# when clicking a link in the describing text.
+			$out->addHtml( "<div class='toggle'><input type='checkbox' value='1' " .
+				"id=\"$tname\" name=\"wpOp$tname\"$checked$disabled />" .
 				" <span class='toggletext'>$ttext</span></div>\n" );
 		}
 	}
