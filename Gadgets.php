@@ -166,7 +166,7 @@ function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
 			$disabled = '';
 	
 			$out->addHtml( "<div class='toggle'><input type='checkbox' value='1' id=\"$tname\" name=\"wpOp$tname\"$checked$disabled />" .
-				" <span class='toggletext'><label>$ttext</label></span></div>\n" );
+				" <span class='toggletext'>$ttext</span></div>\n" );
 		}
 	}
 
