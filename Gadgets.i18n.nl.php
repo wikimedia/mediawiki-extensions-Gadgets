@@ -20,5 +20,5 @@ door gebruikers van uw lokale wiki. Lokale beheerders kunnen de beschikbare gadg
 en [[Special:Gadgets]].',
 	'gadgets-pagetext' => 'Hieronder staan de speciale gadgets die gebruikers kunnen inschakelen via hun voorkeuren, zoals ingesteld in [[MediaWiki:Gadgets-definition]].
 Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschrijving en de code van ieder gadget staat.',
-	'gadgets-uses' => 'Gebruik',
+	'gadgets-uses' => 'Gebruikt',
 );
