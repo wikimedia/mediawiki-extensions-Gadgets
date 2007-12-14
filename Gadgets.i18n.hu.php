@@ -10,6 +10,17 @@
  * @licence GNU General Public Licence 2.0 or later
  */
 
+/** Hungarian (Magyar)
+ * @author Tgr
+ */
 $messages = array(
-	'gadgets-prefs' => 'Kütyük',
+	'gadgets-prefs'     => 'Segédeszközök',
+	'gadgets-prefstext' => 'Itt tudod be- és kikapcsolni a helyi segédeszközöket. Ezek az eszközök nem részei a MediaWiki szoftvernek, általában a wiki felhasználói tartják karban őket. Az adminisztrátorok a [[MediaWiki:Gadgets-definition]] és a [[Special:Gadgets]] lapok segítségével tudják szerkeszteni a lenti listát.
+
+A segédeszközök többsége javascriptet használ, így engedélyezned kell azt a böngésződben, hogy működjenek. (Ezen az oldalon a segédeszközök le vannak tiltva, hogy hiba esetén könnyen ki tudd őket kapcsolni.)',
+	'gadgets'           => 'Segédeszközök',
+	'gadgets-title'     => 'Segédeszközök',
+	'gadgets-pagetext'  => 'Itt látható azon segédeszközök listája, amiket a felhasználók bekapcsolhatnak a beállításaiknál. A lista a [[MediaWiki:Gadgets-definition]] lapon módosítható. Az egyes segéfeszközöknél fel vannak sorolva azok a lapok, amik az eszköz leírását, illetve kódját tartalmazzák.',
+	'gadgets-uses'      => 'Kód',
+
 );
