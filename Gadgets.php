@@ -2,7 +2,7 @@
 /**
  * Gadgets extension - lets users select custom javascript gadgets
  *
- *
+ * 
  * For more info see http://mediawiki.org/wiki/Extension:Gadgets
  *
  * @package MediaWiki
@@ -17,10 +17,9 @@ if( !defined( 'MEDIAWIKI' ) ) {
 	die( 1 );
 }
 
-$wgExtensionCredits['other'][] = array(
-	'name' => 'Gadgets',
-	'version' => '1.1',
-	'author' => 'Daniel Kinzler',
+$wgExtensionCredits['other'][] = array( 
+	'name' => 'Gadgets', 
+	'author' => 'Daniel Kinzler', 
 	'url' => 'http://mediawiki.org/wiki/Extension:Gadgets',
 	'description' => 'lets users select custom javascript gadgets',
 );
@@ -76,7 +75,7 @@ function wfLoadGadgetsStructured( $forceNewText = NULL ) {
 		//cached?
 		$gadgets = $wgMemc->get( $key );
 		if ( $gadgets !== NULL ) return $gadgets;
-
+	
 		$g = wfMsgForContentNoTrans( "gadgets-definition" );
 		if ( wfEmptyMsg( "gadgets-definition", $g ) ) {
 			$gadgets = false;
@@ -165,7 +164,7 @@ function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
 			$ttext = wfMsgExt( $tname, $msgOpt );
 			$checked = @$prefs->mToggles[$tname] == 1 ? ' checked="checked"' : '';
 			$disabled = '';
-
+	
 			# NOTE: No label for checkmarks as this causes the checks to toggle
 			# when clicking a link in the describing text.
 			$out->addHtml( "<div class='toggle'><input type='checkbox' value='1' " .
