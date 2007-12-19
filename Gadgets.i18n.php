@@ -26,4 +26,5 @@ $messages['gadgets-title'] = 'Gadgets';
 $messages['gadgets-pagetext'] = 'Below is a list of special gadgets users can enable on their preferences page, as defined by [[MediaWiki:Gadgets-definition]].
 This overview provides easy access to the system message pages that define each gadget\'s description and code.';
 $messages['gadgets-uses'] = 'Uses';
-?>
+$messages['gadgets-definition'] = '<!-- See http://www.mediawiki.org/wiki/Extension:Gadgets for usage -->'; # don't translate or duplicate this message to other languages
+
