@@ -25,6 +25,6 @@ os usuarios no seu wiki local. Os administradores locais poden editar os trebell
 	'gadgets'           => 'Trebellos',
 	'gadgets-title'     => 'Trebellos',
 	'gadgets-pagetext'  => 'Embaixo hai unha listaxe dos trebellos especiais que os usuarios poden habilitar nas súa páxina de preferencias, tal e como se define en [[MediaWiki:Gadgets-definition]].
-Este panorama xeral é de doado acceso ao sistema dos mensaxes das páxinas que define cada descripción e código dos trebellos.',
+Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que define cada descrición e código dos trebellos.',
 	'gadgets-uses'      => 'Usos',
 );
