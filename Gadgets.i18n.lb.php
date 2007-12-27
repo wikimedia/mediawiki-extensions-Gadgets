@@ -14,5 +14,8 @@
  * @author Robby
  */
 $messages = array(
-	'gadgets-uses' => 'Benotzt',
+	'gadgets-prefs' => 'Gadgeten',
+	'gadgets'       => 'Gadgeten',
+	'gadgets-title' => 'Gadgeten',
+	'gadgets-uses'  => 'Benotzt',
 );
