@@ -24,4 +24,8 @@ Benutsere fon lokoale Wikis äntwikkeld un fersuurged wäide. Lokoale Wiki-Admin
 ferföichboare Gadgets uur do Sieden [[MediaWiki:Gadgets-definition]] un [[Special:Gadgets]] beoarbaidje.',
 	'gadgets'           => 'Gadgets',
 	'gadgets-title'     => 'Gadgets',
+	'gadgets-pagetext'  => 'Lieste fon spezielle Gadgets, do der foar älken Benutser ferföichboar sunt, as in [[MediaWiki:Gadgets-definition]] definierd.
+Disse Uursicht bjut direkten Tougoang tou do Systemättergjuchte, do ju Beschrieuwenge as uk dän Programmcode fon
+älk Gadget änthoolde.',
+	'gadgets-uses'      => 'Benutsed',
 );
