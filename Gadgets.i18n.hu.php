@@ -12,6 +12,7 @@
 
 /** Hungarian (Magyar)
  * @author Tgr
+ * @author Bdanee
  */
 $messages = array(
 	'gadgets-prefs'     => 'Segédeszközök',
@@ -20,7 +21,6 @@ $messages = array(
 A segédeszközök többsége javascriptet használ, így engedélyezned kell azt a böngésződben, hogy működjenek. (Ezen az oldalon a segédeszközök le vannak tiltva, hogy hiba esetén könnyen ki tudd őket kapcsolni.)',
 	'gadgets'           => 'Segédeszközök',
 	'gadgets-title'     => 'Segédeszközök',
-	'gadgets-pagetext'  => 'Itt látható azon segédeszközök listája, amiket a felhasználók bekapcsolhatnak a beállításaiknál. A lista a [[MediaWiki:Gadgets-definition]] lapon módosítható. Az egyes segéfeszközöknél fel vannak sorolva azok a lapok, amik az eszköz leírását, illetve kódját tartalmazzák.',
+	'gadgets-pagetext'  => 'Itt látható azon segédeszközök listája, amiket a felhasználók bekapcsolhatnak a beállításaiknál. A lista a [[MediaWiki:Gadgets-definition]] lapon módosítható. Az egyes segédeszközöknél fel vannak sorolva azok a lapok, amelyek az eszköz leírását, illetve kódját tartalmazzák.',
 	'gadgets-uses'      => 'Kód',
-
 );
