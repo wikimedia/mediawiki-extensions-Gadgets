@@ -7,4 +7,3 @@ $messages = array(
 	'gadgets-prefs' => 'Biedènger',
 	'gadgets-uses'  => 'Gebroek',
 );
-
