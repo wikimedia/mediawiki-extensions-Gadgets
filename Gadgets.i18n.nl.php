@@ -15,17 +15,17 @@
  * @author Siebrand
  */
 $messages = array(
-	'gadgets-prefs'     => 'Gadgets',
-	'gadgets-prefstext' => 'Hieronder staan de speciale gadgets die u voor uw gebruiker kunt inschakelen.
-De gadgets zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet voor uw browser zijn ingeschakeld om ze te laten werken.
-De gadgets hebben geen invloed op deze pagina met voorkeuren.
+	'gadgets-prefs'     => 'Uitbreidingen',
+	'gadgets-prefstext' => 'Hieronder staan de speciale uitbreidingen die u voor uw gebruiker kunt inschakelen.
+De uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet voor uw browser ingeschakeld zijn om ze te laten werken.
+De uitbreidingen hebben geen invloed op deze pagina met voorkeuren.
 
-Deze speciale gadgets zijn ook geen onderdeel van de MediaWiki-software, en ze worden meestal ontwikkeld en onderhouden
-door gebruikers van uw lokale wiki. Lokale beheerders kunnen de beschikbare gadgets aangeven in [[MediaWiki:Gadgets-definition]] 
+Deze speciale uitbreidingen zijn ook geen onderdeel van de MediaWiki-software, en ze worden meestal ontwikkeld en onderhouden
+door gebruikers van uw wiki. Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition]] 
 en [[Special:Gadgets]].',
-	'gadgets'           => 'Gadgets',
-	'gadgets-title'     => 'Gadgets',
-	'gadgets-pagetext'  => 'Hieronder staan de speciale gadgets die gebruikers kunnen inschakelen via hun voorkeuren, zoals ingesteld in [[MediaWiki:Gadgets-definition]].
-Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschrijving en de programmacode van iedere gadget staat.',
+	'gadgets'           => 'Uitbreidingen',
+	'gadgets-title'     => 'Uitbreidingen',
+	'gadgets-pagetext'  => 'Hieronder staan de speciale uitbreidingen die gebruikers kunnen inschakelen via hun voorkeuren, zoals ingesteld in [[MediaWiki:Gadgets-definition]].
+Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschrijving en de programmacode van iedere uitbreiding staat.',
 	'gadgets-uses'      => 'Gebruikt',
 );
