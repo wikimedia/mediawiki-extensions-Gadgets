@@ -36,6 +36,7 @@ class SpecialGadgets extends SpecialPage {
 		global $wgOut, $wgUser;
 		$skin = $wgUser->getSkin();
 
+		$this->setHeaders();
 		$wgOut->setPagetitle( wfMsg( "gadgets-title" ) );
 		$wgOut->addWikiText( wfMsg( "gadgets-pagetext" ) );
 
