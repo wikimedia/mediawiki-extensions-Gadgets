@@ -1,6 +1,7 @@
 <?php
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
+ * @author Meno25
  */
 $messages = array(
 	'gadgets-prefs'     => 'Công cụ đa năng',
@@ -12,5 +13,5 @@ Cũng chú ý rằng những công cụ đặc biệt này không phải là m�
 	'gadgets'           => 'Công cụ đa năng',
 	'gadgets-title'     => 'Công cụ đa năng',
 	'gadgets-pagetext'  => 'Dưới đây là danh sách các công cụ đa năng đặc biệt mà thành viên có thể dùng tại trang tùy chọn cá nhân của họ, được định nghĩa tại [[MediaWiki:Gadgets-definition]]. Trang tổng quan này cung cấp cách tiếp cận dễ dàng đến trang các thông báo hệ thống để định nghĩa miêu tả và mã của từng công cụ.',
-	'gadgets-uses'      => 'Cách dùng',
+	'gadgets-uses'      => 'Sử dụng',
 );
