@@ -11,7 +11,7 @@
 $messages = array();
 
 /* English
- * @author
+ * @author Daniel Kinzler, brightbyte.de
  */
 $messages['en'] = array(
 	#for Special:Version
