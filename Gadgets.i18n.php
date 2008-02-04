@@ -51,17 +51,20 @@ $messages['am'] = array(
 	'gadgets-uses'      => 'የተጠቀመው ጃቫ-ስክሪፕት',
 );
 
+/** Aragonese (Aragonés)
+ * @author Juanpabl
+ */
 $messages['an'] = array(
-	'gadgets-prefs' => 'Trastes',
-	'gadgets-prefstext' => 'Contino ye una lista de trastes espezials que puede fer serbir en a suya cuenta.
+	'gadgets-prefs'     => 'Trastes',
+	'gadgets-prefstext' => "Contino ye una lista de trastes espezials que puede fer serbir en a suya cuenta.
 Como cuasi toz istos trastes son feitos en JavaScript, caldrá que tienga autibato JavaScript en o suyo nabegador ta que baigan bien. Pare cuenta que istos trastes no tendrán garra efeuto en ista pachina de preferenzias.
 
-Pare cuenta tamién que istos trastes espezials no fan parte d\'o software MediaWiki, y que gosan estar desembolicatos y mantenitos por usuarios d\'a suya wiki local. Os almenistradors locals pueden editar os trastes disponibles fendo serbir [[MediaWiki:Gadgets-definition]] y [[Special:Gadgets]].',
-	'gadgets' => 'Trastes',
-	'gadgets-title' => 'Trastes',
-	'gadgets-pagetext' => 'Contino ye una lista de trastes espezials que os usuarios pueden autibar en a suya pachina de preferenzias, como se define en [[MediaWiki:Gadgets-definition]].
-Ista lista premite ir rapedament t\'as pachinas de mensaches d\'o sistema que definen a descripzión y o codigo de cada traste.',
-	'gadgets-uses' => 'Fa serbir',
+Pare cuenta tamién que istos trastes espezials no fan parte d'o software MediaWiki, y que gosan estar desembolicatos y mantenitos por usuarios d'a suya wiki local. Os almenistradors locals pueden editar os trastes disponibles fendo serbir [[MediaWiki:Gadgets-definition]] y [[Special:Gadgets]].",
+	'gadgets'           => 'Trastes',
+	'gadgets-title'     => 'Trastes',
+	'gadgets-pagetext'  => "Contino ye una lista de trastes espezials que os usuarios pueden autibar en a suya pachina de preferenzias, como se define en [[MediaWiki:Gadgets-definition]].
+Ista lista premite ir rapedament t'as pachinas de mensaches d'o sistema que definen a descripzión y o codigo de cada traste.",
+	'gadgets-uses'      => 'Fa serbir',
 );
 
 /** Arabic (العربية)
@@ -133,29 +136,36 @@ $messages['bn'] = array(
 	'gadgets-uses'      => 'ব্যবহারসমূহ',
 );
 
+/** Catalan (Català)
+ * @author SMP
+ */
 $messages['ca'] = array(
-	'gadgets-prefstext' => 'A continuació teniu una llista de «gadgets» especials que podeu activar al vostre compte.
-La majoria d\'aquests gadgets fan servir JavaScript, per tant haureu de tenir un navegador que funcioni amb aquest llenguatge activat per a que vos funcionin.
+	'gadgets-prefstext' => "A continuació teniu una llista de «gadgets» especials que podeu activar al vostre compte.
+La majoria d'aquests gadgets fan servir JavaScript, per tant haureu de tenir un navegador que funcioni amb aquest llenguatge activat per a que vos funcionin.
 Tingueu en compte que els gadgets no funcionaran en aquesta pàgina.
 
-També cal que tingueu present que aquests gadgets especials no formen part del programa MediaWiki i que acostumen a estar fets i mantinguts per usuaris del wiki local. Els administradors del wiki poden editar els gadgets disponibles a [[Special:Gadgets]].',
-	'gadgets-pagetext' => 'A continuació teniu una llista de «gadgets» especials que qualsevol usuari pot activar a la seva pàgina de preferències i que estan definits per [[MediaWiki:Gadgets-definition]].
+També cal que tingueu present que aquests gadgets especials no formen part del programa MediaWiki i que acostumen a estar fets i mantinguts per usuaris del wiki local. Els administradors del wiki poden editar els gadgets disponibles a [[Special:Gadgets]].",
+	'gadgets-pagetext'  => 'A continuació teniu una llista de «gadgets» especials que qualsevol usuari pot activar a la seva pàgina de preferències i que estan definits per [[MediaWiki:Gadgets-definition]].
 Aquesta llista us permet un fàcil accés a les pàgines del sistema que defineixen el codi de cada gadget.',
-	'gadgets-uses' => 'Usa',
+	'gadgets-uses'      => 'Usa',
 );
 
+/** Czech (Česky)
+ * @author Danny B.
+ * @author Li-sung
+ */
 $messages['cs'] = array(
-	'gadgets-prefs' => 'Udělátka',
+	'gadgets-prefs'     => 'Udělátka',
 	'gadgets-prefstext' => 'Níže je přehled speciálních udělátek, které si můžete ve svém účtu zapnout.
 Tato udělátka jsou převážně založena na JavaScriptu, takže pro jejich funkčnost je nutné mít ve svém prohlížeči JavaScript zapnutý.
 Udělátka nejsou aplikována na této stránce nastavení.
 
 Uvědomte si také, že speciální udělátka nejsou součástí softwaru MediaWiki a&nbsp;jsou vytvářena a&nbsp;spravována uživateli této wiki. Místní správci mohou editovat udělátka prostřednictvím [[MediaWiki:Gadgets-definition]] a&nbsp;[[Special:Gadgets]].',
-	'gadgets' => 'Udělátka',
-	'gadgets-title' => 'Udělátka',
-	'gadgets-pagetext' => 'Níže je přehled speciálních udělátek, která si uživatelé mohou zapnout ve svém nastavení. Seznam lze upravovat na [[MediaWiki:Gadgets-definition]].
+	'gadgets'           => 'Udělátka',
+	'gadgets-title'     => 'Udělátka',
+	'gadgets-pagetext'  => 'Níže je přehled speciálních udělátek, která si uživatelé mohou zapnout ve svém nastavení. Seznam lze upravovat na [[MediaWiki:Gadgets-definition]].
 Tento přehled poskytuje jednoduchý přístup k&nbsp;systémovým hlášením, která definují zdrojový kód a&nbsp;popis každého udělátka.',
-	'gadgets-uses' => 'používá',
+	'gadgets-uses'      => 'používá',
 );
 
 /** Danish (Dansk)
@@ -172,7 +182,9 @@ Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren o
 	'gadgets-uses'      => 'Brugere',
 );
 
-/** German (Deutsch) */
+/** German (Deutsch)
+ * @author Daniel Kinzler, brightbyte.de
+ */
 $messages['de'] = array(
 	'gadgets-prefstext' => 'Liste von speziellen Gadgets die für jeden Benutzer aktiviert werden können.
 Die Gadgets basieren zumeinst auf JavaScript, daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren.
@@ -197,9 +209,11 @@ $messages['el'] = array(
 	'gadgets-pagetext' => 'Παρακάτω βρίσκεται μια λίστα με τις ειδικές συσκευές χρηστών που επιτρέπονται στη σελίδα προτιμήσεών σας, όπως καθορίζεται από το [[MediaWiki:Gadgets-definition]].
 Αυτή η επισκόπηση παρέχει εύκολη πρόσβαση στις σελίδες μηνυμάτων του συστήματος που καθορίζουν την περιγραφή και τον κώδικα κάθε συσκευής.',
 	'gadgets-uses'     => 'Χρήσεις',
-
 );
 
+/** Extremaduran (Estremeñu)
+ * @author Better
+ */
 $messages['ext'] = array(
 	'gadgets-uses' => 'Usus',
 );
@@ -223,6 +237,7 @@ $messages['fa'] = array(
 
 /** Finnish (Suomi)
  * @author Crt
+ * @author Nike
  */
 $messages['fi'] = array(
 	'gadgets-prefs'     => 'Pienoisohjelmat',
@@ -237,14 +252,19 @@ Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät 
 	'gadgets-uses'      => 'Käyttää',
 );
 
+/** French (Français)
+ * @author Sherbrooke
+ * @author Grondin
+ */
 $messages['fr'] = array(
-	'gadgets-prefs' => 'Gadgets',#identical but defined
-	'gadgets-prefstext' => 'Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel à [[JavaScript]], il doit donc être activé pour votre navigateur Web.
-Ils n\'ont aucune incidence sur cette page de préférences. De plus, ils sont généralement développés et maintenus sur ce wiki. Les administrateurs peuvent modifier les gadgets en passant par [[MediaWiki:Gadgets-definition]] et [[Special:Gadgets]].',
-	'gadgets' => 'Gadgets',#identical but defined
-	'gadgets-title' => 'Gadgets',#identical but defined
-	'gadgets-pagetext' => 'Ci-dessous apparaît une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences|page de préférences]], tel que défini dans \'\'[[MediaWiki:Gadgets-definition]]\'\'. Ce survol donne un accès rapide aux pages de messages système qui définissent chaque description et chaque code des gadgets.',
-	'gadgets-uses' => 'Utilise',
+	'gadgets-desc'      => 'Laisse aux utilisateurs les gadgets Javascripts personnalisés dans leurs [Special:Preferences|preferences]]',
+	'gadgets-prefs'     => 'Gadgets',
+	'gadgets-prefstext' => "Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel à [[JavaScript]], il doit donc être activé pour votre navigateur Web.
+Ils n'ont aucune incidence sur cette page de préférences. De plus, ils sont généralement développés et maintenus sur ce wiki. Les administrateurs peuvent modifier les gadgets en passant par [[MediaWiki:Gadgets-definition]] et [[Special:Gadgets]].",
+	'gadgets'           => 'Gadgets',
+	'gadgets-title'     => 'Gadgets',
+	'gadgets-pagetext'  => "Ci-dessous apparaît une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences|page de préférences]], tel que défini dans ''[[MediaWiki:Gadgets-definition]]''. Ce survol donne un accès rapide aux pages de messages système qui définissent chaque description et chaque code des gadgets.",
+	'gadgets-uses'      => 'Utilise',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -321,32 +341,39 @@ $messages['he'] = array(
 	'gadgets-uses'      => 'משתמש בדפים',
 );
 
+/** Croatian (Hrvatski)
+ * @author SpeedyGonsales
+ */
 $messages['hr'] = array(
-	'gadgets-prefs' => 'JS ekstenzije (\'\'gadgets\'\')',
+	'gadgets-prefs'     => "JS ekstenzije (''gadgets'')",
 	'gadgets-prefstext' => 'Slijedi popis posebnih ekstenzija koje možete omogućiti.
 One su većinom napisane u JavaScriptu, stoga JavaScript mora biti omogućen u vašem web-pregledniku da bi ektenzije radile.
 Nijedna ektenzija nema učinka na stranicu s postavkama.
 
 Ove posebne ekstenzije nisu dio MediaWiki softvera, najčešće su razvijane i održavane od suradnika na lokalnom wikiju.
 Lokalni administratori mogu uređivati dostupne ekstenzije putem [[MediaWiki:Gadgets-definition]] i [[Special:Gadgets]].',
-	'gadgets' => 'JS ekstenzije (\'\'gadgets\'\')',
-	'gadgets-title' => 'JS ekstenzije (\'\'gadgets\'\')',
-	'gadgets-pagetext' => 'Slijedi popis posebnih JavaScript ekstenzija koje suradnici mogu omogućiti u svojim postavkama, kako je definirano stranicom [[MediaWiki:Gadgets-definition]].
+	'gadgets'           => "JS ekstenzije (''gadgets'')",
+	'gadgets-title'     => "JS ekstenzije (''gadgets'')",
+	'gadgets-pagetext'  => 'Slijedi popis posebnih JavaScript ekstenzija koje suradnici mogu omogućiti u svojim postavkama, kako je definirano stranicom [[MediaWiki:Gadgets-definition]].
 Ovaj pregled omogućuje lak pristup porukama sustava koje opisuju ekstenzije i njihov kod.',
-	'gadgets-uses' => 'Koristi',
+	'gadgets-uses'      => 'Koristi',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
 $messages['hsb'] = array(
-	'gadgets-prefs' => 'Specialne funkcije',
+	'gadgets-desc'      => 'Dowola wužiwarjam wosebite JavaScriptowe přisłuški w jich [[Special:Preferences|nastajenjach]] wubrać',
+	'gadgets-prefs'     => 'Specialne funkcije',
 	'gadgets-prefstext' => 'Deleka je lisćina specialnych funkcijow, kotrež móžeš za swoje wužiwarske konto aktiwizować. Tute specialne funkcije zwjetša na JavaScripće bazěruja, tohodla dyrbi JavaScript we wobhladowaku aktiwizowany być, zo bychu fungowali.
 Wobkedźbuj tež, zo so tute specialne funkcije na stronje z twojimi wosobinskimi nastajenjemi njewuskutkuja.
 
 Nimo toho wobkedźbuj, zo tute specialne funkcije nejsu dźěl softwary MediaWiki a so zwjetša wot wužiwarjow na swojim lokalnym wikiju wuwiwaja a wothladuja. Lokalni administratorojo móža lisćinu k dispoziciji stejacych specialnych funkcijow přez [[MediaWiki:Gadgets-definition]] a [[Special:Gadgets]] wobdźěłać.',
-	'gadgets' => 'Specialne funkcije',
-	'gadgets-title' => 'Specialne funkcije',
-	'gadgets-pagetext' => 'Deleka je lisćina specialnych funkcijow, kotrež wwužiwarjo móža na swojej stronje nastajenjow, kaž přez [[MediaWiki:Gadgets-definition]] definowane.
+	'gadgets'           => 'Specialne funkcije',
+	'gadgets-title'     => 'Specialne funkcije',
+	'gadgets-pagetext'  => 'Deleka je lisćina specialnych funkcijow, kotrež wwužiwarjo móža na swojej stronje nastajenjow, kaž přez [[MediaWiki:Gadgets-definition]] definowane.
 Tutón přehlad skići lochki přistup k systemowym zdźělenkam, kotrež pomjenjowanje a kod kóždeje specialneje funkcije wobsahuja.',
-	'gadgets-uses' => 'Wužiwa',
+	'gadgets-uses'      => 'Wužiwa',
 );
 
 /** Hungarian (Magyar)
@@ -552,13 +579,16 @@ Gadżety nie są częścią oprogramowania MediaWiki i najprawdopodobniej zosta�
 	'gadgets-uses'      => 'Użycie',
 );
 
+/** Piemontèis (Piemontèis)
+ * @author Bèrto 'd Sèra
+ */
 $messages['pms'] = array(
-	'gadgets-prefs' => 'Component',
-	'gadgets-prefstext' => 'Ambelessì sota a-i é na lista ëd component ch\'a peul vischesse ant sò cont personal. Sti component-sì a son dzortut basà ansima a JavaScript, donca a venta anans tut che JavaScript a sia avisch ant sò navigator, s\'a veul che ij component a travajo. Ch\'a ten-a present che sti component a l\'han gnun efet ansima a la pàgina dij "sò gust", e che a son nen part dël programa MediaWiki. Për sòlit a resto dësvlupà e mantnù da dj\'utent dla wiki andova chiel/chila as treuva adess. J\'aministrator locaj a peulo regolé ij component disponibij ën dovrand le pàgine [[MediaWiki:Gadgets-definition|definission dij component]] e [[Special:Gadgets|component]].',
-	'gadgets' => 'Component',
-	'gadgets-title' => 'Component',
-	'gadgets-pagetext' => 'Ambelessì sota a-i é na lista ëd component spessiaj che j\'utent a peulo butesse avisch daspërlor, conforma a la [[MediaWiki:Gadgets-definition|definission dij component]]. Sta lista complessiva a smon na stra còmoda për rivé a le pàgine ëd messagi ëd sistema ch\'a definisso descrission e còdes ëd vira component.',
-	'gadgets-uses' => 'a dòvra',
+	'gadgets-prefs'     => 'Component',
+	'gadgets-prefstext' => "Ambelessì sota a-i é na lista ëd component ch'a peul vischesse ant sò cont personal. Sti component-sì a son dzortut basà ansima a JavaScript, donca a venta anans tut che JavaScript a sia avisch ant sò navigator, s'a veul che ij component a travajo. Ch'a ten-a present che sti component a l'han gnun efet ansima a la pàgina dij \"sò gust\", e che a son nen part dël programa MediaWiki. Për sòlit a resto dësvlupà e mantnù da dj'utent dla wiki andova chiel/chila as treuva adess. J'aministrator locaj a peulo regolé ij component disponibij ën dovrand le pàgine [[MediaWiki:Gadgets-definition|definission dij component]] e [[Special:Gadgets|component]].",
+	'gadgets'           => 'Component',
+	'gadgets-title'     => 'Component',
+	'gadgets-pagetext'  => "Ambelessì sota a-i é na lista ëd component spessiaj che j'utent a peulo butesse avisch daspërlor, conforma a la [[MediaWiki:Gadgets-definition|definission dij component]]. Sta lista complessiva a smon na stra còmoda për rivé a le pàgine ëd messagi ëd sistema ch'a definisso descrission e còdes ëd vira component.",
+	'gadgets-uses'      => 'a dòvra',
 );
 
 /** Pashto (پښتو)
@@ -570,8 +600,10 @@ $messages['ps'] = array(
 
 /** Portuguese (Português)
  * @author 555
+ * @author Malafaya
  */
 $messages['pt'] = array(
+	'gadgets-desc'      => 'Permite aos utilizadores seleccionarem "gadgets" JavaScript personalizados nas suas [[{{ns:special}}:Preferences|preferências]]',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => 'Segue-se uma lista de "gadgets" que podem ser ativados em sua conta.
 Tais gadgets normalmente são baseados em JavaScript, o que faz com que seja necessário que o suporte a JavaScript esteja ativado em seu navegador para que os mesmos funcionem.
@@ -622,13 +654,16 @@ $messages['sah'] = array(
 	'gadgets-uses'      => 'Туһанар',
 );
 
+/** Slovak (Slovenčina)
+ * @author Helix84
+ */
 $messages['sk'] = array(
-	'gadgets-prefs' => 'Nástroje',
+	'gadgets-prefs'     => 'Nástroje',
 	'gadgets-prefstext' => 'Dolu je zoznam špeciálych nástrojov, ktoré môžete zapnúť v rámci svojho účtu. Tieto nástroje sú zväčša založené na JavaScripte, takže aby fungovali, musíte mať v prehliadači zapnutý JavaScript. Nástroje nemajú vplyv na túto stránku nastavení. Tiež majte na pamäti, že tieto nástroje nie sú súčasťou MediaWiki a zvyčajne ich vyvíjajú a udržiavajú používatelia vašej lokálnej wiki. Lokálni správcovia môžu upraviť zoznam dostupných nástrojov na [[MediaWiki:Gadgets-definition]] a [[Special:Gadgets]].',
-	'gadgets' => 'Nástroje',
-	'gadgets-title' => 'Nástroje',
-	'gadgets-pagetext' => 'Dolu je zoznam špeciálych nástrojov, ktoré môžu používatelia zapnúť v rámci svojho účtu na svojej stránke nastavení. Tento zoznam definuje [[MediaWiki:Gadgets-definition]]. Tento prehľad poskytuje jednoduchý prístup k systémovým stránkam, ktoré definujú popis a kód každého z nástrojov.',
-	'gadgets-uses' => 'Použitia',
+	'gadgets'           => 'Nástroje',
+	'gadgets-title'     => 'Nástroje',
+	'gadgets-pagetext'  => 'Dolu je zoznam špeciálych nástrojov, ktoré môžu používatelia zapnúť v rámci svojho účtu na svojej stránke nastavení. Tento zoznam definuje [[MediaWiki:Gadgets-definition]]. Tento prehľad poskytuje jednoduchý prístup k systémovým stránkam, ktoré definujú popis a kód každého z nástrojov.',
+	'gadgets-uses'      => 'Použitia',
 );
 
 /** Seeltersk (Seeltersk)
