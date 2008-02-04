@@ -1,7 +1,7 @@
 <?php
 /**
  * Special:Gadgets, provides a preview of MediaWiki:Gadgets.
- * 
+ *
  * @addtogroup SpecialPage
  * @author Daniel Kinzler, brightbyte.de
  * @copyright © 2007 Daniel Kinzler
@@ -17,7 +17,7 @@ if( !defined( 'MEDIAWIKI' ) ) {
  *
  */
 class SpecialGadgets extends SpecialPage {
-	
+
 	/**
 	 * Constructor
 	 */
@@ -27,7 +27,7 @@ class SpecialGadgets extends SpecialPage {
 		// inject messages
 		loadGadgetsI18n();
 	}
-	
+
 	/**
 	 * Main execution function
 	 * @param $par Parameters passed to the page
@@ -59,17 +59,17 @@ class SpecialGadgets extends SpecialPage {
 				}
 				$wgOut->addHTML( "\n<h2>$ttext &nbsp; &nbsp; [$lnk]</h2>\n" );
 			}
-	
+
 			foreach ( $entries as $gname => $code ) {
 				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$gname" );
 				if ( !$t ) continue;
 
 				$lnk = $skin->makeLinkObj( $t, wfMsgHTML("edit") );
 				$ttext = wfMsgExt( "gadget-$gname", $msgOpt );
-		
+
 				if( !$listOpen ) {
 					$listOpen = true;
-					$wgOut->addHTML( '<ul>' );					
+					$wgOut->addHTML( '<ul>' );
 				}
 				$wgOut->addHTML( "<li>" );
 				$wgOut->addHTML( "$ttext &nbsp; &nbsp; [$lnk]<br/>" );
@@ -97,4 +97,3 @@ class SpecialGadgets extends SpecialPage {
 		}
 	}
 }
-?>

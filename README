@@ -11,12 +11,12 @@ based "gadgets" that other wiki users provide.
 <http://mediawiki.org/wiki/Extension:Gadgets>
 
 The Gadgets extension was originally written by Daniel Kinzler in 2007
-and is released under the GNU General Public Licence (GPL). 
+and is released under the GNU General Public Licence (GPL).
 The internationalization files may contain contributions by several people;
 they should be mentioned in each file individually.
 
 == Installing ==
-Copy the Gadgets directory into the extensions folder of your 
+Copy the Gadgets directory into the extensions folder of your
 MediaWiki installation. Then add the following lines to your
 LocalSettings.php file (near the end):
 
@@ -37,7 +37,7 @@ Each line in MediaWiki:Gadgets-definition that start with one or more "*"
 
 That is, each line consists of fields separated by a "|" (pipe) character.
 The first field ("mygadget" in the example) is the gadgets internal name,
-and references a system message (MediaWiki:Gadget-mygadget in the example) 
+and references a system message (MediaWiki:Gadget-mygadget in the example)
 that contains a short description of the gadget, using wiki syntax.
 Note that the internal name must start with a ASCII letter, and must
 contain only ASCII letter and numbers, hyphens ("-"), underscores ("_"),
@@ -71,9 +71,8 @@ MediaWiki:Gadget-section-editing-gadgets
 * Requires MediaWiki 1.11alpha, revision 24477 or later.
 * Gadgets do not apply to Special:Preferences, so users can always disable
   any broken gadgets they may have enabled.
-* Uses BeforePageDisplay hook, thus only works with MonoBook based skins; 
+* Uses BeforePageDisplay hook, thus only works with MonoBook based skins;
   specifically, does not work with CologneBlue.
-* Gadget code is included after user code - that means that user JS has no 
-  access to things defined in gadgets, and user CSS is overwritten by CSS 
-  from gadgets. (pending a better way to insert things into the HTML head) 
-
+* Gadget code is included after user code - that means that user JS has no
+  access to things defined in gadgets, and user CSS is overwritten by CSS
+  from gadgets. (pending a better way to insert things into the HTML head)
