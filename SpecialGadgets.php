@@ -23,9 +23,6 @@ class SpecialGadgets extends SpecialPage {
 	 */
 	function __construct() {
 		SpecialPage::SpecialPage( 'Gadgets', '', true );
-
-		// inject messages
-		loadGadgetsI18n();
 	}
 
 	/**
@@ -34,6 +31,8 @@ class SpecialGadgets extends SpecialPage {
 	 */
 	function execute( $par ) {
 		global $wgOut, $wgUser;
+
+		wfLoadExtensionMessages( 'Gadgets' );
 		$skin = $wgUser->getSkin();
 
 		$this->setHeaders();

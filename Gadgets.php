@@ -19,9 +19,11 @@ if( !defined( 'MEDIAWIKI' ) ) {
 
 $wgExtensionCredits['other'][] = array(
 	'name' => 'Gadgets',
+	'version' => '2008-02-04',
 	'author' => 'Daniel Kinzler',
 	'url' => 'http://mediawiki.org/wiki/Extension:Gadgets',
 	'description' => 'lets users select custom javascript gadgets',
+	'descriptionmsg' => 'gadgets-desc',
 );
 
 $wgHooks['InitPreferencesForm'][] = 'wfGadgetsInitPreferencesForm';
@@ -29,9 +31,10 @@ $wgHooks['RenderPreferencesForm'][] = 'wfGadgetsRenderPreferencesForm';
 $wgHooks['ResetPreferences'][] = 'wfGadgetsResetPreferences';
 $wgHooks['BeforePageDisplay'][] = 'wfGadgetsBeforePageDisplay';
 $wgHooks['ArticleSaveComplete'][] = 'wfGadgetsArticleSaveComplete';
-$wgHooks['LoadAllMessages'][] = "loadGadgetsI18n";
 
-$wgAutoloadClasses['SpecialGadgets'] = dirname( __FILE__ ) . '/SpecialGadgets.php';
+$dir = dirname(__FILE__) . '/';
+$wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
+$wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 
 function wfGadgetsArticleSaveComplete( &$article, &$wgUser, &$text ) {
@@ -145,7 +148,7 @@ function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
 	$gadgets = wfLoadGadgetsStructured();
 	if ( !$gadgets ) return true;
 
-	loadGadgetsI18n();
+	wfLoadExtensionMessages( 'Gadgets' );
 
 	$out->addHtml( "\n<fieldset>\n<legend>" . wfMsgHtml( 'gadgets-prefs' ) . "</legend>\n" );
 
@@ -225,33 +228,4 @@ function wfApplyGadgetCode( $code, &$out, &$done ) {
 			$out->addScript( '<style type="text/css">/*<![CDATA[*/ @import "' . $u . '"; /*]]>*/</style>' . "\n" );
 		}
 	}
-}
-
-function loadGadgetsI18n() {
-	global $wgLang, $wgMessageCache;
-
-	static $initialized = false;
-
-	if ( $initialized )
-		return true;
-
-	$messages = array();
-
-	$f = dirname( __FILE__ ) . '/Gadgets.i18n.php';
-	include( $f );
-
-	$f = dirname( __FILE__ ) . '/Gadgets.i18n.' . $wgLang->getCode() . '.php';
-	if ( file_exists( $f ) ) {
-		$messages_base = $messages;
-		$messages = array();
-
-		include( $f );
-
-		$messages = array_merge( $messages_base, $messages );
-	}
-
-	$initialized = true;
-	$wgMessageCache->addMessages( $messages );
-
-	return true;
 }
