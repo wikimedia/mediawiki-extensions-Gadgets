@@ -543,6 +543,7 @@ Dette oversynet gjev enkel tilgang til systemmeldingssidene som inneheld skildri
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
+	'gadgets-desc'      => 'Lar brukere velge egendefinerte JavaScript-verktøy i [[Special:Preferences|innstillingene sine]]',
 	'gadgets-prefs'     => 'Tilleggsfunksjoner',
 	'gadgets-prefstext' => 'Under er en liste over tilleggsfunksjoner du kan slå på for kontoen din.
 Disse funksjonene er for det meste basert på JavaScript, så du må ha dette slått på i nettleseren din for at de skal fungere.
@@ -623,15 +624,17 @@ Esta visão geral proporciona um acesso fácil para as mensagens de sistema que 
 /** Russian (Русский)
  * @author VasilievVV
  * @author Illusion
+ * @author .:Ajvol:.
  */
 $messages['ru'] = array(
+	'gadgets-desc'      => 'Позволяет участникам выбирать в [[Special:Preferences|настройках]] JavaScript-гаджеты, которые они хотят подключить',
 	'gadgets-prefs'     => 'Гаджеты',
 	'gadgets-prefstext' => 'Ниже приведён список специальных гаджетов, которые вы можете включить для своей учётной записи.
 Эти гаджеты преимущественно основаны на JavaScript, поэтому вы должны включить JavaScript для того, чтобы они работали.
 Учтите, что эти гаджеты не работают на странице настроек.
 
 Также учтите, что эти гаджеты не являются частью MediaWiki, и обычно рарабатываются и обслуживаются
-участниками вики. Администраторы могут изменять список гаджетов с помощью [[MediaWiki:Gadgets-definition]]
+участниками вики. Администраторы могут изменять список гаджетов с помощью [[MediaWiki:Gadgets-definition]] 
 и [[Special:Gadgets]].',
 	'gadgets'           => 'Гаджеты',
 	'gadgets-title'     => 'Гаджеты',
@@ -644,6 +647,7 @@ $messages['ru'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
+	'gadgets-desc'      => 'Кыттааччылар JavaScript-гаджеттары [[Special:Preferences|бэйэлэрин туруорууларыгар]] холбуур кыаҕы биэрэр',
 	'gadgets-prefs'     => 'Гаджеттар',
 	'gadgets-prefstext' => 'Аллара аналлаах гаджеттар испииһэктэрэ көстөллөр. Балары бэйэҥ бэлиэтэммит ааккынан киирэн туһаныаххын сөп.
 Бу үнүстүрүмүөннэр үксүлэрэ JavaScript көмөтүнэн үлэлииллэр, онон туһаныаххын баҕарар буоллаххына JavaScript холбоо.
@@ -661,6 +665,7 @@ $messages['sah'] = array(
  * @author Helix84
  */
 $messages['sk'] = array(
+	'gadgets-desc'      => 'Umožňuje používateľovi vybrať JavaScriptové nástroje v [[Special:Preferences|nastaveniach]]',
 	'gadgets-prefs'     => 'Nástroje',
 	'gadgets-prefstext' => 'Dolu je zoznam špeciálych nástrojov, ktoré môžete zapnúť v rámci svojho účtu. Tieto nástroje sú zväčša založené na JavaScripte, takže aby fungovali, musíte mať v prehliadači zapnutý JavaScript. Nástroje nemajú vplyv na túto stránku nastavení. Tiež majte na pamäti, že tieto nástroje nie sú súčasťou MediaWiki a zvyčajne ich vyvíjajú a udržiavajú používatelia vašej lokálnej wiki. Lokálni správcovia môžu upraviť zoznam dostupných nástrojov na [[MediaWiki:Gadgets-definition]] a [[Special:Gadgets]].',
 	'gadgets'           => 'Nástroje',
