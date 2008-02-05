@@ -10,12 +10,12 @@
 
 $messages = array();
 
-/* English
+/** English
  * @author Daniel Kinzler, brightbyte.de
  */
 $messages['en'] = array(
 	#for Special:Version
-	'gadgets-desc'      => 'Lets users select custom JavaScript gadgets in their [[Special:Preferences|preferences]]',
+	'gadgets-desc'      => 'Lets users select custom CSS and JavaScript gadgets in their [[Special:Preferences|preferences]]',
 
 	#for Special:Preferences
 	'gadgets-prefs'     => 'Gadgets',
@@ -188,6 +188,7 @@ Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren o
  * @author Daniel Kinzler, brightbyte.de
  */
 $messages['de'] = array(
+	'gadgets-desc'      => 'Ermöglicht Benutzern, in ihren [[{{#special:preferences}}|persönlichen Einstellungen]] vordefinierte CSS- und JavaScript-Gadgets zu aktivieren',
 	'gadgets-prefstext' => 'Liste von speziellen Gadgets die für jeden Benutzer aktiviert werden können.
 Die Gadgets basieren zumeinst auf JavaScript, daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren.
 Die Gadgets funktionieren allerdings nicht auf dieser Seite mit persönlichen Einstellungen.
