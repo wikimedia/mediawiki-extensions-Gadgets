@@ -699,6 +699,7 @@ Disse Uursicht bjut direkten Tougoang tou do Systemättergjuchte, do ju Beschrie
  * @author Max sonnelid
  */
 $messages['sv'] = array(
+	'gadgets-desc'      => 'Låter användare aktivera personliga CSS- och JavaScript-finesser genom sina [[Special:Preferences|inställningar]]',
 	'gadgets-prefs'     => 'Finesser',
 	'gadgets-prefstext' => 'Härunder är en lista över tilläggsfunktioner (finesser) som du kan aktivera för ditt konto.
 De flesta funktionerna är baserade på JavaScript, så du måste ha JavaScript aktiverat i din webbläsare för att de ska fungera.
