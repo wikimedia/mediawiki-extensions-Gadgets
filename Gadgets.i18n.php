@@ -71,12 +71,13 @@ Ista lista premite ir rapedament t'as pachinas de mensaches d'o sistema que defi
  * @author Meno25
  */
 $messages['ar'] = array(
+	'gadgets-desc'      => 'يسمح للمستخدمين باختيار إضافات CSS وجافاسكريبت في [[Special:Preferences|تفضيلاتهم]]',
 	'gadgets-prefs'     => 'إضافات',
 	'gadgets-prefstext' => 'بالأسفل قائمة بالإضافات الخاصة التي يمكن إضافتها لحسابك.
 هذه الإضافات مبنية على الأغلب على جافاسكريبت، لذا فالجافاسكريبت يجب أن تكون مفعلة في متصفحك لكي يعملوا.
 لاحظ أن هذه الإضافات لن يكون لها أي تأثير على صفحة التفضيلات هذه.
 
-أيضا لاحظ أن هذه الإضافات الخاصة ليست جزءا من برنامج ميدياويكي، وعادة يتم تطويرها وصيانتها بواسطة مستخدمين في الويكي المحلي الخاص بك. الإداريون المحليون يمكنهم تعديل الإضافات المتوفرة باستخدام [[MediaWiki:Gadgets-definition]]
+أيضا لاحظ أن هذه الإضافات الخاصة ليست جزءا من برنامج ميدياويكي، وعادة يتم تطويرها وصيانتها بواسطة مستخدمين في الويكي المحلي الخاص بك. الإداريون المحليون يمكنهم تعديل الإضافات المتوفرة باستخدام [[MediaWiki:Gadgets-definition]] 
 و [[Special:Gadgets]].',
 	'gadgets'           => 'إضافات',
 	'gadgets-title'     => 'إضافات',
@@ -276,6 +277,7 @@ Ils n'ont aucune incidence sur cette page de préférences. De plus, ils sont g�
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
+	'gadgets-desc'      => 'Lèsse ux utilisators la possibilitât de chouèsir/cièrdre los outils JavaScript pèrsonalisâs dens lors [[Special:Preferences|prèferences]].',
 	'gadgets-prefs'     => 'Outils',
 	'gadgets-prefstext' => 'Ce-desot aparêt una lista d’outils que vos pouede activar por voutron compto.
 Font apèl a [[JavaScript]], dêt vêr étre activâ por voutron navigator Malyâjo.
@@ -386,6 +388,7 @@ Tutón přehlad skići lochki přistup k systemowym zdźělenkam, kotrež pomjen
  * @author Bdanee
  */
 $messages['hu'] = array(
+	'gadgets-desc'      => 'A felhasználók saját CSS és JavaScript eszközöket választhatnak ki a [[Special:Preferences|beállításaiknál]]',
 	'gadgets-prefs'     => 'Segédeszközök',
 	'gadgets-prefstext' => 'Itt tudod be- és kikapcsolni a helyi segédeszközöket. Ezek az eszközök nem részei a MediaWiki szoftvernek, általában a wiki felhasználói tartják karban őket. Az adminisztrátorok a [[MediaWiki:Gadgets-definition]] és a [[Special:Gadgets]] lapok segítségével tudják szerkeszteni a lenti listát.
 
@@ -727,6 +730,13 @@ $messages['te'] = array(
 	'gadgets-title'     => 'ఉపకరణాలు',
 	'gadgets-pagetext'  => 'ఈ దిగువన ఉన్న ప్రత్యేక ఉపకరణాల నుండి సభ్యులు తమకు కావలసినవి తమ అభిరుచులు పేజీలోని ఉపకరణాల టాబులో టిక్కు పెట్టి ఎనేబుల్ చేసుకొనే అవకాశం ఉన్నది. వీటిని [[మీడియావికీ:Gadgets-definition|మీడియావికీ:ఉపకరణాల నిర్వచన]] పేజీలో నిర్వచించడం జరిగింది. ఈ చిన్న పరిచయం ఆయా ఉపకరణాల నిర్వచన మరియు కోడుకు సంబంధించిన మీడియావికీ సందేశాలకు సులువుగా చేరుకునేందుకు లింకులను సమకూర్చుతుంది.',
 	'gadgets-uses'      => 'ఉపయోగించే ఫైళ్ళు',
+);
+
+/** Turkish (Türkçe)
+ * @author Erkan Yilmaz
+ */
+$messages['tr'] = array(
+	'gadgets-uses' => 'Kullanıyor',
 );
 
 /** Vietnamese (Tiếng Việt)
