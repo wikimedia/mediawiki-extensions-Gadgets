@@ -813,10 +813,3 @@ $messages['zh-hant'] = array(
 這個概覽提供的系統信息頁面的簡易存取，可以定義每個小工具的描述以及原碼。',
 	'gadgets-uses'      => '使用',
 );
-
-$messages['zh']     = $messages['zh-hans'];
-$messages['zh-cn']  = $messages['zh-hans'];
-$messages['zh-hk']  = $messages['zh-hant'];
-$messages['zh-sg']  = $messages['zh-hans'];
-$messages['zh-tw']  = $messages['zh-hant'];
-$messages['zh-yue'] = $messages['yue'];
