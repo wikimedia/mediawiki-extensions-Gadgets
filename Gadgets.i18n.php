@@ -732,6 +732,17 @@ $messages['te'] = array(
 	'gadgets-uses'      => 'ఉపయోగించే ఫైళ్ళు',
 );
 
+/** Tajik (Тоҷикӣ)
+ * @author Ibrahim
+ */
+$messages['tg'] = array(
+	'gadgets-desc'  => 'Аз тариқи саҳифаи [[Special:Preferences|тарҷиҳот]] ба корбарон имконияти интихоби абзорҳои шахсии CSS ва JavaScript-ро медиҳад.',
+	'gadgets-prefs' => 'Абзорҳо',
+	'gadgets'       => 'Абзорҳо',
+	'gadgets-title' => 'Абзорҳо',
+	'gadgets-uses'  => 'Корбурдҳо',
+);
+
 /** Turkish (Türkçe)
  * @author Erkan Yilmaz
  */
@@ -813,3 +824,4 @@ $messages['zh-hant'] = array(
 這個概覽提供的系統信息頁面的簡易存取，可以定義每個小工具的描述以及原碼。',
 	'gadgets-uses'      => '使用',
 );
+
