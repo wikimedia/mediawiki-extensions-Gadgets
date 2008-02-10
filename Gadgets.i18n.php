@@ -477,8 +477,10 @@ $messages['lb'] = array(
 
 /** Limburgish (Limburgs)
  * @author Ooswesthoesbes
+ * @author Matthias
  */
 $messages['li'] = array(
+	'gadgets-desc'      => 'Laat gebroekers JavaScripts activere in hun [[Special:Preferences|veurkeure]]',
 	'gadgets-prefs'     => 'Biedènger',
 	'gadgets-prefstext' => 'Hiej ónger staon de speciaal oetbreijinger diet geer veur uche gebroeker kintj insjakele.
 De oetbreijinger zeen veurnamelik gebaseerdj op JavaScript, dus JavaScript mót veur uche browser ingesjakledj zeen óm die te laote wèrke.
@@ -533,6 +535,7 @@ Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschri
  * @author Eirik
  */
 $messages['nn'] = array(
+	'gadgets-desc'      => 'Lèt brukarane velje tilleggsfunksjonar med vanleg CSS og JavaScript i [[Special:Preferences|innstillingane sine]].',
 	'gadgets-prefs'     => 'Tilleggsfunksjonar',
 	'gadgets-prefstext' => 'Under finn du ei liste over tilleggsfunksjonar som du kan slå på på kontoen din. Desse tilleggsfunksjonane er for det meste baserte på JavaScript, så JavaScript må vere slått på i nettlesaren din for at dei skal verke. Merk at desse tilleggsfunksjonane ikkje har nokon effekt på denne innstillingssida.
 
