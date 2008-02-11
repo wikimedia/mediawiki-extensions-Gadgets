@@ -110,6 +110,7 @@ Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del
  * @author Spiritia
  */
 $messages['bg'] = array(
+	'gadgets-desc'      => 'Позволява на потребителите да избират и активират CSS и JavaScript джаджи от своите [[Special:Preferences|настройки]]',
 	'gadgets-prefs'     => 'Джаджи',
 	'gadgets-prefstext' => 'По-долу е списъкът на специалните джаджи, които можете да активирате на своята потребителска сметка.
 Тъй като почти всички джаджи са базирани на Джаваскрипт, трябва да го активирате на браузъра си, за да те могат да работят.
