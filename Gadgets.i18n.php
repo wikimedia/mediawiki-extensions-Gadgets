@@ -415,6 +415,21 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
 	'gadgets-uses'      => 'Utilizza',
 );
 
+/** Japanese (日本語)
+ * @author JtFuruhata
+ */
+$messages['ja'] = array(
+	'gadgets-desc'      => 'カスタムCSSやJavaScriptのガジェットを利用者が[[Special:Preferences|{{int:preferences}}]]から選択できる',
+	'gadgets-prefs'     => 'ガジェット',
+	'gadgets-prefstext' => '下のリストはあなたのアカウントで利用できるガジェットの一覧です。これらのガジェットはほとんどがJavaScriptベースのため、その動作にはブラウザ設定でJavaScriptを有効にする必要があります。ただし、ガジェットが{{int:preferences}}ページ上では動作しないことも覚えておいてください。
+
+また、これらのガジェットは MediaWiki ソフトウェアの一部ではなく、開発とメンテナンスは通常そのウィキのユーザによって行われていることにも注意してください。管理者は[[MediaWiki:Gadgets-definition]] や [[Special:Gadgets]]を編集することにより、利用可能なガジェットを指定することが可能です。',
+	'gadgets'           => 'ガジェット',
+	'gadgets-title'     => 'ガジェット',
+	'gadgets-pagetext'  => '以下のリストは、[[MediaWiki:Gadgets-definition]] 上で定義された、ユーザが{{int:preferences}}ページにて利用可能にすることができるガジェットの一覧です。この概略はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
+	'gadgets-uses'      => '利用するファイル',
+);
+
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
 $messages['kk-arab'] = array(
 	'gadgets-prefs'     => 'قاجەت قۇرالدار',
