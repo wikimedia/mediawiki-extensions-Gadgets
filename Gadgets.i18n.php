@@ -264,7 +264,7 @@ Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät 
  * @author Grondin
  */
 $messages['fr'] = array(
-	'gadgets-desc'      => 'Laisse aux utilisateurs les gadgets Javascripts personnalisés dans leurs [Special:Preferences|preferences]]',
+	'gadgets-desc'      => 'Laisse aux utilisateurs [[Special:Gadgets|les gadgets CSS et Javascripts]] personnalisés dans leurs [Special:Preferences|preferences]]',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => "Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel à [[JavaScript]], il doit donc être activé pour votre navigateur Web.
 Ils n'ont aucune incidence sur cette page de préférences. De plus, ils sont généralement développés et maintenus sur ce wiki. Les administrateurs peuvent modifier les gadgets en passant par [[MediaWiki:Gadgets-definition]] et [[Special:Gadgets]].",
