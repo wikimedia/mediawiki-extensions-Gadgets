@@ -264,7 +264,7 @@ Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät 
  * @author Grondin
  */
 $messages['fr'] = array(
-	'gadgets-desc'      => 'Laisse aux utilisateurs [[Special:Gadgets|les gadgets CSS et Javascripts]] personnalisés dans leurs [Special:Preferences|preferences]]',
+	'gadgets-desc'      => 'Laisse aux utilisateurs les gadgets Javascripts personnalisés dans leurs [Special:Preferences|preferences]]',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => "Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel à [[JavaScript]], il doit donc être activé pour votre navigateur Web.
 Ils n'ont aucune incidence sur cette page de préférences. De plus, ils sont généralement développés et maintenus sur ce wiki. Les administrateurs peuvent modifier les gadgets en passant par [[MediaWiki:Gadgets-definition]] et [[Special:Gadgets]].",
@@ -371,7 +371,7 @@ Ovaj pregled omogućuje lak pristup porukama sustava koje opisuju ekstenzije i n
  * @author Michawiki
  */
 $messages['hsb'] = array(
-	'gadgets-desc'      => 'Dowola wužiwarjam wosebite JavaScriptowe přisłuški w jich [[Special:Preferences|nastajenjach]] wubrać',
+	'gadgets-desc'      => 'Zmóžnja wužiwarjam swójske [[Special:Gadgets|přisłuški za CSS a JavaScript]] w jich [[Special:Preferences|nastajenjach]] wubrać',
 	'gadgets-prefs'     => 'Specialne funkcije',
 	'gadgets-prefstext' => 'Deleka je lisćina specialnych funkcijow, kotrež móžeš za swoje wužiwarske konto aktiwizować. Tute specialne funkcije zwjetša na JavaScripće bazěruja, tohodla dyrbi JavaScript we wobhladowaku aktiwizowany być, zo bychu fungowali.
 Wobkedźbuj tež, zo so tute specialne funkcije na stronje z twojimi wosobinskimi nastajenjemi njewuskutkuja.
@@ -567,7 +567,7 @@ Dette oversynet gjev enkel tilgang til systemmeldingssidene som inneheld skildri
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
-	'gadgets-desc'      => 'Lar brukere velge egendefinerte JavaScript-verktøy i [[Special:Preferences|innstillingene sine]]',
+	'gadgets-desc'      => 'Lar brukere velge egendefinerte [[Special:Gadgets|CSS- og JavaScript-verktøy]] i [[Special:Preferences|innstillingene sine]]',
 	'gadgets-prefs'     => 'Tilleggsfunksjoner',
 	'gadgets-prefstext' => 'Under er en liste over tilleggsfunksjoner du kan slå på for kontoen din.
 Disse funksjonene er for det meste basert på JavaScript, så du må ha dette slått på i nettleseren din for at de skal fungere.
@@ -584,6 +584,7 @@ Merk også at disse verktøyene ikke er del av MediaWiki-programvaren, og vanlig
  * @author Cedric31
  */
 $messages['oc'] = array(
+	'gadgets-desc'      => 'Daissa als utilizaires los gadgets Javascripts personalizats dins lor [[Special:Preferences|preferéncias]]',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => "Çaijós apareis una lista de gadgets que podètz activar per vòstre compte. Fan apèl a JavaScript, deu doncas èsser activat per vòstre navegaire Web. An pas cap d'incidéncia sus aquesta pagina de preferéncias. E mai, son generalament desvolopats e mantenguts sus aqueste wiki. Los administrators pòdon modificar los gadgets en passant per [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]].",
 	'gadgets'           => 'Gadgets',
@@ -597,6 +598,7 @@ $messages['oc'] = array(
  * @author Sp5uhe
  */
 $messages['pl'] = array(
+	'gadgets-desc'      => 'Pozwala użytkownikom wybrać gadżety CSS i JavaScript na [[Special:Preferences|stronie preferencji]]',
 	'gadgets-prefs'     => 'Gadżety',
 	'gadgets-prefstext' => 'Poniżej znajduje się lista specjalnych gadżetów, które możesz włączyć dla swojego konta. Gadżety opierają się w większości na JavaScripcie, więc by działały musisz mieć w swojej przeglądarce włączony JavaScript. Pamiętaj, że nie będą one miały wpływu na tę stronę preferencji.
 
@@ -720,10 +722,10 @@ Disse Uursicht bjut direkten Tougoang tou do Systemättergjuchte, do ju Beschrie
 
 /** Swedish (Svenska)
  * @author Lejonel
- * @author Max sonnelid
+ * @author M.M.S.
  */
 $messages['sv'] = array(
-	'gadgets-desc'      => 'Låter användare aktivera personliga CSS- och JavaScript-finesser genom sina [[Special:Preferences|inställningar]]',
+	'gadgets-desc'      => 'Låter användare aktivera personliga [[Special:Gadgets|CSS- och JavaScript-finesser]] genom sina [[Special:Preferences|inställningar]]',
 	'gadgets-prefs'     => 'Finesser',
 	'gadgets-prefstext' => 'Härunder är en lista över tilläggsfunktioner (finesser) som du kan aktivera för ditt konto.
 De flesta funktionerna är baserade på JavaScript, så du måste ha JavaScript aktiverat i din webbläsare för att de ska fungera.
