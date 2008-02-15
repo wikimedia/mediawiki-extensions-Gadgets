@@ -71,7 +71,7 @@ Ista lista premite ir rapedament t'as pachinas de mensaches d'o sistema que defi
  * @author Meno25
  */
 $messages['ar'] = array(
-	'gadgets-desc'      => 'يسمح للمستخدمين باختيار إضافات CSS وجافاسكريبت في [[Special:Preferences|تفضيلاتهم]]',
+	'gadgets-desc'      => 'يسمح للمستخدمين باختيار [[Special:Gadgets|إضافات سي إس إس وجافاسكريبت]] معدلة في [[Special:Preferences|تفضيلاتهم]]',
 	'gadgets-prefs'     => 'إضافات',
 	'gadgets-prefstext' => 'بالأسفل قائمة بالإضافات الخاصة التي يمكن إضافتها لحسابك.
 هذه الإضافات مبنية على الأغلب على جافاسكريبت، لذا فالجافاسكريبت يجب أن تكون مفعلة في متصفحك لكي يعملوا.
@@ -110,7 +110,7 @@ Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del
  * @author Spiritia
  */
 $messages['bg'] = array(
-	'gadgets-desc'      => 'Позволява на потребителите да избират и активират CSS и JavaScript джаджи от своите [[Special:Preferences|настройки]]',
+	'gadgets-desc'      => 'Позволява на потребителите да избират и активират [[Special:Gadgets|CSS и JavaScript джаджи]] от своите [[Special:Preferences|настройки]]',
 	'gadgets-prefs'     => 'Джаджи',
 	'gadgets-prefstext' => 'По-долу е списъкът на специалните джаджи, които можете да активирате на своята потребителска сметка.
 Тъй като почти всички джаджи са базирани на Джаваскрипт, трябва да го активирате на браузъра си, за да те могат да работят.
@@ -264,7 +264,7 @@ Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät 
  * @author Grondin
  */
 $messages['fr'] = array(
-	'gadgets-desc'      => 'Laisse aux utilisateurs les gadgets Javascripts personnalisés dans leurs [Special:Preferences|preferences]]',
+	'gadgets-desc'      => 'Laisse aux utilisateurs les [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences|préférences]]',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => "Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel à [[JavaScript]], il doit donc être activé pour votre navigateur Web.
 Ils n'ont aucune incidence sur cette page de préférences. De plus, ils sont généralement développés et maintenus sur ce wiki. Les administrateurs peuvent modifier les gadgets en passant par [[MediaWiki:Gadgets-definition]] et [[Special:Gadgets]].",
@@ -389,7 +389,7 @@ Tutón přehlad skići lochki přistup k systemowym zdźělenkam, kotrež pomjen
  * @author Bdanee
  */
 $messages['hu'] = array(
-	'gadgets-desc'      => 'A felhasználók saját CSS és JavaScript eszközöket választhatnak ki a [[Special:Preferences|beállításaiknál]]',
+	'gadgets-desc'      => 'A felhasználók saját [[Special:Gadgets|CSS és JavaScript eszközöket]] választhatnak ki a [[Special:Preferences|beállításaiknál]]',
 	'gadgets-prefs'     => 'Segédeszközök',
 	'gadgets-prefstext' => 'Itt tudod be- és kikapcsolni a helyi segédeszközöket. Ezek az eszközök nem részei a MediaWiki szoftvernek, általában a wiki felhasználói tartják karban őket. Az adminisztrátorok a [[MediaWiki:Gadgets-definition]] és a [[Special:Gadgets]] lapok segítségével tudják szerkeszteni a lenti listát.
 
@@ -419,7 +419,7 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'gadgets-desc'      => 'カスタムCSSやJavaScriptのガジェットを利用者が[[Special:Preferences|{{int:preferences}}]]から選択できる',
+	'gadgets-desc'      => '[[{{ns:special}}:Gadgets|カスタムCSSやJavaScriptのガジェット]]を利用者が[[{{ns:Special}}:Preferences|{{int:preferences}}]]から選択できる',
 	'gadgets-prefs'     => 'ガジェット',
 	'gadgets-prefstext' => '下のリストはあなたのアカウントで利用できるガジェットの一覧です。これらのガジェットはほとんどがJavaScriptベースのため、その動作にはブラウザ設定でJavaScriptを有効にする必要があります。ただし、ガジェットが{{int:preferences}}ページ上では動作しないことも覚えておいてください。
 
@@ -633,7 +633,7 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'gadgets-desc'      => 'Permite aos utilizadores seleccionarem "gadgets" JavaScript personalizados nas suas [[{{ns:special}}:Preferences|preferências]]',
+	'gadgets-desc'      => 'Permite aos utilizadores seleccionarem [[{{ns:special}}:Gadgets|"gadgets" JavaScript e CSS]] personalizados nas suas [[{{ns:special}}:Preferences|preferências]]',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => 'Segue-se uma lista de "gadgets" que podem ser ativados em sua conta.
 Tais gadgets normalmente são baseados em JavaScript, o que faz com que seja necessário que o suporte a JavaScript esteja ativado em seu navegador para que os mesmos funcionem.
@@ -741,8 +741,10 @@ Den här översikten ger enkel åtkomst till de systemmeddelanden som definerar 
 
 /** Telugu (తెలుగు)
  * @author Mpradeep
+ * @author Veeven
  */
 $messages['te'] = array(
+	'gadgets-desc'      => 'వాడుకర్లను వారి [[Special:Preferences|అభిరుచుల]]లో  ప్రత్యేక [[Special:Gadgets|CSS మరియు జావాస్క్రిప్ట్ గాడ్జెట్లను]] ఎంచుకోనిస్తుంది',
 	'gadgets-prefs'     => 'ఉపకరణాలు',
 	'gadgets-prefstext' => 'ఈ దిగువ ఉన్న ప్రత్యేక ఉపకరణాల నుండి సభ్యులు తమకు కావలసినవి టిక్కు పెట్టి మీ ఖాతాకు వీటిని ఎనేబుల్ చేసుకొవచ్చు. ఈ ఉపకరణాలు జావాస్క్రిప్టుపై ఆధారపడి పనిచేస్తాయి కాబట్టి ఇవి సరిగా పనిచెయ్యాలంటే మీ బ్రౌజరులో జావాస్క్రిప్టును ఎనేబుల్ చేసి ఉండాలి. ఈ ఉపకరణాలు అభిరుచుల పేజీపై ఎటువంటి ప్రభావాన్ని కలుగజేయవని గమనించాలి.
 
