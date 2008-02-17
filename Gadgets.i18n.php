@@ -531,14 +531,14 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
  * @author Siebrand
  */
 $messages['nl'] = array(
-	'gadgets-desc'      => 'Laat gebruikers JavaScripts activeren in hun [[Special:Preferences|voorkeuren]]',
+	'gadgets-desc'      => 'Laat gebruikers [[Special:Gadgets|CSS en JavaScripts]] activeren in hun [[Special:Preferences|voorkeuren]]',
 	'gadgets-prefs'     => 'Uitbreidingen',
 	'gadgets-prefstext' => 'Hieronder staan de speciale uitbreidingen die u voor uw gebruiker kunt inschakelen.
 De uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet voor uw browser ingeschakeld zijn om ze te laten werken.
 De uitbreidingen hebben geen invloed op deze pagina met voorkeuren.
 
 Deze speciale uitbreidingen zijn ook geen onderdeel van de MediaWiki-software, en ze worden meestal ontwikkeld en onderhouden
-door gebruikers van uw wiki. Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition]]
+door gebruikers van uw wiki. Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition]] 
 en [[Special:Gadgets]].',
 	'gadgets'           => 'Uitbreidingen',
 	'gadgets-title'     => 'Uitbreidingen',
@@ -653,7 +653,7 @@ Esta visão geral proporciona um acesso fácil para as mensagens de sistema que 
  * @author .:Ajvol:.
  */
 $messages['ru'] = array(
-	'gadgets-desc'      => 'Позволяет участникам выбирать в [[Special:Preferences|настройках]] JavaScript-гаджеты, которые они хотят подключить',
+	'gadgets-desc'      => 'Позволяет участникам выбирать в [[Special:Preferences|настройках]] CSS- и JavaScript-гаджеты, которые они хотят подключить',
 	'gadgets-prefs'     => 'Гаджеты',
 	'gadgets-prefstext' => 'Ниже приведён список специальных гаджетов, которые вы можете включить для своей учётной записи.
 Эти гаджеты преимущественно основаны на JavaScript, поэтому вы должны включить JavaScript для того, чтобы они работали.
