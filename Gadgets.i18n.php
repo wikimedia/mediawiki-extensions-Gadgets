@@ -673,7 +673,7 @@ $messages['ru'] = array(
  * @author HalanTul
  */
 $messages['sah'] = array(
-	'gadgets-desc'      => 'Кыттааччылар JavaScript-гаджеттары [[Special:Preferences|бэйэлэрин туруорууларыгар]] холбуур кыаҕы биэрэр',
+	'gadgets-desc'      => 'Бэйэлэрин [[Special:Preferences|туруорууларыгар]] кыттааччылар [[Special:Gadgets|CSS уонна JavaScript гаджеттары]] холбонуохтарын сөп.',
 	'gadgets-prefs'     => 'Гаджеттар',
 	'gadgets-prefstext' => 'Аллара аналлаах гаджеттар испииһэктэрэ көстөллөр. Балары бэйэҥ бэлиэтэммит ааккынан киирэн туһаныаххын сөп.
 Бу үнүстүрүмүөннэр үксүлэрэ JavaScript көмөтүнэн үлэлииллэр, онон туһаныаххын баҕарар буоллаххына JavaScript холбоо.
@@ -776,8 +776,10 @@ $messages['tr'] = array(
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
  * @author Meno25
+ * @author Minh Nguyen
  */
 $messages['vi'] = array(
+	'gadgets-desc'      => 'Để các thành viên chọn những [[Special:Gadgets|công cụ đa năng]] đặc chế bằng CSS và JavaScript trong [[Special:Preferences|tùy chọn]]',
 	'gadgets-prefs'     => 'Công cụ đa năng',
 	'gadgets-prefstext' => 'Dưới đây là danh sách các công cụ đa năng đặc biệt mà bạn có thể kích hoạt cho tài khoản của mình.
 Những công cụ này chủ yếu dựa trên JavaScript, do đó bạn phải kích hoạt JavaScript trong trình duyệt để các công cụ này hoạt động.
