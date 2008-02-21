@@ -108,12 +108,13 @@ Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del
 /** Bulgarian (Български)
  * @author DCLXVI
  * @author Spiritia
+ * @author Borislav
  */
 $messages['bg'] = array(
 	'gadgets-desc'      => 'Позволява на потребителите да избират и активират [[Special:Gadgets|CSS и JavaScript джаджи]] от своите [[Special:Preferences|настройки]]',
 	'gadgets-prefs'     => 'Джаджи',
 	'gadgets-prefstext' => 'По-долу е списъкът на специалните джаджи, които можете да активирате на своята потребителска сметка.
-Тъй като почти всички джаджи са базирани на Джаваскрипт, трябва да го активирате на браузъра си, за да те могат да работят.
+Тъй като почти всички джаджи са базирани на Джаваскрипт, трябва да го активирате на браузъра си, за да могат те да работят.
 Имайте предвид, че тези джаджи няма да окажат влияние на тази страница с настройки.
 
 Също така, джаджите не са част от софтуера МедияУики, и обикновено се разработват и поддържат от потребители в локалното уики. Локалните администратори могат да редактират наличните джаджи посредством [[MediaWiki:Gadgets-definition]] и [[Special:Gadgets]].',
@@ -278,7 +279,7 @@ Ils n'ont aucune incidence sur cette page de préférences. De plus, ils sont g�
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'gadgets-desc'      => 'Lèsse ux utilisators la possibilitât de chouèsir/cièrdre los outils JavaScript pèrsonalisâs dens lors [[Special:Preferences|prèferences]].',
+	'gadgets-desc'      => 'Lèsse ux utilisators la possibilitât de chouèsir/cièrdre los [[Special:Gadgets|outils CSS et JavaScript]] pèrsonalisâs dens lors [[Special:Preferences|prèferences]].',
 	'gadgets-prefs'     => 'Outils',
 	'gadgets-prefstext' => 'Ce-desot aparêt una lista d’outils que vos pouede activar por voutron compto.
 Font apèl a [[JavaScript]], dêt vêr étre activâ por voutron navigator Malyâjo.
@@ -598,7 +599,7 @@ $messages['oc'] = array(
  * @author Sp5uhe
  */
 $messages['pl'] = array(
-	'gadgets-desc'      => 'Pozwala użytkownikom wybrać gadżety CSS i JavaScript na [[Special:Preferences|stronie preferencji]]',
+	'gadgets-desc'      => 'Pozwala użytkownikom wybrać [[Special:Gadgets|gadżety CSS i JavaScript]] na [[Special:Preferences|stronie preferencji]]',
 	'gadgets-prefs'     => 'Gadżety',
 	'gadgets-prefstext' => 'Poniżej znajduje się lista specjalnych gadżetów, które możesz włączyć dla swojego konta. Gadżety opierają się w większości na JavaScripcie, więc by działały musisz mieć w swojej przeglądarce włączony JavaScript. Pamiętaj, że nie będą one miały wpływu na tę stronę preferencji.
 
