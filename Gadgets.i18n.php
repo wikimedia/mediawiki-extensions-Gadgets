@@ -90,7 +90,7 @@ $messages['ar'] = array(
  * @author Esbardu
  */
 $messages['ast'] = array(
-	'gadgets-desc'      => 'Permite a los usuarios seleicionar al gustu accesorios JavaScript nes sos [[Special:Preferencies|preferencies]]',
+	'gadgets-desc'      => 'Permite a los usuarios seleicionar al gustu [[Special:Gadgets|accesorios CSS y JavaScript]] nes sos [[Special:Preferencies|preferencies]]',
 	'gadgets-prefs'     => 'Accesorios',
 	'gadgets-prefstext' => "Embaxo amuésase una llista de los accesorios especiales que pues activar pa la to cuenta.
 Estos accesorios tán mayormente basaos en JavaScript, polo qu'has tener activáu ésti nel to navegador pa que funcionen.
