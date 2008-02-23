@@ -497,7 +497,7 @@ $messages['lb'] = array(
  * @author Matthias
  */
 $messages['li'] = array(
-	'gadgets-desc'      => 'Laat gebroekers JavaScripts activere in hun [[Special:Preferences|veurkeure]]',
+	'gadgets-desc'      => 'Laat gebroekers [[special:Gadgets|CSS en JavaScripts]] activere in hun [[Special:Preferences|veurkeure]]',
 	'gadgets-prefs'     => 'Biedènger',
 	'gadgets-prefstext' => 'Hiej ónger staon de speciaal oetbreijinger diet geer veur uche gebroeker kintj insjakele.
 De oetbreijinger zeen veurnamelik gebaseerdj op JavaScript, dus JavaScript mót veur uche browser ingesjakledj zeen óm die te laote wèrke.
