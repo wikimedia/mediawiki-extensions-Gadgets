@@ -530,6 +530,16 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
 	'gadgets-uses'      => 'Panaudojimai',
 );
 
+/** Marathi (मराठी)
+ * @author Mahitgar
+ */
+$messages['mr'] = array(
+	'gadgets-prefs' => 'उपकरण(गॅजेट)',
+	'gadgets'       => 'सुविधा (गॅजेट)',
+	'gadgets-title' => 'गॅजेट',
+	'gadgets-uses'  => 'उपयोग',
+);
+
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
