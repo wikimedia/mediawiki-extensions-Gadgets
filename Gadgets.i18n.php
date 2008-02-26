@@ -77,7 +77,7 @@ $messages['ar'] = array(
 هذه الإضافات مبنية على الأغلب على جافاسكريبت، لذا فالجافاسكريبت يجب أن تكون مفعلة في متصفحك لكي يعملوا.
 لاحظ أن هذه الإضافات لن يكون لها أي تأثير على صفحة التفضيلات هذه.
 
-أيضا لاحظ أن هذه الإضافات الخاصة ليست جزءا من برنامج ميدياويكي، وعادة يتم تطويرها وصيانتها بواسطة مستخدمين في الويكي المحلي الخاص بك. الإداريون المحليون يمكنهم تعديل الإضافات المتوفرة باستخدام [[MediaWiki:Gadgets-definition]] 
+أيضا لاحظ أن هذه الإضافات الخاصة ليست جزءا من برنامج ميدياويكي، وعادة يتم تطويرها وصيانتها بواسطة مستخدمين في الويكي المحلي الخاص بك. الإداريون المحليون يمكنهم تعديل الإضافات المتوفرة باستخدام [[MediaWiki:Gadgets-definition]]
 و [[Special:Gadgets]].',
 	'gadgets'           => 'إضافات',
 	'gadgets-title'     => 'إضافات',
@@ -162,8 +162,8 @@ $messages['cs'] = array(
 	'gadgets-desc'      => 'Uživatelé si mohou vybrat javaskriptové udělátko ve svém [[Special:Preferences|nastavení]].',
 	'gadgets-prefs'     => 'Udělátka',
 	'gadgets-prefstext' => 'Níže je přehled speciálních udělátek, které si můžete ve svém účtu zapnout.
-Tato udělátka jsou převážně založena na JavaScriptu, takže pro jejich funkčnost je nutné mít ve svém prohlížeči JavaScript zapnutý. 
-Udělátka nejsou aplikována na této stránce nastavení. 
+Tato udělátka jsou převážně založena na JavaScriptu, takže pro jejich funkčnost je nutné mít ve svém prohlížeči JavaScript zapnutý.
+Udělátka nejsou aplikována na této stránce nastavení.
 
 Uvědomte si také, že speciální udělátka nejsou součástí softwaru MediaWiki a&nbsp;jsou vytvářena a&nbsp;spravována uživateli této wiki. Místní správci mohou editovat udělátka prostřednictvím [[MediaWiki:Gadgets-definition]] a&nbsp;[[Special:Gadgets]].',
 	'gadgets'           => 'Udělátka',
@@ -403,6 +403,21 @@ A segédeszközök többsége javascriptet használ, így engedélyezned kell az
 	'gadgets-uses'      => 'Kód',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author IvanLanin
+ */
+$messages['id'] = array(
+	'gadgets-desc'      => 'Memungkinkan pengguna memilih [[Special:Gadgets|gadget CSS dan JavaScript]] melalui [[Special:Preferences|preferensi]] mereka',
+	'gadgets-prefs'     => 'Gadget',
+	'gadgets-prefstext' => 'Berikut adalah daftar gadget istimewa yang dapat Anda aktifkan untuk akun Anda. Gadget-gadget tersebut sebagian besar berbasis JavaScript sehingga Anda harus mengaktifkan JavaScript pada penjelajah Anda untuk dapat menjalankannya. Perhatikan bahwa gadget-gadget tersebut tak memiliki pengaruh terhadap halaman preferensi ini.
+
+Juga perhatikan bahwa gadget istimewa ini bukanlah bagian dari perangkat lunak MediaWiki dan biasanya dikembangkan dan dipelihara oleh pengguna-pengguna di wiki lokal Anda. Pengurus lokal dapat menyunting gadget yang tersedia melalui [[MediaWiki:Gadgets-definition]] dan [[Special:Gadgets]].',
+	'gadgets'           => 'Gadget',
+	'gadgets-title'     => 'Gadget',
+	'gadgets-pagetext'  => "Berikut adalah daftar gadget istimewa yang dapat diaktifkan pengguna melalui halaman preferensi mereka sebagaimana didefinisikan oleh [[MediaWiki:Gadgets-definition]]. Tinjauan berikut memberikan kemudahan akses ke dalam halaman pesan sistem yang mendefinisikan deskripsi dan kode masing-masing gadget.",
+	'gadgets-uses'      => 'Penggunaan',
+);
+
 /** Italian (Italiano)
  * @author BrokenArrow
  */
@@ -552,7 +567,7 @@ De uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet 
 De uitbreidingen hebben geen invloed op deze pagina met voorkeuren.
 
 Deze speciale uitbreidingen zijn ook geen onderdeel van de MediaWiki-software, en ze worden meestal ontwikkeld en onderhouden
-door gebruikers van uw wiki. Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition]] 
+door gebruikers van uw wiki. Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition]]
 en [[Special:Gadgets]].',
 	'gadgets'           => 'Uitbreidingen',
 	'gadgets-title'     => 'Uitbreidingen',
@@ -674,7 +689,7 @@ $messages['ru'] = array(
 Учтите, что эти гаджеты не работают на странице настроек.
 
 Также учтите, что эти гаджеты не являются частью MediaWiki, и обычно рарабатываются и обслуживаются
-участниками вики. Администраторы могут изменять список гаджетов с помощью [[MediaWiki:Gadgets-definition]] 
+участниками вики. Администраторы могут изменять список гаджетов с помощью [[MediaWiki:Gadgets-definition]]
 и [[Special:Gadgets]].',
 	'gadgets'           => 'Гаджеты',
 	'gadgets-title'     => 'Гаджеты',
