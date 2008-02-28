@@ -614,7 +614,7 @@ Merk også at disse verktøyene ikke er del av MediaWiki-programvaren, og vanlig
  * @author Cedric31
  */
 $messages['oc'] = array(
-	'gadgets-desc'      => 'Daissa als utilizaires los gadgets Javascripts personalizats dins lor [[Special:Preferences|preferéncias]]',
+	'gadgets-desc'      => 'Daissa als utilizaires los [[Special:Gadgets|gadgets CSS e JavaScript]] dins lor [[Special:Preferences|preferéncias]]',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => "Çaijós apareis una lista de gadgets que podètz activar per vòstre compte. Fan apèl a JavaScript, deu doncas èsser activat per vòstre navegaire Web. An pas cap d'incidéncia sus aquesta pagina de preferéncias. E mai, son generalament desvolopats e mantenguts sus aqueste wiki. Los administrators pòdon modificar los gadgets en passant per [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]].",
 	'gadgets'           => 'Gadgets',
