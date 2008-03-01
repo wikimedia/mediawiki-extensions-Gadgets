@@ -71,7 +71,7 @@ class SpecialGadgets extends SpecialPage {
 					$wgOut->addHTML( '<ul>' );
 				}
 				$wgOut->addHTML( "<li>" );
-				$wgOut->addHTML( "$ttext &nbsp; &nbsp; [$lnk]<br/>" );
+				$wgOut->addHTML( "$ttext &nbsp; &nbsp; [$lnk]<br />" );
 
 				$wgOut->addHTML( wfMsgHTML("gadgets-uses") . ": " );
 
