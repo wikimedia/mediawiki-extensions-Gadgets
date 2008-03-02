@@ -218,6 +218,19 @@ $messages['el'] = array(
 	'gadgets-uses'     => 'Χρήσεις',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'gadgets-desc'      => 'Permesas al uzantoj elekti proprajn [[Special:Gadgets|CSS kaj JavaScript aldonaĵojn]] en ties [[Special:Preferences|preferoj]].',
+	'gadgets-prefs'     => 'Aldonaĵoj',
+	'gadgets-prefstext' => 'Sube estas listo de specialaj aldonaĵoj kiujn vi povas aktivigi por via uzulkonto. Plej multaj el ili baziĝas sur Ĵavaskriptoj, sekve Ĵavaskripto nepre estu aktivigita por ke ili funkciu. Notu ke tiuj aldonaĵoj ne efikos sur viaj preferoj. Notu ankaŭ ke ili ne estas parto de la programaro MediaWiki, kaj estas kutime evoluigitaj kaj prizorgataj de uzuloj sur via loka vikio. Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per  [[MediaWiki:Gadgets-definition]] kaj [[Special:Gadgets]].',
+	'gadgets'           => 'Aldonaĵoj',
+	'gadgets-title'     => 'Aldonaĵoj',
+	'gadgets-pagetext'  => 'Sube estas listo da aldonaĵoj kiujn uzuloj povas aktivigi en siaj preferoj, kiel difinite en [[MediaWiki:Gadgets-definition]]. Ĉi superrigardo provizas facilan aliron al la sistemaj mesaĝoj kiuj difinas la priskribon kaj la kodon de ĉiuj aldonaĵoj.',
+	'gadgets-uses'      => 'uzas',
+);
+
 /** Extremaduran (Estremeñu)
  * @author Better
  */
@@ -249,6 +262,7 @@ $messages['fa'] = array(
  * @author Nike
  */
 $messages['fi'] = array(
+	'gadgets-desc'      => 'Tarjoaa mahdollisuuden käyttäjille ottaa käyttöö [[Special:Gadgets|määritettyjä CSS- ja JavaScript-pienoisohjelmia]] omista [[Special:Preferences|asetuksistaan]]',
 	'gadgets-prefs'     => 'Pienoisohjelmat',
 	'gadgets-prefstext' => 'Alla on lista pienoisohjelmista, joita käyttäjät voivat ottaa käyttöön. Nämä pienoisohjelmat pohjautuvat usein JavaScriptiin, joten toimiakseen selaimessasi pitää olla JavaScript käytössä.
 
@@ -734,6 +748,7 @@ $messages['sk'] = array(
  * @author Pyt
  */
 $messages['stq'] = array(
+	'gadgets-desc'      => 'Lät Benutsere in hiere [[{{#special:preferences}}|persöönelke Ienstaalengen]] foardefinierde [[Special:Gadgets|CSS- un JavaScript-Gadgets]] aktivierje',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => 'Lieste fon spezielle Gadgets do der foar älken Benutser aktivierd wäide konnen.
 Do Gadgets basierje maastens ap Javascript, deeruum mout Javascript in dän Browser aktivierd weese, uumdät jo funktionierje.
