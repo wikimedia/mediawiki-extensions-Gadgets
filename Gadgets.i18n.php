@@ -69,6 +69,7 @@ Ista lista premite ir rapedament t'as pachinas de mensaches d'o sistema que defi
 
 /** Arabic (العربية)
  * @author Meno25
+ * @author Siebrand
  */
 $messages['ar'] = array(
 	'gadgets-desc'      => 'يسمح للمستخدمين باختيار [[Special:Gadgets|إضافات سي إس إس وجافاسكريبت]] معدلة في [[Special:Preferences|تفضيلاتهم]]',
@@ -107,8 +108,8 @@ Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del
 
 /** Bulgarian (Български)
  * @author DCLXVI
- * @author Spiritia
  * @author Borislav
+ * @author Spiritia
  */
 $messages['bg'] = array(
 	'gadgets-desc'      => 'Позволява на потребителите да избират и активират [[Special:Gadgets|CSS и JavaScript джаджи]] от своите [[Special:Preferences|настройки]]',
@@ -122,6 +123,7 @@ $messages['bg'] = array(
 	'gadgets-title'     => 'Джаджи',
 	'gadgets-pagetext'  => 'По-долу е списъкът на специалните джаджи, които потребителите могат да активират чрез страницата си с настройки, както е указано на [[MediaWiki:Gadgets-definition]].
 Този списък дава лесен достъп до страниците със системни съобщения, съдържащи описанието и кода на всяка джаджа.',
+	'gadgets-uses'      => 'Използва',
 );
 
 /** Bengali (বাংলা)
@@ -262,7 +264,7 @@ $messages['fa'] = array(
  * @author Nike
  */
 $messages['fi'] = array(
-	'gadgets-desc'      => 'Tarjoaa mahdollisuuden käyttäjille ottaa käyttöö [[Special:Gadgets|määritettyjä CSS- ja JavaScript-pienoisohjelmia]] omista [[Special:Preferences|asetuksistaan]]',
+	'gadgets-desc'      => 'Tarjoaa mahdollisuuden käyttäjille ottaa käyttöön [[Special:Gadgets|määritettyjä CSS- ja JavaScript-pienoisohjelmia]] omista [[Special:Preferences|asetuksistaan]].',
 	'gadgets-prefs'     => 'Pienoisohjelmat',
 	'gadgets-prefstext' => 'Alla on lista pienoisohjelmista, joita käyttäjät voivat ottaa käyttöön. Nämä pienoisohjelmat pohjautuvat usein JavaScriptiin, joten toimiakseen selaimessasi pitää olla JavaScript käytössä.
 
@@ -313,19 +315,17 @@ Ceti survôlo balye un accès rapido a les pâges de mèssâjos sistèmo que dè
 /** Galician (Galego)
  * @author Alma
  * @author Xosé
+ * @author Toliño
  */
 $messages['gl'] = array(
 	'gadgets-prefs'     => 'Trebellos',
-	'gadgets-prefstext' => 'Embaixo hai unha lista de trebellos especiais que pode activar para a súa conta.
-A maioría destes trebellos baséanse en JavaScript, así que ten que ter o JavaScript activado no seu navegador para que funcionen.
-Teña en conta que estes trebellos non funcionarán nesta páxina de preferencias.
+	'gadgets-prefstext' => 'Embaixo hai unha lista de trebellos especiais que pode activar para a súa conta. A maioría destes trebellos baséanse en JavaScript, así que ten que ter o JavaScript activado no seu navegador para que funcionen. Teña en conta que estes trebellos non funcionarán nesta páxina de preferencias.
 
 Teña tamén en conta que estes trebellos especiais non son parte do software de MediaWiki e que os crean e manteñen
-os usuarios no seu wiki local. Os administradores locais poden editar os trebellos disponíbeis mediante [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]].',
+os usuarios no seu wiki local. Os administradores locais poden editar os trebellos dispoñíbeis mediante [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]].',
 	'gadgets'           => 'Trebellos',
 	'gadgets-title'     => 'Trebellos',
-	'gadgets-pagetext'  => 'Embaixo hai unha listaxe dos trebellos especiais que os usuarios poden habilitar nas súa páxina de preferencias, tal e como se define en [[MediaWiki:Gadgets-definition]].
-Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que define cada descrición e código dos trebellos.',
+	'gadgets-pagetext'  => 'Embaixo hai unha listaxe dos trebellos especiais que os usuarios poden habilitar na súa páxina de preferencias, tal e como se define en [[MediaWiki:Gadgets-definition]]. Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que define cada descrición e código dos trebellos.',
 	'gadgets-uses'      => 'Usos',
 );
 
@@ -513,6 +513,15 @@ Jergilikti äkimşiler jetimdi qajet närse tizimin [[{{ns:mediawiki}}:Gadgets-d
 	'gadgets-pagetext'  => 'Tömende arnawlı qajet quraldar tizimi beriledi. [[{{ns:mediawiki}}:Gadgets-definition]] betinde anıqtalğan qajet quraldardı qatıswşılar öziniñ baptawında qosa aladı.
 Bul şolw beti arqılı ärbir qajet quraldıñ sïpattaması men ämirin anıqtaýtın jüýe xabar betterine jeñil qatınaý alasız.',
 	'gadgets-uses'      => 'Qoldanwdağılar',
+);
+
+/** Khmer (ភាសាខ្មែរ)
+ * @author Chhorran
+ */
+$messages['km'] = array(
+	'gadgets-prefs' => 'ឧបករ សំបូរបែប',
+	'gadgets'       => 'ឧបករ សំបូរបែប',
+	'gadgets-title' => 'ឧបករ សំបូរបែប',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -827,6 +836,21 @@ $messages['th'] = array(
  */
 $messages['tr'] = array(
 	'gadgets-uses' => 'Kullanıyor',
+);
+
+/** Ukrainian (Українська)
+ * @author AS
+ */
+$messages['uk'] = array(
+	'gadgets-desc'      => 'дозволяє користувачам вибрати звичні [[Special:Достосування|CSS та JavaScript достосування]] у своїх [[Special:Preferences|налаштуваннях]]',
+	'gadgets-prefs'     => 'Достосування',
+	'gadgets-prefstext' => 'Перелік [[Довідка:Достосування|достосувань]], які ви можете собі увімкнути. Ці достосування головним чином базовані на JavaScript, тому JavaScript має бути увімкненим у вашому оглядачі для коректної роботи. Зауважте, що на сторінці налаштувань достосування не працюють.
+
+Також зауважте, що достосування — не частина програмного забезпечення MediaWiki, а, як правило, розробляються користувачами локальної чи інших Вікі. Локальні адміністратори можуть змінювати доступні достосування на сторінках [[MediaWiki:Gadgets-definition]] та [[Special:Gadgets]].',
+	'gadgets'           => 'Достосування',
+	'gadgets-title'     => 'Достосування',
+	'gadgets-pagetext'  => "Перелік системних повідомлень, які визначають '''назви''' [[{{SITENAME}}:Достосування|достосувань]], формується із [[MediaWiki:Gadgets-definition]]",
+	'gadgets-uses'      => 'Використовує',
 );
 
 /** Vietnamese (Tiếng Việt)
