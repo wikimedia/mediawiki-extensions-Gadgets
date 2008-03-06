@@ -813,7 +813,7 @@ $messages['te'] = array(
  * @author Ibrahim
  */
 $messages['tg'] = array(
-	'gadgets-desc'  => 'Аз тариқи саҳифаи [[Special:Preferences|тарҷиҳот]] ба корбарон имконияти интихоби абзорҳои шахсии CSS ва JavaScript-ро медиҳад.',
+	'gadgets-desc'  => 'Аз тариқи саҳифаи [[Special:Preferences|тарҷиҳот]] ба корбарон имконияти интихоби абзорҳои шахсии [[Special:Gadgets|CSS ва ҶаваСкрипт]]ро медиҳад.',
 	'gadgets-prefs' => 'Абзорҳо',
 	'gadgets'       => 'Абзорҳо',
 	'gadgets-title' => 'Абзорҳо',
