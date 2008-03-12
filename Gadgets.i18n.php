@@ -176,7 +176,7 @@ Tento přehled poskytuje jednoduchý přístup k&nbsp;systémovým hlášením, 
 );
 
 /** Danish (Dansk)
- * @author Morten LJ
+ * @author Morten
  */
 $messages['da'] = array(
 	'gadgets-desc'      => 'Lader brugere vælge brugerdefinerede [[Special:Gadgets|CSS og JavaScript gadgets]] i deres [[Special:Preferences|indstillinger]]',
@@ -516,12 +516,13 @@ Bul şolw beti arqılı ärbir qajet quraldıñ sïpattaması men ämirin anıqt
 );
 
 /** Khmer (ភាសាខ្មែរ)
+ * @author Lovekhmer
  * @author Chhorran
  */
 $messages['km'] = array(
 	'gadgets-prefs' => 'ឧបករ សំបូរបែប',
-	'gadgets'       => 'ឧបករ សំបូរបែប',
-	'gadgets-title' => 'ឧបករ សំបូរបែប',
+	'gadgets'       => 'Gadgets',
+	'gadgets-title' => 'Gadgets',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
