@@ -580,6 +580,13 @@ $messages['mr'] = array(
 	'gadgets-uses'  => 'उपयोग',
 );
 
+/** Low German (Plattdüütsch)
+ * @author Slomox
+ */
+$messages['nds'] = array(
+	'gadgets-uses' => 'Bruukt',
+);
+
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
