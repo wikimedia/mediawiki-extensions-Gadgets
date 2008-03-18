@@ -543,6 +543,7 @@ $messages['km'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
+	'gadgets-desc'  => 'Erméiglecht de Benotzer et perséinlech [[Special:Gadgets|CSS a JavaScript Gadgeten]] an hiren [[Special:Preferences|Astellunge]] festzeleeën.',
 	'gadgets-prefs' => 'Gadgeten',
 	'gadgets'       => 'Gadgeten',
 	'gadgets-title' => 'Gadgeten',
