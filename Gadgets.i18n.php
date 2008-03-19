@@ -620,8 +620,8 @@ De uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet 
 De uitbreidingen hebben geen invloed op deze pagina met voorkeuren.
 
 Deze speciale uitbreidingen zijn ook geen onderdeel van de MediaWiki-software, en ze worden meestal ontwikkeld en onderhouden
-door gebruikers van uw wiki. Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition]]
-en [[Special:Gadgets]].',
+door gebruikers van uw wiki.
+Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition]] en [[Special:Gadgets]].',
 	'gadgets'           => 'Uitbreidingen',
 	'gadgets-title'     => 'Uitbreidingen',
 	'gadgets-pagetext'  => 'Hieronder staan de speciale uitbreidingen die gebruikers kunnen inschakelen via hun voorkeuren, zoals ingesteld in [[MediaWiki:Gadgets-definition]].
