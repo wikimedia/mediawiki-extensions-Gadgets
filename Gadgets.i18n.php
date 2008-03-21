@@ -409,7 +409,7 @@ Tutón přehlad skići lochki přistup k systemowym zdźělenkam, kotrež pomjen
 
 /** Hungarian (Magyar)
  * @author Tgr
- * @author Bdanee
+ * @author Dani
  */
 $messages['hu'] = array(
 	'gadgets-desc'      => 'A felhasználók saját [[Special:Gadgets|CSS és JavaScript eszközöket]] választhatnak ki a [[Special:Preferences|beállításaiknál]]',
