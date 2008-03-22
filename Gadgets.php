@@ -77,7 +77,7 @@ function wfLoadGadgetsStructured( $forceNewText = NULL ) {
 	if ( $forceNewText == NULL ) {
 		//cached?
 		$gadgets = $wgMemc->get( $key );
-		if ( $gadgets !== NULL ) return $gadgets;
+		if ( is_string($gadgets) ) return $gadgets;
 
 		$g = wfMsgForContentNoTrans( "gadgets-definition" );
 		if ( wfEmptyMsg( "gadgets-definition", $g ) ) {
