@@ -948,6 +948,7 @@ $messages['yue'] = array(
  */
 $messages['zh-hans'] = array(
 	'gadgets-prefs'     => '小工具',
+	'gadgets-desc'      => '讓用户可以在[[Special:Preferences|参数设置]]中自訂 [[Special:Gadgets|CSS与JavaScript工具]]', 
 	'gadgets-prefstext' => '以下是一个特殊小工具，您可以在您的账户中激活。
 这些小工具多数都是基于JavaScript建造，如果要激活它们，那么浏览器的JavaScript就需要激活后方可使用。
 要留意的是这些小工具在这个参数设置页面中是没有效果的。
@@ -965,6 +966,7 @@ $messages['zh-hans'] = array(
  */
 $messages['zh-hant'] = array(
 	'gadgets-prefs'     => '小工具',
+	'gadgets-desc'      => '讓使用者可以在[[Special:Preferences|偏好設定]]中自訂 [[Special:Gadgets|CSS與JavaScript工具]]',
 	'gadgets-prefstext' => '以下是一個特殊小工具，您可以在您的帳戶中啟用。
 這些小工具多數都是基於JavaScript建造，如果要啟用它們，那麼瀏覽器的JavaScript就需要啟用後方可使用。
 要留意的是這些小工具在這個參數設置頁面中是沒有效果的。
@@ -976,4 +978,3 @@ $messages['zh-hant'] = array(
 這個概覽提供的系統信息頁面的簡易存取，可以定義每個小工具的描述以及原碼。',
 	'gadgets-uses'      => '使用',
 );
-
