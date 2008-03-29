@@ -926,11 +926,12 @@ $messages['vo'] = array(
 	'gadgets-uses' => 'Gebs',
 );
 
-/** Yue (粵語)
+/** Cantonese (廣東話)
  * @author Shinjiman
  */
 $messages['yue'] = array(
 	'gadgets-prefs'     => '小工具',
+	'gadgets-desc'      => '畀用戶響佢哋嘅[[Special:Preferences|喜好設定]]度設定自定嘅[[Special:Gadgets|CSS同埋JavaScript小工具]]',
 	'gadgets-prefstext' => '下面係一個特別小工具，你可以響你個戶口度啟用。
 呢啲小工具多數都係基於JavaScript建造，如果要開佢哋，噉個瀏覽器嘅JavaScript就需要啟用咗先至用得到。
 要留意嘅就係呢啲小工具響呢個喜好設定版度係無效果嘅。
