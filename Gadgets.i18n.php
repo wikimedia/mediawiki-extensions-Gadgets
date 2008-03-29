@@ -594,6 +594,16 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
 	'gadgets-uses'      => 'Panaudojimai',
 );
 
+/** Malayalam (മലയാളം)
+ * @author Shijualex
+ */
+$messages['ml'] = array(
+	'gadgets-prefs' => 'ഗാഡ്ജറ്റ്',
+	'gadgets'       => 'ഗാഡ്ജറ്റ്',
+	'gadgets-title' => 'ഗാഡ്ജറ്റ്',
+	'gadgets-uses'  => 'ഉപയോഗങ്ങള്‍',
+);
+
 /** Marathi (मराठी)
  * @author Mahitgar
  * @author Kaustubh
@@ -979,3 +989,4 @@ $messages['zh-hant'] = array(
 這個概覽提供的系統信息頁面的簡易存取，可以定義每個小工具的描述以及原碼。',
 	'gadgets-uses'      => '使用',
 );
+
