@@ -442,6 +442,13 @@ Juga perhatikan bahwa gadget istimewa ini bukanlah bagian dari perangkat lunak M
 	'gadgets-uses'      => 'Penggunaan',
 );
 
+/** Icelandic (Íslenska)
+ * @author Jóna Þórunn
+ */
+$messages['is'] = array(
+	'gadgets-uses' => 'Notar',
+);
+
 /** Italian (Italiano)
  * @author BrokenArrow
  */
