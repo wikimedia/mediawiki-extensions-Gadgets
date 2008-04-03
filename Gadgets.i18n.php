@@ -165,13 +165,14 @@ Aquesta llista us permet un fàcil accés a les pàgines del sistema que definei
  * @author Li-sung
  */
 $messages['cs'] = array(
-	'gadgets-desc'      => 'Uživatelé si mohou vybrat javaskriptové udělátko ve svém [[Special:Preferences|nastavení]].',
+	'gadgets-desc'      => 'Umožňuje uživatelům vybrat si [[Special:Gadgets|CSS a JavaScriptové udělátko]] ve svém [[Special:Preferences|nastavení]].',
 	'gadgets-prefs'     => 'Udělátka',
 	'gadgets-prefstext' => 'Níže je přehled speciálních udělátek, které si můžete ve svém účtu zapnout.
 Tato udělátka jsou převážně založena na JavaScriptu, takže pro jejich funkčnost je nutné mít ve svém prohlížeči JavaScript zapnutý.
 Udělátka nejsou aplikována na této stránce nastavení.
 
-Uvědomte si také, že speciální udělátka nejsou součástí softwaru MediaWiki a&nbsp;jsou vytvářena a&nbsp;spravována uživateli této wiki. Místní správci mohou editovat udělátka prostřednictvím [[MediaWiki:Gadgets-definition]] a&nbsp;[[Special:Gadgets]].',
+Uvědomte si také, že speciální udělátka nejsou součástí softwaru MediaWiki a&nbsp;jsou vytvářena a&nbsp;spravována uživateli této wiki.
+Místní správci mohou editovat udělátka prostřednictvím [[MediaWiki:Gadgets-definition]] a&nbsp;[[Special:Gadgets]].',
 	'gadgets'           => 'Udělátka',
 	'gadgets-title'     => 'Udělátka',
 	'gadgets-pagetext'  => 'Níže je přehled speciálních udělátek, která si uživatelé mohou zapnout ve svém nastavení. Seznam lze upravovat na [[MediaWiki:Gadgets-definition]].
