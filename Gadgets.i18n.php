@@ -376,6 +376,16 @@ $messages['he'] = array(
 	'gadgets-uses'      => 'משתמש בדפים',
 );
 
+/** Hindi (हिन्दी)
+ * @author Kaustubh
+ */
+$messages['hi'] = array(
+	'gadgets-prefs' => 'उपकरण (गैज़ेट)',
+	'gadgets'       => 'उपकरण',
+	'gadgets-title' => 'उपकरण',
+	'gadgets-uses'  => 'उपयोग',
+);
+
 /** Croatian (Hrvatski)
  * @author SpeedyGonsales
  */
