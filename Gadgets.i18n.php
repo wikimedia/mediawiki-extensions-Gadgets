@@ -163,12 +163,13 @@ Aquesta llista us permet un fàcil accés a les pàgines del sistema que definei
 /** Czech (Česky)
  * @author Danny B.
  * @author Li-sung
+ * @author Siebrand
  */
 $messages['cs'] = array(
 	'gadgets-desc'      => 'Umožňuje uživatelům vybrat si [[Special:Gadgets|CSS a JavaScriptové udělátko]] ve svém [[Special:Preferences|nastavení]].',
 	'gadgets-prefs'     => 'Udělátka',
 	'gadgets-prefstext' => 'Níže je přehled speciálních udělátek, které si můžete ve svém účtu zapnout.
-Tato udělátka jsou převážně založena na JavaScriptu, takže pro jejich funkčnost je nutné mít ve svém prohlížeči JavaScript zapnutý.
+Tato udělátka jsou převážně založena na JavaScriptu, takže pro jejich funkčnost je nutné mít ve svém prohlížeči JavaScript zapnutý. 
 Udělátka nejsou aplikována na této stránce nastavení.
 
 Uvědomte si také, že speciální udělátka nejsou součástí softwaru MediaWiki a&nbsp;jsou vytvářena a&nbsp;spravována uživateli této wiki.
