@@ -5,7 +5,7 @@
  * @addtogroup Extensions
  * @author Daniel Kinzler, brightbyte.de
  * @copyright © 2007 Daniel Kinzler
- * @licence GNU General Public Licence 2.0 or later
+ * @license GNU General Public Licence 2.0 or later
  */
 
 $messages = array();
@@ -200,6 +200,7 @@ Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren o
  */
 $messages['de'] = array(
 	'gadgets-desc'      => 'Ermöglicht Benutzern, in ihren [[{{#special:preferences}}|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Gadgets]] zu aktivieren',
+	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => 'Liste von speziellen Gadgets die für jeden Benutzer aktiviert werden können.
 Die Gadgets basieren zumeinst auf JavaScript, daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren.
 Die Gadgets funktionieren allerdings nicht auf dieser Seite mit persönlichen Einstellungen.
@@ -207,6 +208,8 @@ Die Gadgets funktionieren allerdings nicht auf dieser Seite mit persönlichen Ei
 Ausserdem ist zu beachten, dass diese Gadgets im Allgemeinen nicht Teil von MediaWiki sind, sondern meist von
 Benutzern des lokalen Wikis entwickelt und gewartet werden. Lokale Wiki-Administratoren können die Liste von
 verfügbaren Gadgets über die Seiten [[MediaWiki:Gadgets-definition]] und [[Special:Gadgets]] bearbeiten',
+	'gadgets'           => 'Gadgets',
+	'gadgets-title'     => 'Gadgets',
 	'gadgets-pagetext'  => 'Liste von speziellen Gadgets, die für jeden Benutzer verfügbar sind, wie in [[MediaWiki:Gadgets-definition]] definiert.
 Diese Übersicht bietet direkten Zugang zu den Systemnachrichten, die die Beschreibung sowie den Programmcode jedes
 Gadgets enthalten.',
