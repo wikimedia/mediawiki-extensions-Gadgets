@@ -943,6 +943,16 @@ $messages['uk'] = array(
 	'gadgets-uses'      => 'Використовує',
 );
 
+/** Vèneto (Vèneto)
+ * @author Candalua
+ */
+$messages['vec'] = array(
+	'gadgets'          => 'Acessori',
+	'gadgets-title'    => 'Acessori',
+	'gadgets-pagetext' => "De seguito vien presentà n'elenco de acessori (''gadget'') che i utenti i pol abilitar su la so pagina de le preferenze, seguendo le definizion riportà in [[MediaWiki:Gadgets-definition]]. Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistema nei quali xe definìo la descrizion e el codice de ciascun acessorio.",
+	'gadgets-uses'     => 'Dopara',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Vinhtantran
  * @author Meno25
