@@ -150,6 +150,7 @@ $messages['bn'] = array(
  * @author Fulup
  */
 $messages['br'] = array(
+	'gadgets-desc'  => 'Leuskel a ra an implijerien da bersonelaat [[Special:Gadgets|bitrakoù CSS ha JavaScript]] en o [[Special:Preferences|fenndibaboù]]',
 	'gadgets-prefs' => 'Bitrakoù',
 	'gadgets'       => 'Bitrakoù',
 	'gadgets-title' => 'Bitrakoù',
@@ -339,10 +340,10 @@ Ceti survôlo balye un accès rapido a les pâges de mèssâjos sistèmo que dè
 
 /** Galician (Galego)
  * @author Alma
- * @author Xosé
  * @author Toliño
  */
 $messages['gl'] = array(
+	'gadgets-desc'      => 'Deixa que os usuarios seleccionen [[Special:Gadgets|trebellos CSS e JavaScript]] nas súas [[Special:Preferences|preferencias]]',
 	'gadgets-prefs'     => 'Trebellos',
 	'gadgets-prefstext' => 'Embaixo hai unha lista de trebellos especiais que pode activar para a súa conta. A maioría destes trebellos baséanse en JavaScript, así que ten que ter o JavaScript activado no seu navegador para que funcionen. Teña en conta que estes trebellos non funcionarán nesta páxina de preferencias.
 
@@ -631,10 +632,13 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
  * @author Shijualex
  */
 $messages['ml'] = array(
-	'gadgets-prefs' => 'ഗാഡ്ജറ്റ്',
-	'gadgets'       => 'ഗാഡ്ജറ്റ്',
-	'gadgets-title' => 'ഗാഡ്ജറ്റ്',
-	'gadgets-uses'  => 'ഉപയോഗങ്ങള്‍',
+	'gadgets-desc'     => 'ഉപയോക്താക്കള്‍ [[Special:Preferences|ക്രമീകരണങ്ങളില്‍ നിന്നു]] അവര്‍ക്കിഷ്ടമുള്ള [[Special:Gadgets|CSS, JavaScript ഗാഡ്ജറ്റുകള്‍]] തിരഞ്ഞെടുക്കട്ടെ.',
+	'gadgets-prefs'    => 'ഗാഡ്ജറ്റ്',
+	'gadgets'          => 'ഗാഡ്ജറ്റ്',
+	'gadgets-title'    => 'ഗാഡ്ജറ്റ്',
+	'gadgets-pagetext' => 'ഉപയോക്താക്കള്‍ക്ക് അവരുടെ ക്രമീകരണങ്ങള്‍ താള്‍ ഉപയോഗിച്ച് പ്രാപ്തമാകാവുന്ന ഗാഡ്ജറ്റുകളുടെ ([MediaWiki:Gadgets-definition]] പ്രകാരം നിര്‍‌വചിച്ചിരിക്കുന്നത്) പട്ടിക താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു  
+ഓരോ ഗാഡ്ജറ്റിന്റേയും വിവരണവും കോഡും ഉള്ള സന്ദേശ താളുകളിലേക്കു പോകാനുള്ള എളുപ്പവഴി ഈ പട്ടിക നല്‍കുന്നു.',
+	'gadgets-uses'     => 'ഉപയോഗങ്ങള്‍',
 );
 
 /** Marathi (मराठी)
@@ -909,11 +913,13 @@ $messages['tg-cyrl'] = array(
  * @author Passawuth
  */
 $messages['th'] = array(
-	'gadgets-desc'  => 'อนุญาตให้ผู้ใช้เลือก [[Special:Gadgets|แกเจตที่สร้างโดยใช้ CSS และ จาวาสคริปต์]] ในหน้า [[Special:Preferences|การตั้งค่า]] ของพวกเขา',
-	'gadgets-prefs' => 'แกเจต',
-	'gadgets'       => 'แกเจต',
-	'gadgets-title' => 'แกเจต',
-	'gadgets-uses'  => 'การใช้',
+	'gadgets-desc'      => 'อนุญาตให้ผู้ใช้เลือก [[Special:Gadgets|แกเจตที่สร้างโดยใช้ CSS และ จาวาสคริปต์]] ในหน้า [[Special:Preferences|การตั้งค่า]] ของพวกเขา',
+	'gadgets-prefs'     => 'แกเจต',
+	'gadgets-prefstext' => 'ด้านล่างเป็นรายการแสดงแกเจต (gadget) ที่สามารถใช้งานได้สำหรับผู้ใช้ที่ล็อกอิน โดยแกเจตส่วนใหญ่ทำงานผ่านจาวาสคริปต์ โดยแกเจตทั้งหมดไม่ได้เป็นส่วนหนึ่งของซอฟต์แวร์มีเดียวิกิ แต่พัฒนาโดยผู้ใช้งานในวิกิพีเดียแต่ละภาษา โดยผู้ดูแลระบบสามารถนำเข้ามาใส่ผ่านหน้า [[MediaWiki:Gadgets-definition]] และ [[Special:Gadgets]]',
+	'gadgets'           => 'แกเจต',
+	'gadgets-title'     => 'แกเจต',
+	'gadgets-pagetext'  => 'ด้านล่างเป็นรายการแกเจตพิเศษที่ผู้ใช้สามารถตั้งค่าได้ในส่วนการตั้งค่าส่วนตัว โดยแกเจตทั้งหมดถูกกำหนดในหน้า [[MediaWiki:Gadgets-definition]]',
+	'gadgets-uses'      => 'การใช้',
 );
 
 /** Turkish (Türkçe)
@@ -947,10 +953,16 @@ $messages['uk'] = array(
  * @author Candalua
  */
 $messages['vec'] = array(
-	'gadgets'          => 'Acessori',
-	'gadgets-title'    => 'Acessori',
-	'gadgets-pagetext' => "De seguito vien presentà n'elenco de acessori (''gadget'') che i utenti i pol abilitar su la so pagina de le preferenze, seguendo le definizion riportà in [[MediaWiki:Gadgets-definition]]. Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistema nei quali xe definìo la descrizion e el codice de ciascun acessorio.",
-	'gadgets-uses'     => 'Dopara',
+	'gadgets-desc'      => 'Consente ai utenti de selezionar [[Special:Gadgets|acessori CSS e JavaScript]] ne le proprie [[Special:Preferences|preferense]]',
+	'gadgets-prefs'     => 'Acessori',
+	'gadgets-prefstext' => "De seguito se cata na lista de acessori speciali (''gadget'') che se pol abilitar par el proprio account.
+La mazor parte de sti acessori la se basa su JavaScript, e quindi te ghè da abilitar JavaScript sul to browser se te vol che i funsiona coretamente. Nota che i accessori no i gà nissun efeto in sta pagina de preferense.
+
+Nota anca che sti acessori speciali no i fa parte del software MediaWiki e i vien de solito realizà e gestìi dai utenti de ogni sito wiki. I aministradori del sito i pol modificar la lista dei acessori disponibili tramite le pagine [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]]",
+	'gadgets'           => 'Acessori',
+	'gadgets-title'     => 'Acessori',
+	'gadgets-pagetext'  => "De seguito vien presentà n'elenco de acessori (''gadget'') che i utenti i pol abilitar su la so pagina de le preferenze, seguendo le definizion riportà in [[MediaWiki:Gadgets-definition]]. Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistema nei quali xe definìo la descrizion e el codice de ciascun acessorio.",
+	'gadgets-uses'      => 'Dopara',
 );
 
 /** Vietnamese (Tiếng Việt)
