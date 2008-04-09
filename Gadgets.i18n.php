@@ -159,8 +159,10 @@ $messages['br'] = array(
 
 /** Catalan (Català)
  * @author SMP
+ * @author Paucabot
  */
 $messages['ca'] = array(
+	'gadgets-desc'      => 'Permet als usuaris personalitzar [[Special:Gadgets|els gadgets CSS i JavaScript]] a les seves [[Special:Preferences|preferències]]',
 	'gadgets-prefstext' => "A continuació teniu una llista de «gadgets» especials que podeu activar al vostre compte.
 La majoria d'aquests gadgets fan servir JavaScript, per tant haureu de tenir un navegador que funcioni amb aquest llenguatge activat per a que vos funcionin.
 Tingueu en compte que els gadgets no funcionaran en aquesta pàgina.
@@ -738,9 +740,11 @@ $messages['oc'] = array(
 $messages['pl'] = array(
 	'gadgets-desc'      => 'Pozwala użytkownikom wybrać [[Special:Gadgets|gadżety CSS i JavaScript]] na [[Special:Preferences|stronie preferencji]]',
 	'gadgets-prefs'     => 'Gadżety',
-	'gadgets-prefstext' => 'Poniżej znajduje się lista specjalnych gadżetów, które możesz włączyć dla swojego konta. Gadżety opierają się w większości na JavaScripcie, więc by działały musisz mieć w swojej przeglądarce włączony JavaScript. Pamiętaj, że nie będą one miały wpływu na tę stronę preferencji.
+	'gadgets-prefstext' => 'Poniżej znajduje się lista specjalnych gadżetów, które możesz włączyć dla swojego konta użytkownika.
+Gadżety najczęściej wykorzystują JavaScript, więc by działały musisz mieć w swojej przeglądarce włączoną obsługę JavaScript. Gadżety nie mają wpływu na tę stronę preferencji.
 
-Gadżety nie są częścią oprogramowania MediaWiki i najprawdopodobniej zostały stworzone przez użytkowników tego wiki. Lokalni administratorzy mogą edytować dostępne gadżety używając stron [[MediaWiki:Gadgets-definition]] i [[Special:Gadgets]].',
+Gadżety nie są częścią oprogramowania MediaWiki i najprawdopodobniej zostały stworzone przez użytkowników tego wiki.
+Lokalni administratorzy mogą edytować dostępne gadżety używając stron [[MediaWiki:Gadgets-definition|Definicje gadżetów]] oraz [[Special:Gadgets|Gadżety]].',
 	'gadgets'           => 'Gadżety',
 	'gadgets-title'     => 'Gadżety',
 	'gadgets-pagetext'  => 'Poniżej znajduje się lista specjalnych gadżetów, które użytkownicy mogą włączyć na swojej stronie preferencji, jak zdefiniowano to na stronie [[MediaWiki:Gadgets-definition]]. Ten przegląd daje łatwy dostęp do komunikatów systemu, które definiują opis i kod każdego z gadżetów.',
