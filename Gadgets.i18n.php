@@ -524,6 +524,16 @@ Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren o
 	'gadgets-uses'      => 'Brugere',
 );
 
+/** Javanese (Basa Jawa)
+ * @author Meursault2004
+ */
+$messages['jv'] = array(
+	'gadgets-prefs' => 'Gadget',
+	'gadgets'       => 'Gadget',
+	'gadgets-title' => 'Gadget',
+	'gadgets-uses'  => 'Kagunan',
+);
+
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
 $messages['kk-arab'] = array(
 	'gadgets-prefs'     => 'قاجەت قۇرالدار',
