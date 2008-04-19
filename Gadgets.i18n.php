@@ -528,6 +528,7 @@ Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren o
  * @author Meursault2004
  */
 $messages['jv'] = array(
+	'gadgets-desc'  => 'Marengaké para panganggo milih [[Special:Gadgets|gadget CSS lan JavaScript]] ngliwati [[Special:Preferences|préferènsi]] dhéwé-dhéwé.',
 	'gadgets-prefs' => 'Gadget',
 	'gadgets'       => 'Gadget',
 	'gadgets-title' => 'Gadget',
