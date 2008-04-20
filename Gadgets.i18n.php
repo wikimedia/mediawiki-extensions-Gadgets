@@ -588,12 +588,14 @@ Bul şolw beti arqılı ärbir qajet quraldıñ sïpattaması men ämirin anıqt
 
 /** Khmer (ភាសាខ្មែរ)
  * @author Lovekhmer
+ * @author គីមស៊្រុន
  * @author Chhorran
  */
 $messages['km'] = array(
 	'gadgets-prefs' => 'ឧបករ សំបូរបែប',
 	'gadgets'       => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
+	'gadgets-uses'  => 'ប្រើ',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
