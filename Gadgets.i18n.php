@@ -682,7 +682,10 @@ $messages['mr'] = array(
  * @author Slomox
  */
 $messages['nds'] = array(
-	'gadgets-uses' => 'Bruukt',
+	'gadgets-prefs' => 'Gadgets',
+	'gadgets'       => 'Gadgets',
+	'gadgets-title' => 'Gadgets',
+	'gadgets-uses'  => 'Bruukt',
 );
 
 /** Dutch (Nederlands)
