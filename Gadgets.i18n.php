@@ -617,11 +617,12 @@ $messages['km'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'gadgets-desc'  => 'Erméiglecht de Benotzer et perséinlech [[Special:Gadgets|CSS a JavaScript Gadgeten]] an hiren [[Special:Preferences|Astellunge]] festzeleeën.',
-	'gadgets-prefs' => 'Gadgeten',
-	'gadgets'       => 'Gadgeten',
-	'gadgets-title' => 'Gadgeten',
-	'gadgets-uses'  => 'Benotzt',
+	'gadgets-desc'     => 'Erméiglecht de Benotzer et perséinlech [[Special:Gadgets|CSS a JavaScript Gadgeten]] an hiren [[Special:Preferences|Astellunge]] festzeleeën.',
+	'gadgets-prefs'    => 'Gadgeten',
+	'gadgets'          => 'Gadgeten',
+	'gadgets-title'    => 'Gadgeten',
+	'gadgets-pagetext' => "Ënnendrënner ass eng Lëscht vun de spezielle Gadgeten déi d'Benotzer op hire Benotzer-Astellungen aschalte kënnen, esou wéi dat op [[MediaWiki:Gadgets-definition]] definéiert ass. Dës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all Gadget beschreiwen an definéieren.",
+	'gadgets-uses'     => 'Benotzt',
 );
 
 /** Limburgish (Limburgs)
