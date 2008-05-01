@@ -443,11 +443,11 @@ $messages['hsb'] = array(
 	'gadgets-prefstext' => 'Deleka je lisćina specialnych funkcijow, kotrež móžeš za swoje wužiwarske konto aktiwizować. Tute specialne funkcije zwjetša na JavaScripće bazěruja, tohodla dyrbi JavaScript we wobhladowaku aktiwizowany być, zo bychu fungowali.
 Wobkedźbuj tež, zo so tute specialne funkcije na stronje z twojimi wosobinskimi nastajenjemi njewuskutkuja.
 
-Nimo toho wobkedźbuj, zo tute specialne funkcije nejsu dźěl softwary MediaWiki a so zwjetša wot wužiwarjow na swojim lokalnym wikiju wuwiwaja a wothladuja. Lokalni administratorojo móža lisćinu k dispoziciji stejacych specialnych funkcijow přez [[MediaWiki:Gadgets-definition]] a [[Special:Gadgets]] wobdźěłać.',
+Nimo toho wobkedźbuj, zo tute specialne funkcije dźěl softwary MediaWiki njejsu a so zwjetša wot wužiwarjow na jich lokalnym wikiju wuwiwaja a wothladuja. Lokalni administratorojo móža lisćinu k dispoziciji stejacych specialnych funkcijow přez [[MediaWiki:Gadgets-definition]] a [[Special:Gadgets]] wobdźěłać.',
 	'gadgets'           => 'Specialne funkcije',
 	'gadgets-title'     => 'Specialne funkcije',
-	'gadgets-pagetext'  => 'Deleka je lisćina specialnych funkcijow, kotrež wwužiwarjo móža na swojej stronje nastajenjow, kaž přez [[MediaWiki:Gadgets-definition]] definowane.
-Tutón přehlad skići lochki přistup k systemowym zdźělenkam, kotrež pomjenjowanje a kod kóždeje specialneje funkcije wobsahuja.',
+	'gadgets-pagetext'  => 'Deleka je lisćina specialnych funkcijow, kotrež wužiwarjo móža na swojej stronje nastajenjow zmóžnić, kaž přez [[MediaWiki:Gadgets-definition]] definowane.
+Tutón přehlad skići lochki přistup k systemowym zdźělenkam, kotrež wopisanje a kod kóždeje specialneje funkcije definuja.',
 	'gadgets-uses'      => 'Wužiwa',
 );
 
@@ -648,6 +648,7 @@ Dit euverzich bi-jtj uch einvoudige toegank toet de systeemtekspazjena wo de bes
  * @author Vpovilaitis
  */
 $messages['lt'] = array(
+	'gadgets-desc'      => 'Leidžia naudotojams pasirinkti savo [[Special:Gadgets|CSS ir JavaScript priemones]] jų [[Special:Preferences|nustatymuose]]',
 	'gadgets-prefs'     => 'Priemonės',
 	'gadgets-prefstext' => 'Žemiau yra sąrašas specialių priemonių, kurias jūs galite įjungti naudojimui.
 Šios priemonės daugiausia yra sukurtos naudojant JavaScript, todėl JavaScript panaudojimas turi būti įjungtas jūsų brauseryje, kad jos veiktų.
