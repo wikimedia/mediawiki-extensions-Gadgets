@@ -771,6 +771,25 @@ Los administrators pòdon modificar los gadgets en passant per [[MediaWiki:Gadge
 	'gadgets-uses'      => 'Utiliza',
 );
 
+/** Pampanga (Kapampangan)
+ * @author Katimawan2005
+ */
+$messages['pam'] = array(
+	'gadgets-desc'      => 'Didinan nong tsansa/pamikatagun a mamiling pasadiang [[Special:Gadgets|CSS ampong JavaScript gadget]] ketang karelang [[Special:Preferences|pinili]] (preferences)',
+	'gadgets-prefs'     => 'Deng gadget',
+	'gadgets-prefstext' => 'Ating tala (listaan) da reng espesial a gadget a agamit mu ba meng apaliari (enable) ing kekang account.
+Uling makabasi la king JavaScript deng keraklan kareting gadget, kailangan yang papaliari ing JavaScript king kekang browser ba lang gumada deti.
+Tandanan mung ala lang epektu king bulung da ring pinili (preferences page) deng gadget a reti.
+
+Tandanan mu muring e la kayabe king MediaWiki software deting gadget, at keraklan, gagawan da la ampong mamantinian deng talagamit ketang kekayung lokal a wiki.
+Maliari lang makapag-edit deng talapanibala (administrator) kareng gadget a atiu nung gamitan de ing [[MediaWiki:Gadgets-definition]] ampo ing [[Special:Gadgets]].',
+	'gadgets'           => 'Deng gadget',
+	'gadgets-title'     => 'Deng gadget',
+	'gadgets-pagetext'  => 'Makabili ya king lalam ing tala (listaan) da reng espesial a gadget a apaliari (enable) da reng talagamit ketang karelang bulung da ring pinili (preferences page), agpang king kabaldugan king [[MediaWiki:Gadgets-definition]].
+Gawa nang malagua niting piyakitan (overview) ing pamanintun kareng bulung a maki system message a milalarawan king balang gadget at babie king kayang code.',
+	'gadgets-uses'      => 'Gamit',
+);
+
 /** Polish (Polski)
  * @author Derbeth
  * @author Sp5uhe
