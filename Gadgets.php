@@ -67,26 +67,24 @@ function wfLoadGadgets() {
 }
 
 function wfLoadGadgetsStructured( $forceNewText = NULL ) {
-	global $wgContLang;
-	global $wgMemc, $wgDBname;
+	global $wgMemc;
 
 	static $gadgets = NULL;
 	if ( $gadgets !== NULL && $forceNewText !== NULL ) return $gadgets;
 
-	$key = "$wgDBname:gadgets-definition";
+	$key = wfMemcKey( 'gadgets-definition' );
 
-	if ( $forceNewText == NULL ) {
+	if ( $forceNewText === NULL ) {
 		//cached?
 		$gadgets = $wgMemc->get( $key );
-		if ( is_string($gadgets) ) return $gadgets;
+		if ( is_array($gadgets) ) return $gadgets;
 
 		$g = wfMsgForContentNoTrans( "gadgets-definition" );
 		if ( wfEmptyMsg( "gadgets-definition", $g ) ) {
 			$gadgets = false;
 			return $gadgets;
 		}
-	}
-	else {
+	} else {
 		$g = $forceNewText;
 	}
 
@@ -115,8 +113,9 @@ function wfLoadGadgetsStructured( $forceNewText = NULL ) {
 	}
 
 	//cache for a while. gets purged automatically when MediaWiki:Gadgets-definition is edited
-	$wgMemc->set( $key, $gadgets, 900 );
-	wfDebug("wfLoadGadgetsStructured: MediaWiki:Gadgets-definition parsed, cache entry $key updated\n");
+	$wgMemc->set( $key, $gadgets, 60*60*24 );
+	$source = $forceNewText !== NULL ? 'input text' : 'MediaWiki:Gadgets-definition';
+	wfDebug( __METHOD__ . ": $source parsed, cache entry $key updated\n");
 
 	return $gadgets;
 }
