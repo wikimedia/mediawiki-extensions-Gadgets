@@ -851,7 +851,7 @@ Esta visão geral proporciona um acesso fácil para as mensagens de sistema que 
  * @author VasilievVV
  * @author Illusion
  * @author Siebrand
- * @author .:Ajvol:.
+ * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'gadgets-desc'      => 'Позволяет участникам выбирать в [[Special:Preferences|настройках]] CSS- и JavaScript-гаджеты, которые они хотят подключить',
