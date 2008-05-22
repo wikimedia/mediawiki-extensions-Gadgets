@@ -617,12 +617,15 @@ $messages['km'] = array(
  * @author Robby
  */
 $messages['lb'] = array(
-	'gadgets-desc'     => 'Erméiglecht de Benotzer et perséinlech [[Special:Gadgets|CSS a JavaScript Gadgeten]] an hiren [[Special:Preferences|Astellunge]] festzeleeën.',
-	'gadgets-prefs'    => 'Gadgeten',
-	'gadgets'          => 'Gadgeten',
-	'gadgets-title'    => 'Gadgeten',
-	'gadgets-pagetext' => "Ënnendrënner ass eng Lëscht vun de spezielle Gadgeten déi d'Benotzer op hire Benotzer-Astellungen aschalte kënnen, esou wéi dat op [[MediaWiki:Gadgets-definition]] definéiert ass. Dës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all Gadget beschreiwen an definéieren.",
-	'gadgets-uses'     => 'Benotzt',
+	'gadgets-desc'      => 'Erméiglecht de Benotzer et perséinlech [[Special:Gadgets|CSS a JavaScript Gadgeten]] an hiren [[Special:Preferences|Astellunge]] festzeleeën.',
+	'gadgets-prefs'     => 'Gadgeten',
+	'gadgets-prefstext' => "Lëscht vu spezielle Gadgeten déi fir all Benotzer aktivéiert kënne ginn. D'Gadgeten baséiere meeschtens op engem JavaScript, dafir muss JavaScript an ärem Browser aktivéiert sinn, fir datt se fonctionéieren. D'Gadgete fonctionéieren awer net op dëser Säit matt de perséinlechen Astellungen.
+
+Ausserdem sollt dir wëssen, datt dës Gadgeten generell net DEel vu MediaWiki sinn, a meeschtens vu Benotzer vun der lokaler Wikis entwéckelt an ënnerhal ginn. Lokal Wiki-Administrateure kënnen d'Lëscht von den disponibele Gadgeten op de Säiten [[MediaWiki:Gadgets-definition]] a [[Special:Gadgets]] änneren.",
+	'gadgets'           => 'Gadgeten',
+	'gadgets-title'     => 'Gadgeten',
+	'gadgets-pagetext'  => "Ënnendrënner ass eng Lëscht vun de spezielle Gadgeten déi d'Benotzer op hire Benotzer-Astellungen aschalte kënnen, esou wéi dat op [[MediaWiki:Gadgets-definition]] definéiert ass. Dës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all Gadget beschreiwen an definéieren.",
+	'gadgets-uses'      => 'Benotzt',
 );
 
 /** Limburgish (Limburgs)
