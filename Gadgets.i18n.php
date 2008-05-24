@@ -764,7 +764,7 @@ $messages['oc'] = array(
 	'gadgets-desc'      => 'Daissa als utilizaires los [[Special:Gadgets|gadgets CSS e JavaScript]] dins lor [[Special:Preferences|preferéncias]]',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => "Çaijós apareis una tièra de gadgets que podètz activar per vòstre compte.
-Fan ampèl a JavaScript, deu doncas èsser activat per vòstre navigaire Web.
+Fan ampèl a JavaScript, deu doncas èsser activat per vòstre navigador Web.
 
 An pas cap d'incidéncia sus aquesta pagina de preferéncias. E mai, son generalament desvolopats e mantenguts sus aqueste wiki.
 Los administrators pòdon modificar los gadgets en passant per [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]].",
