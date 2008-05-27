@@ -613,6 +613,25 @@ $messages['km'] = array(
 	'gadgets-uses'  => 'ប្រើ',
 );
 
+/** Ripoarisch (Ripoarisch)
+ * @author Purodha
+ */
+$messages['ksh'] = array(
+	'gadgets-desc'      => 'Domet könne Metmaacher en iere [[{{#special:preferences}}|Enstellunge]] [[Special:Gadgets|CSS- un JavaScrip-Gadgets]] en- un ußschallde',
+	'gadgets-prefs'     => 'Gadgets',
+	'gadgets-prefstext' => "Hee is en Liss met bestemmpte Gadgets, di för jede Metmaacher enjeschalldt wäde könne.
+Di boue miets op Javascrip op, drom moß mer't em Brauser enschallde, domet dat klapp.
+Gagdets werke nimmohls op dä Sigg hee, met Dinge persönleche Enstellunge.
+
+Opjepaß! Gadgets sin kei Schtöck vun MediaWiki, söndern sin extra em Wiki installeet, un sin vun de Wiki-Bedriever oder Metmaacher ußjedaach un enjerescht. Wä et Rääsch doför hät, kann se övver de Sigge [[MediaWiki:Gadgets-definition]] un [[Special:Gadgets]] enreschte un ändere.",
+	'gadgets'           => 'Gadgets',
+	'gadgets-title'     => 'Gadgets',
+	'gadgets-pagetext'  => 'He kütt en Liss met spezielle Gadgets.
+Se wääde üvver [[MediaWiki:Gadgets-definition]] enjerecht.
+Die Övverseech hee jit enne direkte op di Texte em Wiki, wo de Projramme, un des Erklierunge för de Gadgets dren enthallde sin.',
+	'gadgets-uses'      => 'Buch',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
