@@ -650,15 +650,16 @@ Ausserdem sollt dir wëssen, datt dës Gadgeten generell net DEel vu MediaWiki s
 /** Limburgish (Limburgs)
  * @author Ooswesthoesbes
  * @author Matthias
+ * @author Tibor
  */
 $messages['li'] = array(
 	'gadgets-desc'      => 'Laat gebroekers [[special:Gadgets|CSS en JavaScripts]] activere in hun [[Special:Preferences|veurkeure]]',
 	'gadgets-prefs'     => 'Biedènger',
-	'gadgets-prefstext' => 'Hiej ónger staon de speciaal oetbreijinger diet geer veur uche gebroeker kintj insjakele.
-De oetbreijinger zeen veurnamelik gebaseerdj op JavaScript, dus JavaScript mót veur uche browser ingesjakledj zeen óm die te laote wèrke.
-De oetbreijinge höbbe gein invloedj op dees pazjena mit veurkeure.
+	'gadgets-prefstext' => 'Hiejónger sjtaon de speciaal oetbreijinge dies te veur dien gebroekersaccount kans insjakele.
+De oetbreijinge zeen veurnamelik gebaseerd op JavaScript, dus JavaScript mót veur diene browser ingesjakeld zeen óm die te laote wirke.
+De oetbreijinge höbbe geine invlood op dees pazjena mit veurkäöre.
 
-Dees speciaal oetbreijinge zeen ouch gein óngerdeil van de MediaWiki-sofwaer en die mótte meistal óntwikkeldj en óngerhaoje waere door gebroekers van uche wiki. Beheerders kinne de besjikbare oetbreijinge aangaeve in [[MediaWiki:Gadgets-definition]] en [[Special:Gadgets]].',
+Dees sjpeciaal oetbreijinge zeen ouch gein óngerdeil van de MediaWiki-software en die mótte meistal óntwikkeld en óngerhauwe waere door gebroekers van diene wiki. Beheerders kinne de besjikbaar oetbreijinge aangaeve in [[MediaWiki:Gadgets-definition]] en [[Special:Gadgets]].',
 	'gadgets'           => 'Oetbreijinger',
 	'gadgets-title'     => 'Oetbreijinger',
 	'gadgets-pagetext'  => 'Hiej ónger staon de speciaal oetbreijinger die gebroekers kinne insjakele via häöre veurkeure wie ingesteldj is in [[MediaWiki:Gadgets-definition]].
