@@ -1009,9 +1009,11 @@ $messages['th'] = array(
 
 /** Turkish (Türkçe)
  * @author Erkan Yilmaz
+ * @author Karduelis
  */
 $messages['tr'] = array(
-	'gadgets-uses' => 'Kullanıyor',
+	'gadgets-title' => 'Gadgetler',
+	'gadgets-uses'  => 'Kullanıyor',
 );
 
 /** Ukrainian (Українська)
