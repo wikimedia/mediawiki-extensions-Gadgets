@@ -491,6 +491,7 @@ $messages['is'] = array(
 
 /** Italian (Italiano)
  * @author BrokenArrow
+ * @author Darth Kule
  */
 $messages['it'] = array(
 	'gadgets-desc'      => 'Consente agli utenti di selezionare [[Special:Gadgets|accessori CSS e JavaScript]] nelle proprie [[Special:Preferences|preferenze]]',
@@ -498,7 +499,7 @@ $messages['it'] = array(
 	'gadgets-prefstext' => "Di seguito viene presentata una lista di accessori speciali (''gadget'') che è possibile abilitare per il proprio account.
 La maggior parte di questi accessori è basata su JavaScript, è quindi necessario abilitare JavaScript nel proprio browser perché funzionino correttamente. Si noti che gli accessori non hanno alcun effetto in questa pagina di preferenze.
 
-Inoltre, si noti che questi accessori speciali non sono compresi nel software MediaWiki e vengono di solito realizzati e gestiti dagli utenti di ciascun sito wiki. Gli amministratori del sito possono modificare la lista degli accessori disponibili tramite le pagine [[MediaWiki:Gadgets-definition]] e [[Speciale:Accessori]]",
+Inoltre, si noti che questi accessori speciali non sono compresi nel software MediaWiki e vengono di solito realizzati e gestiti dagli utenti di ciascun sito wiki. Gli amministratori del sito possono modificare la lista degli accessori disponibili tramite le pagine [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]]",
 	'gadgets'           => 'Accessori',
 	'gadgets-title'     => 'Accessori',
 	'gadgets-pagetext'  => "Di seguito viene presentato un elenco di accessori (''gadget'') che gli utenti possono abilitare sulla propria pagina delle preferenze, seguendo le definizioni riportate in [[MediaWiki:Gadgets-definition]]. Questa panoramica fornisce un comodo meccanismo per accedere ai messaggi di sistema nei quali sono definiti la descrizione e il codice di ciascun accessorio.",
@@ -655,11 +656,11 @@ Ausserdem sollt dir wëssen, datt dës Gadgeten generell net DEel vu MediaWiki s
 $messages['li'] = array(
 	'gadgets-desc'      => 'Laat gebroekers [[special:Gadgets|CSS en JavaScripts]] activere in hun [[Special:Preferences|veurkeure]]',
 	'gadgets-prefs'     => 'Biedènger',
-	'gadgets-prefstext' => 'Hiejónger sjtaon de speciaal oetbreijinge dies te veur dien gebroekersaccount kans insjakele.
+	'gadgets-prefstext' => 'Hiejónger sjtaon de sjpeciaal oetbreijinge dies te veur dien gebroekersaccount kèns insjakele.
 De oetbreijinge zeen veurnamelik gebaseerd op JavaScript, dus JavaScript mót veur diene browser ingesjakeld zeen óm die te laote wirke.
 De oetbreijinge höbbe geine invlood op dees pazjena mit veurkäöre.
 
-Dees sjpeciaal oetbreijinge zeen ouch gein óngerdeil van de MediaWiki-software en die mótte meistal óntwikkeld en óngerhauwe waere door gebroekers van diene wiki. Beheerders kinne de besjikbaar oetbreijinge aangaeve in [[MediaWiki:Gadgets-definition]] en [[Special:Gadgets]].',
+Dees sjpeciaal oetbreijinge zeen ouch gein óngerdeil van de MediaWiki-software en die mótte meistal óntwikkeld en óngerhauwe waere door gebroekers van diene wiki. Beheerders kónne de besjikbaar oetbreijinge aangaeve in [[MediaWiki:Gadgets-definition]] en [[Special:Gadgets]].',
 	'gadgets'           => 'Oetbreijinger',
 	'gadgets-title'     => 'Oetbreijinger',
 	'gadgets-pagetext'  => 'Hiej ónger staon de speciaal oetbreijinger die gebroekers kinne insjakele via häöre veurkeure wie ingesteldj is in [[MediaWiki:Gadgets-definition]].
@@ -942,6 +943,13 @@ ferföichboare Gadgets uur do Sieden [[MediaWiki:Gadgets-definition]] un [[Speci
 Disse Uursicht bjut direkten Tougoang tou do Systemättergjuchte, do ju Beschrieuwenge as uk dän Programmcode fon
 älk Gadget änthoolde.',
 	'gadgets-uses'      => 'Benutsed',
+);
+
+/** Sundanese (Basa Sunda)
+ * @author Irwangatot
+ */
+$messages['su'] = array(
+	'gadgets-desc' => 'Matak bisa pamaké milih [[Special:Gadgets|Gajet CSS sarta Javascript]] ngaliwatan [[Special:Preferences|Préferénsi]] maranéhanana',
 );
 
 /** Swedish (Svenska)
