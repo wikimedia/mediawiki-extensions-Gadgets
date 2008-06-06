@@ -152,9 +152,9 @@ function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
 
 	$out->addHtml( "\n<fieldset>\n<legend>" . wfMsgHtml( 'gadgets-prefs' ) . "</legend>\n" );
 
-	$out->addHtml( wfMsgWikiHtml( 'gadgets-prefstext' ) . "\n" );
+	$out->addWikiMsg( 'gadgets-prefstext' );
 
-	$msgOpt = array( 'parseinline', 'parsemag' );
+	$msgOpt = array( 'parseinline' );
 
 	foreach ( $gadgets as $section => $entries ) {
 		if ( $section !== false && $section !== '' ) {
