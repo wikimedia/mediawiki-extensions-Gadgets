@@ -382,6 +382,7 @@ $messages['gu'] = array(
 
 /** Hebrew (עברית) */
 $messages['he'] = array(
+	'gadgets-desc'      => 'אפשרות למשתמשים לבחור [[Special:Gadgets|סקריפטים בקוד JavaScript וסגנונות בקוד CSS]] ב[[Special:Preferences|העדפות]] שלהם',
 	'gadgets-prefs'     => 'סקריפטים',
 	'gadgets-prefstext' => 'להלן רשימה של סקריפטים שתוכלו להתקין בחשבון שלכם.
 הסקריפטים מבוססים ברובם על שפת JavaScript, ולכן יש לאפשר אותה בדפדפן כדי שהם יעבדו.
