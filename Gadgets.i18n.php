@@ -309,12 +309,13 @@ Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät 
 /** French (Français)
  * @author Sherbrooke
  * @author Urhixidur
+ * @author IAlex
  * @author Grondin
  */
 $messages['fr'] = array(
 	'gadgets-desc'      => 'Laisse aux utilisateurs les [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences|préférences]]',
 	'gadgets-prefs'     => 'Gadgets',
-	'gadgets-prefstext' => 'Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel à [[JavaScript]], lequel doit donc être activé pour votre navigateur Web.
+	'gadgets-prefstext' => 'Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel à JavaScript, lequel doit donc être activé pour votre navigateur Web.
 
 Ils n’ont aucune incidence sur cette page de préférences. De plus, ils sont généralement développés et maintenus sur ce wiki. Les administrateurs peuvent modifier les gadgets en passant par [[MediaWiki:Gadgets-definition]] et [[Special:Gadgets]].',
 	'gadgets'           => 'Gadgets',
@@ -610,7 +611,7 @@ Bul şolw beti arqılı ärbir qajet quraldıñ sïpattaması men ämirin anıqt
  * @author Chhorran
  */
 $messages['km'] = array(
-	'gadgets-prefs' => 'ឧបករ សំបូរបែប',
+	'gadgets-prefs' => 'ឧបករណ៍សំបូរបែប',
 	'gadgets'       => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
 	'gadgets-uses'  => 'ប្រើ',
@@ -714,6 +715,21 @@ $messages['mr'] = array(
 	'gadgets-title'     => 'गॅजेट',
 	'gadgets-pagetext'  => 'खाली तुम्ही तुमच्या सदस्यत्वासाठी वापरू शकत असलेल्या [[MediaWiki:Gadgets-definition]]ने सांगितलेल्या गॅजेट्सची यादी दिलेली आहे. हे पान तुम्हाला प्रत्येक गॅजेट्सचा कोड व व्याख्या देणार्‍या पानासाठी सोपी संपर्क सुविधा पुरविते.',
 	'gadgets-uses'      => 'उपयोग',
+);
+
+/** Malay (Bahasa Melayu)
+ * @author Aviator
+ */
+$messages['ms'] = array(
+	'gadgets-desc'      => 'Membolehkan pengguna memilih [[Special:Gadgets|gajet CSS dan JavaScript]] tempahan melalui [[Special:Preferences|laman keutamaan]]',
+	'gadgets-prefs'     => 'Gajet',
+	'gadgets-prefstext' => 'Berikut ialah senarai gajet khas yang anda boleh hidupkan untuk akaun anda. Kebanyakan daripada gajet-gajet ini memerlukan JavaScript, oleh itu anda perlu menghidupkan ciri JavaScript dalam pelayar web anda untuk menggunakannya. Sila ambil perhatian bahawa gajet-gajet ini tidak menjejaskan laman keutamaan ini.
+
+Sila ambil perhatian juga bahasa gajet-gajet khas ini bukan sebahagian daripada perisian MediaWiki, dan biasanya dibangunkan dan diselenggara oleh para pengguna di wiki tempatan anda. Pentadbir tempatan boleh mengubah gajet-gajet yang sedia ada menggunakan [[MediaWiki:Gadgets-definition]] dan [[Special:Gadgets]].',
+	'gadgets'           => 'Gajet',
+	'gadgets-title'     => 'Gajet',
+	'gadgets-pagetext'  => 'Berikut ialah senarai gajet khas yang boleh dihidupkan oleh pengguna melalui laman keutamaan, sebagai mana yang ditakrifkan dalam [[MediaWiki:Gadgets-definition]]. Laman ini menyediakan capaian mudah kepada laman mesej sistem yang mentakrifkan setiap kod dan perihal gajet.',
+	'gadgets-uses'      => 'Menggunakan',
 );
 
 /** Low German (Plattdüütsch)
