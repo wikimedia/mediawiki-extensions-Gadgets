@@ -159,7 +159,7 @@ function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
 	foreach ( $gadgets as $section => $entries ) {
 		if ( $section !== false && $section !== '' ) {
 			$ttext = wfMsgExt( "gadget-section-$section", $msgOpt );
-			$out->addHtml( "\n<h2>" . $ttext . "</h2>\n" );
+			$out->addHtml( "\n<h2 id=\"".htmlspecialchars("gadget-section-$section")."\">" . $ttext . "</h2>\n" );
 		}
 
 		foreach ( $entries as $gname => $code ) {
