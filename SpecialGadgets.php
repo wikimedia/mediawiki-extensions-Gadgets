@@ -49,7 +49,7 @@ class SpecialGadgets extends SpecialPage {
 		foreach ( $gadgets as $section => $entries ) {
 			if ( $section !== false && $section !== '' ) {
 				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-section-$section" );
-				$lnk = $t ? $skin->makeLinkObj( $t, wfMsgHTML("edit") ) : htmlspecialchars($section);
+				$lnk = $t ? $skin->makeLinkObj( $t, wfMsgHTML("edit"), 'action=edit' ) : htmlspecialchars($section);
 				$ttext = wfMsgExt( "gadget-section-$section", $msgOpt );
 
 				if( $listOpen ) {
@@ -63,7 +63,7 @@ class SpecialGadgets extends SpecialPage {
 				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$gname" );
 				if ( !$t ) continue;
 
-				$lnk = $skin->makeLinkObj( $t, wfMsgHTML("edit") );
+				$lnk = $skin->makeLinkObj( $t, wfMsgHTML("edit"), 'action=edit' );
 				$ttext = wfMsgExt( "gadget-$gname", $msgOpt );
 
 				if( !$listOpen ) {
