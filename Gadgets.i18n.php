@@ -840,7 +840,7 @@ $messages['pl'] = array(
 	'gadgets-desc'      => 'Pozwala użytkownikom wybrać [[Special:Gadgets|gadżety CSS i JavaScript]] na [[Special:Preferences|stronie preferencji]]',
 	'gadgets-prefs'     => 'Gadżety',
 	'gadgets-prefstext' => 'Poniżej znajduje się lista specjalnych gadżetów, które możesz włączyć dla swojego konta użytkownika.
-Gadżety najczęściej wykorzystują JavaScript, więc by działały musisz mieć w swojej przeglądarce włączoną obsługę JavaScript. Gadżety nie mają wpływu na tę stronę preferencji.
+Gadżety najczęściej wykorzystują JavaScript, więc by działały musisz mieć w swojej przeglądarce włączoną obsługę JavaScriptu. Gadżety nie mają wpływu na tę stronę preferencji.
 
 Gadżety nie są częścią oprogramowania MediaWiki i najprawdopodobniej zostały stworzone przez użytkowników tego wiki.
 Lokalni administratorzy mogą edytować dostępne gadżety używając stron [[MediaWiki:Gadgets-definition|Definicje gadżetów]] oraz [[Special:Gadgets|Gadżety]].',
@@ -973,19 +973,20 @@ $messages['su'] = array(
 /** Swedish (Svenska)
  * @author Lejonel
  * @author M.M.S.
+ * @author Boivie
  */
 $messages['sv'] = array(
 	'gadgets-desc'      => 'Låter användare aktivera personliga [[Special:Gadgets|CSS- och JavaScript-finesser]] genom sina [[Special:Preferences|inställningar]]',
 	'gadgets-prefs'     => 'Finesser',
-	'gadgets-prefstext' => 'Härunder är en lista över tilläggsfunktioner (finesser) som du kan aktivera för ditt konto.
+	'gadgets-prefstext' => 'Härunder är en lista över finesser som du kan aktivera för ditt konto.
 De flesta funktionerna är baserade på JavaScript, så du måste ha JavaScript aktiverat i din webbläsare för att de ska fungera.
 Notera att de här tilläggsfunktionerna inte kommer ha någon effekt den här inställningssidan.
 
 Notera också att dessa finesser inte är en del av MediaWiki-programvaran. De är för det mesta utvecklade och underhållna av användare på den här wikin. Lokala administratörer kan redigera de tillgängliga funktionerna med hjälp av [[MediaWiki:Gadgets-definition]] och [[Special:Gadgets]].',
 	'gadgets'           => 'Finesser',
 	'gadgets-title'     => 'Finesser',
-	'gadgets-pagetext'  => 'Härunder finns en lista över finesser (på engelska "gadgets") som användare kan aktivera i sina inställningar. Listan definieras av [[MediaWiki:Gadgets-definition]].
-Den här översikten ger enkel åtkomst till de systemmeddelanden som definerar beskrivningarna och koden för de olika finesserna.',
+	'gadgets-pagetext'  => 'Härunder finns en lista över finesser som användare kan aktivera i sina inställningar. Listan är definierad av [[MediaWiki:Gadgets-definition]].
+Den här översikten ger enkel åtkomst till de systemmeddelanden som definerar beskrivningarna och koden för varje finess.',
 	'gadgets-uses'      => 'Använder',
 );
 
