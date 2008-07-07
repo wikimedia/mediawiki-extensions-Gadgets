@@ -32,8 +32,6 @@ Local administrators can edit available gadgets using [[MediaWiki:Gadgets-defini
 	'gadgets-pagetext'  => "Below is a list of special gadgets users can enable on their preferences page, as defined by [[MediaWiki:Gadgets-definition]].
 This overview provides easy access to the system message pages that define each gadget's description and code.",
 	'gadgets-uses'      => 'Uses',
-	'gadgets-rights'    => 'Requires the following rights',
-	'gadgets-default'   => 'Enabled by default',
 );
 
 /** Amharic (አማርኛ)
@@ -899,6 +897,7 @@ Esta visão geral proporciona um acesso fácil para as mensagens de sistema que 
  * @author Illusion
  * @author Siebrand
  * @author Александр Сигачёв
+ * @author Ahonc
  */
 $messages['ru'] = array(
 	'gadgets-desc'      => 'Позволяет участникам выбирать в [[Special:Preferences|настройках]] CSS- и JavaScript-гаджеты, которые они хотят подключить',
@@ -1163,5 +1162,4 @@ $messages['zh-hant'] = array(
 這個概覽提供的系統信息頁面的簡易存取，可以定義每個小工具的描述以及原碼。',
 	'gadgets-uses'      => '使用',
 );
-
 
