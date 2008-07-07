@@ -33,7 +33,7 @@ messages, for easy editing.
 Each line in MediaWiki:Gadgets-definition that start with one or more "*"
 (asterisk) characters defines a gadget; it must have the following form:
 
-  * mygadget|mygadget.js|mygadget.css
+  * mygadget|mygadget.js|mygadget.css[option1|option2]
 
 That is, each line consists of fields separated by a "|" (pipe) character.
 The first field ("mygadget" in the example) is the gadgets internal name,
@@ -65,6 +65,26 @@ section's name - for example:
 This would define a new section, with the title defined on the page
 MediaWiki:Gadget-section-editing-gadgets
 
+== Options ==
+Options are optionally appended to the end of the gadget declaration.
+They are enclosed in square brackets ("[...]") and are separated by pipe
+character ("|").
+ 
+Currently, there are two options: rights required to use the gadget, and
+whether the gadget should be enaled for everyone by default.
+
+The rights option looks like "[rights:delete,userrights]". Note that it
+requires specific rights, not groups the user belongs to. This option is
+case-sensitive, but ignores whitespace, i.e. "[ rights: foo , bar ]" is a
+valid declaration, but not "[Rights:Foo]".
+
+The "default" option, if present, makes this gadget enabled for every
+eligible user who has not specifically opted out of it by unchecking it in
+their preferences. The option looks like that: "[default]".
+
+Options may be combined in any number or order, i.e. "[rights:foo, bar]",
+"[default]", "[rights:boz|default]" and "[default|rights:quux]" are all valid
+declarations.
 
 == Caveats ==
 

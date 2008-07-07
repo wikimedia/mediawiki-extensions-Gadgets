@@ -38,6 +38,23 @@ $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 
+class Gadget {
+	const CACHE_VERSION = 1;
+	/**
+	 * This gadget option contains rights the user must have to use this gadget
+	 */
+	const RIGHTS = 666;
+
+	/**
+	 * This gadget should be enabled by default
+	 */
+	const ON_BY_DEFAULT = 667;
+
+	var $name = '';
+	var $modules = array();
+	var $options = array();
+}
+
 function wfGadgetsArticleSaveComplete( &$article, &$wgUser, &$text ) {
 	//update cache if MediaWiki:Gadgets-definition was edited
 	$title = $article->mTitle;
@@ -77,7 +94,10 @@ function wfLoadGadgetsStructured( $forceNewText = NULL ) {
 	if ( $forceNewText === NULL ) {
 		//cached?
 		$gadgets = $wgMemc->get( $key );
-		if ( is_array($gadgets) ) return $gadgets;
+		if ( is_array( $gadgets ) && isset( $gadgets['version'] ) && $gadgets['version'] == Gadget::CACHE_VERSION ) {
+			unset( $gadgets['version'] );
+			return $gadgets;
+		}
 
 		$g = wfMsgForContentNoTrans( "gadgets-definition" );
 		if ( wfEmptyMsg( "gadgets-definition", $g ) ) {
@@ -97,27 +117,46 @@ function wfLoadGadgetsStructured( $forceNewText = NULL ) {
 	foreach ( $g as $line ) {
 		if ( preg_match( '/^==+ *([^*:\s|]+?)\s*==+\s*$/', $line, $m ) ) {
 			$section = $m[1];
-		}
-		else if ( preg_match( '/^\*+ *([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)\s*((\|[^|]*)+)\s*$/', $line, $m ) ) {
+		} else if ( preg_match( '/^\*+ *([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)\s*((\|[^|[]*)+)\s*(|\[(.*)\])\s*$/', $line, $m ) ) {
+			$gadget = new Gadget();
+
 			//NOTE: the gadget name is used as part of the name of a form field,
 			//      and must follow the rules defined in http://www.w3.org/TR/html4/types.html#type-cdata
 			//      Also, title-normalization applies.
-			$name = str_replace(' ', '_', $m[1] );
+			$gadget->name = str_replace(' ', '_', $m[1] );
 
-			$code = preg_split( '/\s*\|\s*/', $m[2], -1, PREG_SPLIT_NO_EMPTY );
+			$gadget->modules = preg_split( '/\s*\|\s*/', $m[2], -1, PREG_SPLIT_NO_EMPTY );
 
-			if ( $code ) {
-				$gadgets[$section][$name] = $code;
+			if( !empty( $m[5] ) && $gadget->modules )
+				$gadget->options = wfProcessGadgetOptions( $m[5] );
+
+			if ( $gadget->modules ) {
+				$gadgets[$section][$gadget->name] = $gadget;
 			}
 		}
 	}
 
 	//cache for a while. gets purged automatically when MediaWiki:Gadgets-definition is edited
-	$wgMemc->set( $key, $gadgets, 60*60*24 );
+	$gadgets['version'] = Gadget::CACHE_VERSION;
+	$wgMemc->set( $key, $gadgets,  60*60*24 );
 	$source = $forceNewText !== NULL ? 'input text' : 'MediaWiki:Gadgets-definition';
 	wfDebug( __METHOD__ . ": $source parsed, cache entry $key updated\n");
 
+	unset( $gadgets['version'] );
 	return $gadgets;
+}
+
+function wfProcessGadgetOptions( $options ) {
+	$out = array();
+	foreach( preg_split( '/\s*\|\s*/', $options, -1, PREG_SPLIT_NO_EMPTY ) as $option ) {
+		if( preg_match( '/^rights\s*:\s*([\w\s,]+)$/', $option, $m ) ) {
+			$out[Gadget::RIGHTS] = preg_split( '/\s*,\s*/', $m[1], -1, PREG_SPLIT_NO_EMPTY );
+		} elseif( preg_match( '/^default$/', $option ) ) {
+			$out[Gadget::ON_BY_DEFAULT] = true;
+		}
+	}
+	
+	return $out;
 }
 
 function wfGadgetsInitPreferencesForm( &$prefs, &$request ) {
@@ -130,6 +169,18 @@ function wfGadgetsInitPreferencesForm( &$prefs, &$request ) {
 	}
 
 	return true;
+}
+
+function wfGadgetAllowed( $options ) {
+	global $wgUser;
+	
+	if( isset( $options[Gadget::RIGHTS] ) )
+		foreach( $options[Gadget::RIGHTS] as $right ) {
+			if( !in_array( $right, $wgUser->getRights() ) )
+				return FALSE;
+		}
+		
+	return TRUE;
 }
 
 function wfGadgetsResetPreferences( &$prefs, &$user ) {
@@ -145,6 +196,8 @@ function wfGadgetsResetPreferences( &$prefs, &$user ) {
 }
 
 function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
+	global $wgUser;
+
 	$gadgets = wfLoadGadgetsStructured();
 	if ( !$gadgets ) return true;
 
@@ -157,22 +210,39 @@ function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
 	$msgOpt = array( 'parseinline' );
 
 	foreach ( $gadgets as $section => $entries ) {
-		if ( $section !== false && $section !== '' ) {
-			$ttext = wfMsgExt( "gadget-section-$section", $msgOpt );
-			$out->addHtml( "\n<h2 id=\"".htmlspecialchars("gadget-section-$section")."\">" . $ttext . "</h2>\n" );
-		}
+		$first = true;
 
-		foreach ( $entries as $gname => $code ) {
+		foreach ( $entries as $gname => $gadget ) {
 			$tname = "gadget-$gname";
 			$ttext = wfMsgExt( $tname, $msgOpt );
-			$checked = @$prefs->mToggles[$tname] == 1 ? ' checked="checked"' : '';
+
+			if( ( ( $prefs->mToggles[$tname] != '' ) && ($prefs->mToggles[$tname] == 1) )
+				|| ( ( $prefs->mToggles[$tname] === '' ) && isset( $gadget->options[Gadget::ON_BY_DEFAULT] ) ) )
+					$checked = ' checked="checked"';
+			else 
+				$checked = '';
+
 			$disabled = '';
 
-			# NOTE: No label for checkmarks as this causes the checks to toggle
-			# when clicking a link in the describing text.
-			$out->addHtml( "<div class='toggle'><input type='checkbox' value='1' " .
-				"id=\"$tname\" name=\"wpOp$tname\"$checked$disabled />" .
-				" <span class='toggletext'>$ttext</span></div>\n" );
+			if( wfGadgetAllowed( $gadget->options ) ) {
+				// draw section heading
+				if ($first && $section !== false && $section !== '' ) {
+					$stext = wfMsgExt( "gadget-section-$section", $msgOpt );
+					$out->addHtml( "\n<h2 id=\"".htmlspecialchars("gadget-section-$section")."\">" . $stext . "</h2>\n" );
+					$first = false;
+				}
+
+				if( isset( $gadget->options[Gadget::ON_BY_DEFAULT] ) )
+					$extra = ' (' . wfMsg( 'gadgets-default' ) . ')';
+				else
+					$extra = ''; 
+
+				# NOTE: No label for checkmarks as this causes the checks to toggle
+				# when clicking a link in the describing text.
+				$out->addHtml( "<div class='toggle'><input type='checkbox' value='1' " .
+					"id=\"$tname\" name=\"wpOp$tname\"$checked$disabled />" .
+					" <span class='toggletext'>$ttext</span>$extra</div>\n" );
+			}
 		}
 	}
 
@@ -196,10 +266,13 @@ function wfGadgetsBeforePageDisplay( &$out ) {
 
 	$done = array();
 
-	foreach ( $gadgets as $gname => $code ) {
-		$tname = "gadget-$gname";
-		if ( $wgUser->getOption( $tname ) ) {
-			wfApplyGadgetCode( $code, $out, $done );
+	foreach ( $gadgets as $gname => $gadget ) {
+		if( wfGadgetAllowed( $gadget->options ) ) {
+			$tname = "gadget-$gname";
+			$default = isset( $gadget->options[Gadget::ON_BY_DEFAULT] );
+			if ( $wgUser->getOption( $tname, $default ) ) {
+				wfApplyGadgetCode( $gadget->modules, $out, $done );
+			}
 		}
 	}
 

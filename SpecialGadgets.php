@@ -59,24 +59,33 @@ class SpecialGadgets extends SpecialPage {
 				$wgOut->addHTML( "\n<h2>$ttext &nbsp; &nbsp; [$lnk]</h2>\n" );
 			}
 
-			foreach ( $entries as $gname => $code ) {
+			foreach ( $entries as $gname => $gadget ) {
 				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$gname" );
 				if ( !$t ) continue;
 
 				$lnk = $skin->makeLinkObj( $t, wfMsgHTML("edit"), 'action=edit' );
 				$ttext = wfMsgExt( "gadget-$gname", $msgOpt );
-
+				
 				if( !$listOpen ) {
 					$listOpen = true;
 					$wgOut->addHTML( '<ul>' );
 				}
 				$wgOut->addHTML( "<li>" );
 				$wgOut->addHTML( "$ttext &nbsp; &nbsp; [$lnk]<br />" );
+				
+				if( isset( $gadget->options[Gadget::RIGHTS] ) && !empty( $gadget->options[Gadget::RIGHTS] ) ) {
+					$wgOut->addHTML( wfMsgHTML( 'gadgets-rights' ) . ": " );
+					$wgOut->addHTML( htmlspecialchars( implode( ', ', $gadget->options[Gadget::RIGHTS] ) ) . '<br />' );
+				}
+				
+				if( isset( $gadget->options[Gadget::ON_BY_DEFAULT] ) ) 
+					$wgOut->addHTML( wfMsgHTML( "gadgets-default" ) . "<br />" );
+				
 
 				$wgOut->addHTML( wfMsgHTML("gadgets-uses") . ": " );
 
 				$first = true;
-				foreach ( $code as $codePage ) {
+				foreach ( $gadget->modules as $codePage ) {
 					$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$codePage" );
 					if ( !$t ) continue;
 
