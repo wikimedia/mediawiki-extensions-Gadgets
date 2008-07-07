@@ -214,6 +214,7 @@ Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren o
 
 /** German (Deutsch)
  * @author Daniel Kinzler, brightbyte.de
+ * @author Raimond Spekking
  */
 $messages['de'] = array(
 	'gadgets-desc'      => 'Ermöglicht Benutzern, in ihren [[{{#special:preferences}}|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Gadgets]] zu aktivieren',
@@ -231,6 +232,8 @@ verfügbaren Gadgets über die Seiten [[MediaWiki:Gadgets-definition]] und [[Spe
 Diese Übersicht bietet direkten Zugang zu den Systemnachrichten, die die Beschreibung sowie den Programmcode jedes
 Gadgets enthalten.',
 	'gadgets-uses'      => 'Benutzt',
+	'gadgets-rights'    => 'Benötigt die folgenden Rechte',
+	'gadgets-default'   => 'Standardmäßig aktiviert',
 );
 
 /** Greek (Ελληνικά)
