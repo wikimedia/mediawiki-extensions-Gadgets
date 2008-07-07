@@ -218,11 +218,11 @@ $messages['de'] = array(
 	'gadgets-desc'      => 'Ermöglicht Benutzern, in ihren [[{{#special:preferences}}|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Gadgets]] zu aktivieren',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => 'Liste von speziellen Gadgets die für jeden Benutzer aktiviert werden können.
-Die Gadgets basieren zumeinst auf JavaScript, daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren.
+Die Gadgets basieren zumeist auf JavaScript, daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren.
 Die Gadgets funktionieren allerdings nicht auf dieser Seite mit persönlichen Einstellungen.
 
 Ausserdem ist zu beachten, dass diese Gadgets im Allgemeinen nicht Teil von MediaWiki sind, sondern meist von
-Benutzern des lokalen Wikis entwickelt und gewartet werden. Lokale Wiki-Administratoren können die Liste von
+Benutzern des lokalen Wikis entwickelt und gewartet werden. Lokale Wiki-Administratoren können die Liste der
 verfügbaren Gadgets über die Seiten [[MediaWiki:Gadgets-definition]] und [[Special:Gadgets]] bearbeiten',
 	'gadgets'           => 'Gadgets',
 	'gadgets-title'     => 'Gadgets',
@@ -230,8 +230,6 @@ verfügbaren Gadgets über die Seiten [[MediaWiki:Gadgets-definition]] und [[Spe
 Diese Übersicht bietet direkten Zugang zu den Systemnachrichten, die die Beschreibung sowie den Programmcode jedes
 Gadgets enthalten.',
 	'gadgets-uses'      => 'Benutzt',
-	'gadgets-rights'    => 'Benötigt die folgenden Rechte',
-	'gadgets-default'   => 'Standardmäßig aktiviert',
 );
 
 /** Greek (Ελληνικά)
