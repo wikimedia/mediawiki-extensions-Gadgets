@@ -270,7 +270,7 @@ $messages['ext'] = array(
 	'gadgets-uses' => 'Usus',
 );
 
-/** فارسی (فارسی)
+/** Persian (فارسی)
  * @author Huji
  */
 $messages['fa'] = array(
@@ -286,7 +286,6 @@ $messages['fa'] = array(
 	'gadgets-pagetext'  => 'در زیر فهرستی از ابزارهای ویژه‌ای که کاربران می‌توانند از طریق صفحهٔ ترجیحاتشان فعال کنند می‌بینید، که مطابق آن چه است که در [[MediaWiki:Gadgets-definition]] تعریف شده‌است.
 این خلاصه کمک می‌کند که به صفحه‌های پیغام سیستمی که توضیحات و کد هر ابزار را شامل می‌شوند به راحتی دست پیدا کنید.',
 	'gadgets-uses'      => 'برنامه',
-
 );
 
 /** Finnish (Suomi)
@@ -483,7 +482,7 @@ $messages['id'] = array(
 Juga perhatikan bahwa gadget istimewa ini bukanlah bagian dari perangkat lunak MediaWiki dan biasanya dikembangkan dan dipelihara oleh pengguna-pengguna di wiki lokal Anda. Pengurus lokal dapat menyunting gadget yang tersedia melalui [[MediaWiki:Gadgets-definition]] dan [[Special:Gadgets]].',
 	'gadgets'           => 'Gadget',
 	'gadgets-title'     => 'Gadget',
-	'gadgets-pagetext'  => "Berikut adalah daftar gadget istimewa yang dapat diaktifkan pengguna melalui halaman preferensi mereka sebagaimana didefinisikan oleh [[MediaWiki:Gadgets-definition]]. Tinjauan berikut memberikan kemudahan akses ke dalam halaman pesan sistem yang mendefinisikan deskripsi dan kode masing-masing gadget.",
+	'gadgets-pagetext'  => 'Berikut adalah daftar gadget istimewa yang dapat diaktifkan pengguna melalui halaman preferensi mereka sebagaimana didefinisikan oleh [[MediaWiki:Gadgets-definition]]. Tinjauan berikut memberikan kemudahan akses ke dalam halaman pesan sistem yang mendefinisikan deskripsi dan kode masing-masing gadget.',
 	'gadgets-uses'      => 'Penggunaan',
 );
 
@@ -782,7 +781,7 @@ Dette oversynet gjev enkel tilgang til systemmeldingssidene som inneheld skildri
 	'gadgets-uses'      => 'Brukar',
 );
 
-/** Norwegian (‪Norsk (bokmål)‬)
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  */
 $messages['no'] = array(
@@ -854,7 +853,7 @@ Poniższy przegląd ułatwia dostęp do komunikatów systemu, które definiują 
 	'gadgets-uses'      => 'Użycie',
 );
 
-/** Piemontèis (Piemontèis)
+/** Piedmontese (Piemontèis)
  * @author Bèrto 'd Sèra
  */
 $messages['pms'] = array(
@@ -1010,7 +1009,7 @@ $messages['te'] = array(
 	'gadgets-uses'      => 'ఉపయోగించే ఫైళ్ళు',
 );
 
-/** Tajik (Тоҷикӣ)
+/** Tajik (Cyrillic) (Тоҷикӣ/tojikī (Cyrillic))
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -1109,12 +1108,12 @@ $messages['vo'] = array(
 	'gadgets-uses' => 'Gebs',
 );
 
-/** Cantonese (廣東話)
+/** Yue (粵語)
  * @author Shinjiman
  */
 $messages['yue'] = array(
-	'gadgets-prefs'     => '小工具',
 	'gadgets-desc'      => '畀用戶響佢哋嘅[[Special:Preferences|喜好設定]]度設定自定嘅[[Special:Gadgets|CSS同埋JavaScript小工具]]',
+	'gadgets-prefs'     => '小工具',
 	'gadgets-prefstext' => '下面係一個特別小工具，你可以響你個戶口度啟用。
 呢啲小工具多數都係基於JavaScript建造，如果要開佢哋，噉個瀏覽器嘅JavaScript就需要啟用咗先至用得到。
 要留意嘅就係呢啲小工具響呢個喜好設定版度係無效果嘅。
@@ -1131,8 +1130,8 @@ $messages['yue'] = array(
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
+	'gadgets-desc'      => '讓用户可以在[[Special:Preferences|参数设置]]中自訂 [[Special:Gadgets|CSS与JavaScript工具]]',
 	'gadgets-prefs'     => '小工具',
-	'gadgets-desc'      => '讓用户可以在[[Special:Preferences|参数设置]]中自訂 [[Special:Gadgets|CSS与JavaScript工具]]', 
 	'gadgets-prefstext' => '以下是一个特殊小工具，您可以在您的账户中激活。
 这些小工具多数都是基于JavaScript建造，如果要激活它们，那么浏览器的JavaScript就需要激活后方可使用。
 要留意的是这些小工具在这个参数设置页面中是没有效果的。
@@ -1149,8 +1148,8 @@ $messages['zh-hans'] = array(
  * @author Shinjiman
  */
 $messages['zh-hant'] = array(
-	'gadgets-prefs'     => '小工具',
 	'gadgets-desc'      => '讓使用者可以在[[Special:Preferences|偏好設定]]中自訂 [[Special:Gadgets|CSS與JavaScript工具]]',
+	'gadgets-prefs'     => '小工具',
 	'gadgets-prefstext' => '以下是一個特殊小工具，您可以在您的帳戶中啟用。
 這些小工具多數都是基於JavaScript建造，如果要啟用它們，那麼瀏覽器的JavaScript就需要啟用後方可使用。
 要留意的是這些小工具在這個參數設置頁面中是沒有效果的。
