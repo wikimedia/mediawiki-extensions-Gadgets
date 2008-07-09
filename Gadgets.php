@@ -9,7 +9,7 @@
  * @subpackage Extensions
  * @author Daniel Kinzler, brightbyte.de
  * @copyright © 2007 Daniel Kinzler
- * @licence GNU General Public Licence 2.0 or later
+ * @license GNU General Public Licence 2.0 or later
  */
 
 if( !defined( 'MEDIAWIKI' ) ) {
@@ -35,8 +35,10 @@ $wgHooks['ArticleSaveComplete'][] = 'wfGadgetsArticleSaveComplete';
 
 $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
+$wgExtensionAliasesFiles['Gadgets'] = $dir . 'Gadgets.i18n.alias.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
+$wgSpecialPageGroups['Gadgets'] = 'wiki';
 
 function wfGadgetsArticleSaveComplete( &$article, &$wgUser, &$text ) {
 	//update cache if MediaWiki:Gadgets-definition was edited
