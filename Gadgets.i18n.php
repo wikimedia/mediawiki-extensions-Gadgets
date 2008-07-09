@@ -382,7 +382,9 @@ $messages['gu'] = array(
 	'gadgets-uses'      => 'ઉપયોગો',
 );
 
-/** Hebrew (עברית) */
+/** Hebrew (עברית)
+ * @author Rotem Liss
+ */
 $messages['he'] = array(
 	'gadgets-desc'      => 'אפשרות למשתמשים לבחור [[Special:Gadgets|סקריפטים בקוד JavaScript וסגנונות בקוד CSS]] ב[[Special:Preferences|העדפות]] שלהם',
 	'gadgets-prefs'     => 'סקריפטים',

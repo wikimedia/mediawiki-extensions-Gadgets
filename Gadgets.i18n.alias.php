@@ -20,3 +20,10 @@ $aliases['en'] = array(
 $aliases['de'] = array(
 	'Gadgets' => array( 'Gadgets' ),
 );
+
+/** Hebrew (עברית)
+ * @author Rotem Liss
+ */
+$aliases['he'] = array(
+	'Gadgets' => array( 'סקריפטים' ),
+);
