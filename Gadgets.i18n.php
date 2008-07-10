@@ -232,6 +232,25 @@ Gadgets enthalten.',
 	'gadgets-uses'      => 'Benutzt',
 );
 
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'gadgets-desc'      => 'Dowólujo wužywarjam w jich [[Special:Preferences|nastajenjach]] [[Special:Gadgets|gadgets CSS a JavaScript]] wubraś',
+	'gadgets-prefs'     => 'Gadgets',
+	'gadgets-prefstext' => 'Lisćina specielnych gadgetow, kótarež móžoš za swójo konto zmóžniś.
+Toś te gadgety se zwětšego bazěruju na JavaScripśe, togodla musy JavaScript w twójom wobglědowaku zmóžnjony byś, aby funkcioněrowali.
+Glědaj, až toś te gadgety njewustatkuju se na bok nastajenjow.
+
+Glědaj teke, až toś te gadgety njejsu źěl softwary MediaWiki a se zwětšego wót wužywarjow na twójom lokalnem wikiju wuwijaju a wótwarduju.
+Lokalne administratory mógu k dispoziciji stojece gadgety z pomocu [[MediaWiki:Gadgets-definition]] a [[Special:Gadgets]] wobźełaś.',
+	'gadgets'           => 'Gadgets',
+	'gadgets-title'     => 'Gadgets',
+	'gadgets-pagetext'  => 'Dołojce jo lisćina specialnych gadgetow, kótarež wužywarje mógu w swójich nastajenjach wubraś, kaž w [[MediaWiki:Gadgets-definition]] definiěrowane.
+Toś ten pśeglěd bitujo direktny pśistup k bokam systemowych powěsćow, kótarež wopisanje a kod gadgeta definěruju.',
+	'gadgets-uses'      => 'Wužywa',
+);
+
 /** Greek (Ελληνικά)
  * @author Consta
  * @author Badseed
@@ -617,6 +636,13 @@ $messages['km'] = array(
 	'gadgets'       => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
 	'gadgets-uses'  => 'ប្រើ',
+);
+
+/** Korean (한국어)
+ * @author Kwj2772
+ */
+$messages['ko'] = array(
+	'gadgets-title' => '소도구',
 );
 
 /** Ripoarisch (Ripoarisch)
