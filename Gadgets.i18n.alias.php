@@ -24,7 +24,7 @@ $aliases['arz'] = array(
 	'Gadgets' => array( 'إضافات' ),
 );
 
-/** German
+/** German (Deutsch)
  * @author Raimond Spekking
  */
 $aliases['de'] = array(
@@ -61,5 +61,10 @@ $aliases['ms'] = array(
 /** Dutch (Nederlands) */
 $aliases['nl'] = array(
 	'Gadgets' => array( 'Extensies' ),
+);
+
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
+$aliases['no'] = array(
+	'Gadgets' => array( 'Tilleggsfunksjoner' ),
 );
 
