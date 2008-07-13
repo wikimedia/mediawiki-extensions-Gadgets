@@ -34,6 +34,25 @@ This overview provides easy access to the system message pages that define each 
 	'gadgets-uses'      => 'Uses',
 );
 
+/** Afrikaans (Afrikaans)
+ * @author Naudefj
+ */
+$messages['af'] = array(
+	'gadgets-desc'      => 'Laat gebruikers toe om [[Special:Gadgets|CSS en JavaScripts]] geriewe te aktiveer in hulle [[Special:Preferences|voorkeure]]',
+	'gadgets-prefs'     => 'Geriewe',
+	'gadgets-prefstext' => "Hieronder is 'n lys van spesiale geriewe wat u kan aktiveer.
+Hierdie geriewe maak hoofsaaklik van JavaScript gebruik. Dus moet JavaScript in u webblaaier geaktiveer wees.
+Hierdie geriewe het geen invloed op hoe hierdie voorkeurbladsy vertoon nie.
+
+Hierdie geriewe is nie deel van die MediaWiki-sagteware nie, en word gewoonlik deur gebruikers op u tuiswiki ontwikkel en onderhou.
+Lokale administrateurs kan die beskikbare geriewe wysig by [[MediaWiki:Gadgets-definition]] en [[Special:Gadgets]].",
+	'gadgets'           => 'Geriewe',
+	'gadgets-title'     => 'Geriewe',
+	'gadgets-pagetext'  => "Hieronder is 'n lys van spesiale geriewe wat gebruikers deur hulle voorkeure kan aktiveer, soos gedefinieer in [[MediaWiki:Gadgets-definition]].
+Die oorsig bied maklike toegang tot die stelselboodskapblaaie wat elke gerief se beskrywing  en kode wys.",
+	'gadgets-uses'      => 'Gebruik',
+);
+
 /** Amharic (አማርኛ)
  * @author Codex Sinaiticus
  */
@@ -441,8 +460,10 @@ $messages['hi'] = array(
 
 /** Croatian (Hrvatski)
  * @author SpeedyGonsales
+ * @author Dalibor Bosits
  */
 $messages['hr'] = array(
+	'gadgets-desc'      => 'Omogućava suradnicama biranje osobnih [[Special:Gadgets|CSS i JavaScript gadgeta]] u svojim [[Special:Preferences|postavkama]]',
 	'gadgets-prefs'     => "JS ekstenzije (''gadgets'')",
 	'gadgets-prefstext' => 'Slijedi popis posebnih ekstenzija koje možete omogućiti.
 One su većinom napisane u JavaScriptu, stoga JavaScript mora biti omogućen u vašem web-pregledniku da bi ektenzije radile.
@@ -756,7 +777,7 @@ $messages['ms'] = array(
 Sila ambil perhatian juga bahasa gajet-gajet khas ini bukan sebahagian daripada perisian MediaWiki, dan biasanya dibangunkan dan diselenggara oleh para pengguna di wiki tempatan anda. Pentadbir tempatan boleh mengubah gajet-gajet yang sedia ada menggunakan [[MediaWiki:Gadgets-definition]] dan [[Special:Gadgets]].',
 	'gadgets'           => 'Gajet',
 	'gadgets-title'     => 'Gajet',
-	'gadgets-pagetext'  => 'Berikut ialah senarai gajet khas yang boleh dihidupkan oleh pengguna melalui laman keutamaan, sebagai mana yang ditakrifkan dalam [[MediaWiki:Gadgets-definition]]. Laman ini menyediakan capaian mudah kepada laman mesej sistem yang mentakrifkan setiap kod dan perihal gajet.',
+	'gadgets-pagetext'  => 'Berikut ialah senarai gajet khas yang boleh dihidupkan oleh pengguna melalui laman keutamaan, sebagai mana yang ditakrifkan dalam [[MediaWiki:Gadgets-definition]]. Laman ini menyediakan capaian mudah kepada laman pesanan sistem yang mentakrifkan setiap kod dan perihal gajet.',
 	'gadgets-uses'      => 'Menggunakan',
 );
 
@@ -969,6 +990,16 @@ $messages['sk'] = array(
 	'gadgets-title'     => 'Nástroje',
 	'gadgets-pagetext'  => 'Dolu je zoznam špeciálych nástrojov, ktoré môžu používatelia zapnúť v rámci svojho účtu na svojej stránke nastavení. Tento zoznam definuje [[MediaWiki:Gadgets-definition]]. Tento prehľad poskytuje jednoduchý prístup k systémovým stránkam, ktoré definujú popis a kód každého z nástrojov.',
 	'gadgets-uses'      => 'Použitia',
+);
+
+/** Serbian Cyrillic ekavian (ћирилица)
+ * @author Millosh
+ */
+$messages['sr-ec'] = array(
+	'gadgets-prefs' => 'геџети',
+	'gadgets'       => 'геџети',
+	'gadgets-title' => 'геџети',
+	'gadgets-uses'  => 'користи се',
 );
 
 /** Seeltersk (Seeltersk)
