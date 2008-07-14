@@ -530,7 +530,14 @@ Juga perhatikan bahwa gadget istimewa ini bukanlah bagian dari perangkat lunak M
  * @author Jóna Þórunn
  */
 $messages['is'] = array(
-	'gadgets-uses' => 'Notar',
+	'gadgets-desc'      => 'Gerir notendum kleift að velja [[Special:Gadgets|CSS og JavaScript-forrit]] í [[Special:Preferences|stillingum sínum]]',
+	'gadgets-prefs'     => 'Smáforrit',
+	'gadgets-prefstext' => 'Eftirfarandi er listi yfir smáforrit sem þú getur notað á notandareikningi þínum. Þessi forrit eru að mestu byggð á JavaScript svo vafrinn þarf að styðja JavaScript til að þau virki. Athugaðu einnig að forritin hafa engin áhrif á stillingasíðunni.
+
+Forritin eru ekki hluti af MediaWiki-hugbúnaðinum heldur eru skrifuð og viðhaldin af notendum á þessu wiki-verkefni. Möppudýr geta breytt forritunum á [[MediaWiki:Gadgets-definition]] og [[Special:Gadgets]].',
+	'gadgets'           => 'Smáforrit',
+	'gadgets-title'     => 'Smáforrit',
+	'gadgets-uses'      => 'Notar',
 );
 
 /** Italian (Italiano)
