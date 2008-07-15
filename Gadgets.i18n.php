@@ -130,6 +130,17 @@ Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del
 	'gadgets-uses'      => 'Usa',
 );
 
+/** Southern Balochi (بلوچی مکرانی)
+ * @author Mostafadaneshvar
+ */
+$messages['bcc'] = array(
+	'gadgets-desc'  => 'اجازت دن کابرانء که انتخاب کنن دلواهی [[Special:Gadgets|گجت آنی سی اس اس و جاوا اسکرسپت]] ته وتی [[Special:Preferences|ترجیحات]]',
+	'gadgets-prefs' => 'گجت آن',
+	'gadgets'       => 'گجت آن',
+	'gadgets-title' => 'گجت آن',
+	'gadgets-uses'  => 'استفاده بیت',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  * @author Borislav
