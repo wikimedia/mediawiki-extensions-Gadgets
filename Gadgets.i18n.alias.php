@@ -73,3 +73,8 @@ $aliases['no'] = array(
 	'Gadgets' => array( 'Tilleggsfunksjoner' ),
 );
 
+/** Thai (ไทย) */
+$aliases['th'] = array(
+	'Gadgets' => array( 'แกเจต' ),
+);
+
