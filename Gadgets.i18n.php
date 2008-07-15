@@ -141,6 +141,13 @@ $messages['bcc'] = array(
 	'gadgets-uses'  => 'استفاده بیت',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author Cesco
+ */
+$messages['be-tarask'] = array(
+	'gadgets-desc' => 'Дазваляе ўдзельнікам выбіраць [[Special:Gadgets|CSS і JavaScript-дадаткі]] ў сваіх [[Special:Preferences|устаноўках]]',
+);
+
 /** Bulgarian (Български)
  * @author DCLXVI
  * @author Borislav
