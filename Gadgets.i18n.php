@@ -529,6 +529,25 @@ A segédeszközök többsége javascriptet használ, így engedélyezned kell az
 	'gadgets-uses'      => 'Kód',
 );
 
+/** Interlingua (Interlingua)
+ * @author McDutchie
+ */
+$messages['ia'] = array(
+	'gadgets-desc'      => 'Permitte que usatores selige [[Special:Gadgets|gadgets CSS e JavaScript]] personalisate in lor [[Special:Preferences|preferentias]]',
+	'gadgets-prefs'     => 'Gadgets',
+	'gadgets-prefstext' => 'Infra es un lista de gadgets special que tu pote activar in tu conto.
+Iste gadgets se basa pro le major parte in JavaScript, ergo JavaScript debe esser active in tu navigator pro permitter que illos functiona.
+Nota que iste gadgets non habera effecto super iste pagina de preferentias.
+
+Nota etiam que iste gadgets special non es parte del software de MediaWiki, e es normalmente disveloppate e mantenite per usatores in tu wiki local.
+Le administratores local pote modificar le gadgets disponibile con le paginas [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]].',
+	'gadgets'           => 'Gadgets',
+	'gadgets-title'     => 'Gadgets',
+	'gadgets-pagetext'  => 'Infra es un lista de gadgets special que le usatores pote activar in lor paginas de preferentias, como definite per [[MediaWiki:Gadgets-definition]].
+Iste supervista permitte le accesso commode al paginas de messages de systema que defini le description e codice de cata gadget.',
+	'gadgets-uses'      => 'Usa',
+);
+
 /** Indonesian (Bahasa Indonesia)
  * @author IvanLanin
  */
