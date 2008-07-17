@@ -36,6 +36,11 @@ $aliases['fi'] = array(
 	'Gadgets' => array( 'Pienoisohjelmat' ),
 );
 
+/** Galician (Galego) */
+$aliases['gl'] = array(
+	'Gadgets' => array( 'Trebellos' ),
+);
+
 /** Hebrew (עברית)
  * @author Rotem Liss
  */
