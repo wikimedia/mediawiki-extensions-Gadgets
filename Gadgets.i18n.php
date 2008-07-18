@@ -252,7 +252,7 @@ Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren o
  * @author Raimond Spekking
  */
 $messages['de'] = array(
-	'gadgets-desc'      => 'Ermöglicht Benutzern, in ihren [[{{#special:preferences}}|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Gadgets]] zu aktivieren',
+	'gadgets-desc'      => 'Ermöglicht Benutzern, in ihren [[Special:Preferences|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Gadgets]] zu aktivieren',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => 'Liste von speziellen Gadgets die für jeden Benutzer aktiviert werden können.
 Die Gadgets basieren zumeist auf JavaScript, daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren.
@@ -376,7 +376,7 @@ $messages['fr'] = array(
 Ils n’ont aucune incidence sur cette page de préférences. De plus, ils sont généralement développés et maintenus sur ce wiki. Les administrateurs peuvent modifier les gadgets en passant par [[MediaWiki:Gadgets-definition]] et [[Special:Gadgets]].',
 	'gadgets'           => 'Gadgets',
 	'gadgets-title'     => 'Gadgets',
-	'gadgets-pagetext'  => "Ci-dessous apparaît une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences|page de préférences]], tel que défini dans ''[[MediaWiki:Gadgets-definition]]''. Ce survol donne un accès rapide aux pages de messages système qui définissent chaque description et chaque code des gadgets.",
+	'gadgets-pagetext'  => "Ci-dessous apparaît une liste de gadgets que les utilisateurs peuvent activer dans leur page de préférences, tel que défini dans ''[[MediaWiki:Gadgets-definition]]''. Ce survol donne un accès rapide aux pages de messages système qui définissent chaque description et chaque code des gadgets.",
 	'gadgets-uses'      => 'Utilise',
 );
 
@@ -599,7 +599,7 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'gadgets-desc'      => '[[{{ns:special}}:Gadgets|カスタムCSSやJavaScriptのガジェット]]を利用者が[[{{ns:Special}}:Preferences|{{int:preferences}}]]から選択できる',
+	'gadgets-desc'      => '[[Special:Gadgets|カスタムCSSやJavaScriptのガジェット]]を利用者が[[Special:Preferences|{{int:preferences}}]]から選択できる',
 	'gadgets-prefs'     => 'ガジェット',
 	'gadgets-prefstext' => '下のリストはあなたのアカウントで利用できるガジェットの一覧です。これらのガジェットはほとんどがJavaScriptベースのため、その動作にはブラウザ設定でJavaScriptを有効にする必要があります。ただし、ガジェットが{{int:preferences}}ページ上では動作しないことも覚えておいてください。
 
@@ -789,7 +789,7 @@ $messages['ml'] = array(
 	'gadgets-prefs'    => 'ഗാഡ്ജറ്റ്',
 	'gadgets'          => 'ഗാഡ്ജറ്റ്',
 	'gadgets-title'    => 'ഗാഡ്ജറ്റ്',
-	'gadgets-pagetext' => 'ഉപയോക്താക്കള്‍ക്ക് അവരുടെ ക്രമീകരണങ്ങള്‍ താള്‍ ഉപയോഗിച്ച് പ്രാപ്തമാകാവുന്ന ഗാഡ്ജറ്റുകളുടെ ([MediaWiki:Gadgets-definition]] പ്രകാരം നിര്‍‌വചിച്ചിരിക്കുന്നത്) പട്ടിക താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു  
+	'gadgets-pagetext' => 'ഉപയോക്താക്കള്‍ക്ക് അവരുടെ ക്രമീകരണങ്ങള്‍ താള്‍ ഉപയോഗിച്ച് പ്രാപ്തമാകാവുന്ന ഗാഡ്ജറ്റുകളുടെ ([[MediaWiki:Gadgets-definition]] പ്രകാരം നിര്‍‌വചിച്ചിരിക്കുന്നത്) പട്ടിക താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു  
 ഓരോ ഗാഡ്ജറ്റിന്റേയും വിവരണവും കോഡും ഉള്ള സന്ദേശ താളുകളിലേക്കു പോകാനുള്ള എളുപ്പവഴി ഈ പട്ടിക നല്‍കുന്നു.',
 	'gadgets-uses'     => 'ഉപയോഗങ്ങള്‍',
 );
@@ -968,13 +968,13 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'gadgets-desc'      => 'Permite aos utilizadores seleccionarem [[{{ns:special}}:Gadgets|"gadgets" JavaScript e CSS]] personalizados nas suas [[{{ns:special}}:Preferences|preferências]]',
+	'gadgets-desc'      => 'Permite aos utilizadores seleccionarem [[Special:Gadgets|"gadgets" JavaScript e CSS]] personalizados nas suas [[Special:Preferences|preferências]]',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => 'Segue-se uma lista de "gadgets" que podem ser ativados em sua conta.
 Tais gadgets normalmente são baseados em JavaScript, o que faz com que seja necessário que o suporte a JavaScript esteja ativado em seu navegador para que os mesmos funcionem.
 Note que os gadgets não possuem efeito nesta página (a página de preferências).
 
-Note também que tais gadgets não são parte do software MediaWiki, geralmente sendo desenvolvidos e mantidos por usuários de sua wiki local. Administradores locais podem editar os gadgets disponíveis através da [[MediaWiki:Gadgets-definition]] e [[{{ns:special}}:Gadgets]].',
+Note também que tais gadgets não são parte do software MediaWiki, geralmente sendo desenvolvidos e mantidos por usuários de sua wiki local. Administradores locais podem editar os gadgets disponíveis através da [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]].',
 	'gadgets'           => 'Gadgets',
 	'gadgets-title'     => 'Gadgets',
 	'gadgets-pagetext'  => 'Segue-se uma lista de "gadgets" definidos em [[MediaWiki:Gadgets-definition]], que podem ser ativados por utilizadores através de suas páginas de preferências.
@@ -1000,8 +1000,8 @@ $messages['ru'] = array(
 Администраторы могут изменять список гаджетов с помощью [[MediaWiki:Gadgets-definition]] и [[Special:Gadgets]].',
 	'gadgets'           => 'Гаджеты',
 	'gadgets-title'     => 'Гаджеты',
-	'gadgets-pagetext'  => 'Ниже приведён список гаджетов, которые могут быть включены на странице [[Special:Preferences|настроек]].
-Этот список позволяет легко просматривать сообщения, которые содержат определения гаджетов.',
+	'gadgets-pagetext'  => 'Ниже приведён список гаджетов, которые участники могут включить на своей странице настроек, в соответствии со списком на странице [[MediaWiki:Gadgets-definition]].
+Этот список позволяет легко получить доступ к страницам системных сообщений, определяющих описания и исходные коды гаджетов.',
 	'gadgets-uses'      => 'Использует',
 );
 
