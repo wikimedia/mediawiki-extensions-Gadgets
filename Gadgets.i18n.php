@@ -1129,7 +1129,7 @@ $messages['tg-cyrl'] = array(
  * @author Passawuth
  */
 $messages['th'] = array(
-	'gadgets-desc'      => 'อนุญาตให้ผู้ใช้เลือก [[Special:Gadgets|แกเจตที่สร้างโดยใช้ CSS และ จาวาสคริปต์]] ในหน้า [[Special:Preferences|การตั้งค่า]] ของพวกเขา',
+	'gadgets-desc'      => 'ผู้ใช้สามารถเลือก [[Special:Gadgets|แกเจตที่สร้างโดยใช้ CSS และ จาวาสคริปต์]] ในหน้า [[Special:Preferences|การตั้งค่า]] ได้',
 	'gadgets-prefs'     => 'แกเจต',
 	'gadgets-prefstext' => 'ด้านล่างเป็นรายการแสดงแกเจต (gadget) ที่สามารถใช้งานได้สำหรับผู้ใช้ที่ล็อกอิน โดยแกเจตส่วนใหญ่ทำงานผ่านจาวาสคริปต์ โดยแกเจตทั้งหมดไม่ได้เป็นส่วนหนึ่งของซอฟต์แวร์มีเดียวิกิ แต่พัฒนาโดยผู้ใช้งานในวิกิพีเดียแต่ละภาษา โดยผู้ดูแลระบบสามารถนำเข้ามาใส่ผ่านหน้า [[MediaWiki:Gadgets-definition]] และ [[Special:Gadgets]]',
 	'gadgets'           => 'แกเจต',
