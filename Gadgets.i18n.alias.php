@@ -78,6 +78,16 @@ $aliases['no'] = array(
 	'Gadgets' => array( 'Tilleggsfunksjoner' ),
 );
 
+/** Portuguese (Português) */
+$aliases['pt'] = array(
+	'Gadgets' => array( 'Gadgets' ),
+);
+
+/** Brazilian Portuguese (Português do Brasil) */
+$aliases['pt-br'] = array(
+	'Gadgets' => array( 'Gadgets' ),
+);
+
 /** Thai (ไทย) */
 $aliases['th'] = array(
 	'Gadgets' => array( 'แกเจต' ),
