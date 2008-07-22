@@ -982,6 +982,16 @@ Esta visão geral proporciona um acesso fácil para as mensagens de sistema que 
 	'gadgets-uses'      => 'Utiliza',
 );
 
+/** Romanian (Română)
+ * @author KlaudiuMihaila
+ */
+$messages['ro'] = array(
+	'gadgets-desc'  => 'Permite utilizatorilor să îşi aleagă [[Special:Gadgets|gadgeturi CSS şi JavaScript]] în [[Special:Preferences|preferinţele]] lor',
+	'gadgets-prefs' => 'Gadgeturi',
+	'gadgets'       => 'Gadgeturi',
+	'gadgets-title' => 'Gadgeturi',
+);
+
 /** Russian (Русский)
  * @author VasilievVV
  * @author Illusion
