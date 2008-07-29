@@ -174,7 +174,7 @@ function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
 			# when clicking a link in the describing text.
 			$out->addHtml( "<div class='toggle'><input type='checkbox' value='1' " .
 				"id=\"$tname\" name=\"wpOp$tname\"$checked$disabled />" .
-				" <span class='toggletext'>$ttext</span></div>\n" );
+				" <span class='toggletext'><label for='$tname'>$ttext</label></span></div>\n" );
 		}
 	}
 
