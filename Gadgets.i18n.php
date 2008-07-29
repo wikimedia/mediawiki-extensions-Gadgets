@@ -724,7 +724,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'gadgets-desc'      => 'Domet könne Metmaacher en iere [[{{#special:preferences}}|Enstellunge]] [[Special:Gadgets|CSS- un JavaScrip-Gadgets]] en- un ußschallde',
+	'gadgets-desc'      => 'Domet könne Metmaacher en iere [[{{#special:preferences}}|Enstellunge]] [[Special:Gadgets|CSS- un JavaScrip-Gadgets]] en- un ußschallde.',
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => "Hee is en Liss met bestemmpte Gadgets, di för jede Metmaacher enjeschalldt wäde könne.
 Di boue miets op Javascrip op, drom moß mer't em Brauser enschallde, domet dat klapp.
