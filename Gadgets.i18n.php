@@ -161,10 +161,10 @@ $messages['bg'] = array(
 Тъй като почти всички джаджи са базирани на Джаваскрипт, трябва да го активирате на браузъра си, за да могат те да работят.
 Имайте предвид, че тези джаджи няма да окажат влияние на тази страница с настройки.
 
-Също така, джаджите не са част от софтуера МедияУики, и обикновено се разработват и поддържат от потребители в локалното уики. Локалните администратори могат да редактират наличните джаджи посредством [[MediaWiki:Gadgets-definition]] и [[Special:Gadgets]].',
+Също така, джаджите не са част от софтуера МедияУики, и обикновено се разработват и поддържат от потребители в локалното уики. Локалните администратори могат да редактират наличните джаджи посредством [[MediaWiki:Gadgets-definition|дефинициите]] и [[Special:Gadgets|описанията]].',
 	'gadgets'           => 'Джаджи',
 	'gadgets-title'     => 'Джаджи',
-	'gadgets-pagetext'  => 'По-долу е списъкът на специалните джаджи, които потребителите могат да активират чрез страницата си с настройки, както е указано на [[MediaWiki:Gadgets-definition]].
+	'gadgets-pagetext'  => 'По-долу е списъкът на специалните джаджи, които потребителите могат да активират чрез [[Special:Preferences|страницата си с настройки]], както е указано на [[MediaWiki:Gadgets-definition]].
 Този списък дава лесен достъп до страниците със системни съобщения, съдържащи описанието и кода на всяка джаджа.',
 	'gadgets-uses'      => 'Използва',
 );
@@ -180,7 +180,7 @@ $messages['bn'] = array(
 এই গ্যাজেটগুলি বেশিরভাগই জাভাস্ক্রিপ্ট-ভিত্তিক, তাই এগুলি কাজ করতে হলে আপনার ব্রাউজারে জাভাস্ক্রিপ্ট সক্রিয় থাকতে হবে।
 লক্ষ্য করুন, এই গ্যাজেটগুলি এই পছন্দ পাতায় কোন প্রভাব ফেলবে না।
 
-আরও লক্ষ্য করুন যে এই বিশেষ গ্যাজেটগুলি মিডিয়াউইকি সফটওয়্যারের অংশ নয়, এবং সাধারণত আপনার স্থানীয় উইকির ব্যবহারকারীরা এগুলি তৈরি করেন ও রক্ষণাবেক্ষণ করেন। স্থানীয় প্রশাসকেরা লভ্য গ্যাজেটগুলি [[MediaWiki:Gadgets-definition]] এবং [[Special:Gadgets]]-এর সাহায্যে সম্পাদনা করতে পারেন।',
+আরও লক্ষ্য করুন যে এই বিশেষ গ্যাজেটগুলি মিডিয়াউইকি সফটওয়্যারের অংশ নয়, এবং সাধারণত আপনার স্থানীয় উইকির ব্যবহারকারীরা এগুলি তৈরি করেন ও রক্ষণাবেক্ষণ করেন। স্থানীয় প্রশাসকেরা লভ্য গ্যাজেটগুলি [[MediaWiki:Gadgets-definition|সংজ্ঞা]] এবং [[Special:Gadgets|বর্ণনা]]-এর সাহায্যে সম্পাদনা করতে পারেন।',
 	'gadgets'           => 'গ্যাজেটগুলি',
 	'gadgets-title'     => 'গ্যাজেট',
 	'gadgets-uses'      => 'ব্যবহারসমূহ',
@@ -752,7 +752,8 @@ $messages['lb'] = array(
 Ausserdem sollt dir wëssen, datt dës Gadgeten generell net DEel vu MediaWiki sinn, a meeschtens vu Benotzer vun der lokaler Wikis entwéckelt an ënnerhal ginn. Lokal Wiki-Administrateure kënnen d'Lëscht von den disponibele Gadgeten op de Säiten [[MediaWiki:Gadgets-definition]] a [[Special:Gadgets]] änneren.",
 	'gadgets'           => 'Gadgeten',
 	'gadgets-title'     => 'Gadgeten',
-	'gadgets-pagetext'  => "Ënnendrënner ass eng Lëscht vun de spezielle Gadgeten déi d'Benotzer op hire Benotzer-Astellungen aschalte kënnen, esou wéi dat op [[MediaWiki:Gadgets-definition]] definéiert ass. Dës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all Gadget beschreiwen an definéieren.",
+	'gadgets-pagetext'  => "Ënnendrënner ass eng Lëscht vun de spezielle Gadgeten déi d'Benotzer op hire [[Special:Preferences|Benotzer-Astellungen]] aschalte kënnen, esou wéi dat op [[MediaWiki:Gadgets-definition|definéiert]] ass.
+Dës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all Gadget beschreiwen an zum Programméiercode vun dem Gadget.",
 	'gadgets-uses'      => 'Benotzt',
 );
 
@@ -830,10 +831,10 @@ $messages['ms'] = array(
 	'gadgets-prefs'     => 'Gajet',
 	'gadgets-prefstext' => 'Berikut ialah senarai gajet khas yang anda boleh hidupkan untuk akaun anda. Kebanyakan daripada gajet-gajet ini memerlukan JavaScript, oleh itu anda perlu menghidupkan ciri JavaScript dalam pelayar web anda untuk menggunakannya. Sila ambil perhatian bahawa gajet-gajet ini tidak menjejaskan laman keutamaan ini.
 
-Sila ambil perhatian juga bahasa gajet-gajet khas ini bukan sebahagian daripada perisian MediaWiki, dan biasanya dibangunkan dan diselenggara oleh para pengguna di wiki tempatan anda. Pentadbir tempatan boleh mengubah gajet-gajet yang sedia ada menggunakan [[MediaWiki:Gadgets-definition]] dan [[Special:Gadgets]].',
+Sila ambil perhatian juga bahawa gajet-gajet khas ini bukan sebahagian daripada perisian MediaWiki, dan biasanya dibangunkan dan diselenggara oleh para pengguna di wiki tempatan anda. Pentadbir tempatan boleh mengubah gajet-gajet yang sedia ada menggunakan [[MediaWiki:Gadgets-definition|takrif]] dan [[Special:Gadgets|keterangan]].',
 	'gadgets'           => 'Gajet',
 	'gadgets-title'     => 'Gajet',
-	'gadgets-pagetext'  => 'Berikut ialah senarai gajet khas yang boleh dihidupkan oleh pengguna melalui laman keutamaan, sebagai mana yang ditakrifkan dalam [[MediaWiki:Gadgets-definition]]. Laman ini menyediakan capaian mudah kepada laman pesanan sistem yang mentakrifkan setiap kod dan perihal gajet.',
+	'gadgets-pagetext'  => 'Berikut ialah senarai gajet khas yang boleh dihidupkan oleh pengguna melalui [[Special:Preferences|laman keutamaan]], sebagai mana yang telah [[MediaWiki:Gadgets-definition|ditakrifkan]]. Laman ini menyediakan capaian mudah kepada laman pesanan sistem yang mentakrifkan setiap kod dan keterangan gajet.',
 	'gadgets-uses'      => 'Menggunakan',
 );
 
@@ -1181,10 +1182,10 @@ $messages['uk'] = array(
 Зауважте, що ці додатки не працюють на сторінці налаштувань.
 
 Також зауважте, що ці додатки не є частиною MediaWiki і зазвичай розробляються і обслуговуються користувачами локальної вікі.
-Адміністратори можуть змінювати список додатків за допомогою сторінок [[MediaWiki:Gadgets-definition]] та [[Special:Gadgets]].',
+Адміністратори можуть змінювати список додатків за допомогою сторінок їх [[MediaWiki:Gadgets-definition|визначення]] та [[Special:Gadgets|опису]].',
 	'gadgets'           => 'Додатки',
 	'gadgets-title'     => 'Додатки',
-	'gadgets-pagetext'  => 'Нижче наведений список додатків, які можна ввімкнути на сторінці налаштувань. Список міститься в [[MediaWiki:Gadgets-definition]].
+	'gadgets-pagetext'  => 'Нижче наведений список додатків, які можна ввімкнути на [[Special:Preferences|сторінці налаштувань]]. Список міститься на [[MediaWiki:Gadgets-definition|сторінці визначеннь]].
 Цей список дозволяє легко переглядати системні повідомлення, які містять описи і коди додатків.',
 	'gadgets-uses'      => 'Використовує',
 );
@@ -1198,10 +1199,11 @@ $messages['vec'] = array(
 	'gadgets-prefstext' => "De seguito se cata na lista de acessori speciali (''gadget'') che se pol abilitar par el proprio account.
 La mazor parte de sti acessori la se basa su JavaScript, e quindi te ghè da abilitar JavaScript sul to browser se te vol che i funsiona coretamente. Nota che i accessori no i gà nissun efeto in sta pagina de preferense.
 
-Nota anca che sti acessori speciali no i fa parte del software MediaWiki e i vien de solito realizà e gestìi dai utenti de ogni sito wiki. I aministradori del sito i pol modificar la lista dei acessori disponibili tramite le pagine [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]]",
+Nota anca che sti acessori speciali no i fa parte del software MediaWiki e i vien de solito realizà e gestìi dai utenti de ogni sito wiki. I aministradori del sito i pol modificar la lista dei acessori disponibili tramite le pagine [[MediaWiki:Gadgets-definition|definissioni]] e [[Special:Gadgets|descrissioni]].",
 	'gadgets'           => 'Acessori',
 	'gadgets-title'     => 'Acessori',
-	'gadgets-pagetext'  => "De seguito vien presentà n'elenco de acessori (''gadget'') che i utenti i pol abilitar su la so pagina de le preferenze, seguendo le definizion riportà in [[MediaWiki:Gadgets-definition]]. Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistema nei quali xe definìo la descrizion e el codice de ciascun acessorio.",
+	'gadgets-pagetext'  => "!De seguito vien presentà n'elenco de acessori (''gadget'') che i utenti i pol abilitar su la so [[Special:Preferences|pagina de le preferenze]], seguendo le definizion riportà in [[MediaWiki:Gadgets-definition]].
+Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistema nei quali xe definìo la descrizion e el codice de ciascun acessorio.",
 	'gadgets-uses'      => 'Dopara',
 );
 
