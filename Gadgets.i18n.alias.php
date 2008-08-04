@@ -92,6 +92,11 @@ $aliases['pt-br'] = array(
 	'Gadgets' => array( 'Gadgets' ),
 );
 
+/** Swedish (Svenska) */
+$aliases['sv'] = array(
+	'Gadgets' => array( 'Finesser' ),
+);
+
 /** Thai (ไทย) */
 $aliases['th'] = array(
 	'Gadgets' => array( 'แกเจต' ),
