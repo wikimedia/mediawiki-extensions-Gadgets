@@ -112,21 +112,31 @@ $messages['ar'] = array(
 	'gadgets-uses'      => 'تستخدم',
 );
 
+/** Egyptian Spoken Arabic (مصرى)
+ * @author Ghaly
+ */
+$messages['arz'] = array(
+	'gadgets'       => 'إضافات',
+	'gadgets-title' => 'إضافات',
+	'gadgets-uses'  => 'إستخدامات',
+);
+
 /** Asturian (Asturianu)
  * @author Esbardu
  */
 $messages['ast'] = array(
-	'gadgets-desc'      => 'Permite a los usuarios seleicionar al gustu [[Special:Gadgets|accesorios CSS y JavaScript]] nes sos [[Special:Preferencies|preferencies]]',
+	'gadgets-desc'      => 'Permite a los usuarios seleicionar al gustu [[Special:Gadgets|accesorios CSS y JavaScript]] nes sos [[Special:Preferences|preferencies]]',
 	'gadgets-prefs'     => 'Accesorios',
 	'gadgets-prefstext' => "Embaxo amuésase una llista de los accesorios especiales que pues activar pa la to cuenta.
-Estos accesorios tán mayormente basaos en JavaScript, polo qu'has tener activáu ésti nel to navegador pa que funcionen.
+Estos accesorios tán mayormente basaos en JavaScript, polo qu'has tener activáu esti nel to navegador pa que funcionen.
 Date cuenta de qu'estos accesorios nun tendrán efeutu nesta páxina de preferencies.
 
-Has decatate tamién de que estos accesorios especiales nun son parte del software MediaWiki, y que normalmente son
-desenrollaos y manteníos por usuarios de la to wiki llocal. Los alministradores llocales puen editar los accesorios disponibles usando [[Mediawiki:Gadgets-definition]] y [[Special:Gadgets]].",
+Has decatate tamién de qu'estos accesorios especiales nun son parte del software MediaWiki, y que normalmente son
+desenrollaos y manteníos por usuarios de la to wiki llocal.
+Los alministradores llocales puen editar los accesorios disponibles usando les [[Mediawiki:Gadgets-definition|definiciones]] y les [[Special:Gadgets|descripciones]].",
 	'gadgets'           => 'Accesorios',
 	'gadgets-title'     => 'Accesorios',
-	'gadgets-pagetext'  => 'Embaxo amuésase una llista de los accesorios especiales que los usuarios puen activar na so páxina de preferencies, según queden definíos por [[Mediawiki:Gadgets-definition]].
+	'gadgets-pagetext'  => 'Embaxo amuésase una llista de los accesorios especiales que los usuarios puen activar na so [[Special:Preferences|páxina de preferencies]], según queden definíos poles [[Mediawiki:Gadgets-definition|definiciones]].
 Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del sistema que definen la descripción y el códigu de cada accesoriu.',
 	'gadgets-uses'      => 'Usa',
 );
@@ -376,10 +386,12 @@ $messages['fr'] = array(
 	'gadgets-prefs'     => 'Gadgets',
 	'gadgets-prefstext' => 'Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel à JavaScript, lequel doit donc être activé pour votre navigateur Web.
 
-Ils n’ont aucune incidence sur cette page de préférences. De plus, ils sont généralement développés et maintenus sur ce wiki. Les administrateurs peuvent modifier les gadgets en passant par [[MediaWiki:Gadgets-definition]] et [[Special:Gadgets]].',
+Notez aussi que ces gadgets spéciaux ne font nullemenent partie du logiciel MédiaWiki. De plus, ils sont généralement développés et maintenus par les utilisateurs sur votre wiki local.
+Les administrateurs locaux peuvent modifier les gadgets disponibles en utilisant [[MediaWiki:Gadgets-definition|les définitions]] et les [[Special:Gadgets|descriptions]].',
 	'gadgets'           => 'Gadgets',
 	'gadgets-title'     => 'Gadgets',
-	'gadgets-pagetext'  => "Ci-dessous apparaît une liste de gadgets que les utilisateurs peuvent activer dans leur page de préférences, tel que défini dans ''[[MediaWiki:Gadgets-definition]]''. Ce survol donne un accès rapide aux pages de messages système qui définissent chaque description et chaque code des gadgets.",
+	'gadgets-pagetext'  => 'Ci-dessous apparaît une liste de gadgets que les utilisateurs peuvent activer dans leur [Special:Preferences|page de préférences]], tel que défini dans [[MediaWiki:Gadgets-definition|les définitions]].
+Ce survol donne un accès rapide aux pages de messages système qui définissent chaque description et chaque code des gadgets.',
 	'gadgets-uses'      => 'Utilise',
 );
 
@@ -747,9 +759,12 @@ Die Övverseech hee jit enne direkte op di Texte em Wiki, wo de Projramme, un de
 $messages['lb'] = array(
 	'gadgets-desc'      => 'Erméiglecht de Benotzer et perséinlech [[Special:Gadgets|CSS a JavaScript Gadgeten]] an hiren [[Special:Preferences|Astellunge]] festzeleeën.',
 	'gadgets-prefs'     => 'Gadgeten',
-	'gadgets-prefstext' => "Lëscht vu spezielle Gadgeten déi fir all Benotzer aktivéiert kënne ginn. D'Gadgeten baséiere meeschtens op engem JavaScript, dafir muss JavaScript an ärem Browser aktivéiert sinn, fir datt se fonctionéieren. D'Gadgete fonctionéieren awer net op dëser Säit matt de perséinlechen Astellungen.
+	'gadgets-prefstext' => "Lëscht vu spezielle Gadgeten déi fir äre Benotzerkont aktivéiert kënne ginn.
+D'Gadgeten baséiere meeschtens op engem JavaScript, dafir muss JavaScript an ärem Browser aktivéiert sinn, fir datt se fonctionéieren.
+D'Gadgete fonctionéieren awer net op dëser Säit matt de perséinlechen Astellungen.
 
-Ausserdem sollt dir wëssen, datt dës Gadgeten generell net DEel vu MediaWiki sinn, a meeschtens vu Benotzer vun der lokaler Wikis entwéckelt an ënnerhal ginn. Lokal Wiki-Administrateure kënnen d'Lëscht von den disponibele Gadgeten op de Säiten [[MediaWiki:Gadgets-definition]] a [[Special:Gadgets]] änneren.",
+Ausserdem sollt dir wëssen, datt dës Gadgeten generell net Deel vu MediaWiki sinn, a meeschtens vu Benotzer vun der lokaler Wikis entwéckelt an ënnerhal ginn. 
+Lokal Wiki-Administrateure kënnen d'Lëscht von den disponibele Gadgeten op de Säiten [[MediaWiki:Gadgets-definition|Definitioune vun Gadgeten]] a [[Special:Gadgets|Beschreiwunge vu Gadgeten]] änneren.",
 	'gadgets'           => 'Gadgeten',
 	'gadgets-title'     => 'Gadgeten',
 	'gadgets-pagetext'  => "Ënnendrënner ass eng Lëscht vun de spezielle Gadgeten déi d'Benotzer op hire [[Special:Preferences|Benotzer-Astellungen]] aschalte kënnen, esou wéi dat op [[MediaWiki:Gadgets-definition|definéiert]] ass.
@@ -898,7 +913,7 @@ Merk at funksjonene ikke vil ha noen innvirkning på denne innstillingssiden.
 Merk også at disse verktøyene ikke er del av MediaWiki-programvaren, og vanligvis utvikles og vedlikeholdes av brukere på den lokale wikien. Lokale administratorer kan redigere tilgjengelig verktøy ved å endre [[MediaWiki:Gadgets-definition|definisjonene]] og [[Special:Gadgets|beskrivelsene]].',
 	'gadgets'           => 'Tilleggsfunksjoner',
 	'gadgets-title'     => 'Tilleggsfunksjoner',
-	'gadgets-pagetext'  => 'Nedenfor er en liste over tilleggsfunksjoner brukere kan slå på i [[Special:Preferences|innstillingene]], som definert av [[MediaWiki:Gadgets-definition|definisjoner]]. Denne oversikten gir lett tilgang til systembeskjedsidene som definerer hvert verktøys beskrivelse og kode.',
+	'gadgets-pagetext'  => 'Nedenfor er en liste over tilleggsfunksjoner brukere kan slå på i [[Special:Preferences|innstillingene]], som definert på [[MediaWiki:Gadgets-definition]]. Denne oversikten gir lett tilgang til systembeskjedsidene som definerer hvert verktøys beskrivelse og kode.',
 	'gadgets-uses'      => 'Bruk',
 );
 
@@ -908,14 +923,14 @@ Merk også at disse verktøyene ikke er del av MediaWiki-programvaren, og vanlig
 $messages['oc'] = array(
 	'gadgets-desc'      => 'Daissa als utilizaires los [[Special:Gadgets|gadgets CSS e JavaScript]] dins lor [[Special:Preferences|preferéncias]]',
 	'gadgets-prefs'     => 'Gadgets',
-	'gadgets-prefstext' => "Çaijós apareis una tièra de gadgets que podètz activar per vòstre compte.
-Fan ampèl a JavaScript, deu doncas èsser activat per vòstre navigador Web.
+	'gadgets-prefstext' => "Çaijós apareis una tièra de gadgets que podètz activar per vòstre compte. Fan ampèl a JavaScript, deu doncas èsser activat per vòstre navigador Web.
 
 An pas cap d'incidéncia sus aquesta pagina de preferéncias. E mai, son generalament desvolopats e mantenguts sus aqueste wiki.
-Los administrators pòdon modificar los gadgets en passant per [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]].",
+Los administrators pòdon modificar los gadgets en passant per [[MediaWiki:Gadgets-definition|las definicions]] e las [[Special:Gadgets|descripcions]].",
 	'gadgets'           => 'Gadgets',
 	'gadgets-title'     => 'Gadgets',
-	'gadgets-pagetext'  => "Çaijós apareis una lista de gadgets que los utilizaires pòdon activar dins lor pagina de preferéncias, coma definit dins ''[[MediaWiki:Gadgets-definition]]''. Aqueste susvòl dona un accès rapid a las paginas de messatges del sistèma que definisson cada descripcion e cada còde dels gadgets.",
+	'gadgets-pagetext'  => "Çaijós apareis una lista de gadgets que los utilizaires pòdon activar dins lor [Special:Preferences|pagina de preferéncias]], coma definit dins ''[[MediaWiki:Gadgets-definition|las definicions]]''.
+Aqueste susvòl dona un accès rapid a las paginas de messatges del sistèma que definisson cada descripcion e cada còde dels gadgets.",
 	'gadgets-uses'      => 'Utiliza',
 );
 
@@ -952,7 +967,7 @@ Gadżety nie są częścią oprogramowania MediaWiki i najprawdopodobniej zosta�
 Lokalni administratorzy mogą edytować dostępne gadżety używając stron [[MediaWiki:Gadgets-definition|Definicje gadżetów]] oraz [[Special:Gadgets|Gadżety]].',
 	'gadgets'           => 'Gadżety',
 	'gadgets-title'     => 'Gadżety',
-	'gadgets-pagetext'  => 'Poniżej znajduje się lista specjalnych gadżetów, które użytkownicy mogą włączyć na swojej stronie preferencji, zdefiniowanej na stronie [[MediaWiki:Gadgets-definition]].
+	'gadgets-pagetext'  => 'Poniżej znajduje się lista specjalnych gadżetów, które użytkownicy mogą włączyć na swojej [[Special:Preferences|stronie preferencji]]. Lista ta jest zdefiniowana na stronie [[MediaWiki:Gadgets-definition]].
 Poniższy przegląd ułatwia dostęp do komunikatów systemu, które definiują opis i kod każdego z gadżetów.',
 	'gadgets-uses'      => 'Użycie',
 );
