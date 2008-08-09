@@ -122,7 +122,7 @@ function wfLoadGadgetsStructured( $forceNewText = NULL ) {
 	return $gadgets;
 }
 
-function wfGadgetsInitPreferencesForm( &$prefs, &$request ) {
+function wfGadgetsInitPreferencesForm( $prefs, $request ) {
 	$gadgets = wfLoadGadgets();
 	if ( !$gadgets ) return true;
 
@@ -134,7 +134,7 @@ function wfGadgetsInitPreferencesForm( &$prefs, &$request ) {
 	return true;
 }
 
-function wfGadgetsResetPreferences( &$prefs, &$user ) {
+function wfGadgetsResetPreferences( $prefs, $user ) {
 	$gadgets = wfLoadGadgets();
 	if ( !$gadgets ) return true;
 
@@ -146,7 +146,7 @@ function wfGadgetsResetPreferences( &$prefs, &$user ) {
 	return true;
 }
 
-function wfGadgetsRenderPreferencesForm( &$prefs, &$out ) {
+function wfGadgetsRenderPreferencesForm( $prefs, $out ) {
 	$gadgets = wfLoadGadgetsStructured();
 	if ( !$gadgets ) return true;
 
