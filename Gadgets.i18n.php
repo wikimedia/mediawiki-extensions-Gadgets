@@ -34,7 +34,11 @@ This overview provides easy access to the system message pages that define each 
 	'gadgets-uses'      => 'Uses',
 );
 
-/** Message documentation (Message documentation) */
+/** Message documentation (Message documentation)
+ * @author Jon Harald Søby
+ * @author SPQRobin
+ * @author Siebrand
+ */
 $messages['qqq'] = array(
 	'gadgets-prefs' => 'In Gadgets extension. The name of a tab in [[Special:Preferences]] where user set their preferences for the extension.
 
@@ -356,12 +360,13 @@ $messages['fa'] = array(
 	'gadgets-prefs' => 'ابزارها',
 	'gadgets-prefstext' => 'در زیر فهرستی از ابزارهای ویژه‌ای که می‌توانید برای حساب کاربری‌تان فعال کنید را می‌بینید.
 این ابزارها در بیشتر موارد مبتنی بر جاوااسکریپت هستند، پس برای استفاده از آن‌ها باید جاوااسکرپیت را در مرورگر خودتان فعال کنید.
-توجه کنید که این ابزارها نمی‌تواند صفحهٔ ترجیحات را تغییر دهند.
+توجه کنید که این ابزارها نمی‌توانند صفحهٔ ترجیحات را تغییر دهند.
 
-دقت داشته باشد که این ابزارها جزئی از نرم‌افزار مدیاویکی نیستند، و معمولاً توسط کاربران هر ویکی ساخته و نگهداری می‌شوند. مدیران هر ویکی می‌توانند با استفاده از صفحه‌های [[MediaWiki:Gadgets-definition]] و [[Special:Gadgets]] به ویرایش ابزارها بپردازند.',
+دقت داشته باشد که این ابزارها جزئی از نرم‌افزار مدیاویکی نیستند، و معمولاً توسط کاربران هر ویکی ساخته و نگهداری می‌شوند.
+مدیران هر ویکی می‌توانند با استفاده از صفحه‌های [[MediaWiki:Gadgets-definition|تعاریف]] و [[Special:Gadgets|توضیحات]] به ویرایش ابزارها بپردازند.',
 	'gadgets' => 'ابزارها',
 	'gadgets-title' => 'ابزارها',
-	'gadgets-pagetext' => 'در زیر فهرستی از ابزارهای ویژه‌ای که کاربران می‌توانند از طریق صفحهٔ ترجیحاتشان فعال کنند می‌بینید، که مطابق آن چه است که در [[MediaWiki:Gadgets-definition]] تعریف شده‌است.
+	'gadgets-pagetext' => 'در زیر فهرستی از ابزارهای ویژه‌ای که کاربران می‌توانند از طریق [[Special:Preferences|صفحهٔ ترجیحاتشان]] فعال کنند می‌بینید، که مطابق آن چه است که در صفحهٔ [[MediaWiki:Gadgets-definition|تعاریف]] تعریف شده‌است.
 این خلاصه کمک می‌کند که به صفحه‌های پیغام سیستمی که توضیحات و کد هر ابزار را شامل می‌شوند به راحتی دست پیدا کنید.',
 	'gadgets-uses' => 'برنامه',
 );
@@ -728,6 +733,7 @@ $messages['km'] = array(
 );
 
 /** Korean (한국어)
+ * @author Ficell
  * @author Kwj2772
  */
 $messages['ko'] = array(
@@ -737,7 +743,7 @@ $messages['ko'] = array(
 참고로 이 소도구들은 사용자 환경 설정에서는 아무런 영향을 주지 않습니다.
 
 또한 이 소도구들은 미디어위키 소프트웨어의 일부분이 아니며, 주로 해당 위키의 사용자가 개발한 것입니다.
-관리자는 [[MediaWiki:Gadgets-definition]]과 [[Special:Gadgets]]를 통해 사용할 수 있는 소도구들을 편집할 수 있습니다.',
+관리자는 [[MediaWiki:Gadgets-definition|소도구 정의 문서]]와 [[Special:Gadgets|소도구 설명 문서]]를 통해 사용할 수 있는 소도구들을 편집할 수 있습니다.',
 	'gadgets' => '소도구',
 	'gadgets-title' => '소도구',
 );
