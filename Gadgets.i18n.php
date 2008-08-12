@@ -380,10 +380,10 @@ $messages['fi'] = array(
 	'gadgets-prefs' => 'Pienoisohjelmat',
 	'gadgets-prefstext' => 'Alla on lista pienoisohjelmista, joita käyttäjät voivat ottaa käyttöön. Nämä pienoisohjelmat pohjautuvat usein JavaScriptiin, joten toimiakseen selaimessasi pitää olla JavaScript käytössä.
 
-Huomio myös, että nämä pienoisohjelmat eivät ole osa MediaWiki-ohjelmistoa – tavallisesti niitä kehittävät ja ylläpitävät paikallisen wikin käyttäjät. Paikalliset ylläpitäjät voivat muokata saatavilla olevia pienoisohjelmia sivuilla [[MediaWiki:Gadgets-definition]] ja [[Special:Gadgets]].',
+Huomio myös, että nämä pienoisohjelmat eivät ole osa MediaWiki-ohjelmistoa – tavallisesti niitä kehittävät ja ylläpitävät paikallisen wikin käyttäjät. Paikalliset ylläpitäjät voivat muokata saatavilla olevia pienoisohjelmia [[MediaWiki:Gadgets-definition|määrityssivulla]] ja [[Special:Gadgets|kuvauksista]].',
 	'gadgets' => 'Pienoisohjelmat',
 	'gadgets-title' => 'Pienoisohjelmat',
-	'gadgets-pagetext' => 'Alla on lista pienoisohjelmista, joita käyttäjät voivat ottaa käyttöön asetussivulta. Pienoisohjelmat on määritetty sivulla [[MediaWiki:Gadgets-definition]].
+	'gadgets-pagetext' => 'Alla on lista pienoisohjelmista, joita käyttäjät voivat ottaa käyttöön [[Special:Preferences|asetussivulta]]. Pienoisohjelmat määritetään [[MediaWiki:Gadgets-definition|täältä]].
 
 Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät pienoisohjelmien kuvauksen ja koodin.',
 	'gadgets-uses' => 'Käyttää',
@@ -513,14 +513,14 @@ $messages['hr'] = array(
 	'gadgets-desc' => 'Omogućava suradnicama biranje osobnih [[Special:Gadgets|CSS i JavaScript gadgeta]] u svojim [[Special:Preferences|postavkama]]',
 	'gadgets-prefs' => "JS ekstenzije (''gadgets'')",
 	'gadgets-prefstext' => 'Slijedi popis posebnih ekstenzija koje možete omogućiti.
-One su većinom napisane u JavaScriptu, stoga JavaScript mora biti omogućen u vašem web-pregledniku da bi ektenzije radile.
-Nijedna ektenzija nema učinka na stranicu s postavkama.
+One su većinom napisane u JavaScriptu, stoga JavaScript mora biti omogućen u vašem web pregledniku da bi ektenzije radile.
+Nijedna ektenzija nema učinka na ovu stranicu s postavkama.
 
 Ove posebne ekstenzije nisu dio MediaWiki softvera, najčešće su razvijane i održavane od suradnika na lokalnom wikiju.
-Lokalni administratori mogu uređivati dostupne ekstenzije putem [[MediaWiki:Gadgets-definition]] i [[Special:Gadgets]].',
+Lokalni administratori mogu uređivati dostupne ekstenzije putem [[MediaWiki:Gadgets-definition|definicija]] i [[Special:Gadgets|opisa]].',
 	'gadgets' => "JS ekstenzije (''gadgets'')",
 	'gadgets-title' => "JS ekstenzije (''gadgets'')",
-	'gadgets-pagetext' => 'Slijedi popis posebnih JavaScript ekstenzija koje suradnici mogu omogućiti u svojim postavkama, kako je definirano stranicom [[MediaWiki:Gadgets-definition]].
+	'gadgets-pagetext' => 'Slijedi popis posebnih JavaScript ekstenzija koje suradnici mogu omogućiti u svojim [[Special:Preferences|postavkama]], kako je definirano stranicom [[MediaWiki:Gadgets-definition|definicija]].
 Ovaj pregled omogućuje lak pristup porukama sustava koje opisuju ekstenzije i njihov kod.',
 	'gadgets-uses' => 'Koristi',
 );
@@ -754,16 +754,29 @@ $messages['ko'] = array(
 $messages['ksh'] = array(
 	'gadgets-desc' => 'En iere [[Special:Preferences|Enstellunge]] künne Metmaacher [[Special:Gadgets|CSS- un JavaScrip-Gadgets]] en- un ußschallde.',
 	'gadgets-prefs' => 'Gadgets',
-	'gadgets-prefstext' => "Hee is en Liss met bestemmpte Gadgets, di för jede Metmaacher enjeschalldt wäde könne.
-Di boue miets op Javascrip op, drom moß mer't em Brauser enschallde, domet dat klapp.
-Gagdets werke nimmohls op dä Sigg hee, met Dinge persönleche Enstellunge.
+	'gadgets-prefstext' => 'Hee is en Liss met bestemmpte <i lang="en">Gadgets</i>,
+di för jede Metmaacher enjeschalldt wäde könne.
+Di boue miets op Javascrip op, drom moß mer\'t em Brauser
+enschallde, domet dat klapp.
+<i lang="en">Gadgets</i> werke nimmohls op dä Sigg hee,
+met Dinge persönleche Enstellunge.
 
-Opjepaß! Gadgets sin kei Schtöck vun MediaWiki, söndern sin extra em Wiki installeet, un sin vun de Wiki-Bedriever oder Metmaacher ußjedaach un enjerescht. Wä et Rääsch doför hät, kann se övver de Sigge [[MediaWiki:Gadgets-definition]] un [[Special:Gadgets]] enreschte un ändere.",
+Opjepaß! <i lang="en">Gadgets</i>, sin kei Schtöck vun MediaWiki,
+söndern sin extra em Wiki installeet, un sin vun de Wiki-Bedriever
+oder Metmaacher ußjedaach un enjerescht.
+Wä et Rääsch doför hät, kann se övver de Sigge
+[[MediaWiki:Gadgets-definition|<i lang="en">Gadgets</i> fäßlääje]]
+un [[Special:Gadgets|<i lang="en">Gadgets</i> beschriewe]]
+enreschte un ändere.',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
-	'gadgets-pagetext' => 'He kütt en Liss met spezielle Gadgets.
+	'gadgets-pagetext' => 'He kütt en Liss met spezielle <i lang="en">Gadgets</i>,
+di jede Metmaacher övver sing
+[[Special:Preferences|päsönlije Enstellunge]] enschallte kann.
 Se wääde üvver [[MediaWiki:Gadgets-definition]] enjerecht.
-Die Övverseech hee jit enne direkte op di Texte em Wiki, wo de Projramme, un des Erklierunge för de Gadgets dren enthallde sin.',
+Die Övverseech hee jit enne direkte Zohjang op di Texte em Wiki,
+wo de Projramme, un des Erklierunge för de Gadgets dren enthallde
+sin.',
 	'gadgets-uses' => 'Buch',
 );
 
