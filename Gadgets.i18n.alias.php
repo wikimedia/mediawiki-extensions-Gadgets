@@ -52,6 +52,11 @@ $aliases['he'] = array(
 	'Gadgets' => array( 'סקריפטים' ),
 );
 
+/** Croatian (Hrvatski) */
+$aliases['hr'] = array(
+	'Gadgets' => array( 'Dodaci' ),
+);
+
 /** Haitian (Kreyòl ayisyen) */
 $aliases['ht'] = array(
 	'Gadgets' => array( 'Gajèt' ),

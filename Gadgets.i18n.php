@@ -510,18 +510,18 @@ $messages['hi'] = array(
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
-	'gadgets-desc' => 'Omogućava suradnicama biranje osobnih [[Special:Gadgets|CSS i JavaScript gadgeta]] u svojim [[Special:Preferences|postavkama]]',
-	'gadgets-prefs' => "JS ekstenzije (''gadgets'')",
-	'gadgets-prefstext' => 'Slijedi popis posebnih ekstenzija koje možete omogućiti.
-One su većinom napisane u JavaScriptu, stoga JavaScript mora biti omogućen u vašem web pregledniku da bi ektenzije radile.
-Nijedna ektenzija nema učinka na ovu stranicu s postavkama.
+	'gadgets-desc' => 'Omogućava suradnicama biranje osobnih [[Special:Gadgets|CSS i JavaScript dodataka]] u svojim [[Special:Preferences|postavkama]]',
+	'gadgets-prefs' => 'Dodaci',
+	'gadgets-prefstext' => 'Slijedi popis posebnih dodataka koje možete omogućiti.
+One su većinom napisane u JavaScriptu, stoga JavaScript mora biti omogućen u vašem web pregledniku da bi dodaci radili.
+Nijedan dodatak nema učinka na ovu stranicu s postavkama.
 
-Ove posebne ekstenzije nisu dio MediaWiki softvera, najčešće su razvijane i održavane od suradnika na lokalnom wikiju.
-Lokalni administratori mogu uređivati dostupne ekstenzije putem [[MediaWiki:Gadgets-definition|definicija]] i [[Special:Gadgets|opisa]].',
-	'gadgets' => "JS ekstenzije (''gadgets'')",
-	'gadgets-title' => "JS ekstenzije (''gadgets'')",
-	'gadgets-pagetext' => 'Slijedi popis posebnih JavaScript ekstenzija koje suradnici mogu omogućiti u svojim [[Special:Preferences|postavkama]], kako je definirano stranicom [[MediaWiki:Gadgets-definition|definicija]].
-Ovaj pregled omogućuje lak pristup porukama sustava koje opisuju ekstenzije i njihov kod.',
+Ovi posebni dodaci nisu dio MediaWiki softvera, najčešće su razvijane i održavane od suradnika na lokalnom wikiju.
+Lokalni administratori mogu uređivati dostupne dodatke putem [[MediaWiki:Gadgets-definition|definicija]] i [[Special:Gadgets|opisa]].',
+	'gadgets' => 'Dodaci',
+	'gadgets-title' => 'Dodaci',
+	'gadgets-pagetext' => 'Slijedi popis posebnih JavaScript dodataka koje suradnici mogu omogućiti u svojim [[Special:Preferences|postavkama]], kako je definirano stranicom [[MediaWiki:Gadgets-definition|definicija]].
+Ovaj pregled omogućava lak pristup porukama sustava koje opisuju dodatke i njihov kod.',
 	'gadgets-uses' => 'Koristi',
 );
 
@@ -566,13 +566,13 @@ $messages['ia'] = array(
 	'gadgets-prefs' => 'Gadgets',
 	'gadgets-prefstext' => 'Infra es un lista de gadgets special que tu pote activar in tu conto.
 Iste gadgets se basa pro le major parte in JavaScript, ergo JavaScript debe esser active in tu navigator pro permitter que illos functiona.
-Nota que iste gadgets non habera effecto super iste pagina de preferentias.
+Nota que iste gadgets non habera effecto in iste pagina de preferentias.
 
-Nota etiam que iste gadgets special non es parte del software de MediaWiki, e es normalmente disveloppate e mantenite per usatores in tu wiki local.
-Le administratores local pote modificar le gadgets disponibile con le paginas [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]].',
+Nota etiam que iste gadgets special non face parte del software de MediaWiki, e es normalmente disveloppate e mantenite per usatores in tu wiki local.
+Le administratores local pote modificar le gadgets disponibile per medio de [[MediaWiki:Gadgets-definition|definitiones]] e [[Special:Gadgets|descriptiones]].',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
-	'gadgets-pagetext' => 'Infra es un lista de gadgets special que le usatores pote activar in lor paginas de preferentias, como definite per [[MediaWiki:Gadgets-definition]].
+	'gadgets-pagetext' => 'Infra es un lista de gadgets special que le usatores pote activar in lor [[Special:Preferences|paginas de preferentias]], secundo le [[MediaWiki:Gadgets-definition|definitiones]].
 Iste supervista permitte le accesso commode al paginas de messages de systema que defini le description e codice de cata gadget.',
 	'gadgets-uses' => 'Usa',
 );
@@ -1151,15 +1151,16 @@ $messages['su'] = array(
 $messages['sv'] = array(
 	'gadgets-desc' => 'Låter användare aktivera personliga [[Special:Gadgets|CSS- och JavaScript-finesser]] genom sina [[Special:Preferences|inställningar]]',
 	'gadgets-prefs' => 'Finesser',
-	'gadgets-prefstext' => 'Härunder är en lista över finesser som du kan aktivera för ditt konto.
+	'gadgets-prefstext' => 'Härunder finns en lista över finesser som du kan aktivera för ditt konto.
 De flesta funktionerna är baserade på JavaScript, så du måste ha JavaScript aktiverat i din webbläsare för att de ska fungera.
 Notera att de här tilläggsfunktionerna inte kommer ha någon effekt den här inställningssidan.
 
-Notera också att dessa finesser inte är en del av MediaWiki-programvaran. De är för det mesta utvecklade och underhållna av användare på den här wikin. Lokala administratörer kan redigera de tillgängliga funktionerna med hjälp av [[MediaWiki:Gadgets-definition]] och [[Special:Gadgets]].',
+Notera också att dessa finesser inte är en del av MediaWiki-programvaran, och är för det mesta utvecklade och underhållna av användare på den här wikin.
+Lokala administratörer kan redigera de tillgängliga funktionerna med hjälp av [[MediaWiki:Gadgets-definition|definieringar]] och [[Special:Gadgets|beskrivningar]].',
 	'gadgets' => 'Finesser',
 	'gadgets-title' => 'Finesser',
-	'gadgets-pagetext' => 'Härunder finns en lista över finesser som användare kan aktivera i sina inställningar. Listan är definierad av [[MediaWiki:Gadgets-definition]].
-Den här översikten ger enkel åtkomst till de systemmeddelanden som definerar beskrivningarna och koden för varje finess.',
+	'gadgets-pagetext' => 'Härunder finns en lista över finesser som användare kan aktivera i sina [[Special:Preferences|inställningar]], definierad av [[MediaWiki:Gadgets-definition|definieringarna]].
+Den här översikten ger enkel åtkomst till de systemmeddelanden som definierar beskrivningarna och koden för varje finess.',
 	'gadgets-uses' => 'Använder',
 );
 
