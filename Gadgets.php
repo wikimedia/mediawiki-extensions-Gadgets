@@ -32,6 +32,7 @@ $wgHooks['RenderPreferencesForm'][] = 'wfGadgetsRenderPreferencesForm';
 $wgHooks['ResetPreferences'][] = 'wfGadgetsResetPreferences';
 $wgHooks['BeforePageDisplay'][] = 'wfGadgetsBeforePageDisplay';
 $wgHooks['ArticleSaveComplete'][] = 'wfGadgetsArticleSaveComplete';
+$wgHooks['LoadAllMessages'][] = 'wfGadgetsInjectMessages';
 
 $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
@@ -231,3 +232,31 @@ function wfApplyGadgetCode( $code, &$out, &$done ) {
 		}
 	}
 }
+
+/**
+* inject descriptions into system messages, so they show on Special:Allmessages
+*/
+function wfGadgetsInjectMessages() {
+	global $wgLang, $wgMessageCache;
+
+	$gadgets = wfLoadGadgetsStructured();
+	if ( !$gadgets ) return true;
+
+	$messages = array();
+
+	foreach ( $gadgets as $section => $entries ) {
+		if ( $section !== false && $section !== '' ) {
+			$tname = "gadget-section-$section";
+			$messages[$tname] = $section;
+		}
+
+		foreach ( $entries as $gname => $code ) {
+			$tname = "gadget-$gname";
+			$messages[$tname] = $gname;
+		}
+	}
+	
+	$wgMessageCache->addMessages( $messages );
+	return true;
+}
+
