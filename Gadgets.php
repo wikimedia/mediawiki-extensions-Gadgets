@@ -243,16 +243,21 @@ function wfGadgetsInjectMessages() {
 	if ( !$gadgets ) return true;
 
 	$messages = array();
+	$msgOpt = array( 'parseinline' );
 
 	foreach ( $gadgets as $section => $entries ) {
 		if ( $section !== false && $section !== '' ) {
 			$tname = "gadget-section-$section";
-			$messages[$tname] = $section;
+			$ttext = wfMsgExt( $tname, $msgOpt );
+			if ( wfEmptyMsg( $tname, $ttext ) ) $ttext = $section;
+			$messages[$tname] = $ttext;
 		}
 
 		foreach ( $entries as $gname => $code ) {
 			$tname = "gadget-$gname";
-			$messages[$tname] = $gname;
+			$ttext = wfMsgExt( $tname, $msgOpt );
+			if ( wfEmptyMsg( $tname, $ttext ) ) $ttext = $gname;
+			$messages[$tname] = $ttext;
 		}
 	}
 	
