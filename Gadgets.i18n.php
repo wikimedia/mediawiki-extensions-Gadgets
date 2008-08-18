@@ -625,17 +625,18 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
 );
 
 /** Japanese (日本語)
+ * @author Aotake
  * @author JtFuruhata
  */
 $messages['ja'] = array(
 	'gadgets-desc' => '[[Special:Gadgets|カスタムCSSやJavaScriptのガジェット]]を利用者が[[Special:Preferences|{{int:preferences}}]]から選択できる',
 	'gadgets-prefs' => 'ガジェット',
-	'gadgets-prefstext' => '下のリストはあなたのアカウントで利用できるガジェットの一覧です。これらのガジェットはほとんどがJavaScriptベースのため、その動作にはブラウザ設定でJavaScriptを有効にする必要があります。ただし、ガジェットが{{int:preferences}}ページ上では動作しないことも覚えておいてください。
+	'gadgets-prefstext' => '下のリストはあなたのアカウントで利用できるガジェットの一覧です。これらのガジェットはほとんどがJavaScriptベースのため、動作させるにはブラウザ設定でJavaScriptを有効にする必要があります。ただしガジェットが{{int:preferences}}ページ上では動作しません。
 
-また、これらのガジェットは MediaWiki ソフトウェアの一部ではなく、開発とメンテナンスは通常そのウィキのユーザによって行われていることにも注意してください。管理者は[[MediaWiki:Gadgets-definition]] や [[Special:Gadgets]]を編集することにより、利用可能なガジェットを指定することが可能です。',
+また、これらのガジェットは MediaWiki ソフトウェアの一部ではなく、開発とメンテナンスは通常ウィキ毎の利用者によって行われていることにも注意してください。管理者は[[MediaWiki:Gadgets-definition]] や [[Special:Gadgets]]を編集することにより、利用可能なガジェットを編集できます。',
 	'gadgets' => 'ガジェット',
 	'gadgets-title' => 'ガジェット',
-	'gadgets-pagetext' => '以下のリストは、[[MediaWiki:Gadgets-definition]] 上で定義された、ユーザが{{int:preferences}}ページにて利用可能にすることができるガジェットの一覧です。この概略はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
+	'gadgets-pagetext' => '以下のリストは、[[MediaWiki:Gadgets-definition]] 上で定義された、利用者が{{int:preferences}}ページにて利用可能にすることができるガジェットの一覧です。この一覧はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
 	'gadgets-uses' => '利用するファイル',
 );
 
@@ -1029,10 +1030,11 @@ $messages['pt'] = array(
 Tais gadgets normalmente são baseados em JavaScript, o que faz com que seja necessário que o suporte a JavaScript esteja ativado em seu navegador para que os mesmos funcionem.
 Note que os gadgets não possuem efeito nesta página (a página de preferências).
 
-Note também que tais gadgets não são parte do software MediaWiki, geralmente sendo desenvolvidos e mantidos por usuários de sua wiki local. Administradores locais podem editar os gadgets disponíveis através da [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]].',
+Note também que tais gadgets não são parte do software MediaWiki, geralmente sendo desenvolvidos e mantidos por usuários de sua wiki local.
+Administradores locais podem editar os gadgets disponíveis através de [[MediaWiki:Gadgets-definition|definições]] e [[Special:Gadgets|descrições]].',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
-	'gadgets-pagetext' => 'Segue-se uma lista de "gadgets" definidos em [[MediaWiki:Gadgets-definition]], que podem ser ativados por utilizadores através de suas páginas de preferências.
+	'gadgets-pagetext' => 'Segue-se uma lista de "gadgets" que podem ser ativados por utilizadores através de [[Special:Preferences|suas páginas de preferências]], definidos em [[MediaWiki:Gadgets-definition]].
 Esta visão geral proporciona um acesso fácil para as mensagens de sistema que definem as descrições e códigos de cada um dos gadgets.',
 	'gadgets-uses' => 'Utiliza',
 );
