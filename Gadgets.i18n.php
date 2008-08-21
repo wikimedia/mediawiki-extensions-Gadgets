@@ -434,13 +434,15 @@ Ceti survôlo balye un accès rapido a les pâges de mèssâjos sistèmo que dè
 $messages['gl'] = array(
 	'gadgets-desc' => 'Deixa que os usuarios seleccionen [[Special:Gadgets|trebellos CSS e JavaScript]] nas súas [[Special:Preferences|preferencias]]',
 	'gadgets-prefs' => 'Trebellos',
-	'gadgets-prefstext' => 'Embaixo hai unha lista de trebellos especiais que pode activar para a súa conta. A maioría destes trebellos baséanse en JavaScript, así que ten que ter o JavaScript activado no seu navegador para que funcionen. Teña en conta que estes trebellos non funcionarán nesta páxina de preferencias.
+	'gadgets-prefstext' => 'Embaixo hai unha lista de trebellos especiais que pode activar para a súa conta.
+A maioría destes trebellos baséanse no JavaScript, así que ten que ter o JavaScript activado no seu navegador para que funcionen.
+Teña en conta que estes trebellos non funcionarán nesta páxina de preferencias.
 
-Teña tamén en conta que estes trebellos especiais non son parte do software de MediaWiki e que os crean e manteñen
-os usuarios no seu wiki local. Os administradores locais poden editar os trebellos dispoñíbeis mediante [[MediaWiki:Gadgets-definition]] e [[Special:Gadgets]].',
+Teña tamén en conta que estes trebellos especiais non son parte do software de MediaWiki e que os crean e manteñen os usuarios no seu wiki local. Os administradores locais poden editar os trebellos dispoñíbeis mediante [[MediaWiki:Gadgets-definition|definicións]] e [[Special:Gadgets|descricións]].',
 	'gadgets' => 'Trebellos',
 	'gadgets-title' => 'Trebellos',
-	'gadgets-pagetext' => 'Embaixo hai unha listaxe dos trebellos especiais que os usuarios poden habilitar na súa páxina de preferencias, tal e como se define en [[MediaWiki:Gadgets-definition]]. Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que define cada descrición e código dos trebellos.',
+	'gadgets-pagetext' => 'Embaixo hai unha lista dos trebellos especiais que os usuarios poden habilitar na súa páxina de preferencias, tal e como se describe nas [[MediaWiki:Gadgets-definition|definicións]].
+Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que define cada descrición e código dos trebellos.',
 	'gadgets-uses' => 'Usa',
 );
 

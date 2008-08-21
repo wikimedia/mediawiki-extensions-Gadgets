@@ -77,6 +77,11 @@ $aliases['ms'] = array(
 	'Gadgets' => array( 'Gajet' ),
 );
 
+/** Nedersaksisch (Nedersaksisch) */
+$aliases['nds-nl'] = array(
+	'Gadgets' => array( 'Extensies' ),
+);
+
 /** Dutch (Nederlands) */
 $aliases['nl'] = array(
 	'Gadgets' => array( 'Extensies' ),
