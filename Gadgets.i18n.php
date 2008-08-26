@@ -341,7 +341,8 @@ $messages['eo'] = array(
 	'gadgets-prefstext' => 'Sube estas listo de specialaj aldonaĵoj kiujn vi povas aktivigi por via uzulkonto. Plej multaj el ili baziĝas sur Ĵavaskriptoj, sekve Ĵavaskripto nepre estu aktivigita por ke ili funkciu. Notu ke tiuj aldonaĵoj ne efikos sur viaj preferoj. Notu ankaŭ ke ili ne estas parto de la programaro MediaWiki, kaj estas kutime evoluigitaj kaj prizorgataj de uzuloj sur via loka vikio. Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per  [[MediaWiki:Gadgets-definition]] kaj [[Special:Gadgets]].',
 	'gadgets' => 'Aldonaĵoj',
 	'gadgets-title' => 'Aldonaĵoj',
-	'gadgets-pagetext' => 'Sube estas listo da aldonaĵoj kiujn uzuloj povas aktivigi en siaj preferoj, kiel difinite en [[MediaWiki:Gadgets-definition]]. Ĉi superrigardo provizas facilan aliron al la sistemaj mesaĝoj kiuj difinas la priskribon kaj la kodon de ĉiuj aldonaĵoj.',
+	'gadgets-pagetext' => 'Jen listo da specialaj aldonaĵoj kiujn uzuloj povas aktivigi en [[Special:Preferences|siaj preferoj]], kiel difinite en [[MediaWiki:Gadgets-definition|difinoj]]. 
+Ĉi tiu superrigardo provizas facilan aliron al la sistemaj mesaĝoj kiuj difinas la priskribon kaj la kodon de ĉiuj aldonaĵoj.',
 	'gadgets-uses' => 'uzas',
 );
 
