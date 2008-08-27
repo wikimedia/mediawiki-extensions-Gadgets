@@ -346,6 +346,20 @@ $messages['eo'] = array(
 	'gadgets-uses' => 'uzas',
 );
 
+/** Spanish (Español)
+ * @author Muro de Aguas
+ */
+$messages['es'] = array(
+	'gadgets-prefstext' => "Debajo encuentras una lista de gadgets que puedes activar a tu gusto. Ten en cuenta que la mayoría de ellos utilizan JavaScript para funcionar, así que debes tenerlo activado en tu explorador si quieres que los gadgets que actives funcionen.
+
+Ten en cuenta también que estos complementos no forman parte del software MediaWiki, y están desarrollados por usuarios de este wiki.
+
+Los administradores pueden editar los gadgets que están disponibles en las páginas [[MediaWiki:Gadgets-definition]] y [[Especial:Gadgets]]. 
+
+'''Los gadgets no tienen efecto en esta página.'''",
+	'gadgets-uses' => 'Usos',
+);
+
 /** Extremaduran (Estremeñu)
  * @author Better
  */
