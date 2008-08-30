@@ -67,6 +67,11 @@ $aliases['hu'] = array(
 	'Gadgets' => array( 'Segédeszközök' ),
 );
 
+/** Indonesian (Bahasa Indonesia) */
+$aliases['id'] = array(
+	'Gadgets' => array( 'Gadget' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $aliases['lb'] = array(
 	'Gadgets' => array( 'Gadgeten' ),

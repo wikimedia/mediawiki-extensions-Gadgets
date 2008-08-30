@@ -131,8 +131,10 @@ $messages['ar'] = array(
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Ghaly
+ * @author Ramsis II
  */
 $messages['arz'] = array(
+	'gadgets-prefs' => 'اضافات',
 	'gadgets' => 'إضافات',
 	'gadgets-title' => 'إضافات',
 	'gadgets-uses' => 'إستخدامات',
@@ -338,7 +340,12 @@ $messages['el'] = array(
 $messages['eo'] = array(
 	'gadgets-desc' => 'Permesas al uzantoj elekti proprajn [[Special:Gadgets|CSS kaj JavaScript aldonaĵojn]] en ties [[Special:Preferences|preferoj]].',
 	'gadgets-prefs' => 'Aldonaĵoj',
-	'gadgets-prefstext' => 'Sube estas listo de specialaj aldonaĵoj kiujn vi povas aktivigi por via uzulkonto. Plej multaj el ili baziĝas sur Ĵavaskriptoj, sekve Ĵavaskripto nepre estu aktivigita por ke ili funkciu. Notu ke tiuj aldonaĵoj ne efikos sur viaj preferoj. Notu ankaŭ ke ili ne estas parto de la programaro MediaWiki, kaj estas kutime evoluigitaj kaj prizorgataj de uzuloj sur via loka vikio. Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per  [[MediaWiki:Gadgets-definition]] kaj [[Special:Gadgets]].',
+	'gadgets-prefstext' => 'Jen listo de specialaj aldonaĵoj kiujn vi povas aktivigi por via uzulkonto.
+Plej multaj el ili baziĝas sur Ĵavaskriptoj, sekve Ĵavaskripto nepre estu aktivigita por ke ili funkciu. 
+Notu ke tiuj aldonaĵoj ne efikos sur viaj preferoj. 
+
+Notu ankaŭ ke ili ne estas parto de la programaro MediaWiki, kaj estas kutime evoluigitaj kaj prizorgataj de uzuloj sur via loka vikio.
+Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per [[MediaWiki:Gadgets-definition|difinoj]] kaj [[Special:Gadgets|priskriboj]].',
 	'gadgets' => 'Aldonaĵoj',
 	'gadgets-title' => 'Aldonaĵoj',
 	'gadgets-pagetext' => 'Jen listo da specialaj aldonaĵoj kiujn uzuloj povas aktivigi en [[Special:Preferences|siaj preferoj]], kiel difinite en [[MediaWiki:Gadgets-definition|difinoj]]. 
@@ -409,13 +416,14 @@ Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät 
  * @author IAlex
  * @author Sherbrooke
  * @author Urhixidur
+ * @author Zetud
  */
 $messages['fr'] = array(
 	'gadgets-desc' => 'Laisse aux utilisateurs les [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences|préférences]]',
 	'gadgets-prefs' => 'Gadgets',
 	'gadgets-prefstext' => 'Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel à JavaScript, lequel doit donc être activé pour votre navigateur Web.
 
-Notez aussi que ces gadgets spéciaux ne font nullemenent partie du logiciel MédiaWiki. De plus, ils sont généralement développés et maintenus par les utilisateurs sur votre wiki local.
+Notez aussi que ces gadgets spéciaux ne font nullemenent partie du logiciel MediaWiki. De plus, ils sont généralement développés et maintenus par les utilisateurs sur votre wiki local.
 Les administrateurs locaux peuvent modifier les gadgets disponibles en utilisant [[MediaWiki:Gadgets-definition|les définitions]] et les [[Special:Gadgets|descriptions]].',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
