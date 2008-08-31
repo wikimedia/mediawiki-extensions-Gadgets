@@ -137,6 +137,8 @@ $messages['arz'] = array(
 	'gadgets-prefs' => 'اضافات',
 	'gadgets' => 'إضافات',
 	'gadgets-title' => 'إضافات',
+	'gadgets-pagetext' => 'تحت في لستة بالاضافات المخصوصة و اللي اليوزرز ممكن يفعلوها على  [[Special:Preferences|صفحة التفضيلات]], زي ما بتعرفها [[MediaWiki:Gadgets-definition|التعريفات]].
+العرض دا بيوفر دخول سهل لصفحات رسايل النظام و اللي بتعرف وصف و كود كل اضافة.',
 	'gadgets-uses' => 'إستخدامات',
 );
 
