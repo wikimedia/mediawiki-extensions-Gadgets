@@ -131,14 +131,22 @@ $messages['ar'] = array(
 
 /** Egyptian Spoken Arabic (مصرى)
  * @author Ghaly
+ * @author Meno25
  * @author Ramsis II
  */
 $messages['arz'] = array(
+	'gadgets-desc' => 'بيسمح لليوزرز انهم يختارو [[Special:Gadgets|اضافاتCSS وJavaScript]] فى [[Special:Preferences|التفضيلات]] بتاعتهم',
 	'gadgets-prefs' => 'اضافات',
+	'gadgets-prefstext' => 'تحت فى لستة بالضافات المخصوصة اللى انت ممكن تفعلها فى الحساب بتاعك.
+الاضافات دى غالبا ما بتبقى مبينة على الجافاسكريبت،و علشان كده لازم تفعل الجافاسطريبت فى البراوزر بتاعك علشتن يشتغلو.
+اعمل حسابك ان الاضافات دى مش ح يكون ليها اى تاثير على صفحة التفضيلات دي.
+
+كمان،خد بالك ان الاضافات المخصوصة دى مش جزء من  برامج الميدياويكى ،و غالبا بيطورها و يعملها صيانة اليوزرز اللى فى الويكى المحلى بتاعك.
+الادارى المحلى ممكن يعدل الاضافات الموجودة باستخدام [[MediaWiki:Gadgets-definition|التعريفات]] و [[Special:Gadgets|التوصيفات]].',
 	'gadgets' => 'إضافات',
 	'gadgets-title' => 'إضافات',
-	'gadgets-pagetext' => 'تحت في لستة بالاضافات المخصوصة و اللي اليوزرز ممكن يفعلوها على  [[Special:Preferences|صفحة التفضيلات]], زي ما بتعرفها [[MediaWiki:Gadgets-definition|التعريفات]].
-العرض دا بيوفر دخول سهل لصفحات رسايل النظام و اللي بتعرف وصف و كود كل اضافة.',
+	'gadgets-pagetext' => 'تحت فى لستة بالاضافات المخصوصة و اللى اليوزرز ممكن يفعلوها على  [[Special:Preferences|صفحة التفضيلات]], زى ما بتعرفها [[MediaWiki:Gadgets-definition|التعريفات]].
+العرض دا بيوفر دخول سهل لصفحات رسايل النظام و اللى بتعرف وصف و كود كل اضافة.',
 	'gadgets-uses' => 'إستخدامات',
 );
 
@@ -754,7 +762,7 @@ Bul şolw beti arqılı ärbir qajet quraldıñ sïpattaması men ämirin anıqt
  * @author គីមស៊្រុន
  */
 $messages['km'] = array(
-	'gadgets-prefs' => 'ឧបករណ៍សំបូរបែប',
+	'gadgets-prefs' => 'Gadgets',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
 	'gadgets-uses' => 'ប្រើ',
