@@ -424,6 +424,7 @@ Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät 
 /** French (Français)
  * @author Grondin
  * @author IAlex
+ * @author Meno25
  * @author Sherbrooke
  * @author Urhixidur
  * @author Zetud
@@ -437,7 +438,7 @@ Notez aussi que ces gadgets spéciaux ne font nullemenent partie du logiciel Med
 Les administrateurs locaux peuvent modifier les gadgets disponibles en utilisant [[MediaWiki:Gadgets-definition|les définitions]] et les [[Special:Gadgets|descriptions]].',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
-	'gadgets-pagetext' => 'Ci-dessous apparaît une liste de gadgets que les utilisateurs peuvent activer dans leur [Special:Preferences|page de préférences]], tel que défini dans [[MediaWiki:Gadgets-definition|les définitions]].
+	'gadgets-pagetext' => 'Ci-dessous apparaît une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences|page de préférences]], tel que défini dans [[MediaWiki:Gadgets-definition|les définitions]].
 Ce survol donne un accès rapide aux pages de messages système qui définissent chaque description et chaque code des gadgets.',
 	'gadgets-uses' => 'Utilise',
 );
