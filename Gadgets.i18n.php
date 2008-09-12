@@ -65,7 +65,7 @@ Hierdie geriewe is nie deel van die MediaWiki-sagteware nie, en word gewoonlik d
 Lokale administrateurs kan die beskikbare geriewe wysig by [[MediaWiki:Gadgets-definition]] en [[Special:Gadgets]].",
 	'gadgets' => 'Geriewe',
 	'gadgets-title' => 'Geriewe',
-	'gadgets-pagetext' => "Hieronder is 'n lys van spesiale geriewe wat gebruikers deur hulle voorkeure kan aktiveer, soos gedefinieer in [[MediaWiki:Gadgets-definition]].
+	'gadgets-pagetext' => "Hieronder is 'n lys van spesiale geriewe wat gebruikers deur hulle [[Special:Preferences|voorkeure]] kan aktiveer, soos gedefinieer in [[MediaWiki:Gadgets-definition]].
 Die oorsig bied maklike toegang tot die stelselboodskapblaaie wat elke gerief se beskrywing  en kode wys.",
 	'gadgets-uses' => 'Gebruik',
 );
