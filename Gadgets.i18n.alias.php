@@ -35,6 +35,11 @@ $aliases['de'] = array(
 	'Gadgets' => array( 'Gadgets' ),
 );
 
+/** Greek (Ελληνικά) */
+$aliases['el'] = array(
+	'Gadgets' => array( 'Εργαλεία', 'Προσαρτήματα' ),
+);
+
 /** Finnish (Suomi) */
 $aliases['fi'] = array(
 	'Gadgets' => array( 'Pienoisohjelmat' ),
@@ -70,6 +75,11 @@ $aliases['hu'] = array(
 /** Indonesian (Bahasa Indonesia) */
 $aliases['id'] = array(
 	'Gadgets' => array( 'Gadget' ),
+);
+
+/** Italian (Italiano) */
+$aliases['it'] = array(
+	'Gadgets' => array( 'Accessori' ),
 );
 
 /** Luxembourgish (Lëtzebuergesch) */
