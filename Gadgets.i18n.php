@@ -237,6 +237,7 @@ $messages['br'] = array(
 );
 
 /** Catalan (Català)
+ * @author Aleator
  * @author Paucabot
  * @author SMP
  */
@@ -247,8 +248,8 @@ La majoria d'aquests gadgets fan servir JavaScript, per tant haureu de tenir un 
 Tingueu en compte que els gadgets no funcionaran en aquesta pàgina.
 
 També cal que tingueu present que aquests gadgets especials no formen part del programa MediaWiki i que acostumen a estar fets i mantinguts per usuaris del wiki local. Els administradors del wiki poden editar els gadgets disponibles a [[Special:Gadgets]].",
-	'gadgets-pagetext' => 'A continuació teniu una llista de «gadgets» especials que qualsevol usuari pot activar a la seva pàgina de preferències i que estan definits per [[MediaWiki:Gadgets-definition]].
-Aquesta llista us permet un fàcil accés a les pàgines del sistema que defineixen el codi de cada gadget.',
+	'gadgets-pagetext' => 'A continuació teniu una llista de «gadgets» especials que qualsevol usuari pot activar a la seva [[Special:Preferences|pàgina de preferències]], i que estan definits per les [[MediaWiki:Gadgets-definition|definicions del MediaWiki]].
+Aquesta llista us permet un fàcil accés a les pàgines del sistema que defineixen la descripció i el codi de cada «gadget».',
 	'gadgets-uses' => 'Usa',
 );
 
