@@ -82,6 +82,11 @@ $aliases['it'] = array(
 	'Gadgets' => array( 'Accessori' ),
 );
 
+/** Korean (한국어) */
+$aliases['ko'] = array(
+	'Gadgets' => array( '소도구' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $aliases['lb'] = array(
 	'Gadgets' => array( 'Gadgeten' ),

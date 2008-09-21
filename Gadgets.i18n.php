@@ -243,11 +243,12 @@ $messages['br'] = array(
  */
 $messages['ca'] = array(
 	'gadgets-desc' => 'Permet als usuaris personalitzar [[Special:Gadgets|els gadgets CSS i JavaScript]] a les seves [[Special:Preferences|preferències]]',
-	'gadgets-prefstext' => "A continuació teniu una llista de «gadgets» especials que podeu activar al vostre compte.
+	'gadgets-prefstext' => "A continuació teniu una llista de «gadgets» especials que podeu activar al vostre compte.<br />
 La majoria d'aquests gadgets fan servir JavaScript, per tant haureu de tenir un navegador que funcioni amb aquest llenguatge activat per a que vos funcionin.
 Tingueu en compte que els gadgets no funcionaran en aquesta pàgina.
 
-També cal que tingueu present que aquests gadgets especials no formen part del programa MediaWiki i que acostumen a estar fets i mantinguts per usuaris del wiki local. Els administradors del wiki poden editar els gadgets disponibles a [[Special:Gadgets]].",
+També cal que tingueu present que aquests gadgets especials no formen part del programa MediaWiki i que acostumen a estar fets i mantinguts per usuaris del wiki local.<br />
+Els administradors del wiki poden editar els gadgets disponibles fent servir [[MediaWiki:Gadgets-definition|definicions]]  i [[Special:Gadgets|descripcions]].",
 	'gadgets-pagetext' => 'A continuació teniu una llista de «gadgets» especials que qualsevol usuari pot activar a la seva [[Special:Preferences|pàgina de preferències]], i que estan definits per les [[MediaWiki:Gadgets-definition|definicions del MediaWiki]].
 Aquesta llista us permet un fàcil accés a les pàgines del sistema que defineixen la descripció i el codi de cada «gadget».',
 	'gadgets-uses' => 'Usa',
