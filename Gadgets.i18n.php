@@ -36,10 +36,12 @@ This overview provides easy access to the system message pages that define each 
 
 /** Message documentation (Message documentation)
  * @author Jon Harald Søby
+ * @author Purodha
  * @author SPQRobin
  * @author Siebrand
  */
 $messages['qqq'] = array(
+	'gadgets-desc' => 'Short description of the Gadgets extension, shown in [[Special:Version]]. Do not translate or change links.',
 	'gadgets-prefs' => 'In Gadgets extension. The name of a tab in [[Special:Preferences]] where user set their preferences for the extension.
 
 {{Identical|Gadgets}}',
@@ -367,8 +369,10 @@ Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per [[MediaWiki
 
 /** Spanish (Español)
  * @author Muro de Aguas
+ * @author Remember the dot
  */
 $messages['es'] = array(
+	'gadgets-desc' => 'Permite a los usuarios seleccionar [[Special:Gadgets|gadgets de CSS y JavaScript]] en sus [[Special:Preferences|preferencias]].',
 	'gadgets-prefstext' => "Debajo encuentras una lista de gadgets que puedes activar a tu gusto. Ten en cuenta que la mayoría de ellos utilizan JavaScript para funcionar, así que debes tenerlo activado en tu explorador si quieres que los gadgets que actives funcionen.
 
 Ten en cuenta también que estos complementos no forman parte del software MediaWiki, y están desarrollados por usuarios de este wiki.
@@ -376,6 +380,7 @@ Ten en cuenta también que estos complementos no forman parte del software Media
 Los administradores pueden editar los gadgets que están disponibles en las páginas [[MediaWiki:Gadgets-definition]] y [[Especial:Gadgets]]. 
 
 '''Los gadgets no tienen efecto en esta página.'''",
+	'gadgets-pagetext' => 'Debajo hay una lista de gadgets especiales que los usuarios pueden activar en sus [[Special:Preferences|páginas de preferencias]], según los [[MediaWiki:Gadgets-definition|definiciones]] definen. Esta sobrevista provee un acceso fácil a la páginas de mensaje del sistema que definen la descripción y el código de cada gadget.',
 	'gadgets-uses' => 'Usos',
 );
 
@@ -1272,7 +1277,7 @@ $messages['uk'] = array(
 Адміністратори можуть змінювати список додатків за допомогою сторінок їх [[MediaWiki:Gadgets-definition|визначення]] та [[Special:Gadgets|опису]].',
 	'gadgets' => 'Додатки',
 	'gadgets-title' => 'Додатки',
-	'gadgets-pagetext' => 'Нижче наведений список додатків, які можна ввімкнути на [[Special:Preferences|сторінці налаштувань]]. Список міститься на [[MediaWiki:Gadgets-definition|сторінці визначеннь]].
+	'gadgets-pagetext' => 'Нижче наведений список додатків, які можна ввімкнути на [[Special:Preferences|сторінці налаштувань]]. Список міститься на [[MediaWiki:Gadgets-definition|сторінці визначень]].
 Цей список дозволяє легко переглядати системні повідомлення, які містять описи і коди додатків.',
 	'gadgets-uses' => 'Використовує',
 );
