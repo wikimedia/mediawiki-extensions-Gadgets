@@ -370,6 +370,7 @@ Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per [[MediaWiki
 /** Spanish (Español)
  * @author Muro de Aguas
  * @author Remember the dot
+ * @author Sanbec
  */
 $messages['es'] = array(
 	'gadgets-desc' => 'Permite a los usuarios seleccionar [[Special:Gadgets|gadgets de CSS y JavaScript]] en sus [[Special:Preferences|preferencias]].',
@@ -380,7 +381,7 @@ Ten en cuenta también que estos complementos no forman parte del software Media
 Los administradores pueden editar los gadgets que están disponibles en las páginas [[MediaWiki:Gadgets-definition]] y [[Especial:Gadgets]]. 
 
 '''Los gadgets no tienen efecto en esta página.'''",
-	'gadgets-pagetext' => 'Debajo hay una lista de gadgets especiales que los usuarios pueden activar en sus [[Special:Preferences|páginas de preferencias]], según los [[MediaWiki:Gadgets-definition|definiciones]] definen. Esta sobrevista provee un acceso fácil a la páginas de mensaje del sistema que definen la descripción y el código de cada gadget.',
+	'gadgets-pagetext' => 'Debajo hay una lista de gadgets especiales que los usuarios pueden activar en sus [[Special:Preferences|preferencias]], según la [[MediaWiki:Gadgets-definition|lista de definición de gadgets]]. Esta vista provee un acceso fácil a la páginas de mensajes del sistema que definen la descripción y el código de cada gadget.',
 	'gadgets-uses' => 'Usos',
 );
 
