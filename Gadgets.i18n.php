@@ -172,6 +172,13 @@ Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del
 	'gadgets-uses' => 'Usa',
 );
 
+/** Samogitian (Žemaitėška)
+ * @author Hugo.arg
+ */
+$messages['bat-smg'] = array(
+	'gadgets' => 'Rakondā',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */
