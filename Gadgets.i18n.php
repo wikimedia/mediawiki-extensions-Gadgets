@@ -324,16 +324,16 @@ Diese Übersicht bietet direkten Zugang zu den Systemnachrichten, die die Beschr
 $messages['dsb'] = array(
 	'gadgets-desc' => 'Dowólujo wužywarjam w jich [[Special:Preferences|nastajenjach]] [[Special:Gadgets|gadgets CSS a JavaScript]] wubraś',
 	'gadgets-prefs' => 'Gadgets',
-	'gadgets-prefstext' => 'Lisćina specielnych gadgetow, kótarež móžoš za swójo konto zmóžniś.
+	'gadgets-prefstext' => 'Dołojce jo lisćina specielnych gadgetow, kótarež móžoš za swójo konto zmóžniś.
 Toś te gadgety se zwětšego bazěruju na JavaScripśe, togodla musy JavaScript w twójom wobglědowaku zmóžnjony byś, aby funkcioněrowali.
 Glědaj, až toś te gadgety njewustatkuju se na bok nastajenjow.
 
 Glědaj teke, až toś te gadgety njejsu źěl softwary MediaWiki a se zwětšego wót wužywarjow na twójom lokalnem wikiju wuwijaju a wótwarduju.
-Lokalne administratory mógu k dispoziciji stojece gadgety z pomocu [[MediaWiki:Gadgets-definition]] a [[Special:Gadgets]] wobźełaś.',
+Lokalne administratory mógu k dispoziciji stojece gadgety z pomocu [[MediaWiki:Gadgets-definition|definicijow ]] a [[Special:Gadgets|wopisanjow]] wobźełaś.',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
-	'gadgets-pagetext' => 'Dołojce jo lisćina specialnych gadgetow, kótarež wužywarje mógu w swójich nastajenjach wubraś, kaž w [[MediaWiki:Gadgets-definition]] definiěrowane.
-Toś ten pśeglěd bitujo direktny pśistup k bokam systemowych powěsćow, kótarež wopisanje a kod gadgeta definěruju.',
+	'gadgets-pagetext' => 'Dołojce jo lisćina specialnych gadgetow, kótarež wužywarje mógu w [[Special:Preferences|swójich nastajenjach]] zmóžniś, kaž w [[MediaWiki:Gadgets-definition]] definiěrowane.
+Toś ten pśeglěd bitujo lažki pśistup k bokam systemowych powěsćow, kótarež wopisanje a kod gadgeta definěruju.',
 	'gadgets-uses' => 'Wužywa',
 );
 
@@ -380,15 +380,18 @@ Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per [[MediaWiki
  * @author Sanbec
  */
 $messages['es'] = array(
-	'gadgets-desc' => 'Permite a los usuarios seleccionar [[Special:Gadgets|gadgets de CSS y JavaScript]] en sus [[Special:Preferences|preferencias]].',
-	'gadgets-prefstext' => "Debajo encuentras una lista de gadgets que puedes activar a tu gusto. Ten en cuenta que la mayoría de ellos utilizan JavaScript para funcionar, así que debes tenerlo activado en tu explorador si quieres que los gadgets que actives funcionen.
+	'gadgets-desc' => 'Permite a los usuarios seleccionar [[Special:Gadgets|artilugios de CSS y JavaScript]] en sus [[Special:Preferences|preferencias]].',
+	'gadgets-prefs' => 'Artilugios',
+	'gadgets-prefstext' => "Debajo hay una lista de artilugios que puedes activar a tu gusto. Ten en cuenta que la mayoría de ellos utilizan JavaScript para funcionar, así que debes tenerlo activado en tu explorador si quieres que los artilugios que actives funcionen.
 
 Ten en cuenta también que estos complementos no forman parte del software MediaWiki, y están desarrollados por usuarios de este wiki.
 
-Los administradores pueden editar los gadgets que están disponibles en las páginas [[MediaWiki:Gadgets-definition]] y [[Especial:Gadgets]]. 
+Los administradores pueden editar los artilugios que están disponibles en las páginas [[MediaWiki:Gadgets-definition]] y [[Special:Gadgets]]. 
 
-'''Los gadgets no tienen efecto en esta página.'''",
-	'gadgets-pagetext' => 'Debajo hay una lista de gadgets especiales que los usuarios pueden activar en sus [[Special:Preferences|preferencias]], según la [[MediaWiki:Gadgets-definition|lista de definición de gadgets]]. Esta vista provee un acceso fácil a la páginas de mensajes del sistema que definen la descripción y el código de cada gadget.',
+'''Los artilugios no tienen efecto en esta página.'''",
+	'gadgets' => 'Artilugios',
+	'gadgets-title' => 'Artilugios',
+	'gadgets-pagetext' => 'Debajo hay una lista de artilugios especiales que los usuarios pueden activar en sus [[Special:Preferences|preferencias]], según la [[MediaWiki:Gadgets-definition|lista de definición de artilugios]]. Esta vista provee un acceso fácil a la páginas de mensajes del sistema que definen la descripción y el código de cada artilugio.',
 	'gadgets-uses' => 'Usos',
 );
 
@@ -493,6 +496,13 @@ Teña tamén en conta que estes trebellos especiais non son parte do software de
 	'gadgets-pagetext' => 'Embaixo hai unha lista dos trebellos especiais que os usuarios poden habilitar na súa páxina de preferencias, tal e como se describe nas [[MediaWiki:Gadgets-definition|definicións]].
 Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que define cada descrición e código dos trebellos.',
 	'gadgets-uses' => 'Usa',
+);
+
+/** Ancient Greek (Ἀρχαία ἑλληνικὴ)
+ * @author Omnipaedista
+ */
+$messages['grc'] = array(
+	'gadgets-uses' => 'Χρήσεις',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -886,6 +896,15 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
 	'gadgets-title' => 'Priemonės',
 	'gadgets-pagetext' => 'Žemiau yra sąrašas specialių priemonių, kurias vartotojai gali įjungti savo nustatymo puslapyje, kurios apibrėžtos [[MediaWiki:Gadgets-definition|priemonių aprašyme]]. Ši apžvalga suteikia lengvą priėjimą prie sisteminių pranešimų puslapių, kuriuose apibrėžiamas kiekvienos priemonės trumpas aprašas ir kodas.',
 	'gadgets-uses' => 'Panaudojimai',
+);
+
+/** Macedonian (Македонски)
+ * @author Brest
+ */
+$messages['mk'] = array(
+	'gadgets-prefs' => 'Додатоци',
+	'gadgets' => 'Додатоци',
+	'gadgets-title' => 'Додатоци',
 );
 
 /** Malayalam (മലയാളം)
