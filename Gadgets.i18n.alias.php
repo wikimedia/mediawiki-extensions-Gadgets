@@ -28,6 +28,11 @@ $aliases['arz'] = array(
 	'Gadgets' => array( 'إضافات' ),
 );
 
+/** Bulgarian (Български) */
+$aliases['bg'] = array(
+	'Gadgets' => array( 'Джаджи' ),
+);
+
 /** German (Deutsch)
  * @author Raimond Spekking
  */
@@ -38,6 +43,11 @@ $aliases['de'] = array(
 /** Greek (Ελληνικά) */
 $aliases['el'] = array(
 	'Gadgets' => array( 'Εργαλεία', 'Προσαρτήματα' ),
+);
+
+/** Spanish (Español) */
+$aliases['es'] = array(
+	'Gadgets' => array( 'Artilugios' ),
 );
 
 /** Finnish (Suomi) */
@@ -90,6 +100,11 @@ $aliases['ko'] = array(
 /** Luxembourgish (Lëtzebuergesch) */
 $aliases['lb'] = array(
 	'Gadgets' => array( 'Gadgeten' ),
+);
+
+/** Macedonian (Македонски) */
+$aliases['mk'] = array(
+	'Gadgets' => array( 'Додатоци' ),
 );
 
 /** Malay (Bahasa Melayu) */
