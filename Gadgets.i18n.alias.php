@@ -92,6 +92,11 @@ $aliases['it'] = array(
 	'Gadgets' => array( 'Accessori' ),
 );
 
+/** Japanese (日本語) */
+$aliases['ja'] = array(
+	'Gadgets' => array( 'ガジェット' ),
+);
+
 /** Korean (한국어) */
 $aliases['ko'] = array(
 	'Gadgets' => array( '소도구' ),
@@ -125,6 +130,11 @@ $aliases['nl'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
 $aliases['no'] = array(
 	'Gadgets' => array( 'Tilleggsfunksjoner' ),
+);
+
+/** Occitan (Occitan) */
+$aliases['oc'] = array(
+	'Gadgets' => array( 'Gadgèts' ),
 );
 
 /** Polish (Polski) */
