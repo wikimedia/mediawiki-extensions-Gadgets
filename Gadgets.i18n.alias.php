@@ -33,6 +33,11 @@ $aliases['bg'] = array(
 	'Gadgets' => array( 'Джаджи' ),
 );
 
+/** Bosnian (Bosanski) */
+$aliases['bs'] = array(
+	'Gadgets' => array( 'Dodaci' ),
+);
+
 /** German (Deutsch)
  * @author Raimond Spekking
  */
