@@ -92,7 +92,7 @@ class SpecialGadgets extends SpecialPage {
 					$wgOut->addHTML($lnk);
 				}
 
-				$wgOut->addHtml( "</li>" );
+				$wgOut->addHTML( "</li>" );
 			}
 		}
 

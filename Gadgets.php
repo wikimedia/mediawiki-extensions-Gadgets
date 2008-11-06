@@ -153,7 +153,7 @@ function wfGadgetsRenderPreferencesForm( $prefs, $out ) {
 
 	wfLoadExtensionMessages( 'Gadgets' );
 
-	$out->addHtml( "\n<fieldset>\n<legend>" . wfMsgHtml( 'gadgets-prefs' ) . "</legend>\n" );
+	$out->addHTML( "\n<fieldset>\n<legend>" . wfMsgHtml( 'gadgets-prefs' ) . "</legend>\n" );
 
 	$out->addWikiMsg( 'gadgets-prefstext' );
 
@@ -162,7 +162,7 @@ function wfGadgetsRenderPreferencesForm( $prefs, $out ) {
 	foreach ( $gadgets as $section => $entries ) {
 		if ( $section !== false && $section !== '' ) {
 			$ttext = wfMsgExt( "gadget-section-$section", $msgOpt );
-			$out->addHtml( "\n<h2 id=\"".htmlspecialchars("gadget-section-$section")."\">" . $ttext . "</h2>\n" );
+			$out->addHTML( "\n<h2 id=\"".htmlspecialchars("gadget-section-$section")."\">" . $ttext . "</h2>\n" );
 		}
 
 		foreach ( $entries as $gname => $code ) {
@@ -173,13 +173,13 @@ function wfGadgetsRenderPreferencesForm( $prefs, $out ) {
 
 			# NOTE: No label for checkmarks as this causes the checks to toggle
 			# when clicking a link in the describing text.
-			$out->addHtml( "<div class='toggle'><input type='checkbox' value='1' " .
+			$out->addHTML( "<div class='toggle'><input type='checkbox' value='1' " .
 				"id=\"$tname\" name=\"wpOp$tname\"$checked$disabled />" .
 				" <span class='toggletext'><label for='$tname'>$ttext</label></span></div>\n" );
 		}
 	}
 
-	$out->addHtml( "</fieldset>\n\n" );
+	$out->addHTML( "</fieldset>\n\n" );
 
 	return true;
 }
