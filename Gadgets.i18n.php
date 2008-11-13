@@ -245,6 +245,17 @@ $messages['br'] = array(
 	'gadgets-uses' => 'A implij',
 );
 
+/** Bosnian (Bosanski)
+ * @author CERminator
+ */
+$messages['bs'] = array(
+	'gadgets-prefstext' => "Ovo je spisak specijalih gadgets (''dodataka'') koje možete omogućiti za Vaš korisnički račun. Ovi dodaci su najčešće bazirani na JavaScript, tako da se postavke JavaScript moraju omogućiti u Vašem web pregledniku da bi mogli raditi.
+Zapamtite da ovi gadgets ne uzrokuju nikakve efekte na ovoj stranici za postavke.
+
+Također morate obratiti pažnju da ovi specijalni dodaci nisu dio MediaWiki software-a, a obično ih prave i razvijaju korisnici na lokalnim wikijima.
+Administratori mogu mijenjati dostupne gadgetse koristeći [[MediaWiki:Gadgets-definition|definicije]] i [[Special:Gadgets|opise]].",
+);
+
 /** Catalan (Català)
  * @author Aleator
  * @author Paucabot
