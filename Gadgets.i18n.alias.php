@@ -42,7 +42,7 @@ $aliases['bs'] = array(
  * @author Raimond Spekking
  */
 $aliases['de'] = array(
-	'Gadgets' => array( 'Gadgets' ),
+	'Gadgets' => array( 'Helferlein' ),
 );
 
 /** Greek (Ελληνικά) */
