@@ -513,6 +513,9 @@ Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que d
  * @author Omnipaedista
  */
 $messages['grc'] = array(
+	'gadgets-prefs' => 'Μηχανήματα',
+	'gadgets' => 'Μηχανήματα',
+	'gadgets-title' => 'Μηχανήματα',
 	'gadgets-uses' => 'Χρήσεις',
 );
 
