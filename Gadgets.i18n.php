@@ -704,7 +704,7 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
  * @author JtFuruhata
  */
 $messages['ja'] = array(
-	'gadgets-desc' => '[[Special:Gadgets|カスタムCSSやJavaScriptのガジェット]]を利用者が[[Special:Preferences|{{int:preferences}}]]から選択できる',
+	'gadgets-desc' => '利用者が[[Special:Gadgets|CSSやJavaScriptのカスタムガジェット]]を[[Special:Preferences|{{int:preferences}}]]で選択できるようにする',
 	'gadgets-prefs' => 'ガジェット',
 	'gadgets-prefstext' => '下のリストはあなたのアカウントで利用できるガジェットの一覧です。これらのガジェットはほとんどがJavaScriptベースのため、動作させるにはブラウザ設定でJavaScriptを有効にする必要があります。ただしガジェットが{{int:preferences}}ページ上では動作しません。
 
@@ -1173,6 +1173,16 @@ $messages['sah'] = array(
 	'gadgets-pagetext' => 'Манна [[MediaWiki:Gadgets-definition|быһаарыы сирэйигэр]] суруллубутун курдук [[Special:Preferences|туруоруу сирэйин]] көмөтүнэн холбонуон сөптөөх гаджеттар тиһиктэрэ көрдөрүлүннэ.
 Этот список позволяет легко получить доступ к страницам системных сообщений, определяющих описания и исходные коды гаджетов.',
 	'gadgets-uses' => 'Туһанар',
+);
+
+/** Sinhala (සිංහල)
+ * @author නන්දිමිතුරු
+ */
+$messages['si'] = array(
+	'gadgets-desc' => 'උපයෝග්‍ය [[Special:Gadgets|CSS හා ජාවාස්ක්‍රිප්ට් මෙවලම්]] ඔවුන්ගේ [[Special:Preferences|අභිරුචීන්හිදී]] තෝරාගැනුමට පරිශීලකයන් හට ඉඩ සලසයි',
+	'gadgets-prefs' => 'මෙවලම්',
+	'gadgets' => 'මෙවලම්',
+	'gadgets-title' => 'මෙවලම්',
 );
 
 /** Slovak (Slovenčina)
