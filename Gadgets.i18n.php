@@ -702,13 +702,14 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
 /** Japanese (日本語)
  * @author Aotake
  * @author JtFuruhata
+ * @author Mzm5zbC3
  */
 $messages['ja'] = array(
 	'gadgets-desc' => '利用者が[[Special:Gadgets|CSSやJavaScriptのカスタムガジェット]]を[[Special:Preferences|{{int:preferences}}]]で選択できるようにする',
 	'gadgets-prefs' => 'ガジェット',
-	'gadgets-prefstext' => '下のリストはあなたのアカウントで利用できるガジェットの一覧です。これらのガジェットはほとんどがJavaScriptベースのため、動作させるにはブラウザ設定でJavaScriptを有効にする必要があります。ただしガジェットが{{int:preferences}}ページ上では動作しません。
+	'gadgets-prefstext' => '下のリストはあなたのアカウントで利用できるガジェットの一覧です。これらのガジェットはほとんどがJavaScriptベースのため、動作させるにはブラウザ設定でJavaScriptを有効にする必要があります。なお、{{int:preferences}}ページ上では動作しません。
 
-また、これらのガジェットは MediaWiki ソフトウェアの一部ではなく、開発とメンテナンスは通常ウィキ毎の利用者によって行われていることにも注意してください。管理者は[[MediaWiki:Gadgets-definition]] や [[Special:Gadgets]]を編集することにより、利用可能なガジェットを編集できます。',
+また、これらのガジェットは MediaWiki ソフトウェアの一部ではなく、開発とメンテナンスは通常ウィキ毎の利用者によって行われていることにも注意してください。管理者は[[MediaWiki:Gadgets-definition|ガジェットの定義]]や[[Special:Gadgets|ガジェットの説明]]から利用可能なガジェットを編集できます。',
 	'gadgets' => 'ガジェット',
 	'gadgets-title' => 'ガジェット',
 	'gadgets-pagetext' => '以下のリストは、[[MediaWiki:Gadgets-definition]] 上で定義された、利用者が{{int:preferences}}ページにて利用可能にすることができるガジェットの一覧です。この一覧はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
@@ -958,12 +959,12 @@ $messages['mr'] = array(
 $messages['ms'] = array(
 	'gadgets-desc' => 'Membolehkan pengguna memilih [[Special:Gadgets|gajet CSS dan JavaScript]] tempahan melalui [[Special:Preferences|laman keutamaan]]',
 	'gadgets-prefs' => 'Gajet',
-	'gadgets-prefstext' => 'Berikut ialah senarai gajet khas yang anda boleh hidupkan untuk akaun anda. Kebanyakan daripada gajet-gajet ini memerlukan JavaScript, oleh itu anda perlu menghidupkan ciri JavaScript dalam pelayar web anda untuk menggunakannya. Sila ambil perhatian bahawa gajet-gajet ini tidak menjejaskan laman keutamaan ini.
+	'gadgets-prefstext' => 'Yang berikut ialah senarai gajet khas yang anda boleh hidupkan untuk akaun anda. Kebanyakan daripada gajet-gajet ini memerlukan JavaScript, oleh itu anda perlu menghidupkan ciri JavaScript dalam pelayar web anda untuk menggunakannya. Sila ambil perhatian bahawa gajet-gajet ini tidak menjejaskan laman keutamaan ini.
 
 Sila ambil perhatian juga bahawa gajet-gajet khas ini bukan sebahagian daripada perisian MediaWiki, dan biasanya dibangunkan dan diselenggara oleh para pengguna di wiki tempatan anda. Pentadbir tempatan boleh mengubah gajet-gajet yang sedia ada menggunakan [[MediaWiki:Gadgets-definition|takrif]] dan [[Special:Gadgets|keterangan]].',
 	'gadgets' => 'Gajet',
 	'gadgets-title' => 'Gajet',
-	'gadgets-pagetext' => 'Berikut ialah senarai gajet khas yang boleh dihidupkan oleh pengguna melalui [[Special:Preferences|laman keutamaan]], sebagai mana yang telah [[MediaWiki:Gadgets-definition|ditakrifkan]]. Laman ini menyediakan capaian mudah kepada laman pesanan sistem yang mentakrifkan setiap kod dan keterangan gajet.',
+	'gadgets-pagetext' => 'Yang berikut ialah senarai gajet khas yang boleh dihidupkan oleh pengguna melalui [[Special:Preferences|laman keutamaan]], sebagai mana yang telah [[MediaWiki:Gadgets-definition|ditakrifkan]]. Laman ini menyediakan capaian mudah kepada laman pesanan sistem yang mentakrifkan setiap kod dan keterangan gajet.',
 	'gadgets-uses' => 'Menggunakan',
 );
 
