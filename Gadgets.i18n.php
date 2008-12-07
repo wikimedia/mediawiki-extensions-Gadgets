@@ -254,6 +254,7 @@ Zapamtite da ovi gadgets ne uzrokuju nikakve efekte na ovoj stranici za postavke
 
 Također morate obratiti pažnju da ovi specijalni dodaci nisu dio MediaWiki software-a, a obično ih prave i razvijaju korisnici na lokalnim wikijima.
 Administratori mogu mijenjati dostupne gadgetse koristeći [[MediaWiki:Gadgets-definition|definicije]] i [[Special:Gadgets|opise]].",
+	'gadgets-uses' => 'Upotrebe',
 );
 
 /** Catalan (Català)
