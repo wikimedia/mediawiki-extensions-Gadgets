@@ -65,6 +65,11 @@ $aliases['gl'] = array(
 	'Gadgets' => array( 'Trebellos' ),
 );
 
+/** Swiss German (Alemannisch) */
+$aliases['gsw'] = array(
+	'Gadgets' => array( 'Hälferli' ),
+);
+
 /** Hebrew (עברית)
  * @author Rotem Liss
  */
