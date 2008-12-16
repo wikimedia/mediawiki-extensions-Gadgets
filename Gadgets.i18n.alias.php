@@ -169,6 +169,6 @@ $aliases['sv'] = array(
 
 /** Thai (ไทย) */
 $aliases['th'] = array(
-	'Gadgets' => array( 'แกเจต' ),
+	'Gadgets' => array( 'อุปกรณ์เสริม', 'แกเจต' ),
 );
 

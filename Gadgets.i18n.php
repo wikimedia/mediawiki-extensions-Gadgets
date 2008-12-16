@@ -1002,13 +1002,14 @@ Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschri
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
  * @author Eirik
+ * @author Harald Khan
  */
 $messages['nn'] = array(
-	'gadgets-desc' => 'Lèt brukarane velje tilleggsfunksjonar med vanleg CSS og JavaScript i [[Special:Preferences|innstillingane sine]].',
+	'gadgets-desc' => 'Lèt brukarane velje eigendefinerte [[Special:Gadgets|CSS- og JavaScript-verktøy]]  i [[Special:Preferences|innstillingane sine]].',
 	'gadgets-prefs' => 'Tilleggsfunksjonar',
 	'gadgets-prefstext' => 'Under finn du ei liste over tilleggsfunksjonar som du kan slå på på kontoen din. Desse tilleggsfunksjonane er for det meste baserte på JavaScript, så JavaScript må vere slått på i nettlesaren din for at dei skal verke. Merk at desse tilleggsfunksjonane ikkje har nokon effekt på denne innstillingssida.
 
-Merk også at tilleggsfunksjonane ikkje er ein del av MediaWiki-programvaren, og at dei vanlegvis er utvikla og vedlikehaldne av brukarar på din lokale wiki. Lokale administratorar kan endre dei tilgjengelege tilleggsfunksjonane frå [[MediaWiki:Gadgets-definition]] og [[Special:Gadgets]].',
+Merk også at tilleggsfunksjonane ikkje er ein del av MediaWiki-programvara, og at dei vanlegvis er utvikla og vedlikehaldne av brukarar på din lokale wiki. Lokale administratorar kan endre dei tilgjengelege tilleggsfunksjonane ved å endre [[MediaWiki:Gadgets-definition|definisjonane]] og [[Special:Gadgets|skildringane]].',
 	'gadgets' => 'Tilleggsfunksjonar',
 	'gadgets-title' => 'Tilleggsfunksjonar',
 	'gadgets-pagetext' => 'Under finn du ei liste over tilleggsfunksjonar som brukarane kan slå på på innstillingssidene sine, som oppgjeve i [[MediaWiki:Gadgets-definition]].
@@ -1296,16 +1297,23 @@ $messages['tg-cyrl'] = array(
 );
 
 /** Thai (ไทย)
+ * @author Ans
  * @author Passawuth
  */
 $messages['th'] = array(
-	'gadgets-desc' => 'ผู้ใช้สามารถเลือก [[Special:Gadgets|แกเจตที่สร้างโดยใช้ CSS และ จาวาสคริปต์]] ในหน้า [[Special:Preferences|การตั้งค่า]] ได้',
-	'gadgets-prefs' => 'แกเจต',
-	'gadgets-prefstext' => 'ด้านล่างเป็นรายการแสดงแกเจต (gadget) ที่สามารถใช้งานได้สำหรับผู้ใช้ที่ล็อกอิน โดยแกเจตส่วนใหญ่ทำงานผ่านจาวาสคริปต์ โดยแกเจตทั้งหมดไม่ได้เป็นส่วนหนึ่งของซอฟต์แวร์มีเดียวิกิ แต่พัฒนาโดยผู้ใช้งานในวิกิพีเดียแต่ละภาษา โดยผู้ดูแลระบบสามารถนำเข้ามาใส่ผ่านหน้า [[MediaWiki:Gadgets-definition]] และ [[Special:Gadgets]]',
-	'gadgets' => 'แกเจต',
-	'gadgets-title' => 'แกเจต',
-	'gadgets-pagetext' => 'ด้านล่างเป็นรายการแกเจตพิเศษที่ผู้ใช้สามารถตั้งค่าได้ในส่วนการตั้งค่าส่วนตัว โดยแกเจตทั้งหมดถูกกำหนดในหน้า [[MediaWiki:Gadgets-definition]]',
-	'gadgets-uses' => 'การใช้',
+	'gadgets-desc' => 'ให้ผู้ใช้สามารถเลือกใช้ [[Special:Gadgets|CSS และ จาวาสคริปต์]] ที่สร้างขึ้นเป็นการเฉพาะ ในหน้า [[Special:Preferences|ตั้งค่า]] ได้',
+	'gadgets-prefs' => 'อุปกรณ์เสริม',
+	'gadgets-prefstext' => 'ด้านล่างเป็นรายการอุปกรณ์เสริม ที่บัญชีผู้ใช้ของคุณสามารถเปิดใช้งานได้
+อุปกรณ์เสริมเหล่านี้ส่วนใหญ่จะทำงานผ่านจาวาสคริปต์ ดังนั้นเบราเซอร์ของคุณต้องเปิดใช้งานจาวาสคริปต์จึงจะสามารถใช้อุปกรณ์เสริมเหล่านี้ได้
+อย่างไรก็ตามอุปกรณ์เสริมเหล่านี้จะไม่ส่งผลหรือประมวลผลใดๆ ในหน้าตั้งค่านี้
+
+นอกจากนี้อุปกรณ์เสริมพิเศษเหล่านี้ไม่ได้เป็นส่วนหนึ่งของซอฟต์แวร์มีเดียวิกิ แต่พัฒนาและดูแลโดยผู้ใช้งานในวิกิที่คุณใช้อยู่
+โดยผู้ดูแลของวิกินั้นๆ สามารถแก้ไขอุปกรณ์เสริมที่มีอยู่ผ่านทางหน้า [[MediaWiki:Gadgets-definition|definition]] และ [[Special:Gadgets|คำอธิบาย]]',
+	'gadgets' => 'อุปกรณ์เสริม',
+	'gadgets-title' => 'อุปกรณ์เสริม',
+	'gadgets-pagetext' => 'รายการด้านล่างเป็นรายการอุปกรณ์เสริมพิเศษที่ผู้ใช้สามารถเปิดใช้ในส่วน[[Special:Preferences|การตั้งค่าส่วนตัว]] อุปกรณ์เสริมทั้งหมดได้ถูกกำหนดไว้ใน [[MediaWiki:Gadgets-definition|ส่วนกำหนดอุปกรณ์เสริม]]
+ขณะที่หน้านี้จะกล่าวโดยรวมเกี่ยวกับ คำอธิบายการใช้งาน และ โค้ดของอุปกรณ์เสริมแต่ละตัว',
+	'gadgets-uses' => 'เรียกใช้',
 );
 
 /** Turkish (Türkçe)
