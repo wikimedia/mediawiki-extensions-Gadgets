@@ -814,6 +814,7 @@ $messages['km'] = array(
 
 /** Korean (한국어)
  * @author Ficell
+ * @author Klutzy
  * @author Kwj2772
  */
 $messages['ko'] = array(
@@ -824,7 +825,7 @@ $messages['ko'] = array(
 
 또한 이 소도구들은 미디어위키 소프트웨어의 일부분이 아니며, 주로 해당 위키의 사용자가 개발한 것입니다.
 관리자는 [[MediaWiki:Gadgets-definition|소도구 정의 문서]]와 [[Special:Gadgets|소도구 설명 문서]]를 통해 사용할 수 있는 소도구들을 편집할 수 있습니다.',
-	'gadgets' => '소도구',
+	'gadgets' => '소도구 목록',
 	'gadgets-title' => '소도구',
 );
 
