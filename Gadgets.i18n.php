@@ -164,10 +164,10 @@ Date cuenta de qu'estos accesorios nun tendrán efeutu nesta páxina de preferen
 
 Has decatate tamién de qu'estos accesorios especiales nun son parte del software MediaWiki, y que normalmente son
 desenrollaos y manteníos por usuarios de la to wiki llocal.
-Los alministradores llocales puen editar los accesorios disponibles usando les [[Mediawiki:Gadgets-definition|definiciones]] y les [[Special:Gadgets|descripciones]].",
+Los alministradores llocales puen editar los accesorios disponibles usando les [[MediaWiki:Gadgets-definition|definiciones]] y les [[Special:Gadgets|descripciones]].",
 	'gadgets' => 'Accesorios',
 	'gadgets-title' => 'Accesorios',
-	'gadgets-pagetext' => 'Embaxo amuésase una llista de los accesorios especiales que los usuarios puen activar na so [[Special:Preferences|páxina de preferencies]], según queden definíos poles [[Mediawiki:Gadgets-definition|definiciones]].
+	'gadgets-pagetext' => 'Embaxo amuésase una llista de los accesorios especiales que los usuarios puen activar na so [[Special:Preferences|páxina de preferencies]], según queden definíos poles [[MediaWiki:Gadgets-definition|definiciones]].
 Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del sistema que definen la descripción y el códigu de cada accesoriu.',
 	'gadgets-uses' => 'Usa',
 );
@@ -249,11 +249,17 @@ $messages['br'] = array(
  * @author CERminator
  */
 $messages['bs'] = array(
+	'gadgets-desc' => 'Omogućava korisnicima da odaberu vlastite [[Special:Gadgets|CSS i JavaScript dodatke]] (gadgets) u svojim [[Special:Preferences|postavkama]]',
+	'gadgets-prefs' => 'Dodaci',
 	'gadgets-prefstext' => "Ovo je spisak specijalih gadgets (''dodataka'') koje možete omogućiti za Vaš korisnički račun. Ovi dodaci su najčešće bazirani na JavaScript, tako da se postavke JavaScript moraju omogućiti u Vašem web pregledniku da bi mogli raditi.
 Zapamtite da ovi gadgets ne uzrokuju nikakve efekte na ovoj stranici za postavke.
 
 Također morate obratiti pažnju da ovi specijalni dodaci nisu dio MediaWiki software-a, a obično ih prave i razvijaju korisnici na lokalnim wikijima.
 Administratori mogu mijenjati dostupne gadgetse koristeći [[MediaWiki:Gadgets-definition|definicije]] i [[Special:Gadgets|opise]].",
+	'gadgets' => 'Dodaci (gadgets)',
+	'gadgets-title' => 'Dodaci',
+	'gadgets-pagetext' => 'Ispod je spisak posebnih dodataka koje korisnici mogu omogućiti na svojim [[Special:Preferences|postavkama]], kako je to definisano u [[MediaWiki:Gadgets-definition|definicijama dodataka]].
+Ovaj pregled daje jednostavan pristup sistemu stranica poruka koje definišu svaki dodatak i njihov opis i kod.',
 	'gadgets-uses' => 'Upotrebe',
 );
 
@@ -621,12 +627,16 @@ Tutón přehlad skići lochki přistup k systemowym zdźělenkam, kotrež wopisa
 $messages['hu'] = array(
 	'gadgets-desc' => 'A felhasználók saját [[Special:Gadgets|CSS és JavaScript eszközöket]] választhatnak ki a [[Special:Preferences|beállításaiknál]]',
 	'gadgets-prefs' => 'Segédeszközök',
-	'gadgets-prefstext' => 'Itt tudod be- és kikapcsolni a helyi segédeszközöket. Ezek az eszközök nem részei a MediaWiki szoftvernek, általában a wiki felhasználói tartják karban őket. Az adminisztrátorok a [[MediaWiki:Gadgets-definition]] és a [[Special:Gadgets]] lapok segítségével tudják szerkeszteni a lenti listát.
+	'gadgets-prefstext' => 'Itt látható a fiókod számára engedélyezett segédeszközöket.
+Legtöbbjük JavaScriptet használ, így ezt engedélyezned kell a böngésződben, hogy működjenek.
+A segédeszközök nem működnek ezen a beállításoldalon, így probléma esetén ki tudod őket kapcsolni.
 
-A segédeszközök többsége javascriptet használ, így engedélyezned kell azt a böngésződben, hogy működjenek. (Ezen az oldalon a segédeszközök le vannak tiltva, hogy hiba esetén könnyen ki tudd őket kapcsolni.)',
+Ezek az eszközök nem részei a MediaWiki szoftvernek, általában a wiki felhasználói tartják karban őket.
+Az adminisztrátorok a [[MediaWiki:Gadgets-definition|definíciókat]] és a [[Special:Gadgets|leírásokat]] tartalmazó lapok segítségével tudják módosítani az elérhető eszközök listáját.',
 	'gadgets' => 'Segédeszközök',
 	'gadgets-title' => 'Segédeszközök',
-	'gadgets-pagetext' => 'Itt látható azon segédeszközök listája, amiket a felhasználók bekapcsolhatnak a beállításaiknál. A lista a [[MediaWiki:Gadgets-definition]] lapon módosítható. Az egyes segédeszközöknél fel vannak sorolva azok a lapok, amelyek az eszköz leírását, illetve kódját tartalmazzák.',
+	'gadgets-pagetext' => 'Itt látható azon segédeszközök listája, amiket a felhasználók bekapcsolhatnak a beállításaiknál. A lista a [[MediaWiki:Gadgets-definition|definíciókat]] tartalmazó lapon módosítható.
+Ez az áttekintő lap egyszerű hozzáférést nyúlt az eszközök kódját, illetve leírását tartalmazó rendszerüzenet-lapokhoz.',
 	'gadgets-uses' => 'Kód',
 );
 
