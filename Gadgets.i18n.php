@@ -413,6 +413,15 @@ Los administradores pueden editar los artilugios que están disponibles en las p
 	'gadgets-uses' => 'Usos',
 );
 
+/** Estonian (Eesti)
+ * @author Avjoska
+ */
+$messages['et'] = array(
+	'gadgets-prefs' => 'Tööriistad',
+	'gadgets' => 'Tööriistad',
+	'gadgets-title' => 'Tööriistad',
+);
+
 /** Extremaduran (Estremeñu)
  * @author Better
  */

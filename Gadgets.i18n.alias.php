@@ -162,6 +162,11 @@ $aliases['pt-br'] = array(
 	'Gadgets' => array( 'Gadgets' ),
 );
 
+/** Romanian (Română) */
+$aliases['ro'] = array(
+	'Gadgets' => array( 'Gadgeturi' ),
+);
+
 /** Swedish (Svenska) */
 $aliases['sv'] = array(
 	'Gadgets' => array( 'Finesser' ),
