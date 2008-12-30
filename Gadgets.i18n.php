@@ -1004,6 +1004,7 @@ Sila ambil perhatian juga bahawa gajet-gajet khas ini bukan sebahagian daripada 
  * @author Slomox
  */
 $messages['nds'] = array(
+	'gadgets-desc' => 'Lett Brukers vörgeven [[Special:Gadgets|CSS- un JavaScript-Gadgets]] in jemehr [[Special:Preferences|Instellungen]] aktiveren',
 	'gadgets-prefs' => 'Gadgets',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
