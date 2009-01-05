@@ -857,6 +857,9 @@ $messages['ko'] = array(
 관리자는 [[MediaWiki:Gadgets-definition|소도구 정의 문서]]와 [[Special:Gadgets|소도구 설명 문서]]를 통해 사용할 수 있는 소도구들을 편집할 수 있습니다.',
 	'gadgets' => '소도구 목록',
 	'gadgets-title' => '소도구',
+	'gadgets-pagetext' => '다음은 [[MediaWiki:Gadgets-definition|소도구 정의]]에 따라, [[Special:Preferences|사용자 환경 설정]]에서 활성화시킬 수 있는 소도구의 목록입니다.
+이 둘러보기 문서는 각 소도구의 설명과 코드를 정의하는 시스템 메시지를 가리는 링크를 제공합니다.',
+	'gadgets-uses' => '다음 코드를 이용',
 );
 
 /** Ripoarisch (Ripoarisch)

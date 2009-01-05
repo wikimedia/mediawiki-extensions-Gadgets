@@ -127,6 +127,11 @@ $aliases['ms'] = array(
 	'Gadgets' => array( 'Gajet' ),
 );
 
+/** Maltese (Malti) */
+$aliases['mt'] = array(
+	'Gadgets' => array( 'Aċċessorji' ),
+);
+
 /** Nedersaksisch (Nedersaksisch) */
 $aliases['nds-nl'] = array(
 	'Gadgets' => array( 'Extensies' ),
