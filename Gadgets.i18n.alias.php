@@ -55,6 +55,11 @@ $aliases['es'] = array(
 	'Gadgets' => array( 'Artilugios' ),
 );
 
+/** Basque (Euskara) */
+$aliases['eu'] = array(
+	'Gadgets' => array( 'Gadgetak' ),
+);
+
 /** Finnish (Suomi) */
 $aliases['fi'] = array(
 	'Gadgets' => array( 'Pienoisohjelmat' ),
