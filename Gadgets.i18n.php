@@ -867,6 +867,7 @@ $messages['km'] = array(
  * @author Kwj2772
  */
 $messages['ko'] = array(
+	'gadgets-desc' => '사용자들이 [[Special:Gadgets|CSS와 자바스크립트 소도구]]를 [[Special:Preferences|사용자 환경 설정]]에서 설정할 수 있게 함',
 	'gadgets-prefs' => '소도구',
 	'gadgets-prefstext' => '아래는 당신이 사용할 수 있는 소도구의 목록입니다.
 이 소도구들은 대부분 자바스크립트 기반이며 당신의 웹 브라우저에서 사용할 수 있습니다.
