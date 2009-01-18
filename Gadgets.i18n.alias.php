@@ -177,6 +177,11 @@ $aliases['ro'] = array(
 	'Gadgets' => array( 'Gadgeturi' ),
 );
 
+/** Sanskrit (संस्कृत) */
+$aliases['sa'] = array(
+	'Gadgets' => array( 'सुविधा (गॅजेट)' ),
+);
+
 /** Swedish (Svenska) */
 $aliases['sv'] = array(
 	'Gadgets' => array( 'Finesser' ),
