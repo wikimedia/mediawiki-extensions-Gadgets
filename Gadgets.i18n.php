@@ -436,6 +436,15 @@ $messages['et'] = array(
 	'gadgets-title' => 'Tööriistad',
 );
 
+/** Basque (Euskara)
+ * @author An13sa
+ */
+$messages['eu'] = array(
+	'gadgets-prefs' => 'Gadgetak',
+	'gadgets' => 'Gadgetak',
+	'gadgets-title' => 'Gadgetak',
+);
+
 /** Extremaduran (Estremeñu)
  * @author Better
  */
