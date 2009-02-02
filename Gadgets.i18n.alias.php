@@ -45,6 +45,11 @@ $aliases['de'] = array(
 	'Gadgets' => array( 'Helferlein' ),
 );
 
+/** Lower Sorbian (Dolnoserbski) */
+$aliases['dsb'] = array(
+	'Gadgets' => array( 'Gadgety' ),
+);
+
 /** Greek (Ελληνικά) */
 $aliases['el'] = array(
 	'Gadgets' => array( 'Εργαλεία', 'Προσαρτήματα' ),
@@ -85,6 +90,11 @@ $aliases['he'] = array(
 /** Croatian (Hrvatski) */
 $aliases['hr'] = array(
 	'Gadgets' => array( 'Dodaci' ),
+);
+
+/** Upper Sorbian (Hornjoserbsce) */
+$aliases['hsb'] = array(
+	'Gadgets' => array( 'Gadgety' ),
 );
 
 /** Haitian (Kreyòl ayisyen) */
