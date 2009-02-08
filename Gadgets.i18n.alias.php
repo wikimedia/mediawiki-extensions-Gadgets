@@ -157,6 +157,11 @@ $aliases['nl'] = array(
 	'Gadgets' => array( 'Extensies' ),
 );
 
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
+$aliases['nn'] = array(
+	'Gadgets' => array( 'Tilleggsfunksjonar' ),
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
 $aliases['no'] = array(
 	'Gadgets' => array( 'Tilleggsfunksjoner' ),
