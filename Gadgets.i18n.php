@@ -284,12 +284,15 @@ Ovaj pregled daje jednostavan pristup sistemu stranica poruka koje definišu sva
  */
 $messages['ca'] = array(
 	'gadgets-desc' => 'Permet als usuaris personalitzar [[Special:Gadgets|els gadgets CSS i JavaScript]] a les seves [[Special:Preferences|preferències]]',
+	'gadgets-prefs' => 'Gadgets',
 	'gadgets-prefstext' => "A continuació teniu una llista de «gadgets» especials que podeu activar al vostre compte.<br />
 La majoria d'aquests gadgets fan servir JavaScript, per tant haureu de tenir un navegador que funcioni amb aquest llenguatge activat per a que vos funcionin.
 Tingueu en compte que els gadgets no funcionaran en aquesta pàgina.
 
 També cal que tingueu present que aquests gadgets especials no formen part del programa MediaWiki i que acostumen a estar fets i mantinguts per usuaris del wiki local.<br />
 Els administradors del wiki poden editar els gadgets disponibles fent servir [[MediaWiki:Gadgets-definition|definicions]]  i [[Special:Gadgets|descripcions]].",
+	'gadgets' => 'Gadgets',
+	'gadgets-title' => 'Gadgets',
 	'gadgets-pagetext' => 'A continuació teniu una llista de «gadgets» especials que qualsevol usuari pot activar a la seva [[Special:Preferences|pàgina de preferències]], i que estan definits per les [[MediaWiki:Gadgets-definition|definicions del MediaWiki]].
 Aquesta llista us permet un fàcil accés a les pàgines del sistema que defineixen la descripció i el codi de cada «gadget».',
 	'gadgets-uses' => 'Usa',
@@ -1189,6 +1192,25 @@ Administradores locais podem editar os gadgets disponíveis através de [[MediaW
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
 	'gadgets-pagetext' => 'Segue-se uma lista de "gadgets" que podem ser ativados por utilizadores através de [[Special:Preferences|suas páginas de preferências]], definidos em [[MediaWiki:Gadgets-definition]].
+Esta visão geral proporciona um acesso fácil para as mensagens de sistema que definem as descrições e códigos de cada um dos gadgets.',
+	'gadgets-uses' => 'Utiliza',
+);
+
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Eduardo.mps
+ */
+$messages['pt-br'] = array(
+	'gadgets-desc' => 'Permite aos utilizadores selecionarem [[Special:Gadgets|"gadgets" JavaScript e CSS]] personalizados nas suas [[Special:Preferences|preferências]]',
+	'gadgets-prefs' => 'Gadgets',
+	'gadgets-prefstext' => 'Segue-se uma lista de "gadgets" que podem ser ativados em sua conta.
+Tais gadgets normalmente são baseados em JavaScript, o que faz com que seja necessário que o suporte a JavaScript esteja ativado em seu navegador para que os mesmos funcionem.
+Note que os gadgets não possuem efeito nesta página (a página de preferências).
+
+Note também que tais gadgets não são parte do software MediaWiki, geralmente sendo desenvolvidos e mantidos por usuários de sua wiki local.
+Administradores locais podem editar os gadgets disponíveis através de [[MediaWiki:Gadgets-definition|definições]] e [[Special:Gadgets|descrições]].',
+	'gadgets' => 'Gadgets',
+	'gadgets-title' => 'Gadgets',
+	'gadgets-pagetext' => 'Segue-se uma lista de "gadgets" que podem ser ativados por utilizadores através de [[Special:Preferences|suas páginas de preferências]], definidos em [[MediaWiki:Gadgets-definition|definições]].
 Esta visão geral proporciona um acesso fácil para as mensagens de sistema que definem as descrições e códigos de cada um dos gadgets.',
 	'gadgets-uses' => 'Utiliza',
 );
