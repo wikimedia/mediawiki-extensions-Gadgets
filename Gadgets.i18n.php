@@ -923,7 +923,7 @@ Se wääde üvver [[MediaWiki:Gadgets-definition]] enjerecht.
 Die Övverseech hee jit enne direkte Zohjang op di Texte em Wiki,
 wo de Projramme, un des Erklierunge för de Gadgets dren enthallde
 sin.',
-	'gadgets-uses' => 'Buch',
+	'gadgets-uses' => 'Bruch',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
