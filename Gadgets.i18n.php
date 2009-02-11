@@ -493,6 +493,7 @@ Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät 
 );
 
 /** French (Français)
+ * @author Delhovlyn
  * @author Grondin
  * @author IAlex
  * @author Meno25
@@ -505,7 +506,7 @@ $messages['fr'] = array(
 	'gadgets-prefs' => 'Gadgets',
 	'gadgets-prefstext' => 'Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel à JavaScript, lequel doit donc être activé pour votre navigateur Web.
 
-Notez aussi que ces gadgets spéciaux ne font nullemenent partie du logiciel MediaWiki. De plus, ils sont généralement développés et maintenus par les utilisateurs sur votre wiki local.
+Notez aussi que ces gadgets spéciaux ne font nullement partie du logiciel MediaWiki. De plus, ils sont généralement développés et maintenus par les utilisateurs sur votre wiki local.
 Les administrateurs locaux peuvent modifier les gadgets disponibles en utilisant [[MediaWiki:Gadgets-definition|les définitions]] et les [[Special:Gadgets|descriptions]].',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
