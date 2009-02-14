@@ -54,6 +54,7 @@ See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimed
 );
 
 /** Afrikaans (Afrikaans)
+ * @author Anrie
  * @author Naudefj
  */
 $messages['af'] = array(
@@ -63,8 +64,8 @@ $messages['af'] = array(
 Hierdie geriewe maak hoofsaaklik van JavaScript gebruik. Dus moet JavaScript in u webblaaier geaktiveer wees.
 Hierdie geriewe het geen invloed op hoe hierdie voorkeurbladsy vertoon nie.
 
-Hierdie geriewe is nie deel van die MediaWiki-sagteware nie, en word gewoonlik deur gebruikers op u tuiswiki ontwikkel en onderhou.
-Lokale administrateurs kan die beskikbare geriewe wysig by [[MediaWiki:Gadgets-definition]] en [[Special:Gadgets]].",
+Hierdie geriewe is nie deel van die MediaWiki-sagteware nie en word gewoonlik deur gebruikers op u tuiswiki ontwikkel en onderhou.
+Plaaslike administrateurs kan die beskikbare geriewe by [[MediaWiki:Gadgets-definition]] en [[Special:Gadgets]] wysig.",
 	'gadgets' => 'Geriewe',
 	'gadgets-title' => 'Geriewe',
 	'gadgets-pagetext' => "Hieronder is 'n lys van spesiale geriewe wat gebruikers deur hulle [[Special:Preferences|voorkeure]] kan aktiveer, soos gedefinieer in [[MediaWiki:Gadgets-definition]].
@@ -375,18 +376,22 @@ Toś ten pśeglěd bitujo lažki pśistup k bokam systemowych powěsćow, kótar
 /** Greek (Ελληνικά)
  * @author Badseed
  * @author Consta
+ * @author Dead3y3
  * @author ZaDiak
  */
 $messages['el'] = array(
 	'gadgets-desc' => 'Επιτρέπει στους χρήστες να διαλέξουν [[Special:Gadgets|CSS και JavaScript συσκευές]] στις [[Special:Preferences|προτιμήσεις]] τους',
 	'gadgets-prefs' => 'Συσκευές',
-	'gadgets-prefstext' => 'Ακολουθεί μια λίστα με ειδικές επιλογές που μπορείτε να ενεργοποιήσειτε για το λογαριασμό σας. Αυτές οι επιλογές είναι βασισμένες κυρίως σε JavaScript, οπότε θα πρέπει να έχετε ενεργοποιημένη την εκτέλεση JavaScripts στον φυλλομετρητή σας για να δουλέψουν. Σημειώστε ότι οι επιλογές αυτές δεν έχουν καμία επίδραση σε αυτή τη σελίδα προτιμήσεων.
+	'gadgets-prefstext' => 'Ακολουθεί μια λίστα με ειδικές επιλογές που μπορείτε να ενεργοποιήσειτε για το λογαριασμό σας.
+Αυτές οι επιλογές είναι βασισμένες κυρίως σε JavaScript, οπότε αυτή θα πρέπει να ενεργοποιηθεί στον φυλλομετρητή σας για να δουλέψουν.
+Σημειώστε ότι οι επιλογές αυτές δεν θα έχουν καμία επίδραση σε αυτή τη σελίδα προτιμήσεων.
 
-Επίσης αυτές οι επιλογές δεν είναι μέρος του λογισμικού MediaWiki, και συνήθως αναπτύσσονται και συντηρούνται από χρήστες στο τοπικό σας βίκι. Οι διαχειριστές εκεί μπορούν να επεξεργαστούν τις διαθέσιμες επιλογές χρησιμοποιώντας το [[MediaWiki:Gadgets-definition]] και το [[Special:Gadgets]].',
+Επίσης σημειώστε ότι αυτές οι ειδικές επιλογές δεν είναι μέρος του λογισμικού MediaWiki, και συνήθως αναπτύσσονται και συντηρούνται από χρήστες στο τοπικό σας wiki.
+Οι τοπικοί διαχειριστές μπορούν να επεξεργαστούν τις διαθέσιμες επιλογές χρησιμοποιώντας τις σελίδες [[MediaWiki:Gadgets-definition]] και [[Special:Gadgets]].',
 	'gadgets' => 'Συσκευές',
 	'gadgets-title' => 'Συσκευές',
-	'gadgets-pagetext' => 'Παρακάτω βρίσκεται μια λίστα με τις ειδικές συσκευές χρηστών που επιτρέπονται στη σελίδα προτιμήσεών σας, όπως καθορίζεται από το [[MediaWiki:Gadgets-definition]].
-Αυτή η επισκόπηση παρέχει εύκολη πρόσβαση στις σελίδες μηνυμάτων του συστήματος που καθορίζουν την περιγραφή και τον κώδικα κάθε συσκευής.',
+	'gadgets-pagetext' => 'Παρακάτω βρίσκεται ένας κατάλογος με τις ειδικές λειτουργίες τις οποίες οι χρήστες μπορούν να ενεργοποιήσουν στη [[Special:Preferences|σελίδα προτιμήσεών]] τους, όπως ορίζεται από τη σελίδα [[MediaWiki:Gadgets-definition|ορισμών]].<br />
+Αυτή η επισκόπηση παρέχει εύκολη πρόσβαση στις σελίδες μηνυμάτων του συστήματος που ορίζουν την περιγραφή και τον κώδικα κάθε λειτουργίας.',
 	'gadgets-uses' => 'Χρήσεις',
 );
 
