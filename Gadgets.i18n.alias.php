@@ -57,7 +57,7 @@ $aliases['el'] = array(
 
 /** Spanish (Español) */
 $aliases['es'] = array(
-	'Gadgets' => array( 'Artilugios' ),
+	'Gadgets' => array( 'Artilugios', 'Accesorios' ),
 );
 
 /** Basque (Euskara) */
