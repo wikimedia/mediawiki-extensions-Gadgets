@@ -73,7 +73,7 @@ function wfLoadGadgetsStructured( $forceNewText = NULL ) {
 	global $wgMemc;
 
 	static $gadgets = NULL;
-	if ( $gadgets !== NULL && $forceNewText !== NULL ) return $gadgets;
+	if ( $gadgets !== NULL && $forceNewText === NULL ) return $gadgets;
 
 	$key = wfMemcKey( 'gadgets-definition' );
 
