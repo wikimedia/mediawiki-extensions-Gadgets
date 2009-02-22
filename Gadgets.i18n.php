@@ -336,6 +336,7 @@ Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren o
 /** German (Deutsch)
  * @author Daniel Kinzler, brightbyte.de
  * @author Raimond Spekking
+ * @author Umherirrender
  */
 $messages['de'] = array(
 	'gadgets-desc' => 'Ermöglicht Benutzern, in ihren [[Special:Preferences|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Gadgets]] zu aktivieren',
@@ -349,7 +350,7 @@ Benutzern des lokalen Wikis entwickelt und gewartet werden. Lokale Wiki-Administ
 verfügbaren Gadgets über die Seiten [[MediaWiki:Gadgets-definition]] und [[Special:Gadgets]] bearbeiten',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
-	'gadgets-pagetext' => 'Liste von speziellen Gadgets, die für jeden Benutzer in seinen [[Special:Preferences|persönlichen Einstellungen]] verfügbar sind, wie in [[MediaWiki:Gadgets-definition|definiert]].
+	'gadgets-pagetext' => 'Liste von speziellen Gadgets, die für jeden Benutzer in seinen [[Special:Preferences|persönlichen Einstellungen]] verfügbar sind, wie [[MediaWiki:Gadgets-definition|definiert]].
 Diese Übersicht bietet direkten Zugang zu den Systemnachrichten, die die Beschreibung sowie den Programmcode jedes Gadgets enthalten.',
 	'gadgets-uses' => 'Benutzt',
 );
