@@ -735,6 +735,13 @@ Juga perhatikan bahwa gadget istimewa ini bukanlah bagian dari perangkat lunak M
 	'gadgets-uses' => 'Penggunaan',
 );
 
+/** Ido (Ido)
+ * @author Malafaya
+ */
+$messages['io'] = array(
+	'gadgets-uses' => 'Ol uzas',
+);
+
 /** Icelandic (Íslenska)
  * @author Jóna Þórunn
  */
