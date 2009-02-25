@@ -202,6 +202,11 @@ $aliases['sa'] = array(
 	'Gadgets' => array( 'सुविधा (गॅजेट)' ),
 );
 
+/** Slovenian (Slovenščina) */
+$aliases['sl'] = array(
+	'Gadgets' => array( 'Vticniki' ),
+);
+
 /** Swedish (Svenska) */
 $aliases['sv'] = array(
 	'Gadgets' => array( 'Finesser' ),
