@@ -503,21 +503,24 @@ Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät 
  * @author Grondin
  * @author IAlex
  * @author Meno25
+ * @author PieRRoMaN
  * @author Sherbrooke
  * @author Urhixidur
  * @author Zetud
  */
 $messages['fr'] = array(
-	'gadgets-desc' => 'Laisse aux utilisateurs les [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences|préférences]]',
+	'gadgets-desc' => 'Permet aux utilisateurs de choisir des [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences|préférences]]',
 	'gadgets-prefs' => 'Gadgets',
-	'gadgets-prefstext' => 'Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel à JavaScript, lequel doit donc être activé pour votre navigateur Web.
+	'gadgets-prefstext' => "Voici une liste de gadgets que vous pouvez activer pour votre compte.
+Ils font appel à JavaScript, lequel doit donc être activé sur votre navigateur Web pour qu'ils fonctionnent.
+Notez que ces gadgets n'ont aucun effet sur cette page des préférences.
 
-Notez aussi que ces gadgets spéciaux ne font nullement partie du logiciel MediaWiki. De plus, ils sont généralement développés et maintenus par les utilisateurs sur votre wiki local.
-Les administrateurs locaux peuvent modifier les gadgets disponibles en utilisant [[MediaWiki:Gadgets-definition|les définitions]] et les [[Special:Gadgets|descriptions]].',
+Notez aussi que ces gadgets spéciaux ne font nullement partie du logiciel MediaWiki, et qu'ils sont généralement développés et maintenus par des utilisateurs sur votre wiki local.
+Les administrateurs locaux peuvent modifier les gadgets disponibles en utilisant les [[MediaWiki:Gadgets-definition|définitions]] et les [[Special:Gadgets|descriptions]].",
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
-	'gadgets-pagetext' => 'Ci-dessous apparaît une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences|page de préférences]], tel que défini dans [[MediaWiki:Gadgets-definition|les définitions]].
-Ce survol donne un accès rapide aux pages de messages système qui définissent chaque description et chaque code des gadgets.',
+	'gadgets-pagetext' => "Voici une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences|page de préférences]], tel que défini dans les [[MediaWiki:Gadgets-definition|définitions]].
+Cette vue d'ensemble donne un accès rapide aux pages de messages système qui définissent la description et le code de chaque gadget.",
 	'gadgets-uses' => 'Utilise',
 );
 
@@ -971,10 +974,11 @@ $messages['li'] = array(
 De oetbreijinge zeen veurnamelik gebaseerd op JavaScript, dus JavaScript mót veur diene browser ingesjakeld zeen óm die te laote wirke.
 De oetbreijinge höbbe geine invlood op dees pazjena mit veurkäöre.
 
-Dees sjpeciaal oetbreijinge zeen ouch gein óngerdeil van de MediaWiki-software en die mótte meistal óntwikkeld en óngerhauwe waere door gebroekers van diene wiki. Beheerders kónne de besjikbaar oetbreijinge aangaeve in [[MediaWiki:Gadgets-definition]] en [[Special:Gadgets]].',
+Dees sjpeciaal oetbreijinge zeen ouch gein óngerdeil van de MediaWiki-software en die mótte meistal óntwikkeld en óngerhauwe waere door gebroekers van diene wiki. 
+Lokaal beheerders kónne de besjikbaar oetbreijinge aangaeve in [[MediaWiki:Gadgets-definition]] en [[Special:Gadgets]].',
 	'gadgets' => 'Oetbreijinger',
 	'gadgets-title' => 'Oetbreijinger',
-	'gadgets-pagetext' => 'Hiej ónger staon de speciaal oetbreijinger die gebroekers kinne insjakele via häöre veurkeure wie ingesteldj is in [[MediaWiki:Gadgets-definition]].
+	'gadgets-pagetext' => 'Hiej ónger staon de speciaal oetbreijinger die gebroekers kinne insjakele via häöre [[Special:Preferences|veurkeure]] wie ingesteldj is in [[MediaWiki:Gadgets-definition]].
 Dit euverzich bi-jtj uch einvoudige toegank toet de systeemtekspazjena wo de besjrieving en de programmacode van edere oetbreijing steit.',
 	'gadgets-uses' => 'Gebroek',
 );
