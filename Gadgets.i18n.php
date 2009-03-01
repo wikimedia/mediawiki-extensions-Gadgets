@@ -1311,6 +1311,22 @@ Lokálni správcovia môžu upraviť zoznam dostupných nástrojov pomocou [[Med
 	'gadgets-uses' => 'Použitia',
 );
 
+/** Slovenian (Slovenščina)
+ * @author Smihael
+ */
+$messages['sl'] = array(
+	'gadgets-desc' => 'Omogoča uporabnikom, da vključijo [[Special:Gadgets|vtičnike CSS in JavaScript]] v [[Special:Preferences|nastvitvah]]',
+	'gadgets-prefs' => 'Vtičniki',
+	'gadgets-prefstext' => 'Prikazan je seznam posebnih vtičnikov, ki si jih lahko omogočite.
+Večinoma temeljijo na JavaScript, zato mora biti le-ta omogočen v vašem brskalniku. 
+Ti vtičniki nimajo nobenega vpliva na to nastavitveno stran. 
+
+Prav tako pomnite, da ti vtičniki niso del programja MediaWiki, in jih običajno razvijajo ter vzdržujejo uporabniki. Administratorji lahko uredite seznam vtičnikov z uporabo [[Special:Gadgets|posebne strani]] in [[MediaWiki:Gadgets-definition|definicij]].',
+	'gadgets' => 'Vtičniki',
+	'gadgets-title' => 'Vtičniki',
+	'gadgets-pagetext' => 'Spodaj je seznam vtičnikov (opredeljenih z [[MediaWiki:Gadgets-definition|definicijami]]), ki jih lahko uporabniki vključijo v svojih [[Special:Preferences|nastavitvah]]. Ta pregled omogoča enostaven dostop do sistema za nastavljanje opisa in kode vsakega vtičnika posebej.',
+);
+
 /** Serbian Cyrillic ekavian (ћирилица)
  * @author Millosh
  */
