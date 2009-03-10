@@ -41,7 +41,7 @@ $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';
 
-function wfGadgetsArticleSaveComplete( &$article, &$wgUser, &$text ) {
+function wfGadgetsArticleSaveComplete( &$article, &$wgUser, $text ) {
 	//update cache if MediaWiki:Gadgets-definition was edited
 	$title = $article->mTitle;
 	if( $title->getNamespace() == NS_MEDIAWIKI && $title->getText() == 'Gadgets-definition' ) {
