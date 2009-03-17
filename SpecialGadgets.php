@@ -54,27 +54,29 @@ class SpecialGadgets extends SpecialPage {
 		foreach ( $gadgets as $section => $entries ) {
 			if ( $section !== false && $section !== '' ) {
 				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-section-$section$lang" );
-				$lnk = $t ? $skin->makeLinkObj( $t, wfMsgHTML("edit") ) : htmlspecialchars($section);
+				$lnk = $t ? $skin->makeLinkObj( $t, wfMsgHTML("edit"), 'action=edit' ) : htmlspecialchars($section);
 				$ttext = wfMsgExt( "gadget-section-$section", $msgOpt );
 
 				if( $listOpen ) {
 					$wgOut->addHTML( '</ul>' );
 					$listOpen = false;
 				}
-				$wgOut->addHTML( "\n<h2>$ttext</h2>\n" );
+				$wgOut->addHTML( "\n<h2>$ttext &nbsp; &nbsp; [$lnk]</h2>\n" );
 			}
 
 			foreach ( $entries as $gname => $code ) {
 				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$gname$lang" );
 				if ( !$t ) continue;
 
+				$lnk = $skin->makeLinkObj( $t, wfMsgHTML("edit"), 'action=edit' );
 				$ttext = wfMsgExt( "gadget-$gname", $msgOpt );
 
 				if( !$listOpen ) {
 					$listOpen = true;
 					$wgOut->addHTML( '<ul>' );
 				}
-				$wgOut->addHTML( "<li>$ttext<br />" );
+				$wgOut->addHTML( "<li>" );
+				$wgOut->addHTML( "$ttext &nbsp; &nbsp; [$lnk]<br />" );
 
 				$wgOut->addHTML( wfMsgHTML( "gadgets-uses" ) . wfMsg( 'colon-separator' ) );
 
