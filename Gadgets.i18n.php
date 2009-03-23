@@ -341,6 +341,7 @@ Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver ga
 
 /** German (Deutsch)
  * @author Daniel Kinzler, brightbyte.de
+ * @author Metalhead64
  * @author Raimond Spekking
  * @author Umherirrender
  */

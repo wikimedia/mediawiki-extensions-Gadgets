@@ -80,6 +80,11 @@ $aliases['gsw'] = array(
 	'Gadgets' => array( 'Hälferli' ),
 );
 
+/** Hawaiian (Hawai`i) */
+$aliases['haw'] = array(
+	'Gadgets' => array( 'Hāmeʻa' ),
+);
+
 /** Hebrew (עברית)
  * @author Rotem Liss
  */
