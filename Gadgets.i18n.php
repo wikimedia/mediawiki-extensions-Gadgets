@@ -1257,6 +1257,16 @@ $messages['ro'] = array(
 	'gadgets-title' => 'Gadgeturi',
 );
 
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'gadgets-prefs' => 'Gadget',
+	'gadgets' => 'Gadget',
+	'gadgets-title' => 'Gadget',
+	'gadgets-uses' => 'Ause',
+);
+
 /** Russian (Русский)
  * @author Ahonc
  * @author Illusion
@@ -1526,6 +1536,16 @@ Nota anca che sti acessori speciali no i fa parte del software MediaWiki e i vie
 	'gadgets-pagetext' => "!De seguito vien presentà n'elenco de acessori (''gadget'') che i utenti i pol abilitar su la so [[Special:Preferences|pagina de le preferenze]], seguendo le definizion riportà in [[MediaWiki:Gadgets-definition]].
 Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistema nei quali xe definìo la descrizion e el codice de ciascun acessorio.",
 	'gadgets-uses' => 'Dopara',
+);
+
+/** Veps (Vepsan kel')
+ * @author Игорь Бродский
+ */
+$messages['vep'] = array(
+	'gadgets-prefs' => 'Gadžetad',
+	'gadgets' => 'Gadžetad:',
+	'gadgets-title' => 'Gadžetad',
+	'gadgets-uses' => 'Kävutab',
 );
 
 /** Vietnamese (Tiếng Việt)
