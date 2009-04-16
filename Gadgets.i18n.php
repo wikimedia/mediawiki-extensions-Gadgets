@@ -1079,6 +1079,15 @@ Disse Översicht gifft direkten Togang to de Systemnarichten, in de de Text to d
 	'gadgets-uses' => 'Bruukt',
 );
 
+/** Nedersaksisch (Nedersaksisch)
+ * @author Servien
+ */
+$messages['nds-nl'] = array(
+	'gadgets-prefs' => 'Uutbreidingen',
+	'gadgets' => 'Uutbreidingen',
+	'gadgets-title' => 'Uutbreidingen',
+);
+
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
