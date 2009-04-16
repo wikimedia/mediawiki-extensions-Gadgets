@@ -222,7 +222,8 @@ function wfApplyGadgetCode( $code, &$out, &$done ) {
 
 		if ( preg_match( '/\.js/', $codePage ) ) {
 			$u = $t->getLocalURL( 'action=raw&ctype=' . $wgJsMimeType );
-			$out->addScript( '<script type="' . $wgJsMimeType . '" src="' . htmlspecialchars( $u ) . '"></script>' . "\n" );
+			//switched to addScriptFile call to support scriptLoader
+			$out->addScriptFile( $u );
 		}
 		else if ( preg_match( '/\.css/', $codePage ) ) {
 			$u = $t->getLocalURL( 'action=raw&ctype=text/css' );
