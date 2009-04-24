@@ -70,6 +70,11 @@ $aliases['fi'] = array(
 	'Gadgets' => array( 'Pienoisohjelmat' ),
 );
 
+/** Franco-Provençal (Arpetan) */
+$aliases['frp'] = array(
+	'Gadgets' => array( 'Outils' ),
+);
+
 /** Galician (Galego) */
 $aliases['gl'] = array(
 	'Gadgets' => array( 'Trebellos' ),
