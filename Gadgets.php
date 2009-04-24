@@ -125,9 +125,10 @@ function wfGadgetsGetPreferences( $user, &$preferences ) {
 	
 	wfLoadExtensionMessages( 'Gadgets' );
 	
-	$options = array_fill_keys( array_keys($gadgets), array() );
+	$options = array();
 	foreach( $gadgets as $section => $thisSection ) {
 		$section = wfMsgExt( "gadget-section-$section", 'parseinline' );
+		$options[$section] = array();
 		foreach( $thisSection as $gname => $code ) {
 			$options[$section][wfMsgExt( "gadget-$gname", 'parseinline' )] = $gname;
 		}
