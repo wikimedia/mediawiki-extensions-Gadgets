@@ -18,7 +18,7 @@ $messages['en'] = array(
 	'gadgets-desc'      => 'Lets users select custom [[Special:Gadgets|CSS and JavaScript gadgets]] in their [[Special:Preferences|preferences]]',
 
 	#for Special:Preferences
-	'gadgets-prefs'     => 'Gadgets',
+	'prefs-gadgets'     => 'Gadgets',
 	'gadgets-prefstext' => 'Below is a list of special gadgets you can enable for your account.
 These gadgets are mostly based on JavaScript, so JavaScript has to be enabled in your browser for them to work.
 Note that these gadgets will have no effect on this preferences page.
@@ -42,7 +42,7 @@ This overview provides easy access to the system message pages that define each 
  */
 $messages['qqq'] = array(
 	'gadgets-desc' => 'Short description of the Gadgets extension, shown in [[Special:Version]]. Do not translate or change links.',
-	'gadgets-prefs' => 'In Gadgets extension. The name of a tab in [[Special:Preferences]] where user set their preferences for the extension.
+	'prefs-gadgets' => 'In Gadgets extension. The name of a tab in [[Special:Preferences]] where user set their preferences for the extension.
 
 {{Identical|Gadgets}}',
 	'gadgets-prefstext' => 'In Gadgets extension. This is the explanation text displayed under the Gadgets tab in [[Special:Preferences]].',
@@ -59,7 +59,7 @@ See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimed
  */
 $messages['af'] = array(
 	'gadgets-desc' => 'Laat gebruikers toe om [[Special:Gadgets|CSS en JavaScripts]] geriewe te aktiveer in hulle [[Special:Preferences|voorkeure]]',
-	'gadgets-prefs' => 'Geriewe',
+	'prefs-gadgets' => 'Geriewe',
 	'gadgets-prefstext' => "Hieronder is 'n lys van spesiale geriewe wat u kan aktiveer.
 Hierdie geriewe maak hoofsaaklik van JavaScript gebruik. Dus moet JavaScript in u webblaaier geaktiveer wees.
 Hierdie geriewe het geen invloed op hoe hierdie voorkeurbladsy vertoon nie.
@@ -77,7 +77,7 @@ Die oorsig bied maklike toegang tot die stelselboodskapblaaie wat elke gerief se
  * @author Codex Sinaiticus
  */
 $messages['am'] = array(
-	'gadgets-prefs' => 'ተጨማሪ መሣርያዎች',
+	'prefs-gadgets' => 'ተጨማሪ መሣርያዎች',
 	'gadgets-prefstext' => 'ከዚህ ታች አንዳንድ ተጨማሪ መሣርያ ወይም መኪናነት በዝርዝር ሊገኝ ይችላል። እነዚህ በደንብ እንዲሠሩ በኮምፒውተርዎ ላይ ጃቫ-ስክሪፕት እንዲኖር አስፈላጊነት ነው።
 
 የዚህ ዊኪ መጋቢዎች [[MediaWiki:Gadgets-definition]]
@@ -99,7 +99,7 @@ $messages['am'] = array(
  */
 $messages['an'] = array(
 	'gadgets-desc' => 'Deixa que os usuario selezionen os [[Special:Gadgets|gadgets de CSS y JavaScript]] que quieran en as suyas [[Special:Preferences|preferenzias]]',
-	'gadgets-prefs' => 'Trastes',
+	'prefs-gadgets' => 'Trastes',
 	'gadgets-prefstext' => "Contino ye una lista de trastes espezials que puede fer serbir en a suya cuenta.
 Como cuasi toz istos trastes son feitos en JavaScript, caldrá que tienga autibato JavaScript en o suyo nabegador ta que baigan bien. Pare cuenta que istos trastes no tendrán garra efeuto en ista pachina de preferenzias.
 
@@ -117,7 +117,7 @@ Ista lista premite ir fazilment t'as pachinas de mensaches d'o sistema que defin
  */
 $messages['ar'] = array(
 	'gadgets-desc' => 'يسمح للمستخدمين باختيار [[Special:Gadgets|إضافات سي إس إس وجافاسكريبت]] معدلة في [[Special:Preferences|تفضيلاتهم]]',
-	'gadgets-prefs' => 'إضافات',
+	'prefs-gadgets' => 'إضافات',
 	'gadgets-prefstext' => 'بالأسفل قائمة بالإضافات الخاصة التي يمكن تفعيلها لحسابك.
 هذه الإضافات مبنية على الأغلب على جافاسكريبت، لذا فالجافاسكريبت يجب أن تكون مفعلة في متصفحك لكي يعملوا.
 لاحظ أن هذه الإضافات لن يكون لها أي تأثير على صفحة التفضيلات هذه.
@@ -139,7 +139,7 @@ $messages['ar'] = array(
  */
 $messages['arz'] = array(
 	'gadgets-desc' => 'بيسمح لليوزرز انهم يختارو [[Special:Gadgets|اضافاتCSS وJavaScript]] فى [[Special:Preferences|التفضيلات]] بتاعتهم',
-	'gadgets-prefs' => 'اضافات',
+	'prefs-gadgets' => 'اضافات',
 	'gadgets-prefstext' => 'تحت فى لستة بالضافات المخصوصة اللى انت ممكن تفعلها فى الحساب بتاعك.
 الاضافات دى غالبا ما بتبقى مبينة على الجافاسكريبت،و علشان كده لازم تفعل الجافاسطريبت فى البراوزر بتاعك علشتن يشتغلو.
 اعمل حسابك ان الاضافات دى مش ح يكون ليها اى تاثير على صفحة التفضيلات دي.
@@ -158,7 +158,7 @@ $messages['arz'] = array(
  */
 $messages['ast'] = array(
 	'gadgets-desc' => 'Permite a los usuarios seleicionar al gustu [[Special:Gadgets|accesorios CSS y JavaScript]] nes sos [[Special:Preferences|preferencies]]',
-	'gadgets-prefs' => 'Accesorios',
+	'prefs-gadgets' => 'Accesorios',
 	'gadgets-prefstext' => "Embaxo amuésase una llista de los accesorios especiales que pues activar pa la to cuenta.
 Estos accesorios tán mayormente basaos en JavaScript, polo qu'has tener activáu esti nel to navegador pa que funcionen.
 Date cuenta de qu'estos accesorios nun tendrán efeutu nesta páxina de preferencies.
@@ -185,7 +185,7 @@ $messages['bat-smg'] = array(
  */
 $messages['bcc'] = array(
 	'gadgets-desc' => 'اجازت دن کابرانء که انتخاب کنن دلواهی [[Special:Gadgets|گجت آنی سی اس اس و جاوا اسکرسپت]] ته وتی [[Special:Preferences|ترجیحات]]',
-	'gadgets-prefs' => 'گجت آن',
+	'prefs-gadgets' => 'گجت آن',
 	'gadgets' => 'گجت آن',
 	'gadgets-title' => 'گجت آن',
 	'gadgets-uses' => 'استفاده بیت',
@@ -198,7 +198,7 @@ $messages['bcc'] = array(
  */
 $messages['be-tarask'] = array(
 	'gadgets-desc' => 'Дазваляе ўдзельнікам выбіраць [[Special:Gadgets|CSS і JavaScript-дадаткі]] ў сваіх [[Special:Preferences|устаноўках]]',
-	'gadgets-prefs' => 'Гаджэты',
+	'prefs-gadgets' => 'Гаджэты',
 	'gadgets-prefstext' => 'Ніжэй знаходзіцца сьпіс спэцыяльных гаджэтаў, якія Вы можаце ўключыць для свайго рахунка.
 Гэтыя гаджэты, пераважна, заснаваныя на JavaScript, таму Вам неабходна ўключыць JavaScript у сваім браўзэры для таго, каб яны працавалі.
 Заўважце, што гэтыя гаджэты не працуюць на старонцы ўстановак.
@@ -219,7 +219,7 @@ $messages['be-tarask'] = array(
  */
 $messages['bg'] = array(
 	'gadgets-desc' => 'Позволява на потребителите да избират и активират [[Special:Gadgets|CSS и JavaScript джаджи]] от своите [[Special:Preferences|настройки]]',
-	'gadgets-prefs' => 'Джаджи',
+	'prefs-gadgets' => 'Джаджи',
 	'gadgets-prefstext' => 'По-долу е списъкът на специалните джаджи, които можете да активирате на своята потребителска сметка.
 Тъй като почти всички джаджи са базирани на Джаваскрипт, трябва да го активирате на браузъра си, за да могат те да работят.
 Имайте предвид, че тези джаджи няма да окажат влияние на тази страница с настройки.
@@ -238,7 +238,7 @@ $messages['bg'] = array(
  */
 $messages['bn'] = array(
 	'gadgets-desc' => 'ব্যবহারকারীদের তাদের [[Special:Preferences|পছন্দে]] স্বনির্বাচিত [[Special:Gadgets|সিএসএস এবং জাভাস্ক্রিপ্ট গ্যাজেট]] নির্বাচনের সুযোগ দাও',
-	'gadgets-prefs' => 'গ্যাজেটগুলি',
+	'prefs-gadgets' => 'গ্যাজেটগুলি',
 	'gadgets-prefstext' => 'নিচে কিছু বিশেষ গ্যাজেটের তালিকা দেওয়া হল, যেগুলি আপনি আপনার অ্যাকাউন্টের জন্য সক্রিয় করতে পারেন।
 এই গ্যাজেটগুলি বেশিরভাগই জাভাস্ক্রিপ্ট-ভিত্তিক, তাই এগুলি কাজ করতে হলে আপনার ব্রাউজারে জাভাস্ক্রিপ্ট সক্রিয় থাকতে হবে।
 লক্ষ্য করুন, এই গ্যাজেটগুলি এই পছন্দ পাতায় কোন প্রভাব ফেলবে না।
@@ -254,7 +254,7 @@ $messages['bn'] = array(
  */
 $messages['br'] = array(
 	'gadgets-desc' => 'Leuskel a ra an implijerien da bersonelaat [[Special:Gadgets|bitrakoù CSS ha JavaScript]] en o [[Special:Preferences|fenndibaboù]]',
-	'gadgets-prefs' => 'Bitrakoù',
+	'prefs-gadgets' => 'Bitrakoù',
 	'gadgets' => 'Bitrakoù',
 	'gadgets-title' => 'Bitrakoù',
 	'gadgets-uses' => 'A implij',
@@ -265,7 +265,7 @@ $messages['br'] = array(
  */
 $messages['bs'] = array(
 	'gadgets-desc' => 'Omogućava korisnicima da odaberu vlastite [[Special:Gadgets|CSS i JavaScript dodatke]] (gadgets) u svojim [[Special:Preferences|postavkama]]',
-	'gadgets-prefs' => 'Dodaci',
+	'prefs-gadgets' => 'Dodaci',
 	'gadgets-prefstext' => "Ovo je spisak specijalih gadgets (''dodataka'') koje možete omogućiti za Vaš korisnički račun. Ovi dodaci su najčešće bazirani na JavaScript, tako da se postavke JavaScript moraju omogućiti u Vašem web pregledniku da bi mogli raditi.
 Zapamtite da ovi gadgets ne uzrokuju nikakve efekte na ovoj stranici za postavke.
 
@@ -285,7 +285,7 @@ Ovaj pregled daje jednostavan pristup sistemu stranica poruka koje definišu sva
  */
 $messages['ca'] = array(
 	'gadgets-desc' => 'Permet als usuaris personalitzar [[Special:Gadgets|els gadgets CSS i JavaScript]] a les seves [[Special:Preferences|preferències]]',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => "A continuació teniu una llista de «gadgets» especials que podeu activar al vostre compte.<br />
 La majoria d'aquests gadgets fan servir JavaScript, per tant haureu de tenir un navegador que funcioni amb aquest llenguatge activat per a que vos funcionin.
 Tingueu en compte que els gadgets no funcionaran en aquesta pàgina.
@@ -306,7 +306,7 @@ Aquesta llista us permet un fàcil accés a les pàgines del sistema que definei
  */
 $messages['cs'] = array(
 	'gadgets-desc' => 'Umožňuje uživatelům vybrat si [[Special:Gadgets|CSS a JavaScriptové udělátko]] ve svém [[Special:Preferences|nastavení]].',
-	'gadgets-prefs' => 'Udělátka',
+	'prefs-gadgets' => 'Udělátka',
 	'gadgets-prefstext' => 'Níže je přehled speciálních udělátek, která si můžete ve svém účtu zapnout.
 Tato udělátka jsou založena převážně na JavaScriptu, takže je pro jejich funkčnost nutné mít v prohlížeči JavaScript zapnutý.
 Udělátka nejsou aplikována na této stránce nastavení.
@@ -325,7 +325,7 @@ Tento přehled poskytuje jednoduchý přístup k&nbsp;systémovým hlášením, 
  */
 $messages['da'] = array(
 	'gadgets-desc' => 'Lader brugere vælge brugerdefinerede [[Special:Gadgets|CSS og JavaScript gadgets]] i deres [[Special:Preferences|indstillinger]]',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => 'Nedenstående er en liste over de gadgets som du kan aktivere for din brugerkonto.
 Da disse gadgets hovedsageligt er baseret på JavaScript skal du slå JavaScript til i din browser for at få dem til at virke.
 Bemærk at disse gadgets ikke vil have nogen effekt på denne side (indstillinger).
@@ -347,7 +347,7 @@ Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver ga
  */
 $messages['de'] = array(
 	'gadgets-desc' => 'Ermöglicht Benutzern, in ihren [[Special:Preferences|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Gadgets]] zu aktivieren',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => 'Liste von speziellen Gadgets die für jeden Benutzer aktiviert werden können.
 Die Gadgets basieren zumeist auf JavaScript, daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren.
 Die Gadgets funktionieren allerdings nicht auf dieser Seite mit persönlichen Einstellungen.
@@ -367,7 +367,7 @@ Diese Übersicht bietet direkten Zugang zu den Systemnachrichten, die die Beschr
  */
 $messages['dsb'] = array(
 	'gadgets-desc' => 'Dowólujo wužywarjam w jich [[Special:Preferences|nastajenjach]] [[Special:Gadgets|gadgets CSS a JavaScript]] wubraś',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => 'Dołojce jo lisćina specielnych gadgetow, kótarež móžoš za swójo konto zmóžniś.
 Toś te gadgety se zwětšego bazěruju na JavaScripśe, togodla musy JavaScript w twójom wobglědowaku zmóžnjony byś, aby funkcioněrowali.
 Glědaj, až toś te gadgety njewustatkuju se na bok nastajenjow.
@@ -389,7 +389,7 @@ Toś ten pśeglěd bitujo lažki pśistup k bokam systemowych powěsćow, kótar
  */
 $messages['el'] = array(
 	'gadgets-desc' => 'Επιτρέπει στους χρήστες να διαλέξουν [[Special:Gadgets|CSS και JavaScript συσκευές]] στις [[Special:Preferences|προτιμήσεις]] τους',
-	'gadgets-prefs' => 'Ειδικές επιλογές',
+	'prefs-gadgets' => 'Ειδικές επιλογές',
 	'gadgets-prefstext' => 'Ακολουθεί μια λίστα με ειδικές επιλογές που μπορείτε να ενεργοποιήσειτε για το λογαριασμό σας.
 Αυτές οι επιλογές είναι βασισμένες κυρίως σε JavaScript, οπότε αυτή θα πρέπει να ενεργοποιηθεί στον φυλλομετρητή σας για να δουλέψουν.
 Σημειώστε ότι οι επιλογές αυτές δεν θα έχουν καμία επίδραση σε αυτή τη σελίδα προτιμήσεων.
@@ -408,7 +408,7 @@ $messages['el'] = array(
  */
 $messages['eo'] = array(
 	'gadgets-desc' => 'Permesas al uzantoj elekti proprajn [[Special:Gadgets|CSS kaj JavaScript aldonaĵojn]] en ties [[Special:Preferences|preferoj]].',
-	'gadgets-prefs' => 'Aldonaĵoj',
+	'prefs-gadgets' => 'Aldonaĵoj',
 	'gadgets-prefstext' => 'Jen listo de specialaj aldonaĵoj kiujn vi povas aktivigi por via uzulkonto.
 Plej multaj el ili baziĝas sur Ĵavaskriptoj, sekve Ĵavaskripto nepre estu aktivigita por ke ili funkciu. 
 Notu ke tiuj aldonaĵoj ne efikos sur viaj preferoj. 
@@ -429,7 +429,7 @@ Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per [[MediaWiki
  */
 $messages['es'] = array(
 	'gadgets-desc' => 'Permite a los usuarios seleccionar [[Special:Gadgets|artilugios de CSS y JavaScript]] en sus [[Special:Preferences|preferencias]].',
-	'gadgets-prefs' => 'Artilugios',
+	'prefs-gadgets' => 'Artilugios',
 	'gadgets-prefstext' => "Debajo hay una lista de artilugios que puedes activar a tu gusto. Ten en cuenta que la mayoría de ellos utilizan JavaScript para funcionar, así que debes tenerlo activado en tu explorador si quieres que los artilugios que actives funcionen.
 
 Ten en cuenta también que estos complementos no forman parte del software MediaWiki, y están desarrollados por usuarios de este wiki.
@@ -447,7 +447,7 @@ Los administradores pueden editar los artilugios que están disponibles en las p
  * @author Avjoska
  */
 $messages['et'] = array(
-	'gadgets-prefs' => 'Tööriistad',
+	'prefs-gadgets' => 'Tööriistad',
 	'gadgets' => 'Tööriistad',
 	'gadgets-title' => 'Tööriistad',
 );
@@ -456,7 +456,7 @@ $messages['et'] = array(
  * @author An13sa
  */
 $messages['eu'] = array(
-	'gadgets-prefs' => 'Gadgetak',
+	'prefs-gadgets' => 'Gadgetak',
 	'gadgets' => 'Gadgetak',
 	'gadgets-title' => 'Gadgetak',
 );
@@ -473,7 +473,7 @@ $messages['ext'] = array(
  */
 $messages['fa'] = array(
 	'gadgets-desc' => 'به کاربرها امکان انتخاب ابزارهای شخصی CSS و JavaScript را از طریق صفحهٔ [[Special:Preferences|ترجیحات]] می‌دهد',
-	'gadgets-prefs' => 'ابزارها',
+	'prefs-gadgets' => 'ابزارها',
 	'gadgets-prefstext' => 'در زیر فهرستی از ابزارهای ویژه‌ای که می‌توانید برای حساب کاربری‌تان فعال کنید را می‌بینید.
 این ابزارها در بیشتر موارد مبتنی بر جاوااسکریپت هستند، پس برای استفاده از آن‌ها باید جاوااسکرپیت را در مرورگر خودتان فعال کنید.
 توجه کنید که این ابزارها نمی‌توانند صفحهٔ ترجیحات را تغییر دهند.
@@ -493,7 +493,7 @@ $messages['fa'] = array(
  */
 $messages['fi'] = array(
 	'gadgets-desc' => 'Tarjoaa mahdollisuuden käyttäjille ottaa käyttöön [[Special:Gadgets|määritettyjä CSS- ja JavaScript-pienoisohjelmia]] omista [[Special:Preferences|asetuksistaan]].',
-	'gadgets-prefs' => 'Pienoisohjelmat',
+	'prefs-gadgets' => 'Pienoisohjelmat',
 	'gadgets-prefstext' => 'Alla on lista pienoisohjelmista, joita käyttäjät voivat ottaa käyttöön. Nämä pienoisohjelmat pohjautuvat usein JavaScriptiin, joten toimiakseen selaimessasi pitää olla JavaScript käytössä.
 
 Huomio myös, että nämä pienoisohjelmat eivät ole osa MediaWiki-ohjelmistoa – tavallisesti niitä kehittävät ja ylläpitävät paikallisen wikin käyttäjät. Paikalliset ylläpitäjät voivat muokata saatavilla olevia pienoisohjelmia [[MediaWiki:Gadgets-definition|määrityssivulla]] ja [[Special:Gadgets|kuvauksista]].',
@@ -517,7 +517,7 @@ Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät 
  */
 $messages['fr'] = array(
 	'gadgets-desc' => 'Permet aux utilisateurs de choisir des [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences|préférences]]',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => "Voici une liste de gadgets que vous pouvez activer pour votre compte.
 Ils font appel à JavaScript, lequel doit donc être activé sur votre navigateur Web pour qu'ils fonctionnent.
 Notez que ces gadgets n'ont aucun effet sur cette page des préférences.
@@ -536,7 +536,7 @@ Cette vue d'ensemble donne un accès rapide aux pages de messages système qui d
  */
 $messages['frp'] = array(
 	'gadgets-desc' => 'Lèsse ux utilisators la possibilitât de chouèsir/cièrdre los [[Special:Gadgets|outils CSS et JavaScript]] pèrsonalisâs dens lors [[Special:Preferences|prèferences]].',
-	'gadgets-prefs' => 'Outils',
+	'prefs-gadgets' => 'Outils',
 	'gadgets-prefstext' => 'Ce-desot aparêt una lista d’outils que vos pouede activar por voutron compto.
 Font apèl a [[JavaScript]], dêt vêr étre activâ por voutron navigator Malyâjo.
 Ils ont gins d’enfluence sur ceta pâge de prèferences.
@@ -555,7 +555,7 @@ Ceti survôlo balye un accès rapido a les pâges de mèssâjos sistèmo que dè
  */
 $messages['gl'] = array(
 	'gadgets-desc' => 'Deixa que os usuarios seleccionen [[Special:Gadgets|trebellos CSS e JavaScript]] nas súas [[Special:Preferences|preferencias]]',
-	'gadgets-prefs' => 'Trebellos',
+	'prefs-gadgets' => 'Trebellos',
 	'gadgets-prefstext' => 'Embaixo hai unha lista de trebellos especiais que pode activar para a súa conta.
 A maioría destes trebellos baséanse no JavaScript, así que ten que ter o JavaScript activado no seu navegador para que funcionen.
 Teña en conta que estes trebellos non funcionarán nesta páxina de preferencias.
@@ -572,7 +572,7 @@ Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que d
  * @author Omnipaedista
  */
 $messages['grc'] = array(
-	'gadgets-prefs' => 'Μηχανήματα',
+	'prefs-gadgets' => 'Μηχανήματα',
 	'gadgets' => 'Μηχανήματα',
 	'gadgets-title' => 'Μηχανήματα',
 	'gadgets-uses' => 'Χρήσεις',
@@ -583,7 +583,7 @@ $messages['grc'] = array(
  */
 $messages['gsw'] = array(
 	'gadgets-desc' => 'Macht s Benutzer megli, in ihre [[Special:Preferences|persenlige Yystellige]] vordefinierti [[Special:Gadgets|CSS- und JavaScript-Gadgets]] z aktiviere',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => 'Unter git s e Lischt vu spezielle Gadgets, wu for jede Benutzer chenne aktiviert wäre.
 D Gadgets basiere zmeischt uf JavaScript, wäge däm muess JavaScript im Browser aktiviert syy, ass si funktioniere.
 D Gadgets funktionieren aber nit uf däre Syte mit persenlige Yystellige.
@@ -601,7 +601,7 @@ Die Ibersicht bietet e direkte Zuegang zue dr Syschtemnochrichte, wu d Bschryybi
  * @author Dsvyas
  */
 $messages['gu'] = array(
-	'gadgets-prefs' => 'યંત્રો/સાધનો',
+	'prefs-gadgets' => 'યંત્રો/સાધનો',
 	'gadgets-prefstext' => "નીચે એવા વિશેષ સાધનોની યાદી નીચે આપી છે જે તમે તમારા ખાતામાં સક્રિય કરી શકો છો.
 આ સાધનો મહદ્ અંશે જાવા સ્ક્રિપ્ટ આધારિત છે માટે તે યોગ્ય રીતે કામ કરે તે માટે આપના બ્રાઉઝરમાં જાવા સ્ક્રિપ્ટ સક્રિય (ઍનેબલ) કરેલી હોવી જરૂરી છે.
 એ બાબત નોંધમાં લેશો કે આ સાધનોની અસર તમારા 'મારી પસંદ'ના પાના ઉપર થશે નહી.
@@ -620,7 +620,7 @@ $messages['gu'] = array(
  */
 $messages['he'] = array(
 	'gadgets-desc' => 'אפשרות למשתמשים לבחור [[Special:Gadgets|סקריפטים בקוד JavaScript וסגנונות בקוד CSS]] ב[[Special:Preferences|העדפות]] שלהם',
-	'gadgets-prefs' => 'סקריפטים',
+	'prefs-gadgets' => 'סקריפטים',
 	'gadgets-prefstext' => 'להלן רשימה של סקריפטים שתוכלו להתקין בחשבון שלכם.
 הסקריפטים מבוססים ברובם על שפת JavaScript, ולכן יש לאפשר אותה בדפדפן כדי שהם יעבדו.
 שימו לב שלא תהיה לסקריפטים כל השפעה על דף ההעדפות הזה.
@@ -640,7 +640,7 @@ $messages['he'] = array(
  */
 $messages['hi'] = array(
 	'gadgets-desc' => 'सदस्यों को उनकी [[Special:Preferences|वरीयताओं]] में से चुनिंदा [[Special:Gadgets|CSS और जावालिपि जुगत]] चुनने दो।',
-	'gadgets-prefs' => 'उपकरण (गैज़ेट)',
+	'prefs-gadgets' => 'उपकरण (गैज़ेट)',
 	'gadgets-prefstext' => 'नीचे विशेष जुगतों की सूची दी गई है, जो कि आप अपने खाते में सक्षम कर सकते हैं।
 ये जुगत अधिकांशत: जावालिपि पर आधारित है, इसलिए इन्हें कार्यशील कराने के लिए आप अपने ब्राउजर में जावालिपि को सक्षम कर लें।
 ध्यान दें कि इन जुगतों से आपके वरीयता पृष्ठ पर कोई असर नहीं होगा।
@@ -660,7 +660,7 @@ $messages['hi'] = array(
  */
 $messages['hr'] = array(
 	'gadgets-desc' => 'Omogućava suradnicama biranje osobnih [[Special:Gadgets|CSS i JavaScript dodataka]] u svojim [[Special:Preferences|postavkama]]',
-	'gadgets-prefs' => 'Dodaci',
+	'prefs-gadgets' => 'Dodaci',
 	'gadgets-prefstext' => 'Slijedi popis posebnih dodataka koje možete omogućiti.
 One su većinom napisane u JavaScriptu, stoga JavaScript mora biti omogućen u vašem web pregledniku da bi dodaci radili.
 Nijedan dodatak nema učinka na ovu stranicu s postavkama.
@@ -679,7 +679,7 @@ Ovaj pregled omogućava lak pristup porukama sustava koje opisuju dodatke i njih
  */
 $messages['hsb'] = array(
 	'gadgets-desc' => 'Zmóžnja wužiwarjam swójske [[Special:Gadgets|přisłuški za CSS a JavaScript]] w jich [[Special:Preferences|nastajenjach]] wubrać',
-	'gadgets-prefs' => 'Specialne funkcije',
+	'prefs-gadgets' => 'Specialne funkcije',
 	'gadgets-prefstext' => 'Deleka je lisćina specialnych funkcijow, kotrež móžeš za swoje wužiwarske konto zmóžnić. Tute specialne funkcije zwjetša na JavaScripće bazěruja, tohodla dyrbi JavaScript we wobhladowaku zmóžnjeny być, zo bychu fungowali.
 Wobkedźbuj tež, zo so tute specialne funkcije na tutu stronu z wosobinskimi nastajenjemi njewuskutkuja.
 
@@ -697,7 +697,7 @@ Tutón přehlad skići lochki přistup k systemowym zdźělenkam, kotrež wopisa
  */
 $messages['hu'] = array(
 	'gadgets-desc' => 'A felhasználók saját [[Special:Gadgets|CSS és JavaScript eszközöket]] választhatnak ki a [[Special:Preferences|beállításaiknál]]',
-	'gadgets-prefs' => 'Segédeszközök',
+	'prefs-gadgets' => 'Segédeszközök',
 	'gadgets-prefstext' => 'Itt látható a fiókod számára engedélyezett segédeszközöket.
 Legtöbbjük JavaScriptet használ, így ezt engedélyezned kell a böngésződben, hogy működjenek.
 A segédeszközök nem működnek ezen a beállításoldalon, így probléma esetén ki tudod őket kapcsolni.
@@ -716,7 +716,7 @@ Ez az áttekintő lap egyszerű hozzáférést nyúlt az eszközök kódját, il
  */
 $messages['ia'] = array(
 	'gadgets-desc' => 'Permitte que usatores selige [[Special:Gadgets|gadgets CSS e JavaScript]] personalisate in lor [[Special:Preferences|preferentias]]',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => 'Infra es un lista de gadgets special que tu pote activar in tu conto.
 Iste gadgets se basa pro le major parte in JavaScript, ergo JavaScript debe esser active in tu navigator pro permitter que illos functiona.
 Nota que iste gadgets non habera effecto in iste pagina de preferentias.
@@ -735,7 +735,7 @@ Iste supervista permitte le accesso commode al paginas de messages de systema qu
  */
 $messages['id'] = array(
 	'gadgets-desc' => 'Memungkinkan pengguna memilih [[Special:Gadgets|gadget CSS dan JavaScript]] melalui [[Special:Preferences|preferensi]] mereka',
-	'gadgets-prefs' => 'Gadget',
+	'prefs-gadgets' => 'Gadget',
 	'gadgets-prefstext' => 'Berikut adalah daftar gadget istimewa yang dapat Anda aktifkan untuk akun Anda. Gadget-gadget tersebut sebagian besar berbasis JavaScript sehingga Anda harus mengaktifkan JavaScript pada penjelajah Anda untuk dapat menjalankannya. Perhatikan bahwa gadget-gadget tersebut tak memiliki pengaruh terhadap halaman preferensi ini.
 
 Juga perhatikan bahwa gadget istimewa ini bukanlah bagian dari perangkat lunak MediaWiki dan biasanya dikembangkan dan dipelihara oleh pengguna-pengguna di wiki lokal Anda. Pengurus lokal dapat menyunting gadget yang tersedia melalui [[MediaWiki:Gadgets-definition]] dan [[Special:Gadgets]].',
@@ -757,7 +757,7 @@ $messages['io'] = array(
  */
 $messages['is'] = array(
 	'gadgets-desc' => 'Gerir notendum kleift að velja [[Special:Gadgets|CSS og JavaScript-forrit]] í [[Special:Preferences|stillingum sínum]]',
-	'gadgets-prefs' => 'Smáforrit',
+	'prefs-gadgets' => 'Smáforrit',
 	'gadgets-prefstext' => 'Eftirfarandi er listi yfir smáforrit sem þú getur notað á notandareikningi þínum. Þessi forrit eru að mestu byggð á JavaScript svo vafrinn þarf að styðja JavaScript til að þau virki. Athugaðu einnig að forritin hafa engin áhrif á stillingasíðunni.
 
 Forritin eru ekki hluti af MediaWiki-hugbúnaðinum heldur eru skrifuð og viðhaldin af notendum á þessu wiki-verkefni. Möppudýr geta breytt forritunum á [[MediaWiki:Gadgets-definition]] og [[Special:Gadgets]].',
@@ -773,7 +773,7 @@ Forritin eru ekki hluti af MediaWiki-hugbúnaðinum heldur eru skrifuð og viðh
  */
 $messages['it'] = array(
 	'gadgets-desc' => 'Consente agli utenti di selezionare [[Special:Gadgets|accessori CSS e JavaScript]] nelle proprie [[Special:Preferences|preferenze]]',
-	'gadgets-prefs' => 'Accessori',
+	'prefs-gadgets' => 'Accessori',
 	'gadgets-prefstext' => "Di seguito viene presentata una lista di accessori speciali (''gadget'') che è possibile abilitare per il proprio account.
 La maggior parte di questi accessori è basata su JavaScript, è quindi necessario abilitare JavaScript nel proprio browser perché funzionino correttamente. Si noti che gli accessori non hanno alcun effetto in questa pagina di preferenze.
 
@@ -791,7 +791,7 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
  */
 $messages['ja'] = array(
 	'gadgets-desc' => '利用者が[[Special:Gadgets|CSSやJavaScriptのカスタムガジェット]]を[[Special:Preferences|{{int:preferences}}]]で選択できるようにする',
-	'gadgets-prefs' => 'ガジェット',
+	'prefs-gadgets' => 'ガジェット',
 	'gadgets-prefstext' => '下のリストはあなたのアカウントで利用できるガジェットの一覧です。これらのガジェットはほとんどがJavaScriptベースのため、動作させるにはブラウザ設定でJavaScriptを有効にする必要があります。なお、{{int:preferences}}ページ上では動作しません。
 
 また、これらのガジェットは MediaWiki ソフトウェアの一部ではなく、開発とメンテナンスは通常ウィキ毎の利用者によって行われていることにも注意してください。管理者は[[MediaWiki:Gadgets-definition|ガジェットの定義]]や[[Special:Gadgets|ガジェットの説明]]から利用可能なガジェットを編集できます。',
@@ -805,7 +805,7 @@ $messages['ja'] = array(
  * @author Huslåke
  */
 $messages['jut'] = array(
-	'gadgets-prefs' => 'Gøreter',
+	'prefs-gadgets' => 'Gøreter',
 	'gadgets-prefstext' => 'Nedenstående er en liste over de gadgets som du kan aktivere for din brugerkonto. Da disse gadgets hovedsageligt er baseret på JavaScript skal du slå JavaScript til i din browser for at få dem til at virke. Bemærk at disse gadgets ikke vil have nogen effekt på denne side (indstillinger).
 
 Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren og at de typisk bliver vedligeholdt af brugere på din lokale wiki. Lokale administratorer kan redigere tilgængelige gadgets med [[MediaWiki:Gadgets-definition]] og [[Special:Gadgets]].',
@@ -821,7 +821,7 @@ Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren o
  */
 $messages['jv'] = array(
 	'gadgets-desc' => 'Marengaké para panganggo milih [[Special:Gadgets|gadget CSS lan JavaScript]] ngliwati [[Special:Preferences|préferènsi]] dhéwé-dhéwé.',
-	'gadgets-prefs' => 'Gadget',
+	'prefs-gadgets' => 'Gadget',
 	'gadgets-prefstext' => 'Ing ngisor iki daftar gadget astaméwa sing bisa panjenangan aktifaké kanggo rékening panjenengan. Gadget-gadget iki sabagéyan gedhé adhedhasar JavaScript dadi panjenengan kudu ngaktifaké JavaScript ing panjlajah wèb panjenengan supaya bisa nglakokaké. 
 Mangga diwigatèkaké yèn gadget-gadget iki ora ndarbèni pangaruh marang kaca préferènsi iki.
 
@@ -835,7 +835,7 @@ Tinjoan iki mènèhi aksès sing gampang menyang kaca-kaca pesen sistem sing nga
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
 $messages['kk-arab'] = array(
-	'gadgets-prefs' => 'قاجەت قۇرالدار',
+	'prefs-gadgets' => 'قاجەت قۇرالدار',
 	'gadgets-prefstext' => 'تومەندە ٴوز تىركەلگىڭىزدە قوسا الاتىن ارناۋلى قاجەت قۇرالدار ٴتىزىمى بەرىلەدى.
 وسى قاجەت قۇرالدار كوبىنەسە JavaScript امىرلەرىنە نەگىزدەلىنەدى, سوندىقتان بۇلار جۇمىس ىستەۋى ٴۇشىن شولعىشىڭىزدا JavaScript قوسىلعان بولۋى كەرەك.
 بۇل باپتاۋ بەتىنە وسى قاجەت قۇرالدار اسەر ەتپەيتىنىڭ ەسكەرىڭىز.
@@ -852,7 +852,7 @@ $messages['kk-arab'] = array(
 
 /** Kazakh (Cyrillic) (Қазақша (Cyrillic)) */
 $messages['kk-cyrl'] = array(
-	'gadgets-prefs' => 'Қажет құралдар',
+	'prefs-gadgets' => 'Қажет құралдар',
 	'gadgets-prefstext' => 'Төменде өз тіркелгіңізде қоса алатын арнаулы қажет құралдар тізімі беріледі.
 Осы қажет құралдар көбінесе JavaScript әмірлеріне негізделінеді, сондықтан бұлар жұмыс істеуі үшін шолғышыңызда JavaScript қосылған болуы керек.
 Бұл баптау бетіне осы қажет құралдар әсер етпейтінің ескеріңіз.
@@ -869,7 +869,7 @@ $messages['kk-cyrl'] = array(
 
 /** Kazakh (Latin) (Қазақша (Latin)) */
 $messages['kk-latn'] = array(
-	'gadgets-prefs' => 'Qajet quraldar',
+	'prefs-gadgets' => 'Qajet quraldar',
 	'gadgets-prefstext' => 'Tömende öz tirkelgiñizde qosa alatın arnawlı qajet quraldar tizimi beriledi.
 Osı qajet quraldar köbinese JavaScript ämirlerine negizdelinedi, sondıqtan bular jumıs istewi üşin şolğışıñızda JavaScript qosılğan bolwı kerek.
 Bul baptaw betine osı qajet quraldar äser etpeýtiniñ eskeriñiz.
@@ -891,7 +891,7 @@ Bul şolw beti arqılı ärbir qajet quraldıñ sïpattaması men ämirin anıqt
  * @author គីមស៊្រុន
  */
 $messages['km'] = array(
-	'gadgets-prefs' => 'គ្រឿងបន្ទាប់បន្សំ',
+	'prefs-gadgets' => 'គ្រឿងបន្ទាប់បន្សំ',
 	'gadgets' => 'គ្រឿងបន្ទាប់បន្សំ',
 	'gadgets-title' => 'គ្រឿងបន្ទាប់បន្សំ',
 	'gadgets-uses' => 'ប្រើ',
@@ -904,7 +904,7 @@ $messages['km'] = array(
  */
 $messages['ko'] = array(
 	'gadgets-desc' => '사용자들이 [[Special:Gadgets|CSS와 자바스크립트 소도구]]를 [[Special:Preferences|사용자 환경 설정]]에서 설정할 수 있게 함',
-	'gadgets-prefs' => '소도구',
+	'prefs-gadgets' => '소도구',
 	'gadgets-prefstext' => '아래는 당신이 사용할 수 있는 소도구의 목록입니다.
 이 소도구들은 대부분 자바스크립트 기반이며 당신의 웹 브라우저에서 사용할 수 있습니다.
 참고로 이 소도구들은 사용자 환경 설정에서는 아무런 영향을 주지 않습니다.
@@ -923,7 +923,7 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'gadgets-desc' => 'En iere [[Special:Preferences|Enstellunge]] künne Metmaacher [[Special:Gadgets|CSS- un JavaScrip-Gadgets]] en- un ußschallde.',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => 'Hee is en Liss met bestemmpte <i lang="en">Gadgets</i>,
 di för jede Metmaacher enjeschalldt wäde könne.
 Di boue miets op Javascrip op, drom moß mer\'t em Brauser
@@ -955,7 +955,7 @@ sin.',
  */
 $messages['lb'] = array(
 	'gadgets-desc' => 'Erméiglecht de Benotzer et perséinlech [[Special:Gadgets|CSS a JavaScript Gadgeten]] an hiren [[Special:Preferences|Astellunge]] festzeleeën.',
-	'gadgets-prefs' => 'Gadgeten',
+	'prefs-gadgets' => 'Gadgeten',
 	'gadgets-prefstext' => "Lëscht vu spezielle Gadgeten déi fir äre Benotzerkont aktivéiert kënne ginn.
 D'Gadgeten baséiere meeschtens op engem JavaScript, dafir muss JavaScript an ärem Browser aktivéiert sinn, fir datt se fonctionéieren.
 D'Gadgete fonctionéieren awer net op dëser Säit matt de perséinlechen Astellungen.
@@ -976,7 +976,7 @@ Dës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all G
  */
 $messages['li'] = array(
 	'gadgets-desc' => 'Laat gebroekers [[special:Gadgets|CSS en JavaScripts]] activere in hun [[Special:Preferences|veurkeure]]',
-	'gadgets-prefs' => 'Biedènger',
+	'prefs-gadgets' => 'Biedènger',
 	'gadgets-prefstext' => 'Hiejónger sjtaon de sjpeciaal oetbreijinge dies te veur dien gebroekersaccount kèns insjakele.
 De oetbreijinge zeen veurnamelik gebaseerd op JavaScript, dus JavaScript mót veur diene browser ingesjakeld zeen óm die te laote wirke.
 De oetbreijinge höbbe geine invlood op dees pazjena mit veurkäöre.
@@ -996,7 +996,7 @@ Dit euverzich bi-jtj uch einvoudige toegank toet de systeemtekspazjena wo de bes
  */
 $messages['lt'] = array(
 	'gadgets-desc' => 'Leidžia naudotojams pasirinkti savo [[Special:Gadgets|CSS ir JavaScript priemones]] jų [[Special:Preferences|nustatymuose]]',
-	'gadgets-prefs' => 'Priemonės',
+	'prefs-gadgets' => 'Priemonės',
 	'gadgets-prefstext' => 'Žemiau yra sąrašas specialių priemonių, kurias jūs galite įjungti naudojimui.
 Šios priemonės daugiausiai yra sukurtos naudojant JavaScript, todėl, kad jos veiktų, jūsų naršyklėje turi būti įjungtas JavaScript palaikymas.
 Atsiminkite, kad šios priemonės neturi įtakos jūsų nustatymų puslapiui.
@@ -1012,7 +1012,7 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
  * @author Brest
  */
 $messages['mk'] = array(
-	'gadgets-prefs' => 'Додатоци',
+	'prefs-gadgets' => 'Додатоци',
 	'gadgets' => 'Додатоци',
 	'gadgets-title' => 'Додатоци',
 );
@@ -1022,7 +1022,7 @@ $messages['mk'] = array(
  */
 $messages['ml'] = array(
 	'gadgets-desc' => 'ഉപയോക്താക്കള്‍ [[Special:Preferences|ക്രമീകരണങ്ങളില്‍ നിന്നു]] അവര്‍ക്കിഷ്ടമുള്ള [[Special:Gadgets|CSS, JavaScript ഗാഡ്ജറ്റുകള്‍]] തിരഞ്ഞെടുക്കട്ടെ.',
-	'gadgets-prefs' => 'ഗാഡ്ജറ്റ്',
+	'prefs-gadgets' => 'ഗാഡ്ജറ്റ്',
 	'gadgets' => 'ഗാഡ്ജറ്റ്',
 	'gadgets-title' => 'ഗാഡ്ജറ്റ്',
 	'gadgets-pagetext' => 'ഉപയോക്താക്കള്‍ക്ക് അവരുടെ ക്രമീകരണങ്ങള്‍ താള്‍ ഉപയോഗിച്ച് പ്രാപ്തമാകാവുന്ന ഗാഡ്ജറ്റുകളുടെ ([[MediaWiki:Gadgets-definition]] പ്രകാരം നിര്‍‌വചിച്ചിരിക്കുന്നത്) പട്ടിക താഴെ പ്രദര്‍ശിപ്പിച്ചിരിക്കുന്നു  
@@ -1036,7 +1036,7 @@ $messages['ml'] = array(
  */
 $messages['mr'] = array(
 	'gadgets-desc' => 'सदस्यांना त्यांच्या [[Special:Preferences|पसंतीची]] [[Special:Gadgets|CSS व जावास्क्रीप्ट गॅजेट्स]] निवडण्याची परवानगी देते.',
-	'gadgets-prefs' => 'उपकरण(गॅजेट)',
+	'prefs-gadgets' => 'उपकरण(गॅजेट)',
 	'gadgets-prefstext' => 'खाली तुम्ही तुमच्या सदस्यत्वासाठी वापरू शकत असलेल्या गॅजेट्सची यादी दिलेली आहे. ही गॅजेट्स मुख्यत्वे जावास्क्रीप्टवर अवलंबून असल्यामुळे तुमच्या ब्राउझर मध्ये जावास्क्रीप्ट एनेबल असणे आवश्यक आहे. या गॅजेट्समुळे या पसंतीच्या पानावर कुठलेही परिणाम होणार नाहीत याची कृपया नोंद घ्यावी.
 
 तसेच ही गॅजेट्स मीडियाविकी प्रणालीचा हिस्सा नाहीत, व ही मुख्यत्वे स्थानिक विकिवर सदस्यांद्वारे उपलब्ध केली जातात. स्थानिक प्रबंधक उपलब्ध गॅजेट्स [[MediaWiki:Gadgets-definition]] व [[Special:Gadgets]] वापरून बदलू शकतात.',
@@ -1051,7 +1051,7 @@ $messages['mr'] = array(
  */
 $messages['ms'] = array(
 	'gadgets-desc' => 'Membolehkan pengguna memilih [[Special:Gadgets|gajet CSS dan JavaScript]] tempahan melalui [[Special:Preferences|laman keutamaan]]',
-	'gadgets-prefs' => 'Gajet',
+	'prefs-gadgets' => 'Gajet',
 	'gadgets-prefstext' => 'Yang berikut ialah senarai gajet khas yang anda boleh hidupkan untuk akaun anda. Kebanyakan daripada gajet-gajet ini memerlukan JavaScript, oleh itu anda perlu menghidupkan ciri JavaScript dalam pelayar web anda untuk menggunakannya. Sila ambil perhatian bahawa gajet-gajet ini tidak menjejaskan laman keutamaan ini.
 
 Sila ambil perhatian juga bahawa gajet-gajet khas ini bukan sebahagian daripada perisian MediaWiki, dan biasanya dibangunkan dan diselenggara oleh para pengguna di wiki tempatan anda. Pentadbir tempatan boleh mengubah gajet-gajet yang sedia ada menggunakan [[MediaWiki:Gadgets-definition|takrif]] dan [[Special:Gadgets|keterangan]].',
@@ -1066,7 +1066,7 @@ Sila ambil perhatian juga bahawa gajet-gajet khas ini bukan sebahagian daripada 
  */
 $messages['nds'] = array(
 	'gadgets-desc' => 'Lett Brukers vörgeven [[Special:Gadgets|CSS- un JavaScript-Gadgets]] in jemehr [[Special:Preferences|Instellungen]] aktiveren',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => 'Ünnen steit en List vun spezielle Warktüüch, de elkeen Bruker för sik anstellen kann.
 Disse Warktüüch loopt tomehrst mit Javascript. Dat mutt also in’n Browser anstellt wesen, dat dat löppt.
 Wees aver gewohr, dat de Warktüüch hier direkt op disse Sied mit de persönlichen Instellungen nix bewarkt.
@@ -1094,7 +1094,7 @@ $messages['nds-nl'] = array(
  */
 $messages['nl'] = array(
 	'gadgets-desc' => 'Laat gebruikers [[Special:Gadgets|CSS en JavaScripts]] activeren in hun [[Special:Preferences|voorkeuren]]',
-	'gadgets-prefs' => 'Uitbreidingen',
+	'prefs-gadgets' => 'Uitbreidingen',
 	'gadgets-prefstext' => 'Hieronder staan de speciale uitbreidingen die u kunt inschakelen.
 De uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet voor uw browser ingeschakeld zijn om ze te laten werken.
 De uitbreidingen hebben geen invloed op deze pagina met voorkeuren.
@@ -1115,7 +1115,7 @@ Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschri
  */
 $messages['nn'] = array(
 	'gadgets-desc' => 'Lèt brukarane velje eigendefinerte [[Special:Gadgets|CSS- og JavaScript-verktøy]]  i [[Special:Preferences|innstillingane sine]].',
-	'gadgets-prefs' => 'Tilleggsfunksjonar',
+	'prefs-gadgets' => 'Tilleggsfunksjonar',
 	'gadgets-prefstext' => 'Under finn du ei liste over tilleggsfunksjonar som du kan slå på på kontoen din. Desse tilleggsfunksjonane er for det meste baserte på JavaScript, så JavaScript må vere slått på i nettlesaren din for at dei skal verke. Merk at desse tilleggsfunksjonane ikkje har nokon effekt på denne innstillingssida.
 
 Merk også at tilleggsfunksjonane ikkje er ein del av MediaWiki-programvara, og at dei vanlegvis er utvikla og vedlikehaldne av brukarar på din lokale wiki. Lokale administratorar kan endre dei tilgjengelege tilleggsfunksjonane ved å endre [[MediaWiki:Gadgets-definition|definisjonane]] og [[Special:Gadgets|skildringane]].',
@@ -1131,7 +1131,7 @@ Dette oversynet gjev enkel tilgang til systemmeldingssidene som inneheld skildri
  */
 $messages['no'] = array(
 	'gadgets-desc' => 'Lar brukere velge egendefinerte [[Special:Gadgets|CSS- og JavaScript-verktøy]] i [[Special:Preferences|innstillingene sine]]',
-	'gadgets-prefs' => 'Tilleggsfunksjoner',
+	'prefs-gadgets' => 'Tilleggsfunksjoner',
 	'gadgets-prefstext' => 'Nedenfor er en liste over tilleggsfunksjoner du kan slå på for kontoen din.
 Disse funksjonene er for det meste basert på JavaScript, så du må ha dette slått på i nettleseren din for at de skal fungere.
 Merk at funksjonene ikke vil ha noen innvirkning på denne innstillingssiden.
@@ -1148,7 +1148,7 @@ Merk også at disse verktøyene ikke er del av MediaWiki-programvaren, og vanlig
  */
 $messages['oc'] = array(
 	'gadgets-desc' => 'Daissa als utilizaires los [[Special:Gadgets|gadgets CSS e JavaScript]] dins lor [[Special:Preferences|preferéncias]]',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => "Çaijós apareis una tièra de gadgets que podètz activar per vòstre compte. Fan ampèl a JavaScript, deu doncas èsser activat per vòstre navigador Web.
 
 An pas cap d'incidéncia sus aquesta pagina de preferéncias. E mai, son generalament desvolopats e mantenguts sus aqueste wiki.
@@ -1165,7 +1165,7 @@ Aqueste susvòl dona un accès rapid a las paginas de messatges del sistèma que
  */
 $messages['pam'] = array(
 	'gadgets-desc' => 'Didinan nong tsansa/pamikatagun a mamiling pasadiang [[Special:Gadgets|CSS ampong JavaScript gadget]] ketang karelang [[Special:Preferences|pinili]] (preferences)',
-	'gadgets-prefs' => 'Deng gadget',
+	'prefs-gadgets' => 'Deng gadget',
 	'gadgets-prefstext' => 'Ating tala (listaan) da reng espesial a gadget a agamit mu ba meng apaliari (enable) ing kekang account.
 Uling makabasi la king JavaScript deng keraklan kareting gadget, kailangan yang papaliari ing JavaScript king kekang browser ba lang gumada deti.
 Tandanan mung ala lang epektu king bulung da ring pinili (preferences page) deng gadget a reti.
@@ -1185,7 +1185,7 @@ Gawa nang malagua niting piyakitan (overview) ing pamanintun kareng bulung a mak
  */
 $messages['pl'] = array(
 	'gadgets-desc' => 'Pozwala użytkownikom wybrać [[Special:Gadgets|gadżety CSS i JavaScript]] na [[Special:Preferences|stronie preferencji]]',
-	'gadgets-prefs' => 'Gadżety',
+	'prefs-gadgets' => 'Gadżety',
 	'gadgets-prefstext' => 'Poniżej znajduje się lista specjalnych gadżetów, które możesz włączyć dla swojego konta użytkownika.
 Gadżety najczęściej wykorzystują JavaScript, więc by działały musisz mieć w swojej przeglądarce włączoną obsługę JavaScriptu. Gadżety nie mają wpływu na tę stronę preferencji.
 
@@ -1202,7 +1202,7 @@ Poniższy przegląd ułatwia dostęp do komunikatów systemu, które definiują 
  * @author Bèrto 'd Sèra
  */
 $messages['pms'] = array(
-	'gadgets-prefs' => 'Component',
+	'prefs-gadgets' => 'Component',
 	'gadgets-prefstext' => "Ambelessì sota a-i é na lista ëd component ch'a peul vischesse ant sò cont personal. Sti component-sì a son dzortut basà ansima a JavaScript, donca a venta anans tut che JavaScript a sia avisch ant sò navigator, s'a veul che ij component a travajo. Ch'a ten-a present che sti component a l'han gnun efet ansima a la pàgina dij \"sò gust\", e che a son nen part dël programa MediaWiki. Për sòlit a resto dësvlupà e mantnù da dj'utent dla wiki andova chiel/chila as treuva adess. J'aministrator locaj a peulo regolé ij component disponibij ën dovrand le pàgine [[MediaWiki:Gadgets-definition|definission dij component]] e [[Special:Gadgets|component]].",
 	'gadgets' => 'Component',
 	'gadgets-title' => 'Component',
@@ -1223,7 +1223,7 @@ $messages['ps'] = array(
  */
 $messages['pt'] = array(
 	'gadgets-desc' => 'Permite aos utilizadores seleccionarem [[Special:Gadgets|"gadgets" JavaScript e CSS]] personalizados nas suas [[Special:Preferences|preferências]]',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => 'Segue-se uma lista de "gadgets" que podem ser ativados em sua conta.
 Tais gadgets normalmente são baseados em JavaScript, o que faz com que seja necessário que o suporte a JavaScript esteja ativado em seu navegador para que os mesmos funcionem.
 Note que os gadgets não possuem efeito nesta página (a página de preferências).
@@ -1242,7 +1242,7 @@ Esta visão geral proporciona um acesso fácil para as mensagens de sistema que 
  */
 $messages['pt-br'] = array(
 	'gadgets-desc' => 'Permite aos utilizadores selecionarem [[Special:Gadgets|"gadgets" JavaScript e CSS]] personalizados nas suas [[Special:Preferences|preferências]]',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => 'Segue-se uma lista de "gadgets" que podem ser ativados em sua conta.
 Tais gadgets normalmente são baseados em JavaScript, o que faz com que seja necessário que o suporte a JavaScript esteja ativado em seu navegador para que os mesmos funcionem.
 Note que os gadgets não possuem efeito nesta página (a página de preferências).
@@ -1261,7 +1261,7 @@ Esta visão geral proporciona um acesso fácil para as mensagens de sistema que 
  */
 $messages['ro'] = array(
 	'gadgets-desc' => 'Permite utilizatorilor să îşi aleagă [[Special:Gadgets|gadgeturi CSS şi JavaScript]] în [[Special:Preferences|preferinţele]] lor',
-	'gadgets-prefs' => 'Gadgeturi',
+	'prefs-gadgets' => 'Gadgeturi',
 	'gadgets' => 'Gadgeturi',
 	'gadgets-title' => 'Gadgeturi',
 );
@@ -1284,7 +1284,7 @@ $messages['roa-tara'] = array(
  */
 $messages['ru'] = array(
 	'gadgets-desc' => 'Позволяет участникам выбирать в [[Special:Preferences|настройках]] CSS- и JavaScript-гаджеты, которые они хотят подключить',
-	'gadgets-prefs' => 'Гаджеты',
+	'prefs-gadgets' => 'Гаджеты',
 	'gadgets-prefstext' => 'Ниже приведён список специальных гаджетов, которые вы можете включить для своей учётной записи.
 Эти гаджеты преимущественно основаны на JavaScript, поэтому вы должны включить JavaScript в своём браузере для того, чтобы они работали.
 Учтите, что эти гаджеты не работают на странице настроек.
@@ -1303,7 +1303,7 @@ $messages['ru'] = array(
  */
 $messages['sah'] = array(
 	'gadgets-desc' => 'Бэйэлэрин [[Special:Preferences|туруорууларыгар]] кыттааччылар [[Special:Gadgets|CSS уонна JavaScript гаджеттары]] холбонуохтарын сөп.',
-	'gadgets-prefs' => 'Гаджеттар',
+	'prefs-gadgets' => 'Гаджеттар',
 	'gadgets-prefstext' => 'Аллара аналлаах гаджеттар испииһэктэрэ көстөллөр. Балары бэйэҥ бэлиэтэммит ааккынан киирэн туһаныаххын сөп.
 Бу үнүстүрүмүөннэр үксүлэрэ JavaScript көмөтүнэн үлэлииллэр, онон туһаныаххын баҕарар буоллаххына JavaScript холбоо.
 Бу гаджеттар туроуорууларгын уларытар сирэйгэр үлэлээбэттэрин умнума.
@@ -1321,7 +1321,7 @@ $messages['sah'] = array(
  */
 $messages['si'] = array(
 	'gadgets-desc' => 'උපයෝග්‍ය [[Special:Gadgets|CSS හා ජාවාස්ක්‍රිප්ට් මෙවලම්]] ඔවුන්ගේ [[Special:Preferences|අභිරුචීන්හිදී]] තෝරාගැනුමට පරිශීලකයන් හට ඉඩ සලසයි',
-	'gadgets-prefs' => 'මෙවලම්',
+	'prefs-gadgets' => 'මෙවලම්',
 	'gadgets' => 'මෙවලම්',
 	'gadgets-title' => 'මෙවලම්',
 );
@@ -1331,7 +1331,7 @@ $messages['si'] = array(
  */
 $messages['sk'] = array(
 	'gadgets-desc' => 'Umožňuje používateľovi vybrať [[Special:Gadgets|CSS a JavaScriptové nástroje]] vo svojich [[Special:Preferences|nastaveniach]]',
-	'gadgets-prefs' => 'Nástroje',
+	'prefs-gadgets' => 'Nástroje',
 	'gadgets-prefstext' => 'Dolu je zoznam špeciálych nástrojov, ktoré môžete zapnúť v rámci svojho účtu.
 Tieto nástroje sú zväčša založené na JavaScripte, takže aby fungovali, musíte mať v prehliadači zapnutý JavaScript.
 Nástroje nemajú vplyv na túto stránku nastavení.
@@ -1349,7 +1349,7 @@ Lokálni správcovia môžu upraviť zoznam dostupných nástrojov pomocou [[Med
  */
 $messages['sl'] = array(
 	'gadgets-desc' => 'Omogoča uporabnikom, da vključijo [[Special:Gadgets|vtičnike CSS in JavaScript]] v [[Special:Preferences|nastvitvah]]',
-	'gadgets-prefs' => 'Vtičniki',
+	'prefs-gadgets' => 'Vtičniki',
 	'gadgets-prefstext' => 'Prikazan je seznam posebnih vtičnikov, ki si jih lahko omogočite.
 Večinoma temeljijo na JavaScript, zato mora biti le-ta omogočen v vašem brskalniku. 
 Ti vtičniki nimajo nobenega vpliva na to nastavitveno stran. 
@@ -1364,7 +1364,7 @@ Prav tako pomnite, da ti vtičniki niso del programja MediaWiki, in jih običajn
  * @author Millosh
  */
 $messages['sr-ec'] = array(
-	'gadgets-prefs' => 'геџети',
+	'prefs-gadgets' => 'геџети',
 	'gadgets' => 'геџети',
 	'gadgets-title' => 'геџети',
 	'gadgets-uses' => 'користи се',
@@ -1375,7 +1375,7 @@ $messages['sr-ec'] = array(
  */
 $messages['stq'] = array(
 	'gadgets-desc' => 'Lät Benutsere in hiere [[{{#special:preferences}}|persöönelke Ienstaalengen]] foardefinierde [[Special:Gadgets|CSS- un JavaScript-Gadgets]] aktivierje',
-	'gadgets-prefs' => 'Gadgets',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => 'Lieste fon spezielle Gadgets do der foar älken Benutser aktivierd wäide konnen.
 Do Gadgets basierje maastens ap Javascript, deeruum mout Javascript in dän Browser aktivierd weese, uumdät jo funktionierje.
 Do Gadgets funktionierje oawers nit ap disse Siede mäd persöönelke Ienstaalengen.
@@ -1405,7 +1405,7 @@ $messages['su'] = array(
  */
 $messages['sv'] = array(
 	'gadgets-desc' => 'Låter användare aktivera personliga [[Special:Gadgets|CSS- och JavaScript-finesser]] genom sina [[Special:Preferences|inställningar]]',
-	'gadgets-prefs' => 'Finesser',
+	'prefs-gadgets' => 'Finesser',
 	'gadgets-prefstext' => 'Härunder finns en lista över finesser som du kan aktivera för ditt konto.
 De flesta funktionerna är baserade på JavaScript, så du måste ha JavaScript aktiverat i din webbläsare för att de ska fungera.
 Notera att de här tilläggsfunktionerna inte kommer ha någon effekt den här inställningssidan.
@@ -1425,7 +1425,7 @@ Den här översikten ger enkel åtkomst till de systemmeddelanden som definierar
  */
 $messages['te'] = array(
 	'gadgets-desc' => 'వాడుకర్లను వారి [[Special:Preferences|అభిరుచుల]]లో  ప్రత్యేక [[Special:Gadgets|CSS మరియు జావాస్క్రిప్ట్ గాడ్జెట్లను]] ఎంచుకోనిస్తుంది',
-	'gadgets-prefs' => 'ఉపకరణాలు',
+	'prefs-gadgets' => 'ఉపకరణాలు',
 	'gadgets-prefstext' => 'ఈ దిగువ ఉన్న ప్రత్యేక ఉపకరణాల నుండి సభ్యులు తమకు కావలసినవి టిక్కు పెట్టి మీ ఖాతాకు వీటిని ఎనేబుల్ చేసుకొవచ్చు. ఈ ఉపకరణాలు జావాస్క్రిప్టుపై ఆధారపడి పనిచేస్తాయి కాబట్టి ఇవి సరిగా పనిచెయ్యాలంటే మీ బ్రౌజరులో జావాస్క్రిప్టును ఎనేబుల్ చేసి ఉండాలి. ఈ ఉపకరణాలు అభిరుచుల పేజీపై ఎటువంటి ప్రభావాన్ని కలుగజేయవని గమనించాలి.
 
 అలాగే ఈ ప్రత్యేక ఉపకరణాలు మీడియావికీ సాఫ్టువేరులో భాగము కాదని గమనించాలి. వీటిని సాధారణంగా మీ స్థానిక వికీలోని సభ్యులే తయారుచేసి నిర్వహిస్తూ ఉంటారు. స్థానిక వికీ నిర్వాహకులు లభ్యమయ్యే ఉపకరణాలను [[మీడియావికీ:Gadgets-definition|మీడియావికీ:ఉపకరణాల నిర్వచన]] మరియు [[ప్రత్యేక:Gadgets|ప్రత్యేక:ఉపకరణాలు]] పేజీలను ఉపయోగించి మార్పులుచేర్పులు చేయవచ్చు.',
@@ -1440,7 +1440,7 @@ $messages['te'] = array(
  */
 $messages['tg-cyrl'] = array(
 	'gadgets-desc' => 'Аз тариқи саҳифаи [[Special:Preferences|тарҷиҳот]] ба корбарон имконияти интихоби абзорҳои шахсии [[Special:Gadgets|CSS ва ҶаваСкрипт]]ро медиҳад.',
-	'gadgets-prefs' => 'Абзорҳо',
+	'prefs-gadgets' => 'Абзорҳо',
 	'gadgets-prefstext' => 'Дар зер феҳристи аз абзорҳои вижаеро мебинед, ки барои ҳисобатон метавонед фаъол кунед. Ин абзорҳо бештар дар асоси ҶаваСкрипт ҳастанд, пас барои истфода аз онҳо бояд ҶаваСкриптро дар мурургаратон фаъол кунед. Таваҷҷӯҳ кунед, ки ин абзорҳо наметавонанд саҳифаи тарҷиҳотро тағйир диҳанд.
 
 Диққат дошта бошед, ки ин абзорҳои ҷузъӣ аз нармафзори МедиаВики нестанд ва ҳамчун яке аз қисмҳои он ба ҳисоб намераванд, ва одатан аз тарафи корбарони ҳар вики сохта ва нигаҳдорӣ мешаванд. Мудирони ҳар вики метавонанд бо истифода аз саҳифаҳои [[MediaWiki:Gadgets-definition]] ва [[Special:Gadgets]] ба вироиши абзорҳо бипардозанд.',
@@ -1456,7 +1456,7 @@ $messages['tg-cyrl'] = array(
  */
 $messages['th'] = array(
 	'gadgets-desc' => 'ให้ผู้ใช้สามารถเลือกใช้ [[Special:Gadgets|CSS และ จาวาสคริปต์]] ที่สร้างขึ้นเป็นการเฉพาะ ในหน้า [[Special:Preferences|ตั้งค่า]] ได้',
-	'gadgets-prefs' => 'อุปกรณ์เสริม',
+	'prefs-gadgets' => 'อุปกรณ์เสริม',
 	'gadgets-prefstext' => 'ด้านล่างเป็นรายการอุปกรณ์เสริม ที่บัญชีผู้ใช้ของคุณสามารถเปิดใช้งานได้
 อุปกรณ์เสริมเหล่านี้ส่วนใหญ่จะทำงานผ่านจาวาสคริปต์ ดังนั้นเบราเซอร์ของคุณต้องเปิดใช้งานจาวาสคริปต์จึงจะสามารถใช้อุปกรณ์เสริมเหล่านี้ได้
 อย่างไรก็ตามอุปกรณ์เสริมเหล่านี้จะไม่ส่งผลหรือประมวลผลใดๆ ในหน้าตั้งค่านี้
@@ -1475,7 +1475,7 @@ $messages['th'] = array(
  */
 $messages['tl'] = array(
 	'gadgets-desc' => 'Nagpapahintulot sa mga tagagamit na makapili ng pinasadyang [[Special:Gadgets|mga gadyet na pang-CSS at pang-JavaScript]] sa kanilang [[Special:Preferences|mga kagustuhan]]',
-	'gadgets-prefs' => 'Mga gadyet (kasangkapan)',
+	'prefs-gadgets' => 'Mga gadyet (kasangkapan)',
 	'gadgets-prefstext' => "Nasa ibaba ang isang talaan ng mga natatanging kasangkapan (gadyet) na maaari mong paganahin para sa iyong kuwenta/akawnt.
 Karamihan sa mga gadyet na ito ang nakaugnay/nakabatay sa ''JavaScript'', kaya dapat na paandarin ang ''JavaScript'' sa iyong pantingin-tingin (''browser'') upang gumana.
 Pakitandaang walang magiging epekto sa pahina ng mga kagustuhang ito ang ganitong mga gadyet.
@@ -1496,7 +1496,7 @@ Nagbibigay ang pagtalakay na ito ng magaang na daan/akseso patungo sa mga pahina
  */
 $messages['tr'] = array(
 	'gadgets-desc' => 'Kullanıcıların [[Special:Preferences|tercihlerinde]] özel [[Special:Gadgets|CSS ve JavaScript gadgetlerini]] seçmelerine izin verir',
-	'gadgets-prefs' => 'Gadgetler',
+	'prefs-gadgets' => 'Gadgetler',
 	'gadgets-prefstext' => 'Aşağıdaki, hesabınız için etkinleştirebileceğiniz özel gadgetlerin listesidir.
 Bu gadgetler çoğunlukla JavaScript temellidir, bu yüzden çalışmaları için tarayıcınızda JavaScript etkinleştirilmelidir.
 Bu gadgetlerin bu tercihler sayfasına bir etkisinin olmayacağını unutmayın.
@@ -1516,7 +1516,7 @@ Bu genel bakış, her gadget'in tanımını ve kodunu belirten sistem mesaj sayf
  */
 $messages['uk'] = array(
 	'gadgets-desc' => 'Дозволяє користувачам обирати [[Special:Додатки|CSS- та JavaScript-додатки]] у своїх [[Special:Preferences|налаштуваннях]]',
-	'gadgets-prefs' => 'Додатки',
+	'prefs-gadgets' => 'Додатки',
 	'gadgets-prefstext' => 'Нижче наведений список спеціальних додатків, які ви можете ввімкнути для свого облікового запису.
 Ці додатки переважно базуються на JavaScript, тому ви повинні ввімкнути JavaScript для того, щоб вони працювали.
 Зауважте, що ці додатки не працюють на сторінці налаштувань.
@@ -1535,7 +1535,7 @@ $messages['uk'] = array(
  */
 $messages['vec'] = array(
 	'gadgets-desc' => 'Consente ai utenti de selezionar [[Special:Gadgets|acessori CSS e JavaScript]] ne le proprie [[Special:Preferences|preferense]]',
-	'gadgets-prefs' => 'Acessori',
+	'prefs-gadgets' => 'Acessori',
 	'gadgets-prefstext' => "De seguito se cata na lista de acessori speciali (''gadget'') che se pol abilitar par el proprio account.
 La mazor parte de sti acessori la se basa su JavaScript, e quindi te ghè da abilitar JavaScript sul to browser se te vol che i funsiona coretamente. Nota che i accessori no i gà nissun efeto in sta pagina de preferense.
 
@@ -1564,7 +1564,7 @@ $messages['vep'] = array(
  */
 $messages['vi'] = array(
 	'gadgets-desc' => 'Để các thành viên chọn những [[Special:Gadgets|công cụ đa năng]] đặc chế bằng CSS và JavaScript trong [[Special:Preferences|tùy chọn]]',
-	'gadgets-prefs' => 'Công cụ đa năng',
+	'prefs-gadgets' => 'Công cụ đa năng',
 	'gadgets-prefstext' => 'Dưới đây là danh sách các công cụ đa năng đặc biệt mà bạn có thể kích hoạt cho tài khoản của mình.
 Những công cụ này chủ yếu dựa trên JavaScript, do đó bạn phải kích hoạt JavaScript trong trình duyệt để các công cụ này hoạt động.
 Chú ý rằng những công cụ đa năng này sẽ không có tác dụng trong trang tùy chọn cá nhân.
@@ -1588,7 +1588,7 @@ $messages['vo'] = array(
  */
 $messages['yue'] = array(
 	'gadgets-desc' => '畀用戶響佢哋嘅[[Special:Preferences|喜好設定]]度設定自定嘅[[Special:Gadgets|CSS同埋JavaScript小工具]]',
-	'gadgets-prefs' => '小工具',
+	'prefs-gadgets' => '小工具',
 	'gadgets-prefstext' => '下面係一個特別小工具，你可以響你個戶口度啟用。
 呢啲小工具多數都係基於JavaScript建造，如果要開佢哋，噉個瀏覽器嘅JavaScript就需要啟用咗先至用得到。
 要留意嘅就係呢啲小工具響呢個喜好設定版度係無效果嘅。
@@ -1607,7 +1607,7 @@ $messages['yue'] = array(
  */
 $messages['zh-hans'] = array(
 	'gadgets-desc' => '使用户可以在[[Special:Preferences|参数设置]]中自行设定[[Special:Gadgets|CSS与JavaScript工具]]',
-	'gadgets-prefs' => '小工具',
+	'prefs-gadgets' => '小工具',
 	'gadgets-prefstext' => '以下是一个特殊小工具，您可以在您的账户中激活。
 这些小工具多数都是基于JavaScript建造，如果要激活它们，那么浏览器的JavaScript就需要激活后方可使用。
 要留意的是这些小工具在这个参数设置页面中是没有效果的。
@@ -1625,7 +1625,7 @@ $messages['zh-hans'] = array(
  */
 $messages['zh-hant'] = array(
 	'gadgets-desc' => '讓使用者可以在[[Special:Preferences|偏好設定]]中自訂 [[Special:Gadgets|CSS與JavaScript工具]]',
-	'gadgets-prefs' => '小工具',
+	'prefs-gadgets' => '小工具',
 	'gadgets-prefstext' => '以下是一個特殊小工具，您可以在您的帳戶中啟用。
 這些小工具多數都是基於JavaScript建造，如果要啟用它們，那麼瀏覽器的JavaScript就需要啟用後方可使用。
 要留意的是這些小工具在這個參數設置頁面中是沒有效果的。
