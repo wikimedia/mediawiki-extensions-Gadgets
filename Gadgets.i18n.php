@@ -923,7 +923,7 @@ $messages['ko'] = array(
  */
 $messages['ksh'] = array(
 	'gadgets-desc' => 'En iere [[Special:Preferences|Enstellunge]] künne Metmaacher [[Special:Gadgets|CSS- un JavaScrip-Gadgets]] en- un ußschallde.',
-	'prefs-gadgets' => 'Gadgets',
+	'prefs-gadgets' => '<i lang="en">Gadgets</i>',
 	'gadgets-prefstext' => 'Hee is en Liss met bestemmpte <i lang="en">Gadgets</i>,
 di för jede Metmaacher enjeschalldt wäde könne.
 Di boue miets op Javascrip op, drom moß mer\'t em Brauser
@@ -938,8 +938,8 @@ Wä et Rääsch doför hät, kann se övver de Sigge
 [[MediaWiki:Gadgets-definition|<i lang="en">Gadgets</i> fäßlääje]]
 un [[Special:Gadgets|<i lang="en">Gadgets</i> beschriewe]]
 enreschte un ändere.',
-	'gadgets' => 'Gadgets',
-	'gadgets-title' => 'Gadgets',
+	'gadgets' => '<i lang="en">Gadgets</i>',
+	'gadgets-title' => '<i lang="en">Gadgets</i>',
 	'gadgets-pagetext' => 'He kütt en Liss met spezielle <i lang="en">Gadgets</i>,
 di jede Metmaacher övver sing
 [[Special:Preferences|päsönlije Enstellunge]] enschallte kann.
@@ -957,10 +957,10 @@ $messages['lb'] = array(
 	'gadgets-desc' => 'Erméiglecht de Benotzer et perséinlech [[Special:Gadgets|CSS a JavaScript Gadgeten]] an hiren [[Special:Preferences|Astellunge]] festzeleeën.',
 	'prefs-gadgets' => 'Gadgeten',
 	'gadgets-prefstext' => "Lëscht vu spezielle Gadgeten déi fir äre Benotzerkont aktivéiert kënne ginn.
-D'Gadgeten baséiere meeschtens op engem JavaScript, dafir muss JavaScript an ärem Browser aktivéiert sinn, fir datt se fonctionéieren.
-D'Gadgete fonctionéieren awer net op dëser Säit matt de perséinlechen Astellungen.
+D'Gadgete baséiere meeschtens op engem JavaScript, dafir muss JavaScript an ärem Browser aktivéiert sinn, fir datt se fonctionéieren.
+D'Gadgete fonctionéieren awer net op dëser Säit mat de perséinlechen Astellungen.
 
-Ausserdem sollt dir wëssen, datt dës Gadgeten generell net Deel vu MediaWiki sinn, a meeschtens vu Benotzer vun der lokaler Wikis entwéckelt an ënnerhal ginn. 
+Ausserdem sollt Dir wëssen, datt dës Gadgete generell net Deel vu MediaWiki sinn, a meeschtens vu Benotzer vun der lokaler Wikis entwéckelt an ënnerhal ginn. 
 Lokal Wiki-Administrateure kënnen d'Lëscht von den disponibele Gadgeten op de Säiten [[MediaWiki:Gadgets-definition|Definitioune vun Gadgeten]] a [[Special:Gadgets|Beschreiwunge vu Gadgeten]] änneren.",
 	'gadgets' => 'Gadgeten',
 	'gadgets-title' => 'Gadgeten',

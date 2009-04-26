@@ -87,7 +87,7 @@ $aliases['gsw'] = array(
 
 /** Hawaiian (Hawai`i) */
 $aliases['haw'] = array(
-	'Gadgets' => array( 'Hāmeʻa' ),
+	'Gadgets' => array( 'Hāmeʻa', 'Hamea' ),
 );
 
 /** Hebrew (עברית)
@@ -104,7 +104,7 @@ $aliases['hr'] = array(
 
 /** Upper Sorbian (Hornjoserbsce) */
 $aliases['hsb'] = array(
-	'Gadgets' => array( 'Gadgety' ),
+	'Gadgets' => array( 'Specialne funkcije' ),
 );
 
 /** Haitian (Kreyòl ayisyen) */
