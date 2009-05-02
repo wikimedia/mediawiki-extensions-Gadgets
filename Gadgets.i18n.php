@@ -945,7 +945,7 @@ di jede Metmaacher övver sing
 [[Special:Preferences|päsönlije Enstellunge]] enschallte kann.
 Se wääde üvver [[MediaWiki:Gadgets-definition]] enjerecht.
 Die Övverseech hee jit enne direkte Zohjang op di Texte em Wiki,
-wo de Projramme, un de Erklierunge för de Gadgets dren enthallde
+wo de Projramme, un de Erklierunge för de <i lang="en">Gadgets</i> dren enthallde
 sin.',
 	'gadgets-uses' => 'Bruch',
 );
