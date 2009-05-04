@@ -140,7 +140,7 @@ function wfGadgetsGetPreferences( $user, &$preferences ) {
 			'type' => 'info',
 			'label' => '&nbsp;',
 			'default' => Xml::tags( 'td', array( 'colspan' => 2 ),
-									wfMsgExt( 'gadgets-prefstext', 'parseinline' ) ),
+									wfMsgExt( 'gadgets-prefstext', 'parse' ) ),
 			'section' => 'gadgets',
 			'raw' => 1,
 			'rawrow' => 1,
