@@ -48,9 +48,9 @@ function wfGadgetsArticleSaveComplete( &$article, &$wgUser, $text ) {
 }
 
 function wfLoadGadgets() {
-	static $gadgets = NULL;
+	static $gadgets = null;
 
-	if ( $gadgets !== NULL ) return $gadgets;
+	if ( $gadgets !== null ) return $gadgets;
 
 	$struct = wfLoadGadgetsStructured();
 	if ( !$struct ) {
@@ -66,15 +66,15 @@ function wfLoadGadgets() {
 	return $gadgets;
 }
 
-function wfLoadGadgetsStructured( $forceNewText = NULL ) {
+function wfLoadGadgetsStructured( $forceNewText = null ) {
 	global $wgMemc;
 
-	static $gadgets = NULL;
-	if ( $gadgets !== NULL && $forceNewText === NULL ) return $gadgets;
+	static $gadgets = null;
+	if ( $gadgets !== null && $forceNewText === null ) return $gadgets;
 
 	$key = wfMemcKey( 'gadgets-definition' );
 
-	if ( $forceNewText === NULL ) {
+	if ( $forceNewText === null ) {
 		//cached?
 		$gadgets = $wgMemc->get( $key );
 		if ( is_array($gadgets) ) return $gadgets;
@@ -114,7 +114,7 @@ function wfLoadGadgetsStructured( $forceNewText = NULL ) {
 
 	//cache for a while. gets purged automatically when MediaWiki:Gadgets-definition is edited
 	$wgMemc->set( $key, $gadgets, 60*60*24 );
-	$source = $forceNewText !== NULL ? 'input text' : 'MediaWiki:Gadgets-definition';
+	$source = $forceNewText !== null ? 'input text' : 'MediaWiki:Gadgets-definition';
 	wfDebug( __METHOD__ . ": $source parsed, cache entry $key updated\n");
 
 	return $gadgets;
@@ -159,12 +159,12 @@ function wfGadgetsGetPreferences( $user, &$preferences ) {
 }
 
 function wfGadgetsBeforePageDisplay( &$out ) {
-	global $wgUser, $wgTitle;
+	global $wgUser;
 	if ( !$wgUser->isLoggedIn() ) return true;
 
 	//disable all gadgets on Special:Preferences
-	if ( $wgTitle->getNamespace() == NS_SPECIAL ) {
-		$name = SpecialPage::resolveAlias( $wgTitle->getText() );
+	if ( $out->getTitle()->getNamespace() == NS_SPECIAL ) {
+		$name = SpecialPage::resolveAlias( $out->getTitle()->getText() );
 		if ( $name == "Preferences" ) return true;
 	}
 
@@ -184,7 +184,7 @@ function wfGadgetsBeforePageDisplay( &$out ) {
 }
 
 function wfApplyGadgetCode( $code, &$out, &$done ) {
-	global $wgSkin, $wgJsMimeType;
+	global $wgJsMimeType;
 
 	//FIXME: stuff added via $out->addScript appears below usercss and userjs in the head tag.
 	//       but we'd want it to appear above explicit user stuff, so it can be overwritten.
@@ -211,9 +211,7 @@ function wfApplyGadgetCode( $code, &$out, &$done ) {
 /**
 * inject descriptions into system messages, so they show on Special:Allmessages
 */
-function wfGadgetsInjectMessages() {
-	global $wgLang, $wgMessageCache;
-
+function wfGadgetsInjectMessages( $msgCache ) {
 	$gadgets = wfLoadGadgetsStructured();
 	if ( !$gadgets ) return true;
 
@@ -236,7 +234,7 @@ function wfGadgetsInjectMessages() {
 		}
 	}
 	
-	$wgMessageCache->addMessages( $messages );
+	$msgCache->addMessages( $messages );
 	return true;
 }
 
