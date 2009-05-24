@@ -33,7 +33,7 @@ $wgHooks['LoadAllMessages'][] = 'wfGadgetsInjectMessages';
 
 $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
-$wgExtensionAliasesFiles['Gadgets'] = $dir . 'Gadgets.i18n.alias.php';
+$wgExtensionAliasesFiles['Gadgets'] = $dir . 'Gadgets.alias.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';
