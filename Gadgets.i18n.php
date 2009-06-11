@@ -535,17 +535,18 @@ Cette vue d'ensemble donne un accès rapide aux pages de messages système qui d
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'gadgets-desc' => 'Lèsse ux utilisators la possibilitât de chouèsir/cièrdre los [[Special:Gadgets|outils CSS et JavaScript]] pèrsonalisâs dens lors [[Special:Preferences|prèferences]].',
+	'gadgets-desc' => 'Pèrmèt ux utilisators de chouèsir des [[Special:Gadgets|outils CSS et JavaScript]] pèrsonalisâs dens lors [[Special:Preferences|prèferences]].',
 	'prefs-gadgets' => 'Outils',
-	'gadgets-prefstext' => 'Ce-desot aparêt una lista d’outils que vos pouede activar por voutron compto.
-Font apèl a [[JavaScript]], dêt vêr étre activâ por voutron navigator Malyâjo.
-Ils ont gins d’enfluence sur ceta pâge de prèferences.
+	'gadgets-prefstext' => 'Vê-que una lista d’outils que vos pouede activar por voutron compto.
+Font apèl a JavaScript, que dêt vêr étre activâ sur voutron navigator Malyâjo por que fonccionont.
+Notâd que celos outils ont gins de rèsultat sur ceta pâge de prèferences.
 
-Et pués, sont g·ènèralament dèvelopâs et mantegnus sur ceti vouiqui. Los administrators pôvont modifiar los outils en passent per [[MediaWiki:Gadgets-definition]] et [[Special:Gadgets]].',
+Notâd asse-ben que celos outils spèciâls sont pas du tot avouéc la programeria MediaWiki, et pués que sont en g·ènèral dèvelopâs et mantegnus per des utilisators sur voutron vouiqui local.
+Los administrators locals pôvont changiér los outils disponiblos en utilisent les [[MediaWiki:Gadgets-definition|dèfinicions]] et les [[Special:Gadgets|dèscripcions]].',
 	'gadgets' => 'Outils',
 	'gadgets-title' => 'Outils',
-	'gadgets-pagetext' => "Ce-desot aparêt una lista d’outils que los utilisators pôvont activar dens lor [[Special:Preferences|pâge de prèferences]], tâl que dèfeni dens ''[[MediaWiki:Gadgets-definition]]''.
-Ceti survôlo balye un accès rapido a les pâges de mèssâjos sistèmo que dèfenéssont châque dèscripcion et châque code des outils.",
+	'gadgets-pagetext' => 'Vê-que una lista d’outils que los utilisators pôvont activar dens lor [[Special:Preferences|pâge de prèferences]], coment dèfeni dens les [[MediaWiki:Gadgets-definition|dèfinicions]].
+Ceta vua d’ensemblo balye un accès vito fêt a les pâges de mèssâjos sistèmo que dèfenéssont la dèscripcion et lo code de châque outil.',
 	'gadgets-uses' => 'Utilise',
 );
 
