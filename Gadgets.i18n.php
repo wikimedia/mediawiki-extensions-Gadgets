@@ -1180,6 +1180,15 @@ Gawa nang malagua niting piyakitan (overview) ing pamanintun kareng bulung a mak
 	'gadgets-uses' => 'Gamit',
 );
 
+/** Deitsch (Deitsch)
+ * @author Xqt
+ */
+$messages['pdc'] = array(
+	'prefs-gadgets' => 'Gadgets',
+	'gadgets' => 'Gadgets',
+	'gadgets-title' => 'Gadgets',
+);
+
 /** Polish (Polski)
  * @author Derbeth
  * @author Sp5uhe
