@@ -1280,7 +1280,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
-	'gadgets-prefs' => 'Gadget',
+	'prefs-gadgets' => 'Gadget',
 	'gadgets' => 'Gadget',
 	'gadgets-title' => 'Gadget',
 	'gadgets-uses' => 'Ause',
