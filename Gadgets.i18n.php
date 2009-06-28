@@ -1084,7 +1084,6 @@ Disse Översicht gifft direkten Togang to de Systemnarichten, in de de Text to d
  * @author Servien
  */
 $messages['nds-nl'] = array(
-	'gadgets-prefs' => 'Uutbreidingen',
 	'gadgets' => 'Uutbreidingen',
 	'gadgets-title' => 'Uutbreidingen',
 );
@@ -1561,7 +1560,6 @@ Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistem
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
-	'gadgets-prefs' => 'Gadžetad',
 	'gadgets' => 'Gadžetad:',
 	'gadgets-title' => 'Gadžetad',
 	'gadgets-uses' => 'Kävutab',
