@@ -124,7 +124,7 @@ $aliases['ia'] = array(
 
 /** Indonesian (Bahasa Indonesia) */
 $aliases['id'] = array(
-	'Gadgets' => array( 'Gadget' ),
+	'Gadgets' => array( 'Alat', 'Gadget' ),
 );
 
 /** Italian (Italiano) */
