@@ -29,7 +29,6 @@ $wgExtensionCredits['other'][] = array(
 $wgHooks['GetPreferences'][] = 'wfGadgetsGetPreferences';
 $wgHooks['BeforePageDisplay'][] = 'wfGadgetsBeforePageDisplay';
 $wgHooks['ArticleSaveComplete'][] = 'wfGadgetsArticleSaveComplete';
-$wgHooks['LoadAllMessages'][] = 'wfGadgetsInjectMessages';
 
 $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
@@ -206,35 +205,5 @@ function wfApplyGadgetCode( $code, &$out, &$done ) {
 			$out->addScript( '<style type="text/css">/*<![CDATA[*/ @import "' . $u . '"; /*]]>*/</style>' . "\n" );
 		}
 	}
-}
-
-/**
-* inject descriptions into system messages, so they show on Special:Allmessages
-*/
-function wfGadgetsInjectMessages( $msgCache ) {
-	$gadgets = wfLoadGadgetsStructured();
-	if ( !$gadgets ) return true;
-
-	$args = array();
-	$messages = array();
-
-	foreach ( $gadgets as $section => $entries ) {
-		if ( $section !== false && $section !== '' ) {
-			$tname = "gadget-section-$section";
-			$ttext = wfMsgReal( $tname, $args, true, false, false );
-			if ( wfEmptyMsg( $tname, $ttext ) ) $ttext = $section;
-			$messages[$tname] = $ttext;
-		}
-
-		foreach ( $entries as $gname => $code ) {
-			$tname = "gadget-$gname";
-			$ttext = wfMsgReal( $tname, $args, true, false, false );
-			if ( wfEmptyMsg( $tname, $ttext ) ) $ttext = $gname;
-			$messages[$tname] = $ttext;
-		}
-	}
-	
-	$msgCache->addMessages( $messages );
-	return true;
 }
 
