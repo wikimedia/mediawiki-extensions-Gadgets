@@ -169,7 +169,7 @@ $aliases['nds-nl'] = array(
 
 /** Dutch (Nederlands) */
 $aliases['nl'] = array(
-	'Gadgets' => array( 'Uitbreidingen', 'Extensies' ),
+	'Gadgets' => array( 'Extensies' ),
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
