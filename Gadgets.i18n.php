@@ -346,19 +346,18 @@ Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver ga
  * @author Umherirrender
  */
 $messages['de'] = array(
-	'gadgets-desc' => 'Ermöglicht Benutzern, in ihren [[Special:Preferences|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Gadgets]] zu aktivieren',
-	'prefs-gadgets' => 'Gadgets',
-	'gadgets-prefstext' => 'Liste von speziellen Gadgets die für jeden Benutzer aktiviert werden können.
-Die Gadgets basieren zumeist auf JavaScript, daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren.
-Die Gadgets funktionieren allerdings nicht auf dieser Seite mit persönlichen Einstellungen.
+	'gadgets-desc' => 'Ermöglicht Benutzern, in ihren [[Special:Preferences|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Helferlein]] zu aktivieren',
+	'prefs-gadgets' => 'Helferlein',
+	'gadgets-prefstext' => 'Liste von speziellen Helferlein die für jeden Benutzer aktiviert werden können.
+Die Helferlein basieren zumeist auf JavaScript, daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren.
+Die Helferlein funktionieren allerdings nicht auf dieser Seite mit persönlichen Einstellungen.
 
-Ausserdem ist zu beachten, dass diese Gadgets im Allgemeinen nicht Teil von MediaWiki sind, sondern meist von
-Benutzern des lokalen Wikis entwickelt und gewartet werden. Lokale Wiki-Administratoren können die Liste der
-verfügbaren Gadgets über die Seiten [[MediaWiki:Gadgets-definition]] und [[Special:Gadgets]] bearbeiten',
-	'gadgets' => 'Gadgets',
-	'gadgets-title' => 'Gadgets',
-	'gadgets-pagetext' => 'Liste von speziellen Gadgets, die für jeden Benutzer in seinen [[Special:Preferences|persönlichen Einstellungen]] verfügbar sind, wie [[MediaWiki:Gadgets-definition|definiert]].
-Diese Übersicht bietet direkten Zugang zu den Systemnachrichten, die die Beschreibung sowie den Programmcode jedes Gadgets enthalten.',
+Ausserdem ist zu beachten, dass diese Helferlein im Allgemeinen nicht Teil von MediaWiki sind, sondern meist von
+Benutzern des lokalen Wikis entwickelt und gewartet werden. Lokale Administratoren können die verfügbaren Helferlein bearbeiten. Dafür stehen die [[MediaWiki:Gadgets-definition|Definitionen]] und [[Special:Gadgets|Beschreibungen]] zur Verfügung.',
+	'gadgets' => 'Helferlein',
+	'gadgets-title' => 'Helferlein',
+	'gadgets-pagetext' => 'Liste von speziellen Helferlein, die für jeden Benutzer in seinen [[Special:Preferences|persönlichen Einstellungen]] verfügbar sind, wie [[MediaWiki:Gadgets-definition|definiert]].
+Diese Übersicht bietet direkten Zugang zu den Systemnachrichten, die die Beschreibung sowie den Programmcode jedes Helferlein enthalten.',
 	'gadgets-uses' => 'Benutzt',
 );
 
