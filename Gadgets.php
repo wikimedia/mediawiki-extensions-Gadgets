@@ -138,8 +138,9 @@ function wfGadgetsGetPreferences( $user, &$preferences ) {
 		array(
 			'type' => 'info',
 			'label' => '&nbsp;',
-			'default' => Xml::tags( 'td', array( 'colspan' => 2 ),
-									wfMsgExt( 'gadgets-prefstext', 'parse' ) ),
+			'default' => Xml::tags( 'tr', array(),
+				Xml::tags( 'td', array( 'colspan' => 2 ),
+					wfMsgExt( 'gadgets-prefstext', 'parse' ) ) ),
 			'section' => 'gadgets',
 			'raw' => 1,
 			'rawrow' => 1,
