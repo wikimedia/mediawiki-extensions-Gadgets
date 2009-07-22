@@ -212,6 +212,11 @@ $aliases['sa'] = array(
 	'Gadgets' => array( 'सुविधा (गॅजेट)' ),
 );
 
+/** Slovak (Slovenčina) */
+$aliases['sk'] = array(
+	'Gadgets' => array( 'Hračky' ),
+);
+
 /** Slovenian (Slovenščina) */
 $aliases['sl'] = array(
 	'Gadgets' => array( 'Vticniki' ),
