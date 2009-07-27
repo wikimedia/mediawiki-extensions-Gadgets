@@ -299,6 +299,15 @@ Aquesta llista us permet un fàcil accés a les pàgines del sistema que definei
 	'gadgets-uses' => 'Usa',
 );
 
+/** Sorani (Arabic script) (‫کوردی (عەرەبی)‬)
+ * @author Asoxor
+ */
+$messages['ckb-arab'] = array(
+	'prefs-gadgets' => 'ئامرازەکان',
+	'gadgets' => 'ئامرازەکان',
+	'gadgets-title' => 'ئامرازەکان',
+);
+
 /** Czech (Česky)
  * @author Danny B.
  * @author Li-sung
