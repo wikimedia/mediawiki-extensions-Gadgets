@@ -1092,8 +1092,19 @@ Disse Översicht gifft direkten Togang to de Systemnarichten, in de de Text to d
  * @author Servien
  */
 $messages['nds-nl'] = array(
+	'prefs-gadgets' => 'Uutbreidingen',
+	'gadgets-prefstext' => "Hieronder staon de speciale uutbreidingen dee-j inschakelen kunnen.
+De uutbreidingen bin veurnamelijk ebaseerd op JavaScript, dus JavaScript mut in-eschakeld ween in joew webkieker um 't te laoten warken.
+De uutbreidingen hemmen gien invloed op disse pagina mit veukeuren.
+
+Disse speciale uutbreidingen bin oek gien onderdeel van de MediaWiki-pregrammetuur, en ze wonnen meestentieds ontwikkeld en onderhouwen
+deur gebrukers van joew wiki.
+Beheerders kunnen de beschikbaore uutbreidingen angeven in [[MediaWiki:Gadgets-definition|defenisies]] en [[Special:Gadgets|beschrievingen]].",
 	'gadgets' => 'Uutbreidingen',
 	'gadgets-title' => 'Uutbreidingen',
+	'gadgets-pagetext' => 'Hieronder staon de speciale uutbreidingen dee gebrukers kunnen inschakelen bie [[Special:Preferences|mien veurkeuren]], zoas in-esteld in de [[MediaWiki:Gadgets-definition|defenisies]].
+Dit overzichte biejt eenvoudige toegang tot de systeemtekspagina waor de beschrieving en de pregrammacode van elke uutbreiding steet.',
+	'gadgets-uses' => 'Gebruuk',
 );
 
 /** Dutch (Nederlands)
