@@ -1020,6 +1020,15 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
 	'gadgets-uses' => 'Panaudojimai',
 );
 
+/** Latvian (Latviešu)
+ * @author Marozols
+ */
+$messages['lv'] = array(
+	'prefs-gadgets' => 'Rīki',
+	'gadgets' => 'Rīki',
+	'gadgets-title' => 'Rīki',
+);
+
 /** Macedonian (Македонски)
  * @author Brest
  */
@@ -1288,6 +1297,7 @@ Esta visão geral proporciona um acesso fácil para as mensagens de sistema que 
 );
 
 /** Romanian (Română)
+ * @author Firilacroco
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
@@ -1295,6 +1305,7 @@ $messages['ro'] = array(
 	'prefs-gadgets' => 'Gadgeturi',
 	'gadgets' => 'Gadgeturi',
 	'gadgets-title' => 'Gadgeturi',
+	'gadgets-uses' => 'Utilizează',
 );
 
 /** Tarandíne (Tarandíne)
@@ -1399,6 +1410,16 @@ $messages['sr-ec'] = array(
 	'gadgets' => 'геџети',
 	'gadgets-title' => 'геџети',
 	'gadgets-uses' => 'користи се',
+);
+
+/** latinica (latinica)
+ * @author Michaello
+ */
+$messages['sr-el'] = array(
+	'prefs-gadgets' => 'gedžeti',
+	'gadgets' => 'gedžeti',
+	'gadgets-title' => 'gedžeti',
+	'gadgets-uses' => 'koristi se',
 );
 
 /** Seeltersk (Seeltersk)
