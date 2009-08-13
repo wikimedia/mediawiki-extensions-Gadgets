@@ -1408,6 +1408,7 @@ Prav tako pomnite, da ti vtičniki niso del programja MediaWiki, in jih običajn
 	'gadgets' => 'Vtičniki',
 	'gadgets-title' => 'Vtičniki',
 	'gadgets-pagetext' => 'Spodaj je seznam vtičnikov (opredeljenih z [[MediaWiki:Gadgets-definition|definicijami]]), ki jih lahko uporabniki vključijo v svojih [[Special:Preferences|nastavitvah]]. Ta pregled omogoča enostaven dostop do sistema za nastavljanje opisa in kode vsakega vtičnika posebej.',
+	'gadgets-uses' => 'Uporablja',
 );
 
 /** Serbian Cyrillic ekavian (ћирилица)
