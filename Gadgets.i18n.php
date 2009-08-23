@@ -1430,7 +1430,7 @@ Prav tako pomnite, da ti vtičniki niso del programja MediaWiki, in jih običajn
 	'gadgets-uses' => 'Uporablja',
 );
 
-/** Serbian Cyrillic ekavian (ћирилица)
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  */
 $messages['sr-ec'] = array(
@@ -1440,7 +1440,7 @@ $messages['sr-ec'] = array(
 	'gadgets-uses' => 'користи се',
 );
 
-/** latinica (latinica)
+/** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  */
 $messages['sr-el'] = array(
