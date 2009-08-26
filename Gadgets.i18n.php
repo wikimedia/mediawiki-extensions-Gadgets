@@ -971,16 +971,17 @@ sin.',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
+ * @author Les Meloures
  * @author Robby
  */
 $messages['lb'] = array(
 	'gadgets-desc' => 'Erméiglecht de Benotzer et perséinlech [[Special:Gadgets|CSS a JavaScript Gadgeten]] an hiren [[Special:Preferences|Astellunge]] festzeleeën.',
 	'prefs-gadgets' => 'Gadgeten',
-	'gadgets-prefstext' => "Lëscht vu spezielle Gadgeten déi fir äre Benotzerkont aktivéiert kënne ginn.
-D'Gadgete baséiere meeschtens op engem JavaScript, dafir muss JavaScript an ärem Browser aktivéiert sinn, fir datt se fonctionéieren.
+	'gadgets-prefstext' => "Lëscht vu spezielle Gadgeten déi fir Äre Benotzerkont aktivéiert kënne ginn.
+D'Gadgete baséiere meeschtens op engem JavaScript, dofir muss JavaScript an Ärem Browser aktivéiert sinn, fir datt se fonctionéieren.
 D'Gadgete fonctionéieren awer net op dëser Säit mat de perséinlechen Astellungen.
 
-Ausserdem sollt Dir wëssen, datt dës Gadgete generell net Deel vu MediaWiki sinn, a meeschtens vu Benotzer vun der lokaler Wikis entwéckelt an ënnerhal ginn. 
+Ausserdeem sollt Dir wëssen, datt dës Gadgete generell net Deel vu MediaWiki sinn, a meeschtens vu Benotzer vu lokale Wikien entwéckelt an ënnerhale ginn. 
 Lokal Wiki-Administrateure kënnen d'Lëscht von den disponibele Gadgeten op de Säiten [[MediaWiki:Gadgets-definition|Definitioune vun Gadgeten]] a [[Special:Gadgets|Beschreiwunge vu Gadgeten]] änneren.",
 	'gadgets' => 'Gadgeten',
 	'gadgets-title' => 'Gadgeten',
