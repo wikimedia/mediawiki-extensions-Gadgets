@@ -1465,18 +1465,16 @@ $messages['sr-el'] = array(
 $messages['stq'] = array(
 	'gadgets-desc' => 'Lät Benutsere in hiere [[Special:Preferences|persöönelke Ienstaalengen]] foardefinierde [[Special:Gadgets|CSS- un JavaScript-Gadgets]] aktivierje',
 	'prefs-gadgets' => 'Gadgets',
-	'gadgets-prefstext' => 'Lieste fon spezielle Gadgets do der foar älken Benutser aktivierd wäide konnen.
-Do Gadgets basierje maastens ap Javascript, deeruum mout Javascript in dän Browser aktivierd weese, uumdät jo funktionierje.
-Do Gadgets funktionierje oawers nit ap disse Siede mäd persöönelke Ienstaalengen.
+	'gadgets-prefstext' => 'Lieste fon spezielle Hälpere do der fon älken Benutser aktivierd wäide konnen.
+Do Hälpere basierje maastens ap Javascript, deeruum mout Javascript in dän Browser aktivierd weese, uumdät jo funktionierje.
+Do Hälpere funktionierje oawers nit ap disse Siede mäd persöönelke Ienstaalengen.
 
-Buutendät is tou beoachtjen, dät disse Gadgets in Algemeenen nit Paat fon MediaWiki sunt, man maast fon
-Benutsere fon lokoale Wikis äntwikkeld un fersuurged wäide. Lokoale Wiki-Administratore konnen ju Lieste fon
-ferföichboare Gadgets uur do Sieden [[MediaWiki:Gadgets-definition]] un [[Special:Gadgets]] beoarbaidje.',
+Buutendät is tou beoachtjen, dät disse Hälpere in Algemeenen nit Paat fon MediaWiki sunt, man maast fon
+Benutsere fon lokoale Wikis äntwikkeld un fersuurged wäide. Lokoale Wiki-Administratore konnen do ferföichboare Hälpere beoarbaidje. Deerfoar stounde do [[MediaWiki:Gadgets-definition|Definitione]] un [[Special:Gadgets|Beschrieuwengen]] tou Ferföigenge.',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
-	'gadgets-pagetext' => 'Lieste fon spezielle Gadgets, do der foar älken Benutser ferföichboar sunt, as in [[MediaWiki:Gadgets-definition]] definierd.
-Disse Uursicht bjut direkten Tougoang tou do Systemättergjuchte, do ju Beschrieuwenge as uk dän Programmcode fon
-älk Gadget änthoolde.',
+	'gadgets-pagetext' => 'Lieste fon spezielle Hälpere, do der foar älken Benutser in sien [[Special:Preferences|persöönelke Ienstaalengen]] ferföichboar sunt, as [[MediaWiki:Gadgets-definition| definierd]].
+Disse Uursicht bjut direkten Tougoang tou do Systemättergjuchte, do ju Beschrieuwenge as uk dän Programkode fon älken Hälper änthoolde.',
 	'gadgets-uses' => 'Benutsed',
 );
 
