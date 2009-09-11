@@ -798,6 +798,7 @@ Forritin eru ekki hluti af MediaWiki-hugbúnaðinum heldur eru skrifuð og viðh
  * @author BrokenArrow
  * @author Darth Kule
  * @author Melos
+ * @author Nemo bis
  */
 $messages['it'] = array(
 	'gadgets-desc' => 'Consente agli utenti di selezionare [[Special:Gadgets|accessori CSS e JavaScript]] nelle proprie [[Special:Preferences|preferenze]]',
@@ -808,7 +809,7 @@ La maggior parte di questi accessori è basata su JavaScript, è quindi necessar
 Inoltre, si noti che questi accessori speciali non sono compresi nel software MediaWiki e vengono di solito realizzati e gestiti dagli utenti di ciascun sito wiki. Gli amministratori del sito possono modificare la lista degli accessori disponibili tramite le pagine delle [[MediaWiki:Gadgets-definition|definizioni]] e delle [[Special:Gadgets|descrizioni]].",
 	'gadgets' => 'Accessori',
 	'gadgets-title' => 'Accessori',
-	'gadgets-pagetext' => "Di seguito viene presentato un elenco di accessori (''gadget'') che gli utenti possono abilitare sulla propria pagina delle [[Special:Preferences|preferenze]], seguendo le [[MediaWiki:Gadgets-definition|definizioni]]. Questa panoramica fornisce un comodo meccanismo per accedere ai messaggi di sistema nei quali sono definiti la descrizione e il codice di ciascun accessorio.",
+	'gadgets-pagetext' => "Di seguito sono elencati gli accessori (''gadget'') che gli utenti possono abilitare sulla propria pagina delle [[Special:Preferences|preferenze]], seguendo le [[MediaWiki:Gadgets-definition|definizioni]]. Questa panoramica fornisce un comodo meccanismo per accedere ai messaggi di sistema nei quali sono definiti la descrizione e il codice di ciascun accessorio.",
 	'gadgets-uses' => 'Utilizza',
 );
 
