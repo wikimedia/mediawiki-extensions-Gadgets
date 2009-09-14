@@ -565,7 +565,7 @@ $messages['frp'] = array(
 	'gadgets-desc' => 'Pèrmèt ux utilisators de chouèsir des [[Special:Gadgets|outils CSS et JavaScript]] pèrsonalisâs dens lors [[Special:Preferences|prèferences]].',
 	'prefs-gadgets' => 'Outils',
 	'gadgets-prefstext' => 'Vê-que una lista d’outils que vos pouede activar por voutron compto.
-Font apèl a JavaScript, que dêt vêr étre activâ sur voutron navigator Malyâjo por que fonccionont.
+Font apèl a JavaScript, que dêt vêr étre activâ sur voutron navigator por que fonccionont.
 Notâd que celos outils ont gins de rèsultat sur ceta pâge de prèferences.
 
 Notâd asse-ben que celos outils spèciâls sont pas du tot avouéc la programeria MediaWiki, et pués que sont en g·ènèral dèvelopâs et mantegnus per des utilisators sur voutron vouiqui local.
