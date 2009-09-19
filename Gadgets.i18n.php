@@ -1640,6 +1640,7 @@ Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistem
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
+	'prefs-gadgets' => 'Gadžetad',
 	'gadgets' => 'Gadžetad:',
 	'gadgets-title' => 'Gadžetad',
 	'gadgets-uses' => 'Kävutab',
