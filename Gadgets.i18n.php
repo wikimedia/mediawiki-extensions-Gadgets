@@ -379,6 +379,25 @@ Diese Übersicht bietet direkten Zugang zu den Systemnachrichten, die die Beschr
 	'gadgets-uses' => 'Benutzt',
 );
 
+/** Zazaki (Zazaki)
+ * @author Xoser
+ */
+$messages['diq'] = array(
+	'gadgets-desc' => 'Karberan rê destur bide ke pê [[Special:Preferences|opsiyonan]] ra [[Special:Gadgets|Xacetanê CSS u JavaScriptî]] biweçî',
+	'prefs-gadgets' => 'Xacetî',
+	'gadgets-prefstext' => 'Cor de yew listeyê xacetanê xasî estê ke ti eşkenî xesabê xo de a bike.
+Enê xecatan ser JavaScript gure kenê, aya ra ti gani browser xo de JavaScript a bike.
+Ena pela opsiyonî de xacetan etki nikenê.
+
+Enê xecatanê xasî parçê sofwarê Mediyawîkî niyo, aye ra karberanê localî enê xecetî virazeno.
+Adminstorê localî eşkenê xacetî  [[MediaWiki:Gadgets-definition|definitions]] u [[Special:Gadgets|descriptions]] ra bivurne.',
+	'gadgets' => 'Xacetî',
+	'gadgets-title' => 'Xacetî',
+	'gadgets-pagetext' => 'Cor de yew listeyê xacetanê xasî estê ke ti eşkenî [[Special:Preferences|xesabê xo]] de a bike, descripsiyon [[MediaWiki:Gadgets-definition|definitions]] de esto.
+Ena descripisyon kerberanê îmkan dano ke aye meajanê sistemî ra asani cikewtê.',
+	'gadgets-uses' => 'Karber',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
