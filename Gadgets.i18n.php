@@ -1160,6 +1160,7 @@ Disse Översicht gifft direkten Togang to de Systemnarichten, in de de Text to d
  * @author Servien
  */
 $messages['nds-nl'] = array(
+	'gadgets-desc' => 'Laot gebrukers [[Special:Gadgets|CSS en JavaScripts]] activeren in der [[Special:Preferences|veurkeuren]]',
 	'prefs-gadgets' => 'Uutbreidingen',
 	'gadgets-prefstext' => "Hieronder staon de speciale uutbreidingen dee-j inschakelen kunnen.
 De uutbreidingen bin veurnamelijk ebaseerd op JavaScript, dus JavaScript mut in-eschakeld ween in joew webkieker um 't te laoten warken.
