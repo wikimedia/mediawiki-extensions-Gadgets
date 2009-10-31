@@ -1161,18 +1161,18 @@ Disse Översicht gifft direkten Togang to de Systemnarichten, in de de Text to d
  */
 $messages['nds-nl'] = array(
 	'gadgets-desc' => 'Laot gebrukers [[Special:Gadgets|CSS en JavaScripts]] activeren in der [[Special:Preferences|veurkeuren]]',
-	'prefs-gadgets' => 'Uutbreidingen',
-	'gadgets-prefstext' => "Hieronder staon de speciale uutbreidingen dee-j inschakelen kunnen.
-De uutbreidingen bin veurnamelijk ebaseerd op JavaScript, dus JavaScript mut in-eschakeld ween in joew webkieker um 't te laoten warken.
-De uutbreidingen hemmen gien invloed op disse pagina mit veukeuren.
+	'prefs-gadgets' => 'Technisch spul',
+	'gadgets-prefstext' => "Hieronder steet speciaal techinische spul da-j inschakelen kunnen.
+'t Is veurnamelijk ebaseerd op JavaScript, dus JavaScript mu-j an hemmen staon in joew webkieker um 't te laoten warken.
+Al dit technische spul hef gien invleud op disse veurkeurenpagina.
 
-Disse speciale uutbreidingen bin oek gien onderdeel van de MediaWiki-pregrammetuur, en ze wonnen meestentieds ontwikkeld en onderhouwen
-deur gebrukers van joew wiki.
-Beheerders kunnen de beschikbaore uutbreidingen angeven in [[MediaWiki:Gadgets-definition|defenisies]] en [[Special:Gadgets|beschrievingen]].",
-	'gadgets' => 'Uutbreidingen',
-	'gadgets-title' => 'Uutbreidingen',
-	'gadgets-pagetext' => 'Hieronder staon de speciale uutbreidingen dee gebrukers kunnen inschakelen bie [[Special:Preferences|mien veurkeuren]], zoas in-esteld in de [[MediaWiki:Gadgets-definition|defenisies]].
-Dit overzichte biejt eenvoudige toegang tot de systeemtekspagina waor de beschrieving en de pregrammacode van elke uutbreiding steet.',
+Disse technische snufjes maken oek gien deel uut van de MediaWiki-pregrammetuur, en 't wönnen meestentieds ontwikkeld en onderhouwen
+deur gebrukers van joew eigen wiki.
+Beheerders kunnen 't beschikbaore technische spul angeven in [[MediaWiki:Gadgets-definition|defenisies]] en [[Special:Gadgets|beschrievingen]].",
+	'gadgets' => 'Technisch spul',
+	'gadgets-title' => 'Technisch spul',
+	'gadgets-pagetext' => 'Hieronder steet speciaal technisch spul dee gebrukers in kunnen schakelen bie [[Special:Preferences|mien veurkeuren]], zoas in-esteld in de [[MediaWiki:Gadgets-definition|defenisies]].
+Dit overzichte biejt eenvoudige toegang tot de systeemtekspagina waor de beschrieving en de pregrammacode van elke technisch snufjen steet.',
 	'gadgets-uses' => 'Gebruuk',
 );
 
