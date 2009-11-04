@@ -1332,14 +1332,14 @@ $messages['pt'] = array(
 	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => "Segue-se uma lista de ''\"gadgets\"'' especiais que pode activar na sua conta.
 Estes ''gadgets'' são baseados principalmente em JavaScript, sendo necessário activar o suporte a JavaScript no seu navegador para que funcionem.
-Note que os ''gadgets'' não terão efeito nesta página de preferências.
+Note que não terão efeito nesta página de preferências.
 
-Note também que estes ''gadgets'' especiais não fazem parte do ''software'' MediaWiki, sendo geralmente desenvolvidos e mantidos por utilizadores na sua wiki local.
-Administradores locais podem editar os ''gadgets'' disponíveis usando [[MediaWiki:Gadgets-definition|definições]] e [[Special:Gadgets|descrições]].",
+Note também que estes ''gadgets'' especiais não fazem parte do programa MediaWiki, sendo geralmente desenvolvidos e mantidos por utilizadores na sua wiki local.
+Administradores locais podem editar os ''gadgets'' disponíveis usando as [[MediaWiki:Gadgets-definition|definições]] e [[Special:Gadgets|descrições]].",
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
 	'gadgets-pagetext' => "Segue-se uma lista de ''\"gadgets\"'' que podem ser activados pelos utilizadores nas suas [[Special:Preferences|preferências]], como definido em [[MediaWiki:Gadgets-definition]].
-Esta visão geral proporciona um acesso fácil às mensagens de sistema que definem a descrição e o código de cada ''gadget''.",
+Este resumo proporciona fácil acesso às mensagens de sistema que definem a descrição e o código de cada ''gadget''.",
 	'gadgets-uses' => 'Utiliza',
 );
 
