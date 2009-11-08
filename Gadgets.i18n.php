@@ -1640,9 +1640,10 @@ Bu genel bakış, her gadget'in tanımını ve kodunu belirten sistem mesaj sayf
 /** Ukrainian (Українська)
  * @author AS
  * @author Ahonc
+ * @author Prima klasy4na
  */
 $messages['uk'] = array(
-	'gadgets-desc' => 'Дозволяє користувачам обирати [[Special:Додатки|CSS- та JavaScript-додатки]] у своїх [[Special:Preferences|налаштуваннях]]',
+	'gadgets-desc' => 'Дозволяє користувачам обирати [[Special:Gadgets|CSS- та JavaScript-додатки]] у своїх [[Special:Preferences|налаштуваннях]]',
 	'prefs-gadgets' => 'Додатки',
 	'gadgets-prefstext' => 'Нижче наведений список спеціальних додатків, які ви можете ввімкнути для свого облікового запису.
 Ці додатки переважно базуються на JavaScript, тому ви повинні ввімкнути JavaScript для того, щоб вони працювали.
