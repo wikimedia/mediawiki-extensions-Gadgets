@@ -1597,6 +1597,15 @@ $messages['th'] = array(
 	'gadgets-uses' => 'เรียกใช้',
 );
 
+/** Turkmen (Türkmençe)
+ * @author Hanberke
+ */
+$messages['tk'] = array(
+	'prefs-gadgets' => 'Gajetler',
+	'gadgets' => 'Gajetler',
+	'gadgets-title' => 'Gajetler',
+);
+
 /** Tagalog (Tagalog)
  * @author AnakngAraw
  */
