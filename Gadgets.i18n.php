@@ -1577,6 +1577,17 @@ $messages['tg-cyrl'] = array(
 	'gadgets-uses' => 'Корбурдҳо',
 );
 
+/** Tajik (Latin) (Тоҷикӣ (Latin))
+ * @author Liangent
+ */
+$messages['tg-latn'] = array(
+	'gadgets-desc' => 'Az tariqi sahifai [[Special:Preferences|tarçihot]] ba korbaron imkonijati intixobi abzorhoi şaxsiji [[Special:Gadgets|CSS va ÇavaSkript]]ro medihad.',
+	'prefs-gadgets' => 'Abzorho',
+	'gadgets' => 'Abzorho',
+	'gadgets-title' => 'Abzorho',
+	'gadgets-uses' => 'Korburdho',
+);
+
 /** Thai (ไทย)
  * @author Ans
  * @author Passawuth
