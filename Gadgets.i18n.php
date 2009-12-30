@@ -1615,6 +1615,7 @@ $messages['tk'] = array(
 	'prefs-gadgets' => 'Gajetler',
 	'gadgets' => 'Gajetler',
 	'gadgets-title' => 'Gajetler',
+	'gadgets-uses' => 'Ulanýar',
 );
 
 /** Tagalog (Tagalog)
