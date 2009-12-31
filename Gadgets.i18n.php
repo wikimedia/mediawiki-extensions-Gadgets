@@ -1612,6 +1612,7 @@ $messages['th'] = array(
  * @author Hanberke
  */
 $messages['tk'] = array(
+	'gadgets-desc' => 'Ulanyjylaryň [[Special:Preferences|ileri tutmalarynda]] ýörite [[Special:Gadgets|CSS we JavaScript gajetlerini]] saýlamaklaryna rugsat berýär',
 	'prefs-gadgets' => 'Gajetler',
 	'gadgets' => 'Gajetler',
 	'gadgets-title' => 'Gajetler',
