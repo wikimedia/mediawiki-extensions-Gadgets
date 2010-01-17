@@ -292,20 +292,21 @@ Ovaj pregled daje jednostavan pristup sistemu stranica poruka koje definišu sva
  * @author Aleator
  * @author Paucabot
  * @author SMP
+ * @author Vriullop
  */
 $messages['ca'] = array(
-	'gadgets-desc' => 'Permet als usuaris personalitzar [[Special:Gadgets|els gadgets CSS i JavaScript]] a les seves [[Special:Preferences|preferències]]',
+	'gadgets-desc' => 'Permet als usuaris personalitzar [[Special:Gadgets|ginys CSS i JavaScript]] a les seves [[Special:Preferences|preferències]]',
 	'prefs-gadgets' => 'Gadgets',
-	'gadgets-prefstext' => "A continuació teniu una llista de «gadgets» especials que podeu activar al vostre compte.<br />
-La majoria d'aquests gadgets fan servir JavaScript, per tant haureu de tenir un navegador que funcioni amb aquest llenguatge activat per a que vos funcionin.
-Tingueu en compte que els gadgets no funcionaran en aquesta pàgina.
+	'gadgets-prefstext' => "A continuació teniu una llista de ginys especials que podeu activar al vostre compte.<br />
+La majoria d'aquests ginys fan servir JavaScript, per tant l'haureu de tenir activat al vostre navegador per a que funcionin.
+Tingueu en compte que aquests ginys no tenen cap efecte sobre aquesta pàgina de preferències.
 
-També cal que tingueu present que aquests gadgets especials no formen part del programa MediaWiki i que acostumen a estar fets i mantinguts per usuaris del wiki local.<br />
-Els administradors del wiki poden editar els gadgets disponibles fent servir [[MediaWiki:Gadgets-definition|definicions]]  i [[Special:Gadgets|descripcions]].",
-	'gadgets' => 'Gadgets',
-	'gadgets-title' => 'Gadgets',
-	'gadgets-pagetext' => 'A continuació teniu una llista de «gadgets» especials que qualsevol usuari pot activar a la seva [[Special:Preferences|pàgina de preferències]], i que estan definits per les [[MediaWiki:Gadgets-definition|definicions del MediaWiki]].
-Aquesta llista us permet un fàcil accés a les pàgines del sistema que defineixen la descripció i el codi de cada «gadget».',
+Tingueu també present que aquests ginys especials no formen part del programari MediaWiki i que acostumen a estar fets i mantinguts per usuaris del vostre wiki local.<br />
+Els administradors locals poden editar els ginys disponibles fent servir [[MediaWiki:Gadgets-definition|definicions]] i [[Special:Gadgets|descripcions]].",
+	'gadgets' => 'Ginys',
+	'gadgets-title' => 'Ginys',
+	'gadgets-pagetext' => 'A continuació teniu una llista de ginys especials que els usuaris poden activar a la seva [[Special:Preferences|pàgina de preferències]], segons les [[MediaWiki:Gadgets-definition|seves definicions]].
+Aquesta llista permet un fàcil accés a les pàgines del sistema que defineixen la descripció i el codi de cada giny.',
 	'gadgets-uses' => 'Usa',
 );
 
