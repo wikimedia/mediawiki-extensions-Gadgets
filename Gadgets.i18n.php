@@ -503,11 +503,22 @@ Kohalikud ülemad saavad olemasolevaid riistu muuta [[MediaWiki:Gadgets-definiti
 
 /** Basque (Euskara)
  * @author An13sa
+ * @author Inorbez
+ * @author Unai Fdz. de Betoño
  */
 $messages['eu'] = array(
 	'prefs-gadgets' => 'Gadgetak',
+	'gadgets-prefstext' => 'Zure kontuan erabili ditzakezun gadgeten zerrenda bat agertzen da behean.
+JavaScript-en oinarritzen dira gehienbat gadget hauek; beraz, funtzionatzeko zure nabigatzailean JavaScript gaituta egon behar da.
+Kontuan izan gadget hauek ez dutela eraginik izango hobespen orri honetan.
+
+Kontuan izan baita gadget berezi hauek ez direla MediaWiki softwarearen zati bat. Gehienetan guneko wikietako garatzaileek sortu eta mantentzen dituzte.
+Administratzaileek [[MediaWiki:Gadgets-definition|definizioak]] eta [[Special:Gadgets|deskribapenak]] erabiliz aldatu dezakete eskuragarri dauden gadgetak.',
 	'gadgets' => 'Gadgetak',
 	'gadgets-title' => 'Gadgetak',
+	'gadgets-pagetext' => 'Erabiltzaile bakoitzak bere [[Special:Preferences|hobespen orrian]] erabili ditzakeen gadgeten zerrenda bat agertzen da behean, [[MediaWiki:Gadgets-definition|definizioek]] zehaztu bezala.
+Ikuspegi orokor honek gadget bakoitza definitzen duen deskribapen eta kode orrietarako lotura errazak eskaintzen ditu.',
+	'gadgets-uses' => 'Erabilerak',
 );
 
 /** Extremaduran (Estremeñu)
