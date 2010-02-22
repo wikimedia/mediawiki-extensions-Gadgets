@@ -22,7 +22,6 @@ $wgExtensionCredits['other'][] = array(
 	'name' => 'Gadgets',
 	'author' => 'Daniel Kinzler',
 	'url' => 'http://mediawiki.org/wiki/Extension:Gadgets',
-	'description' => 'lets users select custom javascript gadgets',
 	'descriptionmsg' => 'gadgets-desc',
 );
 
