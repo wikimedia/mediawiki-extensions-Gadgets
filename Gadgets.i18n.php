@@ -895,6 +895,13 @@ Tinjoan iki mènèhi aksès sing gampang menyang kaca-kaca pesen sistem sing nga
 	'gadgets-uses' => 'Kagunan',
 );
 
+/** Georgian (ქართული)
+ * @author BRUTE
+ */
+$messages['ka'] = array(
+	'prefs-gadgets' => 'გაჯეტები',
+);
+
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
 $messages['kk-arab'] = array(
 	'prefs-gadgets' => 'قاجەت قۇرالدار',
