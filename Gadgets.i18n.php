@@ -1482,10 +1482,11 @@ Lokálni správcovia môžu upraviť zoznam dostupných nástrojov pomocou [[Med
 );
 
 /** Slovenian (Slovenščina)
+ * @author Dbc334
  * @author Smihael
  */
 $messages['sl'] = array(
-	'gadgets-desc' => 'Omogoča uporabnikom, da vključijo [[Special:Gadgets|vtičnike CSS in JavaScript]] v [[Special:Preferences|nastvitvah]]',
+	'gadgets-desc' => 'Omogoča uporabnikom, da vključijo [[Special:Gadgets|vtičnike CSS in JavaScript]] v [[Special:Preferences|nastavitvah]]',
 	'prefs-gadgets' => 'Vtičniki',
 	'gadgets-prefstext' => 'Prikazan je seznam posebnih vtičnikov, ki si jih lahko omogočite.
 Večinoma temeljijo na JavaScript, zato mora biti le-ta omogočen v vašem brskalniku. 
