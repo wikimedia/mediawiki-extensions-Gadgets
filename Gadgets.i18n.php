@@ -972,18 +972,18 @@ $messages['km'] = array(
  * @author Kwj2772
  */
 $messages['ko'] = array(
-	'gadgets-desc' => '사용자들이 [[Special:Gadgets|CSS와 자바스크립트 소도구]]를 [[Special:Preferences|사용자 환경 설정]]에서 설정할 수 있게 함',
+	'gadgets-desc' => '각 사용자가 [[Special:Gadgets|CSS/자바스크립트 소도구]]를 [[Special:Preferences|사용자 환경 설정]]을 통해 사용할 수 있도록 허용',
 	'prefs-gadgets' => '소도구',
-	'gadgets-prefstext' => '아래는 당신이 사용할 수 있는 소도구의 목록입니다.
-이 소도구들은 대부분 자바스크립트 기반이며 당신의 웹 브라우저에서 사용할 수 있습니다.
-참고로 이 소도구들은 사용자 환경 설정에서는 아무런 영향을 주지 않습니다.
+	'gadgets-prefstext' => '소도구 목록입니다.
+대부분의 소도구는 자바스크립트 기반이며, 이러한 기능들은 웹 브라우저에서 자바스크립트를 지원한다면 사용이 가능합니다.
+참고로, 이 소도구 기능들은 이 환경 설정 페이지에는 영향을 주지 않습니다.
 
-또한 이 소도구들은 미디어위키 소프트웨어의 일부분이 아니며, 주로 해당 위키의 사용자가 개발한 것입니다.
-관리자는 [[MediaWiki:Gadgets-definition|소도구 정의 문서]]와 [[Special:Gadgets|소도구 설명 문서]]를 통해 사용할 수 있는 소도구들을 편집할 수 있습니다.',
+또한, 이 소도구들은 미디어위키에 있는 기능이 아니며, 각 위키의 사용자가 개발/관리하고 있습니다.
+각 위키의 관리자는 [[MediaWiki:Gadgets-definition|소도구 정의 문서]]와 [[Special:Gadgets|소도구 설명 문서]]를 통해 소도구들을 관리할 수 있습니다.',
 	'gadgets' => '소도구 목록',
 	'gadgets-title' => '소도구',
-	'gadgets-pagetext' => '다음은 [[MediaWiki:Gadgets-definition|소도구 정의]]에 따라, [[Special:Preferences|사용자 환경 설정]]에서 활성화시킬 수 있는 소도구의 목록입니다.
-이 둘러보기 문서는 각 소도구의 설명과 코드를 정의하는 시스템 메시지를 가리는 링크를 제공합니다.',
+	'gadgets-pagetext' => '[[Special:Preferences|사용자 환경 설정]]에서 설정할 수 있는 소도구 목록입니다. 해당 목록은 [[MediaWiki:Gadgets-definition|소도구 정의]]에서 편집할 수 있습니다.
+이 문서에서는 각 소도구의 각 설명 문서/코드의 시스템 메시지 링크를 제공합니다.',
 	'gadgets-uses' => '다음 코드를 이용',
 );
 
