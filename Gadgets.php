@@ -161,8 +161,15 @@ function wfGadgetsBeforePageDisplay( &$out ) {
 	global $wgUser;
 	if ( !$wgUser->isLoggedIn() ) return true;
 
-	//disable all gadgets on Special:Preferences
-	if ( $out->getTitle()->isSpecial( 'Preferences' ) ) {
+	//disable all gadgets on critical special pages
+	//NOTE: $out->isUserJsAllowed() is tempting, but always fals if $wgAllowUserJs is false.
+	//      That would disable gadgets on wikis without user JS. Introducing $out->isJsAllowed()
+	//	may work, but should that really apply also to MediaWiki:common.js? Even on the preference page?
+	//	See bug 22929 for discussion.
+	$title = $out->getTitle();
+	if ( $title->isSpecial( 'Preferences' ) 
+		|| $title->isSpecial( 'Resetpass' )
+		|| $title->isSpecial( 'Userlogin' ) ) {
 		return true;
 	}
 
