@@ -162,9 +162,8 @@ function wfGadgetsBeforePageDisplay( &$out ) {
 	if ( !$wgUser->isLoggedIn() ) return true;
 
 	//disable all gadgets on Special:Preferences
-	if ( $out->getTitle()->getNamespace() == NS_SPECIAL ) {
-		$name = SpecialPage::resolveAlias( $out->getTitle()->getText() );
-		if ( $name == "Preferences" ) return true;
+	if ( $out->getTitle()->isSpecial( 'Preferences' ) ) {
+		return true;
 	}
 
 	$gadgets = wfLoadGadgets();
@@ -202,7 +201,7 @@ function wfApplyGadgetCode( $code, &$out, &$done ) {
 		}
 		else if ( preg_match( '/\.css/', $codePage ) ) {
 			$u = $t->getLocalURL( 'action=raw&ctype=text/css' );
-			$out->addScript( '<style type="text/css">/*<![CDATA[*/ @import "' . $u . '"; /*]]>*/</style>' . "\n" );
+			$out->addScript( Html::linkedStyle( $u ) );
 		}
 	}
 }
