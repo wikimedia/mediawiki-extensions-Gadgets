@@ -24,7 +24,7 @@ These gadgets are mostly based on JavaScript, so JavaScript has to be enabled in
 Note that these gadgets will have no effect on this preferences page.
 
 Also note that these special gadgets are not part of the MediaWiki software, and are usually developed and maintained by users on your local wiki.
-Local administrators can edit available gadgets using [[MediaWiki:Gadgets-definition|definitions]] and [[Special:Gadgets|descriptions]].',
+Local administrators can edit the [[MediaWiki:Gadgets-definition|definitions]] and [[Special:Gadgets|descriptions]] of available gadgets.',
 
 	#for Special:Gadgets
 	'gadgets'           => 'Gadgets',
