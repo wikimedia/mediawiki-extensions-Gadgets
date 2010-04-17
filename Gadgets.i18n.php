@@ -1560,7 +1560,7 @@ De flesta funktionerna är baserade på JavaScript, så du måste ha JavaScript 
 Notera att de här tilläggsfunktionerna inte kommer ha någon effekt den här inställningssidan.
 
 Notera också att dessa finesser inte är en del av MediaWiki-programvaran, och är för det mesta utvecklade och underhållna av användare på den här wikin.
-Lokala administratörer kan redigera de tillgängliga funktionerna med hjälp av [[MediaWiki:Gadgets-definition|definitioner]] och [[Special:Gadgets|beskrivningar]].',
+Lokala administratörer kan redigera [[MediaWiki:Gadgets-definition|definitionerna]] och [[Special:Gadgets|beskrivningarna]] av de tillgängliga finesserna.',
 	'gadgets' => 'Finesser',
 	'gadgets-title' => 'Finesser',
 	'gadgets-pagetext' => 'Härunder finns en lista över finesser som användare kan aktivera i sina [[Special:Preferences|inställningar]], definierad av [[MediaWiki:Gadgets-definition|definieringarna]].
