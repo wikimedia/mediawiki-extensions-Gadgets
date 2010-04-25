@@ -987,7 +987,7 @@ $messages['ko'] = array(
 	'gadgets-uses' => '다음 코드를 이용',
 );
 
-/** Ripoarisch (Ripoarisch)
+/** Colognian (Ripoarisch)
  * @author Purodha
  */
 $messages['ksh'] = array(
@@ -1756,7 +1756,7 @@ $messages['vo'] = array(
 	'gadgets-uses' => 'Gebs',
 );
 
-/** Yue (粵語)
+/** Cantonese (粵語)
  * @author Shinjiman
  */
 $messages['yue'] = array(
