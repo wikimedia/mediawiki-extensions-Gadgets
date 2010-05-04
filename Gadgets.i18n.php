@@ -1348,7 +1348,7 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'gadgets-desc' => "Permite aos utilizadores seleccionarem [[Special:Gadgets|''\"gadgets\"'' JavaScript e CSS]] personalizados nas suas [[Special:Preferences|preferências]]",
+	'gadgets-desc' => "Permite que os utilizadores seleccionem [[Special:Gadgets|''\"gadgets\"'' JavaScript e CSS]] personalizados nas suas [[Special:Preferences|preferências]]",
 	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => "Segue-se uma lista de ''\"gadgets\"'' especiais que pode activar na sua conta.
 Estes ''gadgets'' são baseados principalmente em JavaScript, sendo necessário activar o suporte a JavaScript no seu browser para que funcionem.
