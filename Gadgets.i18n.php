@@ -987,6 +987,13 @@ $messages['ko'] = array(
 	'gadgets-uses' => '다음 코드를 이용',
 );
 
+/** Karachay-Balkar (Къарачай-Малкъар)
+ * @author Iltever
+ */
+$messages['krc'] = array(
+	'gadgets' => 'Гаджетле',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
