@@ -1801,6 +1801,7 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
+ * @author Horacewai2
  * @author Mark85296341
  * @author Shinjiman
  */
@@ -1815,6 +1816,7 @@ $messages['zh-hant'] = array(
 	'gadgets' => '小工具',
 	'gadgets-title' => '小工具',
 	'gadgets-pagetext' => '以下是一個按照[[MediaWiki:Gadgets-definition]]的定義特殊小工具清單，用戶可以在它們的參數設置頁面中啟用它們。
+
 這個概覽提供的系統資訊頁面的簡易存取，可以定義每個小工具的描述以及原碼。',
 	'gadgets-uses' => '使用',
 );
