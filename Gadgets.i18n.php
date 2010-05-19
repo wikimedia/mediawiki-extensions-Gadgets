@@ -1394,7 +1394,7 @@ Esta visão geral proporciona um acesso fácil para as mensagens de sistema que 
  * @author KlaudiuMihaila
  */
 $messages['ro'] = array(
-	'gadgets-desc' => 'Permite utilizatorilor să îşi aleagă [[Special:Gadgets|gadgeturi CSS şi JavaScript]] în [[Special:Preferences|preferinţele]] lor',
+	'gadgets-desc' => 'Permite utilizatorilor să își aleagă [[Special:Gadgets|gadgeturi CSS și JavaScript]] în [[Special:Preferences|preferințele]] lor',
 	'prefs-gadgets' => 'Gadgeturi',
 	'gadgets' => 'Gadgeturi',
 	'gadgets-title' => 'Gadgeturi',
@@ -1815,7 +1815,7 @@ $messages['zh-hant'] = array(
 亦都同時留意這些小工具的特殊頁面不是MediaWiki軟件的一部份，通常都是由您本地的wiki中開發以及維護。本地管理員可以在[[MediaWiki:Gadgets-definition]]以及[[Special:Gadgets]]編輯可供使用的小工具。',
 	'gadgets' => '小工具',
 	'gadgets-title' => '小工具',
-	'gadgets-pagetext' => '以下是一個按照[[MediaWiki:Gadgets-definition]]的定義特殊小工具清單，用戶可以在它們的參數設置頁面中啟用它們。
+	'gadgets-pagetext' => '以下是一個按照[[MediaWiki:Gadgets-definition]]的定義特殊小工具清單，用戶可以在它們的[[Special:Preferences|參數設置頁面]]中啟用它們。
 
 這個概覽提供的系統資訊頁面的簡易存取，可以定義每個小工具的描述以及原碼。',
 	'gadgets-uses' => '使用',
