@@ -369,7 +369,7 @@ Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver ga
 $messages['de'] = array(
 	'gadgets-desc' => 'Ermöglicht Benutzern, in ihren [[Special:Preferences|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Helferlein]] zu aktivieren',
 	'prefs-gadgets' => 'Helferlein',
-	'gadgets-prefstext' => 'Liste von speziellen Helferlein die für jeden Benutzer aktiviert werden können.
+	'gadgets-prefstext' => 'Liste von speziellen Helferlein, die für jeden Benutzer aktiviert werden können.
 Die Helferlein basieren zumeist auf JavaScript, daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren.
 Die Helferlein funktionieren allerdings nicht auf dieser Seite mit persönlichen Einstellungen.
 
@@ -900,6 +900,7 @@ Tinjoan iki mènèhi aksès sing gampang menyang kaca-kaca pesen sistem sing nga
  */
 $messages['ka'] = array(
 	'prefs-gadgets' => 'გაჯეტები',
+	'gadgets-title' => 'გაჯეტები',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
