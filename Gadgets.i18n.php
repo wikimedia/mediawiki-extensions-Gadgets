@@ -900,7 +900,9 @@ Tinjoan iki mènèhi aksès sing gampang menyang kaca-kaca pesen sistem sing nga
  */
 $messages['ka'] = array(
 	'prefs-gadgets' => 'გაჯეტები',
+	'gadgets' => 'გაჯეტები',
 	'gadgets-title' => 'გაჯეტები',
+	'gadgets-uses' => 'გამოიყენება',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
