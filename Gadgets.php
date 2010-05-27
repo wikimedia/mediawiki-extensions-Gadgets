@@ -122,6 +122,8 @@ function wfGadgetsGetPreferences( $user, &$preferences ) {
 	$gadgets = wfLoadGadgetsStructured();
 	if (!$gadgets) return true;
 	
+	wfLoadExtensionMessages( 'Gadgets' );
+	
 	$options = array();
 	foreach( $gadgets as $section => $thisSection ) {
 		$section = wfMsgExt( "gadget-section-$section", 'parseinline' );

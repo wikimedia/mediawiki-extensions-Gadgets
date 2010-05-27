@@ -32,6 +32,7 @@ class SpecialGadgets extends SpecialPage {
 	function execute( $par ) {
 		global $wgOut, $wgUser, $wgLang, $wgContLang;
 
+		wfLoadExtensionMessages( 'Gadgets' );
 		$skin = $wgUser->getSkin();
 
 		$this->setHeaders();
