@@ -1488,12 +1488,14 @@ $messages['sah'] = array(
 
 /** Sinhala (සිංහල)
  * @author නන්දිමිතුරු
+ * @author බිඟුවා
  */
 $messages['si'] = array(
 	'gadgets-desc' => 'උපයෝග්‍ය [[Special:Gadgets|CSS හා ජාවාස්ක්‍රිප්ට් මෙවලම්]] ඔවුන්ගේ [[Special:Preferences|අභිරුචීන්හිදී]] තෝරාගැනුමට පරිශීලකයන් හට ඉඩ සලසයි',
 	'prefs-gadgets' => 'මෙවලම්',
 	'gadgets' => 'මෙවලම්',
 	'gadgets-title' => 'මෙවලම්',
+	'gadgets-uses' => 'පරිශීලනය කරයි',
 );
 
 /** Slovak (Slovenčina)
