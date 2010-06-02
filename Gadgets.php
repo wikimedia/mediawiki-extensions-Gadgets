@@ -36,7 +36,7 @@ $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';
 
-function wfGadgetsArticleSaveComplete( &$article, &$user, $text ) {
+function wfGadgetsArticleSaveComplete( $article, $user, $text ) {
 	//update cache if MediaWiki:Gadgets-definition was edited
 	$title = $article->mTitle;
 	if( $title->getNamespace() == NS_MEDIAWIKI && $title->getText() == 'Gadgets-definition' ) {
@@ -157,7 +157,7 @@ function wfGadgetsGetPreferences( $user, &$preferences ) {
 	return true;
 }
 
-function wfGadgetsBeforePageDisplay( &$out ) {
+function wfGadgetsBeforePageDisplay( $out ) {
 	global $wgUser;
 	if ( !$wgUser->isLoggedIn() ) return true;
 
@@ -188,7 +188,7 @@ function wfGadgetsBeforePageDisplay( &$out ) {
 	return true;
 }
 
-function wfApplyGadgetCode( $code, &$out, &$done ) {
+function wfApplyGadgetCode( $code, $out, &$done ) {
 	global $wgJsMimeType;
 
 	//FIXME: stuff added via $out->addScript appears below usercss and userjs in the head tag.
