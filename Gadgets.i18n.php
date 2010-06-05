@@ -315,8 +315,16 @@ Aquesta llista permet un fàcil accés a les pàgines del sistema que defineixen
  */
 $messages['ce'] = array(
 	'prefs-gadgets' => 'Хlоттончаш',
+	'gadgets-prefstext' => 'Лаххьа балийна леррина хlоттончаш могlам, шуьга шайга латалур йолуш хьай долахь долучу дакъан.
+Хlара хlоттончаш дукхачу хьоляхь болх беш ю оцу JavaScript тlяхь, цундела аша латоеза JavaScript шай дуьнена машан гlирса чохь, цаьрга болх байта.
+Диц маделаш, хlара хlоттончаш болх бяш яз хlо гlирс нисбо агlон чохь.
+
+Ишта диц маде, хlара хlоттончаш юкъа йогуш яз кху MediaWiki гlирсашна, мадарра аьльча шу санна декъашхоша шаьш йеш ю.
+Адманкуьйгалхошка шайг хийцало и хlоттончи могlам, хlокх могlам гlонца [[MediaWiki:Gadgets-definition|къастам бало]] йа [[Special:Gadgets|церах лаьцна]].',
 	'gadgets' => 'Хlоттончаш',
 	'gadgets-title' => 'Хlоттончаш',
+	'gadgets-pagetext' => 'Гlирса хааман могlамаш, къастош йолу хlоттончи цlераш, хуьлаш йолу кху [[MediaWiki:Gadgets-definition]].',
+	'gadgets-uses' => 'Лелош йу',
 );
 
 /** Sorani (Arabic script) (‫کوردی (عەرەبی)‬)
