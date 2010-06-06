@@ -2,7 +2,8 @@
 /**
  * Aliases for Special:Gadgets
  *
- * @addtogroup Extensions
+ * @file
+ * @ingroup Extensions
  */
 
 $aliases = array();
