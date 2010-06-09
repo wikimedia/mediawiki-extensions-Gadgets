@@ -99,18 +99,18 @@ $messages['am'] = array(
  * @author Juanpabl
  */
 $messages['an'] = array(
-	'gadgets-desc' => 'Deixa que os usuario selezionen os [[Special:Gadgets|gadgets de CSS y JavaScript]] que quieran en as suyas [[Special:Preferences|preferenzias]]',
+	'gadgets-desc' => 'Deixa que os usuario seleccionen os [[Special:Gadgets|gadgets de CSS y JavaScript]] que quieran en as suyas [[Special:Preferences|preferencias]]',
 	'prefs-gadgets' => 'Trastes',
-	'gadgets-prefstext' => "Contino ye una lista de trastes espezials que puede fer serbir en a suya cuenta.
-Como cuasi toz istos trastes son feitos en JavaScript, caldrá que tienga autibato JavaScript en o suyo nabegador ta que baigan bien. Pare cuenta que istos trastes no tendrán garra efeuto en ista pachina de preferenzias.
+	'gadgets-prefstext' => "Contino ye una lista de trastes especials que puede fer servir en a suya cuenta.
+Como quasi totz istos trastes son feitos en JavaScript, caldrá que tienga activato JavaScript en o suyo navegador ta que vaigan bien. Pare cuenta que istos trastes no tendrán garra efeuto en ista pachina de preferencias.
 
-Pare cuenta tamién que istos trastes espezials no fan parte d'o software MediaWiki, y que gosan estar desembolicatos y mantenitos por usuarios d'a suya wiki local. 
-Os almenistradors locals pueden editar os trastes disponibles en as pachinas de [[MediaWiki:Gadgets-definition|definizions]] y de [[Special:Gadgets|descripzions]].",
+Pare cuenta tamién que istos trastes especials no fan parte d'o software MediaWiki, y que gosan estar desenvolicatos y mantenitos por usuarios d'a suya wiki local. 
+Os almenistradors locals pueden editar os trastes disponibles en as pachinas de [[MediaWiki:Gadgets-definition|definicions]] y de [[Special:Gadgets|descripcions]].",
 	'gadgets' => 'Trastes',
 	'gadgets-title' => 'Trastes',
-	'gadgets-pagetext' => "Contino ye una lista de trastes espezials que os usuarios pueden autibar en a suya [[Special:Preferences|pachina de preferenzias]], como se define en a pachina de [[MediaWiki:Gadgets-definition|definizions]].
-Ista lista premite ir fazilment t'as pachinas de mensaches d'o sistema que definen a descripzión y o codigo de cada traste.",
-	'gadgets-uses' => 'Fa serbir',
+	'gadgets-pagetext' => "Contino ye una lista de trastes especials que os usuarios pueden activar en a suya [[Special:Preferences|pachina de preferencias]], como se define en a pachina de [[MediaWiki:Gadgets-definition|definicions]].
+Ista lista premite ir facilment t'as pachinas de mensaches d'o sistema que definen a descripción y o codigo de cada traste.",
+	'gadgets-uses' => 'Fa servir',
 );
 
 /** Arabic (العربية)
