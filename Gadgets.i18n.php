@@ -525,6 +525,7 @@ Kohalikud ülemad saavad olemasolevaid riistu muuta [[MediaWiki:Gadgets-definiti
  * @author Unai Fdz. de Betoño
  */
 $messages['eu'] = array(
+	'gadgets-desc' => 'Lankideek [[Special:Gadgets|CSS eta JavaScript gadgetak]] aukeratu ditzazkete beraien [[Special:Preferences|hobespenetan]]',
 	'prefs-gadgets' => 'Gadgetak',
 	'gadgets-prefstext' => 'Zure kontuan erabili ditzakezun gadgeten zerrenda bat agertzen da behean.
 JavaScript-en oinarritzen dira gehienbat gadget hauek; beraz, funtzionatzeko zure nabigatzailean JavaScript gaituta egon behar da.
