@@ -1478,6 +1478,13 @@ $messages['ru'] = array(
 	'gadgets-uses' => 'Использует',
 );
 
+/** Rusyn (русиньскый язык)
+ * @author Gazeb
+ */
+$messages['rue'] = array(
+	'gadgets-uses' => 'Хоснує',
+);
+
 /** Yakut (Саха тыла)
  * @author HalanTul
  */
