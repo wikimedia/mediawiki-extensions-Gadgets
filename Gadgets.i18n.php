@@ -1426,6 +1426,7 @@ Esta visão geral proporciona um acesso fácil para as mensagens de sistema que 
 );
 
 /** Romanian (Română)
+ * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
  */
@@ -1434,7 +1435,7 @@ $messages['ro'] = array(
 	'prefs-gadgets' => 'Gadgeturi',
 	'gadgets' => 'Gadgeturi',
 	'gadgets-title' => 'Gadgeturi',
-	'gadgets-uses' => 'Utilizează',
+	'gadgets-uses' => 'Utilizări',
 );
 
 /** Tarandíne (Tarandíne)
