@@ -38,7 +38,7 @@ class SpecialGadgets extends SpecialPage {
 
 		$this->setHeaders();
 		$wgOut->setPagetitle( wfMsg( "gadgets-title" ) );
-		$wgOut->addWikiText( wfMsg( "gadgets-pagetext" ) );
+		$wgOut->addWikiMsg( 'gadgets-pagetext' );
 
 		$gadgets = wfLoadGadgetsStructured();
 		if ( !$gadgets ) return;
