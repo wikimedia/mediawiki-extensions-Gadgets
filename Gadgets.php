@@ -176,40 +176,48 @@ function wfGadgetsBeforePageDisplay( $out ) {
 	$gadgets = wfLoadGadgets();
 	if ( !$gadgets ) return true;
 
-	$done = array();
+	$lb = new LinkBatch();
+	$lb->setCaller( __METHOD__ );
+	$pages = array();
 
-	foreach ( $gadgets as $gname => $code ) {
+	foreach ( $gadgets as $gname => $id ) {
 		$tname = "gadget-$gname";
 		if ( $wgUser->getOption( $tname ) ) {
-			wfApplyGadgetCode( $code, $out, $done );
+			foreach ( $id as $page ) {
+				$lb->add( NS_MEDIAWIKI, "Gadget-$page" );
+				$pages[] = $page;
+			}
 		}
+	}
+
+	$lb->execute( __METHOD__ );
+
+	$done = array();
+	foreach ( $pages as $page ) {
+		if ( isset( $done[$page] ) ) continue;
+		$done[$page] = true;
+		wfApplyGadgetCode( $page, $out );
 	}
 
 	return true;
 }
 
-function wfApplyGadgetCode( $code, $out, &$done ) {
+function wfApplyGadgetCode( $page, $out ) {
 	global $wgJsMimeType;
 
 	//FIXME: stuff added via $out->addScript appears below usercss and userjs in the head tag.
 	//       but we'd want it to appear above explicit user stuff, so it can be overwritten.
-	foreach ( $code as $codePage ) {
-		//include only once
-		if ( isset( $done[$codePage] ) ) continue;
-		$done[$codePage] = true;
 
-		$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$codePage" );
-		if ( !$t ) continue;
+	$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$page" );
+	if ( !$t ) continue;
 
-		if ( preg_match( '/\.js/', $codePage ) ) {
-			$u = $t->getLocalURL( 'action=raw&ctype=' . $wgJsMimeType . '&' . $t->getLatestRevID() );
-			//switched to addScriptFile call to support scriptLoader
-			$out->addScriptFile( $u );
-		}
-		else if ( preg_match( '/\.css/', $codePage ) ) {
-			$u = $t->getLocalURL( 'action=raw&ctype=text/css&' . $t->getLatestRevID() );
-			$out->addScript( Html::linkedStyle( $u ) );
-		}
+	if ( preg_match( '/\.js/', $page ) ) {
+		$u = $t->getLocalURL( 'action=raw&ctype=' . $wgJsMimeType );
+		//switched to addScriptFile call to support scriptLoader
+		$out->addScriptFile( $u, $t->getLatestRevID() );
+	} elseif ( preg_match( '/\.css/', $page ) ) {
+		$u = $t->getLocalURL( 'action=raw&ctype=text/css&' . $t->getLatestRevID() );
+		$out->addScript( Html::linkedStyle( $u ) );
 	}
 }
 
