@@ -1074,7 +1074,7 @@ Dës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all G
  * @author Tibor
  */
 $messages['li'] = array(
-	'gadgets-desc' => 'Laat gebroekers [[special:Gadgets|CSS en JavaScripts]] activere in hun [[Special:Preferences|veurkeure]]',
+	'gadgets-desc' => 'Laot gebroekers [[Special:Gadgets|CSS en JavaScripts]] activere in häör  [[Special:Preferences|veurkeure]]',
 	'prefs-gadgets' => 'Biedènger',
 	'gadgets-prefstext' => 'Hiejónger sjtaon de sjpeciaal oetbreijinge dies te veur dien gebroekersaccount kèns insjakele.
 De oetbreijinge zeen veurnamelik gebaseerd op JavaScript, dus JavaScript mót veur diene browser ingesjakeld zeen óm die te laote wirke.
