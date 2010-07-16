@@ -315,6 +315,7 @@ Aquesta llista permet un fàcil accés a les pàgines del sistema que defineixen
  * @author Sasan700
  */
 $messages['ce'] = array(
+	'gadgets-desc' => 'Атто бо декъашхошна харжам ба [[Special:Preferences|гIирс нисбарца]] CSS- а JavaScript-хIоттончаш, лато лууш йерш',
 	'prefs-gadgets' => 'Хlоттончаш',
 	'gadgets-prefstext' => 'Лаххьа балийна леррина хlоттончаш могlам, шуьга шайга латалур йолуш хьай долахь долучу дакъан.
 Хlара хlоттончаш дукхачу хьоляхь болх беш ю оцу JavaScript тlяхь, цундела аша латоеза JavaScript шай дуьнена машан гlирса чохь, цаьрга болх байта.
@@ -324,7 +325,8 @@ $messages['ce'] = array(
 Адманкуьйгалхошка шайг хийцало и хlоттончи могlам, хlокх могlам гlонца [[MediaWiki:Gadgets-definition|къастам бало]] йа [[Special:Gadgets|церах лаьцна]].',
 	'gadgets' => 'Хlоттончаш',
 	'gadgets-title' => 'Хlоттончаш',
-	'gadgets-pagetext' => 'Гlирса хааман могlамаш, къастош йолу хlоттончи цlераш, хуьлаш йолу кху [[MediaWiki:Gadgets-definition]].',
+	'gadgets-pagetext' => 'Гlирса хааман могlамаш, къастош йолу хlоттончи цlераш, хуьлаш йолу хIокху [[MediaWiki:Gadgets-definition|къастамца]]]].
+ХIокху могIамо атто бо гIирсан хаамаш атта тIе кхочуш барца, цуьнах лаьцна хIоттош а йолш йолучу хIоттончи ишарца.',
 	'gadgets-uses' => 'Лелош йу',
 );
 
