@@ -333,7 +333,7 @@ $messages['ce'] = array(
 /** Sorani (Arabic script) (‫کوردی (عەرەبی)‬)
  * @author Asoxor
  */
-$messages['ckb-arab'] = array(
+$messages['ckb'] = array(
 	'prefs-gadgets' => 'ئامرازەکان',
 	'gadgets' => 'ئامرازەکان',
 	'gadgets-title' => 'ئامرازەکان',
