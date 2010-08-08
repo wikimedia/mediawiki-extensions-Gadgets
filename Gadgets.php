@@ -36,9 +36,6 @@ $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';
 
-// to restrict bots and spiders from pegging the server, disable this right for anons
-$wgGroupPermissions['*']['exportgadgets'] = true;
-
 function wfGadgetsArticleSaveComplete( $article, $user, $text ) {
 	//update cache if MediaWiki:Gadgets-definition was edited
 	$title = $article->mTitle;

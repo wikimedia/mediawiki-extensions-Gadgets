@@ -65,7 +65,6 @@ class SpecialGadgets extends SpecialPage {
 
 		$msgOpt = array( 'parseinline', 'parsemag' );
 		$editInterfaceAllowed = $wgUser->isAllowed( 'editinterface' );
-		$exportAllowed = $wgUser->isAllowed( 'exportgadgets' );
 			
 		foreach ( $gadgets as $section => $entries ) {
 			if ( $section !== false && $section !== '' ) {
@@ -95,11 +94,9 @@ class SpecialGadgets extends SpecialPage {
 				if ( $editInterfaceAllowed ) {
 					$links[] = $skin->link( $t, wfMsgHTML( 'edit' ), array(), array( 'action' => 'edit' ) );
 				}
-				if ( $exportAllowed ) {
-					$links[] = $skin->link( $this->getTitle(), wfMsgHtml( 'gadgets-export' ), 
-						array(), array( 'export' => $gname )
-					);
-				}
+				$links[] = $skin->link( $this->getTitle(), wfMsgHtml( 'gadgets-export' ), 
+					array(), array( 'export' => $gname )
+				);
 				
 				$ttext = wfMsgExt( "gadget-$gname", $msgOpt );
 
@@ -107,11 +104,7 @@ class SpecialGadgets extends SpecialPage {
 					$listOpen = true;
 					$wgOut->addHTML( Xml::openElement( 'ul' ) );
 				}
-				if ( !empty( $links ) ) {
-					$lnk = '&#160;&#160;' . wfMsg( 'parentheses', $wgLang->pipeList( $links ) );
-				} else {
-					$lnk = '';
-				}
+				$lnk = '&#160;&#160;' . wfMsg( 'parentheses', $wgLang->pipeList( $links ) );
 				$wgOut->addHTML( Xml::openElement( 'li' ) .
 						$ttext . $lnk . "<br />" .
 						wfMsgHTML( 'gadgets-uses' ) . wfMsg( 'colon-separator' )
@@ -140,11 +133,6 @@ class SpecialGadgets extends SpecialPage {
 	 */
 	public function showExportForm( $gadget ) {
 		global $wgOut, $wgRequest, $wgUser, $wgScript;
-
-		if ( !$wgUser->isAllowed( 'exportgadgets' ) ) {
-			$wgOut->permissionRequired( 'exportgadgets' );
-			return;
-		}
 
 		$gadgets = wfLoadGadgets();
 		if ( !isset( $gadgets[$gadget] ) ) {
