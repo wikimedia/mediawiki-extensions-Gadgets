@@ -33,6 +33,14 @@ Local administrators can edit the [[MediaWiki:Gadgets-definition|definitions]] a
 	'gadgets-pagetext'  => "Below is a list of special gadgets users can enable on their [[Special:Preferences|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].
 This overview provides easy access to the system message pages that define each gadget's description and code.",
 	'gadgets-uses'      => 'Uses',
+	'gadgets-export'    => 'Export',
+	'gadgets-export-title' => 'Gadget export',
+	'gadgets-not-found' => 'Gadget "$1" not found.',
+	'gadgets-export-text' => 'To export the $1 gadget, click on "{{int:gadgets-export-download}}" button, save the downloaded file,
+go to Special:Import on destination wiki and upload it. Then add the following to MediaWiki:Gadgets-definition page:
+<pre>$2</pre>
+You must have appropriate permissions on destination wiki (including the right to edit system messages) and import from file uploads must be enabled.',
+	'gadgets-export-download' => 'Download',
 );
 
 /** Message documentation (Message documentation)
@@ -52,6 +60,7 @@ $messages['qqq'] = array(
 	'gadgets-uses' => "This is used as a verb in third-person singular. It appears in front of a script name. Example: \"''Uses: Gadget-UTCLiveClock.js''\"
 
 See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimedia.org]",
+	'gadgets-export'    => 'This is a verb, not noun',
 );
 
 /** Afrikaans (Afrikaans)
