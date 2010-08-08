@@ -45,6 +45,7 @@ You must have appropriate permissions on destination wiki (including the right t
 
 /** Message documentation (Message documentation)
  * @author Jon Harald Søby
+ * @author Kghbln
  * @author Purodha
  * @author SPQRobin
  * @author Siebrand
@@ -60,7 +61,8 @@ $messages['qqq'] = array(
 	'gadgets-uses' => "This is used as a verb in third-person singular. It appears in front of a script name. Example: \"''Uses: Gadget-UTCLiveClock.js''\"
 
 See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimedia.org]",
-	'gadgets-export'    => 'This is a verb, not noun',
+	'gadgets-export' => 'This is a verb, not noun',
+	'gadgets-export-download' => 'Use the verb for this message',
 );
 
 /** Afrikaans (Afrikaans)
@@ -390,6 +392,7 @@ Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver ga
 
 /** German (Deutsch)
  * @author Daniel Kinzler, brightbyte.de
+ * @author Kghbln
  * @author Metalhead64
  * @author Raimond Spekking
  * @author The Evil IP address
@@ -406,9 +409,16 @@ Außerdem ist zu beachten, dass diese Helferlein im Allgemeinen nicht Teil von M
 Benutzern des lokalen Wikis entwickelt und gewartet werden. Lokale Administratoren können die verfügbaren Helferlein bearbeiten. Dafür stehen die [[MediaWiki:Gadgets-definition|Definitionen]] und [[Special:Gadgets|Beschreibungen]] zur Verfügung.',
 	'gadgets' => 'Helferlein',
 	'gadgets-title' => 'Helferlein',
-	'gadgets-pagetext' => 'Liste von speziellen Helferlein, die für jeden Benutzer in seinen [[Special:Preferences|persönlichen Einstellungen]] verfügbar sind, wie [[MediaWiki:Gadgets-definition|definiert]].
-Diese Übersicht bietet direkten Zugang zu den Systemnachrichten, die die Beschreibung sowie den Programmcode jedes Helferlein enthalten.',
+	'gadgets-pagetext' => 'Liste besonderer Helferlein, die für jeden Benutzer in seinen [[Special:Preferences|persönlichen Einstellungen]], wie in [[MediaWiki:Gadgets-definition|definiert]], verfügbar sind.
+Diese Übersicht bietet direkten Zugang zu den MediaWiki-Systemnachrichten, welche die Beschreibung sowie den Programmcode jedes Helferlein enthalten.',
 	'gadgets-uses' => 'Benutzt',
+	'gadgets-export' => 'Export',
+	'gadgets-export-title' => 'Export der Helferlein',
+	'gadgets-not-found' => 'Helferlein „$1“ wurde nicht gefunden.',
+	'gadgets-export-text' => 'Um das Helferlein $1 zu exportieren, klicke auf die Schaltfläche „{{int:gadgets-export-download}}“ und speichere die heruntergeladene Datei. Gehe sodann zur Spezialseite Spezial:Import auf dem für den Import vorgesehenen Wiki und lade die Datei hoch. Danach füge den folgenden Text der Seite MediaWiki:Gadgets-definition hinzu:
+<pre>$2</pre>
+Du musst über die notwendigen Berechtigungen auf dem für den Import vorgesehenen Wiki verfügen (einschließlich der Berechtigung MediaWiki-Systemnachrichten zu bearbeiten). Zudem muss der Import von Datei-Uploads aktiviert sein.',
+	'gadgets-export-download' => 'Herunterladen',
 );
 
 /** Zazaki (Zazaki)
@@ -447,6 +457,13 @@ Lokalne administratory mógu k dispoziciji stojece gadgety z pomocu [[MediaWiki:
 	'gadgets-pagetext' => 'Dołojce jo lisćina specialnych gadgetow, kótarež wužywarje mógu w [[Special:Preferences|swójich nastajenjach]] zmóžniś, kaž w [[MediaWiki:Gadgets-definition]] definiěrowane.
 Toś ten pśeglěd bitujo lažki pśistup k bokam systemowych powěsćow, kótarež wopisanje a kod gadgeta definěruju.',
 	'gadgets-uses' => 'Wužywa',
+	'gadgets-export' => 'Eksportěrowaś',
+	'gadgets-export-title' => 'Eksport specialneje funkcije',
+	'gadgets-not-found' => 'Specialna funkcija "$1" njejo se namakała.',
+	'gadgets-export-text' => 'Aby specialnu funkciju $1 eksportěrował, klikni na tłocašk "{{int:gadgets-export-download}}", składuj ześěgnjonu dataju, źi do Special:Import w celowem wikiju a nagraj ju. Pśidaj pótom slědujuce k bokoju MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Musyš trěbne pšawa na celowem wikiju měś (inkluziwnje pšawo za wobźěłowanje systemowych powěźeńkow) a import datajowych nagraśow musy znjemóžnjony byś.',
+	'gadgets-export-download' => 'Ześěgnuś',
 );
 
 /** Greek (Ελληνικά)
@@ -780,6 +797,13 @@ Nimo toho wobkedźbuj, zo tute specialne funkcije dźěl softwary MediaWiki njej
 	'gadgets-pagetext' => 'Deleka je lisćina specialnych funkcijow, kotrež wužiwarjo móža na swojej [[Special:Preferences|stronje nastajenjow]] zmóžnić, kaž přez [[MediaWiki:Gadgets-definition|definicije]] definowane.
 Tutón přehlad skići lochki přistup k systemowym zdźělenkam, kotrež wopisanje a kod kóždeje specialneje funkcije definuja.',
 	'gadgets-uses' => 'Wužiwa',
+	'gadgets-export' => 'Eksportować',
+	'gadgets-export-title' => 'Specialnu funkciju eksportować',
+	'gadgets-not-found' => 'Specialna funkcija "$1" njeje so namakała.',
+	'gadgets-export-text' => 'Zo by specialnu funkciju $1 eksportował, klikń na tłóčatko "{{int:gadgets-export-download}}", składuj sćehnjenu dataju, dźi do Special:Import w cilowym wikiju a nahraj ju. Přidaj potom slědowace k MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Dyrbiš trěbne prawa na cilowym wikiju měć (inkluziwnje prawo systemowe powěsće wobdźěłać) a a import datajowych nahraćow dyrbi zmóžnjeny być.',
+	'gadgets-export-download' => 'Sćahnyć',
 );
 
 /** Hungarian (Magyar)
@@ -1415,6 +1439,14 @@ Administradores locais podem editar os ''gadgets'' disponíveis usando as [[Medi
 	'gadgets-pagetext' => "Segue-se uma lista de ''\"gadgets\"'' que podem ser activados pelos utilizadores nas suas [[Special:Preferences|preferências]], como estabelecido pelas [[MediaWiki:Gadgets-definition|definições]].
 Este resumo proporciona acesso fácil às páginas das mensagens de sistema que definem a descrição e o código de cada ''gadget''.",
 	'gadgets-uses' => 'Utiliza',
+	'gadgets-export' => 'Exportar',
+	'gadgets-export-title' => 'Exportação de gadget',
+	'gadgets-not-found' => 'O gadget "$1" não foi encontrado.',
+	'gadgets-export-text' => 'Para exportar o gadget $1, clique o botão "{{int:gadgets-export-download}}", grave o ficheiro transferido,
+vá à página Special:Import na wiki de destino e faça o upload do ficheiro. Depois adicione o seguinte à página MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Na wiki de destino, tem de ter as permissões necessárias (incluindo o privilégio de editar mensagens de sistema) e têm de ser permitidas importações por upload de ficheiros.',
+	'gadgets-export-download' => 'Download',
 );
 
 /** Brazilian Portuguese (Português do Brasil)
@@ -1470,6 +1502,7 @@ Stu riepileghe prevede 'nu facile facile accesse a le pàggene de le messagge d'
 
 /** Russian (Русский)
  * @author Ahonc
+ * @author Eleferen
  * @author Illusion
  * @author VasilievVV
  * @author Александр Сигачёв
@@ -1488,6 +1521,10 @@ $messages['ru'] = array(
 	'gadgets-pagetext' => 'Ниже приведён список гаджетов, которые участники могут включить на своей странице настроек, в соответствии со списком на странице [[MediaWiki:Gadgets-definition|определений]].
 Этот список позволяет легко получить доступ к страницам системных сообщений, определяющих описания и исходные коды гаджетов.',
 	'gadgets-uses' => 'Использует',
+	'gadgets-export' => 'Экспортировать',
+	'gadgets-export-title' => 'Гаджет экспорта',
+	'gadgets-not-found' => 'Гаджет "$1" не найден.',
+	'gadgets-export-download' => 'Загрузить',
 );
 
 /** Rusyn (русиньскый язык)
