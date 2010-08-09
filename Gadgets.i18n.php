@@ -505,9 +505,12 @@ Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per [[MediaWiki
 	'gadgets-pagetext' => 'Jen listo da specialaj aldonaĵoj kiujn uzuloj povas aktivigi en [[Special:Preferences|siaj preferoj]], kiel difinite en [[MediaWiki:Gadgets-definition|difinoj]]. 
 Ĉi tiu superrigardo provizas facilan aliron al la sistemaj mesaĝoj kiuj difinas la priskribon kaj la kodon de ĉiuj aldonaĵoj.',
 	'gadgets-uses' => 'uzas',
+	'gadgets-export' => 'Eksporti',
+	'gadgets-export-download' => 'Elŝuti',
 );
 
 /** Spanish (Español)
+ * @author Crazymadlover
  * @author Muro de Aguas
  * @author Remember the dot
  * @author Sanbec
@@ -526,6 +529,14 @@ Los administradores pueden editar los artilugios que están disponibles en las p
 	'gadgets-title' => 'Artilugios',
 	'gadgets-pagetext' => 'Debajo hay una lista de artilugios especiales que los usuarios pueden activar en sus [[Special:Preferences|preferencias]], según la [[MediaWiki:Gadgets-definition|lista de definición de artilugios]]. Esta vista provee un acceso fácil a la páginas de mensajes del sistema que definen la descripción y el código de cada artilugio.',
 	'gadgets-uses' => 'Usos',
+	'gadgets-export' => 'Exportar',
+	'gadgets-export-title' => 'Exportación de gadget',
+	'gadgets-not-found' => 'Gadget "$1" no encontrado.',
+	'gadgets-export-text' => 'Para exportar el gadget $1, haz click en el botón "{{int:gadgets-export-download}}", graba el archivo descargado,
+ve a Special:Importar un wiki de destino y subirlo. Luego agrega lo siguiente a MediaWiki:Gadgets-definition page:
+<pre>$2</pre>
+Debes tener permisos apropiados en el wiki de destino (incluyendo el derecho a editar mensajes de sistema) e importación desde archivos subidos debe estar habilitado.',
+	'gadgets-export-download' => 'Descargar',
 );
 
 /** Estonian (Eesti)
@@ -617,6 +628,7 @@ Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät 
  * @author Grondin
  * @author IAlex
  * @author Meno25
+ * @author Peter17
  * @author PieRRoMaN
  * @author Sherbrooke
  * @author Urhixidur
@@ -636,6 +648,13 @@ Les administrateurs locaux peuvent modifier les gadgets disponibles en utilisant
 	'gadgets-pagetext' => "Voici une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences|page de préférences]], tel que défini dans les [[MediaWiki:Gadgets-definition|définitions]].
 Cette vue d'ensemble donne un accès rapide aux pages de messages système qui définissent la description et le code de chaque gadget.",
 	'gadgets-uses' => 'Utilise',
+	'gadgets-export' => 'Export',
+	'gadgets-export-title' => 'Export de gadget',
+	'gadgets-not-found' => 'Gadget « $1 » non trouvé.',
+	'gadgets-export-text' => 'Pour exporter le gadget $1, cliquer sur le bouton « {{int:gadgets-export-download}} », enregistrer le fichier téléchargé puis aller sur la page Special:Import du wiki de destination et l’importer. Ajouter ensuite le texte suivant dans la page MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Il est nécessaire de disposer des droits correspondants sur le wiki de destination (y compris celui de modifier les messages système) et l’import depuis des fichiers doit être activé.',
+	'gadgets-export-download' => 'Télécharger',
 );
 
 /** Franco-Provençal (Arpetan)
@@ -843,6 +862,14 @@ Le administratores local pote modificar le gadgets disponibile per medio de [[Me
 	'gadgets-pagetext' => 'Infra es un lista de gadgets special que le usatores pote activar in lor [[Special:Preferences|paginas de preferentias]], secundo le [[MediaWiki:Gadgets-definition|definitiones]].
 Iste supervista permitte le accesso commode al paginas de messages de systema que defini le description e codice de cata gadget.',
 	'gadgets-uses' => 'Usa',
+	'gadgets-export' => 'Exportar',
+	'gadgets-export-title' => 'Exportation de gadget',
+	'gadgets-not-found' => 'Gadget "$1" non trovate.',
+	'gadgets-export-text' => 'Pro exportar le gadget $1, clicca super le button "{{int:gadgets-export-download}}", salveguarda le file discargate,
+va a Special:Import in le wiki de destination e incarga lo. Postea adde lo sequente al pagina MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Tu debe haber le permissiones appropriate in le wiki de destination (includente le derecto de modificar le messages de systema) e le importation ex files incargate debe esser activate.',
+	'gadgets-export-download' => 'Discargar',
 );
 
 /** Indonesian (Bahasa Indonesia)
@@ -1101,6 +1128,12 @@ Lokal Wiki-Administrateure kënnen d'Lëscht von den disponibele Gadgeten op de 
 	'gadgets-pagetext' => "Ënnendrënner ass eng Lëscht vun de spezielle Gadgeten déi d'Benotzer op hire [[Special:Preferences|Benotzer-Astellungen]] aschalte kënnen, esou wéi dat op [[MediaWiki:Gadgets-definition|definéiert]] ass.
 Dës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all Gadget beschreiwen an zum Programméiercode vun dem Gadget.",
 	'gadgets-uses' => 'Benotzt',
+	'gadgets-export' => 'Export',
+	'gadgets-export-title' => 'Export vu Gadgeten',
+	'gadgets-not-found' => 'Gadget "$1" net fonnt.',
+	'gadgets-export-text' => 'Fir de Gadget $1 z\'exportéieren klickt w.e.g. op de(n) "{{int:gadgets-export-download}}"-Knäppchen, späichert den erofgelueden Fichier, gitt op Spezial:Import op der Zil-Wiki a lued en do erop. Duerno setzt der op d\'MediaWiki:Gadgets-Definitiouns Säit dëst derbäi:<pre>$2</pre>
+Dir musst déi erfuerdert Rechter(inklusiv d\'Recht fir System-Messagen z\'änneren) op der Zil-Wiki hunn an den Import vun eropgelueden Fichiere muss ageschalt sinn.',
+	'gadgets-export-download' => 'Eroflueden',
 );
 
 /** Limburgish (Limburgs)
@@ -1169,6 +1202,14 @@ $messages['mk'] = array(
 	'gadgets-pagetext' => 'Ова е список на специјални алатки кои корисниците можат да ги активираат на нивната [[Special:Preferences|страница за нагодување]], наведени во [[MediaWiki:Gadgets-definition|определувањата]].
 Овој преглед дава лесен пристап до системските пораки кои го определуваат описот и кодот на секоја алатка.',
 	'gadgets-uses' => 'Користи',
+	'gadgets-export' => 'Извези',
+	'gadgets-export-title' => 'Извоз на алатка',
+	'gadgets-not-found' => 'Алатката „$1“ не е пронајдена.',
+	'gadgets-export-text' => 'За да ја извезете алатката $1, кликнете на копчето „{{int:gadgets-export-download}}“, зачувајте ја преземената податотека,
+одете на Special:Import на целното вики и подигнете ја. Потоа на страницата MediaWiki:Gadgets-definition внесете го следново:
+<pre>$2</pre>
+Мора да имате соодветни дозволи на целното вики (вклучувајќи го правото за уредување на системски пораки), и мора да биде овозможен увозот од подигања.',
+	'gadgets-export-download' => 'Преземи',
 );
 
 /** Malayalam (മലയാളം)
@@ -1189,6 +1230,13 @@ $messages['ml'] = array(
 	'gadgets-pagetext' => 'ഉപയോക്താക്കൾക്ക് അവരുടെ [[Special:Preferences|ക്രമീകരണങ്ങൾ താളിൽ]] നിന്നും സജ്ജമാക്കാവുന്ന ഗാഡ്ജറ്റുകളുടെ പട്ടിക [[MediaWiki:Gadgets-definition|അവ നിർവ്വചിക്കപ്പെട്ട പ്രകാരം]] താഴെ കൊടുത്തിരിക്കുന്നു.
 ഓരോ ഗാഡ്ജറ്റിന്റേയും വിവരണവും കോഡും ഉള്ള സന്ദേശ താളുകളിലേക്കു പോകാനുള്ള എളുപ്പവഴി ഈ പട്ടിക നൽകുന്നു.',
 	'gadgets-uses' => 'ഉപയോഗങ്ങൾ',
+	'gadgets-export' => 'കയറ്റുമതി ചെയ്യുക',
+	'gadgets-export-title' => 'ഗാഡ്ജറ്റ് കയറ്റുമതി ചെയ്യുക',
+	'gadgets-not-found' => 'ഗാഡ്ജറ്റ് "$1" കണ്ടെത്താനായില്ല.',
+	'gadgets-export-text' => '$1 എന്ന ഗാഡ്ജറ്റ് കയറ്റുമതി ചെയ്യാൻ, "{{int:gadgets-export-download}}" എന്ന ബട്ടണിൽ ഞെക്കുക, ഡൗൺലോഡ് ചെയ്ത് ലഭിക്കുന്ന പ്രമാണം സേവ് ചെയ്യുക, ലക്ഷ്യവിക്കിയിലെ Special:Import എന്ന താളിൽ ചെന്ന ശേഷം അത് അവിടെ അപ്‌ലോഡ് ചെയ്യുക. താഴെ കൊടുത്തിരിക്കുന്നത് MediaWiki:Gadgets-definition താളിൽ ചേർക്കുക:
+<pre>$2</pre>
+ലക്ഷ്യവിക്കിയിൽ താങ്കൾക്ക് ആവശ്യമായ അനുമതികൾ (വ്യവസ്ഥാസന്ദേശങ്ങൾ തിരുത്താനുള്ള അവകാശമടക്കം) ഉണ്ടായിരിക്കണം ഒപ്പം പ്രമാണ അപ്‌ലോഡ് വഴിയുള്ള ഇറക്കുമതി അവിടെ പ്രവർത്തനസജ്ജമായിരിക്കുകയും വേണം.',
+	'gadgets-export-download' => 'ഡൗൺലോഡ്',
 );
 
 /** Marathi (मराठी)
@@ -1293,6 +1341,16 @@ Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-d
 	'gadgets-pagetext' => 'Hieronder staan de speciale uitbreidingen die gebruikers kunnen inschakelen via hun [[Special:Preferences|voorkeuren]], zoals ingesteld in de [[MediaWiki:Gadgets-definition|definities]].
 Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschrijving en de programmacode van iedere uitbreiding staat.',
 	'gadgets-uses' => 'Gebruikt',
+	'gadgets-export' => 'Exporteren',
+	'gadgets-export-title' => 'Uitbreiding exporteren',
+	'gadgets-not-found' => 'Uitbreiding "$1" niet gevonden.',
+	'gadgets-export-text' => 'Klik op de knop "{{int:gadgets-export-download}}" om de uitbreiding "$1" te exporteren.
+Sla daarna het gedownloade bestand op.
+Ga naar "Special:Import" in de doelwiki en upload het geëxporteerde bestand.
+Voeg daarna het volgende toe aan de pagina "MediaWiki:Gadgets-definition":
+<pre>$2</pre>
+U moet de juiste rechten hebben op de doelwiki, inclusief het recht om bewerkingen te maken aan de systeemberichten, en importeren uit bestanden moet ingeschakeld zijn.',
+	'gadgets-export-download' => 'Downloaden',
 );
 
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
@@ -1391,6 +1449,10 @@ Lokalni administratorzy mogą edytować dostępne gadżety używając stron [[Me
 	'gadgets-pagetext' => 'Poniżej znajduje się lista specjalnych gadżetów, które użytkownicy mogą włączyć na swojej [[Special:Preferences|stronie preferencji]]. Lista ta jest zdefiniowana na stronie [[MediaWiki:Gadgets-definition|definicji]].
 Poniższy przegląd ułatwia dostęp do komunikatów systemu, które definiują opis i kod każdego z gadżetów.',
 	'gadgets-uses' => 'Użycie',
+	'gadgets-export' => 'Eksportuj',
+	'gadgets-export-title' => 'Eksportowanie gadżetów',
+	'gadgets-not-found' => 'Nie odnaleziono gadżetu „$1”.',
+	'gadgets-export-download' => 'Pobierz',
 );
 
 /** Piedmontese (Piemontèis)
@@ -1411,6 +1473,13 @@ J'aministrator locaj a peulo regolé ij component disponibij ën dovrand le pàg
 	'gadgets-pagetext' => "Ambelessì sota a-i é na lista ëd component spessiaj che j'utent a peulo butesse avisch ant ij [[Special:Preferences|sò gust]], conforma a la [[MediaWiki:Gadgets-definition|definission dij component]]. 
 Sta lista complessiva a smon na stra còmoda për rivé a le pàgine ëd messagi ëd sistema ch'a definisso descrission e còdes ëd vira component.",
 	'gadgets-uses' => 'a dòvra',
+	'gadgets-export' => 'Esporté',
+	'gadgets-export-title' => 'Esportassion ëd gadget',
+	'gadgets-not-found' => 'Gadget "$1" pa trovà.',
+	'gadgets-export-text' => 'Për esporté ël gadget $1, sgnaca an sël boton "{{int:gadgets-export-download}}", salva ël file dëscarià, va a Special:Import an sla wiki ëd destinassion  e carijlo. Peui gionta lòn sì sota a la pàgina MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+It deuve avèj ij përmess aproprià an sla wiki ëd destinassion (comprèis ij drit për modifiché ij mëssagi ëd sistem) e it deuve esse abilità a amporté da file upload.',
+	'gadgets-export-download' => 'Dëscaria',
 );
 
 /** Pashto (پښتو)
@@ -1504,6 +1573,7 @@ Stu riepileghe prevede 'nu facile facile accesse a le pàggene de le messagge d'
  * @author Ahonc
  * @author Eleferen
  * @author Illusion
+ * @author MaxSem
  * @author VasilievVV
  * @author Александр Сигачёв
  */
@@ -1522,8 +1592,12 @@ $messages['ru'] = array(
 Этот список позволяет легко получить доступ к страницам системных сообщений, определяющих описания и исходные коды гаджетов.',
 	'gadgets-uses' => 'Использует',
 	'gadgets-export' => 'Экспортировать',
-	'gadgets-export-title' => 'Гаджет экспорта',
-	'gadgets-not-found' => 'Гаджет "$1" не найден.',
+	'gadgets-export-title' => 'Экспорт гаджета',
+	'gadgets-not-found' => 'Гаджет «$1» не найден.',
+	'gadgets-export-text' => 'Для экспорта гаджета $1, нажмите кнопку «{{int:gadgets-export-download}}», сохраните загруженный файл, 
+перейдите на страницу Special:Import целевой вики и загрузите файл. Затем добавьте следующие строки на страницу MediaWiki:Gadgets-definition: 
+<pre>$2</pre>
+Вы должны иметь соответствующие разрешения в целевой вики (в том числе право на редактирование системных сообщений), также на сервере должна быть включена настройка импорта из файлов.',
 	'gadgets-export-download' => 'Загрузить',
 );
 
