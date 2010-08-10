@@ -126,10 +126,15 @@ function wfGadgetsGetPreferences( $user, &$preferences ) {
 	
 	$options = array();
 	foreach( $gadgets as $section => $thisSection ) {
-		$section = wfMsgExt( "gadget-section-$section", 'parseinline' );
-		$options[$section] = array();
+		if ( $section !== '' ) {
+			$section = wfMsgExt( "gadget-section-$section", 'parseinline' );
+			$options[$section] = array();
+			$destination = &$options[$section];
+		} else {
+			$destination = &$options;
+		}
 		foreach( $thisSection as $gname => $code ) {
-			$options[$section][wfMsgExt( "gadget-$gname", 'parseinline' )] = $gname;
+			$destination[wfMsgExt( "gadget-$gname", 'parseinline' )] = $gname;
 		}
 	}
 	
