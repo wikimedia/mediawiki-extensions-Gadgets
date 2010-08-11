@@ -704,6 +704,14 @@ Teña tamén en conta que estes trebellos especiais non son parte do software de
 	'gadgets-pagetext' => 'Embaixo hai unha lista dos trebellos especiais que os usuarios poden habilitar na súa páxina de preferencias, tal e como se describe nas [[MediaWiki:Gadgets-definition|definicións]].
 Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que define cada descrición e código dos trebellos.',
 	'gadgets-uses' => 'Usa',
+	'gadgets-export' => 'Exportar',
+	'gadgets-export-title' => 'Exportación de trebellos',
+	'gadgets-not-found' => 'Non se atopou o trebello "$1".',
+	'gadgets-export-text' => 'Para exportar o trebello $1, prema sobre o botón "{{int:gadgets-export-download}}", garde o ficheiro descargado,
+vaia á páxina especial Special:Import do wiki de destino e cárgueo. A continuación, engada o seguinte texto na páxina MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Debe ter os permisos axeitados no wiki de destino (incluído o dereito de modificar as mensaxes do sistema) e a importación desde a carga de ficheiros debe estar activada.',
+	'gadgets-export-download' => 'Descargar',
 );
 
 /** Ancient Greek (Ἀρχαία ἑλληνικὴ)
@@ -951,6 +959,7 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
  * @author Aotake
  * @author JtFuruhata
  * @author Mzm5zbC3
+ * @author 青子守歌
  */
 $messages['ja'] = array(
 	'gadgets-desc' => '利用者が[[Special:Gadgets|CSSやJavaScriptのカスタムガジェット]]を[[Special:Preferences|{{int:preferences}}]]で選択できるようにする',
@@ -962,6 +971,14 @@ $messages['ja'] = array(
 	'gadgets-title' => 'ガジェット',
 	'gadgets-pagetext' => '以下は、[[MediaWiki:Gadgets-definition]] 上で定義された、利用者が[[Special:Preferences|{{int:preferences}}]]にて利用可能にすることができるガジェットの一覧です。この一覧はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
 	'gadgets-uses' => '利用するファイル',
+	'gadgets-export' => 'エクスポート',
+	'gadgets-export-title' => 'ガジェットのエクスポート',
+	'gadgets-not-found' => 'ガジェット「$1」が見つかりません。',
+	'gadgets-export-text' => '$1ガジェットをエクスポートするには、「{{int:gadgets-export-download}}」ボタンをクリックし、ダウンロードしたファイルを保存し、
+配布先のウィキのSpecial:Importへ行ってアップロードしてください。そして、以下をMediaWiki:Gadgets-definitionページに追加してください：
+<pre>$2</pre>
+エクスポートには、配布先のウィキで適切な許可（システムメッセージの編集権限を含む）が必要で、さらにファイルからのインポートが有効化されている必要があります。',
+	'gadgets-export-download' => 'ダウンロード',
 );
 
 /** Jutish (Jysk)
@@ -1549,6 +1566,7 @@ Na wiki de destino, tem de ter as permissões necessárias (incluindo o privilé
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Eduardo.mps
+ * @author GoEThe
  */
 $messages['pt-br'] = array(
 	'gadgets-desc' => 'Permite aos utilizadores selecionarem [[Special:Gadgets|"gadgets" JavaScript e CSS]] personalizados nas suas [[Special:Preferences|preferências]]',
@@ -1564,6 +1582,10 @@ Administradores locais podem editar os gadgets disponíveis através de [[MediaW
 	'gadgets-pagetext' => 'Segue-se uma lista de "gadgets" que podem ser ativados por utilizadores através de [[Special:Preferences|suas páginas de preferências]], definidos em [[MediaWiki:Gadgets-definition|definições]].
 Esta visão geral proporciona um acesso fácil para as mensagens de sistema que definem as descrições e códigos de cada um dos gadgets.',
 	'gadgets-uses' => 'Utiliza',
+	'gadgets-export' => 'Exportar',
+	'gadgets-export-title' => 'Exportação de gadget',
+	'gadgets-not-found' => '*Gadget "$1" não encontrado.',
+	'gadgets-export-download' => 'Baixar',
 );
 
 /** Romanian (Română)
