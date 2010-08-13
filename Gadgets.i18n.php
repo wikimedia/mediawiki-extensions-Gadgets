@@ -47,6 +47,7 @@ You must have appropriate permissions on destination wiki (including the right t
  * @author EugeneZelenko
  * @author Jon Harald Søby
  * @author Kghbln
+ * @author Mormegil
  * @author Purodha
  * @author SPQRobin
  * @author Siebrand
@@ -62,7 +63,7 @@ $messages['qqq'] = array(
 	'gadgets-uses' => "This is used as a verb in third-person singular. It appears in front of a script name. Example: \"''Uses: Gadget-UTCLiveClock.js''\"
 
 See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimedia.org]",
-	'gadgets-export' => 'This is a verb, not noun
+	'gadgets-export' => 'Used on [[Special:Gadgets]]. This is a verb, not noun.
 {{Identical|Export}}',
 	'gadgets-export-download' => 'Use the verb for this message
 {{Identical|Download}}',
@@ -209,6 +210,7 @@ $messages['bcc'] = array(
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author Cesco
+ * @author EugeneZelenko
  * @author Jim-by
  * @author Red Winged Duck
  * @author Wizardist
@@ -230,6 +232,9 @@ $messages['be-tarask'] = array(
 	'gadgets-export' => 'Экспартаваць',
 	'gadgets-export-title' => 'Экспарт гаджэта',
 	'gadgets-not-found' => 'Гаджэт «$1» ня знойдзены.',
+	'gadgets-export-text' => 'Каб экспартаваць гаджэт $1, націсьніце кнопку «{{int:gadgets-export-download}}», захавайце загружаны файл, зайдзіце на Special:Import у мэтавай вікі і загрузіце файл туды. Затым дадайце наступны зьмест на старонку MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Вы павінны мець адпаведныя правы ў мэтавай вікі (у тым ліку і правы на рэдагаваньне сыстэмных паведамленьняў), а ў вікі мусіць быць уключаная магчымасьць імпарту з файлаў.',
 	'gadgets-export-download' => 'Загрузіць',
 );
 
@@ -352,7 +357,7 @@ $messages['ce'] = array(
 	'gadgets-uses' => 'Лелош йу',
 );
 
-/** Sorani (Arabic script) (‫کوردی (عەرەبی)‬)
+/** Sorani (کوردی)
  * @author Asoxor
  */
 $messages['ckb'] = array(
@@ -380,6 +385,13 @@ Místní správci mohou upravovat [[MediaWiki:Gadgets-definition|definice]] a&nb
 	'gadgets-pagetext' => 'Níže je přehled speciálních udělátek, která si uživatelé mohou zapnout ve svém [[Special:Preferences|nastavení]]. Jejich seznam lze upravovat na stránce [[MediaWiki:Gadgets-definition]].
 Tento přehled poskytuje jednoduchý přístup k&nbsp;systémovým hlášením, která definují zdrojový kód a&nbsp;popis každého udělátka.',
 	'gadgets-uses' => 'používá',
+	'gadgets-export' => 'Exportovat',
+	'gadgets-export-title' => 'Export udělátka',
+	'gadgets-not-found' => 'Udělátko „$1“ nebylo nalezeno.',
+	'gadgets-export-text' => 'Chcete-li exportovat udělátko $1, klikněte na tlačítko „{{int:gadgets-export-download}}“, uložte stažený soubor, na cílové wiki přejděte na stránku Special:Import a soubor načtěte. Poté na tamní stránku MediaWiki:Gadgets-definition přidejte následující:
+<pre>$2</pre>
+Na cílové wiki musíte mít příslušná oprávnění (včetně práva editovat systémová hlášení) a musí tam být povolen import načtením souboru.',
+	'gadgets-export-download' => 'Stáhnout',
 );
 
 /** Danish (Dansk)
@@ -430,6 +442,15 @@ Diese Übersicht bietet direkten Zugang zu den MediaWiki-Systemnachrichten, welc
 <pre>$2</pre>
 Du musst über die notwendigen Berechtigungen auf dem für den Import vorgesehenen Wiki verfügen (einschließlich der Berechtigung MediaWiki-Systemnachrichten zu bearbeiten). Zudem muss der Import von Datei-Uploads aktiviert sein.',
 	'gadgets-export-download' => 'Herunterladen',
+);
+
+/** German (formal address) (Deutsch (Sie-Form))
+ * @author Kghbln
+ */
+$messages['de-formal'] = array(
+	'gadgets-export-text' => 'Um das Helferlein $1 zu exportieren, klicken Sie auf die Schaltfläche „{{int:gadgets-export-download}}“ und speichern Sie die heruntergeladene Datei. Gehen Sie sodann zur Spezialseite Spezial:Import auf dem für den Import vorgesehenen Wiki und laden Sie die Datei hoch. Danach fügen Sie den folgenden Text der Seite MediaWiki:Gadgets-definition hinzu:
+<pre>$2</pre>
+Sie müssen über die notwendigen Berechtigungen auf dem für den Import vorgesehenen Wiki verfügen (einschließlich der Berechtigung MediaWiki-Systemnachrichten zu bearbeiten). Zudem muss der Import von Datei-Uploads aktiviert sein.',
 );
 
 /** Zazaki (Zazaki)
@@ -741,6 +762,13 @@ Benutzer vum lokale Wikis entwicklet un gwartet wäre. Lokali Wiki-Ammanne chenn
 	'gadgets-pagetext' => 'Lischt vu spezielle Gadgets, wu fir jede Benutzer in syyne [[Special:Preferences|persenlige Yystellige]] verfiegbar sin, wie s [[MediaWiki:Gadgets-definition|definiert]] isch.
 Die Ibersicht bietet e direkte Zuegang zue dr Syschtemnochrichte, wu d Bschryybig un dr Programmcode vu jedem Gadget din sin.',
 	'gadgets-uses' => 'Bruucht',
+	'gadgets-export' => 'Exportiere',
+	'gadgets-export-title' => 'Hälferli exportiere',
+	'gadgets-not-found' => 'Hälferli „$1“ isch nit gfunde wore.',
+	'gadgets-export-text' => 'Go s Hälferli $1 exportiere, klick uf d Schaltflechi „{{int:gadgets-export-download}}“ un tue di abeglade Datei spychere. Gang derno uf d Spezialsyte Spezial:Import uf em Wiki, wu fir dr Import vorgsäh isch, un lad d Datei ufe. Derno fieg dää Text in d Syte MediaWiki:Gadgets-definition yy:
+<pre>$2</pre>
+Du muesch iber di notwändige Rächt uf em Wiki verfiege, wu fir dr Import vorgsäh isch (mitsamt em Rächt MediaWiki-Syschtemnochrichte z bearbeite). Derzue mueß dr Import vu Datei-Upload aktiviert syy.',
+	'gadgets-export-download' => 'Abelade',
 );
 
 /** Gujarati (ગુજરાતી)
@@ -1229,6 +1257,19 @@ $messages['lv'] = array(
 	'gadgets-title' => 'Rīki',
 );
 
+/** Malagasy (Malagasy)
+ * @author Jagwar
+ */
+$messages['mg'] = array(
+	'gadgets' => 'Gadget',
+	'gadgets-title' => 'Gadget',
+	'gadgets-uses' => 'Mampiasa',
+	'gadgets-export' => 'Hamoaka',
+	'gadgets-export-title' => 'Famoahana gadget',
+	'gadgets-not-found' => 'Tsy hita ny gadget « $1 ».',
+	'gadgets-export-download' => 'Hampidina',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  * @author Brest
@@ -1417,6 +1458,7 @@ Dette oversynet gjev enkel tilgang til systemmeldingssidene som inneheld skildri
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
+ * @author Nghtwlkr
  */
 $messages['no'] = array(
 	'gadgets-desc' => 'Lar brukere velge egendefinerte [[Special:Gadgets|CSS- og JavaScript-verktøy]] i [[Special:Preferences|innstillingene sine]]',
@@ -1430,6 +1472,8 @@ Merk også at disse verktøyene ikke er del av MediaWiki-programvaren, og vanlig
 	'gadgets-title' => 'Tilleggsfunksjoner',
 	'gadgets-pagetext' => 'Nedenfor er en liste over tilleggsfunksjoner brukere kan slå på i [[Special:Preferences|innstillingene]], som definert på [[MediaWiki:Gadgets-definition]]. Denne oversikten gir lett tilgang til systembeskjedsidene som definerer hvert verktøys beskrivelse og kode.',
 	'gadgets-uses' => 'Bruk',
+	'gadgets-export' => 'Eksporter',
+	'gadgets-export-download' => 'Last ned',
 );
 
 /** Occitan (Occitan)
@@ -1912,6 +1956,7 @@ Bu genel bakış, her gadget'in tanımını ve kodunu belirten sistem mesaj sayf
  * @author AS
  * @author Ahonc
  * @author Prima klasy4na
+ * @author Riwnodennyk
  */
 $messages['uk'] = array(
 	'gadgets-desc' => 'Дозволяє користувачам обирати [[Special:Gadgets|CSS- та JavaScript-додатки]] у своїх [[Special:Preferences|налаштуваннях]]',
@@ -1927,6 +1972,14 @@ $messages['uk'] = array(
 	'gadgets-pagetext' => 'Нижче наведений список додатків, які можна ввімкнути на [[Special:Preferences|сторінці налаштувань]]. Список міститься на [[MediaWiki:Gadgets-definition|сторінці визначень]].
 Цей список дозволяє легко переглядати системні повідомлення, які містять описи і коди додатків.',
 	'gadgets-uses' => 'Використовує',
+	'gadgets-export' => 'Експортувати',
+	'gadgets-export-title' => 'Експортування додатка',
+	'gadgets-not-found' => 'Додаток "$1" не знайдено.',
+	'gadgets-export-text' => 'Аби експортувати додаток $1, натисніть на ґудзик "{{int:gadgets-export-download}}", збережіть завантажений файл,
+перейдіть до Special:Import на потібній віці і відвантажте його там. Тоді додайте наступний текст на сторінку MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Ви повинні мати відповідні права на цільовій віці (зокрема на редагування системних повідомлень), окрім того має бути ввімкнена можливість імпорту з файлу.',
+	'gadgets-export-download' => 'Завантажити',
 );
 
 /** Vèneto (Vèneto)
