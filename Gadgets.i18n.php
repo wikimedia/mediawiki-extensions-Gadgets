@@ -621,7 +621,9 @@ $messages['ext'] = array(
 );
 
 /** Persian (فارسی)
+ * @author Bersam
  * @author Huji
+ * @author Ladsgroup
  * @author Wayiran
  */
 $messages['fa'] = array(
@@ -638,6 +640,9 @@ $messages['fa'] = array(
 	'gadgets-pagetext' => 'در زیر فهرستی از ابزارهای ویژه‌ای که کاربران می‌توانند از طریق [[Special:Preferences|صفحهٔ ترجیحاتشان]] فعال کنند می‌بینید، که مطابق آن چه است که در صفحهٔ [[MediaWiki:Gadgets-definition|تعاریف]] تعریف شده‌است.
 این خلاصه کمک می‌کند که به صفحه‌های پیغام سیستمی که توضیحات و کد هر ابزار را شامل می‌شوند به راحتی دست پیدا کنید.',
 	'gadgets-uses' => 'برنامه',
+	'gadgets-export' => 'صدور',
+	'gadgets-export-title' => 'برون‌ریزی ابزار',
+	'gadgets-not-found' => 'ابزار «$1» یافت نشد.',
 	'gadgets-export-download' => 'بارگیری',
 );
 
