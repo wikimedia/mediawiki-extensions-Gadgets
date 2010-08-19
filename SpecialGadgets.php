@@ -132,7 +132,7 @@ class SpecialGadgets extends SpecialPage {
 	 * @param $gadget String Name of gadget to export
 	 */
 	public function showExportForm( $gadget ) {
-		global $wgOut, $wgRequest, $wgUser, $wgScript;
+		global $wgOut, $wgScript;
 
 		$gadgets = wfLoadGadgets();
 		if ( !isset( $gadgets[$gadget] ) ) {
