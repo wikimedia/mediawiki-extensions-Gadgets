@@ -51,9 +51,10 @@ You must have appropriate permissions on destination wiki (including the right t
  * @author Purodha
  * @author SPQRobin
  * @author Siebrand
+ * @author The Evil IP address
  */
 $messages['qqq'] = array(
-	'gadgets-desc' => 'Short description of the Gadgets extension, shown in [[Special:Version]]. Do not translate or change links.',
+	'gadgets-desc' => '{{desc}}',
 	'prefs-gadgets' => 'In Gadgets extension. The name of a tab in [[Special:Preferences]] where user set their preferences for the extension.
 
 {{Identical|Gadgets}}',
@@ -1126,17 +1127,18 @@ $messages['km'] = array(
 
 /** Korean (한국어)
  * @author Ficell
+ * @author IRTC1015
  * @author Klutzy
  * @author Kwj2772
  */
 $messages['ko'] = array(
 	'gadgets-desc' => '각 사용자가 [[Special:Gadgets|CSS/자바스크립트 소도구]]를 [[Special:Preferences|사용자 환경 설정]]을 통해 사용할 수 있도록 허용',
 	'prefs-gadgets' => '소도구',
-	'gadgets-prefstext' => '소도구 목록입니다.
-대부분의 소도구는 자바스크립트 기반이며, 이러한 기능들은 웹 브라우저에서 자바스크립트를 지원한다면 사용이 가능합니다.
-참고로, 이 소도구 기능들은 이 환경 설정 페이지에는 영향을 주지 않습니다.
+	'gadgets-prefstext' => '아래 목록은 현재 사용 가능한 소도구의 목록입니다.
+대부분의 소도구는 자바스크립트로 동작하며, 웹 브라우저에서 자바스크립트를 사용할 수 있어야 동작합니다.
+소도구는 이 환경 설정 페이지에는 영향을 주지 않습니다.
 
-또한, 이 소도구들은 미디어위키에 있는 기능이 아니며, 각 위키의 사용자가 개발/관리하고 있습니다.
+이 소도구들은 미디어위키의 기능이 아니며, 일반적으로 각 위키의 사용자가 개발·관리하고 있습니다.
 각 위키의 관리자는 [[MediaWiki:Gadgets-definition|소도구 정의 문서]]와 [[Special:Gadgets|소도구 설명 문서]]를 통해 소도구들을 관리할 수 있습니다.',
 	'gadgets' => '소도구 목록',
 	'gadgets-title' => '소도구',
