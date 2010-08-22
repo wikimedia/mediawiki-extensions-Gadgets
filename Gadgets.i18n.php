@@ -282,6 +282,7 @@ $messages['bn'] = array(
 /** Breton (Brezhoneg)
  * @author Fulup
  * @author Gwendal
+ * @author Y-M D
  */
 $messages['br'] = array(
 	'gadgets-desc' => 'Leuskel a ra an implijerien da bersonelaat [[Special:Gadgets|bitrakoù CSS ha JavaScript]] en o [[Special:Preferences|fenndibaboù]]',
@@ -298,6 +299,12 @@ Gallout a ra ar verourien lec'hel degas cheñchamantoù er bitrakoù en ur ober 
 Ar sell hollek-mañ a bourchas ur moned aes d'ar pajennoù kemennadennoù reizhiad a dermen deskrivadur ha kod pep bitrak.",
 	'gadgets-uses' => 'A implij',
 	'gadgets-export' => 'Ezporzh',
+	'gadgets-export-title' => 'Ezporzhiañ bitrakoù',
+	'gadgets-not-found' => 'N\'eo ket bet kavet ar bitrak "$1".',
+	'gadgets-export-text' => 'Evit ezporzhiañ ar bitrak $1, klikañ war ar bouton "{{int:gadgets-export-download}}", enrollañ ar restr pellgarget,
+mont d\'ar bajenn Dibar :Enporzh ar wiki tal hag enporzhiañ. Goude-se ouzhpennañ an destenn da-heul e pajenn MediaWiki:Gadgets-definition :
+<pre>$2</pre>
+Rankout a rit kaout ar gwirioù a zere war ar wiki tal (en o zouez ar gwir da zegas kemmoù er c\'hemennadennoù reizhiad) ha ret eo d\'an enporzhiañ adalek restroù bezañ gweredekaet.',
 	'gadgets-export-download' => 'Pellgargañ',
 );
 
