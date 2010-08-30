@@ -1986,6 +1986,13 @@ Bu genel bakış, her gadget'in tanımını ve kodunu belirten sistem mesaj sayf
 	'gadgets-uses' => 'Kullanıyor',
 );
 
+/** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
+ * @author Ильнар
+ */
+$messages['tt-cyrl'] = array(
+	'gadgets-title' => 'Гаджетлар',
+);
+
 /** Ukrainian (Українська)
  * @author AS
  * @author Ahonc
