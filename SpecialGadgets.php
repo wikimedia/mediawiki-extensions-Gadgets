@@ -23,7 +23,7 @@ class SpecialGadgets extends SpecialPage {
 	 * Constructor
 	 */
 	function __construct() {
-		parent::SpecialPage( 'Gadgets', '', true );
+		parent::__construct( 'Gadgets', '', true );
 	}
 
 	/**
