@@ -1250,6 +1250,8 @@ Lokaal beheerders kónne de besjikbaar oetbreijinge aangaeve in [[MediaWiki:Gadg
 Dit euverzich bi-jtj uch einvoudige toegank toet de systeemtekspazjena wo de besjrieving en de programmacode van edere oetbreijing steit.',
 	'gadgets-uses' => 'Gebroek',
 	'gadgets-export' => 'Veur oet',
+	'gadgets-export-title' => 'Exporteer oetbreijing',
+	'gadgets-not-found' => 'Oetbreiding "$1" neet gevonje.',
 	'gadgets-export-download' => 'Haol óp',
 );
 
