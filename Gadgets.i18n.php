@@ -1668,6 +1668,15 @@ Na wiki de destino, você deve ter as permissões necessárias (incluindo o priv
 	'gadgets-export-download' => 'Baixar',
 );
 
+/** Quechua (Runa Simi)
+ * @author AlimanRuna
+ */
+$messages['qu'] = array(
+	'prefs-gadgets' => 'Yanapaqchakuna',
+	'gadgets' => 'Yanapaqchakuna',
+	'gadgets-title' => 'Yanapaqchakuna',
+);
+
 /** Romanian (Română)
  * @author Cin
  * @author Firilacroco
