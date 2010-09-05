@@ -324,6 +324,14 @@ Administratori mogu mijenjati dostupne gadgetse koristeći [[MediaWiki:Gadgets-d
 	'gadgets-pagetext' => 'Ispod je spisak posebnih dodataka koje korisnici mogu omogućiti na svojim [[Special:Preferences|postavkama]], kako je to definisano u [[MediaWiki:Gadgets-definition|definicijama dodataka]].
 Ovaj pregled daje jednostavan pristup sistemu stranica poruka koje definišu svaki dodatak i njihov opis i kod.',
 	'gadgets-uses' => 'Upotrebe',
+	'gadgets-export' => 'Izvoz',
+	'gadgets-export-title' => 'Izvoz dodatka',
+	'gadgets-not-found' => 'Dodatak "$1" nije pronađen.',
+	'gadgets-export-text' => 'Za izvoz dodatka $1, kliknite na dugme "{{int:gadgets-export-download}}", spremite skinutu datoteku,
+idite na Posebno:Uvoz na odredišnu wiki i postavite je. Zatim dodajte slijedeće na stranicu MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Morate imati odgovarajuća prava na odredišnoj wiki (uključujući pravo da uređujete sistemske poruke) i uvoz iz postavljenih datoteka mora biti omogućen.',
+	'gadgets-export-download' => 'Skidanje',
 );
 
 /** Catalan (Català)
