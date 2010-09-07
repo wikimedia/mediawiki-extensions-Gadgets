@@ -1387,6 +1387,13 @@ Sila ambil perhatian juga bahawa gajet-gajet khas ini bukan sebahagian daripada 
 	'gadgets-title' => 'Gajet',
 	'gadgets-pagetext' => 'Yang berikut ialah senarai gajet khas yang boleh dihidupkan oleh pengguna melalui [[Special:Preferences|laman keutamaan]], sebagai mana yang telah [[MediaWiki:Gadgets-definition|ditakrifkan]]. Laman ini menyediakan capaian mudah kepada laman pesanan sistem yang mentakrifkan setiap kod dan keterangan gajet.',
 	'gadgets-uses' => 'Menggunakan',
+	'gadgets-export' => 'Eksport',
+	'gadgets-export-title' => 'Eksport gajet',
+	'gadgets-not-found' => 'Gajet "$1" tiada.',
+	'gadgets-export-text' => 'Untuk mengeksport gajet $1, klik butang "{{int:gadgets-export-download}}", simpan fail yang dimuat turun, pergi ke Khas:Import di wiki sasaran dan muat naik fail tadi di situ. Kemudian tambah kod berikut dalam laman MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Anda hendaklah mempunyai keizinan yang bersesuaian di wiki sasaran (termasuklah hak untuk menyunting pesanan sistem) dan ciri import daripada fail muat naik hendaklah dibolehkan.',
+	'gadgets-export-download' => 'Muat turun',
 );
 
 /** Maltese (Malti)
@@ -1889,6 +1896,11 @@ Lokala administratörer kan redigera [[MediaWiki:Gadgets-definition|definitioner
 	'gadgets-pagetext' => 'Härunder finns en lista över finesser som användare kan aktivera i sina [[Special:Preferences|inställningar]], definierad av [[MediaWiki:Gadgets-definition|definieringarna]].
 Den här översikten ger enkel åtkomst till de systemmeddelanden som definierar beskrivningarna och koden för varje finess.',
 	'gadgets-uses' => 'Använder',
+);
+
+/** Swahili (Kiswahili) */
+$messages['sw'] = array(
+	'gadgets-export-download' => 'Pakua',
 );
 
 /** Telugu (తెలుగు)
