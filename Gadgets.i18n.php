@@ -1077,6 +1077,8 @@ $messages['ka'] = array(
 	'gadgets' => 'გაჯეტები',
 	'gadgets-title' => 'გაჯეტები',
 	'gadgets-uses' => 'გამოიყენება',
+	'gadgets-export' => 'ექსპორტი',
+	'gadgets-export-download' => 'ჩამოტვირთვა',
 );
 
 /** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
@@ -2149,6 +2151,8 @@ $messages['zh-hans'] = array(
 	'gadgets-pagetext' => '以下是一个按照[[MediaWiki:Gadgets-definition]]定义的特殊小工具列表，用户可以在他们的参数设置页面中激活它们。
 通过这个概览可以方便的获得系统信息页面，从而可以定义每个小工具的描述以及源码。',
 	'gadgets-uses' => '使用',
+	'gadgets-export' => '导出',
+	'gadgets-export-download' => '下载',
 );
 
 /** Traditional Chinese (‪中文(繁體)‬)
