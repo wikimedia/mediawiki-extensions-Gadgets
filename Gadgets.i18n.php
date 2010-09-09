@@ -901,23 +901,31 @@ Dyrbiš trěbne prawa na cilowym wikiju měć (inkluziwnje prawo systemowe powě
 );
 
 /** Hungarian (Magyar)
+ * @author BáthoryPéter
  * @author Dani
  * @author Tgr
  */
 $messages['hu'] = array(
 	'gadgets-desc' => 'A felhasználók saját [[Special:Gadgets|CSS és JavaScript eszközöket]] választhatnak ki a [[Special:Preferences|beállításaiknál]]',
 	'prefs-gadgets' => 'Segédeszközök',
-	'gadgets-prefstext' => 'Itt látható a fiókod számára engedélyezett segédeszközöket.
+	'gadgets-prefstext' => 'Az alábbi listában látható segédeszközök bekapcsolásával kényelmesebbé teheted a wiki használatát és szerkesztését.
 Legtöbbjük JavaScriptet használ, így ezt engedélyezned kell a böngésződben, hogy működjenek.
 A segédeszközök nem működnek ezen a beállításoldalon, így probléma esetén ki tudod őket kapcsolni.
 
-Ezek az eszközök nem részei a MediaWiki szoftvernek, általában a wiki felhasználói tartják karban őket.
+Ezek az eszközök nem részei a [[MediaWiki]] szoftvernek, általában a wiki felhasználói tartják karban őket.
 Az adminisztrátorok a [[MediaWiki:Gadgets-definition|definíciókat]] és a [[Special:Gadgets|leírásokat]] tartalmazó lapok segítségével tudják módosítani az elérhető eszközök listáját.',
 	'gadgets' => 'Segédeszközök',
 	'gadgets-title' => 'Segédeszközök',
 	'gadgets-pagetext' => 'Itt látható azon segédeszközök listája, amiket a felhasználók bekapcsolhatnak a beállításaiknál. A lista a [[MediaWiki:Gadgets-definition|definíciókat]] tartalmazó lapon módosítható.
 Ez az áttekintő lap egyszerű hozzáférést nyúlt az eszközök kódját, illetve leírását tartalmazó rendszerüzenet-lapokhoz.',
 	'gadgets-uses' => 'Kód',
+	'gadgets-export' => 'Exportálás',
+	'gadgets-export-title' => 'Gadget export',
+	'gadgets-not-found' => 'A(z) „$1“ segédeszköz nem található.',
+	'gadgets-export-text' => 'A(z) $1 segédeszköz exportálásához kattints a „{{int:gadgets-export-download}}“ gombra, mentsd el a fájlt, majd a célwikiben a Special:Import lapon töltsd fel. Ezután a MediaWiki:Gadgets-definition laphoz add hozzá a következőket:
+<pre>$2</pre>
+A célwikiben rendelkezned kell a megfelelő jogokkal (beleértve a rendszerüzenetek szerkesztését) és engedélyezve kell lennie a fájlimportálásnak.',
+	'gadgets-export-download' => 'Letöltés',
 );
 
 /** Interlingua (Interlingua)
