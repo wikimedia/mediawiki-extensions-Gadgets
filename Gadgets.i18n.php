@@ -874,6 +874,14 @@ Lokalni administratori mogu uređivati dostupne dodatke putem [[MediaWiki:Gadget
 	'gadgets-pagetext' => 'Slijedi popis posebnih JavaScript dodataka koje suradnici mogu omogućiti u svojim [[Special:Preferences|postavkama]], kako je definirano stranicom [[MediaWiki:Gadgets-definition|definicija]].
 Ovaj pregled omogućava lak pristup porukama sustava koje opisuju dodatke i njihov kod.',
 	'gadgets-uses' => 'Koristi',
+	'gadgets-export' => 'Izvezi',
+	'gadgets-export-title' => "Izvoz JS skripti (''gadgets'')",
+	'gadgets-not-found' => "''Gadget'' \"\$1\" nije pronađen.",
+	'gadgets-export-text' => 'Za izvoz $1 JavaScript pomoćne skripte (\'\'gadgeta\'\'), kliknite na "{{int:gadgets-export-download}}" gumb, snimiti preuzetu datoteku, 
+zatim idete na Special:Import na odredišnoj wiki i postavite skriptu tamo. Zatim dodajte sljedeće na "MediaWiki:Gadgets-definition stranici: 
+<pre>$2</pre>
+Morate imati odgovarajuća prava na odredišnoj wiki (uključujući i pravo na uređivanje sistemskih poruka) i uvoz iz snimljenih datoteka mora biti omogućen.',
+	'gadgets-export-download' => 'Preuzmi',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
