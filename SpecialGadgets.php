@@ -31,11 +31,9 @@ class SpecialGadgets extends SpecialPage {
 	 * @param $par Parameters passed to the page
 	 */
 	function execute( $par ) {
-		global $wgRequest;
-		
-		$export = $wgRequest->getVal( 'export' );
-		if ( $export ) {
-			$this->showExportForm( $export );
+		$parts = explode( '/', $par );
+		if ( count( $parts ) == 2 && $parts[0] == 'export' ) {
+			$this->showExportForm( $parts[1] );
 		} else {
 			$this->showMainForm();
 		}
@@ -94,9 +92,7 @@ class SpecialGadgets extends SpecialPage {
 				if ( $editInterfaceAllowed ) {
 					$links[] = $skin->link( $t, wfMsgHTML( 'edit' ), array(), array( 'action' => 'edit' ) );
 				}
-				$links[] = $skin->link( $this->getTitle(), wfMsgHtml( 'gadgets-export' ), 
-					array(), array( 'export' => $gname )
-				);
+				$links[] = $skin->link( $this->getTitle( "export/$gname" ), wfMsgHtml( 'gadgets-export' ) );
 				
 				$ttext = wfMsgExt( "gadget-$gname", $msgOpt );
 
