@@ -277,6 +277,8 @@ $messages['bn'] = array(
 	'gadgets-title' => 'গ্যাজেট',
 	'gadgets-pagetext' => 'নিচে বিশেষ গ্যাজেটের একটি তালিকা রয়েছে, যা ব্যবহারকারী তাদের [[Special:Preferences|প্রছন্দের পাতা]] থেকে সক্রিয় করে নিতে পারবেন এবং যা [[MediaWiki:Gadgets-definition|definitions]] পাতায় সংজ্ঞায়িত রয়েছে। পর্যালোচনা সিস্টেম বার্তা পাতায় সহজ প্রবেশাধিকার দিবে, যেখানে গ্যাজেটের বর্ণনা এবং কোড রয়েছে।',
 	'gadgets-uses' => 'ব্যবহারসমূহ',
+	'gadgets-export' => 'রপ্তানি',
+	'gadgets-export-download' => 'ডাউনলোড',
 );
 
 /** Breton (Brezhoneg)
