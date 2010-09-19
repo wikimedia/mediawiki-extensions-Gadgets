@@ -6,227 +6,289 @@
  * @ingroup Extensions
  */
 
-$aliases = array();
-
 /** English
  * @author Daniel Kinzler, brightbyte.de
  */
-$aliases['en'] = array(
+$specialPageAliases['en'] = array(
 	'Gadgets' => array( 'Gadgets' ),
 );
 
-$aliases['af'] = array(
-	'Gadgets'   => array( 'Geriewe' ),
+/** Afrikaans (Afrikaans) */
+$specialPageAliases['af'] = array(
+	'Gadgets' => array( 'Geriewe' ),
 );
 
-$aliases['ar'] = array(
-	'Gadgets'   => array( 'إضافات' ),
+/** Arabic (العربية) */
+$specialPageAliases['ar'] = array(
+	'Gadgets' => array( 'إضافات' ),
 );
 
-$aliases['arz'] = array(
-	'Gadgets'   => array( 'ادوات' ),
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'Gadgets' => array( 'ادوات' ),
 );
 
-$aliases['bg'] = array(
-	'Gadgets'   => array( 'Джаджи' ),
+/** Bulgarian (Български) */
+$specialPageAliases['bg'] = array(
+	'Gadgets' => array( 'Джаджи' ),
 );
 
-$aliases['br'] = array(
-	'Gadgets'   => array( 'Bitrakoù' ),
+/** Breton (Brezhoneg) */
+$specialPageAliases['br'] = array(
+	'Gadgets' => array( 'Bitrakoù' ),
 );
 
-$aliases['bs'] = array(
-	'Gadgets'   => array( 'Dodaci' ),
+/** Bosnian (Bosanski) */
+$specialPageAliases['bs'] = array(
+	'Gadgets' => array( 'Dodaci' ),
 );
 
-$aliases['cs'] = array(
-	'Gadgets'   => array( 'Udělátka' ),
+/** Czech (Česky) */
+$specialPageAliases['cs'] = array(
+	'Gadgets' => array( 'Udělátka' ),
 );
 
-$aliases['de'] = array(
-	'Gadgets'   => array( 'Helferlein' ),
+/** German (Deutsch) */
+$specialPageAliases['de'] = array(
+	'Gadgets' => array( 'Helferlein' ),
 );
 
-$aliases['dsb'] = array(
-	'Gadgets'   => array( 'Gadgety' ),
+/** Lower Sorbian (Dolnoserbski) */
+$specialPageAliases['dsb'] = array(
+	'Gadgets' => array( 'Gadgety' ),
 );
 
-$aliases['el'] = array(
-	'Gadgets'   => array( 'Εργαλεία', 'Προσαρτήματα' ),
+/** Greek (Ελληνικά) */
+$specialPageAliases['el'] = array(
+	'Gadgets' => array( 'Εργαλεία', 'Προσαρτήματα' ),
 );
 
-$aliases['eo'] = array(
-	'Gadgets'   => array( 'Aldonaĵoj' ),
+/** Esperanto (Esperanto) */
+$specialPageAliases['eo'] = array(
+	'Gadgets' => array( 'Aldonaĵoj' ),
 );
 
-$aliases['es'] = array(
-	'Gadgets'   => array( 'Artilugios', 'Accesorios' ),
+/** Spanish (Español) */
+$specialPageAliases['es'] = array(
+	'Gadgets' => array( 'Artilugios', 'Accesorios' ),
 );
 
-$aliases['et'] = array(
-	'Gadgets'   => array( 'Tööriistad' ),
+/** Estonian (Eesti) */
+$specialPageAliases['et'] = array(
+	'Gadgets' => array( 'Tööriistad' ),
 );
 
-$aliases['eu'] = array(
-	'Gadgets'   => array( 'Gadgetak' ),
+/** Basque (Euskara) */
+$specialPageAliases['eu'] = array(
+	'Gadgets' => array( 'Gadgetak' ),
 );
 
-$aliases['fa'] = array(
-	'Gadgets'   => array( 'ابزارها' ),
+/** Persian (فارسی) */
+$specialPageAliases['fa'] = array(
+	'Gadgets' => array( 'ابزارها' ),
 );
 
-$aliases['fi'] = array(
-	'Gadgets'   => array( 'Pienoisohjelmat' ),
+/** Finnish (Suomi) */
+$specialPageAliases['fi'] = array(
+	'Gadgets' => array( 'Pienoisohjelmat' ),
 );
 
-$aliases['frp'] = array(
-	'Gadgets'   => array( 'Outils' ),
+/** Franco-Provençal (Arpetan) */
+$specialPageAliases['frp'] = array(
+	'Gadgets' => array( 'Outils' ),
 );
 
-$aliases['gl'] = array(
-	'Gadgets'   => array( 'Trebellos' ),
+/** Galician (Galego) */
+$specialPageAliases['gl'] = array(
+	'Gadgets' => array( 'Trebellos' ),
 );
 
-$aliases['gsw'] = array(
-	'Gadgets'   => array( 'Hälferli' ),
+/** Swiss German (Alemannisch) */
+$specialPageAliases['gsw'] = array(
+	'Gadgets' => array( 'Hälferli' ),
 );
 
-$aliases['haw'] = array(
-	'Gadgets'   => array( 'Hāmeʻa', 'Hamea' ),
+/** Hawaiian (Hawai`i) */
+$specialPageAliases['haw'] = array(
+	'Gadgets' => array( 'Hāmeʻa', 'Hamea' ),
 );
 
-$aliases['he'] = array(
-	'Gadgets'   => array( 'סקריפטים' ),
+/** Hebrew (עברית) */
+$specialPageAliases['he'] = array(
+	'Gadgets' => array( 'סקריפטים' ),
 );
 
-$aliases['hr'] = array(
-	'Gadgets'   => array( 'Dodaci' ),
+/** Croatian (Hrvatski) */
+$specialPageAliases['hr'] = array(
+	'Gadgets' => array( 'Dodaci' ),
 );
 
-$aliases['hsb'] = array(
-	'Gadgets'   => array( 'Specialne_funkcije' ),
+/** Upper Sorbian (Hornjoserbsce) */
+$specialPageAliases['hsb'] = array(
+	'Gadgets' => array( 'Specialne_funkcije' ),
 );
 
-$aliases['ht'] = array(
-	'Gadgets'   => array( 'Gajèt' ),
+/** Haitian (Kreyòl ayisyen) */
+$specialPageAliases['ht'] = array(
+	'Gadgets' => array( 'Gajèt' ),
 );
 
-$aliases['hu'] = array(
-	'Gadgets'   => array( 'Segédeszközök' ),
+/** Hungarian (Magyar) */
+$specialPageAliases['hu'] = array(
+	'Gadgets' => array( 'Segédeszközök' ),
 );
 
-$aliases['ia'] = array(
-	'Gadgets'   => array( 'Gadgetes' ),
+/** Interlingua (Interlingua) */
+$specialPageAliases['ia'] = array(
+	'Gadgets' => array( 'Gadgetes' ),
 );
 
-$aliases['id'] = array(
-	'Gadgets'   => array( 'Alat', 'Gadget' ),
+/** Indonesian (Bahasa Indonesia) */
+$specialPageAliases['id'] = array(
+	'Gadgets' => array( 'Alat', 'Gadget' ),
 );
 
-$aliases['it'] = array(
-	'Gadgets'   => array( 'Accessori' ),
+/** Italian (Italiano) */
+$specialPageAliases['it'] = array(
+	'Gadgets' => array( 'Accessori' ),
 );
 
-$aliases['ja'] = array(
-	'Gadgets'   => array( 'ガジェット' ),
+/** Japanese (日本語) */
+$specialPageAliases['ja'] = array(
+	'Gadgets' => array( 'ガジェット' ),
 );
 
-$aliases['ko'] = array(
-	'Gadgets'   => array( '소도구' ),
+/** Korean (한국어) */
+$specialPageAliases['ko'] = array(
+	'Gadgets' => array( '소도구' ),
 );
 
-$aliases['lad'] = array(
-	'Gadgets'   => array( 'Instrumenticos' ),
+/** Ladino (Ladino) */
+$specialPageAliases['lad'] = array(
+	'Gadgets' => array( 'Instrumenticos' ),
 );
 
-$aliases['lb'] = array(
-	'Gadgets'   => array( 'Gadgeten' ),
+/** Luxembourgish (Lëtzebuergesch) */
+$specialPageAliases['lb'] = array(
+	'Gadgets' => array( 'Gadgeten' ),
 );
 
-$aliases['ml'] = array(
-	'Gadgets'   => array( 'കൂട' ),
+/** Malayalam (മലയാളം) */
+$specialPageAliases['ml'] = array(
+	'Gadgets' => array( 'കൂട' ),
 );
 
-$aliases['mr'] = array(
-	'Gadgets'   => array( 'सुविधा' ),
+/** Marathi (मराठी) */
+$specialPageAliases['mr'] = array(
+	'Gadgets' => array( 'सुविधा' ),
 );
 
-$aliases['ms'] = array(
-	'Gadgets'   => array( 'Gajet' ),
+/** Malay (Bahasa Melayu) */
+$specialPageAliases['ms'] = array(
+	'Gadgets' => array( 'Gajet' ),
 );
 
-$aliases['mt'] = array(
-	'Gadgets'   => array( 'Aġġeġġi', 'Aċċessorji' ),
+/** Maltese (Malti) */
+$specialPageAliases['mt'] = array(
+	'Gadgets' => array( 'Aġġeġġi', 'Aċċessorji' ),
 );
 
-$aliases['nds-nl'] = array(
-	'Gadgets'   => array( 'Technisch_spul' ),
+/** Nedersaksisch (Nedersaksisch) */
+$specialPageAliases['nds-nl'] = array(
+	'Gadgets' => array( 'Technisch_spul' ),
 );
 
-$aliases['nl'] = array(
-	'Gadgets'   => array( 'Extensies' ),
+/** Dutch (Nederlands) */
+$specialPageAliases['nl'] = array(
+	'Gadgets' => array( 'Extensies' ),
 );
 
-$aliases['nn'] = array(
-	'Gadgets'   => array( 'Tilleggsfunksjonar' ),
+/** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
+$specialPageAliases['nn'] = array(
+	'Gadgets' => array( 'Tilleggsfunksjonar' ),
 );
 
-$aliases['no'] = array(
-	'Gadgets'   => array( 'Tilleggsfunksjoner' ),
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
+$specialPageAliases['no'] = array(
+	'Gadgets' => array( 'Tilleggsfunksjoner' ),
 );
 
-$aliases['oc'] = array(
-	'Gadgets'   => array( 'Gadgèts' ),
+/** Occitan (Occitan) */
+$specialPageAliases['oc'] = array(
+	'Gadgets' => array( 'Gadgèts' ),
 );
 
-$aliases['pl'] = array(
-	'Gadgets'   => array( 'Gadżety' ),
+/** Polish (Polski) */
+$specialPageAliases['pl'] = array(
+	'Gadgets' => array( 'Gadżety' ),
 );
 
-$aliases['ro'] = array(
-	'Gadgets'   => array( 'Gadgeturi' ),
+/** Romanian (Română) */
+$specialPageAliases['ro'] = array(
+	'Gadgets' => array( 'Gadgeturi' ),
 );
 
-$aliases['sa'] = array(
-	'Gadgets'   => array( 'सुविधा (गॅजेट)' ),
+/** Sanskrit (संस्कृत) */
+$specialPageAliases['sa'] = array(
+	'Gadgets' => array( 'सुविधा (गॅजेट)' ),
 );
 
-$aliases['si'] = array(
-	'Gadgets'   => array( 'විජෙට්ටු' ),
+/** Sinhala (සිංහල) */
+$specialPageAliases['si'] = array(
+	'Gadgets' => array( 'විජෙට්ටු' ),
 );
 
-$aliases['sk'] = array(
-	'Gadgets'   => array( 'Hračky' ),
+/** Slovak (Slovenčina) */
+$specialPageAliases['sk'] = array(
+	'Gadgets' => array( 'Hračky' ),
 );
 
-$aliases['sl'] = array(
-	'Gadgets'   => array( 'Vtičniki', 'Vticniki' ),
+/** Slovenian (Slovenščina) */
+$specialPageAliases['sl'] = array(
+	'Gadgets' => array( 'Vtičniki', 'Vticniki' ),
 );
 
-$aliases['sv'] = array(
-	'Gadgets'   => array( 'Finesser' ),
+/** Swedish (Svenska) */
+$specialPageAliases['sv'] = array(
+	'Gadgets' => array( 'Finesser' ),
 );
 
-$aliases['th'] = array(
-	'Gadgets'   => array( 'อุปกรณ์เสริม', 'แกเจต' ),
+/** Thai (ไทย) */
+$specialPageAliases['th'] = array(
+	'Gadgets' => array( 'อุปกรณ์เสริม', 'แกเจต' ),
 );
 
-$aliases['tl'] = array(
-	'Gadgets'   => array( 'Mga gadyet' ),
+/** Tagalog (Tagalog) */
+$specialPageAliases['tl'] = array(
+	'Gadgets' => array( 'Mga gadyet' ),
 );
 
-$aliases['tr'] = array(
-	'Gadgets'   => array( 'KüçükAraçlar' ),
+/** Turkish (Türkçe) */
+$specialPageAliases['tr'] = array(
+	'Gadgets' => array( 'KüçükAraçlar' ),
 );
 
-$aliases['vec'] = array(
-	'Gadgets'   => array( 'Strumenti' ),
+/** Татарча (Татарча) */
+$specialPageAliases['tt-cyrl'] = array(
+	'Gadgets' => array( 'Гаджетлар' ),
 );
 
-$aliases['zh-hans'] = array(
-	'Gadgets'   => array( '小工具' ),
+/** Vèneto (Vèneto) */
+$specialPageAliases['vec'] = array(
+	'Gadgets' => array( 'Strumenti' ),
 );
 
-$aliases['zh-hant'] = array(
-	'Gadgets'   => array( '小工具' ),
+/** Simplified Chinese (‪中文(简体)‬) */
+$specialPageAliases['zh-hans'] = array(
+	'Gadgets' => array( '小工具' ),
 );
+
+/** Traditional Chinese (‪中文(繁體)‬) */
+$specialPageAliases['zh-hant'] = array(
+	'Gadgets' => array( '小工具' ),
+);
+
+/**
+ * For backwards compatibility with MediaWiki 1.15 and earlier.
+ */
+$aliases =& $specialPageAliases;
