@@ -6,8 +6,6 @@
  * @ingroup Extensions
  */
 
-$specialPageAliases = array();
-
 /** English
  * @author Daniel Kinzler, brightbyte.de
  */
