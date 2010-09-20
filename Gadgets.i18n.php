@@ -2014,6 +2014,14 @@ Maaaring baguhin ng pampook/lokal na mga tagapangasiwa ang makukuhang mga gadyet
 	'gadgets-pagetext' => 'Nasa ibaba ang isang talaan ng natatanging mga kasangkapan (gadyet) na mapapagana ng mga tagagamit sa kanilang [[Special:Preferences|pahina ng mga kagustuhan]], ayon sa nilalarawan ng [[MediaWiki:Gadgets-definition|mga kahulugan]].
 Nagbibigay ang pagtalakay na ito ng magaang na daan/akseso patungo sa mga pahina ng sistemang pangmensahe na nagbibigay kahulugan sa paglalarawan at kodigo ng bawat gadyet.',
 	'gadgets-uses' => 'Mga mapaggagamitan',
+	'gadgets-export' => 'Iluwas',
+	'gadgets-export-title' => 'Pagluluwas ng gadyet',
+	'gadgets-not-found' => 'Hindi natagpuan ang gadyet na "$1".',
+	'gadgets-export-text' => 'Upang iluwas ang gadyet na $1, pindutin ang pindutang "{{int:gadgets-export-download}}", sagipin ang talaksang ikinargang paibaba, 
+pumunta sa Special:Import na nasa kapupuntahang wiki at ikarga itong paitaas.  Pagkaraan ay idagdag ang sumusunod sa pahina ng MediaWiki:Gadgets-definition:  
+<pre>$2</pre>
+Dapat kang mayroong nararapat na mga pahintulot sa kapupuntahang wiki (kasama ang karapatang mamatnugot ng mga mensahe ng sistema) at dapat na gumagana ang mga inangkat mula sa mga talaksang ikinargang paitaas',
+	'gadgets-export-download' => 'Ikargang pababa',
 );
 
 /** Turkish (Türkçe)
