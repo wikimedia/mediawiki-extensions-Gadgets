@@ -1776,7 +1776,7 @@ $messages['ru'] = array(
 	'gadgets-export-download' => 'Загрузить',
 );
 
-/** Rusyn (русиньскый язык)
+/** Rusyn (Русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
