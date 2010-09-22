@@ -1396,9 +1396,10 @@ $messages['mr'] = array(
 
 /** Malay (Bahasa Melayu)
  * @author Aviator
+ * @author Zamwan
  */
 $messages['ms'] = array(
-	'gadgets-desc' => 'Membolehkan pengguna memilih [[Special:Gadgets|gajet CSS dan JavaScript]] tempahan melalui [[Special:Preferences|laman keutamaan]]',
+	'gadgets-desc' => 'Membolehkan pengguna memilih tempahan [[Special:Gadgets|gajet CSS dan JavaScript]] melalui [[Special:Preferences|laman keutamaan]]',
 	'prefs-gadgets' => 'Gajet',
 	'gadgets-prefstext' => 'Yang berikut ialah senarai gajet khas yang anda boleh hidupkan untuk akaun anda. Kebanyakan daripada gajet-gajet ini memerlukan JavaScript, oleh itu anda perlu menghidupkan ciri JavaScript dalam pelayar web anda untuk menggunakannya. Sila ambil perhatian bahawa gajet-gajet ini tidak menjejaskan laman keutamaan ini.
 
