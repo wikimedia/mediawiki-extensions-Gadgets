@@ -1011,6 +1011,7 @@ Forritin eru ekki hluti af MediaWiki-hugbúnaðinum heldur eru skrifuð og viðh
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author BrokenArrow
  * @author Darth Kule
  * @author Melos
@@ -1027,6 +1028,9 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
 	'gadgets-title' => 'Accessori',
 	'gadgets-pagetext' => "Di seguito sono elencati gli accessori (''gadget'') che gli utenti possono abilitare sulla propria pagina delle [[Special:Preferences|preferenze]], seguendo le [[MediaWiki:Gadgets-definition|definizioni]]. Questa panoramica fornisce un comodo meccanismo per accedere ai messaggi di sistema nei quali sono definiti la descrizione e il codice di ciascun accessorio.",
 	'gadgets-uses' => 'Utilizza',
+	'gadgets-export' => 'Esporta',
+	'gadgets-export-title' => 'Esporta accessorio',
+	'gadgets-not-found' => 'Accessorio "$1" non trovato.',
 );
 
 /** Japanese (日本語)
@@ -1922,6 +1926,13 @@ Den här översikten ger enkel åtkomst till de systemmeddelanden som definierar
 /** Swahili (Kiswahili) */
 $messages['sw'] = array(
 	'gadgets-export-download' => 'Pakua',
+);
+
+/** Tamil (தமிழ்)
+ * @author TRYPPN
+ */
+$messages['ta'] = array(
+	'gadgets-uses' => 'பயன்பாடுகள்',
 );
 
 /** Telugu (తెలుగు)
