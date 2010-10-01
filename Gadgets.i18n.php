@@ -603,7 +603,7 @@ Enamasti põhinevad need riistad JavaScriptil, seega peab nende töötamiseks si
 Pane tähele, et need riistad ei mõjuta kuidagi seda eelistuste lehekülge.
 
 Samuti pane tähele, et need eririistad ei ole osa MediaWiki tarkvarast ja on tavaliselt arendatud ja ülalpeetud sinu kohalikus vikis.
-Kohalikud ülemad saavad olemasolevaid riistu muuta [[MediaWiki:Gadgets-definition|määratluste]] ja [[Special:Gadgets|kirjelduste]] abil.',
+Kohalikud administraatorid saavad olemasolevaid riistu muuta [[MediaWiki:Gadgets-definition|määratluste]] ja [[Special:Gadgets|kirjelduste]] abil.',
 	'gadgets' => 'Tööriistad',
 	'gadgets-title' => 'Tööriistad',
 	'gadgets-pagetext' => 'Allpool on nimekiri eririistadest, mida kasutajad saavad oma [[Special:Preferences|eelistuste leheküljel]] sisse lülitada, nii nagu [[MediaWiki:Gadgets-definition|määratlustes]] määratletud. See ülevaade võimaldab kergesti ligi pääseda süsteemi sõnumilehekülgedele, milles on iga riista kirjeldus ja kood.',
@@ -1541,6 +1541,9 @@ Merk også at disse verktøyene ikke er del av MediaWiki-programvaren, og vanlig
 	'gadgets-export' => 'Eksporter',
 	'gadgets-export-title' => 'Tilleggsfunksjon eksport',
 	'gadgets-not-found' => 'Tilleggsfunksjon «$1» ikke funnet.',
+	'gadgets-export-text' => 'For å eksportere verktøyet $1, klikk på «{{int:gadgets-export-download}}»-knappen, lagre den nedlastede filen, gå til Special:Import på destinasjonswikien og last den opp. Deretter legger du til følgende på siden MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Du må ha de nødvendige tillatelsene på destinasjonswikien (inkludert retten til å redigere systemmeldinger) og import fra filopplastinger må være aktivert.',
 	'gadgets-export-download' => 'Last ned',
 );
 
