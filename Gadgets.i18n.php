@@ -1031,6 +1031,7 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
 	'gadgets-export' => 'Esporta',
 	'gadgets-export-title' => 'Esporta accessorio',
 	'gadgets-not-found' => 'Accessorio "$1" non trovato.',
+	'gadgets-export-download' => 'Scarica',
 );
 
 /** Japanese (日本語)
@@ -2112,6 +2113,7 @@ Nota anca che sti acessori speciali no i fa parte del software MediaWiki e i vie
 	'gadgets-pagetext' => "De seguito vien presentà n'elenco de acessori (''gadget'') che i utenti i pol abilitar su la so [[Special:Preferences|pagina de le preferenze]], seguendo le definizion riportà in [[MediaWiki:Gadgets-definition]].
 Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistema nei quali xe definìo la descrizion e el codice de ciascun acessorio.",
 	'gadgets-uses' => 'Dopara',
+	'gadgets-export' => 'Esporta',
 );
 
 /** Veps (Vepsan kel')
