@@ -1936,7 +1936,14 @@ $messages['sw'] = array(
  * @author TRYPPN
  */
 $messages['ta'] = array(
+	'prefs-gadgets' => 'கருவிகள்',
+	'gadgets' => 'கருவிகள்',
+	'gadgets-title' => 'கருவிகள்',
 	'gadgets-uses' => 'பயன்பாடுகள்',
+	'gadgets-export' => 'ஏற்றுமதி செய்',
+	'gadgets-export-title' => 'கருவியை ஏற்றுமதி செய்',
+	'gadgets-not-found' => "''$1'' என்ற கருவி காணப்படவில்லை.",
+	'gadgets-export-download' => 'பதிவிறக்கம் செய்',
 );
 
 /** Telugu (తెలుగు)
@@ -2114,6 +2121,7 @@ Nota anca che sti acessori speciali no i fa parte del software MediaWiki e i vie
 Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistema nei quali xe definìo la descrizion e el codice de ciascun acessorio.",
 	'gadgets-uses' => 'Dopara',
 	'gadgets-export' => 'Esporta',
+	'gadgets-export-download' => 'Descarga',
 );
 
 /** Veps (Vepsan kel')
