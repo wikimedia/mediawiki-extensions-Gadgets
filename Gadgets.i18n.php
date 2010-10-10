@@ -683,6 +683,13 @@ Huomio myös, että nämä pienoisohjelmat eivät ole osa MediaWiki-ohjelmistoa 
 
 Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät pienoisohjelmien kuvauksen ja koodin.',
 	'gadgets-uses' => 'Käyttää',
+	'gadgets-export' => 'Vie',
+	'gadgets-export-title' => 'Pienoisohjelmien vienti',
+	'gadgets-not-found' => 'Pienoisohjelmaa $1 ei löytynyt.',
+	'gadgets-export-text' => 'Jos haluat kopioida pienoisohjelman $1 omaan wikiisi, toimi seuraavasti: Napsauta »{{int:gadgets-export-download}}» ja tallenna tiedosto. Mene oman wikisi sivulle Special:Import ja syötä tallennettu tiedosto. Lisää seuraava koodinpätkä sivulle MediaWiki:Gadgets-definition omassa wikissäsi:
+<pre>$2</pre>
+Sinulla pitää olla tarvittavat oikeudet omassa wikissäsi, kuten järjestelmäviestien muokkaus ja sivujen tuonti tiedostoja tallentamalla.',
+	'gadgets-export-download' => 'Lataa',
 );
 
 /** French (Français)
@@ -1910,6 +1917,7 @@ $messages['su'] = array(
 );
 
 /** Swedish (Svenska)
+ * @author Ainali
  * @author Boivie
  * @author Lejonel
  * @author M.M.S.
@@ -1928,6 +1936,9 @@ Lokala administratörer kan redigera [[MediaWiki:Gadgets-definition|definitioner
 	'gadgets-pagetext' => 'Härunder finns en lista över finesser som användare kan aktivera i sina [[Special:Preferences|inställningar]], definierad av [[MediaWiki:Gadgets-definition|definieringarna]].
 Den här översikten ger enkel åtkomst till de systemmeddelanden som definierar beskrivningarna och koden för varje finess.',
 	'gadgets-uses' => 'Använder',
+	'gadgets-export' => 'Exportera',
+	'gadgets-export-title' => 'Exportera finess',
+	'gadgets-export-download' => 'Ladda ner',
 );
 
 /** Swahili (Kiswahili) */
@@ -2124,6 +2135,8 @@ Nota anca che sti acessori speciali no i fa parte del software MediaWiki e i vie
 Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistema nei quali xe definìo la descrizion e el codice de ciascun acessorio.",
 	'gadgets-uses' => 'Dopara',
 	'gadgets-export' => 'Esporta',
+	'gadgets-export-title' => 'Esporta acessorio',
+	'gadgets-not-found' => 'Acessorio "$1" mia catà.',
 	'gadgets-export-download' => 'Descarga',
 );
 
