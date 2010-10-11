@@ -558,6 +558,8 @@ Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per [[MediaWiki
 Ĉi tiu superrigardo provizas facilan aliron al la sistemaj mesaĝoj kiuj difinas la priskribon kaj la kodon de ĉiuj aldonaĵoj.',
 	'gadgets-uses' => 'uzas',
 	'gadgets-export' => 'Eksporti',
+	'gadgets-export-title' => 'Aldonaĵo-eksportado',
+	'gadgets-not-found' => 'Aldonaĵo "$1" ne estis trovita.',
 	'gadgets-export-download' => 'Elŝuti',
 );
 
