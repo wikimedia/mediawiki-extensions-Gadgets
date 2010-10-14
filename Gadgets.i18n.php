@@ -560,6 +560,10 @@ Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per [[MediaWiki
 	'gadgets-export' => 'Eksporti',
 	'gadgets-export-title' => 'Aldonaĵo-eksportado',
 	'gadgets-not-found' => 'Aldonaĵo "$1" ne estis trovita.',
+	'gadgets-export-text' => 'Eksporti la aldonaĵon $1, klaku butonon "{{int:gadgets-export-download}}", konservu la elŝutitan dosieron,
+iru Special:Import en cela vikio kaj alŝutu ĝin. Poste aldonu la jenan signoĉenon al paĝo MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Vi nepras la taŭgajn rajtojn ĉe cela vikio (inkluzivante rajton redakti sistemajn mesaĝojn) kaj importebleco de dosieraj alŝutaĵojn devas esti ŝaltita.',
 	'gadgets-export-download' => 'Elŝuti',
 );
 
