@@ -340,11 +340,12 @@ Morate imati odgovarajuća prava na odredišnoj wiki (uključujući pravo da ure
  * @author Aleator
  * @author Paucabot
  * @author SMP
+ * @author Toniher
  * @author Vriullop
  */
 $messages['ca'] = array(
 	'gadgets-desc' => 'Permet als usuaris personalitzar [[Special:Gadgets|ginys CSS i JavaScript]] a les seves [[Special:Preferences|preferències]]',
-	'prefs-gadgets' => 'Gadgets',
+	'prefs-gadgets' => 'Ginys',
 	'gadgets-prefstext' => "A continuació teniu una llista de ginys especials que podeu activar al vostre compte.<br />
 La majoria d'aquests ginys fan servir JavaScript, per tant l'haureu de tenir activat al vostre navegador per a que funcionin.
 Tingueu en compte que aquests ginys no tenen cap efecte sobre aquesta pàgina de preferències.
@@ -356,6 +357,14 @@ Els administradors locals poden editar els ginys disponibles fent servir [[Media
 	'gadgets-pagetext' => 'A continuació teniu una llista de ginys especials que els usuaris poden activar a la seva [[Special:Preferences|pàgina de preferències]], segons les [[MediaWiki:Gadgets-definition|seves definicions]].
 Aquesta llista permet un fàcil accés a les pàgines del sistema que defineixen la descripció i el codi de cada giny.',
 	'gadgets-uses' => 'Usa',
+	'gadgets-export' => 'Exporta',
+	'gadgets-export-title' => 'Exportació de ginys',
+	'gadgets-not-found' => "No s'ha trobat el giny «$1».",
+	'gadgets-export-text' => "Per a exportar el giny $1, feu clic al botó «{{int:gadgets-export-download}}», deseu el fitxer baixat,
+aneu a Special:Import al wiki de destinació i pugeu-lo. Llavors afegiu el següent a la pàgina MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Heu de tenir els permisos adequats en el wiki de destinació (incloent-hi els permisos per editar missatges del sistema) i s'ha d'habilitar la importació de la pujada de fitxers.",
+	'gadgets-export-download' => 'Baixa',
 );
 
 /** Chechen (Нохчийн)
@@ -614,6 +623,7 @@ Kohalikud administraatorid saavad olemasolevaid riistu muuta [[MediaWiki:Gadgets
 	'gadgets-title' => 'Tööriistad',
 	'gadgets-pagetext' => 'Allpool on nimekiri eririistadest, mida kasutajad saavad oma [[Special:Preferences|eelistuste leheküljel]] sisse lülitada, nii nagu [[MediaWiki:Gadgets-definition|määratlustes]] määratletud. See ülevaade võimaldab kergesti ligi pääseda süsteemi sõnumilehekülgedele, milles on iga riista kirjeldus ja kood.',
 	'gadgets-uses' => 'Kasutab',
+	'gadgets-export-download' => 'Laadi alla',
 );
 
 /** Basque (Euskara)
@@ -1745,6 +1755,8 @@ $messages['ro'] = array(
 	'gadgets' => 'Gadgeturi',
 	'gadgets-title' => 'Gadgeturi',
 	'gadgets-uses' => 'Utilizări',
+	'gadgets-export' => 'Exportă',
+	'gadgets-export-download' => 'Descarcă',
 );
 
 /** Tarandíne (Tarandíne)
@@ -1764,6 +1776,10 @@ Le amministrature locale ponne cangià le gadget disponibbele ausanne le [[Media
 	'gadgets-pagetext' => "Sotte stè 'n'elenghe de gadget speciale ca l'utinde ponne abbilità sus a lore [[Special:Preferences|pàgene de le preferenze]], cumme definite da le [[MediaWiki:Gadgets-definition|definiziune]].
 Stu riepileghe prevede 'nu facile facile accesse a le pàggene de le messagge d'u sisteme ca definiscene ogne descrizione e codece de le gadget.",
 	'gadgets-uses' => 'Ause',
+	'gadgets-export' => 'Esporte',
+	'gadgets-export-title' => "Esporte 'u gadget",
+	'gadgets-not-found' => 'Gadget "$1" none acchiate.',
+	'gadgets-export-download' => 'Scareche',
 );
 
 /** Russian (Русский)
@@ -1981,6 +1997,8 @@ $messages['te'] = array(
 	'gadgets-title' => 'ఉపకరణాలు',
 	'gadgets-pagetext' => 'ఈ దిగువన ఉన్న ప్రత్యేక ఉపకరణాల నుండి సభ్యులు తమకు కావలసినవి తమ [[Special:Preferences|అభిరుచులు పేజీ]]లోని ఉపకరణాల టాబులో టిక్కు పెట్టి ఎనేబుల్ చేసుకొనే అవకాశం ఉన్నది. వీటిని [[MediaWiki:Gadgets-definition|ఉపకరణాల నిర్వచన]] పేజీలో నిర్వచించడం జరిగింది. ఈ చిన్న పరిచయం ఆయా ఉపకరణాల నిర్వచన మరియు కోడుకు సంబంధించిన మీడియావికీ సందేశాలకు సులువుగా చేరుకునేందుకు లింకులను సమకూర్చుతుంది.',
 	'gadgets-uses' => 'ఉపయోగించే ఫైళ్ళు',
+	'gadgets-export' => 'ఎగుమతించు',
+	'gadgets-export-download' => 'దింపుకోండి',
 );
 
 /** Tajik (Cyrillic) (Тоҷикӣ (Cyrillic))
