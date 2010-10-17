@@ -844,6 +844,7 @@ $messages['gu'] = array(
 
 /** Hebrew (עברית)
  * @author Rotem Liss
+ * @author YaronSh
  */
 $messages['he'] = array(
 	'gadgets-desc' => 'אפשרות למשתמשים לבחור [[Special:Gadgets|סקריפטים בקוד JavaScript וסגנונות בקוד CSS]] ב[[Special:Preferences|העדפות]] שלהם',
@@ -859,6 +860,7 @@ $messages['he'] = array(
 	'gadgets-pagetext' => 'זוהי רשימה של סקריפטים שמשתמשים יכולים להתקין באמצעות [[Special:Preferences|דף ההעדפות]] שלהם, כפי שהוגדרו ב[[MediaWiki:Gadgets-definition|הודעת המערכת המתאימה]].
 מכאן ניתן לגשת בקלות לדפי הודעות המערכת שמגדירים את התיאור והקוד של כל סקריפט.',
 	'gadgets-uses' => 'משתמש בדפים',
+	'gadgets-export' => 'יצוא',
 );
 
 /** Hindi (हिन्दी)
@@ -1531,6 +1533,7 @@ U moet de juiste rechten hebben op de doelwiki, inclusief het recht om bewerking
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
  * @author Eirik
  * @author Harald Khan
+ * @author Nghtwlkr
  */
 $messages['nn'] = array(
 	'gadgets-desc' => 'Lèt brukarane velje eigendefinerte [[Special:Gadgets|CSS- og JavaScript-verktøy]]  i [[Special:Preferences|innstillingane sine]].',
@@ -1543,6 +1546,8 @@ Merk også at tilleggsfunksjonane ikkje er ein del av MediaWiki-programvara, og 
 	'gadgets-pagetext' => 'Under finn du ei liste over tilleggsfunksjonar som brukarane kan slå på på [[Special:Preferences|innstillingane]] sine, som oppgjevne i [[MediaWiki:Gadgets-definition|definisjonane]].
 Dette oversynet gjev enkel tilgang til systemmeldingssidene som inneheld skildringa og koden til kvar enkelt tilleggsfunksjon.',
 	'gadgets-uses' => 'Brukar',
+	'gadgets-export' => 'Eksporter',
+	'gadgets-export-download' => 'Last ned',
 );
 
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
@@ -1748,6 +1753,7 @@ $messages['qu'] = array(
  * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
+ * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'gadgets-desc' => 'Permite utilizatorilor să își aleagă [[Special:Gadgets|gadgeturi CSS și JavaScript]] în [[Special:Preferences|preferințele]] lor',
@@ -1756,6 +1762,8 @@ $messages['ro'] = array(
 	'gadgets-title' => 'Gadgeturi',
 	'gadgets-uses' => 'Utilizări',
 	'gadgets-export' => 'Exportă',
+	'gadgets-export-title' => 'Exportul de gadgeturi',
+	'gadgets-not-found' => 'Gadgetul „$1” nu a fost găsit.',
 	'gadgets-export-download' => 'Descarcă',
 );
 
@@ -1779,6 +1787,9 @@ Stu riepileghe prevede 'nu facile facile accesse a le pàggene de le messagge d'
 	'gadgets-export' => 'Esporte',
 	'gadgets-export-title' => "Esporte 'u gadget",
 	'gadgets-not-found' => 'Gadget "$1" none acchiate.',
+	'gadgets-export-text' => "Pe esportà 'u \$1 gadget, cazze sus a 'u buttone \"{{int:gadgets-export-download}}\", reggistre 'u file scarecate, veje'a pàgene Special:Import sus 'a Uicchi de destinazione e carechele. Pò aggiunge 'a seguende pàgene MediaWiki:Gadgets-definition:
+<pre>\$2</pre>
+Tu a ave le permesse appropriate sus 'a Uicchi de destinazione (ingludenne le deritte a cangià le messagge d'u sisteme) e 'a 'mbortazione da file carecate adda essere abbilitate.",
 	'gadgets-export-download' => 'Scareche',
 );
 
@@ -1818,7 +1829,14 @@ $messages['ru'] = array(
  * @author Gazeb
  */
 $messages['rue'] = array(
+	'prefs-gadgets' => 'Додаткы',
+	'gadgets' => 'Додаткы',
+	'gadgets-title' => 'Додаткы',
 	'gadgets-uses' => 'Хоснує',
+	'gadgets-export' => 'Експортовати',
+	'gadgets-export-title' => 'Експорт додатку',
+	'gadgets-not-found' => 'Додато „$1“ не найдженый.',
+	'gadgets-export-download' => 'Скачати',
 );
 
 /** Yakut (Саха тыла)
@@ -1941,6 +1959,7 @@ $messages['su'] = array(
 /** Swedish (Svenska)
  * @author Ainali
  * @author Boivie
+ * @author Cohan
  * @author Lejonel
  * @author M.M.S.
  */
@@ -1960,6 +1979,10 @@ Den här översikten ger enkel åtkomst till de systemmeddelanden som definierar
 	'gadgets-uses' => 'Använder',
 	'gadgets-export' => 'Exportera',
 	'gadgets-export-title' => 'Exportera finess',
+	'gadgets-not-found' => 'Tillägg "$1" hittades inte.',
+	'gadgets-export-text' => 'För att exportera tillägg $1, klicka på "{{int:gadgets-export-download}}"-knappen, spara den nedladdade filen, gå till Special:Importera på destinationswikin och ladda upp den. Lägg sedan till följande till MediaWiki:Gadgets-definition sidan:
+<pre>$2</pre>
+Du måste ha tillräckliga behörigheter på destinationswikin (inklusive möjlighet att ändra systemmeddelanden) och att importera från filuppladningar måste vara aktiverad.',
 	'gadgets-export-download' => 'Ladda ner',
 );
 
@@ -2161,6 +2184,9 @@ Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistem
 	'gadgets-export' => 'Esporta',
 	'gadgets-export-title' => 'Esporta acessorio',
 	'gadgets-not-found' => 'Acessorio "$1" mia catà.',
+	'gadgets-export-text' => 'Par esportar el gadget $1, struca "{{int:gadgets-export-download}}", salva el file, va su Special:Import de la wiki de destinassion e carichelo. Dopo zonta sta roba qua su MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Te serve i parmessi su la wiki de destinassion (compreso quelo de modificar i messaji de sistema) e l\'inportassion dei file la deve essar ativà.',
 	'gadgets-export-download' => 'Descarga',
 );
 
