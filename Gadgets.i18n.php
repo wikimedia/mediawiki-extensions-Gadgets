@@ -1922,6 +1922,14 @@ Administratorji lahko uredite seznam vtičnikov z uporabo [[Special:Gadgets|pose
 	'gadgets-pagetext' => 'Spodaj je seznam posebnih vtičnikov (opredeljenih z [[MediaWiki:Gadgets-definition|definicijami]]), ki jih lahko uporabniki vključijo v svojih [[Special:Preferences|nastavitvah]].
 Ta pregled omogoča enostaven dostop do sistema za nastavljanje opisa in kode vsakega vtičnika posebej.',
 	'gadgets-uses' => 'Uporablja',
+	'gadgets-export' => 'Izvozi',
+	'gadgets-export-title' => 'Izvoz vtičnika',
+	'gadgets-not-found' => 'Vtičnika »$1« ni mogoče najti.',
+	'gadgets-export-text' => 'Za izvoz vtičnika $1 kliknite na gumb »{{int:gadgets-export-download}}«, shranite preneseno datoteko,
+pojdite na Special:Import na ciljnem wikiju in jo naložite. Nato dodajte naslednjo vrstico na stran MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Na ciljnem wikiju morate imeti ustrezna dovoljenja (vključno s pravico urejanja sistemskih sporočil) in omogočeni morajo biti uvozi iz naloženih datotek.',
+	'gadgets-export-download' => 'Prenesi',
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
@@ -2245,6 +2253,14 @@ Bạn phải có đủ quyền truy cập trên wiki đích (bao gồm quyền s
  */
 $messages['vo'] = array(
 	'gadgets-uses' => 'Gebs',
+);
+
+/** Yoruba (Yorùbá)
+ * @author Demmy
+ */
+$messages['yo'] = array(
+	'gadgets-uses' => 'Àwọn ìlò',
+	'gadgets-export-download' => 'Ìrùsílẹ̀',
 );
 
 /** Cantonese (粵語)
