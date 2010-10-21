@@ -759,6 +759,10 @@ Los administrators locals pôvont changiér los outils disponiblos en utilisent 
 	'gadgets-pagetext' => 'Vê-que una lista d’outils que los utilisators pôvont activar dens lor [[Special:Preferences|pâge de prèferences]], coment dèfeni dens les [[MediaWiki:Gadgets-definition|dèfinicions]].
 Ceti apèrçu balye un accès vito fêt a les pâges de mèssâjos sistèmo que dèfenéssont la dèscripcion et lo code de châque outil.',
 	'gadgets-uses' => 'Utilise',
+	'gadgets-export' => 'Èxportacion',
+	'gadgets-export-title' => 'Èxportacion d’outil',
+	'gadgets-not-found' => 'Outil « $1 » pas trovâ.',
+	'gadgets-export-download' => 'Tèlèchargiér',
 );
 
 /** Galician (Galego)
@@ -862,6 +866,7 @@ $messages['he'] = array(
 	'gadgets-uses' => 'משתמש בדפים',
 	'gadgets-export' => 'יצוא',
 	'gadgets-export-title' => 'יצוא גאדג׳טים',
+	'gadgets-not-found' => 'הגאדג׳ט "$1" לא נמצא.',
 	'gadgets-export-download' => 'הורדה',
 );
 
@@ -1335,11 +1340,13 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
 
 /** Latvian (Latviešu)
  * @author Marozols
+ * @author Papuass
  */
 $messages['lv'] = array(
 	'prefs-gadgets' => 'Rīki',
 	'gadgets' => 'Rīki',
 	'gadgets-title' => 'Rīki',
+	'gadgets-export-download' => 'Lejupielādēt',
 );
 
 /** Malagasy (Malagasy)
@@ -1872,6 +1879,11 @@ $messages['sah'] = array(
 	'gadgets-export' => 'Экспортаа',
 	'gadgets-export-title' => 'Ҕааддьыты таһаарыы (экспорт)',
 	'gadgets-not-found' => '"$1" ҕааддьыт көстүбэтэ.',
+	'gadgets-export-text' => '$1 ҕааддьыты таһаарарга (экспорт), «{{int:gadgets-export-download}}» тимэҕи баттаа, хачайдаммыт билэни бигэргэт, 
+онтон угуохтаах биикиҥ Special:Import сирэйигэр киирэн уган кэбис. Ол кэннэ MediaWiki:Gadgets-definition сирэйгэ бу устуруокалары эп: 
+<pre>$2</pre>
+Угуохтаах биикигэр аналлаах көҥүллээх буолуохтааххын (ол иһигэр тиһилик биллэриилэрин эрэдээксийэлиир кыах), эбиитин сиэрбэргэ билэни киллэрии көҥүллэммит буолуохтаах.',
+	'gadgets-export-download' => 'Хачайдааһын',
 );
 
 /** Sinhala (සිංහල)
@@ -1902,6 +1914,14 @@ Lokálni správcovia môžu upraviť zoznam dostupných nástrojov pomocou [[Med
 	'gadgets-title' => 'Nástroje',
 	'gadgets-pagetext' => 'Dolu je zoznam špeciálych nástrojov, ktoré môžu používatelia zapnúť v rámci svojho účtu na svojej stránke [[Special:Preferences|nastavení]]. Tento zoznam definuje stránka [[MediaWiki:Gadgets-definition]]. Tento prehľad poskytuje jednoduchý prístup k systémovým stránkam, ktoré definujú popis a kód každého z nástrojov.',
 	'gadgets-uses' => 'Použitia',
+	'gadgets-export' => 'Exportovať',
+	'gadgets-export-title' => 'Export nástroja',
+	'gadgets-not-found' => 'Nástroj „$1” nebol nájdený.',
+	'gadgets-export-text' => 'Ak chcete exportovať nástroj $1, kliknite na tlačidlo „{{int:gadgets-export-download}}“, uložte stiahnutý súbor, 
+ choďte na stránku Special:Import na cieľovej wiki a nahrajte ho. Potom pridajte nasledujúce na stránku MediaWiki:Gadgets-definition: 
+<pre>$2</pre>
+Musíte mať príslušné oprávnenia na cieľovej wiki (vrátane práva na úpravu systémových správ) a import z nahraného súboru musí byť povolený.',
+	'gadgets-export-download' => 'Stiahnuť',
 );
 
 /** Slovenian (Slovenščina)
@@ -2101,6 +2121,8 @@ $messages['tk'] = array(
 	'gadgets' => 'Gajetler',
 	'gadgets-title' => 'Gajetler',
 	'gadgets-uses' => 'Ulanýar',
+	'gadgets-export' => 'Eksportirle',
+	'gadgets-export-download' => 'Göçürip al',
 );
 
 /** Tagalog (Tagalog)
