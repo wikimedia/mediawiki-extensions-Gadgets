@@ -2122,6 +2122,8 @@ $messages['tk'] = array(
 	'gadgets-title' => 'Gajetler',
 	'gadgets-uses' => 'Ulanýar',
 	'gadgets-export' => 'Eksportirle',
+	'gadgets-export-title' => 'Gajet eksporty',
+	'gadgets-not-found' => '"$1" gajeti tapylmady.',
 	'gadgets-export-download' => 'Göçürip al',
 );
 
@@ -2282,6 +2284,7 @@ $messages['vo'] = array(
  */
 $messages['yo'] = array(
 	'gadgets-uses' => 'Àwọn ìlò',
+	'gadgets-export' => 'Ìkójáde',
 	'gadgets-export-download' => 'Ìrùsílẹ̀',
 );
 
