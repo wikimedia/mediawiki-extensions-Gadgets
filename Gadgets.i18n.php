@@ -196,7 +196,7 @@ Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del
 /** Samogitian (Žemaitėška)
  * @author Hugo.arg
  */
-$messages['bat-smg'] = array(
+$messages['sgs'] = array(
 	'gadgets' => 'Rakondā',
 );
 
