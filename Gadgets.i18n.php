@@ -152,6 +152,15 @@ $messages['ar'] = array(
 	'gadgets-uses' => 'تستخدم',
 );
 
+/** Aramaic (ܐܪܡܝܐ)
+ * @author Basharh
+ */
+$messages['arc'] = array(
+	'gadgets' => 'ܬܘܣܦܝܬ̈ܐ',
+	'gadgets-title' => 'ܬܘܣܦܝܬ̈ܐ',
+	'gadgets-export-download' => 'ܐܚܬ:',
+);
+
 /** Egyptian Spoken Arabic (مصرى)
  * @author Ghaly
  * @author Meno25
@@ -191,13 +200,6 @@ Los alministradores llocales puen editar los accesorios disponibles usando les [
 	'gadgets-pagetext' => 'Embaxo amuésase una llista de los accesorios especiales que los usuarios puen activar na so [[Special:Preferences|páxina de preferencies]], según queden definíos poles [[MediaWiki:Gadgets-definition|definiciones]].
 Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del sistema que definen la descripción y el códigu de cada accesoriu.',
 	'gadgets-uses' => 'Usa',
-);
-
-/** Samogitian (Žemaitėška)
- * @author Hugo.arg
- */
-$messages['sgs'] = array(
-	'gadgets' => 'Rakondā',
 );
 
 /** Southern Balochi (بلوچی مکرانی)
@@ -245,6 +247,7 @@ $messages['be-tarask'] = array(
  * @author Borislav
  * @author DCLXVI
  * @author Spiritia
+ * @author Turin
  */
 $messages['bg'] = array(
 	'gadgets-desc' => 'Позволява на потребителите да избират и активират [[Special:Gadgets|CSS и JavaScript джаджи]] от своите [[Special:Preferences|настройки]]',
@@ -259,6 +262,8 @@ $messages['bg'] = array(
 	'gadgets-pagetext' => 'По-долу е списъкът на специалните джаджи, които потребителите могат да активират чрез [[Special:Preferences|страницата си с настройки]], както е указано на [[MediaWiki:Gadgets-definition]].
 Този списък дава лесен достъп до страниците със системни съобщения, съдържащи описанието и кода на всяка джаджа.',
 	'gadgets-uses' => 'Използва',
+	'gadgets-export' => 'Изнасяне',
+	'gadgets-export-download' => 'Изтегляне',
 );
 
 /** Bengali (বাংলা)
@@ -867,6 +872,10 @@ $messages['he'] = array(
 	'gadgets-export' => 'יצוא',
 	'gadgets-export-title' => 'יצוא גאדג׳טים',
 	'gadgets-not-found' => 'הגאדג׳ט "$1" לא נמצא.',
+	'gadgets-export-text' => 'כדי לייצא את הגאדג׳ט $1, יש ללחוץ על הלחצן "{{int:gadgets-export-download}}", לשמור את הקובץ שהתקבל,
+לגשת אל Special:Import באתר הוויקי המיועד ולהעלות אותו. ואז להוסיף את הדברים הבאים לדף MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+עליך להיות עם הרשאות מתאימות באתר הוויקי המיועד (לרבות הרשאות לעריכת הודעות מערכת) והאפשרות לייבוא מקובץ חייבת להיות מופעלת.',
 	'gadgets-export-download' => 'הורדה',
 );
 
@@ -1884,6 +1893,13 @@ $messages['sah'] = array(
 <pre>$2</pre>
 Угуохтаах биикигэр аналлаах көҥүллээх буолуохтааххын (ол иһигэр тиһилик биллэриилэрин эрэдээксийэлиир кыах), эбиитин сиэрбэргэ билэни киллэрии көҥүллэммит буолуохтаах.',
 	'gadgets-export-download' => 'Хачайдааһын',
+);
+
+/** Samogitian (Žemaitėška)
+ * @author Hugo.arg
+ */
+$messages['sgs'] = array(
+	'gadgets' => 'Rakondā',
 );
 
 /** Sinhala (සිංහල)
