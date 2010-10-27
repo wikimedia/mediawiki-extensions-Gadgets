@@ -1698,6 +1698,7 @@ A-i é da manca d'avèj ij përmess aproprià an sla wiki ëd destinassion (comp
  */
 $messages['ps'] = array(
 	'gadgets-uses' => 'کارونې',
+	'gadgets-export-download' => 'ښکته کول',
 );
 
 /** Portuguese (Português)
