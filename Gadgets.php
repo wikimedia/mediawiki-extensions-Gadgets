@@ -48,7 +48,9 @@ function wfGadgetsArticleSaveComplete( $article, $user, $text ) {
 function wfLoadGadgets() {
 	static $gadgets = null;
 
-	if ( $gadgets !== null ) return $gadgets;
+	if ( $gadgets !== null ) {
+		return $gadgets;
+	}
 
 	$struct = wfLoadGadgetsStructured();
 	if ( !$struct ) {
@@ -57,7 +59,7 @@ function wfLoadGadgets() {
 	}
 
 	$gadgets = array();
-	foreach ( $struct as $section => $entries ) {
+	foreach ( $struct as $entries ) {
 		$gadgets = array_merge( $gadgets, $entries );
 	}
 
@@ -68,7 +70,9 @@ function wfLoadGadgetsStructured( $forceNewText = null ) {
 	global $wgMemc;
 
 	static $gadgets = null;
-	if ( $gadgets !== null && $forceNewText === null ) return $gadgets;
+	if ( $gadgets !== null && $forceNewText === null ) {
+		return $gadgets;
+	}
 
 	$key = wfMemcKey( 'gadgets-definition' );
 
@@ -120,7 +124,9 @@ function wfLoadGadgetsStructured( $forceNewText = null ) {
 
 function wfGadgetsGetPreferences( $user, &$preferences ) {
 	$gadgets = wfLoadGadgetsStructured();
-	if (!$gadgets) return true;
+	if (!$gadgets) {
+		return true;
+	}
 	
 	$options = array();
 	foreach( $gadgets as $section => $thisSection ) {
@@ -162,7 +168,9 @@ function wfGadgetsGetPreferences( $user, &$preferences ) {
 
 function wfGadgetsBeforePageDisplay( $out ) {
 	global $wgUser;
-	if ( !$wgUser->isLoggedIn() ) return true;
+	if ( !$wgUser->isLoggedIn() ) {
+		return true;
+	}
 
 	//disable all gadgets on critical special pages
 	//NOTE: $out->isUserJsAllowed() is tempting, but always fals if $wgAllowUserJs is false.
@@ -177,7 +185,9 @@ function wfGadgetsBeforePageDisplay( $out ) {
 	}
 
 	$gadgets = wfLoadGadgets();
-	if ( !$gadgets ) return true;
+	if ( !$gadgets ) {
+		return true;
+	}
 
 	$lb = new LinkBatch();
 	$lb->setCaller( __METHOD__ );
@@ -197,7 +207,9 @@ function wfGadgetsBeforePageDisplay( $out ) {
 
 	$done = array();
 	foreach ( $pages as $page ) {
-		if ( isset( $done[$page] ) ) continue;
+		if ( isset( $done[$page] ) ) {
+			continue;
+		}
 		$done[$page] = true;
 		wfApplyGadgetCode( $page, $out );
 	}
@@ -212,7 +224,9 @@ function wfApplyGadgetCode( $page, $out ) {
 	//       but we'd want it to appear above explicit user stuff, so it can be overwritten.
 
 	$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$page" );
-	if ( !$t ) continue;
+	if ( !$t ) {
+		return;
+	}
 
 	if ( preg_match( '/\.js/', $page ) ) {
 		$u = $t->getLocalURL( 'action=raw&ctype=' . $wgJsMimeType );
