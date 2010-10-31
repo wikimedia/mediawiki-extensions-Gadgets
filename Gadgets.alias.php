@@ -232,7 +232,7 @@ $specialPageAliases['ro'] = array(
 
 /** Sanskrit (संस्कृत) */
 $specialPageAliases['sa'] = array(
-	'Gadgets' => array( 'सुविधा (गॅजेट)' ),
+	'Gadgets' => array( 'सुविधा_(गॅजेट)' ),
 );
 
 /** Sinhala (සිංහල) */
