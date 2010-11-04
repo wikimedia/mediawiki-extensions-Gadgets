@@ -137,7 +137,7 @@ function wfGadgetsGetPreferences( $user, &$preferences ) {
 		} else {
 			$destination = &$options;
 		}
-		foreach( $thisSection as $gname => $code ) {
+		foreach( $thisSection as $gname ) {
 			$destination[wfMsgExt( "gadget-$gname", 'parseinline' )] = $gname;
 		}
 	}
