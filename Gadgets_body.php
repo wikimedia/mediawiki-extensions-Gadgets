@@ -250,7 +250,7 @@ class Gadget {
 	 * @return Boolean
 	 */
 	public function isOutdated() {
-		return $this->version != GADGET_CLASS_VERSION;
+		return $this->version != self::GADGET_CLASS_VERSION;
 	}
 
 	/**
