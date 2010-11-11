@@ -51,7 +51,7 @@ class SpecialGadgets extends SpecialPage {
 		$wgOut->setPagetitle( wfMsg( "gadgets-title" ) );
 		$wgOut->addWikiMsg( 'gadgets-pagetext' );
 
-		$gadgets = wfLoadGadgetsStructured();
+		$gadgets = Gadget::loadStructuredList();
 		if ( !$gadgets ) return;
 
 		$lang = "";
@@ -84,17 +84,17 @@ class SpecialGadgets extends SpecialPage {
 				$wgOut->addHTML( Html::rawElement( 'h2', array(), $ttext . $lnk ) . "\n" );
 			}
 
-			foreach ( $entries as $gname => $code ) {
-				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$gname$lang" );
+			foreach ( $entries as $gadget ) {
+				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-{$gadget->getName()}$lang" );
 				if ( !$t ) continue;
 
 				$links = array();
 				if ( $editInterfaceAllowed ) {
 					$links[] = $skin->link( $t, wfMsgHTML( 'edit' ), array(), array( 'action' => 'edit' ) );
 				}
-				$links[] = $skin->link( $this->getTitle( "export/$gname" ), wfMsgHtml( 'gadgets-export' ) );
+				$links[] = $skin->link( $this->getTitle( "export/{$gadget->getName()}" ), wfMsgHtml( 'gadgets-export' ) );
 				
-				$ttext = wfMsgExt( "gadget-$gname", $msgOpt );
+				$ttext = wfMsgExt( "gadget-{$gadget->getName()}", $msgOpt );
 
 				if( !$listOpen ) {
 					$listOpen = true;
@@ -107,8 +107,8 @@ class SpecialGadgets extends SpecialPage {
 				);
 
 				$lnk = array();
-				foreach ( $code as $codePage ) {
-					$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$codePage" );
+				foreach ( $gadget->getScriptsAndStyles() as $codePage ) {
+					$t = Title::makeTitleSafe( NS_MEDIAWIKI, $codePage );
 					if ( !$t ) continue;
 
 					$lnk[] = $skin->link( $t, htmlspecialchars( $t->getText() ) );
@@ -130,20 +130,20 @@ class SpecialGadgets extends SpecialPage {
 	public function showExportForm( $gadget ) {
 		global $wgOut, $wgScript;
 
-		$gadgets = wfLoadGadgets();
+		$gadgets = Gadget::loadList();
 		if ( !isset( $gadgets[$gadget] ) ) {
 			$wgOut->showErrorPage( 'error', 'gadgets-not-found', array( $gadget ) );
 			return;
 		}
 		
-		$ourDefinition = "* $gadget|" . implode('|', $gadgets[$gadget] );
+		$g = $gadgets[$gadget];
 		$this->setHeaders();
 		$wgOut->setPagetitle( wfMsg( "gadgets-export-title" ) );
-		$wgOut->addWikiMsg( 'gadgets-export-text', $gadget, $ourDefinition );
+		$wgOut->addWikiMsg( 'gadgets-export-text', $gadget, $g->getDefinition() );
 
 		$exportList = "MediaWiki:gadget-$gadget\n";
-		foreach ( $gadgets[$gadget] as $page ) {
-			$exportList .= "MediaWiki:gadget-$page\n";
+		foreach ( $g->getScriptsAndStyles() as $page ) {
+			$exportList .= "MediaWiki:$page\n";
 		}
 
 		$wgOut->addHTML( Html::openElement( 'form', array( 'method' => 'GET', 'action' => $wgScript ) )
