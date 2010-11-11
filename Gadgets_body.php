@@ -168,7 +168,7 @@
 		//       but we'd want it to appear above explicit user stuff, so it can be overwritten.
 
 		$t = Title::makeTitleSafe( NS_MEDIAWIKI, $page );
-		if ( !$t ) continue;
+		if ( !$t ) return;
 
 		$u = $t->getLocalURL( 'action=raw&ctype=' . $wgJsMimeType );
 		//switched to addScriptFile call to support scriptLoader
