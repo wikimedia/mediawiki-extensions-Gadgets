@@ -36,4 +36,11 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue( $g->supportsResourceLoader() );
 		$this->assertEquals(0, count( $g->getLegacyScripts() ) );
 	}
+
+	function testDependencies() {
+		$g = $this->create( '* foo[ResourceLoader|dependencies=jquery.ui]|bar.js' );
+		$this->assertEquals( array( 'Gadget-bar.js' ), $g->getScripts() );
+		$this->assertTrue( $g->supportsResourceLoader() );
+		$this->assertEquals( array( 'jquery.ui' ), $g->getDependencies() );
+	}
 }

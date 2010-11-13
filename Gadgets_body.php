@@ -1,4 +1,4 @@
-<?php
+	<?php
 /**
  * Gadgets extension - lets users select custom javascript gadgets
  *
@@ -192,11 +192,12 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	const GADGET_CLASS_VERSION = 1;
+	const GADGET_CLASS_VERSION = 2;
 
 	private $version = self::GADGET_CLASS_VERSION,
 	        $scripts = array(),
 	        $styles = array(),
+			$dependencies = array(),
 	        $name,
 			$definition,
 			$resourceLoaded = false;
@@ -218,7 +219,15 @@ class Gadget {
 		$gadget->definition = $definition;
 		$params = trim( $m[2], ' []' );
 		foreach ( preg_split( '/\s*\|\s*/', $params, -1, PREG_SPLIT_NO_EMPTY ) as $option ) {
-			if ( $option == 'ResourceLoader' ) $gadget->resourceLoaded = true;
+			if ( $option == 'ResourceLoader' ) {
+				$gadget->resourceLoaded = true;
+			} elseif ( preg_match( '/dependencies\s*=/', $option ) ) {
+				$option = preg_replace( '/dependencies\s*=\s*/', '', $option );
+				$deps = preg_split( '/\s*,\s*/', $option, -1, PREG_SPLIT_NO_EMPTY );
+				if ( $deps ) {
+					$gadget->dependencies = $deps;
+				}
+			}
 		}
 		foreach ( preg_split( '/\s*\|\s*/', $m[3], -1, PREG_SPLIT_NO_EMPTY ) as $page ) {
 			$page = "Gadget-$page";
@@ -323,7 +332,7 @@ class Gadget {
 		if ( !count( $pages ) ) {
 			return null;
 		}
-		return new GadgetResourceLoaderModule( $pages );
+		return new GadgetResourceLoaderModule( $pages, $this->dependencies );
 	}
 
 	/**
@@ -335,6 +344,14 @@ class Gadget {
 			return array();
 		}
 		return $this->scripts;
+	}
+
+	/**
+	 * Returns names of resources this gadget depends on
+	 * @return Array
+	 */
+	public function getDependencies() {
+		return $this->dependencies;
 	}
 
 	/**
@@ -449,7 +466,7 @@ class Gadget {
  * Class representing a list of resources for one gadget
  */
 class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
-	private $pages;
+	private $pages, $dependencies;
 
 	/**
 	 * Creates an instance of this class
@@ -459,9 +476,11 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * 		'Gadget-foo.js'  => array( 'ns' => NS_MEDIAWIKI, 'type' => 'script' ),
 	 * 		'Gadget-foo.css' => array( 'ns' => NS_MEDIAWIKI, 'type' => 'style' ),
 	 * )
+	 * @param $dependencies Array: Names of resources this module depends on
 	 */
-	public function __construct( $pages ) {
+	public function __construct( $pages, $dependencies ) {
 		$this->pages = $pages;
+		$this->dependencies = $dependencies;
 	}
 
 	/**
@@ -470,5 +489,13 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 */
 	protected function getPages( ResourceLoaderContext $context ) {
 		return $this->pages;
+	}
+
+	/**
+	 * Overrides ResourceLoaderModule::getDependencies()
+	 * @return Array: Names of resources this module depends on
+	 */
+	public function getDependencies() {
+		return $this->dependencies;
 	}
 }
