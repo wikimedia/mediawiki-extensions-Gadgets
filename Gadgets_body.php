@@ -1,4 +1,4 @@
-	<?php
+<?php
 /**
  * Gadgets extension - lets users select custom javascript gadgets
  *
