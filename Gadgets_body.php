@@ -164,14 +164,10 @@
 	private static function applyScript( $page, $out ) {
 		global $wgJsMimeType;
 
-		//FIXME: stuff added via $out->addScript appears below usercss and userjs
-		//       but we'd want it to appear above explicit user stuff, so it can be overwritten.
-
 		$t = Title::makeTitleSafe( NS_MEDIAWIKI, $page );
 		if ( !$t ) return;
 
 		$u = $t->getLocalURL( 'action=raw&ctype=' . $wgJsMimeType );
-		//switched to addScriptFile call to support scriptLoader
 		$out->addScriptFile( $u, $t->getLatestRevID() );
 	}
 
