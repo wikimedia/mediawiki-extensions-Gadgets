@@ -1011,19 +1011,19 @@ Tu debe haber le permissiones appropriate in le wiki de destination (includente 
  * @author IvanLanin
  */
 $messages['id'] = array(
-	'gadgets-desc' => 'Memungkinkan pengguna memilih [[Special:Gadgets|gadget CSS dan JavaScript]] melalui [[Special:Preferences|preferensi]] mereka',
-	'prefs-gadgets' => 'Gadget',
-	'gadgets-prefstext' => 'Berikut adalah daftar gadget istimewa yang dapat Anda aktifkan untuk akun Anda. Gadget-gadget tersebut sebagian besar berbasis JavaScript sehingga Anda harus mengaktifkan JavaScript pada penjelajah Anda untuk dapat menjalankannya. Perhatikan bahwa gadget-gadget tersebut tak memiliki pengaruh terhadap halaman preferensi ini.
+	'gadgets-desc' => 'Memungkinkan pengguna memilih [[Special:Gadgets|gawai CSS dan JavaScript]] melalui [[Special:Preferences|preferensi]] mereka',
+	'prefs-gadgets' => 'Gawai',
+	'gadgets-prefstext' => 'Berikut adalah daftar gawai istimewa yang dapat Anda aktifkan untuk akun Anda. Semua gawai tersebut sebagian besar berbasis JavaScript sehingga Anda harus mengaktifkan JavaScript pada penjelajah Anda untuk dapat menjalankannya. Perhatikan bahwa berbagai gawai tersebut tak memiliki pengaruh terhadap halaman preferensi ini.
 
-Juga perhatikan bahwa gadget istimewa ini bukanlah bagian dari perangkat lunak MediaWiki dan biasanya dikembangkan dan dipelihara oleh pengguna-pengguna di wiki lokal Anda. Pengurus lokal dapat menyunting gadget yang tersedia melalui [[MediaWiki:Gadgets-definition]] dan [[Special:Gadgets]].',
-	'gadgets' => 'Gadget',
-	'gadgets-title' => 'Gadget',
-	'gadgets-pagetext' => 'Berikut adalah daftar gadget istimewa yang dapat diaktifkan pengguna melalui halaman preferensi mereka sebagaimana didefinisikan oleh [[MediaWiki:Gadgets-definition]]. Tinjauan berikut memberikan kemudahan akses ke dalam halaman pesan sistem yang mendefinisikan deskripsi dan kode masing-masing gadget.',
+Juga perhatikan bahwa gawai istimewa ini bukanlah bagian dari perangkat lunak MediaWiki dan biasanya dikembangkan dan dipelihara oleh para pengguna di wiki lokal Anda. Pengurus lokal dapat menyunting gawai yang tersedia melalui [[MediaWiki:Gadgets-definition]] dan [[Special:Gadgets]].',
+	'gadgets' => 'Gawai',
+	'gadgets-title' => 'Gawai',
+	'gadgets-pagetext' => 'Berikut adalah daftar gawai istimewa yang dapat diaktifkan pengguna melalui [[Special:Preferences|halaman preferensi]] mereka sebagaimana didefinisikan oleh [[MediaWiki:Gadgets-definition]]. Tinjauan berikut memberikan kemudahan akses ke dalam halaman pesan sistem yang mendefinisikan deskripsi dan kode masing-masing gawai.',
 	'gadgets-uses' => 'Penggunaan',
 	'gadgets-export' => 'Ekspor',
-	'gadgets-export-title' => 'Ekspor gadget',
-	'gadgets-not-found' => 'Gadget "$1" tidak ditemukan.',
-	'gadgets-export-text' => 'Untuk mengekspor gadget $1, klik tombol "{{int:gadgets-export-download}}", siimpan berkas yang diunduh,
+	'gadgets-export-title' => 'Ekspor gawai',
+	'gadgets-not-found' => 'Gawai "$1" tidak ditemukan.',
+	'gadgets-export-text' => 'Untuk mengekspor gawai $1, klik tombol "{{int:gadgets-export-download}}", simpan berkas yang diunduh,
 tuju ke Special:Import pada wiki tujuan dan unggah berkas itu. Kemudian tambahkan berkas tersebut ke halaman MediaWiki:Gadgets-definition:
 <pre>$2</pre>
 Anda harus memeroleh izin pada wiki tujuan (termasuk hak menyunting pesan sistem) dan mengimpor dari unggahan berkas yang harus diaktifkan.',
@@ -2190,6 +2190,13 @@ Yerel yöneticiler [[MediaWiki:Gadgets-definition|tanımları]] ve [[Special:Gad
 	'gadgets-pagetext' => "Aşağıdaki, kullanıcıların [[Special:Preferences|tercihler sayfasında]] etkin hale getirebileceği, [[MediaWiki:Gadgets-definition|tanımlarla]] belirtildiği gibi, özel gadgetlerin bir listesidir.
 Bu genel bakış, her gadget'in tanımını ve kodunu belirten sistem mesaj sayfalarına kolay erişim sağlar.",
 	'gadgets-uses' => 'Kullanıyor',
+	'gadgets-export' => 'Dışa aktar',
+	'gadgets-export-title' => 'Gadget dışa aktarımı',
+	'gadgets-not-found' => 'Gadget "$1" bulunamadı.',
+	'gadgets-export-text' => '$1 gadgetini dışa aktarmak için "{{int:gadgets-export-download}}" düğmesine tıklayın, yüklenen dosyayı kaydedin, hedef vikide Special:Import sayfasına gidin ve yükleyin. Sonra aşağıdakini MediaWiki:Gadgets-definition sayfasına ekleyin:
+<pre>$2</pre>
+Hedef vikide uygun izinlerinizin olması (sistem mesajlarını değiştirmek yetkisi dahil) ve dosyadan içe aktarmanın etkinleştirilmiş olması gerekir.',
+	'gadgets-export-download' => 'İndir',
 );
 
 /** Tatar (Cyrillic) (Татарча/Tatarça (Cyrillic))
