@@ -536,6 +536,7 @@ Musyš trěbne pšawa na celowem wikiju měś (inkluziwnje pšawo za wobźěłow
  * @author Badseed
  * @author Consta
  * @author Dead3y3
+ * @author Glavkos
  * @author ZaDiak
  */
 $messages['el'] = array(
@@ -552,6 +553,10 @@ $messages['el'] = array(
 	'gadgets-pagetext' => 'Παρακάτω βρίσκεται ένας κατάλογος με τις ειδικές λειτουργίες τις οποίες οι χρήστες μπορούν να ενεργοποιήσουν στη [[Special:Preferences|σελίδα προτιμήσεών]] τους, όπως ορίζεται από τη σελίδα [[MediaWiki:Gadgets-definition|ορισμών]].<br />
 Αυτή η επισκόπηση παρέχει εύκολη πρόσβαση στις σελίδες μηνυμάτων του συστήματος που ορίζουν την περιγραφή και τον κώδικα κάθε λειτουργίας.',
 	'gadgets-uses' => 'Χρήσεις',
+	'gadgets-export' => 'Εξαγωγή',
+	'gadgets-export-title' => 'Μικροεφαρμογή εξαγωγής',
+	'gadgets-not-found' => 'Μικροεφαρμογή "$1" δεν βρέθηκε.',
+	'gadgets-export-download' => 'Λήψη',
 );
 
 /** Esperanto (Esperanto)
