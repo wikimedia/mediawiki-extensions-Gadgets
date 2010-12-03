@@ -202,6 +202,19 @@ Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del
 	'gadgets-uses' => 'Usa',
 );
 
+/** Bashkir (Башҡорт)
+ * @author Рустам Нурыев
+ */
+$messages['ba'] = array(
+	'prefs-gadgets' => 'Гаджеттар',
+	'gadgets' => 'Гаджеттар',
+	'gadgets-title' => 'Гаджеттар',
+	'gadgets-uses' => 'Ҡулланыла',
+	'gadgets-export' => 'Сығарырға',
+	'gadgets-not-found' => '"$1" гаджеты табылманы.',
+	'gadgets-export-download' => 'Күсереп алырға',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */
