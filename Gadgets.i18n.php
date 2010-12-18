@@ -1922,6 +1922,7 @@ $messages['sgs'] = array(
 );
 
 /** Sinhala (සිංහල)
+ * @author Budhajeewa
  * @author නන්දිමිතුරු
  * @author බිඟුවා
  */
@@ -1931,6 +1932,10 @@ $messages['si'] = array(
 	'gadgets' => 'මෙවලම්',
 	'gadgets-title' => 'මෙවලම්',
 	'gadgets-uses' => 'පරිශීලනය කරයි',
+	'gadgets-export' => 'අපනයනය කරන්න',
+	'gadgets-export-title' => 'ගැජටය අපනයනය කරන්න',
+	'gadgets-not-found' => '"$1" ගැජටය හමුවුනේ නැත.',
+	'gadgets-export-download' => 'බාගන්න',
 );
 
 /** Slovak (Slovenčina)
@@ -1985,6 +1990,18 @@ pojdite na Special:Import na ciljnem wikiju in jo naložite. Nato dodajte nasled
 <pre>$2</pre>
 Na ciljnem wikiju morate imeti ustrezna dovoljenja (vključno s pravico urejanja sistemskih sporočil) in omogočeni morajo biti uvozi iz naloženih datotek.',
 	'gadgets-export-download' => 'Prenesi',
+);
+
+/** Albanian (Shqip)
+ * @author Mikullovci11
+ */
+$messages['sq'] = array(
+	'prefs-gadgets' => 'Gadgets',
+	'gadgets' => 'Gadgets',
+	'gadgets-title' => 'Gadgets',
+	'gadgets-uses' => 'Përdorues',
+	'gadgets-export' => 'Eksporto',
+	'gadgets-export-download' => 'Shkarko',
 );
 
 /** Serbian Cyrillic ekavian (Српски (ћирилица))
