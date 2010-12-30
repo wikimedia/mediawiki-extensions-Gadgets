@@ -2367,6 +2367,7 @@ $messages['yue'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
+ * @author Hydra
  * @author Shinjiman
  */
 $messages['zh-hans'] = array(
@@ -2383,6 +2384,12 @@ $messages['zh-hans'] = array(
 通过这个概览可以方便的获得系统信息页面，从而可以定义每个小工具的描述以及源码。',
 	'gadgets-uses' => '使用',
 	'gadgets-export' => '导出',
+	'gadgets-export-title' => '小工具出口',
+	'gadgets-not-found' => '找不到“$1”小工具。',
+	'gadgets-export-text' => '要导出 $1 小工具，请单击"{{int:gadgets-export-download}}"按钮，保存下载的文件
+转到特别： 导入目标 wiki 上并将其上传。然后将以下添加到 MediaWiki:Gadgets-definition：
+<pre>$2</pre>
+您必须具有适当的权限 （包括编辑系统消息的权利） 的目标维基上，必须启用导入的文件上传。',
 	'gadgets-export-download' => '下载',
 );
 
