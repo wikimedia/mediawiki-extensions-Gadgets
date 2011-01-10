@@ -1536,6 +1536,7 @@ Dit overzichte biejt eenvoudige toegang tot de systeemtekspagina waor de beschri
 );
 
 /** Dutch (Nederlands)
+ * @author Annabel
  * @author SPQRobin
  * @author Siebrand
  */
@@ -1546,7 +1547,7 @@ $messages['nl'] = array(
 De uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet voor uw browser ingeschakeld zijn om ze te laten werken.
 De uitbreidingen hebben geen invloed op deze pagina met voorkeuren.
 
-Deze speciale uitbreidingen zijn ook geen onderdeel van de MediaWiki-software, en ze worden meestal ontwikkeld en onderhouden
+Deze speciale uitbreidingen zijn ook geen onderdeel van de MediaWiki-software en ze worden meestal ontwikkeld en onderhouden
 door gebruikers van uw wiki.
 Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition|definities]] en [[Special:Gadgets|beschrijvingen]].',
 	'gadgets' => 'Uitbreidingen',
