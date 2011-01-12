@@ -396,7 +396,7 @@ $messages['ce'] = array(
 Диц маделаш, хlара хlоттончаш болх бяш яз хlо гlирс нисбо агlон чохь.
 
 Ишта диц маде, хlара хlоттончаш юкъа йогуш яз кху MediaWiki гlирсашна, мадарра аьльча шу санна декъашхоша шаьш йеш ю.
-Адманкуьйгалхошка шайг хийцало и хlоттончи могlам, хlокх могlам гlонца [[MediaWiki:Gadgets-definition|къастам бало]] йа [[Special:Gadgets|церах лаьцна]].',
+Адманкуьйгалхошка шайг хийцало и хlоттончи могlам, хlокх могlам гlонца [[MediaWiki:Gadgets-definition|къастам бало]] а [[Special:Gadgets|церах лаьцна]].',
 	'gadgets' => 'Хlоттончаш',
 	'gadgets-title' => 'Хlоттончаш',
 	'gadgets-pagetext' => 'Гlирса хааман могlамаш, къастош йолу хlоттончи цlераш, хуьлаш йолу хIокху [[MediaWiki:Gadgets-definition|къастамца]]]].
@@ -1547,8 +1547,7 @@ $messages['nl'] = array(
 De uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet voor uw browser ingeschakeld zijn om ze te laten werken.
 De uitbreidingen hebben geen invloed op deze pagina met voorkeuren.
 
-Deze speciale uitbreidingen zijn ook geen onderdeel van de MediaWiki-software en ze worden meestal ontwikkeld en onderhouden
-door gebruikers van uw wiki.
+Deze speciale uitbreidingen zijn geen onderdeel van de MediaWiki-software en worden meestal ontwikkeld en onderhouden door gebruikers van uw wiki.
 Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition|definities]] en [[Special:Gadgets|beschrijvingen]].',
 	'gadgets' => 'Uitbreidingen',
 	'gadgets-title' => 'Uitbreidingen',
