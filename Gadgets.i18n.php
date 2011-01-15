@@ -2415,15 +2415,22 @@ $messages['zh-hant'] = array(
 	'gadgets-desc' => '讓使用者可以在[[Special:Preferences|偏好設定]]中自訂 [[Special:Gadgets|CSS與JavaScript工具]]',
 	'prefs-gadgets' => '小工具',
 	'gadgets-prefstext' => '以下是一個特殊小工具，您可以在您的帳戶中啟用。
-這些小工具多數都是基於JavaScript建造，如果要啟用它們，那麼瀏覽器的JavaScript就需要啟用後方可使用。
-要留意的是這些小工具在這個參數設置頁面中是沒有效果的。
+這些小工具多數都是基於 JavaScript 建造，如果要啟用它們，那麼瀏覽器的 JavaScript 就需要啟用後方可使用。
+要留意的是這些小工具在這個偏好設定頁面中是沒有效果的。
 
-亦都同時留意這些小工具的特殊頁面不是MediaWiki軟件的一部份，通常都是由您本地的wiki中開發以及維護。本地管理員可以在[[MediaWiki:Gadgets-definition]]以及[[Special:Gadgets]]編輯可供使用的小工具。',
+亦都同時留意這些小工具的特殊頁面不是 MediaWiki 軟體的一部份，通常都是由您本地的 wiki 中開發以及維護。本地管理員可以在 [[MediaWiki:Gadgets-definition]] 以及 [[Special:Gadgets]] 編輯可供使用的小工具。',
 	'gadgets' => '小工具',
 	'gadgets-title' => '小工具',
-	'gadgets-pagetext' => '以下是一個按照[[MediaWiki:Gadgets-definition]]的定義特殊小工具清單，用戶可以在它們的[[Special:Preferences|參數設置頁面]]中啟用它們。
+	'gadgets-pagetext' => '以下是一個按照 [[MediaWiki:Gadgets-definition]] 的定義特殊小工具清單，用戶可以在它們的[[Special:Preferences|偏好設定頁面]]中啟用它們。
 
-這個概覽提供的系統資訊頁面的簡易存取，可以定義每個小工具的描述以及原碼。',
+這個概覽提供的系統資訊頁面的簡易存取，可以定義每個小工具的描述以及原始碼。',
 	'gadgets-uses' => '使用',
+	'gadgets-export' => '匯出',
+	'gadgets-not-found' => '找不到「$1」小工具。',
+	'gadgets-export-text' => '要匯出 $1 小工具，請點擊「{{int:gadgets-export-download}}」按鈕，儲存下載的檔案
+轉到 Special:Import 目標 wiki 上並將其上傳。然後將以下新增到 MediaWiki:Gadgets-definition：
+<pre>$2</pre>
+您必須具有適當的權限 （包括編輯系統訊息的權利） 的目標維基上，必須啟用匯入的檔案上傳。',
+	'gadgets-export-download' => '下載',
 );
 
