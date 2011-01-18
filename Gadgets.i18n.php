@@ -679,6 +679,7 @@ $messages['ext'] = array(
 
 /** Persian (فارسی)
  * @author Bersam
+ * @author Ebraminio
  * @author Huji
  * @author Ladsgroup
  * @author Wayiran
@@ -697,7 +698,7 @@ $messages['fa'] = array(
 	'gadgets-pagetext' => 'در زیر فهرستی از ابزارهای ویژه‌ای که کاربران می‌توانند از طریق [[Special:Preferences|صفحهٔ ترجیحاتشان]] فعال کنند می‌بینید، که مطابق آن چه است که در صفحهٔ [[MediaWiki:Gadgets-definition|تعاریف]] تعریف شده‌است.
 این خلاصه کمک می‌کند که به صفحه‌های پیغام سیستمی که توضیحات و کد هر ابزار را شامل می‌شوند به راحتی دست پیدا کنید.',
 	'gadgets-uses' => 'برنامه',
-	'gadgets-export' => 'صدور',
+	'gadgets-export' => 'صادر کردن',
 	'gadgets-export-title' => 'برون‌ریزی ابزار',
 	'gadgets-not-found' => 'ابزار «$1» یافت نشد.',
 	'gadgets-export-text' => 'برای برون‌بری ابزار $1، بر دکمهٔ «{{int:gadgets-export-download}}» کلیک کنید، پروندهٔ بارگیری‌شده را ذخیره کنید، به ویژه:درون‌ریزی در ویکی مقصد بروید و بارگذاری‌اش کنید. سپس این را به صفحهٔ مدیاویکی:Gadgets-definition بیفزایید:
@@ -2410,6 +2411,7 @@ $messages['zh-hans'] = array(
  * @author Horacewai2
  * @author Mark85296341
  * @author Shinjiman
+ * @author Waihorace
  */
 $messages['zh-hant'] = array(
 	'gadgets-desc' => '讓使用者可以在[[Special:Preferences|偏好設定]]中自訂 [[Special:Gadgets|CSS與JavaScript工具]]',
@@ -2426,6 +2428,7 @@ $messages['zh-hant'] = array(
 這個概覽提供的系統資訊頁面的簡易存取，可以定義每個小工具的描述以及原始碼。',
 	'gadgets-uses' => '使用',
 	'gadgets-export' => '匯出',
+	'gadgets-export-title' => '匯出小工具',
 	'gadgets-not-found' => '找不到「$1」小工具。',
 	'gadgets-export-text' => '要匯出 $1 小工具，請點擊「{{int:gadgets-export-download}}」按鈕，儲存下載的檔案
 轉到 Special:Import 目標 wiki 上並將其上傳。然後將以下新增到 MediaWiki:Gadgets-definition：
