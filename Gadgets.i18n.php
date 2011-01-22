@@ -202,7 +202,7 @@ Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del
 	'gadgets-uses' => 'Usa',
 );
 
-/** Bashkir (Башҡорт)
+/** Bashkir (Башҡортса)
  * @author Рустам Нурыев
  */
 $messages['ba'] = array(
@@ -226,7 +226,7 @@ $messages['bcc'] = array(
 	'gadgets-uses' => 'استفاده بیت',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
  * @author Cesco
  * @author EugeneZelenko
  * @author Jim-by
@@ -491,7 +491,7 @@ Du musst über die notwendigen Berechtigungen auf dem für den Import vorgesehen
 	'gadgets-export-download' => 'Herunterladen',
 );
 
-/** German (formal address) (Deutsch (Sie-Form))
+/** German (formal address) (‪Deutsch (Sie-Form)‬)
  * @author Kghbln
  */
 $messages['de-formal'] = array(
@@ -2018,7 +2018,7 @@ $messages['sq'] = array(
 	'gadgets-export-download' => 'Shkarko',
 );
 
-/** Serbian Cyrillic ekavian (Српски (ћирилица))
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Millosh
  */
 $messages['sr-ec'] = array(
@@ -2028,7 +2028,7 @@ $messages['sr-ec'] = array(
 	'gadgets-uses' => 'користи се',
 );
 
-/** Serbian Latin ekavian (Srpski (latinica))
+/** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
  */
 $messages['sr-el'] = array(
