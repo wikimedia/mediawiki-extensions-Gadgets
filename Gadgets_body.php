@@ -204,6 +204,7 @@ class Gadget {
 	 * @return Mixed: Instance of Gadget class or false if $definition is invalid
 	 */
 	public static function newFromDefinition( $definition ) {
+		$m = array();
 		if ( !preg_match( '/^\*+ *([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)(\s*\[.*?\])?\s*((\|[^|]*)+)\s*$/', $definition, $m ) ) {
 			return false;
 		}
@@ -437,6 +438,7 @@ class Gadget {
 		$section = '';
 
 		foreach ( $g as $line ) {
+			$m = array();
 			if ( preg_match( '/^==+ *([^*:\s|]+?)\s*==+\s*$/', $line, $m ) ) {
 				$section = $m[1];
 			}
