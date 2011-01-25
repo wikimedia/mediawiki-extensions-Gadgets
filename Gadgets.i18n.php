@@ -1027,23 +1027,24 @@ Tu debe haber le permissiones appropriate in le wiki de destination (includente 
 );
 
 /** Indonesian (Bahasa Indonesia)
+ * @author Bennylin
  * @author Farras
  * @author IvanLanin
  */
 $messages['id'] = array(
-	'gadgets-desc' => 'Memungkinkan pengguna memilih [[Special:Gadgets|gawai CSS dan JavaScript]] melalui [[Special:Preferences|preferensi]] mereka',
-	'prefs-gadgets' => 'Gawai',
-	'gadgets-prefstext' => 'Berikut adalah daftar gawai istimewa yang dapat Anda aktifkan untuk akun Anda. Semua gawai tersebut sebagian besar berbasis JavaScript sehingga Anda harus mengaktifkan JavaScript pada penjelajah Anda untuk dapat menjalankannya. Perhatikan bahwa berbagai gawai tersebut tak memiliki pengaruh terhadap halaman preferensi ini.
+	'gadgets-desc' => 'Memungkinkan pengguna memilih [[Special:Gadgets|perkakas CSS dan JavaScript]] melalui [[Special:Preferences|preferensi]] mereka',
+	'prefs-gadgets' => 'Perkakas',
+	'gadgets-prefstext' => 'Berikut adalah daftar perkakas istimewa yang dapat Anda aktifkan untuk akun Anda. Semua perkakas tersebut sebagian besar berbasis JavaScript sehingga Anda harus mengaktifkan JavaScript pada penjelajah Anda untuk dapat menjalankannya. Perhatikan bahwa berbagai perkakas tersebut tidak memiliki pengaruh terhadap halaman preferensi ini.
 
-Juga perhatikan bahwa gawai istimewa ini bukanlah bagian dari perangkat lunak MediaWiki dan biasanya dikembangkan dan dipelihara oleh para pengguna di wiki lokal Anda. Pengurus lokal dapat menyunting gawai yang tersedia melalui [[MediaWiki:Gadgets-definition]] dan [[Special:Gadgets]].',
-	'gadgets' => 'Gawai',
-	'gadgets-title' => 'Gawai',
-	'gadgets-pagetext' => 'Berikut adalah daftar gawai istimewa yang dapat diaktifkan pengguna melalui [[Special:Preferences|halaman preferensi]] mereka sebagaimana didefinisikan oleh [[MediaWiki:Gadgets-definition]]. Tinjauan berikut memberikan kemudahan akses ke dalam halaman pesan sistem yang mendefinisikan deskripsi dan kode masing-masing gawai.',
+Juga perhatikan bahwa perkakas istimewa ini bukanlah bagian dari perangkat lunak MediaWiki dan biasanya dikembangkan dan dipelihara oleh para pengguna di wiki lokal Anda. Pengurus lokal dapat menyunting perkakas yang tersedia melalui [[MediaWiki:Gadgets-definition]] dan [[Special:Gadgets]].',
+	'gadgets' => 'Perkakas',
+	'gadgets-title' => 'Perkakas',
+	'gadgets-pagetext' => 'Berikut adalah daftar perkakas istimewa yang dapat diaktifkan pengguna melalui [[Special:Preferences|halaman preferensi]] mereka sebagaimana didefinisikan oleh [[MediaWiki:Gadgets-definition]]. Tinjauan berikut memberikan kemudahan akses ke dalam halaman pesan sistem yang mendefinisikan deskripsi dan kode masing-masing perkakas.',
 	'gadgets-uses' => 'Penggunaan',
 	'gadgets-export' => 'Ekspor',
-	'gadgets-export-title' => 'Ekspor gawai',
-	'gadgets-not-found' => 'Gawai "$1" tidak ditemukan.',
-	'gadgets-export-text' => 'Untuk mengekspor gawai $1, klik tombol "{{int:gadgets-export-download}}", simpan berkas yang diunduh,
+	'gadgets-export-title' => 'Ekspor perkakas',
+	'gadgets-not-found' => 'Perkakas "$1" tidak ditemukan.',
+	'gadgets-export-text' => 'Untuk mengekspor perkakas $1, klik tombol "{{int:gadgets-export-download}}", simpan berkas yang diunduh,
 tuju ke Special:Import pada wiki tujuan dan unggah berkas itu. Kemudian tambahkan berkas tersebut ke halaman MediaWiki:Gadgets-definition:
 <pre>$2</pre>
 Anda harus memeroleh izin pada wiki tujuan (termasuk hak menyunting pesan sistem) dan mengimpor dari unggahan berkas yang harus diaktifkan.',
