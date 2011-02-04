@@ -106,19 +106,6 @@
 		if ( !$wgUser->isLoggedIn() ) return true;
 
 		wfProfileIn( __METHOD__ );
-		//disable all gadgets on critical special pages
-		//NOTE: $out->isUserJsAllowed() is tempting, but always fals if $wgAllowUserJs is false.
-		//      That would disable gadgets on wikis without user JS. Introducing $out->isJsAllowed()
-		//	may work, but should that really apply also to MediaWiki:common.js? Even on the preference page?
-		//	See bug 22929 for discussion.
-		$title = $out->getTitle();
-		if ( $title->isSpecial( 'Preferences' ) 
-			|| $title->isSpecial( 'Resetpass' )
-			|| $title->isSpecial( 'Userlogin' ) ) 
-		{
-			wfProfileOut( __METHOD__ );
-			return true;
-		}
 
 		$gadgets = Gadget::loadList();
 		if ( !$gadgets ) {
@@ -163,6 +150,14 @@
 	 */
 	private static function applyScript( $page, $out ) {
 		global $wgJsMimeType;
+
+		# bug 22929: disable gadgets on sensitive pages.  Scripts loaded through the
+		# ResourceLoader handle this in OutputPage::getModules()
+		# TODO: make this extension load everything via RL, then we don't need to worry
+		# about any of this.
+		if( $out->getAllowedModules( ResourceLoaderModule::TYPE_SCRIPTS ) < ResourceLoaderModule::ORIGIN_USER_SITEWIDE ){
+			return;
+		}
 
 		$t = Title::makeTitleSafe( NS_MEDIAWIKI, $page );
 		if ( !$t ) return;
