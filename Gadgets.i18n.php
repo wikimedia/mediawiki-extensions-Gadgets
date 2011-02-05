@@ -442,6 +442,16 @@ Na cílové wiki musíte mít příslušná oprávnění (včetně práva editov
 	'gadgets-export-download' => 'Stáhnout',
 );
 
+/** Welsh (Cymraeg)
+ * @author Lloffiwr
+ */
+$messages['cy'] = array(
+	'gadgets-desc' => 'Yn galluogi defnyddwyr i ddewis [[Special:Gadgets|teclynnau CSS a JavaScript]] yn eu [[Special:Preferences|dewisiadau]]',
+	'prefs-gadgets' => 'Teclynnau',
+	'gadgets' => 'Teclynnau',
+	'gadgets-title' => 'Teclynnau',
+);
+
 /** Danish (Dansk)
  * @author Byrial
  */
