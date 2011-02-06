@@ -47,6 +47,7 @@ You must have appropriate permissions on destination wiki (including the right t
  * @author EugeneZelenko
  * @author Jon Harald Søby
  * @author Kghbln
+ * @author Lloffiwr
  * @author Mormegil
  * @author Purodha
  * @author SPQRobin
@@ -66,7 +67,7 @@ $messages['qqq'] = array(
 See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimedia.org]",
 	'gadgets-export' => 'Used on [[Special:Gadgets]]. This is a verb, not noun.
 {{Identical|Export}}',
-	'gadgets-export-download' => 'Use the verb for this message
+	'gadgets-export-download' => 'Use the verb for this message. Submit button.
 {{Identical|Download}}',
 );
 
@@ -448,8 +449,15 @@ Na cílové wiki musíte mít příslušná oprávnění (včetně práva editov
 $messages['cy'] = array(
 	'gadgets-desc' => 'Yn galluogi defnyddwyr i ddewis [[Special:Gadgets|teclynnau CSS a JavaScript]] yn eu [[Special:Preferences|dewisiadau]]',
 	'prefs-gadgets' => 'Teclynnau',
+	'gadgets-prefstext' => "Ceir rhestr isod o'r teclynnau y gallwch eu galluogi.
+Mae'r rhan fwyaf o'r teclynnau yn defnyddio JavaScript, felly mae'n rhaid galluogi JavaScript ar eich porwr er mwyn iddynt weithio.
+Sylwer na gaiff y teclynnau hyn unrhyw effaith ar y dudalen hon o ddewisiadau.
+
+Sylwer hefyd nad yw'r teclynnau hyn yn ran o feddalwedd MediaWiki; fel arfer defnyddwyr y wici hwn sydd wedi datblygu'r teclynnau ac sydd yn eu cynnal.
+Mae gweinyddwyr y wici hwn yn gallu golygu [[MediaWiki:Gadgets-definition|diffiniadau]] a [[Special:Gadgets|disgrifiadau]]'r teclynnau sydd ar gael.",
 	'gadgets' => 'Teclynnau',
 	'gadgets-title' => 'Teclynnau',
+	'gadgets-export-download' => 'Islwyther',
 );
 
 /** Danish (Dansk)
