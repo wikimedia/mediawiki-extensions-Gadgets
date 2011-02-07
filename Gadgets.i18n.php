@@ -2040,9 +2040,10 @@ $messages['sq'] = array(
 
 /** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
  * @author Millosh
+ * @author Жељко Тодоровић
  */
 $messages['sr-ec'] = array(
-	'prefs-gadgets' => 'геџети',
+	'prefs-gadgets' => 'Геџети',
 	'gadgets' => 'геџети',
 	'gadgets-title' => 'геџети',
 	'gadgets-uses' => 'користи се',
@@ -2050,9 +2051,10 @@ $messages['sr-ec'] = array(
 
 /** Serbian Latin ekavian (‪Srpski (latinica)‬)
  * @author Michaello
+ * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(
-	'prefs-gadgets' => 'gedžeti',
+	'prefs-gadgets' => 'Gedžeti',
 	'gadgets' => 'gedžeti',
 	'gadgets-title' => 'gedžeti',
 	'gadgets-uses' => 'koristi se',
