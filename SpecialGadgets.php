@@ -146,7 +146,7 @@ class SpecialGadgets extends SpecialPage {
 			$exportList .= "MediaWiki:$page\n";
 		}
 
-		$wgOut->addHTML( Html::openElement( 'form', array( 'method' => 'GET', 'action' => $wgScript ) )
+		$wgOut->addHTML( Html::openElement( 'form', array( 'method' => 'get', 'action' => $wgScript ) )
 			. Html::hidden( 'title', SpecialPage::getTitleFor( 'Export' )->getPrefixedDBKey() )
 			. Html::hidden( 'pages', $exportList )
 			. Html::hidden( 'wpDownload', '1' )
