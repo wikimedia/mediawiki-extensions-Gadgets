@@ -1315,6 +1315,13 @@ Die Övverseech hee jit enne direkte Zohjang op di Texte em Wiki,
 wo de Projramme, un de Erklierunge för de <i lang="en">Gadgets</i> dren enthallde
 sin.',
 	'gadgets-uses' => 'Bruch',
+	'gadgets-export' => 'Expotteere',
+	'gadgets-export-title' => '<i lang="en">Gadgets</i> expotteere',
+	'gadgets-not-found' => '<i lang="en">Gadget</i> „$1“ nit jefonge.',
+	'gadgets-export-text' => 'Öm dat <i lang="en">Gadget</i> „$1“ ze expotteere, donn op dä Knopp „{{int:gadgets-export-download}}“ klecke, un donn dann de eronger jelaade Dattei faßhallde. Dann jangk en dat Wiki, woh De dat empotteere wells, un doh op die Extrasigg <code lang="en">Spezial:Import</code>, un donn se huh laade. Dann deihs De en däm Wiki op dä Sigg <code lang="en">MediaWiki:Gadgets-definition</code> dat heh dobei:
+<pre>$2</pre>
+Do moß en däm Wiki de nüüdijje Rääschde han, och dat Rääsch, aan Täxte un Nohreeschte vum Systeem ze ändere, un et Empoteere vun huhjelaade Dateije moß zohjelohße sin.',
+	'gadgets-export-download' => 'Eronger laade',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
