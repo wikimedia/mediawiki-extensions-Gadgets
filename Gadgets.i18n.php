@@ -2035,13 +2035,29 @@ Na ciljnem wikiju morate imeti ustrezna dovoljenja (vključno s pravico urejanja
 
 /** Albanian (Shqip)
  * @author Mikullovci11
+ * @author Olsi
  */
 $messages['sq'] = array(
+	'gadgets-desc' => 'Lejin përdoruesit të zgjedhin [[Special:Gadgets|CSS dhe JavaScript gadgets]] në [[Special:Preferences|preferencat]] e tyre',
 	'prefs-gadgets' => 'Gadgets',
+	'gadgets-prefstext' => "Më poshtë është një listë e mjeteve shtesë speciale që mund të aktivizohen për llogarinë tuaj.
+Këto mjete shtesë janë të bazuara kryesisht në JavaScript, pra JavaScript-i duhet aktivizuar në shfletuesin tuaj që ato të punojnë.
+Vini re se këto mjete shtesë nuk do të kenë efekt në këtë faqe preferencash.
+
+Gjithashtu vini re se këto mjete shtesë speciale nuk janë pjesë e softuerit MediaWiki, dhe zakonisht janë zhvilluar dhe mirëmbajtur nga përdoruesit në wiki-n tuaj lokal.
+Administratorët lokalë mund t'i ndryshojnë [[MediaWiki:Gadgets-definition|përkufizimet]] dhe [[Special:Gadgets|përshkrimet]] e mjeteve shtesë të mundshme.",
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
+	'gadgets-pagetext' => 'Më poshtë është një listë e mjeteve shtesë speciale që mund të aktivizohen në [[Special:Preferences|faqen e preferencave]] të tyre, siç është përcaktuar nga [[MediaWiki:Gadgets-definition|përkufizimet]].
+Kjo pasqyrë siguron qasje të lehtë në faqet e mesazheve të sistemit që përkufizon përshkrimin e çdo mjeti shtesë dhe kodin.',
 	'gadgets-uses' => 'Përdorues',
 	'gadgets-export' => 'Eksporto',
+	'gadgets-export-title' => 'Eksport mjetesh shtesë',
+	'gadgets-not-found' => 'Mjeti shtesë "$1" nuk u gjet.',
+	'gadgets-export-text' => 'Për eksportimin e mjetit shtesë $1, klikoni në butonin "{{int:gadgets-export-download}}", ruani skedën e shkarkuar,
+shkoni tek Speciale:Import në wiki-n e destinuar dhe ngarkojeni. Më pas shtoni atë që shihni më poshtë tek MediaWiki:
+<pre>$2</pre>
+Ju duhet të keni leje të përshtatshme në wiki-n e destinuar (duke përfshirë të drejtën e redaktimit të mesazheve të sistemit) dhe importi nga ngarkimet e skedave duhet të jetë i aktizuar.',
 	'gadgets-export-download' => 'Shkarko',
 );
 
@@ -2379,6 +2395,14 @@ Bạn phải có đủ quyền truy cập trên wiki đích (bao gồm quyền s
  */
 $messages['vo'] = array(
 	'gadgets-uses' => 'Gebs',
+);
+
+/** Yiddish (ייִדיש)
+ * @author פוילישער
+ */
+$messages['yi'] = array(
+	'gadgets-export' => 'עקספארטירן',
+	'gadgets-export-download' => 'אַראָפלאָדן',
 );
 
 /** Yoruba (Yorùbá)
