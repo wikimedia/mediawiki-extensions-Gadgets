@@ -48,10 +48,11 @@ That is, each line consists of fields separated by a "|" (pipe) character.
 The first field ("mygadget" in the example) is the gadgets internal name,
 and references a system message (MediaWiki:Gadget-mygadget in the example)
 that contains a short description of the gadget, using wiki syntax.
-Note that the internal name must start with an ASCII letter, and must
-contain only ASCII letters and numbers, hyphens ("-"), underscores ("_"),
-colons (":"), and periods (".") (spaces are also allowed but converted to
-underscores ("_"), like for page titles).
+Note that the internal name must start with an ASCII letter, must not be
+longer than 25 bytes, and must contain only ASCII letters and numbers,
+hyphens ("-"), underscores ("_"), colons (":"), and periods (".")
+(spaces are also allowed but converted to underscores ("_"), like for
+page titles).
 
 If the gadget name is followed by [ResourceLoader], its JavaScript will
 be loaded concatenated, minified and gzipped by ResourceLoader, thus 
