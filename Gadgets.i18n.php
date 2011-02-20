@@ -569,6 +569,7 @@ Musyš trěbne pšawa na celowem wikiju měś (inkluziwnje pšawo za wobźěłow
  * @author Consta
  * @author Dead3y3
  * @author Glavkos
+ * @author Lou
  * @author ZaDiak
  */
 $messages['el'] = array(
@@ -588,6 +589,9 @@ $messages['el'] = array(
 	'gadgets-export' => 'Εξαγωγή',
 	'gadgets-export-title' => 'Μικροεφαρμογή εξαγωγής',
 	'gadgets-not-found' => 'Μικροεφαρμογή "$1" δεν βρέθηκε.',
+	'gadgets-export-text' => 'Για την εξαγωγή της μικροεφαρμογής (gadget) $1, κάντε κλικ στο κουμπί "{{int:gadgets-export-download}}", αποθηκεύστε το αρχείο που λάβατε, πάτε στο Special:Import του wiki προορισμού και ανεβάστε το. Μετά προσθέστε τα παρακάτω στη σελίδα ορισμού των MediaWiki:Gadgets:
+<pre>$2</pre>
+Πρέπει να έχετε τα κατάλληλα δικαιώματα στο wiki προορισμού (συμπεριλαμβανομένου και του δικαιώματος επεξεργασίας μηνυμάτων συστήματος) και να είναι ενεργοποιημένη η εισαγωγή αρχείων προς ανέβασμα.',
 	'gadgets-export-download' => 'Λήψη',
 );
 
@@ -2315,6 +2319,8 @@ Hedef vikide uygun izinlerinizin olması (sistem mesajlarını değiştirmek yet
  * @author Ильнар
  */
 $messages['tt-cyrl'] = array(
+	'prefs-gadgets' => 'Гаджетлар',
+	'gadgets' => 'Гаджетлар',
 	'gadgets-title' => 'Гаджетлар',
 );
 
