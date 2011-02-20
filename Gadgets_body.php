@@ -314,11 +314,11 @@ class Gadget {
 	public function getModule() {
 		$pages = array();
 		foreach( $this->styles as $style ) {
-			$pages[$style] = array( 'ns' => NS_MEDIAWIKI, 'type' => 'style' );
+			$pages['MediaWiki:' . $style] = array( 'type' => 'style' );
 		}
 		if ( $this->supportsResourceLoader() ) {
 			foreach ( $this->scripts as $script ) {
-				$pages[$script] = array( 'ns' => NS_MEDIAWIKI, 'type' => 'script' );
+				$pages['MediaWiki:' . $script] = array( 'type' => 'script' );
 			}
 		}
 		if ( !count( $pages ) ) {
@@ -467,8 +467,8 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * @param $pages Array: Associative array of pages in ResourceLoaderWikiModule-compatible
 	 * format, for example:
 	 * array(
-	 * 		'Gadget-foo.js'  => array( 'ns' => NS_MEDIAWIKI, 'type' => 'script' ),
-	 * 		'Gadget-foo.css' => array( 'ns' => NS_MEDIAWIKI, 'type' => 'style' ),
+	 * 		'MediaWiki:Gadget-foo.js'  => array( 'type' => 'script' ),
+	 * 		'MediaWiki:Gadget-foo.css' => array( 'type' => 'style' ),
 	 * )
 	 * @param $dependencies Array: Names of resources this module depends on
 	 */
