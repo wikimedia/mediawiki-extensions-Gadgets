@@ -1178,6 +1178,7 @@ Tinjoan iki mènèhi aksès sing gampang menyang kaca-kaca pesen sistem sing nga
 
 /** Georgian (ქართული)
  * @author BRUTE
+ * @author David1010
  */
 $messages['ka'] = array(
 	'prefs-gadgets' => 'გაჯეტები',
@@ -1185,6 +1186,8 @@ $messages['ka'] = array(
 	'gadgets-title' => 'გაჯეტები',
 	'gadgets-uses' => 'გამოიყენება',
 	'gadgets-export' => 'ექსპორტი',
+	'gadgets-export-title' => 'გაჯეტის ექსპორტი',
+	'gadgets-not-found' => 'გაჯეტი "$1" ვერ მოიძებნა.',
 	'gadgets-export-download' => 'ჩამოტვირთვა',
 );
 
