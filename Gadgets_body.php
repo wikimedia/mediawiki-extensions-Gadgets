@@ -209,16 +209,23 @@ class Gadget {
 		$gadget = new Gadget();
 		$gadget->name = trim( str_replace(' ', '_', $m[1] ) );
 		$gadget->definition = $definition;
-		$params = trim( $m[2], ' []' );
-		foreach ( preg_split( '/\s*\|\s*/', $params, -1, PREG_SPLIT_NO_EMPTY ) as $option ) {
-			if ( $option == 'ResourceLoader' ) {
-				$gadget->resourceLoaded = true;
-			} elseif ( preg_match( '/dependencies\s*=/', $option ) ) {
-				$option = preg_replace( '/dependencies\s*=\s*/', '', $option );
-				$deps = preg_split( '/\s*,\s*/', $option, -1, PREG_SPLIT_NO_EMPTY );
-				if ( $deps ) {
-					$gadget->dependencies = $deps;
-				}
+		$options = trim( $m[2], ' []' );
+		foreach ( preg_split( '/\s*\|\s*/', $options, -1, PREG_SPLIT_NO_EMPTY ) as $option ) {
+			$arr  = preg_split( '/\s*=\s*/', $option, 2 );
+			$option = $arr[0];
+			if ( isset( $arr[1] ) ) {
+				$params = explode( ',', $arr[1] );
+				$params = array_map( 'trim', $params );
+			} else {
+				$params = array();
+			}
+			switch ( $option ) {
+				case 'ResourceLoader':
+					$gadget->resourceLoaded = true;
+					break;
+				case 'dependencies':
+					$gadget->dependencies = $params;
+					break;
 			}
 		}
 		foreach ( preg_split( '/\s*\|\s*/', $m[3], -1, PREG_SPLIT_NO_EMPTY ) as $page ) {
