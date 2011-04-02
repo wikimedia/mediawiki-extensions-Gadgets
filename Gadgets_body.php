@@ -407,7 +407,7 @@ class Gadget {
 		if ( $gadgets !== null && $forceNewText === null ) return $gadgets;
 
 		wfProfileIn( __METHOD__ );
-		$key = wfMemcKey( 'gadgets-definition' );
+		$key = wfMemcKey( 'gadgets-definition', self::GADGET_CLASS_VERSION );
 
 		if ( $forceNewText === null ) {
 			//cached?
