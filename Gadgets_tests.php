@@ -43,4 +43,24 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue( $g->supportsResourceLoader() );
 		$this->assertEquals( array( 'jquery.ui' ), $g->getDependencies() );
 	}
+
+	function testPreferences() {
+		global $wgUser, $wgOut;
+		$prefs = array();
+		$wgOut->setTitle( Title::newFromText( 'test' ) );
+
+		Gadget::loadStructuredList( '* foo | foo.js
+==keep-section1==
+* bar| bar.js
+==remove-section==
+* baz [rights=embezzle] |baz.js
+==keep-section2==
+* quux [rights=read] | quux.js' );
+		$this->assertTrue( GadgetHooks::getPreferences( $wgUser, $prefs ), 'GetPrefences hook should return true' );
+
+		$options = $prefs['gadgets']['options'];
+		$this->assertFalse( isset( $options['&lt;gadget-section-remove-section&gt;'] ), 'Must not show empty sections' );
+		$this->assertTrue( isset( $options['&lt;gadget-section-keep-section1&gt;'] ) );
+		$this->assertTrue( isset( $options['&lt;gadget-section-keep-section2&gt;'] ) );
+	}
 }

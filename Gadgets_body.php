@@ -41,16 +41,20 @@
 		
 		$options = array();
 		foreach( $gadgets as $section => $thisSection ) {
+			$available = array();
+			foreach( $thisSection as $gadget ) {
+				if ( $gadget->isAllowed( $user ) ) {
+					$gname = $gadget->getName();
+					$available[wfMsgExt( "gadget-$gname", 'parseinline' )] = $gname;
+				}
+			}
 			if ( $section !== '' ) {
 				$section = wfMsgExt( "gadget-section-$section", 'parseinline' );
-				$options[$section] = array();
-				$destination = &$options[$section];
+				if ( count ( $available ) ) {
+					$options[$section] = $available;
+				}
 			} else {
-				$destination = &$options;
-			}
-			foreach( $thisSection as $gadget ) {
-				$gname = $gadget->getName();
-				$destination[wfMsgExt( "gadget-$gname", 'parseinline' )] = $gname;
+				$options = array_merge( $options, $available );
 			}
 		}
 		
@@ -118,7 +122,7 @@
 		$pages = array();
 
 		foreach ( $gadgets as $gadget ) {
-			if ( $gadget->isEnabled() ) {
+			if ( $gadget->isEnabled( $wgUser ) && $gadget->isAllowed( $wgUser ) ) {
 				if ( $gadget->hasModule() ) {
 					$out->addModules( $gadget->getModuleName() );
 				}
@@ -183,7 +187,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	const GADGET_CLASS_VERSION = 2;
+	const GADGET_CLASS_VERSION = 3;
 
 	private $version = self::GADGET_CLASS_VERSION,
 	        $scripts = array(),
@@ -191,7 +195,8 @@ class Gadget {
 			$dependencies = array(),
 	        $name,
 			$definition,
-			$resourceLoaded = false;
+			$resourceLoaded = false,
+			$requiredRights = array();
 
 	/**
 	 * Creates an instance of this class from definition in MediaWiki:Gadgets-definition
@@ -225,6 +230,9 @@ class Gadget {
 					break;
 				case 'dependencies':
 					$gadget->dependencies = $params;
+					break;
+				case 'rights':
+					$gadget->requiredRights = $params;
 					break;
 			}
 		}
@@ -262,11 +270,23 @@ class Gadget {
 	}
 
 	/**
-	 * @return Boolean: Whether this gadget is enabled for current user
+	 * Checks whether this gadget is enabled for given user
+	 *
+	 * @param $user User: user to check against
+	 * @return Boolean
 	 */
-	public function isEnabled() {
-		global $wgUser;
-		return (bool)$wgUser->getOption( "gadget-{$this->name}" );
+	public function isEnabled( $user ) {
+		return (bool)$user->getOption( "gadget-{$this->name}" );
+	}
+
+	/**
+	 * Checks whether given user has permissions to use this gadget
+	 *
+	 * @param $user User: user to check against
+	 * @return Boolean
+	 */
+	public function isAllowed( $user ) {
+		return count( array_intersect( $this->requiredRights, $user->getRights() ) ) == count( $this->requiredRights );
 	}
 
 	/**
@@ -351,6 +371,14 @@ class Gadget {
 	 */
 	public function getDependencies() {
 		return $this->dependencies;
+	}
+
+	/**
+	 * Returns array of permissions required by this gadget
+	 * @return Array
+	 */
+	public function getRequiredRights() {
+		return $this->requiredRights;
 	}
 
 	/**

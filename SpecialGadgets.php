@@ -114,6 +114,12 @@ class SpecialGadgets extends SpecialPage {
 					$lnk[] = $skin->link( $t, htmlspecialchars( $t->getText() ) );
 				}
 				$wgOut->addHTML( $wgLang->commaList( $lnk ) );
+				$rights = $gadget->getRequiredRights();
+				if ( count( $rights ) ) {
+					$wgOut->addHTML( '<br />' );
+					$wgOut->addWikiMsg( 'gadgets-required-rights', $wgLang->commaList( $rights ), count( $rights ) );
+				}
+				
 				$wgOut->addHTML( Xml::closeElement( 'li' ) . "\n" );
 			}
 		}

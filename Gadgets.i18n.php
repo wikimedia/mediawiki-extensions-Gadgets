@@ -33,6 +33,7 @@ Local administrators can edit the [[MediaWiki:Gadgets-definition|definitions]] a
 	'gadgets-pagetext'  => "Below is a list of special gadgets users can enable on their [[Special:Preferences|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].
 This overview provides easy access to the system message pages that define each gadget's description and code.",
 	'gadgets-uses'      => 'Uses',
+	'gadgets-required-rights' => 'Requires the {{PLURAL:$2|$1 right|following rights: $1}}.',
 	'gadgets-export'    => 'Export',
 	'gadgets-export-title' => 'Gadget export',
 	'gadgets-not-found' => 'Gadget "$1" not found.',
