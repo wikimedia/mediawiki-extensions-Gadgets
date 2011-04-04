@@ -250,6 +250,7 @@ $messages['be-tarask'] = array(
 	'gadgets-pagetext' => 'Ніжэй знаходзіцца сьпіс гаджэтаў, якія ўдзельнікі могуць уключыць у [[Special:Preferences|сваіх наладах]], у адпаведнасьці са сьпісам на старонцы [[MediaWiki:Gadgets-definition|вызначэньняў]].
 Гэты сьпіс дазваляе лёгка атрымаць доступ да старонак сыстэмных паведамленьняў, якія вызначаюць апісаньні і крынічныя коды гаджэтаў.',
 	'gadgets-uses' => 'Выкарыстаньне',
+	'gadgets-required-rights' => '{{PLURAL:$2|Патрабуецца права $1|Патрабуюцца наступныя правы: $1}}.',
 	'gadgets-export' => 'Экспартаваць',
 	'gadgets-export-title' => 'Экспарт гаджэта',
 	'gadgets-not-found' => 'Гаджэт «$1» ня знойдзены.',
@@ -347,6 +348,7 @@ Administratori mogu mijenjati dostupne gadgetse koristeći [[MediaWiki:Gadgets-d
 	'gadgets-pagetext' => 'Ispod je spisak posebnih dodataka koje korisnici mogu omogućiti na svojim [[Special:Preferences|postavkama]], kako je to definisano u [[MediaWiki:Gadgets-definition|definicijama dodataka]].
 Ovaj pregled daje jednostavan pristup sistemu stranica poruka koje definišu svaki dodatak i njihov opis i kod.',
 	'gadgets-uses' => 'Upotrebe',
+	'gadgets-required-rights' => 'Zahtijeva {{PLURAL:$2|$1 pravo|slijedeća prava: $1}}.',
 	'gadgets-export' => 'Izvoz',
 	'gadgets-export-title' => 'Izvoz dodatka',
 	'gadgets-not-found' => 'Dodatak "$1" nije pronađen.',
@@ -504,6 +506,7 @@ Benutzern des lokalen Wikis entwickelt und gewartet werden. Lokale Administrator
 	'gadgets-pagetext' => 'Liste besonderer Helferlein, die für jeden Benutzer in seinen [[Special:Preferences|persönlichen Einstellungen]], wie in [[MediaWiki:Gadgets-definition|definiert]], verfügbar sind.
 Diese Übersicht bietet direkten Zugang zu den MediaWiki-Systemnachrichten, welche die Beschreibung sowie den Programmcode jedes Helferlein enthalten.',
 	'gadgets-uses' => 'Benutzt',
+	'gadgets-required-rights' => 'Erfordert die {{PLURAL:$2|folgende Berechtigung:|folgenden Berechtigungen:}} $1',
 	'gadgets-export' => 'Export',
 	'gadgets-export-title' => 'Export der Helferlein',
 	'gadgets-not-found' => 'Helferlein „$1“ wurde nicht gefunden.',
@@ -898,6 +901,7 @@ $messages['gu'] = array(
 );
 
 /** Hebrew (עברית)
+ * @author Amire80
  * @author Rotem Liss
  * @author YaronSh
  */
@@ -905,16 +909,17 @@ $messages['he'] = array(
 	'gadgets-desc' => 'אפשרות למשתמשים לבחור [[Special:Gadgets|סקריפטים בקוד JavaScript וסגנונות בקוד CSS]] ב[[Special:Preferences|העדפות]] שלהם',
 	'prefs-gadgets' => 'סקריפטים',
 	'gadgets-prefstext' => 'להלן רשימה של סקריפטים שתוכלו להתקין בחשבון שלכם.
-הסקריפטים מבוססים ברובם על שפת JavaScript, ולכן יש לאפשר אותה בדפדפן כדי שהם יעבדו.
+הסקריפטים מבוססים ברובם על שפת JavaScript, ולכן יש לאפשר את הפעלתה בדפדפן כדי שהם יעבדו.
 שימו לב שלא תהיה לסקריפטים כל השפעה על דף ההעדפות הזה.
 
-כמו כן, הסקריפטים אינם חלק מתוכנת מדיה־ויקי, והם בדרך כלל מפותחים ומתוחזקים על ידי משתמשים
-באתר זה. מפעילי המערכת יכולים לערוך את רשימת הסקריפטים האפשריים תוך שימוש ב[[MediaWiki:Gadgets-definition|הודעת המערכת]] ו[[Special:Gadgets|הדף המיוחד]] המתאימים.',
+כמו כן, הסקריפטים אינם חלק מתוכנת מדיה־ויקי, והם בדרך כלל מפותחים ומתוחזקים על ידי משתמשים בוויקי המקומי.
+מפעילי המערכת יכולים לערוך את ב[[MediaWiki:Gadgets-definition|דף ההגדרות]] ו[[Special:Gadgets|התיאורים]] של הסקריפטים.',
 	'gadgets' => 'סקריפטים',
 	'gadgets-title' => 'סקריפטים',
 	'gadgets-pagetext' => 'זוהי רשימה של סקריפטים שמשתמשים יכולים להתקין באמצעות [[Special:Preferences|דף ההעדפות]] שלהם, כפי שהוגדרו ב[[MediaWiki:Gadgets-definition|הודעת המערכת המתאימה]].
 מכאן ניתן לגשת בקלות לדפי הודעות המערכת שמגדירים את התיאור והקוד של כל סקריפט.',
 	'gadgets-uses' => 'משתמש בדפים',
+	'gadgets-required-rights' => '{{PLURAL:$2|נדרשת ההרשאה $1|נדרשות ההרשאות $1}}.',
 	'gadgets-export' => 'יצוא',
 	'gadgets-export-title' => 'יצוא גאדג׳טים',
 	'gadgets-not-found' => 'הגאדג׳ט "$1" לא נמצא.',
@@ -946,6 +951,7 @@ $messages['hi'] = array(
 );
 
 /** Croatian (Hrvatski)
+ * @author Anton008
  * @author Dalibor Bosits
  * @author SpeedyGonsales
  */
@@ -963,6 +969,7 @@ Lokalni administratori mogu uređivati dostupne dodatke putem [[MediaWiki:Gadget
 	'gadgets-pagetext' => 'Slijedi popis posebnih JavaScript dodataka koje suradnici mogu omogućiti u svojim [[Special:Preferences|postavkama]], kako je definirano stranicom [[MediaWiki:Gadgets-definition|definicija]].
 Ovaj pregled omogućava lak pristup porukama sustava koje opisuju dodatke i njihov kod.',
 	'gadgets-uses' => 'Koristi',
+	'gadgets-required-rights' => 'Zahtijeva {{PLURAL:$2| $1 right | sljedeća prava: $1 }}.',
 	'gadgets-export' => 'Izvezi',
 	'gadgets-export-title' => "Izvoz JS skripti (''gadgets'')",
 	'gadgets-not-found' => "''Gadget'' \"\$1\" nije pronađen.",
@@ -1453,6 +1460,7 @@ $messages['mk'] = array(
 	'gadgets-pagetext' => 'Ова е список на специјални алатки кои корисниците можат да ги активираат на нивната [[Special:Preferences|страница за нагодување]], наведени во [[MediaWiki:Gadgets-definition|определувањата]].
 Овој преглед дава лесен пристап до системските пораки кои го определуваат описот и кодот на секоја алатка.',
 	'gadgets-uses' => 'Користи',
+	'gadgets-required-rights' => 'Треба {{PLURAL:$2|да се има правото на $1|да се имаат следниве права: $1}}.',
 	'gadgets-export' => 'Извези',
 	'gadgets-export-title' => 'Извоз на алатка',
 	'gadgets-not-found' => 'Алатката „$1“ не е пронајдена.',
@@ -1481,6 +1489,7 @@ $messages['ml'] = array(
 	'gadgets-pagetext' => 'ഉപയോക്താക്കൾക്ക് അവരുടെ [[Special:Preferences|ക്രമീകരണങ്ങൾ താളിൽ]] നിന്നും സജ്ജമാക്കാവുന്ന ഗാഡ്ജറ്റുകളുടെ പട്ടിക [[MediaWiki:Gadgets-definition|അവ നിർവ്വചിക്കപ്പെട്ട പ്രകാരം]] താഴെ കൊടുത്തിരിക്കുന്നു.
 ഓരോ ഗാഡ്ജറ്റിന്റേയും വിവരണവും കോഡും ഉള്ള സന്ദേശ താളുകളിലേക്കു പോകാനുള്ള എളുപ്പവഴി ഈ പട്ടിക നൽകുന്നു.',
 	'gadgets-uses' => 'ഉപയോഗങ്ങൾ',
+	'gadgets-required-rights' => '{{PLURAL:$2|$1 അവകാശം|$1 എന്നീ അവകാശങ്ങൾ}} ആവശ്യമാണ്.',
 	'gadgets-export' => 'കയറ്റുമതി ചെയ്യുക',
 	'gadgets-export-title' => 'ഗാഡ്ജറ്റ് കയറ്റുമതി ചെയ്യുക',
 	'gadgets-not-found' => 'ഗാഡ്ജറ്റ് "$1" കണ്ടെത്താനായില്ല.',
@@ -1600,6 +1609,7 @@ Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-d
 	'gadgets-pagetext' => 'Hieronder staan de speciale uitbreidingen die gebruikers kunnen inschakelen via hun [[Special:Preferences|voorkeuren]], zoals ingesteld in de [[MediaWiki:Gadgets-definition|definities]].
 Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschrijving en de programmacode van iedere uitbreiding staat.',
 	'gadgets-uses' => 'Gebruikt',
+	'gadgets-required-rights' => '{{PLURAL:$2|Het volgende recht is|De volgende rechten zijn}} vereist: $1.',
 	'gadgets-export' => 'Exporteren',
 	'gadgets-export-title' => 'Uitbreiding exporteren',
 	'gadgets-not-found' => 'Uitbreiding "$1" niet gevonden.',
@@ -2041,6 +2051,7 @@ Administratorji lahko uredite seznam vtičnikov z uporabo [[Special:Gadgets|pose
 	'gadgets-pagetext' => 'Spodaj je seznam posebnih vtičnikov (opredeljenih z [[MediaWiki:Gadgets-definition|definicijami]]), ki jih lahko uporabniki vključijo v svojih [[Special:Preferences|nastavitvah]].
 Ta pregled omogoča enostaven dostop do sistema za nastavljanje opisa in kode vsakega vtičnika posebej.',
 	'gadgets-uses' => 'Uporablja',
+	'gadgets-required-rights' => 'Zahteva {{PLURAL:$2|pravico $1|naslednji pravici: $1|naslednje pravice: $1}}.',
 	'gadgets-export' => 'Izvozi',
 	'gadgets-export-title' => 'Izvoz vtičnika',
 	'gadgets-not-found' => 'Vtičnika »$1« ni mogoče najti.',
