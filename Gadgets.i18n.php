@@ -66,6 +66,9 @@ $messages['qqq'] = array(
 	'gadgets-uses' => "This is used as a verb in third-person singular. It appears in front of a script name. Example: \"''Uses: Gadget-UTCLiveClock.js''\"
 
 See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimedia.org]",
+	'gadgets-required-rights' => 'Parameters:
+* $1 - a list.
+* $2 - the number of items in list $1 for PLURAL use.',
 	'gadgets-export' => 'Used on [[Special:Gadgets]]. This is a verb, not noun.
 {{Identical|Export}}',
 	'gadgets-export-download' => 'Use the verb for this message. Submit button.
@@ -592,6 +595,7 @@ $messages['el'] = array(
 	'gadgets-pagetext' => 'Παρακάτω βρίσκεται ένας κατάλογος με τις ειδικές λειτουργίες τις οποίες οι χρήστες μπορούν να ενεργοποιήσουν στη [[Special:Preferences|σελίδα προτιμήσεών]] τους, όπως ορίζεται από τη σελίδα [[MediaWiki:Gadgets-definition|ορισμών]].<br />
 Αυτή η επισκόπηση παρέχει εύκολη πρόσβαση στις σελίδες μηνυμάτων του συστήματος που ορίζουν την περιγραφή και τον κώδικα κάθε λειτουργίας.',
 	'gadgets-uses' => 'Χρήσεις',
+	'gadgets-required-rights' => 'Απαιτεί το {{PLURAL:$2|$1 right|following rights: $1}}.',
 	'gadgets-export' => 'Εξαγωγή',
 	'gadgets-export-title' => 'Μικροεφαρμογή εξαγωγής',
 	'gadgets-not-found' => 'Μικροεφαρμογή "$1" δεν βρέθηκε.',
@@ -836,6 +840,7 @@ Teña tamén en conta que estes trebellos especiais non son parte do software de
 	'gadgets-pagetext' => 'Embaixo hai unha lista dos trebellos especiais que os usuarios poden habilitar na súa páxina de preferencias, tal e como se describe nas [[MediaWiki:Gadgets-definition|definicións]].
 Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que define cada descrición e código dos trebellos.',
 	'gadgets-uses' => 'Usa',
+	'gadgets-required-rights' => '{{PLURAL:$2|Cómpre dereitos de $1|Cómpren os seguintes dereitos: $1}}.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportación de trebellos',
 	'gadgets-not-found' => 'Non se atopou o trebello "$1".',
@@ -953,6 +958,7 @@ $messages['hi'] = array(
 /** Croatian (Hrvatski)
  * @author Anton008
  * @author Dalibor Bosits
+ * @author Ex13
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
@@ -969,7 +975,7 @@ Lokalni administratori mogu uređivati dostupne dodatke putem [[MediaWiki:Gadget
 	'gadgets-pagetext' => 'Slijedi popis posebnih JavaScript dodataka koje suradnici mogu omogućiti u svojim [[Special:Preferences|postavkama]], kako je definirano stranicom [[MediaWiki:Gadgets-definition|definicija]].
 Ovaj pregled omogućava lak pristup porukama sustava koje opisuju dodatke i njihov kod.',
 	'gadgets-uses' => 'Koristi',
-	'gadgets-required-rights' => 'Zahtijeva {{PLURAL:$2| $1 right | sljedeća prava: $1 }}.',
+	'gadgets-required-rights' => 'Zahtijeva {{PLURAL:$2|$1 pravo|sljedeća prava: $1}}.',
 	'gadgets-export' => 'Izvezi',
 	'gadgets-export-title' => "Izvoz JS skripti (''gadgets'')",
 	'gadgets-not-found' => "''Gadget'' \"\$1\" nije pronađen.",
@@ -1333,6 +1339,7 @@ Die Övverseech hee jit enne direkte Zohjang op di Texte em Wiki,
 wo de Projramme, un de Erklierunge för de <i lang="en">Gadgets</i> dren enthallde
 sin.',
 	'gadgets-uses' => 'Bruch',
+	'gadgets-required-rights' => 'Bruch {{PLURAL:$2|dat Rääsch:|de Rääschde:|kein besönder Rääschde.}} $1',
 	'gadgets-export' => 'Expotteere',
 	'gadgets-export-title' => '<i lang="en">Gadgets</i> expotteere',
 	'gadgets-not-found' => '<i lang="en">Gadget</i> „$1“ nit jefonge.',
@@ -1367,6 +1374,7 @@ Lokal Wiki-Administrateure kënnen d'Lëscht von den disponibele Gadgeten op de 
 	'gadgets-pagetext' => "Ënnendrënner ass eng Lëscht vun de spezielle Gadgeten déi d'Benotzer op hire [[Special:Preferences|Benotzer-Astellungen]] aschalte kënnen, esou wéi dat op [[MediaWiki:Gadgets-definition|definéiert]] ass.
 Dës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all Gadget beschreiwen an zum Programméiercode vun dem Gadget.",
 	'gadgets-uses' => 'Benotzt',
+	'gadgets-required-rights' => "Erfuerdert {{PLURAL:$2|d'Recht|d'Rechter}}: $1.",
 	'gadgets-export' => 'Export',
 	'gadgets-export-title' => 'Export vu Gadgeten',
 	'gadgets-not-found' => 'Gadget "$1" net fonnt.',
@@ -1730,6 +1738,7 @@ Lokalni administratorzy mogą edytować dostępne gadżety używając stron [[Me
 	'gadgets-pagetext' => 'Poniżej znajduje się lista specjalnych gadżetów, które użytkownicy mogą włączyć na swojej [[Special:Preferences|stronie preferencji]]. Lista ta jest zdefiniowana na stronie [[MediaWiki:Gadgets-definition|definicji]].
 Poniższy przegląd ułatwia dostęp do komunikatów systemu, które definiują opis i kod każdego z gadżetów.',
 	'gadgets-uses' => 'Użycie',
+	'gadgets-required-rights' => 'Wymaga {{PLURAL:$2|uprawnienia|następujących uprawnień:}} $1.',
 	'gadgets-export' => 'Eksportuj',
 	'gadgets-export-title' => 'Eksportowanie gadżetów',
 	'gadgets-not-found' => 'Nie odnaleziono gadżetu „$1”.',
@@ -1794,6 +1803,7 @@ Administradores locais podem editar os ''gadgets'' disponíveis usando as [[Medi
 	'gadgets-pagetext' => "Segue-se uma lista de ''\"gadgets\"'' que podem ser activados pelos utilizadores nas suas [[Special:Preferences|preferências]], como estabelecido pelas [[MediaWiki:Gadgets-definition|definições]].
 Este resumo proporciona acesso fácil às páginas das mensagens de sistema que definem a descrição e o código de cada ''gadget''.",
 	'gadgets-uses' => 'Utiliza',
+	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o privilégio $1|os seguintes privilégios: $1}}.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportação de gadget',
 	'gadgets-not-found' => 'O gadget "$1" não foi encontrado.',
@@ -1908,6 +1918,7 @@ $messages['ru'] = array(
 	'gadgets-pagetext' => 'Ниже приведён список гаджетов, которые участники могут включить на своей странице настроек, в соответствии со списком на странице [[MediaWiki:Gadgets-definition|определений]].
 Этот список позволяет легко получить доступ к страницам системных сообщений, определяющих описания и исходные коды гаджетов.',
 	'gadgets-uses' => 'Использует',
+	'gadgets-required-rights' => '{{PLURAL:$2|Требуется право «$1»|Требуются права: $1}}.',
 	'gadgets-export' => 'Экспортировать',
 	'gadgets-export-title' => 'Экспорт гаджета',
 	'gadgets-not-found' => 'Гаджет «$1» не найден.',
@@ -2302,6 +2313,7 @@ Maaaring baguhin ng pampook/lokal na mga tagapangasiwa ang makukuhang mga gadyet
 	'gadgets-pagetext' => 'Nasa ibaba ang isang talaan ng natatanging mga kasangkapan (gadyet) na mapapagana ng mga tagagamit sa kanilang [[Special:Preferences|pahina ng mga kagustuhan]], ayon sa nilalarawan ng [[MediaWiki:Gadgets-definition|mga kahulugan]].
 Nagbibigay ang pagtalakay na ito ng magaang na daan/akseso patungo sa mga pahina ng sistemang pangmensahe na nagbibigay kahulugan sa paglalarawan at kodigo ng bawat gadyet.',
 	'gadgets-uses' => 'Mga mapaggagamitan',
+	'gadgets-required-rights' => 'Nangangailangan ng {{PLURAL:$2|$1 na karapatan|sumusunod na mga karapatan: $1}}.',
 	'gadgets-export' => 'Iluwas',
 	'gadgets-export-title' => 'Pagluluwas ng gadyet',
 	'gadgets-not-found' => 'Hindi natagpuan ang gadyet na "$1".',
