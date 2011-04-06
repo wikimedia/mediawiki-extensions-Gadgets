@@ -2497,6 +2497,7 @@ $messages['yue'] = array(
  * @author Gaoxuewei
  * @author Hydra
  * @author Shinjiman
+ * @author 阿pp
  */
 $messages['zh-hans'] = array(
 	'gadgets-desc' => '使用户可以在[[Special:Preferences|参数设置]]中自行设定[[Special:Gadgets|CSS与JavaScript工具]]',
@@ -2511,6 +2512,7 @@ $messages['zh-hans'] = array(
 	'gadgets-pagetext' => '以下是一个按照[[MediaWiki:Gadgets-definition]]定义的特殊小工具列表，用户可以在他们的参数设置页面中激活它们。
 通过这个概览可以方便的获得系统信息页面，从而可以定义每个小工具的描述以及源码。',
 	'gadgets-uses' => '使用',
+	'gadgets-required-rights' => '需要{{PLURAL:$2|$1权限|以下权限：$1}}.',
 	'gadgets-export' => '导出',
 	'gadgets-export-title' => '小工具出口',
 	'gadgets-not-found' => '找不到“$1”小工具。',
