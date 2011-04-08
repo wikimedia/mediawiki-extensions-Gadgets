@@ -2442,6 +2442,7 @@ Cũng chú ý rằng những công cụ đặc biệt này không phải là m�
 	'gadgets-title' => 'Công cụ đa năng',
 	'gadgets-pagetext' => 'Dưới đây là danh sách các công cụ đa năng đặc biệt mà thành viên có thể dùng tại [[Special:Preferences|trang tùy chọn cá nhân]] của họ, theo [[MediaWiki:Gadgets-definition|định nghĩa]]. Trang tổng quan này cung cấp cách tiếp cận dễ dàng đến trang các thông báo hệ thống để định nghĩa miêu tả và mã của từng công cụ.',
 	'gadgets-uses' => 'Sử dụng',
+	'gadgets-required-rights' => 'Cần {{PLURAL:$2|quyền $1|các quyền: $1}}.',
 	'gadgets-export' => 'Xuất',
 	'gadgets-export-title' => 'Xuất công cụ đa năng',
 	'gadgets-not-found' => 'Không tìm thấy công cụ đa năng “$1”.',
