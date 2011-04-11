@@ -325,6 +325,7 @@ Gallout a ra ar verourien lec'hel degas cheñchamantoù er bitrakoù en ur ober 
 	'gadgets-pagetext' => "A-is ez eus ur roll eus ar bitrakoù a c'hall bezañ gweredekaet gant an implijerien war o fajenn [[Special:Preferences|penndibaboù]], evel m'eo termenet en [[MediaWiki:Gadgets-definition|termenadurioù]].
 Ar sell hollek-mañ a bourchas ur moned aes d'ar pajennoù kemennadennoù reizhiad a dermen deskrivadur ha kod pep bitrak.",
 	'gadgets-uses' => 'A implij',
+	'gadgets-required-rights' => 'Rekis eo kaout an {{PLURAL:$2|aotre $1|aotreoù da-heul : $1}}.',
 	'gadgets-export' => 'Ezporzh',
 	'gadgets-export-title' => 'Ezporzhiañ bitrakoù',
 	'gadgets-not-found' => 'N\'eo ket bet kavet ar bitrak "$1".',
@@ -383,6 +384,7 @@ Els administradors locals poden editar els ginys disponibles fent servir [[Media
 	'gadgets-pagetext' => 'A continuació teniu una llista de ginys especials que els usuaris poden activar a la seva [[Special:Preferences|pàgina de preferències]], segons les [[MediaWiki:Gadgets-definition|seves definicions]].
 Aquesta llista permet un fàcil accés a les pàgines del sistema que defineixen la descripció i el codi de cada giny.',
 	'gadgets-uses' => 'Usa',
+	'gadgets-required-rights' => 'Requereix el {{PLURAL:$2|dret $1|següents drets: $1}}.',
 	'gadgets-export' => 'Exporta',
 	'gadgets-export-title' => 'Exportació de ginys',
 	'gadgets-not-found' => "No s'ha trobat el giny «$1».",
@@ -791,6 +793,7 @@ Les administrateurs locaux peuvent modifier les gadgets disponibles en utilisant
 	'gadgets-pagetext' => "Voici une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences|page de préférences]], tel que défini dans les [[MediaWiki:Gadgets-definition|définitions]].
 Cette vue d'ensemble donne un accès rapide aux pages de messages système qui définissent la description et le code de chaque gadget.",
 	'gadgets-uses' => 'Utilise',
+	'gadgets-required-rights' => 'Requiert {{PLURAL:$2|le droit $1|les droits suivants : $1}}.',
 	'gadgets-export' => 'Exporter',
 	'gadgets-export-title' => 'Export de gadget',
 	'gadgets-not-found' => 'Gadget « $1 » non trouvé.',
