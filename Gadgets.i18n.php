@@ -34,6 +34,7 @@ Local administrators can edit the [[MediaWiki:Gadgets-definition|definitions]] a
 This overview provides easy access to the system message pages that define each gadget's description and code.",
 	'gadgets-uses'      => 'Uses',
 	'gadgets-required-rights' => 'Requires the {{PLURAL:$2|$1 right|following rights: $1}}.',
+	'gadgets-default'   => 'Enabled for everyone by default.',
 	'gadgets-export'    => 'Export',
 	'gadgets-export-title' => 'Gadget export',
 	'gadgets-not-found' => 'Gadget "$1" not found.',

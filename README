@@ -28,68 +28,7 @@ LocalSettings.php file (near the end):
   require_once( "$IP/extensions/Gadgets/Gadgets.php" );
 
 == Usage ==
-The list of available gadgets is defined on MediaWiki:Gadgets-definition.
-Gadgets defined there show up in the "Gadgets" section of
-Special:Preferences, so users can pick the gadgets they would like to use.
-An overview of the gadgets defined by MediaWiki:Gadgets-definition is also
-shown on Special:Gadgets, along with links to the respective system
-messages, for easy editing.
-
-Each line in MediaWiki:Gadgets-definition that start with one or more "*"
-(asterisk) characters defines a gadget; it must have the following form:
-
-  * mygadget|mygadget.js|mygadget.css
- 
-or
-
-  * mygadget[ResourceLoader]|mygadget.js|mygadget.css
-
-That is, each line consists of fields separated by a "|" (pipe) character.
-The first field ("mygadget" in the example) is the gadgets internal name,
-and references a system message (MediaWiki:Gadget-mygadget in the example)
-that contains a short description of the gadget, using wiki syntax.
-Note that the internal name must start with an ASCII letter, must not be
-longer than 25 bytes, and must contain only ASCII letters and numbers,
-hyphens ("-"), underscores ("_"), colons (":"), and periods (".")
-(spaces are also allowed but converted to underscores ("_"), like for
-page titles).
-
-If the gadget name is followed by [ResourceLoader], its JavaScript will
-be loaded concatenated, minified and gzipped by ResourceLoader, thus 
-improving load times. However, older gadgets may be incompatible with
-ResourceLoader, so all JS is by default loaded the old way, using separate
-<script> tags.
-
-The remaining fields on the line refer to the JavaScript or CSS code that
-makes up the gadget, contained in system messages
-(MediaWiki:Gadget-mygadget.js and MediaWiki:Gadget-mygadget.css in the
-example); the names of those messages must end with ".js" or ".css",
-respectively. A gadget can use any number of code messages, specifically,
-common code can be put into a code message used by several gadgets, in
-addition to their own specific code, e.g:
-
-  * frobinator|commonStuff.js|frob.js|frob.css|pretty.css
-  * l33t|commonStuff.js|tools.js|l33t.js
-
-Gadget definitions can contain whitespace between its elements, e.g.
-the following definitions are equivalent:
-
-  *mygadget[ResourceLoader]|mygadget.js|mygadget.css
-
-and
-
-  * mygadget [ ResourceLoader ] | mygadget.js | mygadget.css
-
-The list of gadgets in MediaWiki:Gadgets-definition can be broken into
-sections using lines that start and end with two or more "=" (equals)
-characters, enclosing the name of a system message that defines the
-section's name - for example:
-
-  == editing-gadgets ==
-
-This would define a new section, with the title defined on the page
-MediaWiki:Gadget-section-editing-gadgets
-
+See http://www.mediawiki.org/wiki/Extension:Gadgets#Usage
 
 == Caveats ==
 

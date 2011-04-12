@@ -40,12 +40,16 @@
 		if (!$gadgets) return true;
 		
 		$options = array();
+		$default = array();
 		foreach( $gadgets as $section => $thisSection ) {
 			$available = array();
 			foreach( $thisSection as $gadget ) {
 				if ( $gadget->isAllowed( $user ) ) {
 					$gname = $gadget->getName();
 					$available[wfMsgExt( "gadget-$gname", 'parseinline' )] = $gname;
+					if ( $gadget->isEnabled( $user ) ) {
+						$default[] = $gname;
+					}
 				}
 			}
 			if ( $section !== '' ) {
@@ -77,6 +81,7 @@
 				'section' => 'gadgets',
 				'label' => '&#160;',
 				'prefix' => 'gadget-',
+				'default' => $default,
 			);
 			
 		return true;
@@ -107,8 +112,6 @@
 	public static function beforePageDisplay( $out ) {
 		global $wgUser;
 		
-		if ( !$wgUser->isLoggedIn() ) return true;
-
 		wfProfileIn( __METHOD__ );
 
 		$gadgets = Gadget::loadList();
@@ -187,7 +190,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	const GADGET_CLASS_VERSION = 3;
+	const GADGET_CLASS_VERSION = 4;
 
 	private $version = self::GADGET_CLASS_VERSION,
 	        $scripts = array(),
@@ -196,7 +199,8 @@ class Gadget {
 	        $name,
 			$definition,
 			$resourceLoaded = false,
-			$requiredRights = array();
+			$requiredRights = array(),
+			$onByDefault = false;
 
 	/**
 	 * Creates an instance of this class from definition in MediaWiki:Gadgets-definition
@@ -233,6 +237,9 @@ class Gadget {
 					break;
 				case 'rights':
 					$gadget->requiredRights = $params;
+					break;
+				case 'default':
+					$gadget->onByDefault = true;
 					break;
 			}
 		}
@@ -276,7 +283,7 @@ class Gadget {
 	 * @return Boolean
 	 */
 	public function isEnabled( $user ) {
-		return (bool)$user->getOption( "gadget-{$this->name}" );
+		return (bool)$user->getOption( "gadget-{$this->name}", $this->onByDefault );
 	}
 
 	/**
@@ -287,6 +294,13 @@ class Gadget {
 	 */
 	public function isAllowed( $user ) {
 		return count( array_intersect( $this->requiredRights, $user->getRights() ) ) == count( $this->requiredRights );
+	}
+
+	/**
+	 * @return Boolean: Whether this gadget is on by default for everyone (but can be disabled in preferences)
+	 */
+	public function isOnByDefault() {
+		return $this->onByDefault;
 	}
 
 	/**
