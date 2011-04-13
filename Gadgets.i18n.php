@@ -255,6 +255,7 @@ $messages['be-tarask'] = array(
 Гэты сьпіс дазваляе лёгка атрымаць доступ да старонак сыстэмных паведамленьняў, якія вызначаюць апісаньні і крынічныя коды гаджэтаў.',
 	'gadgets-uses' => 'Выкарыстаньне',
 	'gadgets-required-rights' => '{{PLURAL:$2|Патрабуецца права $1|Патрабуюцца наступныя правы: $1}}.',
+	'gadgets-default' => 'Дазволеныя для ўсіх па змоўчваньні.',
 	'gadgets-export' => 'Экспартаваць',
 	'gadgets-export-title' => 'Экспарт гаджэта',
 	'gadgets-not-found' => 'Гаджэт «$1» ня знойдзены.',
@@ -327,6 +328,7 @@ Gallout a ra ar verourien lec'hel degas cheñchamantoù er bitrakoù en ur ober 
 Ar sell hollek-mañ a bourchas ur moned aes d'ar pajennoù kemennadennoù reizhiad a dermen deskrivadur ha kod pep bitrak.",
 	'gadgets-uses' => 'A implij',
 	'gadgets-required-rights' => 'Rekis eo kaout an {{PLURAL:$2|aotre $1|aotreoù da-heul : $1}}.',
+	'gadgets-default' => 'Gweredekaet dre ziouer evit an holl.',
 	'gadgets-export' => 'Ezporzh',
 	'gadgets-export-title' => 'Ezporzhiañ bitrakoù',
 	'gadgets-not-found' => 'N\'eo ket bet kavet ar bitrak "$1".',
@@ -443,6 +445,8 @@ Místní správci mohou upravovat [[MediaWiki:Gadgets-definition|definice]] a&nb
 	'gadgets-pagetext' => 'Níže je přehled speciálních udělátek, která si uživatelé mohou zapnout ve svém [[Special:Preferences|nastavení]]. Jejich seznam lze upravovat na stránce [[MediaWiki:Gadgets-definition]].
 Tento přehled poskytuje jednoduchý přístup k&nbsp;systémovým hlášením, která definují zdrojový kód a&nbsp;popis každého udělátka.',
 	'gadgets-uses' => 'používá',
+	'gadgets-required-rights' => 'Vyžaduje {{PLURAL:$2|oprávnění $1|následující oprávnění: $1}}.',
+	'gadgets-default' => 'Implicitně zapnuto všem.',
 	'gadgets-export' => 'Exportovat',
 	'gadgets-export-title' => 'Export udělátka',
 	'gadgets-not-found' => 'Udělátko „$1“ nebylo nalezeno.',
@@ -513,6 +517,7 @@ Benutzern des lokalen Wikis entwickelt und gewartet werden. Lokale Administrator
 Diese Übersicht bietet direkten Zugang zu den MediaWiki-Systemnachrichten, welche die Beschreibung sowie den Programmcode jedes Helferlein enthalten.',
 	'gadgets-uses' => 'Benutzt',
 	'gadgets-required-rights' => 'Erfordert die {{PLURAL:$2|folgende Berechtigung:|folgenden Berechtigungen:}} $1',
+	'gadgets-default' => 'Für alle standardmäßig aktiviert.',
 	'gadgets-export' => 'Export',
 	'gadgets-export-title' => 'Export der Helferlein',
 	'gadgets-not-found' => 'Helferlein „$1“ wurde nicht gefunden.',
@@ -795,6 +800,7 @@ Les administrateurs locaux peuvent modifier les gadgets disponibles en utilisant
 Cette vue d'ensemble donne un accès rapide aux pages de messages système qui définissent la description et le code de chaque gadget.",
 	'gadgets-uses' => 'Utilise',
 	'gadgets-required-rights' => 'Requiert {{PLURAL:$2|le droit $1|les droits suivants : $1}}.',
+	'gadgets-default' => 'Activé pour tout le monde par défaut.',
 	'gadgets-export' => 'Exporter',
 	'gadgets-export-title' => 'Export de gadget',
 	'gadgets-not-found' => 'Gadget « $1 » non trouvé.',
@@ -1059,6 +1065,8 @@ Le administratores local pote modificar le gadgets disponibile per medio de [[Me
 	'gadgets-pagetext' => 'Infra es un lista de gadgets special que le usatores pote activar in lor [[Special:Preferences|paginas de preferentias]], secundo le [[MediaWiki:Gadgets-definition|definitiones]].
 Iste supervista permitte le accesso commode al paginas de messages de systema que defini le description e codice de cata gadget.',
 	'gadgets-uses' => 'Usa',
+	'gadgets-required-rights' => 'Require le {{PLURAL:$2|derecto de $1|sequente derectos: $1}}.',
+	'gadgets-default' => 'Activate pro omnes per predefinition.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportation de gadget',
 	'gadgets-not-found' => 'Gadget "$1" non trovate.',
@@ -1143,6 +1151,7 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
  * @author Aotake
  * @author JtFuruhata
  * @author Mzm5zbC3
+ * @author Whym
  * @author 青子守歌
  */
 $messages['ja'] = array(
@@ -1155,6 +1164,8 @@ $messages['ja'] = array(
 	'gadgets-title' => 'ガジェット',
 	'gadgets-pagetext' => '以下は、[[MediaWiki:Gadgets-definition]] 上で定義された、利用者が[[Special:Preferences|{{int:preferences}}]]にて利用可能にすることができるガジェットの一覧です。この一覧はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
 	'gadgets-uses' => '利用するファイル',
+	'gadgets-required-rights' => '{{PLURAL:$2|$1の権限|$1の権限}}が必要です。',
+	'gadgets-default' => 'デフォルトで全員に有効です。',
 	'gadgets-export' => 'エクスポート',
 	'gadgets-export-title' => 'ガジェットのエクスポート',
 	'gadgets-not-found' => 'ガジェット「$1」が見つかりません。',
@@ -1344,6 +1355,7 @@ wo de Projramme, un de Erklierunge för de <i lang="en">Gadgets</i> dren enthall
 sin.',
 	'gadgets-uses' => 'Bruch',
 	'gadgets-required-rights' => 'Bruch {{PLURAL:$2|dat Rääsch:|de Rääschde:|kein besönder Rääschde.}} $1',
+	'gadgets-default' => 'Shtandattmääßesh för jeeder_ein ennjeschalldt.',
 	'gadgets-export' => 'Expotteere',
 	'gadgets-export-title' => '<i lang="en">Gadgets</i> expotteere',
 	'gadgets-not-found' => '<i lang="en">Gadget</i> „$1“ nit jefonge.',
@@ -1473,6 +1485,7 @@ $messages['mk'] = array(
 Овој преглед дава лесен пристап до системските пораки кои го определуваат описот и кодот на секоја алатка.',
 	'gadgets-uses' => 'Користи',
 	'gadgets-required-rights' => 'Треба {{PLURAL:$2|да се има правото на $1|да се имаат следниве права: $1}}.',
+	'gadgets-default' => 'Достапно за сите по основно',
 	'gadgets-export' => 'Извези',
 	'gadgets-export-title' => 'Извоз на алатка',
 	'gadgets-not-found' => 'Алатката „$1“ не е пронајдена.',
@@ -1622,6 +1635,7 @@ Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-d
 Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschrijving en de programmacode van iedere uitbreiding staat.',
 	'gadgets-uses' => 'Gebruikt',
 	'gadgets-required-rights' => '{{PLURAL:$2|Het volgende recht is|De volgende rechten zijn}} vereist: $1.',
+	'gadgets-default' => 'Standaard ingeschakeld voor iedereen.',
 	'gadgets-export' => 'Exporteren',
 	'gadgets-export-title' => 'Uitbreiding exporteren',
 	'gadgets-not-found' => 'Uitbreiding "$1" niet gevonden.',
@@ -1923,6 +1937,7 @@ $messages['ru'] = array(
 Этот список позволяет легко получить доступ к страницам системных сообщений, определяющих описания и исходные коды гаджетов.',
 	'gadgets-uses' => 'Использует',
 	'gadgets-required-rights' => '{{PLURAL:$2|Требуется право «$1»|Требуются права: $1}}.',
+	'gadgets-default' => 'Включён для всех по умолчанию.',
 	'gadgets-export' => 'Экспортировать',
 	'gadgets-export-title' => 'Экспорт гаджета',
 	'gadgets-not-found' => 'Гаджет «$1» не найден.',
@@ -2069,6 +2084,7 @@ Administratorji lahko uredite seznam vtičnikov z uporabo [[Special:Gadgets|pose
 Ta pregled omogoča enostaven dostop do sistema za nastavljanje opisa in kode vsakega vtičnika posebej.',
 	'gadgets-uses' => 'Uporablja',
 	'gadgets-required-rights' => 'Zahteva {{PLURAL:$2|pravico $1|naslednji pravici: $1|naslednje pravice: $1}}.',
+	'gadgets-default' => 'Privzeto omogočeno za vsakogar.',
 	'gadgets-export' => 'Izvozi',
 	'gadgets-export-title' => 'Izvoz vtičnika',
 	'gadgets-not-found' => 'Vtičnika »$1« ni mogoče najti.',
@@ -2320,6 +2336,7 @@ Maaaring baguhin ng pampook/lokal na mga tagapangasiwa ang makukuhang mga gadyet
 Nagbibigay ang pagtalakay na ito ng magaang na daan/akseso patungo sa mga pahina ng sistemang pangmensahe na nagbibigay kahulugan sa paglalarawan at kodigo ng bawat gadyet.',
 	'gadgets-uses' => 'Mga mapaggagamitan',
 	'gadgets-required-rights' => 'Nangangailangan ng {{PLURAL:$2|$1 na karapatan|sumusunod na mga karapatan: $1}}.',
+	'gadgets-default' => 'Likas ang pagkakatakda na pinapagana para sa lahat.',
 	'gadgets-export' => 'Iluwas',
 	'gadgets-export-title' => 'Pagluluwas ng gadyet',
 	'gadgets-not-found' => 'Hindi natagpuan ang gadyet na "$1".',
@@ -2449,6 +2466,7 @@ Cũng chú ý rằng những công cụ đặc biệt này không phải là m�
 	'gadgets-pagetext' => 'Dưới đây là danh sách các công cụ đa năng đặc biệt mà thành viên có thể dùng tại [[Special:Preferences|trang tùy chọn cá nhân]] của họ, theo [[MediaWiki:Gadgets-definition|định nghĩa]]. Trang tổng quan này cung cấp cách tiếp cận dễ dàng đến trang các thông báo hệ thống để định nghĩa miêu tả và mã của từng công cụ.',
 	'gadgets-uses' => 'Sử dụng',
 	'gadgets-required-rights' => 'Cần {{PLURAL:$2|quyền $1|các quyền: $1}}.',
+	'gadgets-default' => 'Được kích hoạt cho tất cả mọi người theo mặc định.',
 	'gadgets-export' => 'Xuất',
 	'gadgets-export-title' => 'Xuất công cụ đa năng',
 	'gadgets-not-found' => 'Không tìm thấy công cụ đa năng “$1”.',
