@@ -46,7 +46,7 @@
 			foreach( $thisSection as $gadget ) {
 				if ( $gadget->isAllowed( $user ) ) {
 					$gname = $gadget->getName();
-					$available[wfMsgExt( "gadget-$gname", 'parseinline' )] = $gname;
+					$available[$gadget->getDescription()] = $gname;
 					if ( $gadget->isEnabled( $user ) ) {
 						$default[] = $gname;
 					}
@@ -190,7 +190,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	const GADGET_CLASS_VERSION = 4;
+	const GADGET_CLASS_VERSION = 5;
 
 	private $version = self::GADGET_CLASS_VERSION,
 	        $scripts = array(),
@@ -200,7 +200,8 @@ class Gadget {
 			$definition,
 			$resourceLoaded = false,
 			$requiredRights = array(),
-			$onByDefault = false;
+			$onByDefault = false,
+			$category;
 
 	/**
 	 * Creates an instance of this class from definition in MediaWiki:Gadgets-definition
@@ -259,6 +260,27 @@ class Gadget {
 	 */
 	public function getName() {
 		return $this->name;
+	}
+
+	/**
+	 * @return String: Gadget description parsed into HTML
+	 */
+	public function getDescription() {
+		return wfMessage( "gadget-{$this->getName()}" )->parse();
+	}
+
+	/**
+	 * @return String: Wikitext of gadget description
+	 */
+	public function getRawDescription() {
+		return wfMessage( "gadget-{$this->getName()}" )->plain();
+	}
+
+	/**
+	 * @return String: Name of category (aka section) our gadget belongs to. Empty string if none.
+	 */
+	public function getCategory() {
+		return $this->category;
 	}
 
 	/**
@@ -491,6 +513,7 @@ class Gadget {
 				$gadget = self::newFromDefinition( $line );
 				if ( $gadget ) {
 					$gadgets[$section][$gadget->getName()] = $gadget;
+					$gadget->category = $section;
 				}
 			}
 		}
