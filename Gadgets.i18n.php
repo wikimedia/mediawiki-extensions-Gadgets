@@ -1393,6 +1393,7 @@ Lokal Wiki-Administrateure kënnen d'Lëscht von den disponibele Gadgeten op de 
 Dës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all Gadget beschreiwen an zum Programméiercode vun dem Gadget.",
 	'gadgets-uses' => 'Benotzt',
 	'gadgets-required-rights' => "Erfuerdert {{PLURAL:$2|d'Recht|d'Rechter}}: $1.",
+	'gadgets-default' => 'Fir jiddwereen als Standard ageschalt.',
 	'gadgets-export' => 'Export',
 	'gadgets-export-title' => 'Export vu Gadgeten',
 	'gadgets-not-found' => 'Gadget "$1" net fonnt.',
