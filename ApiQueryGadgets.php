@@ -20,7 +20,11 @@
  */
 
 class ApiQueryGadgets extends ApiQueryBase {
-	private $props;
+	private $props,
+		$category,
+		$neededNames,
+		$listAllowed,
+		$listEnabled;
 
 	public function __construct( $query, $moduleName ) {
 		parent::__construct( $query, $moduleName, 'ga' );
@@ -29,6 +33,17 @@ class ApiQueryGadgets extends ApiQueryBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 		$this->props = array_flip( $params['prop'] );
+		$this->categories = isset( $params['categories'] )
+			? array_flip( $params['categories'] )
+			: false;
+		$this->neededNames = isset( $params['names'] )
+			? array_flip( $params['names'] )
+			: false;
+		$this->listAllowed = isset( $params['allowed'] ) && $params['allowed'];
+		$this->listEnabled = isset( $params['enabled'] ) && $params['enabled'];
+
+		$this->getMain()->setCacheMode( $this->listAllowed || $this->listEnabled
+			? 'anon-public-user-private' : 'public' );
 
 		$this->applyList( $this->getList() );
 	}
@@ -38,6 +53,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 
 		$result = array();
 		foreach ( $gadgets as $category => $list ) {
+			if ( $this->categories && !isset( $this->categories[$category] ) ) {
+				continue;
+			}
 			foreach ( $list as $g ) {
 				if ( $this->isNeeded( $g ) ) {
 					$result[] = $g;
@@ -100,7 +118,11 @@ class ApiQueryGadgets extends ApiQueryBase {
 	 * 
 	 */
 	private function isNeeded( Gadget $gadget ) {
-		return true;
+		global $wgUser;
+
+		return ( $this->neededNames === false || isset( $this->neededNames[$gadget->getName()] ) )
+			&& ( !$this->listAllowed || $gadget->isAllowed( $wgUser ) )
+			&& ( !$this->listEnabled || $gadget->isEnabled( $wgUser ) );
 	}
 
 	public function getAllowedParams() {
@@ -122,6 +144,16 @@ class ApiQueryGadgets extends ApiQueryBase {
 					'definition',
 				),
 			),
+			'categories' => array(
+				ApiBase::PARAM_ISMULTI => true,
+				ApiBase::PARAM_TYPE => 'string',
+			),
+			'names' => array(
+				ApiBase::PARAM_TYPE => 'string',
+				ApiBase::PARAM_ISMULTI => true,
+			),
+			'allowed' => false,
+			'enabled' => false,
 		);
 	}
 
@@ -134,7 +166,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'prop' => array(
 				'What gadget information to get:',
 				' name           - Internal gadget name',
-				' desc           - Gadget description transformed into HTML',
+				' desc           - Gadget description transformed into HTML (can be slow, use only if really needed)',
 				' desc-raw       - Gadget description in raw wikitext',
 				' category       - Internal name of a category gadget belongs to (empty if top-level gadget)',
 				' resourceloader - Whether gadget supports ResourceLoader',
@@ -145,13 +177,27 @@ class ApiQueryGadgets extends ApiQueryBase {
 				' default        - Whether gadget is enabled by default',
 				' definition     - Line from MediaWiki:Gadgets-definition used to define the gadget',
 			),
+			'categories' => 'Gadgets from what categories to retrieve',
+			'names' => 'Name(s) of gadgets to retrieve',
+			'allowed' => 'List only gadgets allowed to current user',
+			'enabled' => 'List only gadgets enabled by current user',
 		);
 	}
 
 	protected function getExamples() {
+		$params = $this->getAllowedParams();
+		$allProps = implode( '|', $params['prop'][ApiBase::PARAM_TYPE] );
 		return array(
 			'Get a list of gadgets along with their descriptions:',
 			'    api.php?action=query&list=gadgets&gaprop=name|desc',
+			'Get a list of gadgets with all possble properties:',
+			"    api.php?action=query&list=gadgets&gaprop=$allProps",
+			'Get a list of gadgets belonging to caregory "foo":',
+			'    api.php?action=query&list=gadgets&gacategories=foo',
+			'Get information about gadgets named "foo" and "bar":',
+			'    api.php?action=query&list=gadgets&ganames=foo|bar&gaprop=name|desc|category',
+			'Get a list of gadgets enabled by current user:',
+			'    api.php?action=query&list=gadgets&gaenabled',
 		);
 	}
 
@@ -159,4 +205,4 @@ class ApiQueryGadgets extends ApiQueryBase {
 		return __CLASS__ . ': $Id$';
 	}
 
-} 
+}
