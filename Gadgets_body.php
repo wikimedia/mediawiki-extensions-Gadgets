@@ -12,7 +12,7 @@
  * @license GNU General Public Licence 2.0 or later
  */
 
- class GadgetHooks {
+class GadgetHooks {
 
 	/**
 	 * ArticleSaveComplete hook handler.

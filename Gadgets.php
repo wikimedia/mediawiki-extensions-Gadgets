@@ -41,7 +41,7 @@ $wgExtensionAliasesFiles['Gadgets'] = $dir . 'Gadgets.alias.php';
 
 $wgAutoloadClasses['Gadget'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['GadgetHooks'] = $dir . 'Gadgets_body.php';
-$wgAutoloadClasses['GadgetsResourceLoaderModule'] = $dir . 'Gadgets_body.php';
+$wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
