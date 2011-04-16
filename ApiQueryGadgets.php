@@ -156,7 +156,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	}
 
 	public function getVersion() {
-		return __CLASS__ . ': $Id:  $';
+		return __CLASS__ . ': $Id$';
 	}
 
 } 
