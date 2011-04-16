@@ -39,6 +39,7 @@ $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
 $wgExtensionAliasesFiles['Gadgets'] = $dir . 'Gadgets.alias.php';
 
+$wgAutoloadClasses['ApiQueryGadgets'] = $dir . 'ApiQueryGadgets.php';
 $wgAutoloadClasses['Gadget'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['GadgetHooks'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'Gadgets_body.php';
@@ -46,3 +47,5 @@ $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';
+
+$wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
