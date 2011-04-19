@@ -1857,6 +1857,8 @@ Administradores locais podem editar os gadgets disponíveis através de [[MediaW
 	'gadgets-pagetext' => 'Segue-se uma lista de "gadgets" que podem ser ativados por utilizadores através de [[Special:Preferences|suas páginas de preferências]], definidos em [[MediaWiki:Gadgets-definition|definições]].
 Esta visão geral proporciona um acesso fácil para as mensagens de sistema que definem as descrições e códigos de cada um dos gadgets.',
 	'gadgets-uses' => 'Utiliza',
+	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o privilégio $1|os seguintes privilégios: $1}}.',
+	'gadgets-default' => 'Ativar para todos por padrão.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportação de gadget',
 	'gadgets-not-found' => '*Gadget "$1" não encontrado.',
