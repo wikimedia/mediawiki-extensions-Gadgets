@@ -156,6 +156,8 @@ $messages['ar'] = array(
 	'gadgets-pagetext' => 'بالأسفل قائمة بالإضافات الخاصة التي يمكن أن يقوم المستخدمون بتفعيلها على [[Special:Preferences|صفحة تفضيلاتهم]]، معرفة بواسطة [[MediaWiki:Gadgets-definition|التعريفات]].
 هذا العرض يوفر دخولا سهلا لصفحات رسائل النظام التي تعرف وصف وكود كل إضافة.',
 	'gadgets-uses' => 'تستخدم',
+	'gadgets-export' => 'صدّر',
+	'gadgets-export-download' => 'نزّل',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
@@ -206,6 +208,13 @@ Los alministradores llocales puen editar los accesorios disponibles usando les [
 	'gadgets-pagetext' => 'Embaxo amuésase una llista de los accesorios especiales que los usuarios puen activar na so [[Special:Preferences|páxina de preferencies]], según queden definíos poles [[MediaWiki:Gadgets-definition|definiciones]].
 Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del sistema que definen la descripción y el códigu de cada accesoriu.',
 	'gadgets-uses' => 'Usa',
+);
+
+/** Azerbaijani (Azərbaycanca)
+ * @author Cekli829
+ */
+$messages['az'] = array(
+	'gadgets-export-download' => 'Yüklə',
 );
 
 /** Bashkir (Башҡортса)
@@ -632,6 +641,8 @@ Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per [[MediaWiki
 	'gadgets-pagetext' => 'Jen listo da specialaj aldonaĵoj kiujn uzuloj povas aktivigi en [[Special:Preferences|siaj preferoj]], kiel difinite en [[MediaWiki:Gadgets-definition|difinoj]]. 
 Ĉi tiu superrigardo provizas facilan aliron al la sistemaj mesaĝoj kiuj difinas la priskribon kaj la kodon de ĉiuj aldonaĵoj.',
 	'gadgets-uses' => 'uzas',
+	'gadgets-required-rights' => 'Bezonas la {{PLURAL:$2|$1 rajton|jenajn rajtojn: $1}}.',
+	'gadgets-default' => 'Ŝaltita por ĉiu defaŭlte.',
 	'gadgets-export' => 'Eksporti',
 	'gadgets-export-title' => 'Aldonaĵo-eksportado',
 	'gadgets-not-found' => 'Aldonaĵo "$1" ne estis trovita.',
@@ -1830,6 +1841,7 @@ Administradores locais podem editar os ''gadgets'' disponíveis usando as [[Medi
 Este resumo proporciona acesso fácil às páginas das mensagens de sistema que definem a descrição e o código de cada ''gadget''.",
 	'gadgets-uses' => 'Utiliza',
 	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o privilégio $1|os seguintes privilégios: $1}}.',
+	'gadgets-default' => 'Activado para todos por padrão.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportação de gadget',
 	'gadgets-not-found' => 'O gadget "$1" não foi encontrado.',
