@@ -502,7 +502,11 @@ Lokale administratorer kan redigere tilgængelige gadgets med [[MediaWiki:Gadget
 	'gadgets-pagetext' => 'Nedenstående er en liste med de specielle gadgets som brugere kan aktivere i deres [[Special:Preferences|indstillinger]], som defineret i [[MediaWiki:Gadgets-definition|definitionerne]].
 Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver gadgets beskrivelse og kode.',
 	'gadgets-uses' => 'Bruger',
+	'gadgets-default' => 'Aktiveret for alle som standard.',
 	'gadgets-export' => 'Eksporter',
+	'gadgets-export-title' => 'Eksporter gadget',
+	'gadgets-not-found' => 'Gadget "$1" ikke fundet.',
+	'gadgets-export-download' => 'Download',
 );
 
 /** German (Deutsch)
@@ -1806,6 +1810,8 @@ J'aministrator locaj a peulo regolé ij component disponibij ën dovrand le pàg
 	'gadgets-pagetext' => "Ambelessì sota a-i é na lista ëd component spessiaj che j'utent a peulo butesse avisch ant ij [[Special:Preferences|sò gust]], conforma a la [[MediaWiki:Gadgets-definition|definission dij component]]. 
 Sta lista complessiva a smon na stra còmoda për rivé a le pàgine ëd messagi ëd sistema ch'a definisso descrission e còdes ëd vira component.",
 	'gadgets-uses' => 'a dòvra',
+	'gadgets-required-rights' => "A ciama {{PLURAL:$2|ël drit $1|ij drit ch'a ven-o: $1}}.",
+	'gadgets-default' => 'Abilità për mincadun për default',
 	'gadgets-export' => 'Esporté',
 	'gadgets-export-title' => "Esportassion d'acessòri",
 	'gadgets-not-found' => 'Acessòri "$1" pa trovà.',
