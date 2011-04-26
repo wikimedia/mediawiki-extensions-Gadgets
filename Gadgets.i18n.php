@@ -1060,6 +1060,8 @@ Az adminisztrátorok a [[MediaWiki:Gadgets-definition|definíciókat]] és a [[S
 	'gadgets-pagetext' => 'Itt látható azon segédeszközök listája, amiket a felhasználók bekapcsolhatnak a beállításaiknál. A lista a [[MediaWiki:Gadgets-definition|definíciókat]] tartalmazó lapon módosítható.
 Ez az áttekintő lap egyszerű hozzáférést nyúlt az eszközök kódját, illetve leírását tartalmazó rendszerüzenet-lapokhoz.',
 	'gadgets-uses' => 'Kód',
+	'gadgets-required-rights' => 'A következő {{PLURAL:$2|jogosultságra|jogosultságokra}} van szükség: $1.',
+	'gadgets-default' => 'Mindenki számára engedélyezett alapértelmezettként.',
 	'gadgets-export' => 'Exportálás',
 	'gadgets-export-title' => 'Gadget export',
 	'gadgets-not-found' => 'A(z) „$1“ segédeszköz nem található.',
@@ -1935,6 +1937,8 @@ Le amministrature locale ponne cangià le gadget disponibbele ausanne le [[Media
 	'gadgets-pagetext' => "Sotte stè 'n'elenghe de gadget speciale ca l'utinde ponne abbilità sus a lore [[Special:Preferences|pàgene de le preferenze]], cumme definite da le [[MediaWiki:Gadgets-definition|definiziune]].
 Stu riepileghe prevede 'nu facile facile accesse a le pàggene de le messagge d'u sisteme ca definiscene ogne descrizione e codece de le gadget.",
 	'gadgets-uses' => 'Ause',
+	'gadgets-required-rights' => "Richiede {{PLURAL:$2|'u $1 deritte|le seguende deritte: $1}}.",
+	'gadgets-default' => 'Abbilete pe ogneune pe default.',
 	'gadgets-export' => 'Esporte',
 	'gadgets-export-title' => "Esporte 'u gadget",
 	'gadgets-not-found' => 'Gadget "$1" none acchiate.',
