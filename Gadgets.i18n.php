@@ -516,6 +516,7 @@ Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver ga
  * @author Raimond Spekking
  * @author The Evil IP address
  * @author Umherirrender
+ * @author ✓
  */
 $messages['de'] = array(
 	'gadgets-desc' => 'Ermöglicht Benutzern, in ihren [[Special:Preferences|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Helferlein]] zu aktivieren',
@@ -528,7 +529,7 @@ Außerdem ist zu beachten, dass diese Helferlein im Allgemeinen nicht Teil von M
 Benutzern des lokalen Wikis entwickelt und gewartet werden. Lokale Administratoren können die verfügbaren Helferlein bearbeiten. Dafür stehen die [[MediaWiki:Gadgets-definition|Definitionen]] und [[Special:Gadgets|Beschreibungen]] zur Verfügung.',
 	'gadgets' => 'Helferlein',
 	'gadgets-title' => 'Helferlein',
-	'gadgets-pagetext' => 'Liste besonderer Helferlein, die für jeden Benutzer in seinen [[Special:Preferences|persönlichen Einstellungen]], wie in [[MediaWiki:Gadgets-definition|definiert]], verfügbar sind.
+	'gadgets-pagetext' => 'Liste besonderer, in [[MediaWiki:Gadgets-definition]] festgelegter Helferlein, die für jeden Benutzer in seinen [[Special:Preferences|persönlichen Einstellungen]] verfügbar sind.
 Diese Übersicht bietet direkten Zugang zu den MediaWiki-Systemnachrichten, welche die Beschreibung sowie den Programmcode jedes Helferlein enthalten.',
 	'gadgets-uses' => 'Benutzt',
 	'gadgets-required-rights' => 'Erfordert die {{PLURAL:$2|folgende Berechtigung:|folgenden Berechtigungen:}} $1',
@@ -1541,6 +1542,7 @@ $messages['ml'] = array(
 ഓരോ ഗാഡ്ജറ്റിന്റേയും വിവരണവും കോഡും ഉള്ള സന്ദേശ താളുകളിലേക്കു പോകാനുള്ള എളുപ്പവഴി ഈ പട്ടിക നൽകുന്നു.',
 	'gadgets-uses' => 'ഉപയോഗങ്ങൾ',
 	'gadgets-required-rights' => '{{PLURAL:$2|$1 അവകാശം|$1 എന്നീ അവകാശങ്ങൾ}} ആവശ്യമാണ്.',
+	'gadgets-default' => 'എല്ലാവർക്കും സ്വതേ പ്രവർത്തനസജ്ജമായിരിക്കും.',
 	'gadgets-export' => 'കയറ്റുമതി ചെയ്യുക',
 	'gadgets-export-title' => 'ഗാഡ്ജറ്റ് കയറ്റുമതി ചെയ്യുക',
 	'gadgets-not-found' => 'ഗാഡ്ജറ്റ് "$1" കണ്ടെത്താനായില്ല.',
@@ -2089,6 +2091,7 @@ Lokálni správcovia môžu upraviť zoznam dostupných nástrojov pomocou [[Med
 	'gadgets-pagetext' => 'Dolu je zoznam špeciálych nástrojov, ktoré môžu používatelia zapnúť v rámci svojho účtu na svojej stránke [[Special:Preferences|nastavení]]. Tento zoznam definuje stránka [[MediaWiki:Gadgets-definition]]. Tento prehľad poskytuje jednoduchý prístup k systémovým stránkam, ktoré definujú popis a kód každého z nástrojov.',
 	'gadgets-uses' => 'Použitia',
 	'gadgets-required-rights' => 'Vyžaduje {{PLURAL:$2|právo $1|nasledovné práva: $1}}.',
+	'gadgets-default' => 'Povolené pre každého v predvolenom nastavení.',
 	'gadgets-export' => 'Exportovať',
 	'gadgets-export-title' => 'Export nástroja',
 	'gadgets-not-found' => 'Nástroj „$1” nebol nájdený.',
