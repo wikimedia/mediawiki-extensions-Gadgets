@@ -519,14 +519,13 @@ Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver ga
  * @author ✓
  */
 $messages['de'] = array(
-	'gadgets-desc' => 'Ermöglicht Benutzern, in ihren [[Special:Preferences|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Helferlein]] zu aktivieren',
+	'gadgets-desc' => 'Ermöglicht es Benutzern, in ihren [[Special:Preferences|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Helferlein]] zu aktivieren',
 	'prefs-gadgets' => 'Helferlein',
-	'gadgets-prefstext' => 'Liste von speziellen Helferlein, die für jeden Benutzer aktiviert werden können.
-Die Helferlein basieren zumeist auf JavaScript, daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren.
+	'gadgets-prefstext' => 'Liste spezieller Helferlein, die für jeden Benutzer aktiviert werden können.
+Die Helferlein basieren zumeist auf JavaScript. Daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren können.
 Die Helferlein funktionieren allerdings nicht auf dieser Seite mit persönlichen Einstellungen.
 
-Außerdem ist zu beachten, dass diese Helferlein im Allgemeinen nicht Teil von MediaWiki sind, sondern meist von
-Benutzern des lokalen Wikis entwickelt und gewartet werden. Lokale Administratoren können die verfügbaren Helferlein bearbeiten. Dafür stehen die [[MediaWiki:Gadgets-definition|Definitionen]] und [[Special:Gadgets|Beschreibungen]] zur Verfügung.',
+Außerdem ist zu beachten, dass diese Helferlein im Allgemeinen nicht Teil von MediaWiki sind, sondern meist von Benutzern lokaler Wikis entwickelt und gewartet werden. Lokale Administratoren können die verfügbaren Helferlein bearbeiten. Dafür stehen die [[MediaWiki:Gadgets-definition|Definitionen]] und [[Special:Gadgets|Beschreibungen]] zur Verfügung.',
 	'gadgets' => 'Helferlein',
 	'gadgets-title' => 'Helferlein',
 	'gadgets-pagetext' => 'Liste besonderer, in [[MediaWiki:Gadgets-definition]] festgelegter Helferlein, die für jeden Benutzer in seinen [[Special:Preferences|persönlichen Einstellungen]] verfügbar sind.
