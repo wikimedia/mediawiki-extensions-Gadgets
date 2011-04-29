@@ -212,8 +212,11 @@ Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del
 
 /** Azerbaijani (Azərbaycanca)
  * @author Cekli829
+ * @author Vugar 1981
  */
 $messages['az'] = array(
+	'gadgets-uses' => 'İstifadə',
+	'gadgets-export' => 'İxrac',
 	'gadgets-export-download' => 'Yüklə',
 );
 
@@ -521,11 +524,12 @@ Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver ga
 $messages['de'] = array(
 	'gadgets-desc' => 'Ermöglicht es Benutzern, in ihren [[Special:Preferences|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Helferlein]] zu aktivieren',
 	'prefs-gadgets' => 'Helferlein',
-	'gadgets-prefstext' => 'Liste spezieller Helferlein, die für jeden Benutzer aktiviert werden können.
+	'gadgets-prefstext' => 'Dies ist eine Liste spezieller Helferlein, die jeder Benutzer aktivieren kann.
 Die Helferlein basieren zumeist auf JavaScript. Daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren können.
-Die Helferlein funktionieren allerdings nicht auf dieser Seite mit persönlichen Einstellungen.
+Sie funktionieren allerdings nicht auf dieser Spezialseite mit den persönlichen Einstellungen.
 
-Außerdem ist zu beachten, dass diese Helferlein im Allgemeinen nicht Teil von MediaWiki sind, sondern meist von Benutzern lokaler Wikis entwickelt und gewartet werden. Lokale Administratoren können die verfügbaren Helferlein bearbeiten. Dafür stehen die [[MediaWiki:Gadgets-definition|Definitionen]] und [[Special:Gadgets|Beschreibungen]] zur Verfügung.',
+Außerdem ist zu beachten, dass diese Helferlein im Allgemeinen nicht Teil von MediaWiki sind, sondern meist von Benutzern lokaler Wikis entwickelt und gewartet werden.
+Lokale Administratoren können die verfügbaren Helferlein bearbeiten. Dafür stehen die [[MediaWiki:Gadgets-definition|Definitionen]] und [[Special:Gadgets|Beschreibungen]] zur Verfügung.',
 	'gadgets' => 'Helferlein',
 	'gadgets-title' => 'Helferlein',
 	'gadgets-pagetext' => 'Liste besonderer, in [[MediaWiki:Gadgets-definition]] festgelegter Helferlein, die für jeden Benutzer in seinen [[Special:Preferences|persönlichen Einstellungen]] verfügbar sind.
