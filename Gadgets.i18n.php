@@ -303,6 +303,7 @@ $messages['bg'] = array(
 
 /** Bengali (বাংলা)
  * @author Bellayet
+ * @author Wikitanvir
  * @author Zaheen
  */
 $messages['bn'] = array(
@@ -318,6 +319,7 @@ $messages['bn'] = array(
 	'gadgets-pagetext' => 'নিচে বিশেষ গ্যাজেটের একটি তালিকা রয়েছে, যা ব্যবহারকারী তাদের [[Special:Preferences|প্রছন্দের পাতা]] থেকে সক্রিয় করে নিতে পারবেন এবং যা [[MediaWiki:Gadgets-definition|definitions]] পাতায় সংজ্ঞায়িত রয়েছে। পর্যালোচনা সিস্টেম বার্তা পাতায় সহজ প্রবেশাধিকার দিবে, যেখানে গ্যাজেটের বর্ণনা এবং কোড রয়েছে।',
 	'gadgets-uses' => 'ব্যবহারসমূহ',
 	'gadgets-export' => 'রপ্তানি',
+	'gadgets-not-found' => 'গ্যাজেট "$1" খুজে পাওয়া যায়নি।',
 	'gadgets-export-download' => 'ডাউনলোড',
 );
 
