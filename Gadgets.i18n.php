@@ -1705,6 +1705,7 @@ Dette oversynet gjev enkel tilgang til systemmeldingssidene som inneheld skildri
  * @author Jon Harald Søby
  * @author Laaknor
  * @author Nghtwlkr
+ * @author Sjurhamre
  */
 $messages['no'] = array(
 	'gadgets-desc' => 'Lar brukere velge egendefinerte [[Special:Gadgets|CSS- og JavaScript-verktøy]] i [[Special:Preferences|innstillingene sine]]',
@@ -1718,6 +1719,7 @@ Merk også at disse verktøyene ikke er del av MediaWiki-programvaren, og vanlig
 	'gadgets-title' => 'Tilleggsfunksjoner',
 	'gadgets-pagetext' => 'Nedenfor er en liste over tilleggsfunksjoner brukere kan slå på i [[Special:Preferences|innstillingene]], som definert på [[MediaWiki:Gadgets-definition]]. Denne oversikten gir lett tilgang til systembeskjedsidene som definerer hvert verktøys beskrivelse og kode.',
 	'gadgets-uses' => 'Bruk',
+	'gadgets-default' => 'Aktivert for alle som standard',
 	'gadgets-export' => 'Eksporter',
 	'gadgets-export-title' => 'Tilleggsfunksjon eksport',
 	'gadgets-not-found' => 'Tilleggsfunksjon «$1» ikke funnet.',
