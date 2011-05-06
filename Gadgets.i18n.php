@@ -1172,6 +1172,7 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
 	'gadgets-title' => 'Accessori',
 	'gadgets-pagetext' => "Di seguito sono elencati gli accessori (''gadget'') che gli utenti possono abilitare sulla propria pagina delle [[Special:Preferences|preferenze]], seguendo le [[MediaWiki:Gadgets-definition|definizioni]]. Questa panoramica fornisce un comodo meccanismo per accedere ai messaggi di sistema nei quali sono definiti la descrizione e il codice di ciascun accessorio.",
 	'gadgets-uses' => 'Utilizza',
+	'gadgets-required-rights' => 'Richiede {{PLURAL:$2|il diritto $1|i seguenti diritti: $1}}.',
 	'gadgets-export' => 'Esporta',
 	'gadgets-export-title' => 'Esporta accessorio',
 	'gadgets-not-found' => 'Accessorio "$1" non trovato.',
@@ -2613,6 +2614,8 @@ $messages['zh-hant'] = array(
 
 這個概覽提供的系統資訊頁面的簡易存取，可以定義每個小工具的描述以及原始碼。',
 	'gadgets-uses' => '使用',
+	'gadgets-required-rights' => '需要{{PLURAL:$2|$1權限|以下權限：$1}}。',
+	'gadgets-default' => '預設所有人啟用。',
 	'gadgets-export' => '匯出',
 	'gadgets-export-title' => '匯出小工具',
 	'gadgets-not-found' => '找不到「$1」小工具。',
