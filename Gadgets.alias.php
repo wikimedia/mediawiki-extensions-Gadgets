@@ -8,9 +8,7 @@
 
 $specialPageAliases = array();
 
-/** English
- * @author Daniel Kinzler, brightbyte.de
- */
+/** English (English) */
 $specialPageAliases['en'] = array(
 	'Gadgets' => array( 'Gadgets' ),
 );
@@ -175,6 +173,11 @@ $specialPageAliases['lb'] = array(
 	'Gadgets' => array( 'Gadgeten' ),
 );
 
+/** Macedonian (Македонски) */
+$specialPageAliases['mk'] = array(
+	'Gadgets' => array( 'Алатки' ),
+);
+
 /** Malayalam (മലയാളം) */
 $specialPageAliases['ml'] = array(
 	'Gadgets' => array( 'കൂട' ),
@@ -250,6 +253,11 @@ $specialPageAliases['sl'] = array(
 	'Gadgets' => array( 'Vtičniki', 'Vticniki' ),
 );
 
+/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬) */
+$specialPageAliases['sr-ec'] = array(
+	'Gadgets' => array( 'Гаџети' ),
+);
+
 /** Swedish (Svenska) */
 $specialPageAliases['sv'] = array(
 	'Gadgets' => array( 'Finesser' ),
@@ -278,6 +286,11 @@ $specialPageAliases['tt-cyrl'] = array(
 /** Vèneto (Vèneto) */
 $specialPageAliases['vec'] = array(
 	'Gadgets' => array( 'Strumenti' ),
+);
+
+/** Vietnamese (Tiếng Việt) */
+$specialPageAliases['vi'] = array(
+	'Gadgets' => array( 'Công_cụ_đa_năng' ),
 );
 
 /** Simplified Chinese (‪中文(简体)‬) */
