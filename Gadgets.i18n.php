@@ -1339,6 +1339,8 @@ $messages['ko'] = array(
 	'gadgets-pagetext' => '[[Special:Preferences|사용자 환경 설정]]에서 설정할 수 있는 소도구 목록입니다. 해당 목록은 [[MediaWiki:Gadgets-definition|소도구 정의]]에서 편집할 수 있습니다.
 이 문서에서는 각 소도구의 각 설명 문서/코드의 시스템 메시지 링크를 제공합니다.',
 	'gadgets-uses' => '다음 코드를 이용',
+	'gadgets-required-rights' => '{{PLURAL:$2|$1 권한이 필요합니다.|다음 권한이 필요합니다: $1}}',
+	'gadgets-default' => '기본적으로 모든 사람에게 활성화되어 있습니다.',
 	'gadgets-export' => '내보내기',
 	'gadgets-export-title' => '소도구 내보내기',
 	'gadgets-not-found' => '소도구 "$1"을 찾을 수 없습니다.',
@@ -1647,6 +1649,33 @@ Beheerders kunnen 't beschikbaore technische spul angeven in [[MediaWiki:Gadgets
 	'gadgets-pagetext' => 'Hieronder steet speciaal technisch spul dee gebrukers in kunnen schakelen bie [[Special:Preferences|mien veurkeuren]], zoas in-esteld in de [[MediaWiki:Gadgets-definition|defenisies]].
 Dit overzichte biejt eenvoudige toegang tot de systeemtekspagina waor de beschrieving en de pregrammacode van elke technisch snufjen steet.',
 	'gadgets-uses' => 'Gebruuk',
+);
+
+/** Nepali (नेपाली)
+ * @author Bhawani Gautam
+ */
+$messages['ne'] = array(
+	'gadgets-desc' => 'प्रयोगकर्ताको [[Special:Preferences|अभिरुचि अनुसार]]  [[Special:Gadgets|CSS र जाभास्क्रीप्ट उपकरणहरु]] छान्न दिनुहोस्',
+	'prefs-gadgets' => 'उपकरणहरु',
+	'gadgets-prefstext' => 'विशेष उपकरणहरुको सूची तल दिइएकोछ तपाईंले आफ्नो खातामा सक्रिय पार्न सक्नुहुन्छ।
+प्राय सबै उपकरणहरु जाभास्क्रीप्टमा आधारित छन्, यस कारण ब्राउजरमा काम गराउनको लागि जाभास्क्रीप्टलाई सक्रिय  गर्नु पर्छ।
+याद राख्नुहोस् ती उपकरणहरुले अभिरुचि पृष्ठमा असर गर्दैनन्। 
+यो पनि याद राखुहोस् यी विशेष उपकरणहरु मीडिया विकि सफ्टवेयरभित्र पर्दैनन् र प्राय स्थानीय विकि प्रयोगकर्ताहरुले विकास यसको विकास र सञ्चालन गर्दछन्।                  स्थानीय प्रबन्धकहरुले उपलब्ध उपकरणहरुका [[MediaWiki:Gadgets-definition|परिभाषाहरु]] र [[Special:Gadgets|विवरणहरु]] सम्पादन गर्दछन्।',
+	'gadgets' => 'उपकरणहरु',
+	'gadgets-title' => 'उपकरणहरु',
+	'gadgets-pagetext' => 'विशेष उपकरणहरुको सूची तल दिइएकोछ प्रयोगकर्ताहरुले  [[MediaWiki:Gadgets-definition|परिभाषाहरु]]मा जनाए अनुसार आफ्नो [[Special:Preferences|अभिरुचि पृष्ठमा]],   सक्रिय पार्न सक्नेछन्।।
+यस सिंहावलोकनले प्रणाली सन्देश पृष्ठ सजिलै प्राप्त गर्न  सकिनेछ जसले प्रत्येक उपकरणको विवरण र कोडलाई परिभाषित गरेको छ।',
+	'gadgets-uses' => 'प्रयोगहरु',
+	'gadgets-required-rights' => 'आवश्यकता छ {{PLURAL:$2|$1 अधिकारको|निम्न अधिकारहरुको: $1}}.',
+	'gadgets-default' => 'सबैको निम्ति सुरुदेखि नैं सक्रिय छ।',
+	'gadgets-export' => 'निर्यात गर्ने',
+	'gadgets-export-title' => 'उपकरण निर्यात',
+	'gadgets-not-found' => 'उपकरण  "$1" पाइएन।',
+	'gadgets-export-text' => '$1 उपरणलाई निर्यात गर्न,  "{{int:gadgets-export-download}}" बटनमा क्लिक गर्नुहोस्, डाउनलोड गरिएको फाइललाई संग्रह गर्नुहोस्,
+जानुहोस् विशेष:लक्षित विकिमा निर्यात गर्नुहोस् र अपलोड गरुहोस्। त्यसपछि तल दिएका मीडियाविकि: उपकरण परिभाषाहरु परिभाषा पृष्ठमा थप्नुहोस्:
+<pre>$2</pre>
+तपाईंसित लक्षित विकिमा प्रणाली सन्देशहरु सम्पादन गर्ने अधिकार सहित आयात गर्ने समुचित अनुमति र फाइल अपलोड पनि सक्रिय गरिएको हुनुपर्छ।',
+	'gadgets-export-download' => 'डाउनलोड गर्ने',
 );
 
 /** Dutch (Nederlands)
