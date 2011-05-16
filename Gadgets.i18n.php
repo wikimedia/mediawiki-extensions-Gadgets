@@ -2284,6 +2284,8 @@ Lokala administratörer kan redigera [[MediaWiki:Gadgets-definition|definitioner
 	'gadgets-pagetext' => 'Härunder finns en lista över finesser som användare kan aktivera i sina [[Special:Preferences|inställningar]], definierad av [[MediaWiki:Gadgets-definition|definieringarna]].
 Den här översikten ger enkel åtkomst till de systemmeddelanden som definierar beskrivningarna och koden för varje finess.',
 	'gadgets-uses' => 'Använder',
+	'gadgets-required-rights' => 'Kräver {{PLURAL:$2|$1 rättighet|följande rättigheter: $1}}.',
+	'gadgets-default' => 'Som standard aktiverat för alla.',
 	'gadgets-export' => 'Exportera',
 	'gadgets-export-title' => 'Exportera finess',
 	'gadgets-not-found' => 'Tillägg "$1" hittades inte.',
