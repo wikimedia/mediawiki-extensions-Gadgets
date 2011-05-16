@@ -45,9 +45,18 @@ $wgAutoloadClasses['Gadget'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['GadgetHooks'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
+$wgAutoloadClasses['GadgetsAjax'] = $dir . 'GadgetsAjax.php';
+$wgAutoloadClasses['GadgetsSpecialPreferencesTweaksModule'] = $dir . 'GadgetsAjax.php';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';
 
 $wgAPIListModules['gadgetcategories'] = 'ApiQueryGadgetCategories';
 $wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
+
+$wgAjaxExportList[] = 'GadgetsAjax::getUI';
+$wgAjaxExportList[] = 'GadgetsAjax::setPreferences';
+
+$wgResourceModules['ext.gadgets.preferences'] = array(
+	'class' 		=> 'GadgetsSpecialPreferencesTweaksModule'
+);

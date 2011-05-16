@@ -114,6 +114,10 @@ class GadgetHooks {
 		
 		wfProfileIn( __METHOD__ );
 
+		if ( $out->getTitle()->isSpecial( 'Preferences' ) ) {
+			$out->addModules( 'ext.gadgets.preferences' );
+		}
+
 		$gadgets = Gadget::loadList();
 		if ( !$gadgets ) {
 			wfProfileOut( __METHOD__ );
@@ -526,6 +530,74 @@ class Gadget {
 
 		return $gadgets;
 	}
+	
+	//Gets preferences for gadget $gadget;
+	// returns * NULL if the gadget doesn't exists
+	//         * '' if the gadget exists but doesn't have any preferences
+	//         * the preference description in JSON format, otherwise
+	public static function getGadgetPrefsDescription( $gadget ) {
+		//TODO: load gadget's preference description
+
+		//For now we assume there is only one gadget, named Test
+		if ( $gadget != 'Test' ) {
+			return NULL;
+		}
+		//And here is his preferences description.
+		return <<<EOD
+{
+  "popupDelay": {
+    "type": "float",
+    "default": 0.5,
+    "label-message": "popup-delay-description",
+    "options": {
+      "min": 0,
+      "max": 3
+    }
+  },
+  "popupHideDelay": {
+    "type": "float",
+    "default": 0.5,
+    "label-message": "popup-hidedelay-description",
+    "options": {
+      "min": 0
+    }
+  },
+  "popupModifier": {
+    "type": "select",
+    "default": "",
+    "label-message": "popup-modifier-description",
+    "options": {
+      "popup-modifier-nothing": "",
+      "popup-modifier-ctrl": "ctrl",
+      "popup-modifier-shift": "shift",
+      "popup-modifier-alt": "alt",
+      "popup-modifier-meta": "meta"
+    }
+  }
+}
+EOD;
+	}
+
+	//Get user's preferences for a specific gadget
+	public static function getUserPrefs( $user, $gadget ) {
+		//TODO
+		//for now, we just return defaults
+		$prefs_json = Gadget::getGadgetPrefsDescription( $gadget );
+		
+		if ( $prefs_json === NULL || $prefs_json === '' ) {
+			return NULL;
+		}
+		
+		$prefs = json_decode( $prefs_json, TRUE );
+		
+		$userPrefs = array();
+		
+		foreach ( $prefs as $pref => $value ) {
+			$userPrefs[$pref] = $value["default"];
+		}
+
+		return $userPrefs;
+	}
 }
 
 /**
@@ -563,5 +635,43 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 */
 	public function getDependencies() {
 		return $this->dependencies;
+	}
+}
+
+
+//Module to tweak Special:Preferences
+class GadgetsSpecialPreferencesTweaksModule extends ResourceLoaderFileModule {
+	public function __construct() {
+		parent::__construct( array(
+				'scripts' 		=> array( 'ext.gadgets.preferences.js' ),
+				'dependencies' 	=> array( 'jquery', 'jquery.ui.dialog', 'mediawiki.htmlform' ),
+				'localBasePath' => dirname( __FILE__ ) . '/modules/',
+				'remoteExtPath' => 'Gadgets/modules'
+			)
+		);
+	}
+	
+	public function getScript( ResourceLoaderContext $context ) {
+		global $wgUser;
+		
+		$configurable_gadgets = array();
+		$gadgets_list = Gadget::loadStructuredList();
+		
+		foreach ( $gadgets_list as $section_name => $gadgets ) {
+			foreach ( $gadgets as $gadget => $gadget_data ) {
+				$prefs = Gadget::getGadgetPrefsDescription( $gadget );
+				if ( $prefs !== NULL && $prefs !== '' ) {
+					$configurable_gadgets[] = $gadget;
+				}
+			}
+		}
+		
+		//create the mw.gadgets object
+		$script = "mw.gadgets = {}\n";
+		//needed by ext.gadgets.preferences.js
+		$script .= "mw.gadgets.configurableGadgets = " . Xml::encodeJsVar( $configurable_gadgets ) . ";\n";
+		$script .= parent::getScript( $context );
+		
+		return $script;
 	}
 }
