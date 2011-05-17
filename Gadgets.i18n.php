@@ -914,6 +914,8 @@ Benutzer vum lokale Wikis entwicklet un gwartet wäre. Lokali Wiki-Ammanne chenn
 	'gadgets-pagetext' => 'Lischt vu spezielle Gadgets, wu fir jede Benutzer in syyne [[Special:Preferences|persenlige Yystellige]] verfiegbar sin, wie s [[MediaWiki:Gadgets-definition|definiert]] isch.
 Die Ibersicht bietet e direkte Zuegang zue dr Syschtemnochrichte, wu d Bschryybig un dr Programmcode vu jedem Gadget din sin.',
 	'gadgets-uses' => 'Bruucht',
+	'gadgets-required-rights' => 'Brucht {{PLURAL:$2|des Rächt:|die Rächt:}} $1',
+	'gadgets-default' => 'Fir alli standardmäßig aktiviert.',
 	'gadgets-export' => 'Exportiere',
 	'gadgets-export-title' => 'Hälferli exportiere',
 	'gadgets-not-found' => 'Hälferli „$1“ isch nit gfunde wore.',
