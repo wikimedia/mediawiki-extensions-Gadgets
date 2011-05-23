@@ -32,14 +32,14 @@ class GadgetsAjax {
 			return '<err#>' . wfMsgExt( 'gadgets-ajax-wrongparams', 'parseinline' );
 		}
 		
-		$prefs_json = Gadget::getGadgetPrefsDescription( $gadget );
+		$prefsJson = Gadget::getGadgetPrefsDescription( $gadget );
 		
 		//If $gadget doesn't exists or it doesn't have preferences, something is wrong
-		if ( $prefs_json === null || $prefs_json === '' ) {
+		if ( $prefsJson === null || $prefsJson === '' ) {
 			return '<err#>' . wfMsgExt( 'gadgets-ajax-wrongparams', 'parseinline' );
 		}
 		
-		$prefs = json_decode( $prefs_json, true );
+		$prefs = FormatJson::decode( $prefsJson, true );
 		
 		//If it's not valid JSON, signal an error
 		if ( $prefs === null ) {

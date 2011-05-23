@@ -210,13 +210,13 @@ class Gadget {
 
 
 	//Mandatory arguments for any kind of preferences
-	private static $prefs_mandatory_args = array(
+	private static $prefsMandatoryArgs = array(
 			'type',
 			'default'
 		);
 
 	//Other mandatory arguments for specific types
-	private static $prefs_mandatory_args_by_type = array(
+	private static $prefsMandatoryArgsByType = array(
 			'select' => array( 'options' ),
 			'selectorother' => array( 'options' ),
 			'selectandother' => array( 'options' ),
@@ -548,26 +548,26 @@ class Gadget {
 	}
 	
 	
-	public static function isGadgetPrefsDescriptionValid( $prefs_json ) {
-		$prefs = json_decode( $prefs_json, true );
+	public static function isGadgetPrefsDescriptionValid( $prefsJson ) {
+		$prefs = FormatJson::decode( $prefsJson, true );
 		
 		if ( $prefs === null ) {
 			return false;
 		}
 		
 		//TODO: improve validation
-		foreach ( $prefs as $option => $option_definition ) {
-			foreach ( self::$prefs_mandatory_args as $arg ) {
-				if ( !isset( $option_definition[$arg] ) ) {
+		foreach ( $prefs as $option => $optionDefinition ) {
+			foreach ( self::$prefsMandatoryArgs as $arg ) {
+				if ( !isset( $optionDefinition[$arg] ) ) {
 					return false;
 				}
 			}
 			
 			$type = $option['type'];
 			
-			if ( isset( self::$prefs_mandatory_args_by_type[$type] ) ) {
-				foreach ( self::$prefs_mandatory_args_by_type[$type] as $arg ) {
-					if ( !isset( $option_definition[$arg] ) ) {
+			if ( isset( self::$prefsMandatoryArgsByType[$type] ) ) {
+				foreach ( self::$prefsMandatoryArgsByType[$type] as $arg ) {
+					if ( !isset( $optionDefinition[$arg] ) ) {
 						return false;
 					}
 				}
@@ -582,26 +582,26 @@ class Gadget {
 	//         * '' if the gadget exists but doesn't have any preferences
 	//         * the preference description in JSON format, otherwise
 	public static function getGadgetPrefsDescription( $gadget ) {
-		$gadgets_list = Gadget::loadStructuredList();
-		foreach ( $gadgets_list as $section_name => $gadgets ) {
-			foreach ( $gadgets as $gadget_name => $gadget_data ) {
-				if ( $gadget_name == $gadget ) {
+		$gadgetsList = Gadget::loadStructuredList();
+		foreach ( $gadgetsList as $sectionName => $gadgets ) {
+			foreach ( $gadgets as $gadgetName => $gadgetData ) {
+				if ( $gadgetName == $gadget ) {
 					//Gadget found; are there any prefs?
 					
-					$prefs_msg = "Gadget-" . $gadget . ".preferences";
+					$prefsMsg = "Gadget-" . $gadget . ".preferences";
 					
 					//TODO: should we cache?
 					
-					$prefs_json = wfMsgForContentNoTrans( $prefs_msg );
-					if ( wfEmptyMsg( $prefs_msg, $prefs_json ) ) {
+					$prefsJson = wfMsgForContentNoTrans( $prefsMsg );
+					if ( wfEmptyMsg( $prefsMsg, $prefsJson ) ) {
 						return null;
 					}
 					
-					if ( !self::isGadgetPrefsDescriptionValid( $prefs_json ) ){
+					if ( !self::isGadgetPrefsDescriptionValid( $prefsJson ) ){
 						return '';
 					}
 					
-					return $prefs_json;
+					return $prefsJson;
 				}
 			}
 		}
@@ -612,13 +612,13 @@ class Gadget {
 	public static function getUserPrefs( $user, $gadget ) {
 		//TODO
 		//for now, we just return defaults
-		$prefs_json = Gadget::getGadgetPrefsDescription( $gadget );
+		$prefsJson = Gadget::getGadgetPrefsDescription( $gadget );
 		
-		if ( $prefs_json === null || $prefs_json === '' ) {
+		if ( $prefsJson === null || $prefsJson === '' ) {
 			return null;
 		}
 		
-		$prefs = json_decode( $prefs_json, true );
+		$prefs = FormatJson::decode( $prefsJson, true );
 		
 		$userPrefs = array();
 		
@@ -684,14 +684,14 @@ class GadgetsSpecialPreferencesTweaksModule extends ResourceLoaderFileModule {
 	public function getScript( ResourceLoaderContext $context ) {
 		global $wgUser;
 		
-		$configurable_gadgets = array();
-		$gadgets_list = Gadget::loadStructuredList();
+		$configurableGadgets = array();
+		$gadgetsList = Gadget::loadStructuredList();
 		
-		foreach ( $gadgets_list as $section_name => $gadgets ) {
+		foreach ( $gadgetsList as $sectionName => $gadgets ) {
 			foreach ( $gadgets as $gadget => $gadget_data ) {
 				$prefs = Gadget::getGadgetPrefsDescription( $gadget );
 				if ( $prefs !== null && $prefs !== '' ) {
-					$configurable_gadgets[] = $gadget;
+					$configurableGadgets[] = $gadget;
 				}
 			}
 		}
@@ -700,7 +700,7 @@ class GadgetsSpecialPreferencesTweaksModule extends ResourceLoaderFileModule {
 		//create the mw.gadgets object
 		$script = "mw.gadgets = {}\n";
 		//needed by ext.gadgets.preferences.js
-		$script .= "mw.gadgets.configurableGadgets = " . Xml::encodeJsVar( $configurable_gadgets ) . ";\n";
+		$script .= "mw.gadgets.configurableGadgets = " . Xml::encodeJsVar( $configurableGadgets ) . ";\n";
 		$script .= parent::getScript( $context );
 		
 		return $script;
