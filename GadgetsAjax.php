@@ -29,22 +29,25 @@ class GadgetsAjax {
 		}
 
 		if ( !isset( $gadget ) ) {
-			return '<err#>' . wfMsgExt( 'gadgets-ajax-wrongparams', 'parseinline' );				
+			return '<err#>' . wfMsgExt( 'gadgets-ajax-wrongparams', 'parseinline' );
 		}
 		
 		$prefs_json = Gadget::getGadgetPrefsDescription( $gadget );
 		
 		//If $gadget doesn't exists or it doesn't have preferences, something is wrong
-		if ( $prefs_json === NULL || $prefs_json === '' ) {
-			return '<err#>' . wfMsgExt( 'gadgets-ajax-wrongparams', 'parseinline' );				
+		if ( $prefs_json === null || $prefs_json === '' ) {
+			return '<err#>' . wfMsgExt( 'gadgets-ajax-wrongparams', 'parseinline' );
 		}
 		
-		$prefs = json_decode( $prefs_json, TRUE );
+		$prefs = json_decode( $prefs_json, true );
 		
-		//TODO: $prefs === NULL?
+		//If it's not valid JSON, signal an error
+		if ( $prefs === null ) {
+			return '<err#>' . wfMsgExt( 'gadgets-ajax-wrongsyntax', 'parseinline' );
+		}
 		
-		//TODO: check correct usage of RequestContext
-		$form = new HTMLForm( $prefs, new RequestContext(), 'gadget-prefs' );
+		//TODO: options of "select" and similar fields cannot be passed as messages
+		$form = new HTMLForm( $prefs, RequestContext::getMain() );
 		
 		$form->mFieldData = Gadget::getUserPrefs( $wgUser, $gadget );
 

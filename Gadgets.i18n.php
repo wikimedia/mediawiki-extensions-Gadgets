@@ -44,6 +44,7 @@ go to Special:Import on destination wiki and upload it. Then add the following t
 You must have appropriate permissions on destination wiki (including the right to edit system messages) and import from file uploads must be enabled.',
 	'gadgets-export-download' => 'Download',
 	'gadgets-ajax-wrongparams' => 'An AJAX request with wrong parameters has been made; this is most likely a bug.',
+	'gadgets-ajax-wrongsyntax' => 'There was an unexpected error while reading the saved gadget\'s configuration description.',
 	'gadgets-ajax-unlogged' => 'This action is only allowed to registered, logged in users.',
 );
 

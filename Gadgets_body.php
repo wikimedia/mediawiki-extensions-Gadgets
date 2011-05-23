@@ -114,6 +114,7 @@ class GadgetHooks {
 		
 		wfProfileIn( __METHOD__ );
 
+		//tweaks in Special:Preferences
 		if ( $out->getTitle()->isSpecial( 'Preferences' ) ) {
 			$out->addModules( 'ext.gadgets.preferences' );
 		}
@@ -206,6 +207,21 @@ class Gadget {
 			$requiredRights = array(),
 			$onByDefault = false,
 			$category;
+
+
+	//Mandatory arguments for any kind of preferences
+	private static $prefs_mandatory_args = array(
+			'type',
+			'default'
+		);
+
+	//Other mandatory arguments for specific types
+	private static $prefs_mandatory_args_by_type = array(
+			'select' => array( 'options' ),
+			'selectorother' => array( 'options' ),
+			'selectandother' => array( 'options' ),
+			'multiselect' => array( 'options' )
+		);
 
 	/**
 	 * Creates an instance of this class from definition in MediaWiki:Gadgets-definition
@@ -531,51 +547,65 @@ class Gadget {
 		return $gadgets;
 	}
 	
+	
+	public static function isGadgetPrefsDescriptionValid( $prefs_json ) {
+		$prefs = json_decode( $prefs_json, true );
+		
+		if ( $prefs === null ) {
+			return false;
+		}
+		
+		//TODO: improve validation
+		foreach ( $prefs as $option => $option_definition ) {
+			foreach ( self::$prefs_mandatory_args as $arg ) {
+				if ( !isset( $option_definition[$arg] ) ) {
+					return false;
+				}
+			}
+			
+			$type = $option['type'];
+			
+			if ( isset( self::$prefs_mandatory_args_by_type[$type] ) ) {
+				foreach ( self::$prefs_mandatory_args_by_type[$type] as $arg ) {
+					if ( !isset( $option_definition[$arg] ) ) {
+						return false;
+					}
+				}
+			}
+		}
+		
+		return true;
+	}
+	
 	//Gets preferences for gadget $gadget;
-	// returns * NULL if the gadget doesn't exists
+	// returns * null if the gadget doesn't exists
 	//         * '' if the gadget exists but doesn't have any preferences
 	//         * the preference description in JSON format, otherwise
 	public static function getGadgetPrefsDescription( $gadget ) {
-		//TODO: load gadget's preference description
-
-		//For now we assume there is only one gadget, named Test
-		if ( $gadget != 'Test' ) {
-			return NULL;
+		$gadgets_list = Gadget::loadStructuredList();
+		foreach ( $gadgets_list as $section_name => $gadgets ) {
+			foreach ( $gadgets as $gadget_name => $gadget_data ) {
+				if ( $gadget_name == $gadget ) {
+					//Gadget found; are there any prefs?
+					
+					$prefs_msg = "Gadget-" . $gadget . ".preferences";
+					
+					//TODO: should we cache?
+					
+					$prefs_json = wfMsgForContentNoTrans( $prefs_msg );
+					if ( wfEmptyMsg( $prefs_msg, $prefs_json ) ) {
+						return null;
+					}
+					
+					if ( !self::isGadgetPrefsDescriptionValid( $prefs_json ) ){
+						return '';
+					}
+					
+					return $prefs_json;
+				}
+			}
 		}
-		//And here is his preferences description.
-		return <<<EOD
-{
-  "popupDelay": {
-    "type": "float",
-    "default": 0.5,
-    "label-message": "popup-delay-description",
-    "options": {
-      "min": 0,
-      "max": 3
-    }
-  },
-  "popupHideDelay": {
-    "type": "float",
-    "default": 0.5,
-    "label-message": "popup-hidedelay-description",
-    "options": {
-      "min": 0
-    }
-  },
-  "popupModifier": {
-    "type": "select",
-    "default": "",
-    "label-message": "popup-modifier-description",
-    "options": {
-      "popup-modifier-nothing": "",
-      "popup-modifier-ctrl": "ctrl",
-      "popup-modifier-shift": "shift",
-      "popup-modifier-alt": "alt",
-      "popup-modifier-meta": "meta"
-    }
-  }
-}
-EOD;
+		return null; //gadget not found
 	}
 
 	//Get user's preferences for a specific gadget
@@ -584,11 +614,11 @@ EOD;
 		//for now, we just return defaults
 		$prefs_json = Gadget::getGadgetPrefsDescription( $gadget );
 		
-		if ( $prefs_json === NULL || $prefs_json === '' ) {
-			return NULL;
+		if ( $prefs_json === null || $prefs_json === '' ) {
+			return null;
 		}
 		
-		$prefs = json_decode( $prefs_json, TRUE );
+		$prefs = json_decode( $prefs_json, true );
 		
 		$userPrefs = array();
 		
@@ -660,12 +690,13 @@ class GadgetsSpecialPreferencesTweaksModule extends ResourceLoaderFileModule {
 		foreach ( $gadgets_list as $section_name => $gadgets ) {
 			foreach ( $gadgets as $gadget => $gadget_data ) {
 				$prefs = Gadget::getGadgetPrefsDescription( $gadget );
-				if ( $prefs !== NULL && $prefs !== '' ) {
+				if ( $prefs !== null && $prefs !== '' ) {
 					$configurable_gadgets[] = $gadget;
 				}
 			}
 		}
 		
+		//TODO: broken in debug mode
 		//create the mw.gadgets object
 		$script = "mw.gadgets = {}\n";
 		//needed by ext.gadgets.preferences.js

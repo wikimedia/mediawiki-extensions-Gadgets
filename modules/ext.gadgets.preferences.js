@@ -7,13 +7,13 @@
     var gadget = id.substr( "mw-input-wpgadgets-".length );
 
     if ( $.inArray( gadget, mw.gadgets.configurableGadgets ) != -1 ) {
-      $span = $( '<span></span>' );
+      var $span = $( '<span></span>' );
 
       if ( !$( input ).is( ':checked' ) ) {
         $span.hide();
       }
 
-      $link = $( '<a></a>' )
+      var $link = $( '<a></a>' )
               .text( "Configure" ) //TODO: use a message instead
               .click( function() {
                 var post_data = 'action=ajax&rs=GadgetsAjax::getUI' +
@@ -60,7 +60,7 @@
 
       //Toggle visibility on click to the input
       $( input ).click( function() {
-        $span.toggle( 'fast' );
+        $span.fadeToggle( 'fast' );
       } );
     }
   } );
