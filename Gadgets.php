@@ -34,6 +34,7 @@ $wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay';
 $wgHooks['GetPreferences'][]                = 'GadgetHooks::getPreferences';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetHooks::registerModules';
 $wgHooks['UnitTestsList'][]                 = 'GadgetHooks::unitTestsList';
+$wgHooks['UserLoadOptions'][]               = 'GadgetHooks::userLoadOptions';
 
 $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
@@ -45,8 +46,8 @@ $wgAutoloadClasses['Gadget'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['GadgetHooks'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
+$wgAutoloadClasses['GadgetsGlobalModule'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['GadgetsAjax'] = $dir . 'GadgetsAjax.php';
-$wgAutoloadClasses['GadgetsSpecialPreferencesTweaksModule'] = $dir . 'GadgetsAjax.php';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';
@@ -57,6 +58,13 @@ $wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
 $wgAjaxExportList[] = 'GadgetsAjax::getUI';
 $wgAjaxExportList[] = 'GadgetsAjax::setPreferences';
 
+$wgResourceModules['ext.gadgets'] = array(
+	'class' 		=> 'GadgetsGlobalModule'
+);
+
 $wgResourceModules['ext.gadgets.preferences'] = array(
-	'class' 		=> 'GadgetsSpecialPreferencesTweaksModule'
+	'scripts' 		=> array( 'ext.gadgets.preferences.js' ),
+	'dependencies' 	=> array( 'jquery', 'jquery.json', 'jquery.ui.dialog', 'mediawiki.htmlform', 'ext.gadgets' ),
+	'localBasePath' => $dir . 'modules/',
+	'remoteExtPath' => 'Gadgets/modules'
 );

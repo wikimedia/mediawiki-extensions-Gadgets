@@ -917,6 +917,8 @@ Benutzer vum lokale Wikis entwicklet un gwartet wäre. Lokali Wiki-Ammanne chenn
 	'gadgets-pagetext' => 'Lischt vu spezielle Gadgets, wu fir jede Benutzer in syyne [[Special:Preferences|persenlige Yystellige]] verfiegbar sin, wie s [[MediaWiki:Gadgets-definition|definiert]] isch.
 Die Ibersicht bietet e direkte Zuegang zue dr Syschtemnochrichte, wu d Bschryybig un dr Programmcode vu jedem Gadget din sin.',
 	'gadgets-uses' => 'Bruucht',
+	'gadgets-required-rights' => 'Brucht {{PLURAL:$2|des Rächt:|die Rächt:}} $1',
+	'gadgets-default' => 'Fir alli standardmäßig aktiviert.',
 	'gadgets-export' => 'Exportiere',
 	'gadgets-export-title' => 'Hälferli exportiere',
 	'gadgets-not-found' => 'Hälferli „$1“ isch nit gfunde wore.',
@@ -1752,6 +1754,7 @@ Merk også at disse verktøyene ikke er del av MediaWiki-programvaren, og vanlig
 	'gadgets-title' => 'Tilleggsfunksjoner',
 	'gadgets-pagetext' => 'Nedenfor er en liste over tilleggsfunksjoner brukere kan slå på i [[Special:Preferences|innstillingene]], som definert på [[MediaWiki:Gadgets-definition]]. Denne oversikten gir lett tilgang til systembeskjedsidene som definerer hvert verktøys beskrivelse og kode.',
 	'gadgets-uses' => 'Bruk',
+	'gadgets-required-rights' => 'Krever {{PLURAL:$2|$1 rettighet|følgende rettigheter: $1}}.',
 	'gadgets-default' => 'Aktivert for alle som standard',
 	'gadgets-export' => 'Eksporter',
 	'gadgets-export-title' => 'Tilleggsfunksjon eksport',
@@ -2067,6 +2070,7 @@ $messages['sah'] = array(
 Этот список позволяет легко получить доступ к страницам системных сообщений, определяющих описания и исходные коды гаджетов.',
 	'gadgets-uses' => 'Туһанар',
 	'gadgets-required-rights' => '$2 бэйэбил (быраап) ирдэнэр: «$1»',
+	'gadgets-default' => 'Барыларыгар холбоно сылдьар.',
 	'gadgets-export' => 'Экспортаа',
 	'gadgets-export-title' => 'Ҕааддьыты таһаарыы (экспорт)',
 	'gadgets-not-found' => '"$1" ҕааддьыт көстүбэтэ.',
@@ -2287,6 +2291,8 @@ Lokala administratörer kan redigera [[MediaWiki:Gadgets-definition|definitioner
 	'gadgets-pagetext' => 'Härunder finns en lista över finesser som användare kan aktivera i sina [[Special:Preferences|inställningar]], definierad av [[MediaWiki:Gadgets-definition|definieringarna]].
 Den här översikten ger enkel åtkomst till de systemmeddelanden som definierar beskrivningarna och koden för varje finess.',
 	'gadgets-uses' => 'Använder',
+	'gadgets-required-rights' => 'Kräver {{PLURAL:$2|$1 rättighet|följande rättigheter: $1}}.',
+	'gadgets-default' => 'Som standard aktiverat för alla.',
 	'gadgets-export' => 'Exportera',
 	'gadgets-export-title' => 'Exportera finess',
 	'gadgets-not-found' => 'Tillägg "$1" hittades inte.',

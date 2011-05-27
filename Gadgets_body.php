@@ -155,6 +155,24 @@ class GadgetHooks {
 	}
 
 	/**
+	 * UserLoadOptions hook handler.
+	 * @param $user
+	 * @param &$options 
+	 */
+	public static function userLoadOptions( $user, &$options ) {
+		//Remove gadget-*-config options, since they must not be delivered like other user preferences
+		foreach ( $options as $option => $value ){
+			//TODO: Regexsp not coherent with current gadget's naming rules
+			if ( preg_match( '/gadget-[a-zA-Z][a-zA-Z0-9_]*-config/', $option ) ) {
+				//TODO: cache them before unsetting
+				unset( $options[$option] );
+			}
+		}
+		return true;
+	}
+
+
+	/**
 	 * Adds one legacy script to output.
 	 * 
 	 * @param $page String: Unprefixed page title
@@ -548,6 +566,8 @@ class Gadget {
 	}
 	
 	
+	//TODO: put the following static methods somewhere else
+	
 	public static function isGadgetPrefsDescriptionValid( $prefsJson ) {
 		$prefs = FormatJson::decode( $prefsJson, true );
 		
@@ -610,24 +630,89 @@ class Gadget {
 
 	//Get user's preferences for a specific gadget
 	public static function getUserPrefs( $user, $gadget ) {
-		//TODO
-		//for now, we just return defaults
-		$prefsJson = Gadget::getGadgetPrefsDescription( $gadget );
+		//TODO: cache!
+
+		$prefsDescriptionJson = Gadget::getGadgetPrefsDescription( $gadget );
 		
-		if ( $prefsJson === null || $prefsJson === '' ) {
+		if ( $prefsDescriptionJson === null || $prefsDescriptionJson === '' ) {
 			return null;
 		}
 		
-		$prefs = FormatJson::decode( $prefsJson, true );
+		$prefsDescription = FormatJson::decode( $prefsDescriptionJson, true );
 		
-		$userPrefs = array();
 		
-		foreach ( $prefs as $pref => $value ) {
-			$userPrefs[$pref] = $value["default"];
-		}
+		$dbr = wfGetDB( DB_SLAVE );
+		
+		$id = $user->getId();
+		$property = "gadget-{$gadget}-config";
 
+		$res = $dbr->selectRow(
+			'user_properties',
+			array('up_value'),
+			array(
+				"up_user={$id}",
+				"up_property='{$property}'"
+			),
+			__METHOD__);
+		
+		
+		if ( !$res ) {
+			return null;
+		}
+		
+		$userPrefsJson = $res->up_value;
+		
+		$userPrefs = FormatJson::decode( $userPrefsJson, true );
+		
+		//TODO: validate against description, fix mismatches
+		
 		return $userPrefs;
 	}
+
+	//Set user's preferences for a specific gadget
+	public static function setUserPrefs( $user, $gadget, $preferences ) {
+		//TODO: proper param checking
+		
+		$preferencesJson = FormatJson::encode( $preferences );
+		
+		$dbw = wfGetDB( DB_MASTER );
+		
+		$id = $user->getId();
+		$property = "gadget-{$gadget}-config";
+		
+		$row = array(
+				'up_user'     => $id,
+				'up_property' => $property,
+				'up_value'    => $preferencesJson
+			);
+				
+		//Could probably be done with the "ON DUPLICATE KEY UPDATE" syntax
+		
+		$res = $dbw->update(
+			'user_properties',
+			$row,
+			array(
+				"up_user={$id}",
+				"up_property='{$property}'"
+			),
+			__METHOD__
+		);
+
+
+		$rc = $dbw->affectedRows();
+		if ( $rc == 0 ) {
+			$dbw->insert(
+				'user_properties',
+				$row,
+				__METHOD__,
+				array( 'IGNORE' ) //ignore insertions without any changes
+			);
+		}
+
+		//Invalidate cache and update user_touched
+		$user->invalidateCache( true );
+	}
+
 }
 
 /**
@@ -664,26 +749,52 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * @return Array: Names of resources this module depends on
 	 */
 	public function getDependencies() {
+		//return array_merge( $this->dependencies, array( 'mediawiki.user' ) );
 		return $this->dependencies;
-	}
-}
-
-
-//Module to tweak Special:Preferences
-class GadgetsSpecialPreferencesTweaksModule extends ResourceLoaderFileModule {
-	public function __construct() {
-		parent::__construct( array(
-				'scripts' 		=> array( 'ext.gadgets.preferences.js' ),
-				'dependencies' 	=> array( 'jquery', 'jquery.ui.dialog', 'mediawiki.htmlform' ),
-				'localBasePath' => dirname( __FILE__ ) . '/modules/',
-				'remoteExtPath' => 'Gadgets/modules'
-			)
-		);
 	}
 	
 	public function getScript( ResourceLoaderContext $context ) {
-		global $wgUser;
+		$moduleName = $this->getName();
+		$gadget = substr( $moduleName, strlen( 'ext.gadget.' ) );
 		
+		
+		$user = RequestContext::getMain()->getUser();
+		
+		$prefs = Gadget::getUserPrefs( $user, $gadget );
+		
+		//Enclose gadget's code in a closure, with "this" bound to the
+		//configuration object (or to "window" for non-configurable gadgets)
+		$header = '(function(){';
+		
+		$boundObject = array( 'config' => $prefs );
+		
+		if ( $prefs !== NULL ) {
+			//Bind configuration object to "this".
+			//TODO: would be nice add other metadata for the gadget
+			$footer = '}).' . Xml::encodeJsCall( 'apply', 
+				array( $boundObject, array() )
+			) . ';';
+		} else {
+			//Bind window to "this"
+			$footer = '}).apply( window, [] );';
+		}
+		
+		return $header . parent::getScript( $context ) . $footer;
+	}
+	
+	
+	public function getModifiedTime( ResourceLoaderContext $context ) {
+		$touched = RequestContext::getMain()->getUser()->getTouched();
+		
+		return max( parent::getModifiedTime( $context ), $touched );
+	}
+}
+
+//Implements ext.gadgets. Required by ext.gadgets.preferences
+class GadgetsGlobalModule extends ResourceLoaderModule {
+	//TODO: should override getModifiedTime()
+	
+	public function getScript( ResourceLoaderContext $context ) {
 		$configurableGadgets = array();
 		$gadgetsList = Gadget::loadStructuredList();
 		
@@ -695,14 +806,10 @@ class GadgetsSpecialPreferencesTweaksModule extends ResourceLoaderFileModule {
 				}
 			}
 		}
-		
-		//TODO: broken in debug mode
-		//create the mw.gadgets object
+
 		$script = "mw.gadgets = {}\n";
-		//needed by ext.gadgets.preferences.js
 		$script .= "mw.gadgets.configurableGadgets = " . Xml::encodeJsVar( $configurableGadgets ) . ";\n";
-		$script .= parent::getScript( $context );
-		
 		return $script;
 	}
 }
+
