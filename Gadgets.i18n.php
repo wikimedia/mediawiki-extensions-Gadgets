@@ -507,10 +507,14 @@ Lokale administratorer kan redigere tilgængelige gadgets med [[MediaWiki:Gadget
 	'gadgets-pagetext' => 'Nedenstående er en liste med de specielle gadgets som brugere kan aktivere i deres [[Special:Preferences|indstillinger]], som defineret i [[MediaWiki:Gadgets-definition|definitionerne]].
 Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver gadgets beskrivelse og kode.',
 	'gadgets-uses' => 'Bruger',
+	'gadgets-required-rights' => 'Kræver {{PLURAL:$2|rettigheden $1|følgende rettigheder: $1}}.',
 	'gadgets-default' => 'Aktiveret for alle som standard.',
 	'gadgets-export' => 'Eksporter',
 	'gadgets-export-title' => 'Eksporter gadget',
 	'gadgets-not-found' => 'Gadget "$1" ikke fundet.',
+	'gadgets-export-text' => 'For at eksportere værktøjet $1, klik på knappen "{{int:gadgets-export-download}}", gem den downloadede fil, gå til Special:Import på destinationswikien og læg den op. Tilføj så følgende til siden MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Du skal have de nødvendige rettigheder på destinationswikien (herunder rettigheden til at redigere systemmeddelelser) og importering via oplægning af filer skal være slået til.',
 	'gadgets-export-download' => 'Download',
 );
 
