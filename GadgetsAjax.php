@@ -22,7 +22,7 @@ class GadgetsAjax {
 		return true;
 	}
 	
-	public static function getUI( /*$args...*/ ) {
+	public static function getPreferences( /* args */ ) {
 		//params are in the format "param|val"
 		$args = func_get_args();
 
@@ -47,30 +47,24 @@ class GadgetsAjax {
 			return '<err#>' . wfMsgExt( 'gadgets-ajax-wrongparams', 'parseinline' );
 		}
 		
-		$prefsJson = Gadget::getGadgetPrefsDescription( $gadget );
 		
-		//If $gadget doesn't exists or it doesn't have preferences, something is wrong
-		if ( $prefsJson === null || $prefsJson === '' ) {
+		$prefsDescriptionJson = Gadget::getGadgetPrefsDescription( $gadget );
+		$prefsDescription = FormatJson::decode( $prefsDescriptionJson, true );
+		
+		if ( $prefsDescription === null ) {
+			//either the gadget doesn't exists or it exists but it has no prefs
 			return '<err#>' . wfMsgExt( 'gadgets-ajax-wrongparams', 'parseinline' );
 		}
-		
-		$prefs = FormatJson::decode( $prefsJson, true );
-		
-		//If it's not valid JSON, signal an error
-		if ( $prefs === null ) {
-			return '<err#>' . wfMsgExt( 'gadgets-ajax-wrongsyntax', 'parseinline' );
-		}
-		
-		//TODO: options of "select" and similar fields cannot be passed as messages
-		$form = new HTMLForm( $prefs, RequestContext::getMain() );
-		
-		$user = RequestContext::getMain()->getUser();
-		
-		$form->mFieldData = Gadget::getUserPrefs( $user, $gadget );
 
-		//TODO: HTMLForm::getBody is not meant to be public, a refactoring is needed
-		//      (or a completely different solution)
-		return $form->getBody();
+		$user = RequestContext::getMain()->getUser();
+		$userPrefs = Gadget::getUserPrefs( $user, $gadget );
+
+		//Add user preferences to preference description
+		foreach ( $userPrefs as $pref => $value ) {
+			$prefsDescription['fields'][$pref]['value'] = $value;
+		}		
+
+		return FormatJson::encode( $prefsDescription );
 	}
 	
 	public static function setPreferences( /* args */ ) {
@@ -117,19 +111,12 @@ class GadgetsAjax {
 			return '<err#>' . wfMsgExt( 'gadgets-ajax-wrongparams', 'parseinline' );
 		}
 		
-		foreach ( $userPrefs as $pref => $value ) {
-			if ( !isset( $prefsDescription[$pref] ) ){
-				//Nonexisting configuration parameter; ignore it
-				unset( $userPrefs[$pref] );
-			} else {
-				//TODO: convert values to proper type, check coherency with specification
-				//      and fix fields that don't pass validation
-			}
-		}
-
 		$user = RequestContext::getMain()->getUser();
-		Gadget::setUserPrefs( $user, $gadget, $userPrefs );
 		
-		return 'true';
+		if ( Gadget::setUserPrefs( $user, $gadget, $userPrefs ) ) {
+			return 'true';			
+		} else {
+			return 'false';
+		}
 	}
 }

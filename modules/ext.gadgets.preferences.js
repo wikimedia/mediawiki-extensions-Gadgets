@@ -4,16 +4,7 @@
 ( function( $, mw ) {
 	
 	//"Save" button click handler
-	function saveConfig( $dialog, gadget ) {
-		var config = {};
-		
-		//Inputs are all the children of $dialog whose id starts with "mw-input-wp"
-		//TODO: fix this, there is no warranty that this doesn't conflicts with other existing ids.
-		$dialog.find( '[id ^= "mw-input-wp"]' ).each( function( i, el ) {			
-			var param = el.id.substring( "mw-input-wp".length );
-			config[param] = $( el ).val(); //TODO: this only work for simpler fields
-		} );
-		
+	function saveConfig( $dialog, gadget, config ) {
 		var json = $.toJSON( config );
 		
 		var postData = 'action=ajax&rs=GadgetsAjax::setPreferences' +
@@ -55,17 +46,24 @@
 			var $link = $( '<a></a>' )
 				.text( "Configure" ) //TODO: use a message instead
 				.click( function() {
-					var postData = 'action=ajax&rs=GadgetsAjax::getUI' +
+					var postData = 'action=ajax&rs=GadgetsAjax::getPreferences' +
 							'&rsargs[]=gadget|' + encodeURIComponent( gadget );
-					
+							
 					$.ajax( {
 						url: mw.config.get( 'wgScriptPath' ) + '/index.php',
 						type: "POST",
 						data: postData,
-						dataType: "html", // response type
+						dataType: "json", // response type
 						success: function( response ) {
-							//Show dialog
-							$( response ).dialog( {
+							//TODO: malformed response?
+							
+							//Create and show dialog
+							
+							var dialogBody = $( response ).formBuilder();
+							
+							//window.validator = $( dialogBody ).validate();
+							
+							$( dialogBody ).dialog( {
 								modal: true,
 								width: 'auto',
 								resizable: false,
@@ -74,9 +72,15 @@
 									$( this ).dialog( 'destroy' ).empty(); //completely destroy on close
 								},
 								buttons: {
-									//TODO: add "Restore defaults" button
+									//TODO: add a "Restore defaults" button
+									
 									"Save": function() {
-										saveConfig( $( this ), gadget );
+										var isValid = $( dialogBody ).formBuilder( 'validate' );
+										
+										if ( isValid ) {
+											var values = $( dialogBody ).formBuilder( 'getValues' );
+											saveConfig( $( this ), gadget, values );
+										}
 									},
 									"Cancel": function() {
 										$( this ).dialog( "close" );

@@ -160,9 +160,10 @@ class GadgetHooks {
 	 * @param &$options 
 	 */
 	public static function userLoadOptions( $user, &$options ) {
-		//Remove gadget-*-config options, since they must not be delivered like other user preferences
+		//Remove gadget-*-config options, since they must not be delivered
+		//via mw.user.options like other user preferences
 		foreach ( $options as $option => $value ){
-			//TODO: Regexsp not coherent with current gadget's naming rules
+			//TODO: Regexp not coherent with current gadget's naming rules
 			if ( preg_match( '/gadget-[a-zA-Z][a-zA-Z0-9_]*-config/', $option ) ) {
 				//TODO: cache them before unsetting
 				unset( $options[$option] );
@@ -206,6 +207,7 @@ class GadgetHooks {
 	}
 }
 
+
 /**
  * Wrapper for one gadget.
  */
@@ -227,19 +229,65 @@ class Gadget {
 			$category;
 
 
-	//Mandatory arguments for any kind of preferences
-	private static $prefsMandatoryArgs = array(
-			'type',
-			'default'
-		);
+	//Syntax specifications of preference description language
+	private static $prefsDescriptionSpecifications = array(
+		'boolean' => array(
+			'default' => array(
+				'isMandatory' => true,
+				'checker' => 'is_bool'
+			),
+			'label' => array(
+				'isMandatory' => true,
+				'checker' => 'is_string'
+			)
+		),
+		'string' => array(
+			'default' => array(
+				'isMandatory' => true,
+				'checker' => 'is_string'
+			),
+			'label' => array(
+				'isMandatory' => true,
+				'checker' => 'is_string'
+			),
+			'required' => array(
+				'isMandatory' => false,
+				'checker' => 'is_bool'					
+			),
+			'minlength' => array(
+				'isMandatory' => false,
+				'checker' => 'is_integer'					
+			),
+			'maxlength' => array(
+				'isMandatory' => false,
+				'checker' => 'is_integer'					
+			)
+			
+		)
+	);
 
-	//Other mandatory arguments for specific types
-	private static $prefsMandatoryArgsByType = array(
-			'select' => array( 'options' ),
-			'selectorother' => array( 'options' ),
-			'selectandother' => array( 'options' ),
-			'multiselect' => array( 'options' )
-		);
+	//Type-specific checkers for finer validation
+	private static $typeCheckers = array(
+		'string' => array( 'Gadget', 'checkStringOption' )
+	);
+		
+	private static function checkStringOption( $option ) {
+		if ( isset( $option['minlength'] ) && $option['minlength'] < 0 ) {
+			return false;
+		}
+
+		if ( isset( $option['maxlength'] ) && $option['maxlength'] <= 0 ) {
+			return false;
+		}
+
+		if ( isset( $option['minlength']) && isset( $option['maxlength'] ) ) {
+			if ( $option['minlength'] > $option['maxlength'] ) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
 
 	/**
 	 * Creates an instance of this class from definition in MediaWiki:Gadgets-definition
@@ -568,28 +616,75 @@ class Gadget {
 	
 	//TODO: put the following static methods somewhere else
 	
-	public static function isGadgetPrefsDescriptionValid( $prefsJson ) {
-		$prefs = FormatJson::decode( $prefsJson, true );
+	//Checks if the given description of the preferences is valid
+	public static function isGadgetPrefsDescriptionValid( &$prefsDescriptionJson ) {
+		$prefsDescription = FormatJson::decode( $prefsDescriptionJson, true );
 		
-		if ( $prefs === null ) {
+		if ( $prefsDescription === null || !isset( $prefsDescription['fields'] ) ) {
 			return false;
 		}
+				
+		//Count of mandatory members for each type
+		$mandatoryCount = array();
+		foreach ( self::$prefsDescriptionSpecifications as $type => $typeSpec ) {
+			$mandatoryCount[$type] = 0;
+			foreach ( $typeSpec as $fieldName => $fieldSpec ) {
+				if ( $fieldSpec['isMandatory'] === true ) {
+					++$mandatoryCount[$type];
+				}
+			}
+		}
 		
-		//TODO: improve validation
-		foreach ( $prefs as $option => $optionDefinition ) {
-			foreach ( self::$prefsMandatoryArgs as $arg ) {
-				if ( !isset( $optionDefinition[$arg] ) ) {
+		//TODO: validation of members other than $prefs['fields']
+		
+		foreach ( $prefsDescription['fields'] as $option => $optionDefinition ) {
+			
+			//Check if 'type' is set and valid
+			if ( !isset( $optionDefinition['type'] ) ) {
+				return false;
+			}
+			
+			$type = $optionDefinition['type'];
+									
+			if ( !isset( self::$prefsDescriptionSpecifications[$type] ) ) {
+				return false;
+			}
+						
+			//TODO: check $option name compliance
+			
+			
+			//Check if all fields satisfy specification
+			$typeSpec = self::$prefsDescriptionSpecifications[$type];
+			$count = 0; //count of present mandatory members
+			foreach ( $optionDefinition as $fieldName => $fieldValue ) {
+				
+				if ( strcmp( $fieldName, 'type' ) == 0) {
+					continue; //'type' must not be checked
+				}
+				
+				if ( !isset( $typeSpec[$fieldName] ) ) {
+					return false;
+				}
+				
+				if ( $typeSpec[$fieldName]['isMandatory'] ) {
+					++$count;
+				}
+				
+				$checker = $typeSpec[$fieldName]['checker'];
+				
+				if ( !$checker( $fieldValue ) ) {
 					return false;
 				}
 			}
 			
-			$type = $option['type'];
+			if ( $count != $mandatoryCount[$type] ) {
+				return false; //not all mandatory members are given
+			}
 			
-			if ( isset( self::$prefsMandatoryArgsByType[$type] ) ) {
-				foreach ( self::$prefsMandatoryArgsByType[$type] as $arg ) {
-					if ( !isset( $optionDefinition[$arg] ) ) {
-						return false;
-					}
+			if ( isset( self::$typeCheckers[$type] ) ) {
+				//Call type-specific checker for finer validation
+				if ( !call_user_func( self::$typeCheckers[$type], $optionDefinition ) ) {
+					return false;
 				}
 			}
 		}
@@ -628,6 +723,69 @@ class Gadget {
 		return null; //gadget not found
 	}
 
+	//Check if a preference is valid, according to description
+	//NOTE: $pref needs to be passed by reference to suppress warning on undefined
+	private static function checkSinglePref( &$prefDescription, &$pref ) {
+		if ( !isset( $pref ) ) {
+			return false;
+		}
+
+		switch ( $prefDescription['type'] ) {
+			case 'boolean':
+				return is_bool( $pref );
+			case 'string':
+				if ( !is_string( $pref ) ) {
+					return false;
+				}
+				
+				$len = strlen( $pref );
+				
+				//Checks the "required" option, if present
+				$required = isset( $prefDescription['required'] ) ? $prefDescription['required'] : true;
+				if ( $required === true && $len == 0 ) {
+					return false;
+				} elseif ( $required === false && $len == 0 ) {
+					return true; //overriding 'minlength'
+				}
+				
+				//Checks the "minlength" option, if present
+				$minlength = isset( $prefDescription['minlength'] ) ? $prefDescription['minlength'] : 0;
+				if ( is_integer( $minlength ) && $len < $minlength ){
+					return false;
+				}
+
+				//Checks the "minlength" option, if present
+				$maxlength = isset( $prefDescription['maxlength'] ) ? $prefDescription['maxlength'] : 1000; //TODO: what big integer here?
+				if ( is_integer( $maxlength ) && $len > $maxlength ){
+					return false;
+				}
+				
+				return true;
+			default:
+				return false; //unexisting type
+		}
+	}
+
+	//Returns true if $prefs is an array of preferences that passes validation
+	private static function checkPrefsAgainstDescription( &$prefsDescription, &$prefs ) {
+		foreach ( $prefsDescription['fields'] as $prefName => $prefDescription ) {
+			if ( !self::checkSinglePref( $prefDescription, $prefs[$prefName] ) ) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	//Fixes $prefs so that it matches the description given by $prefsDescription.
+	//All values of $prefs that fail validation are replaced with default values.
+	private static function matchPrefsWithDescription( &$prefsDescription, &$prefs ) {
+		foreach ( $prefsDescription['fields'] as $prefName => $prefDescription ) {
+			if ( !self::checkSinglePref( $prefDescription, $prefs[$prefName] ) ) {
+				$prefs[$prefName] = $prefDescription['default'];
+			}
+		}
+	}
+
 	//Get user's preferences for a specific gadget
 	public static function getUserPrefs( $user, $gadget ) {
 		//TODO: cache!
@@ -664,14 +822,30 @@ class Gadget {
 		
 		$userPrefs = FormatJson::decode( $userPrefsJson, true );
 		
-		//TODO: validate against description, fix mismatches
+		self::matchPrefsWithDescription( $prefsDescription, $userPrefs );
 		
 		return $userPrefs;
 	}
 
-	//Set user's preferences for a specific gadget
-	public static function setUserPrefs( $user, $gadget, $preferences ) {
-		//TODO: proper param checking
+	//Set user's preferences for a specific gadget.
+	//Returns false if preferences are rejected (that is, they don't pass validation)
+	public static function setUserPrefs( $user, $gadget, &$preferences ) {
+		
+		$prefsDescriptionJson = Gadget::getGadgetPrefsDescription( $gadget );
+		
+		if ( $prefsDescriptionJson === null || $prefsDescriptionJson === '' ) {
+			return false; //nothing to save
+		}
+		
+		$prefsDescription = FormatJson::decode( $prefsDescriptionJson, true );
+		
+		if ( !self::checkPrefsAgainstDescription( $prefsDescription, $preferences ) ) {
+			return false; //validation failed
+		}
+		
+		//TODO: should remove preferences that are equal to their default?
+		
+		//Save preferences to DB
 		
 		$preferencesJson = FormatJson::encode( $preferences );
 		
@@ -711,6 +885,8 @@ class Gadget {
 
 		//Invalidate cache and update user_touched
 		$user->invalidateCache( true );
+		
+		return true;
 	}
 
 }
@@ -749,7 +925,6 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * @return Array: Names of resources this module depends on
 	 */
 	public function getDependencies() {
-		//return array_merge( $this->dependencies, array( 'mediawiki.user' ) );
 		return $this->dependencies;
 	}
 	
@@ -766,11 +941,11 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 		//configuration object (or to "window" for non-configurable gadgets)
 		$header = '(function(){';
 		
+		//TODO: it may be nice add other metadata for the gadget
 		$boundObject = array( 'config' => $prefs );
 		
 		if ( $prefs !== NULL ) {
 			//Bind configuration object to "this".
-			//TODO: would be nice add other metadata for the gadget
 			$footer = '}).' . Xml::encodeJsCall( 'apply', 
 				array( $boundObject, array() )
 			) . ';';

@@ -55,16 +55,30 @@ $wgSpecialPageGroups['Gadgets'] = 'wiki';
 $wgAPIListModules['gadgetcategories'] = 'ApiQueryGadgetCategories';
 $wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
 
-$wgAjaxExportList[] = 'GadgetsAjax::getUI';
+$wgAjaxExportList[] = 'GadgetsAjax::getPreferences';
 $wgAjaxExportList[] = 'GadgetsAjax::setPreferences';
 
 $wgResourceModules['ext.gadgets'] = array(
 	'class' 		=> 'GadgetsGlobalModule'
 );
 
+$wgResourceModules['jquery.validate'] = array(
+	'scripts' 		=> array( 'jquery.validate.js' ), //TODO: include i18n scripts?
+	'dependencies' 	=> array( 'jquery' ),
+	'localBasePath' => $dir . 'modules/',
+	'remoteExtPath' => 'Gadgets/modules'
+);
+
+$wgResourceModules['jquery.formBuilder'] = array(
+	'scripts' 		=> array( 'jquery.formBuilder.js' ),
+	'dependencies' 	=> array( 'jquery', 'jquery.validate' ),
+	'localBasePath' => $dir . 'modules/',
+	'remoteExtPath' => 'Gadgets/modules'
+);
+
 $wgResourceModules['ext.gadgets.preferences'] = array(
 	'scripts' 		=> array( 'ext.gadgets.preferences.js' ),
-	'dependencies' 	=> array( 'jquery', 'jquery.json', 'jquery.ui.dialog', 'mediawiki.htmlform', 'ext.gadgets' ),
+	'dependencies' 	=> array( 'jquery', 'jquery.json', 'jquery.ui.dialog', 'jquery.formBuilder', 'mediawiki.htmlform', 'ext.gadgets' ),
 	'localBasePath' => $dir . 'modules/',
 	'remoteExtPath' => 'Gadgets/modules'
 );
