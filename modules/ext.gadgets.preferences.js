@@ -18,16 +18,14 @@
 			dataType: "json",
 			success: function( response ) {
 				if ( response === true ) {
-					alert( 'Configuration saved successfully' );
+					alert( mw.msg( 'gadgets-save-success' ) );
 					$dialog.dialog( 'close' );
 				} else {
-					//TODO
-					alert( 'Something wrong happened' );
+					alert( mw.msg( 'gadgets-save-failed' ) );
 				}
 			},
 			error: function( response ) {
-				//TODO
-				alert( 'Something wrong happened' );
+				alert( mw.msg( 'gadgets-save-failed' ) );
 			}
 		} );
 	}
@@ -44,7 +42,7 @@
 			}
 
 			var $link = $( '<a></a>' )
-				.text( "Configure" ) //TODO: use a message instead
+				.text( mw.msg( 'gadgets-configure' ) )
 				.click( function() {
 					var postData = 'action=ajax&rs=GadgetsAjax::getPreferences' +
 							'&rsargs[]=gadget|' + encodeURIComponent( gadget );
@@ -61,13 +59,16 @@
 							
 							var dialogBody = $( response ).formBuilder();
 							
-							//window.validator = $( dialogBody ).validate();
+							$( dialogBody ).submit( function() {
+								return false; //prevent form submission
+							} );
+							
 							
 							$( dialogBody ).dialog( {
 								modal: true,
 								width: 'auto',
 								resizable: false,
-								title: 'Configuration of ' + gadget, //TODO: use messages
+								title: mw.msg( 'gadgets-configuration-of', gadget ),
 								close: function() {
 									$( this ).dialog( 'destroy' ).empty(); //completely destroy on close
 								},
@@ -89,8 +90,7 @@
 							} );
 						},
 						error: function( response ) {
-							//TODO
-							alert( 'Something wrong happened' );
+							alert( mw.msg( 'gadgets-unexpected-error' ) );
 						}
 					} );
 

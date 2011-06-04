@@ -29,7 +29,7 @@
 	function EmptyField( name, desc ) {
 		//Check existence of compulsory fields
 		if ( typeof name == 'undefined' || !desc.type || !desc.label ) {
-			throw new Error( "Missing arguments" ); //TODO
+			$.error( "Missing arguments" );
 		}
 
 		this.$p = $( '<p/>' );
@@ -80,7 +80,7 @@
 		LabelField.call( this, name, desc );
 
 		if ( typeof desc.value != 'boolean' ) {
-			throw new Error( "desc.value is invalid" );
+			$.error( "desc.value is invalid" );
 		}
 		
 		this.$c = $( '<input/>' )
@@ -104,7 +104,7 @@
 		LabelField.call( this, name, desc );
 
 		if ( typeof desc.value != 'string' ) {
-			throw new Error( "desc.value is invalid" );
+			$.error( "desc.value is invalid" );
 		}
 
 		this.$text = $( '<input/>' )
@@ -121,8 +121,6 @@
 	};
 
 	StringField.prototype.getValidationSettings = function() {
-		//TODO: messages
-		
 		var	settings = {
 				rules: {}
 			},
@@ -136,12 +134,20 @@
 			fieldRules.required = true;
 		}
 		
-		if ( typeof desc.minLength != 'undefined' ) {
-			fieldRules.minlength = desc.minLength;
+		if ( typeof desc.minlength != 'undefined' ) {
+			fieldRules.minlength = desc.minlength;
 		}
-		if ( typeof desc.maxLength != 'undefined' ) {
-			fieldRules.maxlength = desc.maxLength;
+		if ( typeof desc.maxlength != 'undefined' ) {
+			fieldRules.maxlength = desc.maxlength;
 		}
+		
+		settings.messages = {};
+		
+		settings.messages[fieldId] = {
+			"required": mw.msg( 'gadgets-formbuilder-required' ),
+			"minlength": mw.msg( 'gadgets-formbuilder-minlength', desc.minlength ),
+			"maxlength": mw.msg( 'gadgets-formbuilder-maxlength', desc.maxlength )
+		};
 				
 		return settings;
 	}
@@ -154,23 +160,17 @@
 		"string" : StringField
 	};
 
-	function log( message ) {
-		if ( typeof window.console != 'undefined' ) {
-			console.warn( message );
-		}
-	}
-
 	function buildFormBody() {
 		var description  = this.get(0);
-		if (typeof description != 'object' ) {
-			log( "description should be an object, instead of a " + typeof description );
+		if ( typeof description != 'object' ) {
+			mw.log( "description should be an object, instead of a " + typeof description );
 			return null;
 		}
 
 		var $form = $( '<form/>' );
 		var $fieldset = $( '<fieldset/>' ).appendTo( $form );
 
-		if (typeof description.label == 'string' ) {
+		if ( typeof description.label == 'string' ) {
 			$( '<legend/>' )
 				.text( $s( description.label ) )
 				.appendTo( $fieldset );
@@ -178,8 +178,8 @@
 
 		//TODO: manage form params
 
-		if (typeof description.fields != 'object' ) {
-			log( "description.fields should be an object, instead of a " + typeof description.fields );
+		if ( typeof description.fields != 'object' ) {
+			mw.log( "description.fields should be an object, instead of a " + typeof description.fields );
 			return null;
 		}
 
@@ -197,14 +197,14 @@
 				var FieldConstructor = validFields[field.type];
 
 				if ( typeof FieldConstructor != 'function' ) {
-					log( "field with invalid type: " + field.type );
+					mw.log( "field with invalid type: " + field.type );
 					return null;
 				}
 
 				try {
 					var f = new FieldConstructor( fieldName, field );
 				} catch ( e ) {
-					log( e );
+					mw.log( e );
 					return null; //constructor failed, wrong syntax in field description
 				}
 				
@@ -218,9 +218,6 @@
 				}
 				
 				fields.push( f );
-				
-				//TODO: validation of the field
-				
 			}
 		}
 

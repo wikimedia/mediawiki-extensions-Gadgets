@@ -658,7 +658,7 @@ class Gadget {
 			$count = 0; //count of present mandatory members
 			foreach ( $optionDefinition as $fieldName => $fieldValue ) {
 				
-				if ( strcmp( $fieldName, 'type' ) == 0) {
+				if ( $fieldName == 'type' ) {
 					continue; //'type' must not be checked
 				}
 				

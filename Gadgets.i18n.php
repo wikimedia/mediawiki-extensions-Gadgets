@@ -43,9 +43,17 @@ go to Special:Import on destination wiki and upload it. Then add the following t
 <pre>$2</pre>
 You must have appropriate permissions on destination wiki (including the right to edit system messages) and import from file uploads must be enabled.',
 	'gadgets-export-download' => 'Download',
+	'gadgets-configure' => 'Configure',
+	'gadgets-configuration-of' => 'Configuration of $1',
+	'gadgets-unexpected-error' => 'An unexpected error occurred. Please check your connection. If the problems persists, please contact the developers.',
+	'gadgets-save-success' => 'Settings saved successfully.',
+	'gadgets-save-failed' => 'Failed to save settings. If the problems persists, please contact the developers.',	
 	'gadgets-ajax-wrongparams' => 'An AJAX request with wrong parameters has been made; this is most likely a bug.',
 	'gadgets-ajax-wrongsyntax' => 'There was an unexpected error while reading the saved gadget\'s configuration description.',
 	'gadgets-ajax-unlogged' => 'This action is only allowed to registered, logged in users.',
+	'gadgets-formbuilder-required' => 'This field is required.',
+	'gadgets-formbuilder-minlength' => 'Please enter at least $1 characters.',
+	'gadgets-formbuilder-maxlength' => 'Please enter no more than $1 characters.',
 );
 
 /** Message documentation (Message documentation)
@@ -510,10 +518,14 @@ Lokale administratorer kan redigere tilgængelige gadgets med [[MediaWiki:Gadget
 	'gadgets-pagetext' => 'Nedenstående er en liste med de specielle gadgets som brugere kan aktivere i deres [[Special:Preferences|indstillinger]], som defineret i [[MediaWiki:Gadgets-definition|definitionerne]].
 Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver gadgets beskrivelse og kode.',
 	'gadgets-uses' => 'Bruger',
+	'gadgets-required-rights' => 'Kræver {{PLURAL:$2|rettigheden $1|følgende rettigheder: $1}}.',
 	'gadgets-default' => 'Aktiveret for alle som standard.',
 	'gadgets-export' => 'Eksporter',
 	'gadgets-export-title' => 'Eksporter gadget',
 	'gadgets-not-found' => 'Gadget "$1" ikke fundet.',
+	'gadgets-export-text' => 'For at eksportere værktøjet $1, klik på knappen "{{int:gadgets-export-download}}", gem den downloadede fil, gå til Special:Import på destinationswikien og læg den op. Tilføj så følgende til siden MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Du skal have de nødvendige rettigheder på destinationswikien (herunder rettigheden til at redigere systemmeddelelser) og importering via oplægning af filer skal være slået til.',
 	'gadgets-export-download' => 'Download',
 );
 

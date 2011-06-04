@@ -63,7 +63,7 @@ $wgResourceModules['ext.gadgets'] = array(
 );
 
 $wgResourceModules['jquery.validate'] = array(
-	'scripts' 		=> array( 'jquery.validate.js' ), //TODO: include i18n scripts?
+	'scripts' 		=> array( 'jquery.validate.js' ),
 	'dependencies' 	=> array( 'jquery' ),
 	'localBasePath' => $dir . 'modules/',
 	'remoteExtPath' => 'Gadgets/modules'
@@ -72,13 +72,21 @@ $wgResourceModules['jquery.validate'] = array(
 $wgResourceModules['jquery.formBuilder'] = array(
 	'scripts' 		=> array( 'jquery.formBuilder.js' ),
 	'dependencies' 	=> array( 'jquery', 'jquery.validate' ),
+	'messages'      => array( 'gadgets-formbuilder-required', 'gadgets-formbuilder-minlength', 'gadgets-formbuilder-maxlength' ),
 	'localBasePath' => $dir . 'modules/',
 	'remoteExtPath' => 'Gadgets/modules'
 );
 
 $wgResourceModules['ext.gadgets.preferences'] = array(
 	'scripts' 		=> array( 'ext.gadgets.preferences.js' ),
-	'dependencies' 	=> array( 'jquery', 'jquery.json', 'jquery.ui.dialog', 'jquery.formBuilder', 'mediawiki.htmlform', 'ext.gadgets' ),
+	'dependencies' 	=> array(
+		'jquery', 'jquery.json', 'jquery.ui.dialog', 'jquery.formBuilder',
+		'mediawiki.htmlform', 'ext.gadgets'
+	),
+	'messages'      => array(
+		'gadgets-configure', 'gadgets-configuration-of', 'gadgets-unexpected-error',
+		'gadgets-save-success', 'gadgets-save-failed'
+	),
 	'localBasePath' => $dir . 'modules/',
 	'remoteExtPath' => 'Gadgets/modules'
 );
