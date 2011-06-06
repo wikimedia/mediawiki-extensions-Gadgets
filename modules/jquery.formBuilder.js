@@ -18,6 +18,16 @@
 	}
 
 
+	function testOptional( value, element ) {
+		var rules = $( element ).rules();
+		if ( typeof rules.required == 'undefined' || rules.required === false ) {
+			if ( value.length == 0 ) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	//validator for "required" fields (without trimming whitespaces)
 	$.validator.addMethod( "requiredStrict", function( value, element ) {
 		return value.length > 0;
@@ -25,17 +35,17 @@
 
 	//validator for "minlength" fields (without trimming whitespaces)
 	$.validator.addMethod( "minlengthStrict", function( value, element, param ) {
-		return value.length >= param;
+		return testOptional( value, element ) || value.length >= param;
 	} );
 
 	//validator for "maxlength" fields (without trimming whitespaces)
 	$.validator.addMethod( "maxlengthStrict", function( value, element, param ) {
-		return value.length <= param;
+		return testOptional( value, element ) || value.length <= param;
 	} );
 
 	//validator for integer fields
 	$.validator.addMethod( "integer", function( value, element ) {
-		return this.optional( element ) || /^-?\d+$/.test(value);
+		return testOptional( value, element ) || /^-?\d+$/.test(value);
 	}, mw.msg( 'gadgets-formbuilder-integer' ) );
 
 

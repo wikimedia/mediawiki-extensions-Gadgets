@@ -266,7 +266,7 @@ class Gadget {
 		'number' => array(
 			'default' => array(
 				'isMandatory' => true,
-				'checker' => array( 'Gadget', 'isFloatOrInt' )
+				'checker' => 'Gadget::isFloatOrInt'
 			),
 			'label' => array(
 				'isMandatory' => true,
@@ -282,19 +282,19 @@ class Gadget {
 			),
 			'min' => array(
 				'isMandatory' => false,
-				'checker' => array( 'Gadget', 'isFloatOrInt' )
+				'checker' => 'Gadget::isFloatOrInt'
 			),
 			'max' => array(
 				'isMandatory' => false,
-				'checker' => array( 'Gadget', 'isFloatOrInt' )
+				'checker' => 'Gadget::isFloatOrInt'
 			)
 		)
 	);
 
 	//Type-specific checkers for finer validation
 	private static $typeCheckers = array(
-		'string' => array( 'Gadget', 'checkStringOption' ),
-		'number' => array( 'Gadget', 'checkNumberOption' )
+		'string' => 'Gadget::checkStringOption',
+		'number' => 'Gadget::checkNumberOption'
 	);
 	
 	//Further checks for 'string' options
@@ -724,9 +724,8 @@ class Gadget {
 			if ( !isset( self::$prefsDescriptionSpecifications[$type] ) ) {
 				return false;
 			}
-						
-			//TODO: check $option name compliance
 			
+			//TODO: check $option name compliance
 			
 			//Check if all fields satisfy specification
 			$typeSpec = self::$prefsDescriptionSpecifications[$type];
