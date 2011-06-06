@@ -54,6 +54,9 @@ You must have appropriate permissions on destination wiki (including the right t
 	'gadgets-formbuilder-required' => 'This field is required.',
 	'gadgets-formbuilder-minlength' => 'Please enter at least $1 characters.',
 	'gadgets-formbuilder-maxlength' => 'Please enter no more than $1 characters.',
+	'gadgets-formbuilder-min' => 'Please enter a value not less than $1.',
+	'gadgets-formbuilder-max' => 'Please enter a value not greater than $1.',
+	'gadgets-formbuilder-integer' => 'Please enter an integer number.',
 );
 
 /** Message documentation (Message documentation)

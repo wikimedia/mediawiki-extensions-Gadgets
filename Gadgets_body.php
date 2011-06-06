@@ -252,25 +252,52 @@ class Gadget {
 			),
 			'required' => array(
 				'isMandatory' => false,
-				'checker' => 'is_bool'					
+				'checker' => 'is_bool'
 			),
 			'minlength' => array(
 				'isMandatory' => false,
-				'checker' => 'is_integer'					
+				'checker' => 'is_integer'
 			),
 			'maxlength' => array(
 				'isMandatory' => false,
-				'checker' => 'is_integer'					
+				'checker' => 'is_integer'
 			)
-			
+		),
+		'number' => array(
+			'default' => array(
+				'isMandatory' => true,
+				'checker' => array( 'Gadget', 'isFloatOrInt' )
+			),
+			'label' => array(
+				'isMandatory' => true,
+				'checker' => 'is_string'
+			),
+			'required' => array(
+				'isMandatory' => false,
+				'checker' => 'is_bool'
+			),
+			'integer' => array(
+				'isMandatory' => false,
+				'checker' => 'is_bool'
+			),
+			'min' => array(
+				'isMandatory' => false,
+				'checker' => array( 'Gadget', 'isFloatOrInt' )
+			),
+			'max' => array(
+				'isMandatory' => false,
+				'checker' => array( 'Gadget', 'isFloatOrInt' )
+			)
 		)
 	);
 
 	//Type-specific checkers for finer validation
 	private static $typeCheckers = array(
-		'string' => array( 'Gadget', 'checkStringOption' )
+		'string' => array( 'Gadget', 'checkStringOption' ),
+		'number' => array( 'Gadget', 'checkNumberOption' )
 	);
-		
+	
+	//Further checks for 'string' options
 	private static function checkStringOption( $option ) {
 		if ( isset( $option['minlength'] ) && $option['minlength'] < 0 ) {
 			return false;
@@ -286,6 +313,54 @@ class Gadget {
 			}
 		}
 		
+		//$default must pass validation, too
+		$required = isset( $option['required'] ) ? $option['required'] : true;
+		$default = $option['default'];
+		
+		if ( $required === false && $default === '' ) {
+			return true; //empty string is good, skip other checks
+		}
+		
+		$len = strlen( $default );
+		if ( isset( $option['minlength'] ) && $len < $option['minlength'] ) {
+			return false;
+		}
+		if ( isset( $option['maxlength'] ) && $len > $option['maxlength'] ) {
+			return false;
+		}
+		
+		return true;
+	}
+
+	private static function isFloatOrInt( $param ) {
+		return is_float( $param ) || is_int( $param );
+	}
+	
+	//Further checks for 'number' options
+	private static function checkNumberOption( $option ) {
+		if ( isset( $option['integer'] ) && $option['integer'] === true ) {
+			//Check if 'min', 'max' and 'default' are integers (if given)
+			if ( intval( $option['default'] ) != $option['default'] ) {
+				return false;
+			}
+			if ( isset( $option['min'] ) && intval( $option['min'] ) != $option['min'] ) {
+				return false;
+			}
+			if ( isset( $option['max'] ) && intval( $option['max'] ) != $option['max'] ) {
+				return false;
+			}
+		}
+		
+		//validate $option['default']
+		$default = $option['default'];
+		
+		if ( isset( $option['min'] ) && $default < $option['min'] ) {
+			return false;
+		}
+		if ( isset( $option['max'] ) && $default > $option['max'] ) {
+			return false;
+		}
+
 		return true;
 	}
 
@@ -672,7 +747,7 @@ class Gadget {
 				
 				$checker = $typeSpec[$fieldName]['checker'];
 				
-				if ( !$checker( $fieldValue ) ) {
+				if ( !call_user_func( $checker, $fieldValue ) ) {
 					return false;
 				}
 			}
@@ -724,12 +799,17 @@ class Gadget {
 	}
 
 	//Check if a preference is valid, according to description
-	//NOTE: $pref needs to be passed by reference to suppress warning on undefined
-	private static function checkSinglePref( &$prefDescription, &$pref ) {
-		if ( !isset( $pref ) ) {
+	//NOTE: we pass both $prefs and $prefName (instead of just $prefs[$prefName])
+	//      to allow checking for null.
+	private static function checkSinglePref( &$prefDescription, &$prefs, $prefName ) {
+		
+		//isset( $prefs[$prefName] ) would return false for null values
+		if ( !array_key_exists( $prefName, $prefs ) ) {
 			return false;
 		}
-
+	
+		$pref = $prefs[$prefName];
+	
 		switch ( $prefDescription['type'] ) {
 			case 'boolean':
 				return is_bool( $pref );
@@ -750,16 +830,47 @@ class Gadget {
 				
 				//Checks the "minlength" option, if present
 				$minlength = isset( $prefDescription['minlength'] ) ? $prefDescription['minlength'] : 0;
-				if ( is_integer( $minlength ) && $len < $minlength ){
+				if ( $len < $minlength ){
 					return false;
 				}
 
-				//Checks the "minlength" option, if present
-				$maxlength = isset( $prefDescription['maxlength'] ) ? $prefDescription['maxlength'] : 1000; //TODO: what big integer here?
-				if ( is_integer( $maxlength ) && $len > $maxlength ){
+				//Checks the "maxlength" option, if present
+				$maxlength = isset( $prefDescription['maxlength'] ) ? $prefDescription['maxlength'] : 1024; //TODO: what big integer here?
+				if ( $len > $maxlength ){
 					return false;
 				}
 				
+				return true;
+			case 'number':
+				if ( !is_float( $pref ) && !is_int( $pref ) && $pref !== null ) {
+					return false;
+				}
+
+				$required = isset( $prefDescription['required'] ) ? $prefDescription['required'] : true;
+				if ( $required === false && $pref === null ) {
+					return true;
+				}
+				
+				$integer = isset( $prefDescription['integer'] ) ? $prefDescription['integer'] : false;
+				
+				if ( $integer === true && intval( $pref ) != $pref ) {
+					return false; //not integer
+				}
+				
+				if ( isset( $prefsDescription['min'] ) ) {
+					$min = $prefsDescription['min'];
+					if ( $pref < $min ) {
+						return false; //value below minimum
+					}
+				}
+
+				if ( isset( $prefsDescription['max'] ) ) {
+					$max = $prefsDescription['max'];
+					if ( $pref > $max ) {
+						return false; //value above maximum
+					}
+				}
+
 				return true;
 			default:
 				return false; //unexisting type
@@ -769,7 +880,7 @@ class Gadget {
 	//Returns true if $prefs is an array of preferences that passes validation
 	private static function checkPrefsAgainstDescription( &$prefsDescription, &$prefs ) {
 		foreach ( $prefsDescription['fields'] as $prefName => $prefDescription ) {
-			if ( !self::checkSinglePref( $prefDescription, $prefs[$prefName] ) ) {
+			if ( !self::checkSinglePref( $prefDescription, $prefs, $prefName ) ) {
 				return false;
 			}
 		}
@@ -779,8 +890,16 @@ class Gadget {
 	//Fixes $prefs so that it matches the description given by $prefsDescription.
 	//All values of $prefs that fail validation are replaced with default values.
 	private static function matchPrefsWithDescription( &$prefsDescription, &$prefs ) {
+		//Remove unexisting preferences from $prefs
+		foreach ( $prefs as $prefName => $value ) {
+			if ( !isset( $prefsDescription['fields'][$prefName] ) ) {
+				unset( $prefs[$prefName] );
+			}
+		}
+
+		//Fix preferences that fail validation
 		foreach ( $prefsDescription['fields'] as $prefName => $prefDescription ) {
-			if ( !self::checkSinglePref( $prefDescription, $prefs[$prefName] ) ) {
+			if ( !self::checkSinglePref( $prefDescription, $prefs, $prefName ) ) {
 				$prefs[$prefName] = $prefDescription['default'];
 			}
 		}

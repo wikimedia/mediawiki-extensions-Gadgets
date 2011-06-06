@@ -72,7 +72,10 @@ $wgResourceModules['jquery.validate'] = array(
 $wgResourceModules['jquery.formBuilder'] = array(
 	'scripts' 		=> array( 'jquery.formBuilder.js' ),
 	'dependencies' 	=> array( 'jquery', 'jquery.validate' ),
-	'messages'      => array( 'gadgets-formbuilder-required', 'gadgets-formbuilder-minlength', 'gadgets-formbuilder-maxlength' ),
+	'messages'      => array(
+		'gadgets-formbuilder-required', 'gadgets-formbuilder-minlength', 'gadgets-formbuilder-maxlength',
+		'gadgets-formbuilder-min', 'gadgets-formbuilder-max', 'gadgets-formbuilder-integer'
+	),
 	'localBasePath' => $dir . 'modules/',
 	'remoteExtPath' => 'Gadgets/modules'
 );

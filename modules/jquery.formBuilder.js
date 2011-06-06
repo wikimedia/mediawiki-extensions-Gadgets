@@ -4,7 +4,6 @@
  * Released under the MIT and GPL licenses.
  */
 
-
 (function($, mw) {
 
 	var idPrefix = "mw-gadgets-dialog-";
@@ -17,6 +16,28 @@
 			return mw.msg( str.substring( 1 ) );
 		}
 	}
+
+
+	//validator for "required" fields (without trimming whitespaces)
+	$.validator.addMethod( "requiredStrict", function( value, element ) {
+		return value.length > 0;
+	}, mw.msg( 'gadgets-formbuilder-required' ) );
+
+	//validator for "minlength" fields (without trimming whitespaces)
+	$.validator.addMethod( "minlengthStrict", function( value, element, param ) {
+		return value.length >= param;
+	} );
+
+	//validator for "maxlength" fields (without trimming whitespaces)
+	$.validator.addMethod( "maxlengthStrict", function( value, element, param ) {
+		return value.length <= param;
+	} );
+
+	//validator for integer fields
+	$.validator.addMethod( "integer", function( value, element ) {
+		return this.optional( element ) || /^-?\d+$/.test(value);
+	}, mw.msg( 'gadgets-formbuilder-integer' ) );
+
 
 	//Helper function for inheritance, see http://javascript.crockford.com/prototypal.html
 	function object(o) {
@@ -57,7 +78,10 @@
 	};
 	
 	EmptyField.prototype.getValidationSettings = function() {
-		return null;
+		return {
+			rules: {},
+			messages: {}
+		};
 	}
 
 	//A field with just a label
@@ -111,7 +135,7 @@
 			.attr( 'type', 'text' )
 			.attr( 'id', idPrefix + this.name )
 			.attr( 'name', idPrefix + this.name )
-			.val( this.desc.value );
+			.val( desc.value );
 
 		this.$p.append( this.$text );
 	}
@@ -121,9 +145,7 @@
 	};
 
 	StringField.prototype.getValidationSettings = function() {
-		var	settings = {
-				rules: {}
-			},
+		var	settings = LabelField.prototype.getValidationSettings.call( this ),
 			fieldId = idPrefix + this.name;
 		
 		settings.rules[fieldId] = {};
@@ -131,33 +153,90 @@
 			desc = this.desc;
 
 		if ( desc.required === true ) {
-			fieldRules.required = true;
+			fieldRules.requiredStrict = true;
 		}
 		
 		if ( typeof desc.minlength != 'undefined' ) {
-			fieldRules.minlength = desc.minlength;
+			fieldRules.minlengthStrict = desc.minlength;
 		}
 		if ( typeof desc.maxlength != 'undefined' ) {
-			fieldRules.maxlength = desc.maxlength;
+			fieldRules.maxlengthStrict = desc.maxlength;
 		}
 		
 		settings.messages = {};
 		
 		settings.messages[fieldId] = {
-			"required": mw.msg( 'gadgets-formbuilder-required' ),
-			"minlength": mw.msg( 'gadgets-formbuilder-minlength', desc.minlength ),
-			"maxlength": mw.msg( 'gadgets-formbuilder-maxlength', desc.maxlength )
+			"minlengthStrict": mw.msg( 'gadgets-formbuilder-minlength', desc.minlength ),
+			"maxlengthStrict": mw.msg( 'gadgets-formbuilder-maxlength', desc.maxlength )
 		};
 				
 		return settings;
 	}
 
 	
+	NumberField.prototype = object( LabelField.prototype );
+	NumberField.prototype.constructor = NumberField;
+	function NumberField( name, desc ){ 
+		LabelField.call( this, name, desc );
+
+		if ( desc.value !== null && typeof desc.value != 'number' ) {
+			$.error( "desc.value is invalid" );
+		}
+
+		this.$text = $( '<input/>' )
+			.attr( 'type', 'text' )
+			.attr( 'id', idPrefix + this.name )
+			.attr( 'name', idPrefix + this.name )
+			.val( desc.value );
+
+		this.$p.append( this.$text );
+	}
+	
+	NumberField.prototype.getValue = function() {
+		var val = parseFloat( this.$text.val() );
+		return isNaN( val ) ? null : val;
+	};
+
+	NumberField.prototype.getValidationSettings = function() {
+		var	settings = LabelField.prototype.getValidationSettings.call( this ),
+			fieldId = idPrefix + this.name;
+		
+		settings.rules[fieldId] = {};
+		var	fieldRules = settings.rules[fieldId],
+			desc = this.desc;
+
+		if ( desc.required !== false ) {
+			fieldRules.requiredStrict = true;
+		}
+
+		if ( desc.integer === true ) {
+			fieldRules.integer = true;
+		}
+
+		
+		if ( typeof desc.min != 'undefined' ) {
+			fieldRules.min = desc.min;
+		}
+		if ( typeof desc.max != 'undefined' ) {
+			fieldRules.max = desc.max;
+		}
+		
+		settings.messages = {};
+		
+		settings.messages[fieldId] = {
+			"required": mw.msg( 'gadgets-formbuilder-required' ),
+			"min": mw.msg( 'gadgets-formbuilder-min', desc.min ),
+			"max": mw.msg( 'gadgets-formbuilder-max', desc.max )
+		};
+				
+		return settings;
+	}
 	
 
 	var validFields = {
 		"boolean": BooleanField,
-		"string" : StringField
+		"string" : StringField,
+		"number" : NumberField
 	};
 
 	function buildFormBody() {
@@ -214,7 +293,7 @@
 				var	fieldSettings = f.getValidationSettings();
 				
 				if ( fieldSettings ) {
-					$.extend( settings, fieldSettings, true );
+					$.extend( true, settings, fieldSettings );
 				}
 				
 				fields.push( f );
@@ -254,7 +333,7 @@
 		if ( methods[method] ) {
 			return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
 		} else if ( typeof method === 'object' || !method ) {
-			return buildFormBody.apply( this, arguments ); //TODO
+			return buildFormBody.apply( this, arguments );
 		} else {
 			$.error( 'Method ' +  method + ' does not exist on jQuery.formBuilder' );
 		}
