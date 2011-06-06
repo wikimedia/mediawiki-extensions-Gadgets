@@ -157,8 +157,11 @@ $messages['ar'] = array(
 	'gadgets-pagetext' => 'بالأسفل قائمة بالإضافات الخاصة التي يمكن أن يقوم المستخدمون بتفعيلها على [[Special:Preferences|صفحة تفضيلاتهم]]، معرفة بواسطة [[MediaWiki:Gadgets-definition|التعريفات]].
 هذا العرض يوفر دخولا سهلا لصفحات رسائل النظام التي تعرف وصف وكود كل إضافة.',
 	'gadgets-uses' => 'تستخدم',
+	'gadgets-required-rights' => 'يتطلب {{PLURAL:$2|$1 حق|الحقوق التالية: $1}}.',
 	'gadgets-default' => 'تمكين الجميع بشكل افتراضي.',
 	'gadgets-export' => 'صدّر',
+	'gadgets-export-title' => 'أداة تصدير',
+	'gadgets-not-found' => 'الأداة "$1" لم يتم العثور عليها.',
 	'gadgets-export-download' => 'نزّل',
 );
 
