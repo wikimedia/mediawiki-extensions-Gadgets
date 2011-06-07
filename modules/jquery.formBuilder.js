@@ -241,12 +241,50 @@
 				
 		return settings;
 	}
+
+
+	SelectField.prototype = object( LabelField.prototype );
+	SelectField.prototype.constructor = SelectField;
+	function SelectField( name, desc ){ 
+		LabelField.call( this, name, desc );
+
+		var $select = this.$select = $( '<select/>' )
+			.attr( 'id', idPrefix + this.name )
+			.attr( 'name', idPrefix + this.name );
+		
+		var values = [];
+		$.each( desc.options, function( optName, optVal ) {
+			var i = values.length;
+			$( '<option/>' )
+				.text( $s( optName ) )
+				.val( i )
+				.appendTo( $select );
+			values.push( optVal );
+		} );
+
+		this.values = values;
+
+		if ( $.inArray( desc.value, values ) == -1 ) {
+			$.error( "desc.value is not in the list of possible values" );
+		}
+
+		var i = $.inArray( desc.value, values )
+		$select.val( i ).attr( 'selected', 'selected' );
+
+		this.$p.append( $select );
+	}
+	
+	SelectField.prototype.getValue = function() {
+		var i = parseInt( this.$select.val() );
+		return this.values[i];
+	};
 	
 
-	var validFields = {
+	var validFieldTypes = {
 		"boolean": BooleanField,
 		"string" : StringField,
-		"number" : NumberField
+		"number" : NumberField,
+		"select" : SelectField
 	};
 
 	function buildFormBody() {
@@ -283,7 +321,7 @@
 				//TODO: validate fieldName
 				var field = description.fields[fieldName];
 
-				var FieldConstructor = validFields[field.type];
+				var FieldConstructor = validFieldTypes[field.type];
 
 				if ( typeof FieldConstructor != 'function' ) {
 					mw.log( "field with invalid type: " + field.type );

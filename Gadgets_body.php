@@ -288,17 +288,31 @@ class Gadget {
 				'isMandatory' => false,
 				'checker' => 'Gadget::isFloatOrInt'
 			)
+		),
+		'select' => array(
+			'default' => array(
+				'isMandatory' => true
+			),
+			'label' => array(
+				'isMandatory' => true,
+				'checker' => 'is_string'
+			),
+			'options' => array(
+				'isMandatory' => true,
+				'checker' => 'is_array'
+			)
 		)
 	);
 
 	//Type-specific checkers for finer validation
 	private static $typeCheckers = array(
-		'string' => 'Gadget::checkStringOption',
-		'number' => 'Gadget::checkNumberOption'
+		'string' => 'Gadget::checkStringOptionDefinition',
+		'number' => 'Gadget::checkNumberOptionDefinition',
+		'select' => 'Gadget::checkSelectOptionDefinition'
 	);
 	
 	//Further checks for 'string' options
-	private static function checkStringOption( $option ) {
+	private static function checkStringOptionDefinition( $option ) {
 		if ( isset( $option['minlength'] ) && $option['minlength'] < 0 ) {
 			return false;
 		}
@@ -337,7 +351,7 @@ class Gadget {
 	}
 	
 	//Further checks for 'number' options
-	private static function checkNumberOption( $option ) {
+	private static function checkNumberOptionDefinition( $option ) {
 		if ( isset( $option['integer'] ) && $option['integer'] === true ) {
 			//Check if 'min', 'max' and 'default' are integers (if given)
 			if ( intval( $option['default'] ) != $option['default'] ) {
@@ -361,6 +375,33 @@ class Gadget {
 			return false;
 		}
 
+		return true;
+	}
+
+	private static function checkSelectOptionDefinition( $option ) {
+		$options = $option['options'];
+		
+		foreach ( $options as $opt => $optVal ) {
+			//Correct value for $optVal are NULL, boolean, integer, float or string
+			if ( $optVal !== NULL &&
+				!is_bool( $optVal ) &&
+				!is_int( $optVal ) &&
+				!is_float( $optVal ) &&
+				!is_string( $optVal ) )
+			{
+				return false;
+			}
+		}
+		
+		$values = array_values( $options );
+		
+		$default = $option['default'];
+		
+		//Checks that $default is one of the option values
+		if ( !in_array( $default, $values, true ) ){
+			return false;
+		}
+		
 		return true;
 	}
 
@@ -744,10 +785,11 @@ class Gadget {
 					++$count;
 				}
 				
-				$checker = $typeSpec[$fieldName]['checker'];
-				
-				if ( !call_user_func( $checker, $fieldValue ) ) {
-					return false;
+				if ( isset( $typeSpec[$fieldName]['checker'] ) ) {
+					$checker = $typeSpec[$fieldName]['checker'];
+					if ( !call_user_func( $checker, $fieldValue ) ) {
+						return false;
+					}
 				}
 			}
 			
@@ -850,26 +892,36 @@ class Gadget {
 					return true;
 				}
 				
+				if ( $pref === null ) {
+					return false; //$required === true, so null is not acceptable
+				}
+
 				$integer = isset( $prefDescription['integer'] ) ? $prefDescription['integer'] : false;
 				
 				if ( $integer === true && intval( $pref ) != $pref ) {
 					return false; //not integer
 				}
 				
-				if ( isset( $prefsDescription['min'] ) ) {
-					$min = $prefsDescription['min'];
+				if ( isset( $prefDescription['min'] ) ) {
+					$min = $prefDescription['min'];
 					if ( $pref < $min ) {
 						return false; //value below minimum
 					}
 				}
 
-				if ( isset( $prefsDescription['max'] ) ) {
-					$max = $prefsDescription['max'];
+				if ( isset( $prefDescription['max'] ) ) {
+					$max = $prefDescription['max'];
 					if ( $pref > $max ) {
 						return false; //value above maximum
 					}
 				}
 
+				return true;
+			case 'select':
+				$values = array_values( $prefDescription['options'] );
+				if ( !in_array( $pref, $values, true ) ) {
+					return false;
+				}
 				return true;
 			default:
 				return false; //unexisting type
@@ -933,12 +985,11 @@ class Gadget {
 		
 		
 		if ( !$res ) {
-			return null;
+			$userPrefs = array(); //No prefs in DB, will just get defaults
+		} else {
+			$userPrefsJson = $res->up_value;
+			$userPrefs = FormatJson::decode( $userPrefsJson, true );
 		}
-		
-		$userPrefsJson = $res->up_value;
-		
-		$userPrefs = FormatJson::decode( $userPrefsJson, true );
 		
 		self::matchPrefsWithDescription( $prefsDescription, $userPrefs );
 		
@@ -1076,6 +1127,7 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	}
 	
 	
+	//TODO: should depend on gadget's last modification time, also
 	public function getModifiedTime( ResourceLoaderContext $context ) {
 		$touched = RequestContext::getMain()->getUser()->getTouched();
 		
