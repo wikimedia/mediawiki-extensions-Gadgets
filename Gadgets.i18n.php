@@ -2185,6 +2185,7 @@ Na ciljnem wikiju morate imeti ustrezna dovoljenja (vključno s pravico urejanja
 /** Albanian (Shqip)
  * @author Mikullovci11
  * @author Olsi
+ * @author Vinie007
  */
 $messages['sq'] = array(
 	'gadgets-desc' => 'Lejin përdoruesit të zgjedhin [[Special:Gadgets|CSS dhe JavaScript gadgets]] në [[Special:Preferences|preferencat]] e tyre',
@@ -2200,6 +2201,8 @@ Administratorët lokalë mund t'i ndryshojnë [[MediaWiki:Gadgets-definition|pë
 	'gadgets-pagetext' => 'Më poshtë është një listë e mjeteve shtesë speciale që mund të aktivizohen në [[Special:Preferences|faqen e preferencave]] të tyre, siç është përcaktuar nga [[MediaWiki:Gadgets-definition|përkufizimet]].
 Kjo pasqyrë siguron qasje të lehtë në faqet e mesazheve të sistemit që përkufizon përshkrimin e çdo mjeti shtesë dhe kodin.',
 	'gadgets-uses' => 'Përdorues',
+	'gadgets-required-rights' => 'Kërkon {{PLURAL:$2| $1 drejtën | drejta: $1 }}.',
+	'gadgets-default' => 'Aktivizuar për të gjithë nga default.',
 	'gadgets-export' => 'Eksporto',
 	'gadgets-export-title' => 'Eksport mjetesh shtesë',
 	'gadgets-not-found' => 'Mjeti shtesë "$1" nuk u gjet.',
