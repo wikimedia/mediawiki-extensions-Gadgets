@@ -162,6 +162,10 @@ $messages['ar'] = array(
 	'gadgets-export' => 'صدّر',
 	'gadgets-export-title' => 'أداة تصدير',
 	'gadgets-not-found' => 'الأداة "$1" لم يتم العثور عليها.',
+	'gadgets-export-text' => 'لتصدير $1 الأداة، انقر فوق "{{int:gadgets-export-download}}" زر حفظ الملف الذي تم تحميله،
+ الذهاب إلى الخاص: الاستيراد على واجهة الويكي وتحميله. قم بإضافة ما يلي إلى MediaWiki:Gadgets-definition الصفحة:
+<pre>$2</pre>
+يجب أن يكون لديك الأذونات المناسبة على الويكي (بما في ذلك الحق في تحرير رسائل النظام) ويجب أن يتم تمكين الاستيراد من تحميل الملف.',
 	'gadgets-export-download' => 'نزّل',
 );
 
