@@ -1592,6 +1592,7 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aviator
  * @author Zamwan
  */
@@ -1605,6 +1606,8 @@ Sila ambil perhatian juga bahawa gajet-gajet khas ini bukan sebahagian daripada 
 	'gadgets-title' => 'Gajet',
 	'gadgets-pagetext' => 'Yang berikut ialah senarai gajet khas yang boleh dihidupkan oleh pengguna melalui [[Special:Preferences|laman keutamaan]], sebagai mana yang telah [[MediaWiki:Gadgets-definition|ditakrifkan]]. Laman ini menyediakan capaian mudah kepada laman pesanan sistem yang mentakrifkan setiap kod dan keterangan gajet.',
 	'gadgets-uses' => 'Menggunakan',
+	'gadgets-required-rights' => 'Memerlukan {{PLURAL:$2|hak $1|hak-hak berikut: $1}}.',
+	'gadgets-default' => 'Dihidupkan untuk semua orang secara sediaan.',
 	'gadgets-export' => 'Eksport',
 	'gadgets-export-title' => 'Eksport gajet',
 	'gadgets-not-found' => 'Gajet "$1" tiada.',
