@@ -178,6 +178,10 @@ $messages['ar'] = array(
 	'gadgets-export' => 'صدّر',
 	'gadgets-export-title' => 'أداة تصدير',
 	'gadgets-not-found' => 'الأداة "$1" لم يتم العثور عليها.',
+	'gadgets-export-text' => 'لتصدير $1 الأداة، انقر فوق "{{int:gadgets-export-download}}" زر حفظ الملف الذي تم تحميله،
+ الذهاب إلى الخاص: الاستيراد على واجهة الويكي وتحميله. قم بإضافة ما يلي إلى MediaWiki:Gadgets-definition الصفحة:
+<pre>$2</pre>
+يجب أن يكون لديك الأذونات المناسبة على الويكي (بما في ذلك الحق في تحرير رسائل النظام) ويجب أن يتم تمكين الاستيراد من تحميل الملف.',
 	'gadgets-export-download' => 'نزّل',
 );
 
@@ -1604,6 +1608,7 @@ $messages['mr'] = array(
 );
 
 /** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
  * @author Aviator
  * @author Zamwan
  */
@@ -1617,6 +1622,8 @@ Sila ambil perhatian juga bahawa gajet-gajet khas ini bukan sebahagian daripada 
 	'gadgets-title' => 'Gajet',
 	'gadgets-pagetext' => 'Yang berikut ialah senarai gajet khas yang boleh dihidupkan oleh pengguna melalui [[Special:Preferences|laman keutamaan]], sebagai mana yang telah [[MediaWiki:Gadgets-definition|ditakrifkan]]. Laman ini menyediakan capaian mudah kepada laman pesanan sistem yang mentakrifkan setiap kod dan keterangan gajet.',
 	'gadgets-uses' => 'Menggunakan',
+	'gadgets-required-rights' => 'Memerlukan {{PLURAL:$2|hak $1|hak-hak berikut: $1}}.',
+	'gadgets-default' => 'Dihidupkan untuk semua orang secara sediaan.',
 	'gadgets-export' => 'Eksport',
 	'gadgets-export-title' => 'Eksport gajet',
 	'gadgets-not-found' => 'Gajet "$1" tiada.',
@@ -2201,6 +2208,7 @@ Na ciljnem wikiju morate imeti ustrezna dovoljenja (vključno s pravico urejanja
 /** Albanian (Shqip)
  * @author Mikullovci11
  * @author Olsi
+ * @author Vinie007
  */
 $messages['sq'] = array(
 	'gadgets-desc' => 'Lejin përdoruesit të zgjedhin [[Special:Gadgets|CSS dhe JavaScript gadgets]] në [[Special:Preferences|preferencat]] e tyre',
@@ -2216,6 +2224,8 @@ Administratorët lokalë mund t'i ndryshojnë [[MediaWiki:Gadgets-definition|pë
 	'gadgets-pagetext' => 'Më poshtë është një listë e mjeteve shtesë speciale që mund të aktivizohen në [[Special:Preferences|faqen e preferencave]] të tyre, siç është përcaktuar nga [[MediaWiki:Gadgets-definition|përkufizimet]].
 Kjo pasqyrë siguron qasje të lehtë në faqet e mesazheve të sistemit që përkufizon përshkrimin e çdo mjeti shtesë dhe kodin.',
 	'gadgets-uses' => 'Përdorues',
+	'gadgets-required-rights' => 'Kërkon {{PLURAL:$2| $1 drejtën | drejta: $1 }}.',
+	'gadgets-default' => 'Aktivizuar për të gjithë nga default.',
 	'gadgets-export' => 'Eksporto',
 	'gadgets-export-title' => 'Eksport mjetesh shtesë',
 	'gadgets-not-found' => 'Mjeti shtesë "$1" nuk u gjet.',

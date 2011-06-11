@@ -288,22 +288,21 @@
 	};
 
 	function buildFormBody() {
-		var description  = this.get(0);
+		var description  = this.get( 0 );
 		if ( typeof description != 'object' ) {
 			mw.log( "description should be an object, instead of a " + typeof description );
 			return null;
 		}
 
 		var $form = $( '<form/>' );
-		var $fieldset = $( '<fieldset/>' ).appendTo( $form );
 
-		if ( typeof description.label == 'string' ) {
-			$( '<legend/>' )
-				.text( $s( description.label ) )
-				.appendTo( $fieldset );
+		//If there is an "intro", adds it to the form as a label
+		if ( typeof description.intro == 'string' ) {
+			$( '<p/>' )
+				.text( $s( description.intro ) )
+				.addClass( 'mw-gadgets-prefsDialog-intro' )
+				.appendTo( $form );
 		}
-
-		//TODO: manage form params
 
 		if ( typeof description.fields != 'object' ) {
 			mw.log( "description.fields should be an object, instead of a " + typeof description.fields );
