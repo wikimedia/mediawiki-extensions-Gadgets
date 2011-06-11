@@ -92,7 +92,7 @@
 			rules: {},
 			messages: {}
 		};
-	}
+	};
 
 	//A field with just a label
 	LabelField.prototype = object( EmptyField.prototype );
@@ -128,7 +128,7 @@
 	
 	BooleanField.prototype.getValue = function() {
 		return this.$c.is( ':checked' );
-	}
+	};
 
 	//A field with a textbox
 
@@ -181,7 +181,7 @@
 		};
 				
 		return settings;
-	}
+	};
 
 	
 	NumberField.prototype = object( LabelField.prototype );
@@ -240,7 +240,7 @@
 		};
 				
 		return settings;
-	}
+	};
 
 
 	SelectField.prototype = object( LabelField.prototype );
@@ -268,14 +268,14 @@
 			$.error( "desc.value is not in the list of possible values" );
 		}
 
-		var i = $.inArray( desc.value, values )
+		var i = $.inArray( desc.value, values );
 		$select.val( i ).attr( 'selected', 'selected' );
 
 		this.$p.append( $select );
 	}
 	
 	SelectField.prototype.getValue = function() {
-		var i = parseInt( this.$select.val() );
+		var i = parseInt( this.$select.val(), 10 );
 		return this.values[i];
 	};
 	
@@ -310,11 +310,9 @@
 			return null;
 		}
 
-		var $form = $( '<form/>' );
-
 		var fields = [];
 
-		var settings = {} //validator settings
+		var settings = {}; //validator settings
 
 		for ( var fieldName in description.fields ) {
 			if ( description.fields.hasOwnProperty( fieldName )) {
@@ -328,8 +326,9 @@
 					return null;
 				}
 
+				var f;
 				try {
-					var f = new FieldConstructor( fieldName, field );
+					f = new FieldConstructor( fieldName, field );
 				} catch ( e ) {
 					mw.log( e );
 					return null; //constructor failed, wrong syntax in field description

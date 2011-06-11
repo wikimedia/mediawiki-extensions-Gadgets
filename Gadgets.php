@@ -82,13 +82,14 @@ $wgResourceModules['jquery.formBuilder'] = array(
 
 $wgResourceModules['ext.gadgets.preferences'] = array(
 	'scripts' 		=> array( 'ext.gadgets.preferences.js' ),
+	'styles'        => array( 'ext.gadgets.preferences.css' ),
 	'dependencies' 	=> array(
 		'jquery', 'jquery.json', 'jquery.ui.dialog', 'jquery.formBuilder',
 		'mediawiki.htmlform', 'ext.gadgets'
 	),
 	'messages'      => array(
-		'gadgets-configure', 'gadgets-configuration-of', 'gadgets-unexpected-error',
-		'gadgets-save-success', 'gadgets-save-failed'
+		'gadgets-configure', 'gadgets-configuration-of', 'gadgets-prefs-save', 'gadgets-prefs-cancel',
+		'gadgets-unexpected-error', 'gadgets-save-success', 'gadgets-save-failed'
 	),
 	'localBasePath' => $dir . 'modules/',
 	'remoteExtPath' => 'Gadgets/modules'

@@ -1,0 +1,10 @@
+/*
+ * Styles for gadget's preference setting dialogs.
+ */
+
+#mw-gadgets-prefsDialog label {
+	display: block;
+	float: left;
+	width: 250px;
+}
+

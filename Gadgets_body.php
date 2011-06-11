@@ -919,10 +919,7 @@ class Gadget {
 				return true;
 			case 'select':
 				$values = array_values( $prefDescription['options'] );
-				if ( !in_array( $pref, $values, true ) ) {
-					return false;
-				}
-				return true;
+				return in_array( $pref, $values, true );
 			default:
 				return false; //unexisting type
 		}
@@ -1157,4 +1154,5 @@ class GadgetsGlobalModule extends ResourceLoaderModule {
 		return $script;
 	}
 }
+
 

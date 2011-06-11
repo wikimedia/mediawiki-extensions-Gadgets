@@ -63,6 +63,7 @@
 								return false; //prevent form submission
 							} );
 							
+							$( dialogBody ).attr( 'id', 'mw-gadgets-prefsDialog' );
 							
 							$( dialogBody ).dialog( {
 								modal: true,
@@ -72,21 +73,26 @@
 								close: function() {
 									$( this ).dialog( 'destroy' ).empty(); //completely destroy on close
 								},
-								buttons: {
+								buttons: [
 									//TODO: add a "Restore defaults" button
-									
-									"Save": function() {
-										var isValid = $( dialogBody ).formBuilder( 'validate' );
-										
-										if ( isValid ) {
-											var values = $( dialogBody ).formBuilder( 'getValues' );
-											saveConfig( $( this ), gadget, values );
+									{
+										text: mw.msg( 'gadgets-prefs-save' ),
+										click: function() {
+											var isValid = $( dialogBody ).formBuilder( 'validate' );
+											
+											if ( isValid ) {
+												var values = $( dialogBody ).formBuilder( 'getValues' );
+												saveConfig( $( this ), gadget, values );
+											}
 										}
 									},
-									"Cancel": function() {
-										$( this ).dialog( "close" );
+									{
+										text: mw.msg( 'gadgets-prefs-cancel' ),
+										click: function() {
+											$( this ).dialog( "close" );
+										}
 									}
-								}
+								]
 							} );
 						},
 						error: function( response ) {
