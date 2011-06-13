@@ -5,19 +5,21 @@
 	
 	//"Save" button click handler
 	function saveConfig( $dialog, gadget, config ) {
-		var json = $.toJSON( config );
+		var prefsJson = $.toJSON( config );
 		
-		var postData = 'action=ajax&rs=GadgetsAjax::setPreferences' +
-				'&rsargs[]=gadget|' + encodeURIComponent( gadget ) +
-				'&rsargs[]=json|' + encodeURIComponent( json );
-
 		$.ajax( {
-			url: mw.config.get( 'wgScriptPath' ) + '/index.php',
+			url: mw.config.get( 'wgScriptPath' ) + '/api.php',
 			type: "POST",
-			data: postData,
+			data: {
+				'action': 'setgadgetprefs',
+				'gadget': gadget,
+				'prefs': prefsJson,
+				'token': mw.user.tokens.get('editToken'),
+				'format': 'json'
+			},
 			dataType: "json",
 			success: function( response ) {
-				if ( response === true ) {
+				if ( typeof response.error == 'undefined' ) {
 					alert( mw.msg( 'gadgets-save-success' ) );
 					$dialog.dialog( 'close' );
 				} else {
@@ -44,20 +46,27 @@
 			var $link = $( '<a></a>' )
 				.text( mw.msg( 'gadgets-configure' ) )
 				.click( function() {
-					var postData = 'action=ajax&rs=GadgetsAjax::getPreferences' +
-							'&rsargs[]=gadget|' + encodeURIComponent( gadget );
-							
 					$.ajax( {
-						url: mw.config.get( 'wgScriptPath' ) + '/index.php',
+						url: mw.config.get( 'wgScriptPath' ) + '/api.php',
 						type: "POST",
-						data: postData,
+						data: {
+							'action': 'getgadgetprefs',
+							'gadget': gadget,
+							'format': 'json'
+						},
 						dataType: "json", // response type
 						success: function( response ) {
-							//TODO: malformed response?
+							
+							if ( typeof response.getgadgetprefs != 'object' ) {
+								alert( mw.msg( 'gadgets-unexpected-error' ) )
+								return;
+							}
 							
 							//Create and show dialog
 							
-							var dialogBody = $( response ).formBuilder();
+							var prefs = response.getgadgetprefs;
+							
+							var dialogBody = $( prefs ).formBuilder();
 							
 							$( dialogBody ).submit( function() {
 								return false; //prevent form submission

@@ -996,7 +996,6 @@ class Gadget {
 	//Set user's preferences for a specific gadget.
 	//Returns false if preferences are rejected (that is, they don't pass validation)
 	public static function setUserPrefs( $user, $gadget, &$preferences ) {
-		
 		$prefsDescriptionJson = Gadget::getGadgetPrefsDescription( $gadget );
 		
 		if ( $prefsDescriptionJson === null || $prefsDescriptionJson === '' ) {
@@ -1141,7 +1140,7 @@ class GadgetsGlobalModule extends ResourceLoaderModule {
 		$gadgetsList = Gadget::loadStructuredList();
 		
 		foreach ( $gadgetsList as $sectionName => $gadgets ) {
-			foreach ( $gadgets as $gadget => $gadget_data ) {
+			foreach ( $gadgets as $gadget => $gadgetData ) {
 				$prefs = Gadget::getGadgetPrefsDescription( $gadget );
 				if ( $prefs !== null && $prefs !== '' ) {
 					$configurableGadgets[] = $gadget;

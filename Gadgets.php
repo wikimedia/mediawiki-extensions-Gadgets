@@ -17,8 +17,8 @@ if( !defined( 'MEDIAWIKI' ) ) {
 	die( 1 );
 }
 
-if ( version_compare( $wgVersion, '1.17alpha', '<' ) ) {
-	die( "This version of Extension:Gadgets requires MediaWiki 1.17+\n" );
+if ( version_compare( $wgVersion, '1.19alpha', '<' ) ) {
+	die( "This version of Extension:Gadgets requires MediaWiki 1.19+\n" );
 }
 
 $wgExtensionCredits['other'][] = array(
@@ -47,13 +47,14 @@ $wgAutoloadClasses['GadgetHooks'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'Gadgets_body.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 $wgAutoloadClasses['GadgetsGlobalModule'] = $dir . 'Gadgets_body.php';
-$wgAutoloadClasses['GadgetsAjax'] = $dir . 'GadgetsAjax.php';
+$wgAutoloadClasses['ApiSetGadgetPrefs'] = $dir . 'ApiSetGadgetPrefs.php';
+$wgAutoloadClasses['ApiGetGadgetPrefs'] = $dir . 'ApiGetGadgetPrefs.php';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';
 
-$wgAPIListModules['gadgetcategories'] = 'ApiQueryGadgetCategories';
-$wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
+$wgAPIModules['setgadgetprefs'] = 'ApiSetGadgetPrefs';
+$wgAPIModules['getgadgetprefs'] = 'ApiGetGadgetPrefs';
 
 $wgAjaxExportList[] = 'GadgetsAjax::getPreferences';
 $wgAjaxExportList[] = 'GadgetsAjax::setPreferences';
