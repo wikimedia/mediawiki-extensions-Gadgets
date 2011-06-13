@@ -160,6 +160,7 @@ class SpecialGadgets extends SpecialPage {
 			. Html::hidden( 'title', SpecialPage::getTitleFor( 'Export' )->getPrefixedDBKey() )
 			. Html::hidden( 'pages', $exportList )
 			. Html::hidden( 'wpDownload', '1' )
+			. Html::hidden( 'templates', '1' )
 			. Xml::submitButton( wfMsg( 'gadgets-export-download' ) )
 			. Html::closeElement( 'form' )
 		);
