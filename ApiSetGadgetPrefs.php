@@ -36,30 +36,22 @@ class ApiSetGadgetPrefs extends ApiBase {
 			$this->dieUsageMsg( 'sessionfailure' );
 		}
 
-		$gadget = $params['gadget'];
-		$prefsJson = $params['prefs'];
-
-		//Checks if the gadget actually exists
-		$gadgetsList = Gadget::loadStructuredList();
-		$found = false;
-		foreach ( $gadgetsList as $section => $gadgets ) {
-			if ( isset( $gadgets[$gadget] ) ) {
-				$found = true;
-				break;
-			}
-		}
+		$gadgetName = $params['gadget'];
+		$gadgets = Gadget::loadList();
+		$gadget = $gadgets && isset( $gadgets[$gadgetName] ) ? $gadgets[$gadgetName] : null;
 		
-		if ( !$found ) {
+		if ( $gadget === null ) {
 			$this->dieUsage( 'Gadget not found', 'notfound' );
 		}
 
+		$prefsJson = $params['prefs'];
 		$prefs = FormatJson::decode( $prefsJson, true );
 		
 		if ( !is_array( $prefs ) ) {
 			$this->dieUsage( 'The \'pref\' parameter must be valid JSON', 'notjson' );
 		}
 
-		$result = Gadget::setUserPrefs( $user, $gadget, $prefs );
+		$result = $gadget->setUserPrefs( $user, $prefs );
 
 		if ( $result === true ) {
 			$this->getResult()->addValue(

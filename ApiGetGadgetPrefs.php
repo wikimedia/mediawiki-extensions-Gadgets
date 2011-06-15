@@ -31,30 +31,22 @@ class ApiGetGadgetPrefs extends ApiBase {
 			$this->dieUsage( 'You must be logged-in to get gadget\'s preferences', 'notloggedin' );
 		}
 
-		$gadget = $params['gadget'];
-
-		//Checks if the gadget actually exists
-		$gadgetsList = Gadget::loadStructuredList();
-		$found = false;
-		foreach ( $gadgetsList as $section => $gadgets ) {
-			if ( isset( $gadgets[$gadget] ) ) {
-				$found = true;
-				break;
-			}
-		}
+		$gadgetName = $params['gadget'];
+		$gadgets = Gadget::loadList();
+		$gadget = $gadgets && isset( $gadgets[$gadgetName] ) ? $gadgets[$gadgetName] : null;
 		
-		if ( !$found ) {
+		if ( $gadget === null ) {
 			$this->dieUsage( 'Gadget not found', 'notfound' );
 		}
 		
-		$prefsDescriptionJson = Gadget::getGadgetPrefsDescription( $gadget );
+		$prefsDescriptionJson = $gadget->getPrefsDescription();
 		$prefsDescription = FormatJson::decode( $prefsDescriptionJson, true );
 		
 		if ( $prefsDescription === null ) {
-			$this->dieUsage( "Gadget $gadget does not have any preference.", 'noprefs' );
+			$this->dieUsage( 'Gadget ' . $gadget->getName() . ' does not have any preference.', 'noprefs' );
 		}
 
-		$userPrefs = Gadget::getUserPrefs( $user, $gadget );
+		$userPrefs = $gadget->getUserPrefs( $user );
 		
 		//Add user preferences to preference description
 		foreach ( $userPrefs as $pref => $value ) {

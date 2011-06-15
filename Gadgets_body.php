@@ -729,7 +729,6 @@ class Gadget {
 		return $gadgets;
 	}
 	
-	
 	//TODO: put the following static methods somewhere else
 	
 	//Checks if the given description of the preferences is valid
@@ -809,34 +808,21 @@ class Gadget {
 	}
 	
 	//Gets preferences for gadget $gadget;
-	// returns * null if the gadget doesn't exists
-	//         * '' if the gadget exists but doesn't have any preferences
+	// returns * '' if the gadget exists but doesn't have any preferences (or provided ones are not valid)
 	//         * the preference description in JSON format, otherwise
-	public static function getGadgetPrefsDescription( $gadget ) {
-		$gadgetsList = Gadget::loadStructuredList();
-		foreach ( $gadgetsList as $sectionName => $gadgets ) {
-			foreach ( $gadgets as $gadgetName => $gadgetData ) {
-				if ( $gadgetName == $gadget ) {
-					//Gadget found; are there any prefs?
-					
-					$prefsMsg = "Gadget-" . $gadget . ".preferences";
-					
-					//TODO: should we cache?
-					
-					$prefsJson = wfMsgForContentNoTrans( $prefsMsg );
-					if ( wfEmptyMsg( $prefsMsg, $prefsJson ) ) {
-						return null;
-					}
-					
-					if ( !self::isGadgetPrefsDescriptionValid( $prefsJson ) ){
-						return '';
-					}
-					
-					return $prefsJson;
-				}
-			}
+	public function getPrefsDescription() {
+		$prefsMsg = "Gadget-{$this->name}.preferences";
+		
+		//TODO: use cache
+		
+		$prefsJson = wfMsgForContentNoTrans( $prefsMsg );
+		if ( wfEmptyMsg( $prefsMsg, $prefsJson ) ||
+			!self::isGadgetPrefsDescriptionValid( $prefsJson ) )
+		{
+			return '';
 		}
-		return null; //gadget not found
+		
+		return $prefsJson;
 	}
 
 	//Check if a preference is valid, according to description
@@ -953,13 +939,13 @@ class Gadget {
 		}
 	}
 
-	//Get user's preferences for a specific gadget
-	public static function getUserPrefs( $user, $gadget ) {
+	//Get user's preferences for this gadget
+	public function getUserPrefs( $user ) {
 		//TODO: cache!
 
-		$prefsDescriptionJson = Gadget::getGadgetPrefsDescription( $gadget );
+		$prefsDescriptionJson = $this->getPrefsDescription();
 		
-		if ( $prefsDescriptionJson === null || $prefsDescriptionJson === '' ) {
+		if ( $prefsDescriptionJson === '' ) {
 			return null;
 		}
 		
@@ -969,7 +955,7 @@ class Gadget {
 		$dbr = wfGetDB( DB_SLAVE );
 		
 		$id = $user->getId();
-		$property = "gadget-{$gadget}-config";
+		$property = "gadget-{$this->name}-config";
 
 		$res = $dbr->selectRow(
 			'user_properties',
@@ -993,12 +979,12 @@ class Gadget {
 		return $userPrefs;
 	}
 
-	//Set user's preferences for a specific gadget.
+	//Set user's preferences for this gadget.
 	//Returns false if preferences are rejected (that is, they don't pass validation)
-	public static function setUserPrefs( $user, $gadget, &$preferences ) {
-		$prefsDescriptionJson = Gadget::getGadgetPrefsDescription( $gadget );
+	public function setUserPrefs( $user, &$preferences ) {
+		$prefsDescriptionJson = $this->getPrefsDescription();
 		
-		if ( $prefsDescriptionJson === null || $prefsDescriptionJson === '' ) {
+		if ( $prefsDescriptionJson === '' ) {
 			return false; //nothing to save
 		}
 		
@@ -1017,7 +1003,7 @@ class Gadget {
 		$dbw = wfGetDB( DB_MASTER );
 		
 		$id = $user->getId();
-		$property = "gadget-{$gadget}-config";
+		$property = "gadget-{$this->name}-config";
 		
 		$row = array(
 				'up_user'     => $id,
@@ -1095,12 +1081,13 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	
 	public function getScript( ResourceLoaderContext $context ) {
 		$moduleName = $this->getName();
-		$gadget = substr( $moduleName, strlen( 'ext.gadget.' ) );
-		
+		$gadgetName = substr( $moduleName, strlen( 'ext.gadget.' ) );
+		$gadgets = Gadget::loadList();
+		$gadget = $gadgets[$gadgetName];
 		
 		$user = RequestContext::getMain()->getUser();
 		
-		$prefs = Gadget::getUserPrefs( $user, $gadget );
+		$prefs = $gadget->getUserPrefs( $user );
 		
 		//Enclose gadget's code in a closure, with "this" bound to the
 		//configuration object (or to "window" for non-configurable gadgets)
@@ -1123,7 +1110,7 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	}
 	
 	
-	//TODO: should depend on gadget's last modification time, also
+	//TODO: should depend on last modification time of gadget's configuration page, also
 	public function getModifiedTime( ResourceLoaderContext $context ) {
 		$touched = RequestContext::getMain()->getUser()->getTouched();
 		
@@ -1139,11 +1126,11 @@ class GadgetsGlobalModule extends ResourceLoaderModule {
 		$configurableGadgets = array();
 		$gadgetsList = Gadget::loadStructuredList();
 		
-		foreach ( $gadgetsList as $sectionName => $gadgets ) {
-			foreach ( $gadgets as $gadget => $gadgetData ) {
-				$prefs = Gadget::getGadgetPrefsDescription( $gadget );
-				if ( $prefs !== null && $prefs !== '' ) {
-					$configurableGadgets[] = $gadget;
+		foreach ( $gadgetsList as $section => $gadgets ) {
+			foreach ( $gadgets as $gadgetName => $gadget ) {
+				$prefs = $gadget->getPrefsDescription();
+				if ( $prefs !== '' ) {
+					$configurableGadgets[] = $gadget->getName();
 				}
 			}
 		}
