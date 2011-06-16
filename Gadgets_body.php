@@ -160,18 +160,83 @@ class GadgetHooks {
 	 * @param &$options 
 	 */
 	public static function userLoadOptions( $user, &$options ) {
+		//Only if it's current user
+		$curUser = RequestContext::getMain()->getUser();
+		if ( $curUser->getID() !== $user->getID() ) {
+			return true;
+		}
+
 		//Remove gadget-*-config options, since they must not be delivered
 		//via mw.user.options like other user preferences
-		foreach ( $options as $option => $value ){
-			//TODO: Regexp not coherent with current gadget's naming rules
-			if ( preg_match( '/gadget-[a-zA-Z][a-zA-Z0-9_]*-config/', $option ) ) {
-				//TODO: cache them before unsetting
+		$gadgets = Gadget::loadList();
+		
+		if ( !$gadgets ) {
+			return true;
+		}
+		
+		$existingPrefs = array();
+		foreach ( $options as $option => $value ) {
+			$m = array();
+			if ( preg_match( '/gadget-([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)-config/', $option, $m ) ) {
+				$gadgetName = $m[1];
+				$existingPrefs[$gadgetName] = $value;
 				unset( $options[$option] );
 			}
 		}
+		
+		foreach ( $gadgets as $gadget ) {
+			$prefsDescription = $gadget->getPrefsDescription();
+			
+			if ( $prefsDescription === null ) {
+				continue;
+			}
+			
+			if ( isset( $existingPrefs[$gadget->getName()] ) ) { 
+				$userPrefs = FormatJson::decode( $existingPrefs[$gadget->getName()], true );
+			}
+			
+			if ( !isset( $userPrefs ) ) {
+				$userPrefs = array(); //no saved prefs, use defaults
+			}
+			
+			Gadget::matchPrefsWithDescription( $prefsDescription, $userPrefs );
+			
+			$gadget->setPrefs( $userPrefs );
+		}
+		
 		return true;
 	}
 
+	/**
+	 * UserSaveOptions hook handler.
+	 * @param $user
+	 * @param &$options 
+	 */
+	public static function userSaveOptions( $user, &$options ) {
+		//Only if it's current user
+		$curUser = RequestContext::getMain()->getUser();
+		if ( $curUser->getID() !== $user->getID() ) {
+			return true;
+		}
+		
+		//Reinsert gadget-*-config options, so they can be saved back
+		$gadgets = Gadget::loadList();
+		
+		if ( !$gadgets ) {
+			return true;
+		}
+		
+		foreach ( $gadgets as $gadget ) {
+			if ( $gadget->getPrefs() !== null ) {
+				//TODO: should remove prefs that equal their default
+
+				$prefsJson = FormatJson::encode( $gadget->getPrefs() );
+				$options["gadget-{$gadget->getName()}-config"] = $prefsJson;
+			}
+		}
+		
+		return true;
+	}
 
 	/**
 	 * Adds one legacy script to output.
@@ -229,6 +294,12 @@ class Gadget {
 			$category;
 
 
+	//Map from gadget names to preferences of current user.
+	//This is needed because gadget preferences are retrieved and saved
+	//in UserLoadOptions and UserSaveOptions hooks handlers instead than
+	//in Gadget class constructor.
+	private static $preferencesCache = array();
+	
 	//Syntax specifications of preference description language
 	private static $prefsDescriptionSpecifications = array(
 		'boolean' => array(
@@ -682,6 +753,9 @@ class Gadget {
 		wfProfileIn( __METHOD__ );
 		$key = wfMemcKey( 'gadgets-definition', self::GADGET_CLASS_VERSION );
 
+		//Force loading user options
+		RequestContext::getMain()->getUser()->getOptions();
+
 		if ( $forceNewText === null ) {
 			//cached?
 			$gadgets = $wgMemc->get( $key );
@@ -807,29 +881,32 @@ class Gadget {
 		return true;
 	}
 	
-	//Gets preferences for gadget $gadget;
-	// returns * '' if the gadget exists but doesn't have any preferences (or provided ones are not valid)
-	//         * the preference description in JSON format, otherwise
+	/**
+	 * Gets description of preferences for this gadget.
+	 * 
+	 * @return Mixed null if the gadget exists but doesn't have any preferences or if provided ones are not valid,
+	 *               an array with the description of preferences otherwise.
+	 */
 	public function getPrefsDescription() {
-		$prefsMsg = "Gadget-{$this->name}.preferences";
+		$prefsDescriptionMsg = "Gadget-{$this->name}.preferences";
 		
 		//TODO: use cache
 		
-		$prefsJson = wfMsgForContentNoTrans( $prefsMsg );
-		if ( wfEmptyMsg( $prefsMsg, $prefsJson ) ||
-			!self::isGadgetPrefsDescriptionValid( $prefsJson ) )
+		$prefsDescriptionJson = wfMsgForContentNoTrans( $prefsDescriptionMsg );
+		if ( wfEmptyMsg( $prefsDescriptionMsg, $prefsDescriptionJson ) ||
+			!self::isGadgetPrefsDescriptionValid( $prefsDescriptionJson ) )
 		{
-			return '';
+			return null;
 		}
 		
-		return $prefsJson;
+		return FormatJson::decode( $prefsDescriptionJson, true );
 	}
 
 	//Check if a preference is valid, according to description
 	//NOTE: we pass both $prefs and $prefName (instead of just $prefs[$prefName])
 	//      to allow checking for null.
 	private static function checkSinglePref( &$prefDescription, &$prefs, $prefName ) {
-		
+
 		//isset( $prefs[$prefName] ) would return false for null values
 		if ( !array_key_exists( $prefName, $prefs ) ) {
 			return false;
@@ -911,8 +988,15 @@ class Gadget {
 		}
 	}
 
-	//Returns true if $prefs is an array of preferences that passes validation
-	private static function checkPrefsAgainstDescription( &$prefsDescription, &$prefs ) {
+	/**
+	 * Checks if $prefs is an array of preferences that passes validation
+	 * 
+	 * @param $prefsDescription Array: the preferences description to use.
+	 * @param &$prefs Array: reference of the array of preferences to check.
+	 * 
+	 * @return boolean true if $prefs passes validation against $prefsDescription, false otherwise.
+	 */
+	public static function checkPrefsAgainstDescription( $prefsDescription, $prefs ) {
 		foreach ( $prefsDescription['fields'] as $prefName => $prefDescription ) {
 			if ( !self::checkSinglePref( $prefDescription, $prefs, $prefName ) ) {
 				return false;
@@ -921,9 +1005,14 @@ class Gadget {
 		return true;
 	}
 
-	//Fixes $prefs so that it matches the description given by $prefsDescription.
-	//All values of $prefs that fail validation are replaced with default values.
-	private static function matchPrefsWithDescription( &$prefsDescription, &$prefs ) {
+	/**
+	 * Fixes $prefs so that it matches the description given by $prefsDescription.
+	 * All values of $prefs that fail validation are replaced with default values.
+	 * 
+	 * @param $prefsDescription Array: the preferences description to use.
+	 * @param &$prefs Array: reference of the array of preferences to match.
+	 */
+	public static function matchPrefsWithDescription( $prefsDescription, &$prefs ) {
 		//Remove unexisting preferences from $prefs
 		foreach ( $prefs as $prefName => $value ) {
 			if ( !isset( $prefsDescription['fields'][$prefName] ) ) {
@@ -939,107 +1028,52 @@ class Gadget {
 		}
 	}
 
-	//Get user's preferences for this gadget
-	public function getUserPrefs( $user ) {
-		//TODO: cache!
-
-		$prefsDescriptionJson = $this->getPrefsDescription();
-		
-		if ( $prefsDescriptionJson === '' ) {
-			return null;
-		}
-		
-		$prefsDescription = FormatJson::decode( $prefsDescriptionJson, true );
-		
-		
-		$dbr = wfGetDB( DB_SLAVE );
-		
-		$id = $user->getId();
-		$property = "gadget-{$this->name}-config";
-
-		$res = $dbr->selectRow(
-			'user_properties',
-			array('up_value'),
-			array(
-				"up_user={$id}",
-				"up_property='{$property}'"
-			),
-			__METHOD__);
-		
-		
-		if ( !$res ) {
-			$userPrefs = array(); //No prefs in DB, will just get defaults
-		} else {
-			$userPrefsJson = $res->up_value;
-			$userPrefs = FormatJson::decode( $userPrefsJson, true );
-		}
-		
-		self::matchPrefsWithDescription( $prefsDescription, $userPrefs );
-		
-		return $userPrefs;
+	/**
+	 * Returns current user's preferences for this gadget.
+	 * 
+	 * @return Mixed the array of preferences if they have been set, null otherwise.
+	 */
+	public function getPrefs() {
+		$prefs = self::$preferencesCache[$this->getName()];
+		return self::$preferencesCache[$this->getName()];
 	}
 
-	//Set user's preferences for this gadget.
-	//Returns false if preferences are rejected (that is, they don't pass validation)
-	public function setUserPrefs( $user, &$preferences ) {
-		$prefsDescriptionJson = $this->getPrefsDescription();
+	/**
+	 * Sets current user's preferences for this gadget, after validating them.
+	 * 
+	 * @param $prefs Array: the array of preferences.
+	 * @param $savePrefs boolean: if true, preferences are also saved back to the Database.
+	 * 
+	 * @return boolean: true if validation is passed, false otherwise.
+	 */
+	public function setPrefs( $prefs, $savePrefs = false ) {
 		
-		if ( $prefsDescriptionJson === '' ) {
+		if ( is_string( $prefs ) ) {
+			$prefs = FormatJson::decode( $prefs, true );
+		}
+		
+		if ( $prefs === null || !is_array( $prefs ) ) {
+			throw new MWException( __METHOD__ . ': $prefs must be an array or valid JSON' );
+		}
+
+		$prefsDescription = $this->getPrefsDescription();
+		
+		if ( $prefsDescription === null ) {
 			return false; //nothing to save
 		}
 		
-		$prefsDescription = FormatJson::decode( $prefsDescriptionJson, true );
-		
-		if ( !self::checkPrefsAgainstDescription( $prefsDescription, $preferences ) ) {
+		if ( !self::checkPrefsAgainstDescription( $prefsDescription, $prefs ) ) {
 			return false; //validation failed
 		}
 		
-		//TODO: should remove preferences that are equal to their default?
-		
-		//Save preferences to DB
-		
-		$preferencesJson = FormatJson::encode( $preferences );
-		
-		$dbw = wfGetDB( DB_MASTER );
-		
-		$id = $user->getId();
-		$property = "gadget-{$this->name}-config";
-		
-		$row = array(
-				'up_user'     => $id,
-				'up_property' => $property,
-				'up_value'    => $preferencesJson
-			);
-				
-		//Could probably be done with the "ON DUPLICATE KEY UPDATE" syntax
-		
-		$res = $dbw->update(
-			'user_properties',
-			$row,
-			array(
-				"up_user={$id}",
-				"up_property='{$property}'"
-			),
-			__METHOD__
-		);
+		self::$preferencesCache[$this->getName()] = $prefs;
 
-
-		$rc = $dbw->affectedRows();
-		if ( $rc == 0 ) {
-			$dbw->insert(
-				'user_properties',
-				$row,
-				__METHOD__,
-				array( 'IGNORE' ) //ignore insertions without any changes
-			);
+		if ( $savePrefs ) {
+			$user = RequestContext::getMain()->getUser();
+			$user->saveSettings();
 		}
-
-		//Invalidate cache and update user_touched
-		$user->invalidateCache( true );
-		
 		return true;
 	}
-
 }
 
 /**
@@ -1085,9 +1119,7 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 		$gadgets = Gadget::loadList();
 		$gadget = $gadgets[$gadgetName];
 		
-		$user = RequestContext::getMain()->getUser();
-		
-		$prefs = $gadget->getUserPrefs( $user );
+		$prefs = $gadget->getPrefs();
 		
 		//Enclose gadget's code in a closure, with "this" bound to the
 		//configuration object (or to "window" for non-configurable gadgets)
@@ -1114,7 +1146,7 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	public function getModifiedTime( ResourceLoaderContext $context ) {
 		$touched = RequestContext::getMain()->getUser()->getTouched();
 		
-		return max( parent::getModifiedTime( $context ), $touched );
+		return max( parent::getModifiedTime( $context ), wfTimestamp( TS_UNIX, $touched ) );
 	}
 }
 
@@ -1129,7 +1161,7 @@ class GadgetsGlobalModule extends ResourceLoaderModule {
 		foreach ( $gadgetsList as $section => $gadgets ) {
 			foreach ( $gadgets as $gadgetName => $gadget ) {
 				$prefs = $gadget->getPrefsDescription();
-				if ( $prefs !== '' ) {
+				if ( $prefs !== null ) {
 					$configurableGadgets[] = $gadget->getName();
 				}
 			}
@@ -1140,5 +1172,3 @@ class GadgetsGlobalModule extends ResourceLoaderModule {
 		return $script;
 	}
 }
-
-

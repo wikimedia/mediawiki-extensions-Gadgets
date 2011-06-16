@@ -39,14 +39,13 @@ class ApiGetGadgetPrefs extends ApiBase {
 			$this->dieUsage( 'Gadget not found', 'notfound' );
 		}
 		
-		$prefsDescriptionJson = $gadget->getPrefsDescription();
-		$prefsDescription = FormatJson::decode( $prefsDescriptionJson, true );
+		$prefsDescription = $gadget->getPrefsDescription();
 		
 		if ( $prefsDescription === null ) {
 			$this->dieUsage( 'Gadget ' . $gadget->getName() . ' does not have any preference.', 'noprefs' );
 		}
 
-		$userPrefs = $gadget->getUserPrefs( $user );
+		$userPrefs = $gadget->getPrefs();
 		
 		//Add user preferences to preference description
 		foreach ( $userPrefs as $pref => $value ) {

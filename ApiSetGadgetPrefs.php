@@ -51,7 +51,7 @@ class ApiSetGadgetPrefs extends ApiBase {
 			$this->dieUsage( 'The \'pref\' parameter must be valid JSON', 'notjson' );
 		}
 
-		$result = $gadget->setUserPrefs( $user, $prefs );
+		$result = $gadget->setPrefs( $prefs, true );
 
 		if ( $result === true ) {
 			$this->getResult()->addValue(
