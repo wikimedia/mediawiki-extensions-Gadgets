@@ -660,7 +660,7 @@ class Gadget {
 		if ( !count( $pages ) ) {
 			return null;
 		}
-		return new GadgetResourceLoaderModule( $pages, $this->dependencies );
+		return new GadgetResourceLoaderModule( $pages, $this->dependencies, $this );
 	}
 
 	/**
@@ -1080,7 +1080,7 @@ class Gadget {
  * Class representing a list of resources for one gadget
  */
 class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
-	private $pages, $dependencies;
+	private $pages, $dependencies, $gadget;
 
 	/**
 	 * Creates an instance of this class
@@ -1092,9 +1092,10 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * )
 	 * @param $dependencies Array: Names of resources this module depends on
 	 */
-	public function __construct( $pages, $dependencies ) {
+	public function __construct( $pages, $dependencies, $gadget ) {
 		$this->pages = $pages;
 		$this->dependencies = $dependencies;
+		$this->gadget = $gadget;
 	}
 
 	/**
@@ -1114,12 +1115,8 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	}
 	
 	public function getScript( ResourceLoaderContext $context ) {
-		$moduleName = $this->getName();
-		$gadgetName = substr( $moduleName, strlen( 'ext.gadget.' ) );
-		$gadgets = Gadget::loadList();
-		$gadget = $gadgets[$gadgetName];
 		
-		$prefs = $gadget->getPrefs();
+		$prefs = $this->gadget->getPrefs();
 		
 		//Enclose gadget's code in a closure, with "this" bound to the
 		//configuration object (or to "window" for non-configurable gadgets)
