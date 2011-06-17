@@ -166,42 +166,35 @@ class GadgetHooks {
 			return true;
 		}
 
-		//Remove gadget-*-config options, since they must not be delivered
-		//via mw.user.options like other user preferences
-		$gadgets = Gadget::loadList();
-		
-		if ( !$gadgets ) {
-			return true;
-		}
-		
-		$existingPrefs = array();
+		//Find out all existing gadget preferences and save them in a map
+		$preferencesCache = array();
 		foreach ( $options as $option => $value ) {
 			$m = array();
 			if ( preg_match( '/gadget-([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)-config/', $option, $m ) ) {
 				$gadgetName = $m[1];
-				$existingPrefs[$gadgetName] = $value;
+				$preferencesCache[$gadgetName] = FormatJson::decode( $value, true );
 				unset( $options[$option] );
 			}
 		}
 		
+		//Record preferences for each gadget
+		$gadgets = Gadget::loadList();
 		foreach ( $gadgets as $gadget ) {
-			$prefsDescription = $gadget->getPrefsDescription();
-			
-			if ( $prefsDescription === null ) {
-				continue;
+			if ( isset( $preferencesCache[$gadget->getName()] ) ) {
+				if ( $gadget->getPrefsDescription() !== null ) {
+					if ( isset( $preferencesCache[$gadget->getName()] ) ) {
+						$userPrefs = $preferencesCache[$gadget->getName()];
+					}
+					
+					if ( !isset( $userPrefs ) ) {
+						$userPrefs = array(); //no saved prefs (or invalid JSON), use defaults
+					}
+					
+					Gadget::matchPrefsWithDescription( $gadget->getPrefsDescription(), $userPrefs );
+					
+					$gadget->setPrefs( $userPrefs );
+				}
 			}
-			
-			if ( isset( $existingPrefs[$gadget->getName()] ) ) { 
-				$userPrefs = FormatJson::decode( $existingPrefs[$gadget->getName()], true );
-			}
-			
-			if ( !isset( $userPrefs ) ) {
-				$userPrefs = array(); //no saved prefs, use defaults
-			}
-			
-			Gadget::matchPrefsWithDescription( $prefsDescription, $userPrefs );
-			
-			$gadget->setPrefs( $userPrefs );
 		}
 		
 		return true;
@@ -291,15 +284,10 @@ class Gadget {
 			$resourceLoaded = false,
 			$requiredRights = array(),
 			$onByDefault = false,
-			$category;
+			$category,
+			$preferences = null;
 
 
-	//Map from gadget names to preferences of current user.
-	//This is needed because gadget preferences are retrieved and saved
-	//in UserLoadOptions and UserSaveOptions hooks handlers instead than
-	//in Gadget class constructor.
-	private static $preferencesCache = array();
-	
 	//Syntax specifications of preference description language
 	private static $prefsDescriptionSpecifications = array(
 		'boolean' => array(
@@ -736,6 +724,7 @@ class Gadget {
 		return true; // empty array
 	}
 
+
 	/**
 	 * Loads list of gadgets and returns it as associative array of sections with gadgets
 	 * e.g. array( 'sectionnname1' => array( $gadget1, $gadget2),
@@ -748,13 +737,29 @@ class Gadget {
 		global $wgMemc;
 
 		static $gadgets = null;
-		if ( $gadgets !== null && $forceNewText === null ) return $gadgets;
+				
+		if ( $gadgets !== null && $forceNewText === null ) {
+			return $gadgets;
+		}
 
 		wfProfileIn( __METHOD__ );
-		$key = wfMemcKey( 'gadgets-definition', self::GADGET_CLASS_VERSION );
 
-		//Force loading user options
-		RequestContext::getMain()->getUser()->getOptions();
+		$user = RequestContext::getMain()->getUser();
+		if ( $user->isLoggedIn() ) {
+			//Force loading user options
+			//HACK: this may lead to loadStructuredList being recursively called.
+			$user->getOptions();
+
+			//Check again, loadStructuredList may have been called from UserLoadOptions hook handler;
+			//in that case, we should just return current value instead of rebuilding the list again.
+			//TODO: is there a better design?
+			if ( $gadgets !== null && $forceNewText === null ) {
+				wfProfileOut( __METHOD__ );
+				return $gadgets;
+			}
+		}
+
+		$key = wfMemcKey( 'gadgets-definition', self::GADGET_CLASS_VERSION );
 
 		if ( $forceNewText === null ) {
 			//cached?
@@ -905,7 +910,7 @@ class Gadget {
 	//Check if a preference is valid, according to description
 	//NOTE: we pass both $prefs and $prefName (instead of just $prefs[$prefName])
 	//      to allow checking for null.
-	private static function checkSinglePref( &$prefDescription, &$prefs, $prefName ) {
+	private static function checkSinglePref( $prefDescription, $prefs, $prefName ) {
 
 		//isset( $prefs[$prefName] ) would return false for null values
 		if ( !array_key_exists( $prefName, $prefs ) ) {
@@ -1034,8 +1039,7 @@ class Gadget {
 	 * @return Mixed the array of preferences if they have been set, null otherwise.
 	 */
 	public function getPrefs() {
-		$prefs = self::$preferencesCache[$this->getName()];
-		return self::$preferencesCache[$this->getName()];
+		return $this->preferences;
 	}
 
 	/**
@@ -1065,8 +1069,8 @@ class Gadget {
 		if ( !self::checkPrefsAgainstDescription( $prefsDescription, $prefs ) ) {
 			return false; //validation failed
 		}
-		
-		self::$preferencesCache[$this->getName()] = $prefs;
+
+		$this->preferences = $prefs;
 
 		if ( $savePrefs ) {
 			$user = RequestContext::getMain()->getUser();
@@ -1115,7 +1119,6 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	}
 	
 	public function getScript( ResourceLoaderContext $context ) {
-		
 		$prefs = $this->gadget->getPrefs();
 		
 		//Enclose gadget's code in a closure, with "this" bound to the

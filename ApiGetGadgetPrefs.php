@@ -32,6 +32,7 @@ class ApiGetGadgetPrefs extends ApiBase {
 		}
 
 		$gadgetName = $params['gadget'];
+		
 		$gadgets = Gadget::loadList();
 		$gadget = $gadgets && isset( $gadgets[$gadgetName] ) ? $gadgets[$gadgetName] : null;
 		
@@ -47,6 +48,10 @@ class ApiGetGadgetPrefs extends ApiBase {
 
 		$userPrefs = $gadget->getPrefs();
 		
+		if ( $userPrefs === null ) {
+			throw new MWException( __METHOD__ . ': $userPrefs should not be null.' );
+		}
+				
 		//Add user preferences to preference description
 		foreach ( $userPrefs as $pref => $value ) {
 			$prefsDescription['fields'][$pref]['value'] = $value;
