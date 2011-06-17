@@ -172,7 +172,16 @@ class GadgetHooks {
 			$m = array();
 			if ( preg_match( '/gadget-([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)-config/', $option, $m ) ) {
 				$gadgetName = $m[1];
-				$preferencesCache[$gadgetName] = FormatJson::decode( $value, true );
+				wfSuppressWarnings();				
+				$gadgetPrefs = unserialize( $value );
+				wfRestoreWarnings();
+				if ( $gadgetPrefs !== false ) {
+					$preferencesCache[$gadgetName] = $gadgetPrefs;
+				} else {
+					//should not happen; just in case
+					wfDebug( __METHOD__ . ": couldn't unserialize settings for gadget " .
+							"$gadgetName and user {$curUser->getID()}. Ignoring.\n" );
+				}
 				unset( $options[$option] );
 			}
 		}
@@ -180,20 +189,19 @@ class GadgetHooks {
 		//Record preferences for each gadget
 		$gadgets = Gadget::loadList();
 		foreach ( $gadgets as $gadget ) {
-			if ( isset( $preferencesCache[$gadget->getName()] ) ) {
-				if ( $gadget->getPrefsDescription() !== null ) {
-					if ( isset( $preferencesCache[$gadget->getName()] ) ) {
-						$userPrefs = $preferencesCache[$gadget->getName()];
-					}
-					
-					if ( !isset( $userPrefs ) ) {
-						$userPrefs = array(); //no saved prefs (or invalid JSON), use defaults
-					}
-					
-					Gadget::matchPrefsWithDescription( $gadget->getPrefsDescription(), $userPrefs );
-					
-					$gadget->setPrefs( $userPrefs );
+			$prefsDescription = $gadget->getPrefsDescription();
+			if ( $prefsDescription !== null ) {
+				if ( isset( $preferencesCache[$gadget->getName()] ) ) {
+					$userPrefs = $preferencesCache[$gadget->getName()];
 				}
+				
+				if ( !isset( $userPrefs ) ) {
+					$userPrefs = array(); //no saved prefs (or invalid entry in DB), use defaults
+				}
+				
+				Gadget::matchPrefsWithDescription( $prefsDescription, $userPrefs );
+				
+				$gadget->setPrefs( $userPrefs );
 			}
 		}
 		
@@ -223,8 +231,8 @@ class GadgetHooks {
 			if ( $gadget->getPrefs() !== null ) {
 				//TODO: should remove prefs that equal their default
 
-				$prefsJson = FormatJson::encode( $gadget->getPrefs() );
-				$options["gadget-{$gadget->getName()}-config"] = $prefsJson;
+				$prefsSerialized = serialize( $gadget->getPrefs() );
+				$options["gadget-{$gadget->getName()}-config"] = $prefsSerialized;
 			}
 		}
 		
