@@ -57,7 +57,7 @@ class ApiSetGadgetPrefs extends ApiBase {
 			$this->getResult()->addValue(
 				null, $this->getModuleName(), array( 'result' => 'Success' ) );
 		} else {
-			$this->dieUsage( 'Invalid preferences.', 'invalidprefs' );
+			$this->dieUsage( 'Invalid preferences', 'invalidprefs' );
 		}
 	}
 
@@ -96,6 +96,16 @@ class ApiSetGadgetPrefs extends ApiBase {
 
 	public function getDescription() {
 		return 'Allows user code to set preferences for gadgets';
+	}
+
+	public function getPossibleErrors() {
+		return array_merge( parent::getPossibleErrors(), array(
+			array( 'code' => 'notloggedin', 'info' => 'You must be logged-in to get gadget\'s preferences' ),
+			array( 'sessionfailure' ),
+			array( 'code' => 'notfound', 'info' => 'Gadget not found' ),
+			array( 'code' => 'notjson', 'info' => 'The \'pref\' parameter must be valid JSON' ),
+			array( 'code' => 'invalidprefs', 'info' => 'Invalid preferences' ),
+		) );
 	}
 
 	public function needsToken() {

@@ -43,7 +43,7 @@ class ApiGetGadgetPrefs extends ApiBase {
 		$prefsDescription = $gadget->getPrefsDescription();
 		
 		if ( $prefsDescription === null ) {
-			$this->dieUsage( 'Gadget ' . $gadget->getName() . ' does not have any preference.', 'noprefs' );
+			$this->dieUsage( 'Gadget ' . $gadget->getName() . ' does not have any preference', 'noprefs' );
 		}
 
 		$userPrefs = $gadget->getPrefs();
@@ -76,7 +76,15 @@ class ApiGetGadgetPrefs extends ApiBase {
 	}
 
 	public function getDescription() {
-		return 'Allows user code to get preferences for gadgets, along with preference descriptions';
+		return 'Allows user code to get preferences for gadgets, along with preference descriptions and values for currently logged in user';
+	}
+
+	public function getPossibleErrors() {
+		return array_merge( parent::getPossibleErrors(), array(
+			array( 'code' => 'notloggedin', 'info' => 'You must be logged-in to get gadget\'s preferences' ),
+			array( 'code' => 'notfound', 'info' => 'Gadget not found' ),
+			array( 'code' => 'noprefs', 'info' => 'Gadget gadgetname does not have any preferences' ),
+		) );
 	}
 
 	public function getVersion() {
