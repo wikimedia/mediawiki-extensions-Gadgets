@@ -41,15 +41,15 @@ $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
 $wgExtensionAliasesFiles['Gadgets'] = $dir . 'Gadgets.alias.php';
 
-$wgAutoloadClasses['ApiQueryGadgetCategories'] = $dir . 'ApiQueryGadgetCategories.php';
-$wgAutoloadClasses['ApiQueryGadgets'] = $dir . 'ApiQueryGadgets.php';
-$wgAutoloadClasses['Gadget'] = $dir . 'Gadgets_body.php';
-$wgAutoloadClasses['GadgetHooks'] = $dir . 'Gadgets_body.php';
-$wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'Gadgets_body.php';
-$wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
-$wgAutoloadClasses['GadgetsGlobalModule'] = $dir . 'Gadgets_body.php';
-$wgAutoloadClasses['ApiSetGadgetPrefs'] = $dir . 'ApiSetGadgetPrefs.php';
-$wgAutoloadClasses['ApiGetGadgetPrefs'] = $dir . 'ApiGetGadgetPrefs.php';
+$wgAutoloadClasses['ApiQueryGadgetCategories'] = $dir . 'api/ApiQueryGadgetCategories.php';
+$wgAutoloadClasses['ApiQueryGadgets'] = $dir . 'api/ApiQueryGadgets.php';
+$wgAutoloadClasses['ApiGetGadgetPrefs'] = $dir . 'api/ApiGetGadgetPrefs.php';
+$wgAutoloadClasses['ApiSetGadgetPrefs'] = $dir . 'api/ApiSetGadgetPrefs.php';
+$wgAutoloadClasses['Gadget'] = $dir . 'backend/Gadget.php';
+$wgAutoloadClasses['GadgetHooks'] = $dir . 'backend/GadgetHooks.php';
+$wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'backend/GadgetResourceLoaderModule.php';
+$wgAutoloadClasses['GadgetsMainModule'] = $dir . 'ui/GadgetsMainModule.php';
+$wgAutoloadClasses['SpecialGadgets'] = $dir . 'ui/SpecialGadgets.php';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';
@@ -61,14 +61,14 @@ $wgAjaxExportList[] = 'GadgetsAjax::getPreferences';
 $wgAjaxExportList[] = 'GadgetsAjax::setPreferences';
 
 $wgResourceModules['ext.gadgets'] = array(
-	'class' 		=> 'GadgetsGlobalModule'
+	'class' 		=> 'GadgetsMainModule'
 );
 
 $wgResourceModules['jquery.validate'] = array(
 	'scripts' 		=> array( 'jquery.validate.js' ),
 	'dependencies' 	=> array( 'jquery' ),
-	'localBasePath' => $dir . 'modules/',
-	'remoteExtPath' => 'Gadgets/modules'
+	'localBasePath' => $dir . 'ui/resources/',
+	'remoteExtPath' => 'Gadgets/ui/resources'
 );
 
 $wgResourceModules['jquery.formBuilder'] = array(
@@ -78,8 +78,8 @@ $wgResourceModules['jquery.formBuilder'] = array(
 		'gadgets-formbuilder-required', 'gadgets-formbuilder-minlength', 'gadgets-formbuilder-maxlength',
 		'gadgets-formbuilder-min', 'gadgets-formbuilder-max', 'gadgets-formbuilder-integer'
 	),
-	'localBasePath' => $dir . 'modules/',
-	'remoteExtPath' => 'Gadgets/modules'
+	'localBasePath' => $dir . 'ui/resources/',
+	'remoteExtPath' => 'Gadgets/ui/resources'
 );
 
 $wgResourceModules['ext.gadgets.preferences'] = array(
@@ -93,6 +93,6 @@ $wgResourceModules['ext.gadgets.preferences'] = array(
 		'gadgets-configure', 'gadgets-configuration-of', 'gadgets-prefs-save', 'gadgets-prefs-cancel',
 		'gadgets-unexpected-error', 'gadgets-save-success', 'gadgets-save-failed'
 	),
-	'localBasePath' => $dir . 'modules/',
-	'remoteExtPath' => 'Gadgets/modules'
+	'localBasePath' => $dir . 'ui/resources/',
+	'remoteExtPath' => 'Gadgets/ui/resources'
 );
