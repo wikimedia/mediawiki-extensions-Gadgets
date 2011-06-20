@@ -8,9 +8,15 @@
 
 	var idPrefix = "mw-gadgets-dialog-";
 
-	function $s( str ) {
-		if ( str[0] !== '@' ) {
+	//Preprocesses strings end possibly replaces them with messages.
+	//If str starts with "@" the rest of the string is assumed to be
+	//a message, and the result of mw.msg is returned.
+	//Two "@@" at the beginning escape for a single "@".
+	function preproc( str ) {
+		if ( str.length <= 1 || str[0] !== '@' ) {
 			return str;
+		} else if ( str.substr( 0, 2 ) == '@@' ) {
+			return str.substr( 1 );
 		} else {
 			//TODO: better validation
 			return mw.msg( str.substring( 1 ) );
@@ -101,7 +107,7 @@
 		EmptyField.call( this, name, desc );
 
 		var $label = $( '<label/>' )
-			.text( $s( this.desc.label ) )
+			.text( preproc( this.desc.label ) )
 			.attr('for', idPrefix + this.name );
 
 		this.$p.append( $label );
@@ -256,7 +262,7 @@
 		$.each( desc.options, function( optName, optVal ) {
 			var i = values.length;
 			$( '<option/>' )
-				.text( $s( optName ) )
+				.text( preproc( optName ) )
 				.val( i )
 				.appendTo( $select );
 			values.push( optVal );
@@ -287,6 +293,14 @@
 		"select" : SelectField
 	};
 
+	/* Public methods */
+	
+	/**
+	 * Main method; takes the given preferences description object and builds
+	 * the body of the form with the requested fields.
+	 * 
+	 * @return {Element} the object with the requested form body.
+	 */
 	function buildFormBody() {
 		var description  = this.get( 0 );
 		if ( typeof description != 'object' ) {
@@ -299,7 +313,7 @@
 		//If there is an "intro", adds it to the form as a label
 		if ( typeof description.intro == 'string' ) {
 			$( '<p/>' )
-				.text( $s( description.intro ) )
+				.text( preproc( description.intro ) )
 				.addClass( 'mw-gadgets-prefsDialog-intro' )
 				.appendTo( $form );
 		}
@@ -357,6 +371,13 @@
 	}
 
 	var methods = {
+		
+		/**
+		 * Returns a dictionary of field names and field values.
+		 * Returned values are not warranted to pass field validation.
+		 * 
+		 * @return {Object}
+		 */
 		getValues: function() {
 			var	data = this.data( 'formBuilder' ),
 				result = {};
@@ -368,6 +389,12 @@
 			 
 			return result;
 		},
+
+		/**
+		 * Do validation of form fields and warn the user about wrong values, if any.
+		 * 
+		 * @return {Boolean} true if all fields pass validation, false otherwise.
+		 */
 		validate: function() {
 			var data = this.data( 'formBuilder' );
 			return data.validator.form();
