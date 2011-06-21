@@ -24,9 +24,14 @@ class GadgetHooks {
 	 */
 	public static function articleSaveComplete( $article, $user, $text ) {
 		//update cache if MediaWiki:Gadgets-definition was edited
+		//or if a Mediawiki:Gadget-foo.preferences was edited
 		$title = $article->mTitle;
-		if( $title->getNamespace() == NS_MEDIAWIKI && $title->getText() == 'Gadgets-definition' ) {
-			Gadget::loadStructuredList( $text );
+		if( $title->getNamespace() == NS_MEDIAWIKI ) {
+			if ( $title->getText() == 'Gadgets-definition'
+				|| preg_match( '/Gadget-([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)-config/', $title->getText() ) )
+			{
+				Gadget::loadStructuredList( $text );
+			}
 		}
 		return true;
 	}
@@ -54,7 +59,7 @@ class GadgetHooks {
 				}
 			}
 			if ( $section !== '' ) {
-				$section = wfMsgExt( "gadget-section-$section", 'parseinline' );
+				$section = wfMessage( "gadget-section-$section" )->parse();
 				if ( count ( $available ) ) {
 					$options[$section] = $available;
 				}
@@ -69,7 +74,7 @@ class GadgetHooks {
 				'label' => '&#160;',
 				'default' => Xml::tags( 'tr', array(),
 					Xml::tags( 'td', array( 'colspan' => 2 ),
-						wfMsgExt( 'gadgets-prefstext', 'parse' ) ) ),
+						wfMessage( 'gadgets-prefstext' )->parse() ) ),
 				'section' => 'gadgets',
 				'raw' => 1,
 				'rawrow' => 1,
@@ -161,11 +166,14 @@ class GadgetHooks {
 	 * @param &$options 
 	 */
 	public static function userLoadOptions( $user, &$options ) {
+		
 		//Only if it's current user
 		$curUser = RequestContext::getMain()->getUser();
 		if ( $curUser->getID() !== $user->getID() ) {
 			return true;
 		}
+
+		wfProfileIn( __METHOD__ );
 
 		//Find out all existing gadget preferences and save them in a map
 		$preferencesCache = array();
@@ -205,7 +213,8 @@ class GadgetHooks {
 				$gadget->setPrefs( $userPrefs );
 			}
 		}
-		
+
+		wfProfileOut( __METHOD__ );		
 		return true;
 	}
 

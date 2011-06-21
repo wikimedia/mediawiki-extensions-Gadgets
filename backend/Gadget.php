@@ -32,6 +32,7 @@ class Gadget {
 			$requiredRights = array(),
 			$onByDefault = false,
 			$category,
+			$prefsDescription = null,
 			$preferences = null;
 
 
@@ -227,6 +228,8 @@ class Gadget {
 		$gadget = new Gadget();
 		$gadget->name = trim( str_replace(' ', '_', $m[1] ) );
 		$gadget->definition = $definition;
+
+		//Parse gadget options
 		$options = trim( $m[2], ' []' );
 		foreach ( preg_split( '/\s*\|\s*/', $options, -1, PREG_SPLIT_NO_EMPTY ) as $option ) {
 			$arr  = preg_split( '/\s*=\s*/', $option, 2 );
@@ -260,6 +263,17 @@ class Gadget {
 				$gadget->styles[] = $page;
 			}
 		}
+		
+		if ( $gadget->resourceLoaded ) {
+			//Retrieve preference descriptions
+			$prefsDescriptionMsg = "Gadget-{$gadget->name}.preferences";
+			$msg = wfMessage( $prefsDescriptionMsg );
+			if ( $msg->exists() ) {
+				$prefsDescription = FormatJson::decode( $msg->plain(), true );
+				$gadget->setPrefsDescription( $prefsDescription );
+			}
+		}
+		
 		return $gadget;
 	}
 
@@ -516,12 +530,14 @@ class Gadget {
 				return $gadgets;
 			}
 
-			$g = wfMsgForContentNoTrans( "gadgets-definition" );
-			if ( wfEmptyMsg( "gadgets-definition", $g ) ) {
+			$msg = wfMessage( "gadgets-definition" );
+			if ( !$msg->exists() ) {
 				$gadgets = false;
 				wfProfileOut( __METHOD__ );
 				return $gadgets;
 			}
+
+			$g = $msg->plain();
 		} else {
 			$g = $forceNewText;
 		}
@@ -558,8 +574,7 @@ class Gadget {
 	//TODO: put the following static methods somewhere else
 	
 	//Checks if the given description of the preferences is valid
-	public static function isGadgetPrefsDescriptionValid( &$prefsDescriptionJson ) {
-		$prefsDescription = FormatJson::decode( $prefsDescriptionJson, true );
+	public static function isPrefsDescriptionValid( $prefsDescription ) {
 		
 		if ( $prefsDescription === null || !isset( $prefsDescription['fields'] ) ) {
 			return false;
@@ -636,22 +651,25 @@ class Gadget {
 	/**
 	 * Gets description of preferences for this gadget.
 	 * 
-	 * @return Mixed null if the gadget exists but doesn't have any preferences or if provided ones are not valid,
-	 *               an array with the description of preferences otherwise.
+	 * @return Mixed null or an array with preferences
 	 */
 	public function getPrefsDescription() {
-		$prefsDescriptionMsg = "Gadget-{$this->name}.preferences";
-		
-		//TODO: use cache
-		
-		$prefsDescriptionJson = wfMsgForContentNoTrans( $prefsDescriptionMsg );
-		if ( wfEmptyMsg( $prefsDescriptionMsg, $prefsDescriptionJson ) ||
-			!self::isGadgetPrefsDescriptionValid( $prefsDescriptionJson ) )
-		{
-			return null;
+		return $this->prefsDescription;
+	}
+
+	/**
+	 * Sets the description of preferences for this gadget. If the given array is not valid,
+	 * then internal preference description is set to null.
+	 * 
+	 * @param $prefsDescription mixed an array with new preferences description, or null.
+	 * 
+	 */
+	public function setPrefsDescription( $prefsDescription ) {
+		if ( self::isPrefsDescriptionValid( $prefsDescription ) ) {
+			$this->prefsDescription = $prefsDescription;
+		} else {
+			$this->prefsDescription = null;
 		}
-		
-		return FormatJson::decode( $prefsDescriptionJson, true );
 	}
 
 	//Check if a preference is valid, according to description
