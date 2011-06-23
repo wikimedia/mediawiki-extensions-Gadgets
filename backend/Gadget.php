@@ -134,22 +134,6 @@ class Gadget {
 			}
 		}
 		
-		//$default must pass validation, too
-		$required = isset( $option['required'] ) ? $option['required'] : true;
-		$default = $option['default'];
-		
-		if ( $required === false && $default === '' ) {
-			return true; //empty string is good, skip other checks
-		}
-		
-		$len = strlen( $default );
-		if ( isset( $option['minlength'] ) && $len < $option['minlength'] ) {
-			return false;
-		}
-		if ( isset( $option['maxlength'] ) && $len > $option['maxlength'] ) {
-			return false;
-		}
-		
 		return true;
 	}
 
@@ -163,17 +147,6 @@ class Gadget {
 	
 	//Further checks for 'number' options
 	private static function checkNumberOptionDefinition( $option ) {
-
-		if ( $option['default'] === null ) {		
-			if ( isset( $option['required'] ) && $option['required'] === false ) {
-				//Accept null default if "required" is false
-				return true;
-			} else {
-				//Reject null default if "required" is true
-				return false;
-			}
-		}
-		
 		if ( isset( $option['integer'] ) && $option['integer'] === true ) {
 			//Check if 'min', 'max' and 'default' are integers (if given)
 			if ( intval( $option['default'] ) != $option['default'] ) {
@@ -185,16 +158,6 @@ class Gadget {
 			if ( isset( $option['max'] ) && intval( $option['max'] ) != $option['max'] ) {
 				return false;
 			}
-		}
-		
-		//validate $option['default']
-		$default = $option['default'];
-		
-		if ( isset( $option['min'] ) && $default < $option['min'] ) {
-			return false;
-		}
-		if ( isset( $option['max'] ) && $default > $option['max'] ) {
-			return false;
 		}
 
 		return true;
@@ -216,13 +179,6 @@ class Gadget {
 		}
 		
 		$values = array_values( $options );
-		
-		$default = $option['default'];
-		
-		//Checks that $default is one of the option values
-		if ( !in_array( $default, $values, true ) ){
-			return false;
-		}
 		
 		return true;
 	}
@@ -664,6 +620,16 @@ class Gadget {
 					return false;
 				}
 			}
+			
+			//Finally, check that the 'default' fields exists and is valid
+			if ( !array_key_exists( 'default', $optionDefinition ) ) {
+				return false;
+			}
+			
+			$prefs = array( 'dummy' => $optionDefinition['default'] );
+			if ( !self::checkSinglePref( $optionDefinition, $prefs, 'dummy' ) ) {
+				return false;
+			}
 		}
 		
 		return true;
@@ -783,7 +749,7 @@ class Gadget {
 	 * Checks if $prefs is an array of preferences that passes validation
 	 * 
 	 * @param $prefsDescription Array: the preferences description to use.
-	 * @param &$prefs Array: reference of the array of preferences to check.
+	 * @param $prefs Array: reference of the array of preferences to check.
 	 * 
 	 * @return boolean true if $prefs passes validation against $prefsDescription, false otherwise.
 	 */
