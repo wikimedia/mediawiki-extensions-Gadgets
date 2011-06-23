@@ -44,7 +44,7 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals( array( 'jquery.ui' ), $g->getDependencies() );
 	}
 
-	function testPreferences() {
+	function testOptions() {
 		global $wgUser;
 
 		// This test makes call to the parser which requires valids Outputpage
@@ -78,5 +78,205 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		// Restore globals
 		$wgOut = $old_wgOut;
 		$wgTitle = $old_wgTitle;
+	}
+
+	//Test preferences descriptions validator (generic)
+	function testPrefsDescriptions() {
+		$this->assertFalse( Gadget::isPrefsDescriptionValid( null ) );
+		$this->assertFalse( Gadget::isPrefsDescriptionValid( array() ) );
+		$this->assertFalse( Gadget::isPrefsDescriptionValid( array( 'fields' => array() ) ) );
+
+		//Test with wrong type
+		$this->assertFalse( Gadget::isPrefsDescriptionValid( array(
+			'fields' => array(
+				'testUnexisting' => array(
+					'type' => 'unexistingtype',
+					'label' => 'foo',
+					'default' => 'bar'
+				)
+			)
+		) ) );
+
+		//Test with wrong preference name
+		$this->assertFalse( Gadget::isPrefsDescriptionValid( array(
+			'fields' => array(
+				'testWrongN@me' => array(
+					'type' => 'boolean',
+					'label' => 'foo',
+					'default' => true
+				)
+			)
+		) ) );
+
+		//Test with an unexisting field parameter
+		$this->assertFalse( Gadget::isPrefsDescriptionValid( array(
+			'fields' => array(
+				'testBoolean' => array(
+					'type' => 'boolean',
+					'label' => 'foo',
+					'default' => true,
+					'unexistingParamThatMustFail' => 'foo'
+				)
+			)
+		) ) );
+	}
+
+	//Tests for 'boolean' type preferences
+	function testPrefsDescriptionsBoolean() {
+		$correct = array(
+			'fields' => array(
+				'testBoolean' => array(
+					'type' => 'boolean',
+					'label' => 'some label',
+					'default' => true
+				)
+			)
+		);
+
+		$this->assertTrue( Gadget::isPrefsDescriptionValid( $correct ) );
+
+		$correct2 = array(
+			'fields' => array(
+				'testBoolean' => array(
+					'type' => 'boolean',
+					'label' => 'some label',
+					'default' => false
+				)
+			)
+		);
+
+		$this->assertTrue( Gadget::isPrefsDescriptionValid( $correct2 ) );
+
+		//Tests with wrong default values
+		$wrong = $correct;
+		foreach ( array( 0, 1, '', 'false', 'true', null, array() ) as $def ) {
+			$wrong['fields']['testBoolean']['default'] = $def;
+			$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrong ) );
+		}
+	}
+
+	//Tests for 'string' type preferences
+	function testPrefsDescriptionsString() {
+		$correct = array(
+			'fields' => array(
+				'testString' => array(
+					'type' => 'string',
+					'label' => 'some label',
+					'minlength' => 6,
+					'maxlength' => 10,
+					'required' => false,
+					'default' => 'default'
+				)
+			)
+		);
+
+		$this->assertTrue( Gadget::isPrefsDescriptionValid( $correct ) );
+
+		//Tests with wrong default values
+		$wrong = $correct;
+		foreach ( array( null, true, false, 0, 1, array(), 'short', 'veryverylongstring' ) as $def ) {
+			$wrong['fields']['testString']['default'] = $def;
+			$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrong ) );
+		}
+
+		//Tests with correct default values (when required is false)
+		$correct2 = $correct;
+		foreach ( array( '', '6chars', '1234567890' ) as $def ) {
+			$correct2['fields']['testString']['default'] = $def;
+			$this->assertTrue( Gadget::isPrefsDescriptionValid( $correct2 ) );
+		}
+
+		//Test with empty default when "required" is true
+		$wrong = $correct;
+		$wrong['fields']['testString']['required'] = true;
+		$wrong['fields']['testString']['default'] = '';
+		$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrong ) );
+	}
+
+	//Tests for 'number' type preferences
+	function testPrefsDescriptionsNumber() {
+		$correctFloat = array(
+			'fields' => array(
+				'testNumber' => array(
+					'type' => 'number',
+					'label' => 'some label',
+					'min' => -15,
+					'max' => 36,
+					'required' => true,
+					'default' => 3.14
+				)
+			)
+		);
+
+		$correctInt = array(
+			'fields' => array(
+				'testNumber' => array(
+					'type' => 'number',
+					'label' => 'some label',
+					'min' => -15,
+					'max' => 36,
+					'integer' => true,
+					'required' => true,
+					'default' => 12
+				)
+			)
+		);
+
+		$this->assertTrue( Gadget::isPrefsDescriptionValid( $correctFloat ) );
+		$this->assertTrue( Gadget::isPrefsDescriptionValid( $correctInt ) );
+
+		//Tests with wrong default values (with 'required' = true)
+		$wrongFloat = $correctFloat;
+		foreach ( array( '', false, true, null, array(), -100, +100 ) as $def ) {
+			$wrongFloat['fields']['testNumber']['default'] = $def;
+			$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrongFloat ) );
+		}
+
+		$wrongInt = $correctInt;
+		foreach ( array( '', false, true, null, array(), -100, +100, 2.7182818 ) as $def ) {
+			$wrongInt['fields']['testNumber']['default'] = $def;
+			$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrongInt ) );
+		}
+
+		//If required=false, default=null must be accepted, too
+		foreach ( array( $correctFloat, $correctInt ) as $correct ) {
+			$correct['fields']['testNumber']['required'] = false;
+			$correct['fields']['testNumber']['default'] = null;
+			$this->assertTrue( Gadget::isPrefsDescriptionValid( $correct ) );
+		}
+	}
+
+	//Tests for 'select' type preferences
+	function testPrefsDescriptionsSelect() {
+		$correct = array(
+			'fields' => array(
+				'testSelect' => array(
+					'type' => 'select',
+					'label' => 'some label',
+					'default' => 3,
+					'options' => array(
+						'opt1' => null,
+						'opt2' => true,
+						'opt3' => 3,
+						'opt4' => 'test'
+					)
+				)
+			)
+		);
+
+
+		//Tests with correct default values
+		$correct2 = $correct;
+		foreach ( array( null, true, 3, 'test' ) as $def ) {
+			$correct2['fields']['testSelect']['default'] = $def;
+			$this->assertTrue( Gadget::isPrefsDescriptionValid( $correct2 ) );
+		}
+
+		//Tests with wrong default values
+		$wrong = $correct;
+		foreach ( array( '', 'true', 'null', false, array(), 0, 1, 3.0001 ) as $def ) {
+			$wrong['fields']['testSelect']['default'] = $def;
+			$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrong ) );
+		}
 	}
 }

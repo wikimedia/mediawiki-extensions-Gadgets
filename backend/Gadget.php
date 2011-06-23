@@ -73,7 +73,7 @@ class Gadget {
 		'number' => array(
 			'default' => array(
 				'isMandatory' => true,
-				'checker' => 'Gadget::isFloatOrInt'
+				'checker' => 'Gadget::isFloatOrIntOrNull'
 			),
 			'label' => array(
 				'isMandatory' => true,
@@ -156,9 +156,24 @@ class Gadget {
 	private static function isFloatOrInt( $param ) {
 		return is_float( $param ) || is_int( $param );
 	}
+
+	private static function isFloatOrIntOrNull( $param ) {
+		return is_float( $param ) || is_int( $param ) || $param === null;
+	}
 	
 	//Further checks for 'number' options
 	private static function checkNumberOptionDefinition( $option ) {
+
+		if ( $option['default'] === null ) {		
+			if ( isset( $option['required'] ) && $option['required'] === false ) {
+				//Accept null default if "required" is false
+				return true;
+			} else {
+				//Reject null default if "required" is true
+				return false;
+			}
+		}
+		
 		if ( isset( $option['integer'] ) && $option['integer'] === true ) {
 			//Check if 'min', 'max' and 'default' are integers (if given)
 			if ( intval( $option['default'] ) != $option['default'] ) {
@@ -575,8 +590,11 @@ class Gadget {
 	
 	//Checks if the given description of the preferences is valid
 	public static function isPrefsDescriptionValid( $prefsDescription ) {
-		
-		if ( $prefsDescription === null || !isset( $prefsDescription['fields'] ) ) {
+		if ( !is_array( $prefsDescription )
+			|| !isset( $prefsDescription['fields'] )
+			|| !is_array( $prefsDescription['fields'] )
+			|| count( $prefsDescription['fields'] ) == 0 )
+		{
 			return false;
 		}
 				
@@ -606,7 +624,10 @@ class Gadget {
 				return false;
 			}
 			
-			//TODO: check $option name compliance
+			//check $option name compliance
+			if ( !preg_match( '/^[a-zA-Z_][a-zA-Z0-9_]*$/', $option ) ) {
+				return false;
+			}
 			
 			//Check if all fields satisfy specification
 			$typeSpec = self::$prefsDescriptionSpecifications[$type];
