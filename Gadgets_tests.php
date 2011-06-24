@@ -108,6 +108,29 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 			)
 		) ) );
 
+		//Test with too long preference name (41 characters)
+		$this->assertFalse( Gadget::isPrefsDescriptionValid( array(
+			'fields' => array(
+				'aPreferenceNameExceedingTheLimitOf40Chars' => array(
+					'type' => 'boolean',
+					'label' => 'foo',
+					'default' => true
+				)
+			)
+		) ) );
+
+		//This must pass, instead (40 characters is fine)
+		$this->assertTrue( Gadget::isPrefsDescriptionValid( array(
+			'fields' => array(
+				'otherPreferenceNameThatS40CharactersLong' => array(
+					'type' => 'boolean',
+					'label' => 'foo',
+					'default' => true
+				)
+			)
+		) ) );
+
+
 		//Test with an unexisting field parameter
 		$this->assertFalse( Gadget::isPrefsDescriptionValid( array(
 			'fields' => array(

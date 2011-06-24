@@ -581,7 +581,9 @@ class Gadget {
 			}
 			
 			//check $option name compliance
-			if ( !preg_match( '/^[a-zA-Z_][a-zA-Z0-9_]*$/', $option ) ) {
+			if ( strlen( $option ) > 40 
+				|| !preg_match( '/^[a-zA-Z_][a-zA-Z0-9_]*$/', $option ) )
+			{
 				return false;
 			}
 			
