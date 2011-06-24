@@ -648,6 +648,8 @@ class Gadget {
 	 * Sets the description of preferences for this gadget. If the given array is not valid,
 	 * then internal preference description is set to null.
 	 * 
+	 * Invalidates any previous preference value set with setPrefs().
+	 * 
 	 * @param $prefsDescription mixed an array with new preferences description, or null.
 	 * 
 	 */
@@ -657,6 +659,9 @@ class Gadget {
 		} else {
 			$this->prefsDescription = null;
 		}
+		
+		//Any previously set of preferences has no meaning now, set back to null
+		$this->preferences = null;
 	}
 
 	//Check if a preference is valid, according to description

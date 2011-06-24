@@ -236,11 +236,18 @@ class GadgetHooks {
 		}
 		
 		foreach ( $gadgets as $gadget ) {
-			if ( $gadget->getPrefs() !== null ) {
-				//TODO: should remove prefs that equal their default
-
-				$prefsSerialized = serialize( $gadget->getPrefs() );
-				$options["gadget-{$gadget->getName()}-config"] = $prefsSerialized;
+			$prefs = $gadget->getPrefs();
+			if ( $prefs !== null ) {
+				$prefsDescription = $gadget->getPrefsDescription();
+				
+				//Remove preferences that equal their default
+				foreach ( $prefs as $prefName => $value ) {
+					if ( $prefsDescription['fields'][$prefName]['default'] === $value ) {
+						unset( $prefs[$prefName] );
+					}
+				}
+				
+				$options["gadget-{$gadget->getName()}-config"] = serialize( $prefs );
 			}
 		}
 		
