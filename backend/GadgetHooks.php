@@ -181,9 +181,7 @@ class GadgetHooks {
 			$m = array();
 			if ( preg_match( '/gadget-([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)-config/', $option, $m ) ) {
 				$gadgetName = $m[1];
-				wfSuppressWarnings();				
 				$gadgetPrefs = unserialize( $value );
-				wfRestoreWarnings();
 				if ( $gadgetPrefs !== false ) {
 					$preferencesCache[$gadgetName] = $gadgetPrefs;
 				} else {
