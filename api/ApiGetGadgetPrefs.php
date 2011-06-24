@@ -49,7 +49,7 @@ class ApiGetGadgetPrefs extends ApiBase {
 		$userPrefs = $gadget->getPrefs();
 		
 		if ( $userPrefs === null ) {
-			$this->dieUsage( 'An unexpected condition happened, please report this to the developers', 'unexpectederror' );
+			throw new MWException( __METHOD__ . ': $userPrefs should not be null.' );
 		}
 				
 		//Add user preferences to preference description
