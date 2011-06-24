@@ -279,4 +279,115 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 			$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrong ) );
 		}
 	}
+	
+	//Tests Gadget::setPrefsDescription, Gadget::checkPrefsAgainstDescription,
+	//Gadget::matchPrefsWithDescription and Gadget::setPrefs.
+	function testSetPrefs() {
+		$prefsDescription = array(
+			'fields' => array(
+				'testBoolean' => array(
+					'type' => 'boolean',
+					'label' => 'foo',
+					'default' => true
+				),
+				'testBoolean2' => array(
+					'type' => 'boolean',
+					'label' => 'foo',
+					'default' => true
+				),
+				'testNumber' => array(
+					'type' => 'number',
+					'label' => 'foo',
+					'min' => 2.3,
+					'max' => 13.94,
+					'default' => 7
+				),
+				'testNumber2' => array(
+					'type' => 'number',
+					'label' => 'foo',
+					'min' => 2.3,
+					'max' => 13.94,
+					'default' => 7
+				),
+				'testSelect' => array(
+					'type' => 'select',
+					'label' => 'foo',
+					'default' => 3,
+					'options' => array(
+						'opt1' => null,
+						'opt2' => true,
+						'opt3' => 3,
+						'opt4' => 'opt4value'
+					)
+				),
+				'testSelect2' => array(
+					'type' => 'select',
+					'label' => 'foo',
+					'default' => 3,
+					'options' => array(
+						'opt1' => null,
+						'opt2' => true,
+						'opt3' => 3,
+						'opt4' => 'opt4value'
+					)
+				)
+			)
+		);
+		
+		$this->assertTrue( Gadget::isPrefsDescriptionValid( $prefsDescription ) );
+		
+		$prefs = array(
+			'testBoolean' => false,
+			'testBoolean2' => null, //wrong
+			'testNumber' => 11,
+			'testNumber2' => 45, //wrong
+			'testSelect' => true,
+			'testSelect2' => false //wrong
+		);
+		
+		$this->assertFalse( Gadget::checkPrefsAgainstDescription( $prefsDescription, $prefs ) );
+		
+		$prefs2 = $prefs;
+		Gadget::matchPrefsWithDescription( $prefsDescription, $prefs2 );
+		//Now $prefs2 should pass validation
+		$this->assertTrue( Gadget::checkPrefsAgainstDescription( $prefsDescription, $prefs2 ) );
+
+		//$prefs2 should have testBoolean, testNumber and testSelect unchanged, the other reset to defaults
+		$this->assertEquals( $prefs2['testBoolean'], $prefs['testBoolean'] );
+		$this->assertEquals( $prefs2['testNumber'], $prefs['testNumber'] );
+		$this->assertEquals( $prefs2['testSelect'], $prefs['testSelect'] );
+
+		$this->assertEquals( $prefs2['testBoolean2'], $prefsDescription['fields']['testBoolean2']['default'] );
+		$this->assertEquals( $prefs2['testNumber2'], $prefsDescription['fields']['testNumber2']['default'] );
+		$this->assertEquals( $prefs2['testSelect2'], $prefsDescription['fields']['testSelect2']['default'] );
+		
+		$g = $this->create( '*foo[ResourceLoader]| foo.css|foo.js|foo.bar' );
+		$g->setPrefsDescription( $prefsDescription );
+		$this->assertTrue( $g->getPrefsDescription() !== null );
+		
+		//Setting wrong preferences must fail
+		$this->assertFalse( $g->setPrefs( $prefs ) );
+		
+		//Setting right preferences must succeed
+		$this->assertTrue( $g->setPrefs( $prefs2 ) );
+	}
+
+	/**
+	 * @expectedException MWException
+	 */
+	function testSetPrefsWithWrongParam() {
+		$g = $this->create( '*foo[ResourceLoader]| foo.css|foo.js|foo.bar' );
+		$g->setPrefsDescription( array(
+			'fields' => array(
+				'testBoolean' => array(
+					'type' => 'boolean',
+					'label' => 'foo',
+					'default' => true
+				)
+			)
+		) );
+		
+		//Call with invalid param
+		$g->setPrefs( 'wrongparam' );
+	}
 }

@@ -799,17 +799,13 @@ class Gadget {
 	 * 
 	 * @param $prefs Array: the array of preferences.
 	 * @param $savePrefs boolean: if true, preferences are also saved back to the Database.
+	 * @throws MWException when $prefs is not an array.
 	 * 
 	 * @return boolean: true if validation is passed, false otherwise.
 	 */
 	public function setPrefs( $prefs, $savePrefs = false ) {
-		
-		if ( is_string( $prefs ) ) {
-			$prefs = FormatJson::decode( $prefs, true );
-		}
-		
-		if ( $prefs === null || !is_array( $prefs ) ) {
-			throw new MWException( __METHOD__ . ': $prefs must be an array or valid JSON' );
+		if ( !is_array( $prefs ) ) {
+			throw new MWException( __METHOD__ . ': $prefs must be an array' );
 		}
 
 		$prefsDescription = $this->getPrefsDescription();
