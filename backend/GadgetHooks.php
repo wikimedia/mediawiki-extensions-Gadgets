@@ -228,10 +228,13 @@ class GadgetHooks {
 			return true;
 		}
 		
+		wfProfileIn( __METHOD__ );
+		
 		//Reinsert gadget-*-config options, so they can be saved back
 		$gadgets = Gadget::loadList();
 		
 		if ( !$gadgets ) {
+			wfProfileOut( __METHOD__ );
 			return true;
 		}
 		
@@ -247,10 +250,14 @@ class GadgetHooks {
 					}
 				}
 				
-				$options["gadget-{$gadget->getName()}-config"] = serialize( $prefs );
+				//Only save it if at least one preference differs from default
+				if ( !empty( $prefs ) ) {
+					$options["gadget-{$gadget->getName()}-config"] = serialize( $prefs );
+				}
 			}
 		}
 		
+		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
