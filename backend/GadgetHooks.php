@@ -102,12 +102,50 @@ class GadgetHooks {
 		if ( !$gadgets ) {
 			return true;
 		}
+		
+		wfProfileIn( __METHOD__ );
+
+		//Recover messages for gadget preferences
+		$messages = array();
+		foreach ( $gadgets as $gadget ) {
+			$prefsDescription = $gadget->getPrefsDescription();
+			if ( $prefsDescription !== null ) {
+				$msgs = GadgetPrefs::getMessages( $prefsDescription );
+				
+				//Adds a prefix to messages of each gadget
+				foreach( $msgs as $idx => $val ) {
+					$messages[] = "Gadget-{$gadget->getName()}-" . $msgs[$idx];
+				}
+			}
+		}
+		
+		//Register the ext.gadgets.preferences module
+		//TODO: fix caching issues for user-defined messages
+		$resourceLoader->register( 'ext.gadgets.preferences', array(
+			'scripts' 		=> array( 'ext.gadgets.preferences.js' ),
+			'styles'        => array( 'ext.gadgets.preferences.css' ),
+			'dependencies' 	=> array(
+				'jquery', 'jquery.json', 'jquery.ui.dialog', 'jquery.formBuilder',
+				'mediawiki.htmlform', 'ext.gadgets'
+			),
+			'messages'      => array_merge( $messages, array(
+				'gadgets-configure', 'gadgets-configuration-of', 'gadgets-prefs-save', 'gadgets-prefs-cancel',
+				'gadgets-unexpected-error', 'gadgets-save-success', 'gadgets-save-failed'
+			) ),
+			'localBasePath' => dirname( dirname( __FILE__ ) ) . '/ui/resources/',
+			'remoteExtPath' => 'Gadgets/ui/resources'
+		) );
+
+		//Register gadgets modules
 		foreach ( $gadgets as $g ) {
 			$module = $g->getModule();
 			if ( $module ) {
 				$resourceLoader->register( $g->getModuleName(), $module );
 			}
 		}
+		
+		wfProfileOut( __METHOD__ );
+
 		return true;
 	}
 
@@ -120,15 +158,15 @@ class GadgetHooks {
 		
 		wfProfileIn( __METHOD__ );
 
-		//tweaks in Special:Preferences
-		if ( $out->getTitle()->isSpecial( 'Preferences' ) ) {
-			$out->addModules( 'ext.gadgets.preferences' );
-		}
-
 		$gadgets = Gadget::loadList();
 		if ( !$gadgets ) {
 			wfProfileOut( __METHOD__ );
 			return true;
+		}
+
+		//tweaks in Special:Preferences
+		if ( $out->getTitle()->isSpecial( 'Preferences' ) ) {
+			$out->addModules( 'ext.gadgets.preferences' );
 		}
 
 		$lb = new LinkBatch();
@@ -155,6 +193,7 @@ class GadgetHooks {
 			$done[$page] = true;
 			self::applyScript( $page, $out );
 		}
+
 		wfProfileOut( __METHOD__ );
 
 		return true;

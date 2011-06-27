@@ -66,7 +66,9 @@
 							
 							var prefs = response.getgadgetprefs;
 							
-							var dialogBody = $( prefs ).formBuilder();
+							var dialogBody = $( prefs ).formBuilder( {
+								gadget: gadget
+							} );
 							
 							$( dialogBody ).submit( function() {
 								return false; //prevent form submission

@@ -12,14 +12,14 @@
 	//If str starts with "@" the rest of the string is assumed to be
 	//a message, and the result of mw.msg is returned.
 	//Two "@@" at the beginning escape for a single "@".
-	function preproc( str ) {
+	function preproc( $form, str ) {
 		if ( str.length <= 1 || str[0] !== '@' ) {
 			return str;
 		} else if ( str.substr( 0, 2 ) == '@@' ) {
 			return str.substr( 1 );
 		} else {
 			//TODO: better validation
-			return mw.msg( str.substring( 1 ) );
+			return mw.message( $form.data( 'formBuilder' ).prefix + str.substring( 1 ) ).plain();
 		}
 	}
 
@@ -63,11 +63,13 @@
 	}
 
 	//A field with no content
-	function EmptyField( name, desc ) {
+	function EmptyField( $form, name, desc ) {
 		//Check existence of compulsory fields
 		if ( typeof name == 'undefined' || !desc.type || !desc.label ) {
 			$.error( "Missing arguments" );
 		}
+
+		this.$form = $form;
 
 		this.$p = $( '<p/>' );
 
@@ -103,11 +105,11 @@
 	//A field with just a label
 	LabelField.prototype = object( EmptyField.prototype );
 	LabelField.prototype.constructor = LabelField;
-	function LabelField( name, desc ) {
-		EmptyField.call( this, name, desc );
+	function LabelField( $form, name, desc ) {
+		EmptyField.call( this, $form, name, desc );
 
 		var $label = $( '<label/>' )
-			.text( preproc( this.desc.label ) )
+			.text( preproc( this.$form, this.desc.label ) )
 			.attr('for', idPrefix + this.name );
 
 		this.$p.append( $label );
@@ -116,8 +118,8 @@
 	//A field with a label and a checkbox
 	BooleanField.prototype = object( LabelField.prototype );
 	BooleanField.prototype.constructor = BooleanField;
-	function BooleanField( name, desc ){ 
-		LabelField.call( this, name, desc );
+	function BooleanField( $form, name, desc ){ 
+		LabelField.call( this, $form, name, desc );
 
 		if ( typeof desc.value != 'boolean' ) {
 			$.error( "desc.value is invalid" );
@@ -140,8 +142,8 @@
 
 	StringField.prototype = object( LabelField.prototype );
 	StringField.prototype.constructor = StringField;
-	function StringField( name, desc ){ 
-		LabelField.call( this, name, desc );
+	function StringField( $form, name, desc ){ 
+		LabelField.call( this, $form, name, desc );
 
 		if ( typeof desc.value != 'string' ) {
 			$.error( "desc.value is invalid" );
@@ -192,8 +194,8 @@
 	
 	NumberField.prototype = object( LabelField.prototype );
 	NumberField.prototype.constructor = NumberField;
-	function NumberField( name, desc ){ 
-		LabelField.call( this, name, desc );
+	function NumberField( $form, name, desc ){ 
+		LabelField.call( this, $form, name, desc );
 
 		if ( desc.value !== null && typeof desc.value != 'number' ) {
 			$.error( "desc.value is invalid" );
@@ -251,18 +253,19 @@
 
 	SelectField.prototype = object( LabelField.prototype );
 	SelectField.prototype.constructor = SelectField;
-	function SelectField( name, desc ){ 
-		LabelField.call( this, name, desc );
+	function SelectField( $form, name, desc ){ 
+		LabelField.call( this, $form, name, desc );
 
 		var $select = this.$select = $( '<select/>' )
 			.attr( 'id', idPrefix + this.name )
 			.attr( 'name', idPrefix + this.name );
 		
 		var values = [];
+		var self = this;
 		$.each( desc.options, function( optName, optVal ) {
 			var i = values.length;
 			$( '<option/>' )
-				.text( preproc( optName ) )
+				.text( preproc( self.$form, optName ) )
 				.val( i )
 				.appendTo( $select );
 			values.push( optVal );
@@ -299,9 +302,10 @@
 	 * Main method; takes the given preferences description object and builds
 	 * the body of the form with the requested fields.
 	 * 
+	 * @param {Object} options
 	 * @return {Element} the object with the requested form body.
 	 */
-	function buildFormBody() {
+	function buildFormBody( options ) {
 		var description  = this.get( 0 );
 		if ( typeof description != 'object' ) {
 			mw.log( "description should be an object, instead of a " + typeof description );
@@ -313,7 +317,7 @@
 		//If there is an "intro", adds it to the form as a label
 		if ( typeof description.intro == 'string' ) {
 			$( '<p/>' )
-				.text( preproc( description.intro ) )
+				.text( preproc( this.$form, description.intro ) )
 				.addClass( 'formBuilder-intro' )
 				.appendTo( $form );
 		}
@@ -322,6 +326,11 @@
 			mw.log( "description.fields should be an object, instead of a " + typeof description.fields );
 			return null;
 		}
+
+		var prefix = options.gadget === undefined ? '' : ( 'Gadget-' + options.gadget + '-' );
+		$form.data( 'formBuilder', {
+			prefix: prefix, //prefix for messages
+		} );
 
 		var fields = [];
 
@@ -341,7 +350,7 @@
 
 				var f;
 				try {
-					f = new FieldConstructor( fieldName, field );
+					f = new FieldConstructor( $form, fieldName, field );
 				} catch ( e ) {
 					mw.log( e );
 					return null; //constructor failed, wrong syntax in field description
@@ -362,10 +371,9 @@
 
 		var validator = $form.validate( settings );
 
-		$form.data( 'formBuilder', {
-			fields: fields,
-			validator: validator
-		} );
+		var data = $form.data( 'formBuilder' );
+		data.fields = fields,
+		data.validator = validator
 
 		return $form;
 	}

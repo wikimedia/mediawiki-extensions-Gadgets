@@ -376,4 +376,49 @@ class GadgetPrefs {
 		}
 	}
 	
+	/**
+	 * Returns true if $str should be interpreted as a message, false otherwise.
+	 * 
+	 * @param $str String
+	 * @return Mixed
+	 * 
+	 */
+	private static function isMessage( $str ) {
+		return strlen( $str ) >= 2
+			&& $str[0] == '@'
+			&& $str[1] != '@';
+	}
+	
+	/**
+	 * Returns a list of (unprefixed) messages mentioned by $prefsDescription. It is assumed that
+	 * $prefsDescription is valid (i.e.: GadgetPrefs::isPrefsDescriptionValid( $prefsDescription ) === true).
+	 * 
+	 * @param $prefsDescription Array: the preferences description to use.
+	 * @return Array: the messages needed by $prefsDescription.
+	 */
+	public static function getMessages( $prefsDescription ) {
+		$maybeMsgs = array();
+		
+		if ( isset( $prefsDescription['intro'] ) ) {
+			$maybeMsgs[] = $prefsDescription['intro'];
+		}
+		
+		foreach ( $prefsDescription['fields'] as $prefName => $prefDesc ) {
+			$maybeMsgs[] = $prefDesc['label'];
+			
+			if ( $prefDesc['type'] == 'select' ) {
+				foreach ( $prefDesc['options'] as $optName => $value ) {
+					$maybeMsgs[] = $optName;
+				}
+			}
+		}
+		
+		$msgs = array();
+		foreach ( $maybeMsgs as $msg ) {
+			if ( self::isMessage( $msg ) ) {
+				$msgs[] = substr( $msg, 1 );
+			}
+		}
+		return array_unique( $msgs );
+	}
 }
