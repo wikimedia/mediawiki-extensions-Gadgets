@@ -206,7 +206,7 @@ class GadgetHooks {
 					$userPrefs = array(); //no saved prefs (or invalid entry in DB), use defaults
 				}
 				
-				Gadget::matchPrefsWithDescription( $prefsDescription, $userPrefs );
+				GadgetPrefs::matchPrefsWithDescription( $prefsDescription, $userPrefs );
 				
 				$gadget->setPrefs( $userPrefs );
 			}

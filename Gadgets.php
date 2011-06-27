@@ -48,6 +48,7 @@ $wgAutoloadClasses['ApiSetGadgetPrefs'] = $dir . 'api/ApiSetGadgetPrefs.php';
 $wgAutoloadClasses['Gadget'] = $dir . 'backend/Gadget.php';
 $wgAutoloadClasses['GadgetHooks'] = $dir . 'backend/GadgetHooks.php';
 $wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'backend/GadgetResourceLoaderModule.php';
+$wgAutoloadClasses['GadgetPrefs'] = $dir . 'backend/GadgetPrefs.php';
 $wgAutoloadClasses['GadgetsMainModule'] = $dir . 'ui/GadgetsMainModule.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'ui/SpecialGadgets.php';
 
