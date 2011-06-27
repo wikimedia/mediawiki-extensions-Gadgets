@@ -2,9 +2,28 @@
  * Styles for gadget's preference setting dialogs.
  */
 
+.formBuilder-intro {
+	margin-left: 1em;
+}
+
 #mw-gadgets-prefsDialog label {
+	display: inline-block;
+	text-align: right;
+	margin-right: 2%;
+	width: 45%;
+}
+
+#mw-gadgets-prefsDialog label.error {
 	display: block;
-	float: left;
-	width: 250px;
+	margin-left: 50%;
+	font-size: 90%;
+}
+
+#mw-gadgets-prefsDialog input[type="text"] {
+	width: 50%;
+}
+
+#mw-gadgets-prefsDialog select {
+	width: 40%;
 }
 

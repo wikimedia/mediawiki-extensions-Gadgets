@@ -76,7 +76,7 @@
 							
 							$( dialogBody ).dialog( {
 								modal: true,
-								width: 'auto',
+								width: 550,
 								resizable: false,
 								title: mw.msg( 'gadgets-configuration-of', gadget ),
 								close: function() {
@@ -117,7 +117,8 @@
 
 			//Toggle visibility on click to the input
 			$( input ).click( function() {
-				$span.fadeToggle( 'fast' );
+				var visibility = $span.css( 'visibility' );
+				$span.css( 'visibility', visibility == 'visible' ? 'hidden' : 'visible' );
 			} );
 		}
 	} );

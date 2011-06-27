@@ -314,7 +314,7 @@
 		if ( typeof description.intro == 'string' ) {
 			$( '<p/>' )
 				.text( preproc( description.intro ) )
-				.addClass( 'mw-gadgets-prefsDialog-intro' )
+				.addClass( 'formBuilder-intro' )
 				.appendTo( $form );
 		}
 
