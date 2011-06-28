@@ -82,12 +82,23 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 
 	//Test preferences descriptions validator (generic)
 	function testPrefsDescriptions() {
-		$this->assertFalse( Gadget::isPrefsDescriptionValid( null ) );
-		$this->assertFalse( Gadget::isPrefsDescriptionValid( array() ) );
-		$this->assertFalse( Gadget::isPrefsDescriptionValid( array( 'fields' => array() ) ) );
+		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( null ) );
+		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array() ) );
+		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array( 'fields' => array() ) ) );
+
+		//Test with stdClass instead if array
+		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( (object)array(
+			'fields' => array(
+				'testBoolean' => array(
+					'type' => 'boolean',
+					'label' => 'foo',
+					'default' => 'bar'
+				)
+			)
+		) ) );
 
 		//Test with wrong type
-		$this->assertFalse( Gadget::isPrefsDescriptionValid( array(
+		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array(
 			'fields' => array(
 				'testUnexisting' => array(
 					'type' => 'unexistingtype',
@@ -98,7 +109,7 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		) ) );
 
 		//Test with wrong preference name
-		$this->assertFalse( Gadget::isPrefsDescriptionValid( array(
+		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array(
 			'fields' => array(
 				'testWrongN@me' => array(
 					'type' => 'boolean',
@@ -109,7 +120,7 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		) ) );
 
 		//Test with too long preference name (41 characters)
-		$this->assertFalse( Gadget::isPrefsDescriptionValid( array(
+		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array(
 			'fields' => array(
 				'aPreferenceNameExceedingTheLimitOf40Chars' => array(
 					'type' => 'boolean',
@@ -120,7 +131,7 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		) ) );
 
 		//This must pass, instead (40 characters is fine)
-		$this->assertTrue( Gadget::isPrefsDescriptionValid( array(
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( array(
 			'fields' => array(
 				'otherPreferenceNameThatS40CharactersLong' => array(
 					'type' => 'boolean',
@@ -132,7 +143,7 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 
 
 		//Test with an unexisting field parameter
-		$this->assertFalse( Gadget::isPrefsDescriptionValid( array(
+		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array(
 			'fields' => array(
 				'testBoolean' => array(
 					'type' => 'boolean',
@@ -156,7 +167,7 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 			)
 		);
 
-		$this->assertTrue( Gadget::isPrefsDescriptionValid( $correct ) );
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
 
 		$correct2 = array(
 			'fields' => array(
@@ -168,13 +179,13 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 			)
 		);
 
-		$this->assertTrue( Gadget::isPrefsDescriptionValid( $correct2 ) );
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 
 		//Tests with wrong default values
 		$wrong = $correct;
 		foreach ( array( 0, 1, '', 'false', 'true', null, array() ) as $def ) {
 			$wrong['fields']['testBoolean']['default'] = $def;
-			$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrong ) );
+			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
 		}
 	}
 
@@ -193,27 +204,27 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 			)
 		);
 
-		$this->assertTrue( Gadget::isPrefsDescriptionValid( $correct ) );
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
 
 		//Tests with wrong default values
 		$wrong = $correct;
 		foreach ( array( null, true, false, 0, 1, array(), 'short', 'veryverylongstring' ) as $def ) {
 			$wrong['fields']['testString']['default'] = $def;
-			$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrong ) );
+			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
 		}
 
 		//Tests with correct default values (when required is false)
 		$correct2 = $correct;
 		foreach ( array( '', '6chars', '1234567890' ) as $def ) {
 			$correct2['fields']['testString']['default'] = $def;
-			$this->assertTrue( Gadget::isPrefsDescriptionValid( $correct2 ) );
+			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 		}
 
 		//Test with empty default when "required" is true
 		$wrong = $correct;
 		$wrong['fields']['testString']['required'] = true;
 		$wrong['fields']['testString']['default'] = '';
-		$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrong ) );
+		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
 	}
 
 	//Tests for 'number' type preferences
@@ -245,27 +256,27 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 			)
 		);
 
-		$this->assertTrue( Gadget::isPrefsDescriptionValid( $correctFloat ) );
-		$this->assertTrue( Gadget::isPrefsDescriptionValid( $correctInt ) );
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correctFloat ) );
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correctInt ) );
 
 		//Tests with wrong default values (with 'required' = true)
 		$wrongFloat = $correctFloat;
 		foreach ( array( '', false, true, null, array(), -100, +100 ) as $def ) {
 			$wrongFloat['fields']['testNumber']['default'] = $def;
-			$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrongFloat ) );
+			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrongFloat ) );
 		}
 
 		$wrongInt = $correctInt;
 		foreach ( array( '', false, true, null, array(), -100, +100, 2.7182818 ) as $def ) {
 			$wrongInt['fields']['testNumber']['default'] = $def;
-			$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrongInt ) );
+			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrongInt ) );
 		}
 
 		//If required=false, default=null must be accepted, too
 		foreach ( array( $correctFloat, $correctInt ) as $correct ) {
 			$correct['fields']['testNumber']['required'] = false;
 			$correct['fields']['testNumber']['default'] = null;
-			$this->assertTrue( Gadget::isPrefsDescriptionValid( $correct ) );
+			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
 		}
 	}
 
@@ -292,72 +303,81 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		$correct2 = $correct;
 		foreach ( array( null, true, 3, 'test' ) as $def ) {
 			$correct2['fields']['testSelect']['default'] = $def;
-			$this->assertTrue( Gadget::isPrefsDescriptionValid( $correct2 ) );
+			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 		}
 
 		//Tests with wrong default values
 		$wrong = $correct;
 		foreach ( array( '', 'true', 'null', false, array(), 0, 1, 3.0001 ) as $def ) {
 			$wrong['fields']['testSelect']['default'] = $def;
-			$this->assertFalse( Gadget::isPrefsDescriptionValid( $wrong ) );
+			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
 		}
 	}
 	
-	//Tests Gadget::setPrefsDescription, Gadget::checkPrefsAgainstDescription,
-	//Gadget::matchPrefsWithDescription and Gadget::setPrefs.
-	function testSetPrefs() {
-		$prefsDescription = array(
-			'fields' => array(
-				'testBoolean' => array(
-					'type' => 'boolean',
-					'label' => 'foo',
-					'default' => true
-				),
-				'testBoolean2' => array(
-					'type' => 'boolean',
-					'label' => 'foo',
-					'default' => true
-				),
-				'testNumber' => array(
-					'type' => 'number',
-					'label' => 'foo',
-					'min' => 2.3,
-					'max' => 13.94,
-					'default' => 7
-				),
-				'testNumber2' => array(
-					'type' => 'number',
-					'label' => 'foo',
-					'min' => 2.3,
-					'max' => 13.94,
-					'default' => 7
-				),
-				'testSelect' => array(
-					'type' => 'select',
-					'label' => 'foo',
-					'default' => 3,
-					'options' => array(
-						'opt1' => null,
-						'opt2' => true,
-						'opt3' => 3,
-						'opt4' => 'opt4value'
-					)
-				),
-				'testSelect2' => array(
-					'type' => 'select',
-					'label' => 'foo',
-					'default' => 3,
-					'options' => array(
-						'opt1' => null,
-						'opt2' => true,
-						'opt3' => 3,
-						'opt4' => 'opt4value'
+	//Data provider to be able to reuse this preference description for several tests.
+	function prefsDescProvider() {
+		return array( array(
+			array(
+				'fields' => array(
+					'testBoolean' => array(
+						'type' => 'boolean',
+						'label' => '@foo',
+						'default' => true
+					),
+					'testBoolean2' => array(
+						'type' => 'boolean',
+						'label' => '@@foo2',
+						'default' => true
+					),
+					'testNumber' => array(
+						'type' => 'number',
+						'label' => '@foo3',
+						'min' => 2.3,
+						'max' => 13.94,
+						'default' => 7
+					),
+					'testNumber2' => array(
+						'type' => 'number',
+						'label' => 'foo4',
+						'min' => 2.3,
+						'max' => 13.94,
+						'default' => 7
+					),
+					'testSelect' => array(
+						'type' => 'select',
+						'label' => 'foo',
+						'default' => 3,
+						'options' => array(
+							'@opt1' => null,
+							'@opt2' => true,
+							'opt3' => 3,
+							'@opt4' => 'opt4value'
+						)
+					),
+					'testSelect2' => array(
+						'type' => 'select',
+						'label' => 'foo',
+						'default' => 3,
+						'options' => array(
+							'@opt1' => null,
+							'opt2' => true,
+							'opt3' => 3,
+							'opt4' => 'opt4value'
+						)
 					)
 				)
 			)
-		);
-		
-		$this->assertTrue( Gadget::isPrefsDescriptionValid( $prefsDescription ) );
+		) );
+	}
+	
+	/**
+	 * Tests Gadget::setPrefsDescription, GadgetPrefs::checkPrefsAgainstDescription,
+	 * GadgetPrefs::matchPrefsWithDescription and Gadget::setPrefs.
+	 *
+	 * @dataProvider prefsDescProvider
+	 */
+	function testSetPrefs( $prefsDescription ) {
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $prefsDescription ) );
 		
 		$prefs = array(
 			'testBoolean' => false,
@@ -368,12 +388,12 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 			'testSelect2' => false //wrong
 		);
 		
-		$this->assertFalse( Gadget::checkPrefsAgainstDescription( $prefsDescription, $prefs ) );
+		$this->assertFalse( GadgetPrefs::checkPrefsAgainstDescription( $prefsDescription, $prefs ) );
 		
 		$prefs2 = $prefs;
-		Gadget::matchPrefsWithDescription( $prefsDescription, $prefs2 );
+		GadgetPrefs::matchPrefsWithDescription( $prefsDescription, $prefs2 );
 		//Now $prefs2 should pass validation
-		$this->assertTrue( Gadget::checkPrefsAgainstDescription( $prefsDescription, $prefs2 ) );
+		$this->assertTrue( GadgetPrefs::checkPrefsAgainstDescription( $prefsDescription, $prefs2 ) );
 
 		//$prefs2 should have testBoolean, testNumber and testSelect unchanged, the other reset to defaults
 		$this->assertEquals( $prefs2['testBoolean'], $prefs['testBoolean'] );
@@ -412,5 +432,18 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		
 		//Call with invalid param
 		$g->setPrefs( 'wrongparam' );
+	}
+	
+
+	/**
+	 * Tests GadgetPrefs::getMessages.
+	 *
+	 * @dataProvider prefsDescProvider
+	 */
+	function testGetMessages( $prefsDescription ) {
+		$msgs = GadgetPrefs::getMessages( $prefsDescription );
+		$this->assertEquals( $msgs, array(
+			'foo', 'foo3', 'opt1', 'opt2', 'opt4'
+		) );
 	}
 }
