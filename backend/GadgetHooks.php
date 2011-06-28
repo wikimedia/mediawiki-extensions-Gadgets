@@ -27,10 +27,15 @@ class GadgetHooks {
 		//or if a Mediawiki:Gadget-foo.preferences was edited
 		$title = $article->mTitle;
 		if( $title->getNamespace() == NS_MEDIAWIKI ) {
-			if ( $title->getText() == 'Gadgets-definition'
-				|| preg_match( '/Gadget-([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)-config/', $title->getText() ) )
-			{
+			if ( $title->getText() == 'Gadgets-definition' ) {
 				Gadget::loadStructuredList( $text );
+			} elseif ( preg_match( '/Gadget-([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)\.preferences/', $title->getText() ) ) {
+				$msg = wfMessage( 'Gadgets-definition' );
+				if ( $msg->exists() ) {
+					Gadget::loadStructuredList( $msg->plain() );
+				} else {
+					Gadget::loadStructuredList( '' );
+				}
 			}
 		}
 		return true;

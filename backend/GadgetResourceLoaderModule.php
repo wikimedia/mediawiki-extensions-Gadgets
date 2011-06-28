@@ -74,12 +74,10 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 		return $header . parent::getScript( $context ) . $footer;
 	}
 	
-	
-	//TODO: should depend on last modification time of gadget's configuration page, also
 	public function getModifiedTime( ResourceLoaderContext $context ) {
-		$touched = RequestContext::getMain()->getUser()->getTouched();
-		
-		return max( parent::getModifiedTime( $context ), wfTimestamp( TS_UNIX, $touched ) );
+		$touched = wfTimestamp( TS_UNIX, RequestContext::getMain()->getUser()->getTouched() );
+		$gadgetMTime = $this->gadget->getModifiedTime();
+		return max( parent::getModifiedTime( $context ), $touched, $gadgetMTime );
 	}
 }
 

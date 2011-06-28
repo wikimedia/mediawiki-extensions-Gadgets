@@ -17,18 +17,24 @@
  * Class implementing the ext.gadgets module. Required by ext.gadgets.preferences.
  */
 class GadgetsMainModule extends ResourceLoaderModule {
-	//TODO: should override getModifiedTime()
+	
+	public function getModifiedTime( ResourceLoaderContext $context ) {
+		$gadgets = Gadget::loadList();
+		
+		$m = 0;
+		foreach ( $gadgets as $gadget ) {
+			$m = max( $m, $gadget->getModifiedTime() );
+		}
+		return $m;
+	}
 	
 	public function getScript( ResourceLoaderContext $context ) {
 		$configurableGadgets = array();
-		$gadgetsList = Gadget::loadStructuredList();
+		$gadgets = Gadget::loadList();
 		
-		foreach ( $gadgetsList as $section => $gadgets ) {
-			foreach ( $gadgets as $gadgetName => $gadget ) {
-				$prefs = $gadget->getPrefsDescription();
-				if ( $prefs !== null ) {
-					$configurableGadgets[] = $gadget->getName();
-				}
+		foreach ( $gadgets as $gadget ) {
+			if ( $gadget->getPrefsDescription() !== null ) {
+				$configurableGadgets[] = $gadget->getName();
 			}
 		}
 

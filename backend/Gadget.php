@@ -32,6 +32,7 @@ class Gadget {
 			$requiredRights = array(),
 			$onByDefault = false,
 			$category,
+			$mTime = null, //upper bound on last modification time; UNIX timestamp
 			$prefsDescription = null,
 			$preferences = null;
 
@@ -52,6 +53,11 @@ class Gadget {
 		$gadget->name = trim( str_replace(' ', '_', $m[1] ) );
 		$gadget->definition = $definition;
 
+		//Could be made more precise using per-gadget info; an upper bound suffices.
+		//Since the list is reloaded every time gadget definitions or gadget preference descriptions
+		//are changed, 'now' is an upper bound.
+		$gadget->mTime = wfTimestamp( TS_UNIX );
+		
 		//Parse gadget options
 		$options = trim( $m[2], ' []' );
 		foreach ( preg_split( '/\s*\|\s*/', $options, -1, PREG_SPLIT_NO_EMPTY ) as $option ) {
@@ -233,6 +239,16 @@ class Gadget {
 			return null;
 		}
 		return new GadgetResourceLoaderModule( $pages, $this->dependencies, $this );
+	}
+
+	/**
+	 * Returns an upper bound on the modification time of the gadget.
+	 * Used by GadgetResourceLoaderModule to compute its own mTime.
+	 * 
+	 * @return String the UNIX timestamp of this gadget's modificaton time.
+	 */
+	public function getModifiedTime() {
+		return $this->mTime;
 	}
 
 	/**
