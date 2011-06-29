@@ -287,13 +287,62 @@
 		var i = parseInt( this.$select.val(), 10 );
 		return this.values[i];
 	};
+
+
+	RangeField.prototype = object( LabelField.prototype );
+	RangeField.prototype.constructor = RangeField;
+	function RangeField( $form, name, desc ){ 
+		LabelField.call( this, $form, name, desc );
+
+		if ( typeof desc.value != 'number' ) {
+			$.error( "desc.value is invalid" );
+		}
+
+		if ( typeof desc.min != 'number' ) {
+			$.error( "desc.min is invalid" );
+		}
+
+		if ( typeof desc.max != 'number' ) {
+			$.error( "desc.max is invalid" );
+		}
+
+		if ( typeof desc.step != 'undefined' && typeof desc.step != 'number' ) {
+			$.error( "desc.step is invalid" );
+		}
+
+		if ( desc.value < desc.min || desc.value > desc.max ) {
+			$.error( "desc.value is out of range" );
+		}
+
+		var $slider = this.$slider = $( '<div/>' )
+			.attr( 'id', idPrefix + this.name );
+
+		var options = {
+			min: desc.min,
+			max: desc.max,
+			value: desc.value
+		};
+
+		if ( typeof desc.step != 'undefined' ) {
+			options['step'] = desc.step;
+		}
+
+		$slider.slider( options );
+
+		this.$p.append( $slider );
+	}
+	
+	RangeField.prototype.getValue = function() {
+		return this.$slider.slider( 'value' );
+	};
 	
 
 	var validFieldTypes = {
 		"boolean": BooleanField,
 		"string" : StringField,
 		"number" : NumberField,
-		"select" : SelectField
+		"select" : SelectField,
+		"range"  : RangeField
 	};
 
 	/* Public methods */

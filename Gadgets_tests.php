@@ -313,6 +313,71 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
 		}
 	}
+
+	//Tests for 'range' type preferences
+	function testPrefsDescriptionsRange() {
+		$correct = array(
+			'fields' => array(
+				'testRange' => array(
+					'type' => 'range',
+					'label' => 'some label',
+					'default' => 35,
+					'min' => 15,
+					'max' => 45
+				)
+			)
+		);
+
+		//Tests with correct default values
+		$correct2 = $correct;
+		foreach ( array( 15, 33, 45 ) as $def ) {
+			$correct2['fields']['testRange']['default'] = $def;
+			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
+		}
+
+		//Tests with wrong default values
+		$wrong = $correct;
+		foreach ( array( '', true, false, null, array(), '35', 14, 46, 30.2 ) as $def ) {
+			$wrong['fields']['testRange']['default'] = $def;
+			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
+		}
+		
+		//Test with max not in the set min + k*step (step not given, so it's 1)
+		$wrong = $correct;
+		$wrong['fields']['testRange']['max'] = 45.5;
+		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
+		
+		
+		//Tests with floating point min, max and step
+		$correct = array(
+			'fields' => array(
+				'testRange' => array(
+					'type' => 'range',
+					'label' => 'some label',
+					'default' => 0.20,
+					'min' => -2.8,
+					'max' => 4.2,
+					'step' => 0.25
+				)
+			)
+		);
+		
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
+		
+		//Tests with correct default values
+		$correct2 = $correct;
+		foreach ( array( -2.8, -2.55, 0.20, 4.2 ) as $def ) {
+			$correct2['fields']['testRange']['default'] = $def;
+			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
+		}
+
+		//Tests with wrong default values
+		$wrong = $correct;
+		foreach ( array( '', true, false, null, array(), '0.20', -2.7, 0, 4.199999 ) as $def ) {
+			$wrong['fields']['testRange']['default'] = $def;
+			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
+		}
+	}
 	
 	//Data provider to be able to reuse this preference description for several tests.
 	function prefsDescProvider() {

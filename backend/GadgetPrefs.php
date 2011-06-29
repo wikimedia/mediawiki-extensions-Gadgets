@@ -82,6 +82,28 @@ class GadgetPrefs {
 				'isMandatory' => true,
 				'checker' => 'is_array'
 			)
+		),
+		'range' => array(
+			'default' => array(
+				'isMandatory' => true,
+				'checker' => 'GadgetPrefs::isFloatOrIntOrNull'
+			),
+			'label' => array(
+				'isMandatory' => true,
+				'checker' => 'is_string'
+			),
+			'min' => array(
+				'isMandatory' => true,
+				'checker' => 'GadgetPrefs::isFloatOrInt'
+			),
+			'max' => array(
+				'isMandatory' => true,
+				'checker' => 'GadgetPrefs::isFloatOrInt'
+			),
+			'step' => array(
+				'isMandatory' => false,
+				'checker' => 'GadgetPrefs::isFloatOrInt'
+			)
 		)
 	);
 
@@ -89,7 +111,8 @@ class GadgetPrefs {
 	private static $typeCheckers = array(
 		'string' => 'GadgetPrefs::checkStringOptionDefinition',
 		'number' => 'GadgetPrefs::checkNumberOptionDefinition',
-		'select' => 'GadgetPrefs::checkSelectOptionDefinition'
+		'select' => 'GadgetPrefs::checkSelectOptionDefinition',
+		'range'  => 'GadgetPrefs::checkRangeOptionDefinition',
 	);
 	
 	//Further checks for 'string' options
@@ -153,6 +176,28 @@ class GadgetPrefs {
 		}
 		
 		$values = array_values( $options );
+		
+		return true;
+	}
+	
+	private static function checkRangeOptionDefinition( $option ) {
+		$step = isset( $option['step'] ) ? $option['step'] : 1;
+		
+		if ( $step <= 0 ) {
+			return false;
+		}
+		
+		$min = $option['min'];
+		$max = $option['max'];
+		
+		//Checks if 'max' is a valid value
+		//Valid values are min, min + step, min + 2*step, ...
+		//Then ( $max - $min ) / $step must be close enough to an integer
+		$eps = 1.0e-6; //tolerance
+		$tmp = ( $max - $min ) / $step;
+		if ( abs( $tmp - floor( $tmp ) ) > $eps ) {
+			return false;
+		}
 		
 		return true;
 	}
@@ -331,6 +376,33 @@ class GadgetPrefs {
 			case 'select':
 				$values = array_values( $prefDescription['options'] );
 				return in_array( $pref, $values, true );
+			case 'range':
+				if ( !is_float( $pref ) && !is_int( $pref ) ) {
+					return false;
+				}
+				
+				$min = $prefDescription['min'];
+				$max = $prefDescription['max'];
+				
+				if ( $pref < $min || $pref > $max ) {
+					return false;
+				}
+				
+				$step = isset( $prefDescription['step'] ) ? $prefDescription['step'] : 1;
+				
+				if ( $step <= 0 ) {
+					return false;
+				}
+				
+				//Valid values are min, min + step, min + 2*step, ...
+				//Then ( $pref - $min ) / $step must be close enough to an integer
+				$eps = 1.0e-6; //tolerance
+				$tmp = ( $pref - $min ) / $step;
+				if ( abs( $tmp - floor( $tmp ) ) > $eps ) {
+					return false;
+				}
+				
+				return true;
 			default:
 				return false; //unexisting type
 		}
