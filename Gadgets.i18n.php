@@ -2450,6 +2450,7 @@ Dapat kang mayroong nararapat na mga pahintulot sa kapupuntahang wiki (kasama an
  * @author Erkan Yilmaz
  * @author Joseph
  * @author Karduelis
+ * @author Koc61
  */
 $messages['tr'] = array(
 	'gadgets-desc' => 'Kullanıcıların [[Special:Preferences|tercihlerinde]] özel [[Special:Gadgets|CSS ve JavaScript gadgetlerini]] seçmelerine izin verir',
@@ -2460,7 +2461,7 @@ Bu gadgetlerin bu tercihler sayfasına bir etkisinin olmayacağını unutmayın.
 
 Ayrıca unutmayın ki, bu özel gadgetler MedyaViki yazılımının bir parçası değildir, ve genellikle yerel vikinizdeki kullanıcılar tarafından geliştirilip, idame ettirilirler.
 Yerel yöneticiler [[MediaWiki:Gadgets-definition|tanımları]] ve [[Special:Gadgets|açıklamaları]] kullanarak uygun gadgetleri değiştirebilirler.',
-	'gadgets' => 'Gadgetler',
+	'gadgets' => 'Küçük araçlar',
 	'gadgets-title' => 'Gadgetler',
 	'gadgets-pagetext' => "Aşağıdaki, kullanıcıların [[Special:Preferences|tercihler sayfasında]] etkin hale getirebileceği, [[MediaWiki:Gadgets-definition|tanımlarla]] belirtildiği gibi, özel gadgetlerin bir listesidir.
 Bu genel bakış, her gadget'in tanımını ve kodunu belirten sistem mesaj sayfalarına kolay erişim sağlar.",
