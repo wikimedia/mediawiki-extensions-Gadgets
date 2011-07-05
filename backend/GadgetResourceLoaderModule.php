@@ -53,7 +53,7 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	
 	public function getGroup() {
 		//Modules for gadgets with preferences must be kept private, if the user can set preferences
-		if ( $this->gadget->getPrefsDescription !== null
+		if ( $this->gadget->getPrefsDescription() !== null
 			&& RequestContext::getMain()->getUser()->isLoggedIn() )
 		{
 			return 'private';
