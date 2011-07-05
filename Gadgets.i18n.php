@@ -495,6 +495,8 @@ Sylwer hefyd nad yw'r teclynnau hyn yn ran o feddalwedd MediaWiki; fel arfer def
 Mae gweinyddwyr y wici hwn yn gallu golygu [[MediaWiki:Gadgets-definition|diffiniadau]] a [[Special:Gadgets|disgrifiadau]]'r teclynnau sydd ar gael.",
 	'gadgets' => 'Teclynnau',
 	'gadgets-title' => 'Teclynnau',
+	'gadgets-uses' => 'Yn defnyddio',
+	'gadgets-export' => 'Allforio',
 	'gadgets-export-download' => 'Islwyther',
 );
 
