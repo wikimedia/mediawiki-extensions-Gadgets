@@ -54,6 +54,17 @@
 		return testOptional( value, element ) || /^-?\d+$/.test(value);
 	}, mw.msg( 'gadgets-formbuilder-integer' ) );
 
+	//validator for datepicker fields
+	$.validator.addMethod( "datePicker", function( value, element ) {
+		var format = $( element ).datepicker( 'option', 'dateFormat' );
+		try {
+			var date = $.datepicker.parseDate( format, value );
+			return true;
+		} catch ( e ) {
+			return false;
+		}
+	}, mw.msg( 'gadgets-formbuilder-date' ) );
+
 
 	//Helper function for inheritance, see http://javascript.crockford.com/prototypal.html
 	function object(o) {
@@ -361,20 +372,30 @@
 			.attr( 'type', 'text' )
 			.attr( 'id', idPrefix + this.name )
 			.attr( 'name', idPrefix + this.name )
-			.datepicker();
+			.datepicker( {
+				onSelect: function() {
+					//Force validation, so that a previous 'invalid' state is removed
+					$( this ).valid();
+				}
+			} );
 
 		if ( desc.value !== null ) {
 			this.$text.datepicker( 'setDate', date );
 		}
-		
+
+
 		this.$p.append( this.$text );
 	}
 	
 	DateField.prototype.getValue = function() {
-		function pad( n ) {
-			return n < 10 ? '0' + n : n;
+		function pad( n, len ) {
+			var res = '' + n;
+			while ( res.length < len ) {
+				res = '0' + res;
+			}
+			return res;
 		}
-
+		
 		var d = this.$text.datepicker( 'getDate' );
 		
 		if ( d === null ) {
@@ -382,15 +403,23 @@
 		}
 
 		//UTC date in ISO 8601 format [YYYY]-[MM]-[DD]T[hh]:[mm]:[ss]Z
-		return '' + d.getUTCFullYear() + '-' +
-			pad( d.getUTCMonth() + 1 ) + '-' +
-			pad( d.getUTCDate() ) + 'T' +
-			pad( d.getUTCHours() ) + ':' +
-			pad( d.getUTCMinutes() ) + ':' +
-			pad( d.getUTCSeconds() ) + 'Z';
+		return '' + pad( d.getUTCFullYear(), 4 ) + '-' +
+			pad( d.getUTCMonth() + 1, 2 ) + '-' +
+			pad( d.getUTCDate(), 2 ) + 'T' +
+			pad( d.getUTCHours(), 2 ) + ':' +
+			pad( d.getUTCMinutes(), 2 ) + ':' +
+			pad( d.getUTCSeconds(), 2 ) + 'Z';
 	};
 
-
+	DateField.prototype.getValidationSettings = function() {
+		var	settings = LabelField.prototype.getValidationSettings.call( this ),
+			fieldId = idPrefix + this.name;
+		
+		settings.rules[fieldId] = {
+				"datePicker": true
+			};
+		return settings;
+	}
 
 	var validFieldTypes = {
 		"boolean": BooleanField,

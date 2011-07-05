@@ -77,7 +77,7 @@ $wgResourceModules['jquery.formBuilder'] = array(
 	'dependencies' 	=> array( 'jquery', 'jquery.ui.slider', 'jquery.ui.datepicker', 'jquery.validate' ),
 	'messages'      => array(
 		'gadgets-formbuilder-required', 'gadgets-formbuilder-minlength', 'gadgets-formbuilder-maxlength',
-		'gadgets-formbuilder-min', 'gadgets-formbuilder-max', 'gadgets-formbuilder-integer'
+		'gadgets-formbuilder-min', 'gadgets-formbuilder-max', 'gadgets-formbuilder-integer', 'gadgets-formbuilder-date'
 	),
 	'localBasePath' => $dir . 'ui/resources/',
 	'remoteExtPath' => 'Gadgets/ui/resources'
