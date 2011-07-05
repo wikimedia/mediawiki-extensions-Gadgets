@@ -51,6 +51,17 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 		return $this->dependencies;
 	}
 	
+	public function getGroup() {
+		//Modules for gadgets with preferences must be kept private, if the user can set preferences
+		if ( $this->gadget->getPrefsDescription !== null
+			&& RequestContext::getMain()->getUser()->isLoggedIn() )
+		{
+			return 'private';
+		} else {
+			return parent::getGroup();
+		}
+	}
+	
 	public function getScript( ResourceLoaderContext $context ) {
 		$prefs = $this->gadget->getPrefs();
 		
