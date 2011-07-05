@@ -379,6 +379,55 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		}
 	}
 	
+	//Tests for 'date' type preferences
+	function testPrefsDescriptionsDate() {
+		$correct = array(
+			'fields' => array(
+				'testDate' => array(
+					'type' => 'date',
+					'label' => 'some label',
+					'default' => null
+				)
+			)
+		);
+		
+		//Tests with correct default values
+		$correct2 = $correct;
+		foreach ( array(
+				null,
+				'2011-07-05T15:00:00Z',
+				'2011-01-01T00:00:00Z',
+				'2011-12-31T23:59:59Z',
+			) as $def )
+		{
+			$correct2['fields']['testDate']['default'] = $def;
+			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
+		}
+
+		//Tests with wrong default values
+		$wrong = $correct;
+		foreach ( array(
+				'', true, false, array(), 0,
+				'2011-07-05T15:00:00',
+				'2011-07-05T15:00:61Z',
+				'2011-07-05T15:61:00Z',
+				'2011-07-05T25:00:00Z',
+				'2011-07-32T15:00:00Z',
+				'2011-07-5T15:00:00Z',
+				'2011-7-05T15:00:00Z',
+				'2011-13-05T15:00:00Z',
+				'2011-07-05T15:00-00Z',
+				'2011-07-05T15-00:00Z',
+				'2011-07-05S15:00:00Z',
+				'2011-07:05T15:00:00Z',
+				'2011:07-05T15:00:00Z'
+			) as $def )
+		{
+			$wrong['fields']['testDate']['default'] = $def;
+			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
+		}
+	}
+	
 	//Data provider to be able to reuse this preference description for several tests.
 	function prefsDescProvider() {
 		return array( array(

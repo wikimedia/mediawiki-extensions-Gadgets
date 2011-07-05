@@ -104,6 +104,15 @@ class GadgetPrefs {
 				'isMandatory' => false,
 				'checker' => 'GadgetPrefs::isFloatOrInt'
 			)
+		),
+		'date' => array(
+			'default' => array(
+				'isMandatory' => true
+			),
+			'label' => array(
+				'isMandatory' => true,
+				'checker' => 'is_string'
+			)
 		)
 	);
 
@@ -112,7 +121,7 @@ class GadgetPrefs {
 		'string' => 'GadgetPrefs::checkStringOptionDefinition',
 		'number' => 'GadgetPrefs::checkNumberOptionDefinition',
 		'select' => 'GadgetPrefs::checkSelectOptionDefinition',
-		'range'  => 'GadgetPrefs::checkRangeOptionDefinition',
+		'range'  => 'GadgetPrefs::checkRangeOptionDefinition'
 	);
 	
 	//Further checks for 'string' options
@@ -233,7 +242,7 @@ class GadgetPrefs {
 			}
 			
 			$type = $optionDefinition['type'];
-									
+			
 			if ( !isset( self::$prefsDescriptionSpecifications[$type] ) ) {
 				return false;
 			}
@@ -403,6 +412,20 @@ class GadgetPrefs {
 				}
 				
 				return true;
+			case 'date':
+				if ( $pref === null ) {
+					return true;
+				}
+				
+				//Basic syntactic checks
+				if ( !is_string( $pref ) ||
+					!preg_match( '/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/', $pref ) )
+				{
+					return false;
+				}
+				
+				//Full parsing
+				return date_create( $pref ) !== false;
 			default:
 				return false; //unexisting type
 		}

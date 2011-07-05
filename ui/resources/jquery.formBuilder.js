@@ -138,7 +138,7 @@
 		return this.$c.is( ':checked' );
 	};
 
-	//A field with a textbox
+	//A field with a textbox accepting string values
 
 	StringField.prototype = object( LabelField.prototype );
 	StringField.prototype.constructor = StringField;
@@ -191,7 +191,7 @@
 		return settings;
 	};
 
-	
+	//A field with a textbox accepting numeric values
 	NumberField.prototype = object( LabelField.prototype );
 	NumberField.prototype.constructor = NumberField;
 	function NumberField( $form, name, desc ){ 
@@ -250,7 +250,7 @@
 		return settings;
 	};
 
-
+	//A field with a drop-down list
 	SelectField.prototype = object( LabelField.prototype );
 	SelectField.prototype.constructor = SelectField;
 	function SelectField( $form, name, desc ){ 
@@ -289,6 +289,7 @@
 	};
 
 
+	//A field with a slider, representing ranges of numbers
 	RangeField.prototype = object( LabelField.prototype );
 	RangeField.prototype.constructor = RangeField;
 	function RangeField( $form, name, desc ){ 
@@ -336,13 +337,68 @@
 		return this.$slider.slider( 'value' );
 	};
 	
+	
+	//A field with a textbox with a datepicker
+	DateField.prototype = object( LabelField.prototype );
+	DateField.prototype.constructor = DateField;
+	function DateField( $form, name, desc ){ 
+		LabelField.call( this, $form, name, desc );
+
+		if ( typeof desc.value == 'undefined' ) {
+			$.error( "desc.value is invalid" );
+		}
+
+		var date;
+		if ( desc.value !== null ) {
+			date = new Date( desc.value );
+			
+			if ( !isFinite( date ) ) {
+				$.error( "desc.value is invalid" );
+			}
+		}
+
+		this.$text = $( '<input/>' )
+			.attr( 'type', 'text' )
+			.attr( 'id', idPrefix + this.name )
+			.attr( 'name', idPrefix + this.name )
+			.datepicker();
+
+		if ( desc.value !== null ) {
+			this.$text.datepicker( 'setDate', date );
+		}
+		
+		this.$p.append( this.$text );
+	}
+	
+	DateField.prototype.getValue = function() {
+		function pad( n ) {
+			return n < 10 ? '0' + n : n;
+		}
+
+		var d = this.$text.datepicker( 'getDate' );
+		
+		if ( d === null ) {
+			return null;
+		}
+
+		//UTC date in ISO 8601 format [YYYY]-[MM]-[DD]T[hh]:[mm]:[ss]Z
+		return '' + d.getUTCFullYear() + '-' +
+			pad( d.getUTCMonth() + 1 ) + '-' +
+			pad( d.getUTCDate() ) + 'T' +
+			pad( d.getUTCHours() ) + ':' +
+			pad( d.getUTCMinutes() ) + ':' +
+			pad( d.getUTCSeconds() ) + 'Z';
+	};
+
+
 
 	var validFieldTypes = {
 		"boolean": BooleanField,
 		"string" : StringField,
 		"number" : NumberField,
 		"select" : SelectField,
-		"range"  : RangeField
+		"range"  : RangeField,
+		"date"   : DateField
 	};
 
 	/* Public methods */
