@@ -72,12 +72,25 @@ $wgResourceModules['jquery.validate'] = array(
 	'remoteExtPath' => 'Gadgets/ui/resources'
 );
 
+$wgResourceModules['jquery.farbtastic'] = array(
+	'scripts' 		=> array( 'jquery.farbtastic.js' ),
+	'styles'        => array( 'jquery.farbtastic.css' ),
+	'dependencies' 	=> array( 'jquery', 'jquery.colorUtil' ),
+	'localBasePath' => $dir . 'ui/resources/',
+	'remoteExtPath' => 'Gadgets/ui/resources'
+);
+
 $wgResourceModules['jquery.formBuilder'] = array(
 	'scripts' 		=> array( 'jquery.formBuilder.js' ),
-	'dependencies' 	=> array( 'jquery', 'jquery.ui.slider', 'jquery.ui.datepicker', 'jquery.validate' ),
+	'styles'        => array( 'jquery.formBuilder.css' ),
+	'dependencies' 	=> array(
+		'jquery', 'jquery.ui.slider', 'jquery.ui.datepicker', 'jquery.ui.position',
+		'jquery.farbtastic', 'jquery.colorUtil', 'jquery.validate'
+	),
 	'messages'      => array(
 		'gadgets-formbuilder-required', 'gadgets-formbuilder-minlength', 'gadgets-formbuilder-maxlength',
-		'gadgets-formbuilder-min', 'gadgets-formbuilder-max', 'gadgets-formbuilder-integer', 'gadgets-formbuilder-date'
+		'gadgets-formbuilder-min', 'gadgets-formbuilder-max', 'gadgets-formbuilder-integer', 'gadgets-formbuilder-date',
+		'gadgets-formbuilder-color'
 	),
 	'localBasePath' => $dir . 'ui/resources/',
 	'remoteExtPath' => 'Gadgets/ui/resources'

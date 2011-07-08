@@ -60,6 +60,7 @@ You must have appropriate permissions on destination wiki (including the right t
 	'gadgets-formbuilder-max' => 'Please enter a value not greater than $1.',
 	'gadgets-formbuilder-integer' => 'Please enter an integer number.',
 	'gadgets-formbuilder-date' => 'Please enter a valid date.',
+	'gadgets-formbuilder-color' => 'Please enter a valid color.',
 );
 
 /** Message documentation (Message documentation)

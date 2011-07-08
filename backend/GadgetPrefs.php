@@ -113,6 +113,15 @@ class GadgetPrefs {
 				'isMandatory' => true,
 				'checker' => 'is_string'
 			)
+		),
+		'color' => array(
+			'default' => array(
+				'isMandatory' => true
+			),
+			'label' => array(
+				'isMandatory' => true,
+				'checker' => 'is_string'
+			)
 		)
 	);
 
@@ -426,6 +435,10 @@ class GadgetPrefs {
 				
 				//Full parsing
 				return date_create( $pref ) !== false;
+			case 'color':
+				//Check if it's a string representing a color
+				//(with 6 hexadecimal lowercase characters).
+				return is_string( $pref ) && preg_match( '/^#[0-9a-f]{6}$/', $pref );
 			default:
 				return false; //unexisting type
 		}

@@ -427,6 +427,49 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
 		}
 	}
+
+	//Tests for 'color' type preferences
+	function testPrefsDescriptionsColor() {
+		$correct = array(
+			'fields' => array(
+				'testColor' => array(
+					'type' => 'color',
+					'label' => 'some label',
+					'default' => '#123456'
+				)
+			)
+		);
+		
+		//Tests with correct default values
+		$correct2 = $correct;
+		foreach ( array(
+				'#000000',
+				'#ffffff',
+				'#8ed36e',
+			) as $def )
+		{
+			$correct2['fields']['testColor']['default'] = $def;
+			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
+		}
+
+		//Tests with wrong default values
+		$wrong = $correct;
+		foreach ( array(
+				'', true, false, null, 0, array(),
+				'123456',
+				'#629af',
+				'##123456',
+				'#1aefdq',
+				'#145aeF', //uppercase letters not allowed
+				'#179', //syntax not allowed
+				'red', //syntax not allowed
+			) as $def )
+		{
+			$wrong['fields']['testColor']['default'] = $def;
+			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
+		}
+	}
+
 	
 	//Data provider to be able to reuse this preference description for several tests.
 	function prefsDescProvider() {

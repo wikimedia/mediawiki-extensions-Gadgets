@@ -24,6 +24,15 @@
 	}
 
 
+	function pad( n, len ) {
+		var res = '' + n;
+		while ( res.length < len ) {
+			res = '0' + res;
+		}
+		return res;
+	}
+
+
 	function testOptional( value, element ) {
 		var rules = $( element ).rules();
 		if ( typeof rules.required == 'undefined' || rules.required === false ) {
@@ -65,6 +74,10 @@
 		}
 	}, mw.msg( 'gadgets-formbuilder-date' ) );
 
+	//validator for colorpicker fields
+	$.validator.addMethod( "color", function( value, element ) {
+		return $.colorUtil.getRGB( value ) !== undefined;
+	}, mw.msg( 'gadgets-formbuilder-color' ) );
 
 	//Helper function for inheritance, see http://javascript.crockford.com/prototypal.html
 	function object(o) {
@@ -388,14 +401,6 @@
 	}
 	
 	DateField.prototype.getValue = function() {
-		function pad( n, len ) {
-			var res = '' + n;
-			while ( res.length < len ) {
-				res = '0' + res;
-			}
-			return res;
-		}
-		
 		var d = this.$text.datepicker( 'getDate' );
 		
 		if ( d === null ) {
@@ -421,13 +426,95 @@
 		return settings;
 	}
 
+	//A field with color picker
+	
+	function closeColorPicker() {
+		$( '#colorpicker' ).fadeOut( 'fast', function() {
+			$( this ).remove()
+		} );
+	}
+	
+	ColorField.prototype = object( LabelField.prototype );
+	ColorField.prototype.constructor = ColorField;
+	function ColorField( $form, name, desc ){ 
+		LabelField.call( this, $form, name, desc );
+
+		if ( typeof desc.value == 'undefined' ) {
+			$.error( "desc.value is invalid" );
+		}
+
+		this.$text = $( '<input/>' )
+			.attr( 'type', 'text' )
+			.attr( 'id', idPrefix + this.name )
+			.attr( 'name', idPrefix + this.name )
+			.addClass( 'colorpicker-input' )
+			.val( desc.value )
+			.css( 'background-color', desc.value )
+			.focus( function() {
+				$( '<div/>' )
+					.attr( 'id', 'colorpicker' )
+					.css( 'position', 'absolute' )
+					.hide()
+					.appendTo( document.body )
+					.zIndex( $( this ).zIndex() + 1 )
+					.farbtastic( this )
+					.position( {
+						my: 'left bottom',
+						at: 'left top',
+						of: this,
+						collision: 'none'
+					} )
+					.fadeIn( 'fast' );
+			} )
+			.keydown( function( event ) {
+				if ( event.keyCode == 13 || event.keyCode == 27 ) {
+					closeColorPicker();
+					event.preventDefault();
+					event.stopPropagation();
+				}
+			} )
+			.change( function() {
+				//Force validation
+				$( this ).valid();
+			} )
+			.blur( closeColorPicker );
+
+		this.$p.append( this.$text );
+	}
+	
+	ColorField.prototype.getValidationSettings = function() {
+		var	settings = LabelField.prototype.getValidationSettings.call( this ),
+			fieldId = idPrefix + this.name;
+		
+		settings.rules[fieldId] = {
+				"color": true
+			};
+		return settings;
+	}
+	
+	ColorField.prototype.getValue = function() {
+		var color = $.colorUtil.getRGB( this.$text.val() );
+		return '#' + pad( color[0].toString( 16 ), 2 ) +
+			pad( color[1].toString( 16 ), 2 ) + pad( color[2].toString( 16 ), 2 );
+	};
+
+	//If a click happens outside the colorpicker while it is showed, remove it
+	$( document ).mousedown( function( event ) {
+		var $target = $( event.target );
+		if ( $target.parents( '#colorpicker' ).length == 0 ) {
+			closeColorPicker();
+		}
+	} );
+	
+
 	var validFieldTypes = {
 		"boolean": BooleanField,
 		"string" : StringField,
 		"number" : NumberField,
 		"select" : SelectField,
 		"range"  : RangeField,
-		"date"   : DateField
+		"date"   : DateField,
+		"color"  : ColorField
 	};
 
 	/* Public methods */
@@ -446,7 +533,7 @@
 			return null;
 		}
 
-		var $form = $( '<form/>' );
+		var $form = $( '<form/>' ).addClass( 'formbuilder' );
 
 		//If there is an "intro", adds it to the form as a label
 		if ( typeof description.intro == 'string' ) {

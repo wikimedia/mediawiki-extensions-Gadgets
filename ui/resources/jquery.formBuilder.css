@@ -1,0 +1,48 @@
+/**
+ * jQuery Form Builder
+ * Written by Salvatore Ingala in 2011
+ * Released under the MIT and GPL licenses.
+ */
+
+.formBuilder-intro {
+	margin-left: 1em;
+}
+
+.formbuilder label {
+	display: inline-block;
+	text-align: right;
+	margin-right: 2%;
+	width: 45%;
+}
+
+.formbuilder label.error {
+	display: block;
+	margin-left: 50%;
+	font-size: 90%;
+}
+
+.formbuilder input[type="text"] {
+	width: 50%;
+}
+
+.formbuilder .ui-slider {
+	display: inline-block;
+	width: 50%;
+}
+
+.formbuilder select {
+	width: 40%;
+}
+
+#colorpicker {
+	width: 197;
+}
+
+.colorpicker-input.error {
+	border-color: red;
+}
+
+.farbtastic {
+	border: 1px solid #cccccc;
+}
+

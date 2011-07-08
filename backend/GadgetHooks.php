@@ -128,7 +128,6 @@ class GadgetHooks {
 		//TODO: fix caching issues for user-defined messages
 		$resourceLoader->register( 'ext.gadgets.preferences', array(
 			'scripts' 		=> array( 'ext.gadgets.preferences.js' ),
-			'styles'        => array( 'ext.gadgets.preferences.css' ),
 			'dependencies' 	=> array(
 				'jquery', 'jquery.json', 'jquery.ui.dialog', 'jquery.formBuilder',
 				'mediawiki.htmlform', 'ext.gadgets'
