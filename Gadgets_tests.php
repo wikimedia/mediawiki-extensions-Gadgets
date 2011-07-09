@@ -570,6 +570,10 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		
 		//Setting right preferences must succeed
 		$this->assertTrue( $g->setPrefs( $prefs2 ) );
+		
+		//Adding a field not in the description must fail
+		$prefs2['someUnexistingPreference'] = 'bar';
+		$this->assertFalse( GadgetPrefs::checkPrefsAgainstDescription( $prefsDescription, $prefs2 ) );
 	}
 
 	/**

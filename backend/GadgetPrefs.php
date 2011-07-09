@@ -453,11 +453,20 @@ class GadgetPrefs {
 	 * @return boolean true if $prefs passes validation against $prefsDescription, false otherwise.
 	 */
 	public static function checkPrefsAgainstDescription( $prefsDescription, $prefs ) {
+		//Check that all the given preferences pass validation
 		foreach ( $prefsDescription['fields'] as $prefName => $prefDescription ) {
 			if ( !self::checkSinglePref( $prefDescription, $prefs, $prefName ) ) {
 				return false;
 			}
 		}
+		
+		//Check that $prefs contains no preferences that are not described in $prefsDescription
+		foreach ( $prefs as $prefName => $value ) {
+			if ( !isset( $prefsDescription['fields'][$prefName] ) ) {
+				return false;
+			}
+		}
+		
 		return true;
 	}
 
