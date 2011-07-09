@@ -495,8 +495,17 @@ Sylwer hefyd nad yw'r teclynnau hyn yn ran o feddalwedd MediaWiki; fel arfer def
 Mae gweinyddwyr y wici hwn yn gallu golygu [[MediaWiki:Gadgets-definition|diffiniadau]] a [[Special:Gadgets|disgrifiadau]]'r teclynnau sydd ar gael.",
 	'gadgets' => 'Teclynnau',
 	'gadgets-title' => 'Teclynnau',
+	'gadgets-pagetext' => "Isod mae rhestr o declynnau arbennig y gall defnyddwyr eu galluogi ar eu [[Special:Preferences|tudalennau dewisiadau]], sef rhestr a bennir yn y dudalen [[MediaWiki:Gadgets-definition|diffiniadau]].
+Mae'r trosolwg hwn yn cynnig mynediad rhwydd at y tudalennau negeseuon sustem sy'n diffinio disgrifiad a chod pob teclyn.",
 	'gadgets-uses' => 'Yn defnyddio',
+	'gadgets-required-rights' => 'Mae gofyn cael y {{PLURAL:$2|gallu $1|galluoedd canlynol: $1}}.',
+	'gadgets-default' => 'Wedi ei alluogi i bawb yn ddiofyn.',
 	'gadgets-export' => 'Allforio',
+	'gadgets-export-title' => 'Allforio teclyn',
+	'gadgets-not-found' => 'Heb ddod o hyd i\'r teclyn "$1".',
+	'gadgets-export-text' => "I allforio'r teclyn \$1, pwyswch ar y botwm \"{{int:gadgets-export-download}}\", rhowch y ffeil a islwythir ar gadw, ewch i Special:Import ar wici'r pendraw a'i huwchlwytho. Yna ychwanegwch y canlynol at y dudalen MediaWiki:Gadgets-definition:
+<pre>\$2</pre>
+Mae'n rhaid bod y galluoedd pwrpasol gennych ar wici'r pendraw (gan gynnwys y gallu i olygu negeseuon y sustem), a rhaid bod mewnforio drwy uwchlwytho ffeiliau wedi ei alluogi.",
 	'gadgets-export-download' => 'Islwyther',
 );
 
@@ -2625,10 +2634,11 @@ $messages['yue'] = array(
  * @author Gaoxuewei
  * @author Hydra
  * @author Shinjiman
+ * @author Xiaomingyan
  * @author 阿pp
  */
 $messages['zh-hans'] = array(
-	'gadgets-desc' => '使用户可以在[[Special:Preferences|参数设置]]中自行设定[[Special:Gadgets|CSS与JavaScript工具]]',
+	'gadgets-desc' => '允许用户在其[[Special:Preferences|系统设置]]中选择自定义[[Special:Gadgets|CSS和JavaScript工具]]',
 	'prefs-gadgets' => '小工具',
 	'gadgets-prefstext' => '以下是一个特殊小工具，您可以在您的账户中激活。
 这些小工具多数都是基于JavaScript建造，如果要激活它们，那么浏览器的JavaScript就需要激活后方可使用。
