@@ -534,11 +534,15 @@
 		}
 
 		var $form = $( '<form/>' ).addClass( 'formbuilder' );
+		var prefix = options.gadget === undefined ? '' : ( 'Gadget-' + options.gadget + '-' );
+		$form.data( 'formBuilder', {
+			prefix: prefix, //prefix for messages
+		} );
 
 		//If there is an "intro", adds it to the form as a label
 		if ( typeof description.intro == 'string' ) {
 			$( '<p/>' )
-				.text( preproc( this.$form, description.intro ) )
+				.text( preproc( $form, description.intro ) )
 				.addClass( 'formBuilder-intro' )
 				.appendTo( $form );
 		}
@@ -547,11 +551,6 @@
 			mw.log( "description.fields should be an object, instead of a " + typeof description.fields );
 			return null;
 		}
-
-		var prefix = options.gadget === undefined ? '' : ( 'Gadget-' + options.gadget + '-' );
-		$form.data( 'formBuilder', {
-			prefix: prefix, //prefix for messages
-		} );
 
 		var fields = [];
 
