@@ -10,127 +10,141 @@
 
 class GadgetPrefs {
 	
-	//Syntax specifications of preference description language
+	//Syntax specifications of preference description language.
+	//Each element describes a type, and it has a 'description' and may have a 'checker'.
+	// - 'description' is an array that describes the fields of that option.
+	// - 'checker' is an optional function that does validation of the entire preference description,
+	//   when more complex semantics are needed.
 	private static $prefsDescriptionSpecifications = array(
-		'boolean' => array(
-			'default' => array(
-				'isMandatory' => true,
-				'checker' => 'is_bool'
-			),
-			'label' => array(
-				'isMandatory' => true,
-				'checker' => 'is_string'
+		'boolean' => array( 
+			'description' => array(
+				'default' => array(
+					'isMandatory' => true,
+					'checker' => 'is_bool'
+				),
+				'label' => array(
+					'isMandatory' => true,
+					'checker' => 'is_string'
+				)
 			)
 		),
 		'string' => array(
-			'default' => array(
-				'isMandatory' => true,
-				'checker' => 'is_string'
+			'description' => array(
+				'default' => array(
+					'isMandatory' => true,
+					'checker' => 'is_string'
+				),
+				'label' => array(
+					'isMandatory' => true,
+					'checker' => 'is_string'
+				),
+				'required' => array(
+					'isMandatory' => false,
+					'checker' => 'is_bool'
+				),
+				'minlength' => array(
+					'isMandatory' => false,
+					'checker' => 'is_integer'
+				),
+				'maxlength' => array(
+					'isMandatory' => false,
+					'checker' => 'is_integer'
+				)
 			),
-			'label' => array(
-				'isMandatory' => true,
-				'checker' => 'is_string'
-			),
-			'required' => array(
-				'isMandatory' => false,
-				'checker' => 'is_bool'
-			),
-			'minlength' => array(
-				'isMandatory' => false,
-				'checker' => 'is_integer'
-			),
-			'maxlength' => array(
-				'isMandatory' => false,
-				'checker' => 'is_integer'
-			)
+			'checker' => 'GadgetPrefs::checkStringOptionDefinition'
 		),
 		'number' => array(
-			'default' => array(
-				'isMandatory' => true,
-				'checker' => 'GadgetPrefs::isFloatOrIntOrNull'
+			'description' => array(
+				'default' => array(
+					'isMandatory' => true,
+					'checker' => 'GadgetPrefs::isFloatOrIntOrNull'
+				),
+				'label' => array(
+					'isMandatory' => true,
+					'checker' => 'is_string'
+				),
+				'required' => array(
+					'isMandatory' => false,
+					'checker' => 'is_bool'
+				),
+				'integer' => array(
+					'isMandatory' => false,
+					'checker' => 'is_bool'
+				),
+				'min' => array(
+					'isMandatory' => false,
+					'checker' => 'GadgetPrefs::isFloatOrInt'
+				),
+				'max' => array(
+					'isMandatory' => false,
+					'checker' => 'GadgetPrefs::isFloatOrInt'
+				)
 			),
-			'label' => array(
-				'isMandatory' => true,
-				'checker' => 'is_string'
-			),
-			'required' => array(
-				'isMandatory' => false,
-				'checker' => 'is_bool'
-			),
-			'integer' => array(
-				'isMandatory' => false,
-				'checker' => 'is_bool'
-			),
-			'min' => array(
-				'isMandatory' => false,
-				'checker' => 'GadgetPrefs::isFloatOrInt'
-			),
-			'max' => array(
-				'isMandatory' => false,
-				'checker' => 'GadgetPrefs::isFloatOrInt'
-			)
+			'checker' => 'GadgetPrefs::checkNumberOptionDefinition'
 		),
 		'select' => array(
-			'default' => array(
-				'isMandatory' => true
+			'description' => array(
+				'default' => array(
+					'isMandatory' => true
+				),
+				'label' => array(
+					'isMandatory' => true,
+					'checker' => 'is_string'
+				),
+				'options' => array(
+					'isMandatory' => true,
+					'checker' => 'is_array'
+				)
 			),
-			'label' => array(
-				'isMandatory' => true,
-				'checker' => 'is_string'
-			),
-			'options' => array(
-				'isMandatory' => true,
-				'checker' => 'is_array'
-			)
+			'checker' => 'GadgetPrefs::checkSelectOptionDefinition'
 		),
 		'range' => array(
-			'default' => array(
-				'isMandatory' => true,
-				'checker' => 'GadgetPrefs::isFloatOrIntOrNull'
+			'description' => array(
+				'default' => array(
+					'isMandatory' => true,
+					'checker' => 'GadgetPrefs::isFloatOrIntOrNull'
+				),
+				'label' => array(
+					'isMandatory' => true,
+					'checker' => 'is_string'
+				),
+				'min' => array(
+					'isMandatory' => true,
+					'checker' => 'GadgetPrefs::isFloatOrInt'
+				),
+				'max' => array(
+					'isMandatory' => true,
+					'checker' => 'GadgetPrefs::isFloatOrInt'
+				),
+				'step' => array(
+					'isMandatory' => false,
+					'checker' => 'GadgetPrefs::isFloatOrInt'
+				)
 			),
-			'label' => array(
-				'isMandatory' => true,
-				'checker' => 'is_string'
-			),
-			'min' => array(
-				'isMandatory' => true,
-				'checker' => 'GadgetPrefs::isFloatOrInt'
-			),
-			'max' => array(
-				'isMandatory' => true,
-				'checker' => 'GadgetPrefs::isFloatOrInt'
-			),
-			'step' => array(
-				'isMandatory' => false,
-				'checker' => 'GadgetPrefs::isFloatOrInt'
-			)
+			'checker' => 'GadgetPrefs::checkRangeOptionDefinition'
 		),
 		'date' => array(
-			'default' => array(
-				'isMandatory' => true
-			),
-			'label' => array(
-				'isMandatory' => true,
-				'checker' => 'is_string'
+			'description' => array(
+				'default' => array(
+					'isMandatory' => true
+				),
+				'label' => array(
+					'isMandatory' => true,
+					'checker' => 'is_string'
+				)
 			)
 		),
 		'color' => array(
-			'default' => array(
-				'isMandatory' => true
-			),
-			'label' => array(
-				'isMandatory' => true,
-				'checker' => 'is_string'
+			'description' => array(
+				'default' => array(
+					'isMandatory' => true
+				),
+				'label' => array(
+					'isMandatory' => true,
+					'checker' => 'is_string'
+				)
 			)
 		)
-	);
-
-	//Type-specific checkers for finer validation
-	private static $typeCheckers = array(
-		'string' => 'GadgetPrefs::checkStringOptionDefinition',
-		'number' => 'GadgetPrefs::checkNumberOptionDefinition',
-		'select' => 'GadgetPrefs::checkSelectOptionDefinition',
-		'range'  => 'GadgetPrefs::checkRangeOptionDefinition'
 	);
 	
 	//Further checks for 'string' options
@@ -234,7 +248,7 @@ class GadgetPrefs {
 		$mandatoryCount = array();
 		foreach ( self::$prefsDescriptionSpecifications as $type => $typeSpec ) {
 			$mandatoryCount[$type] = 0;
-			foreach ( $typeSpec as $fieldName => $fieldSpec ) {
+			foreach ( $typeSpec['description'] as $fieldName => $fieldSpec ) {
 				if ( $fieldSpec['isMandatory'] === true ) {
 					++$mandatoryCount[$type];
 				}
@@ -265,6 +279,7 @@ class GadgetPrefs {
 			
 			//Check if all fields satisfy specification
 			$typeSpec = self::$prefsDescriptionSpecifications[$type];
+			$typeDescription = $typeSpec['description'];
 			$count = 0; //count of present mandatory members
 			foreach ( $optionDefinition as $fieldName => $fieldValue ) {
 				
@@ -272,16 +287,16 @@ class GadgetPrefs {
 					continue; //'type' must not be checked
 				}
 				
-				if ( !isset( $typeSpec[$fieldName] ) ) {
+				if ( !isset( $typeDescription[$fieldName] ) ) {
 					return false;
 				}
 				
-				if ( $typeSpec[$fieldName]['isMandatory'] ) {
+				if ( $typeDescription[$fieldName]['isMandatory'] ) {
 					++$count;
 				}
 				
-				if ( isset( $typeSpec[$fieldName]['checker'] ) ) {
-					$checker = $typeSpec[$fieldName]['checker'];
+				if ( isset( $typeDescription[$fieldName]['checker'] ) ) {
+					$checker = $typeDescription[$fieldName]['checker'];
 					if ( !call_user_func( $checker, $fieldValue ) ) {
 						return false;
 					}
@@ -292,9 +307,9 @@ class GadgetPrefs {
 				return false; //not all mandatory members are given
 			}
 			
-			if ( isset( self::$typeCheckers[$type] ) ) {
+			if ( isset( $typeSpec['checker'] ) ) {
 				//Call type-specific checker for finer validation
-				if ( !call_user_func( self::$typeCheckers[$type], $optionDefinition ) ) {
+				if ( !call_user_func( $typeSpec['checker'], $optionDefinition ) ) {
 					return false;
 				}
 			}
