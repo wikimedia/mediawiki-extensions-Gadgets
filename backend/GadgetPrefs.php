@@ -238,12 +238,17 @@ class GadgetPrefs {
 	public static function isPrefsDescriptionValid( $prefsDescription ) {
 		if ( !is_array( $prefsDescription )
 			|| !isset( $prefsDescription['fields'] )
-			|| !is_array( $prefsDescription['fields'] )
-			|| count( $prefsDescription['fields'] ) == 0 )
+			|| !is_array( $prefsDescription['fields'] ) )
 		{
 			return false;
 		}
-				
+		
+		//Check if 'fields' is a regular (not-associative) array, and that it is not empty
+		$count = count( $prefsDescription['fields'] );
+		if ( $count == 0 || array_keys( $prefsDescription['fields'] ) !== range( 0, $count - 1 ) ) {
+			return false;
+		}
+		
 		//Count of mandatory members for each type
 		$mandatoryCount = array();
 		foreach ( self::$prefsDescriptionSpecifications as $type => $typeSpec ) {
@@ -256,22 +261,35 @@ class GadgetPrefs {
 		}
 		
 		//TODO: validation of members other than $prefs['fields']
+
+		//Map of encountered names
+		$names = array();
 		
-		foreach ( $prefsDescription['fields'] as $option => $optionDefinition ) {
+		foreach ( $prefsDescription['fields'] as $optionDefinition ) {
 			
-			//Check if 'type' is set and valid
-			if ( !isset( $optionDefinition['type'] ) ) {
+			//Check if 'name' and 'type' are set
+			if ( !isset( $optionDefinition['type'] ) || !isset( $optionDefinition['name'] ) )  {
 				return false;
 			}
 			
 			$type = $optionDefinition['type'];
 			
+			//check if 'type' is valid
 			if ( !isset( self::$prefsDescriptionSpecifications[$type] ) ) {
 				return false;
 			}
 			
-			//check $option name compliance
-			if ( strlen( $option ) > 40 
+			$option = $optionDefinition['name'];
+
+			//check that it's different from previous names
+			if ( isset( $names[$option] ) ) {
+				return false;
+			}
+			
+			$names[$option] = true;
+
+			//check option name compliance
+			if ( strlen( $option ) > 40
 				|| !preg_match( '/^[a-zA-Z_][a-zA-Z0-9_]*$/', $option ) )
 			{
 				return false;
@@ -283,8 +301,8 @@ class GadgetPrefs {
 			$count = 0; //count of present mandatory members
 			foreach ( $optionDefinition as $fieldName => $fieldValue ) {
 				
-				if ( $fieldName == 'type' ) {
-					continue; //'type' must not be checked
+				if ( $fieldName == 'type' || $fieldName == 'name' ) {
+					continue; //'type' and 'name' must not be checked
 				}
 				
 				if ( !isset( $typeDescription[$fieldName] ) ) {
@@ -468,16 +486,19 @@ class GadgetPrefs {
 	 * @return boolean true if $prefs passes validation against $prefsDescription, false otherwise.
 	 */
 	public static function checkPrefsAgainstDescription( $prefsDescription, $prefs ) {
+		$validPrefs = array();
 		//Check that all the given preferences pass validation
-		foreach ( $prefsDescription['fields'] as $prefName => $prefDescription ) {
+		foreach ( $prefsDescription['fields'] as $prefDescription ) {
+			$prefName = $prefDescription['name'];
 			if ( !self::checkSinglePref( $prefDescription, $prefs, $prefName ) ) {
 				return false;
 			}
+			$validPrefs[$prefName] = true;
 		}
 		
 		//Check that $prefs contains no preferences that are not described in $prefsDescription
 		foreach ( $prefs as $prefName => $value ) {
-			if ( !isset( $prefsDescription['fields'][$prefName] ) ) {
+			if ( !isset( $validPrefs[$prefName] ) ) {
 				return false;
 			}
 		}
@@ -493,17 +514,21 @@ class GadgetPrefs {
 	 * @param &$prefs Array: reference of the array of preferences to match.
 	 */
 	public static function matchPrefsWithDescription( $prefsDescription, &$prefs ) {
-		//Remove unexisting preferences from $prefs
-		foreach ( $prefs as $prefName => $value ) {
-			if ( !isset( $prefsDescription['fields'][$prefName] ) ) {
-				unset( $prefs[$prefName] );
-			}
-		}
-
-		//Fix preferences that fail validation
-		foreach ( $prefsDescription['fields'] as $prefName => $prefDescription ) {
+		$validPrefs = array();
+		
+		//Fix preferences that fail validation, by replacing their value with default
+		foreach ( $prefsDescription['fields'] as $prefDescription ) {
+			$prefName = $prefDescription['name'];
 			if ( !self::checkSinglePref( $prefDescription, $prefs, $prefName ) ) {
 				$prefs[$prefName] = $prefDescription['default'];
+			}
+			$validPrefs[$prefName] = true;
+		}
+		
+		//Remove unexisting preferences from $prefs
+		foreach ( $prefs as $prefName => $value ) {
+			if ( !isset( $validPrefs[$prefName] ) ) {
+				unset( $prefs[$prefName] );
 			}
 		}
 	}

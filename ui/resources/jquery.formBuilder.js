@@ -556,37 +556,35 @@
 
 		var settings = {}; //validator settings
 
-		for ( var fieldName in description.fields ) {
-			if ( description.fields.hasOwnProperty( fieldName )) {
-				//TODO: validate fieldName
-				var field = description.fields[fieldName];
+		for ( var i = 0; i < description.fields.length; i++ ) {
+			//TODO: validate fieldName
+			var field = description.fields[i],
+				fieldName = field.name,
+				FieldConstructor = validFieldTypes[field.type];
 
-				var FieldConstructor = validFieldTypes[field.type];
-
-				if ( typeof FieldConstructor != 'function' ) {
-					mw.log( "field with invalid type: " + field.type );
-					return null;
-				}
-
-				var f;
-				try {
-					f = new FieldConstructor( $form, fieldName, field );
-				} catch ( e ) {
-					mw.log( e );
-					return null; //constructor failed, wrong syntax in field description
-				}
-				
-				$form.append( f.getElement() );
-				
-				//If this field has validation rules, add them to settings
-				var	fieldSettings = f.getValidationSettings();
-				
-				if ( fieldSettings ) {
-					$.extend( true, settings, fieldSettings );
-				}
-				
-				fields.push( f );
+			if ( typeof FieldConstructor != 'function' ) {
+				mw.log( "field with invalid type: " + field.type );
+				return null;
 			}
+
+			var f;
+			try {
+				f = new FieldConstructor( $form, fieldName, field );
+			} catch ( e ) {
+				mw.log( e );
+				return null; //constructor failed, wrong syntax in field description
+			}
+			
+			$form.append( f.getElement() );
+			
+			//If this field has validation rules, add them to settings
+			var	fieldSettings = f.getValidationSettings();
+			
+			if ( fieldSettings ) {
+				$.extend( true, settings, fieldSettings );
+			}
+			
+			fields.push( f );
 		}
 
 		var validator = $form.validate( settings );

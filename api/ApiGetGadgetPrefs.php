@@ -53,8 +53,9 @@ class ApiGetGadgetPrefs extends ApiBase {
 		}
 				
 		//Add user preferences to preference description
-		foreach ( $userPrefs as $pref => $value ) {
-			$prefsDescription['fields'][$pref]['value'] = $value;
+		foreach ( $prefsDescription['fields'] as $prefIdx => $prefDescription ) {
+			$prefName = $prefDescription['name'];
+			$prefsDescription['fields'][$prefIdx]['value'] = $userPrefs[$prefName];
 		}
 
 		$this->getResult()->addValue( null, $this->getModuleName(), $prefsDescription );
