@@ -29,12 +29,16 @@ class GadgetHooks {
 		if( $title->getNamespace() == NS_MEDIAWIKI ) {
 			if ( $title->getText() == 'Gadgets-definition' ) {
 				Gadget::loadStructuredList( $text );
-			} elseif ( preg_match( '/Gadget-([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)\.preferences/', $title->getText() ) ) {
-				$msg = wfMessage( 'Gadgets-definition' );
-				if ( $msg->exists() ) {
-					Gadget::loadStructuredList( $msg->plain() );
-				} else {
-					Gadget::loadStructuredList( '' );
+			} else {
+				$m = array();
+				if ( preg_match( '/Gadget-([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)\.preferences/', $title->getText(), $m ) ) {
+					$msg = wfMessage( 'Gadgets-definition' );
+					if ( $msg->exists() ) {
+						$gadgetName = trim( str_replace(' ', '_', $m[1] ) );
+						Gadget::loadStructuredList( $msg->plain(), array( $gadgetName => $text ) );
+					} else {
+						Gadget::loadStructuredList( '' );
+					}
 				}
 			}
 		}
@@ -218,12 +222,18 @@ class GadgetHooks {
 
 		wfProfileIn( __METHOD__ );
 
+		$gadgets = Gadget::loadList();
+		if ( !$gadgets ) {
+			wfProfileOut( __METHOD__ );
+			return true;
+		}
+
 		//Find out all existing gadget preferences and save them in a map
 		$preferencesCache = array();
 		foreach ( $options as $option => $value ) {
 			$m = array();
 			if ( preg_match( '/gadget-([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)-config/', $option, $m ) ) {
-				$gadgetName = $m[1];
+				$gadgetName = trim( str_replace(' ', '_', $m[1] ) );
 				$gadgetPrefs = unserialize( $value );
 				if ( $gadgetPrefs !== false ) {
 					$preferencesCache[$gadgetName] = $gadgetPrefs;
@@ -237,7 +247,6 @@ class GadgetHooks {
 		}
 		
 		//Record preferences for each gadget
-		$gadgets = Gadget::loadList();
 		foreach ( $gadgets as $gadget ) {
 			$prefsDescription = $gadget->getPrefsDescription();
 			if ( $prefsDescription !== null ) {

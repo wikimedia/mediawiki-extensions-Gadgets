@@ -39,9 +39,12 @@ class Gadget {
 	/**
 	 * Creates an instance of this class from definition in MediaWiki:Gadgets-definition
 	 * @param $definition String: Gadget definition
+	 * @param $forcePrefsDescriptionsJson Array: Array with keys equal to gadget names, and values to their preferences description.
+	 *        If it is specified and a gadget whose name is a key in the array is found, its corresponding value is used instead of
+	 *        loading it from MediaWiki:Gadget-<name>.preferences.
 	 * @return Mixed: Instance of Gadget class or false if $definition is invalid
 	 */
-	public static function newFromDefinition( $definition ) {
+	public static function newFromDefinition( $definition, $forcePrefsDescriptionsJson = null ) {
 		$m = array();
 		if ( !preg_match( '/^\*+ *([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)(\s*\[.*?\])?\s*((\|[^|]*)+)\s*$/', $definition, $m ) ) {
 			return false;
@@ -53,9 +56,7 @@ class Gadget {
 		$gadget->name = trim( str_replace(' ', '_', $m[1] ) );
 		$gadget->definition = $definition;
 
-		//Could be made more precise using per-gadget info; an upper bound suffices.
-		//Since the list is reloaded every time gadget definitions or gadget preference descriptions
-		//are changed, 'now' is an upper bound.
+		//TODO: make this more precise with gadget-specific info. Untile then, 'now' is an upper bound.
 		$gadget->mTime = wfTimestamp( TS_UNIX );
 		
 		//Parse gadget options
@@ -94,11 +95,24 @@ class Gadget {
 		}
 		
 		if ( $gadget->resourceLoaded ) {
-			//Retrieve preference descriptions
-			$prefsDescriptionMsg = "Gadget-{$gadget->name}.preferences";
-			$msg = wfMessage( $prefsDescriptionMsg );
-			if ( $msg->exists() ) {
-				$prefsDescription = FormatJson::decode( $msg->plain(), true );
+			if ( $forcePrefsDescriptionsJson === null ||
+				!is_array( $forcePrefsDescriptionsJson ) ||
+				!isset( $forcePrefsDescriptionsJson[$gadget->name] ) )
+			{
+				//Retrieve preference descriptions
+				$prefsDescriptionMsg = "Gadget-{$gadget->name}.preferences";
+				$msg = wfMessage( $prefsDescriptionMsg );
+				if ( $msg->exists() ) {
+					wfDebug( __METHOD__ . ": loading description of preferences for gadget {$gadget->name} from $prefsDescriptionMsg.\n" );
+					$prefsDescriptionJson = $msg->plain();
+				}
+			} else {
+				wfDebug( __METHOD__ . ": loading description of preferences for gadget {$gadget->name} from \$forcePrefsDescriptionsJson.\n" );
+				$prefsDescriptionJson = $forcePrefsDescriptionsJson[$gadget->name];
+			}
+			
+			if ( isset( $prefsDescriptionJson ) ) {
+				$prefsDescription = FormatJson::decode( $prefsDescriptionJson, true );
 				$gadget->setPrefsDescription( $prefsDescription );
 			}
 		}
@@ -331,14 +345,17 @@ class Gadget {
 	 *             'sectionnname2' => array( $gadget3 ) );
 	 * @param $forceNewText String: New text of MediaWiki:gadgets-sdefinition. If specified, will
 	 * 	      force a purge of cache and recreation of the gadget list.
+	 * @param $forcePrefsDescriptionsJson Array: Array with keys equal to gadget names, and values to their preferences description.
+	 *        If it is specified and a gadget whose name is a key in the array is found, its corresponding value is used instead of
+	 *        loading it from MediaWiki:Gadget-<name>.preferences.
 	 * @return Mixed: Array or false
 	 */
-	public static function loadStructuredList( $forceNewText = null ) {
+	public static function loadStructuredList( $forceNewText = null, $forcePrefsDescriptionsJson = null ) {
 		global $wgMemc;
 
 		static $gadgets = null;
 				
-		if ( $gadgets !== null && $forceNewText === null ) {
+		if ( $gadgets !== null && $forceNewText === null && $forcePrefsDescriptionsJson === null ) {
 			return $gadgets;
 		}
 
@@ -353,7 +370,7 @@ class Gadget {
 			//Check again, loadStructuredList may have been called from UserLoadOptions hook handler;
 			//in that case, we should just return current value instead of rebuilding the list again.
 			//TODO: is there a better design?
-			if ( $gadgets !== null && $forceNewText === null ) {
+			if ( $gadgets !== null && $forceNewText === null && $forcePrefsDescriptionsJson === null ) {
 				wfProfileOut( __METHOD__ );
 				return $gadgets;
 			}
@@ -393,7 +410,7 @@ class Gadget {
 				$section = $m[1];
 			}
 			else {
-				$gadget = self::newFromDefinition( $line );
+				$gadget = self::newFromDefinition( $line, $forcePrefsDescriptionsJson );
 				if ( $gadget ) {
 					$gadgets[$section][$gadget->getName()] = $gadget;
 					$gadget->category = $section;
