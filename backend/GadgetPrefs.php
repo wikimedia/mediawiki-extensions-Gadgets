@@ -534,6 +534,20 @@ class GadgetPrefs {
 	}
 	
 	/**
+	 * Return default preferences according to the given description.
+	 * 
+	 * @param $prefsDescription Array: reference of the array of preferences to match.
+	 * It is assumed that $prefsDescription is a valid description of preferences.
+	 * 
+	 * @return Array: the set of default preferences, keyed by preference name.
+	 */
+	public static function getDefaults( $prefsDescription ) {
+		$prefs = array();
+		self::matchPrefsWithDescription( $prefsDescription, $prefs );
+		return $prefs;
+	}
+	
+	/**
 	 * Returns true if $str should be interpreted as a message, false otherwise.
 	 * 
 	 * @param $str String

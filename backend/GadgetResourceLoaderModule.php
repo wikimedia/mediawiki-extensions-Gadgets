@@ -28,6 +28,7 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * 		'MediaWiki:Gadget-foo.css' => array( 'type' => 'style' ),
 	 * )
 	 * @param $dependencies Array: Names of resources this module depends on
+	 * @param $gadget Gadget: the gadget this module is built upon.
 	 */
 	public function __construct( $pages, $dependencies, $gadget ) {
 		$this->pages = $pages;
@@ -48,47 +49,48 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * @return Array: Names of resources this module depends on
 	 */
 	public function getDependencies() {
-		return $this->dependencies;
-	}
-	
-	public function getGroup() {
-		//Modules for gadgets with preferences must be kept private, if the user can set preferences
-		if ( $this->gadget->getPrefsDescription() !== null
-			&& RequestContext::getMain()->getUser()->isLoggedIn() )
-		{
-			return 'private';
-		} else {
-			return parent::getGroup();
+		$deps = array( 'ext.gadgets' );
+		if ( $this->gadget->getPrefsDescription() !== null ){
+			$deps[] = $this->gadget->getPrefsModuleName();
 		}
+		
+		return array_merge(
+				$this->dependencies,
+				$deps
+			);
 	}
 	
+	/**
+	 * Overrides ResourceLoaderModule::getScript()
+	 * @param $context ResourceLoaderContext
+	 * @return String
+	 */
 	public function getScript( ResourceLoaderContext $context ) {
 		$prefs = $this->gadget->getPrefs();
 		
 		//Enclose gadget's code in a closure, with "this" bound to the
 		//configuration object (or to "window" for non-configurable gadgets)
-		$header = '(function(){';
+		$header = "(function(){";
 		
-		//TODO: it may be nice add other metadata for the gadget
-		$boundObject = array( 'config' => $prefs );
-		
-		if ( $prefs !== NULL ) {
-			//Bind configuration object to "this".
-			$footer = '}).' . Xml::encodeJsCall( 'apply', 
-				array( $boundObject, array() )
-			) . ';';
+		if ( $prefs !== null ) {
+			//Bind gadget info to "this".
+			$footer = "}).apply( mw.gadgets.info.get('{$this->gadget->getName()}') );";
 		} else {
 			//Bind window to "this"
-			$footer = '}).apply( window, [] );';
+			$footer = "}).apply( window );";
 		}
 		
 		return $header . parent::getScript( $context ) . $footer;
 	}
 	
+	/**
+	 * Overrides ResourceLoaderModule::getModifiedTime()
+	 * @param $context ResourceLoaderContext
+	 * @return Integer
+	 */
 	public function getModifiedTime( ResourceLoaderContext $context ) {
-		$touched = wfTimestamp( TS_UNIX, RequestContext::getMain()->getUser()->getTouched() );
-		$gadgetMTime = $this->gadget->getModifiedTime();
-		return max( parent::getModifiedTime( $context ), $touched, $gadgetMTime );
+		//TODO: should also depend on the mTime of preferences description page
+		return parent::getModifiedTime( $context );
 	}
 }
 

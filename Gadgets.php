@@ -48,8 +48,9 @@ $wgAutoloadClasses['ApiSetGadgetPrefs'] = $dir . 'api/ApiSetGadgetPrefs.php';
 $wgAutoloadClasses['Gadget'] = $dir . 'backend/Gadget.php';
 $wgAutoloadClasses['GadgetHooks'] = $dir . 'backend/GadgetHooks.php';
 $wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'backend/GadgetResourceLoaderModule.php';
+$wgAutoloadClasses['GadgetOptionsResourceLoaderModule'] = $dir . 'backend/GadgetOptionsResourceLoaderModule.php';
 $wgAutoloadClasses['GadgetPrefs'] = $dir . 'backend/GadgetPrefs.php';
-$wgAutoloadClasses['GadgetsMainModule'] = $dir . 'ui/GadgetsMainModule.php';
+$wgAutoloadClasses['GadgetsMainModule'] = $dir . 'backend/GadgetsMainModule.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'ui/SpecialGadgets.php';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
@@ -62,7 +63,7 @@ $wgAjaxExportList[] = 'GadgetsAjax::getPreferences';
 $wgAjaxExportList[] = 'GadgetsAjax::setPreferences';
 
 $wgResourceModules['ext.gadgets'] = array(
-	'class' 		=> 'GadgetsMainModule'
+	'class' 		=> 'GadgetsMainModule',
 );
 
 $wgResourceModules['jquery.validate'] = array(

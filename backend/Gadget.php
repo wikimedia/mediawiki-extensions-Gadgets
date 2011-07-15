@@ -22,6 +22,7 @@ class Gadget {
 	 */
 	const GADGET_CLASS_VERSION = 5;
 
+	//Fields stored in cache
 	private $version = self::GADGET_CLASS_VERSION,
 	        $scripts = array(),
 	        $styles = array(),
@@ -32,9 +33,10 @@ class Gadget {
 			$requiredRights = array(),
 			$onByDefault = false,
 			$category,
-			$mTime = null, //upper bound on last modification time; UNIX timestamp
 			$prefsDescription = null,
-			$preferences = null;
+			//The following fields are initialized after saving the gadget to cache for registered users
+			$preferences = null,
+			$prefsTimestamp = 1; //last time user preferences for this gadget have been changed; UNIX timestamp
 
 	/**
 	 * Creates an instance of this class from definition in MediaWiki:Gadgets-definition
@@ -55,9 +57,6 @@ class Gadget {
 		$gadget = new Gadget();
 		$gadget->name = trim( str_replace(' ', '_', $m[1] ) );
 		$gadget->definition = $definition;
-
-		//TODO: make this more precise with gadget-specific info. Untile then, 'now' is an upper bound.
-		$gadget->mTime = wfTimestamp( TS_UNIX );
 		
 		//Parse gadget options
 		$options = trim( $m[2], ' []' );
@@ -114,6 +113,9 @@ class Gadget {
 			if ( isset( $prefsDescriptionJson ) ) {
 				$prefsDescription = FormatJson::decode( $prefsDescriptionJson, true );
 				$gadget->setPrefsDescription( $prefsDescription );
+				
+				//Load default gadget preferences. Only useful for anonymous users
+				$gadget->setPrefs( GadgetPrefs::getDefaults( $prefsDescription ) );
 			}
 		}
 		
@@ -153,6 +155,13 @@ class Gadget {
 	 */
 	public function getModuleName() {
 		return "ext.gadget.{$this->name}";
+	}
+
+	/**
+	 * @return String: Name of ResourceLoader module for this gadget's preferences
+	 */
+	public function getPrefsModuleName() {
+		return "{$this->getModuleName()}.prefs";
 	}
 
 	/**
@@ -255,14 +264,15 @@ class Gadget {
 		return new GadgetResourceLoaderModule( $pages, $this->dependencies, $this );
 	}
 
+	
 	/**
-	 * Returns an upper bound on the modification time of the gadget.
-	 * Used by GadgetResourceLoaderModule to compute its own mTime.
+	 * Returns ResourceLoader module for this gadget's preferences, see
+	 * getPrefsModuleName().
 	 * 
-	 * @return String the UNIX timestamp of this gadget's modificaton time.
+	 * @return Mixed: GadgetOptionsResourceLoaderModule or false
 	 */
-	public function getModifiedTime() {
-		return $this->mTime;
+	public function getPrefsModule() {
+		return new GadgetOptionsResourceLoaderModule( $this );
 	}
 
 	/**
@@ -492,9 +502,30 @@ class Gadget {
 		$this->preferences = $prefs;
 
 		if ( $savePrefs ) {
+			$this->setPrefsTimestamp( wfTimestamp( TS_UNIX ) ); //update timestamp before saving
 			$user = RequestContext::getMain()->getUser();
 			$user->saveSettings();
 		}
 		return true;
+	}
+
+	/**
+	 * Returns the modification time of gadget preferences.
+	 * Used by GadgetResourceLoaderModule to compute its own mTime.
+	 * Returns 1 if setPrefsTimestamp() has never been called, or the previously stored value otherwise.
+	 * 
+	 * @return String the UNIX timestamp of this gadget's modificaton time.
+	 */
+	public function getPrefsTimestamp() {
+		return $this->prefsTimestamp;
+	}
+
+	/**
+	 * Sets the modification time of gadget preferences.
+	 * 
+	 * @param $timestamp String: the UNIX timestamp of the last time preferences has been saved.
+	 */
+	public function setPrefsTimestamp( $timestamp ) {
+		$this->prefsTimestamp = $timestamp;
 	}
 }

@@ -21,9 +21,13 @@ class GadgetsMainModule extends ResourceLoaderModule {
 	public function getModifiedTime( ResourceLoaderContext $context ) {
 		$gadgets = Gadget::loadList();
 		
-		$m = 0;
+		$m = 1;
+		$resourceLoader = $context->getResourceLoader();
 		foreach ( $gadgets as $gadget ) {
-			$m = max( $m, $gadget->getModifiedTime() );
+			if ( $gadget->hasModule() ) {
+				$module = $resourceLoader->getModule( $gadget->getModuleName() );
+				$m = max( $m, $module->getModifiedTime( $context ) );
+			}
 		}
 		return $m;
 	}
@@ -38,7 +42,8 @@ class GadgetsMainModule extends ResourceLoaderModule {
 			}
 		}
 
-		$script = "mw.gadgets = {}\n";
+		$script = "mw.gadgets = {};\n";
+		$script .= "mw.gadgets.info = new mw.Map();\n";
 		$script .= "mw.gadgets.configurableGadgets = " . Xml::encodeJsVar( $configurableGadgets ) . ";\n";
 		return $script;
 	}

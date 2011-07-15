@@ -589,7 +589,23 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 			)
 		) );
 	}
-	
+
+	/**
+	 * Tests Gadget::getDefaults
+	 *
+	 * @dataProvider prefsDescProvider
+	 */
+	function testGetDefaults( $prefsDescription ) {
+		$this->assertEquals( GadgetPrefs::getDefaults( $prefsDescription ), array(
+			'testBoolean' => true,
+			'testBoolean2' => true,
+			'testNumber' => 7,
+			'testNumber2' => 7,
+			'testSelect' => 3,
+			'testSelect2' => 3
+		) );
+	}
+
 	/**
 	 * Tests Gadget::setPrefsDescription, GadgetPrefs::checkPrefsAgainstDescription,
 	 * GadgetPrefs::matchPrefsWithDescription and Gadget::setPrefs.

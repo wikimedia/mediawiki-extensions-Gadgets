@@ -148,6 +148,9 @@ class GadgetHooks {
 		foreach ( $gadgets as $g ) {
 			$module = $g->getModule();
 			if ( $module ) {
+				if ( $g->getPrefsDescription() !== null ) {
+					$resourceLoader->register( $g->getPrefsModuleName(), $g->getPrefsModule() );
+				}
 				$resourceLoader->register( $g->getModuleName(), $module );
 			}
 		}
@@ -230,13 +233,15 @@ class GadgetHooks {
 
 		//Find out all existing gadget preferences and save them in a map
 		$preferencesCache = array();
+		$timestampCache = array();
 		foreach ( $options as $option => $value ) {
 			$m = array();
 			if ( preg_match( '/gadget-([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)-config/', $option, $m ) ) {
 				$gadgetName = trim( str_replace(' ', '_', $m[1] ) );
-				$gadgetPrefs = unserialize( $value );
-				if ( $gadgetPrefs !== false ) {
-					$preferencesCache[$gadgetName] = $gadgetPrefs;
+				$bundle = unserialize( $value );
+				if ( is_array( $bundle ) && isset( $bundle['timestamp'] ) && isset( $bundle['prefs'] ) ) {
+					$preferencesCache[$gadgetName] = $bundle['prefs'];
+					$timestampCache[$gadgetName] = $bundle['timestamp'];
 				} else {
 					//should not happen; just in case
 					wfDebug( __METHOD__ . ": couldn't unserialize settings for gadget " .
@@ -252,15 +257,18 @@ class GadgetHooks {
 			if ( $prefsDescription !== null ) {
 				if ( isset( $preferencesCache[$gadget->getName()] ) ) {
 					$userPrefs = $preferencesCache[$gadget->getName()];
+					$timestamp = $timestampCache[$gadget->getName()];
 				}
 				
 				if ( !isset( $userPrefs ) ) {
 					$userPrefs = array(); //no saved prefs (or invalid entry in DB), use defaults
+					$timestamp = 1;
 				}
-				
+
 				GadgetPrefs::matchPrefsWithDescription( $prefsDescription, $userPrefs );
 				
 				$gadget->setPrefs( $userPrefs );
+				$gadget->setPrefsTimestamp( $timestamp );
 			}
 		}
 
@@ -296,16 +304,19 @@ class GadgetHooks {
 				$prefsDescription = $gadget->getPrefsDescription();
 				
 				//Remove preferences that equal their default
-				foreach ( $prefs as $prefName => $value ) {
-					if ( $prefsDescription['fields'][$prefName]['default'] === $value ) {
+				foreach ( $prefsDescription['fields'] as $prefDescription ) {
+					$prefName = $prefDescription['name'];
+					$prefDefault = $prefDescription['default'];
+					if ( $prefs[$prefName] === $prefDefault ) {
 						unset( $prefs[$prefName] );
 					}
 				}
 				
-				//Only save it if at least one preference differs from default
-				if ( !empty( $prefs ) ) {
-					$options["gadget-{$gadget->getName()}-config"] = serialize( $prefs );
-				}
+				//Save back preferences
+				$options["gadget-{$gadget->getName()}-config"] = serialize( array( 
+					'timestamp' => $gadget->getPrefsTimestamp(),
+					'prefs' => $prefs
+				) );
 			}
 		}
 		
