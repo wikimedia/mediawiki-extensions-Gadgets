@@ -734,6 +734,15 @@ Kohalikud administraatorid saavad olemasolevaid riistu muuta [[MediaWiki:Gadgets
 	'gadgets-title' => 'Tööriistad',
 	'gadgets-pagetext' => 'Allpool on nimekiri eririistadest, mida kasutajad saavad oma [[Special:Preferences|eelistuste leheküljel]] sisse lülitada, nii nagu [[MediaWiki:Gadgets-definition|määratlustes]] määratletud. See ülevaade võimaldab kergesti ligi pääseda süsteemi sõnumilehekülgedele, milles on iga riista kirjeldus ja kood.',
 	'gadgets-uses' => 'Kasutab',
+	'gadgets-required-rights' => 'Tarvis on {{PLURAL:$2|järgmist õigust|järgmisi õigusi}}: $1',
+	'gadgets-default' => 'Vaikimisi kõigile lubatud.',
+	'gadgets-export' => 'Ekspordi',
+	'gadgets-export-title' => 'Tööriista eksportimine',
+	'gadgets-not-found' => 'Tööriista "$1" ei leidu.',
+	'gadgets-export-text' => 'Klõpsa nuppu "{{int:gadgets-export-download}}", et eksportida tööriist $1; salvesta allalaaditav fail;
+mine sihtvikis leheküljele Special:Import ja laadi see üles. Seejärel lisa järgnev leheküljele MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Sul peavad olema sihtvikis vajalikud õigused (kaasa arvatud õigus redigeerida süsteemi sõnumeid) ja üleslaaditavate failide kaudu importimine peab olema lubatud.',
 	'gadgets-export-download' => 'Laadi alla',
 );
 
