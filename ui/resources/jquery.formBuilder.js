@@ -87,9 +87,9 @@
 	}
 
 	//A field with no content
-	function EmptyField( $form, name, desc ) {
+	function EmptyField( $form, desc, values ) {
 		//Check existence of compulsory fields
-		if ( typeof name == 'undefined' || !desc.type || !desc.label ) {
+		if ( !desc.type || !desc.label ) {
 			$.error( "Missing arguments" );
 		}
 
@@ -97,22 +97,16 @@
 
 		this.$p = $( '<p/>' );
 
-		this.name = name;
 		this.desc = desc;
 	}
-
-	EmptyField.prototype.getName = function() {
-		return this.name;
-	};
 
 	EmptyField.prototype.getDesc = function() {
 		return this.desc;
 	};
 
-
 	//Override expected
-	EmptyField.prototype.getValue = function() {
-		return null;
+	EmptyField.prototype.getValues = function() {
+		return {};
 	};
 
 	EmptyField.prototype.getElement = function() {
@@ -129,12 +123,12 @@
 	//A field with just a label
 	LabelField.prototype = object( EmptyField.prototype );
 	LabelField.prototype.constructor = LabelField;
-	function LabelField( $form, name, desc ) {
-		EmptyField.call( this, $form, name, desc );
+	function LabelField( $form, desc, values ) {
+		EmptyField.call( this, $form, desc, values );
 
 		var $label = $( '<label/>' )
 			.text( preproc( this.$form, this.desc.label ) )
-			.attr('for', idPrefix + this.name );
+			.attr('for', idPrefix + this.desc.name );
 
 		this.$p.append( $label );
 	}
@@ -142,53 +136,59 @@
 	//A field with a label and a checkbox
 	BooleanField.prototype = object( LabelField.prototype );
 	BooleanField.prototype.constructor = BooleanField;
-	function BooleanField( $form, name, desc ){ 
-		LabelField.call( this, $form, name, desc );
+	function BooleanField( $form, desc, values ){ 
+		LabelField.call( this, $form, desc, values );
 
-		if ( typeof desc.value != 'boolean' ) {
-			$.error( "desc.value is invalid" );
+		var value = values[this.desc.name];
+		if ( typeof value != 'boolean' ) {
+			$.error( "value is invalid" );
 		}
 		
 		this.$c = $( '<input/>' )
 			.attr( 'type', 'checkbox' )
-			.attr( 'id', idPrefix + this.name )
-			.attr( 'name', idPrefix + this.name )
-			.attr( 'checked', this.desc.value );
+			.attr( 'id', idPrefix + this.desc.name )
+			.attr( 'name', idPrefix + this.desc.name )
+			.attr( 'checked', value );
 
 		this.$p.append( this.$c );
 	}
 	
-	BooleanField.prototype.getValue = function() {
-		return this.$c.is( ':checked' );
+	BooleanField.prototype.getValues = function() {
+		var res = {};
+		res[this.desc.name] = this.$c.is( ':checked' );
+		return res;
 	};
 
 	//A field with a textbox accepting string values
 
 	StringField.prototype = object( LabelField.prototype );
 	StringField.prototype.constructor = StringField;
-	function StringField( $form, name, desc ){ 
-		LabelField.call( this, $form, name, desc );
+	function StringField( $form, desc, values ){ 
+		LabelField.call( this, $form, desc, values );
 
-		if ( typeof desc.value != 'string' ) {
-			$.error( "desc.value is invalid" );
+		var value = values[this.desc.name];
+		if ( typeof value != 'string' ) {
+			$.error( "value is invalid" );
 		}
 
 		this.$text = $( '<input/>' )
 			.attr( 'type', 'text' )
-			.attr( 'id', idPrefix + this.name )
-			.attr( 'name', idPrefix + this.name )
-			.val( desc.value );
+			.attr( 'id', idPrefix + this.desc.name )
+			.attr( 'name', idPrefix + this.desc.name )
+			.val( value );
 
 		this.$p.append( this.$text );
 	}
 	
-	StringField.prototype.getValue = function() {
-		return this.$text.val();
+	StringField.prototype.getValues = function() {
+		var res = {};
+		res[this.desc.name] = this.$text.val();
+		return res;
 	};
 
 	StringField.prototype.getValidationSettings = function() {
 		var	settings = LabelField.prototype.getValidationSettings.call( this ),
-			fieldId = idPrefix + this.name;
+			fieldId = idPrefix + this.desc.name;
 		
 		settings.rules[fieldId] = {};
 		var	fieldRules = settings.rules[fieldId],
@@ -218,30 +218,33 @@
 	//A field with a textbox accepting numeric values
 	NumberField.prototype = object( LabelField.prototype );
 	NumberField.prototype.constructor = NumberField;
-	function NumberField( $form, name, desc ){ 
-		LabelField.call( this, $form, name, desc );
+	function NumberField( $form, desc, values ){ 
+		LabelField.call( this, $form, desc, values );
 
-		if ( desc.value !== null && typeof desc.value != 'number' ) {
-			$.error( "desc.value is invalid" );
+		var value = values[this.desc.name];
+		if ( value !== null && typeof value != 'number' ) {
+			$.error( "value is invalid" );
 		}
 
 		this.$text = $( '<input/>' )
 			.attr( 'type', 'text' )
-			.attr( 'id', idPrefix + this.name )
-			.attr( 'name', idPrefix + this.name )
-			.val( desc.value );
+			.attr( 'id', idPrefix + this.desc.name )
+			.attr( 'name', idPrefix + this.desc.name )
+			.val( value );
 
 		this.$p.append( this.$text );
 	}
 	
-	NumberField.prototype.getValue = function() {
-		var val = parseFloat( this.$text.val() );
-		return isNaN( val ) ? null : val;
+	NumberField.prototype.getValues = function() {
+		var val = parseFloat( this.$text.val() ),
+			res = {};
+		res[this.desc.name] = isNaN( val ) ? null : val;
+		return res;
 	};
 
 	NumberField.prototype.getValidationSettings = function() {
 		var	settings = LabelField.prototype.getValidationSettings.call( this ),
-			fieldId = idPrefix + this.name;
+			fieldId = idPrefix + this.desc.name;
 		
 		settings.rules[fieldId] = {};
 		var	fieldRules = settings.rules[fieldId],
@@ -277,50 +280,54 @@
 	//A field with a drop-down list
 	SelectField.prototype = object( LabelField.prototype );
 	SelectField.prototype.constructor = SelectField;
-	function SelectField( $form, name, desc ){ 
-		LabelField.call( this, $form, name, desc );
+	function SelectField( $form, desc, values ){ 
+		LabelField.call( this, $form, desc, values );
 
 		var $select = this.$select = $( '<select/>' )
-			.attr( 'id', idPrefix + this.name )
-			.attr( 'name', idPrefix + this.name );
+			.attr( 'id', idPrefix + this.desc.name )
+			.attr( 'name', idPrefix + this.desc.name );
 		
-		var values = [];
+		var validValues = [];
 		var self = this;
 		$.each( desc.options, function( optName, optVal ) {
-			var i = values.length;
+			var i = validValues.length;
 			$( '<option/>' )
 				.text( preproc( self.$form, optName ) )
 				.val( i )
 				.appendTo( $select );
-			values.push( optVal );
+			validValues.push( optVal );
 		} );
 
-		this.values = values;
+		this.validValues = validValues;
 
-		if ( $.inArray( desc.value, values ) == -1 ) {
-			$.error( "desc.value is not in the list of possible values" );
+		var value = values[this.desc.name];
+		if ( $.inArray( value, validValues ) == -1 ) {
+			$.error( "value is not in the list of possible values" );
 		}
 
-		var i = $.inArray( desc.value, values );
+		var i = $.inArray( value, validValues );
 		$select.val( i ).attr( 'selected', 'selected' );
 
 		this.$p.append( $select );
 	}
 	
-	SelectField.prototype.getValue = function() {
-		var i = parseInt( this.$select.val(), 10 );
-		return this.values[i];
+	SelectField.prototype.getValues = function() {
+		var i = parseInt( this.$select.val(), 10 ),
+			res = {};
+		res[this.desc.name] = this.validValues[i];
+		return res;
 	};
 
 
 	//A field with a slider, representing ranges of numbers
 	RangeField.prototype = object( LabelField.prototype );
 	RangeField.prototype.constructor = RangeField;
-	function RangeField( $form, name, desc ){ 
-		LabelField.call( this, $form, name, desc );
+	function RangeField( $form, desc, values ){ 
+		LabelField.call( this, $form, desc, values );
 
-		if ( typeof desc.value != 'number' ) {
-			$.error( "desc.value is invalid" );
+		var value = values[this.desc.name];
+		if ( typeof value != 'number' ) {
+			$.error( "value is invalid" );
 		}
 
 		if ( typeof desc.min != 'number' ) {
@@ -335,17 +342,17 @@
 			$.error( "desc.step is invalid" );
 		}
 
-		if ( desc.value < desc.min || desc.value > desc.max ) {
-			$.error( "desc.value is out of range" );
+		if ( value < desc.min || value > desc.max ) {
+			$.error( "value is out of range" );
 		}
 
 		var $slider = this.$slider = $( '<div/>' )
-			.attr( 'id', idPrefix + this.name );
+			.attr( 'id', idPrefix + this.desc.name );
 
 		var options = {
 			min: desc.min,
 			max: desc.max,
-			value: desc.value
+			value: value
 		};
 
 		if ( typeof desc.step != 'undefined' ) {
@@ -357,34 +364,37 @@
 		this.$p.append( $slider );
 	}
 	
-	RangeField.prototype.getValue = function() {
-		return this.$slider.slider( 'value' );
+	RangeField.prototype.getValues = function() {
+		var res = {};
+		res[this.desc.name] = this.$slider.slider( 'value' );
+		return res;
 	};
 	
 	
 	//A field with a textbox with a datepicker
 	DateField.prototype = object( LabelField.prototype );
 	DateField.prototype.constructor = DateField;
-	function DateField( $form, name, desc ){ 
-		LabelField.call( this, $form, name, desc );
+	function DateField( $form, desc, values ){ 
+		LabelField.call( this, $form, desc, values );
 
-		if ( typeof desc.value == 'undefined' ) {
-			$.error( "desc.value is invalid" );
+		var value = values[this.desc.name];
+		if ( typeof value == 'undefined' ) {
+			$.error( "value is invalid" );
 		}
 
 		var date;
-		if ( desc.value !== null ) {
-			date = new Date( desc.value );
+		if ( value !== null ) {
+			date = new Date( value );
 			
 			if ( !isFinite( date ) ) {
-				$.error( "desc.value is invalid" );
+				$.error( "value is invalid" );
 			}
 		}
 
 		this.$text = $( '<input/>' )
 			.attr( 'type', 'text' )
-			.attr( 'id', idPrefix + this.name )
-			.attr( 'name', idPrefix + this.name )
+			.attr( 'id', idPrefix + this.desc.name )
+			.attr( 'name', idPrefix + this.desc.name )
 			.datepicker( {
 				onSelect: function() {
 					//Force validation, so that a previous 'invalid' state is removed
@@ -392,7 +402,7 @@
 				}
 			} );
 
-		if ( desc.value !== null ) {
+		if ( value !== null ) {
 			this.$text.datepicker( 'setDate', date );
 		}
 
@@ -400,25 +410,28 @@
 		this.$p.append( this.$text );
 	}
 	
-	DateField.prototype.getValue = function() {
-		var d = this.$text.datepicker( 'getDate' );
+	DateField.prototype.getValues = function() {
+		var d = this.$text.datepicker( 'getDate' ),
+			res = {};
 		
 		if ( d === null ) {
 			return null;
 		}
 
 		//UTC date in ISO 8601 format [YYYY]-[MM]-[DD]T[hh]:[mm]:[ss]Z
-		return '' + pad( d.getUTCFullYear(), 4 ) + '-' +
+		res[this.desc.name] = '' +
+			pad( d.getUTCFullYear(), 4 ) + '-' +
 			pad( d.getUTCMonth() + 1, 2 ) + '-' +
 			pad( d.getUTCDate(), 2 ) + 'T' +
 			pad( d.getUTCHours(), 2 ) + ':' +
 			pad( d.getUTCMinutes(), 2 ) + ':' +
 			pad( d.getUTCSeconds(), 2 ) + 'Z';
+		return res;		
 	};
 
 	DateField.prototype.getValidationSettings = function() {
 		var	settings = LabelField.prototype.getValidationSettings.call( this ),
-			fieldId = idPrefix + this.name;
+			fieldId = idPrefix + this.desc.name;
 		
 		settings.rules[fieldId] = {
 				"datePicker": true
@@ -436,20 +449,21 @@
 	
 	ColorField.prototype = object( LabelField.prototype );
 	ColorField.prototype.constructor = ColorField;
-	function ColorField( $form, name, desc ){ 
-		LabelField.call( this, $form, name, desc );
+	function ColorField( $form, desc, values ){ 
+		LabelField.call( this, $form, desc, values );
 
-		if ( typeof desc.value == 'undefined' ) {
-			$.error( "desc.value is invalid" );
+		var value = values[this.desc.name];
+		if ( typeof value == 'undefined' ) {
+			$.error( "value is invalid" );
 		}
 
 		this.$text = $( '<input/>' )
 			.attr( 'type', 'text' )
-			.attr( 'id', idPrefix + this.name )
-			.attr( 'name', idPrefix + this.name )
+			.attr( 'id', idPrefix + this.desc.name )
+			.attr( 'name', idPrefix + this.desc.name )
 			.addClass( 'colorpicker-input' )
-			.val( desc.value )
-			.css( 'background-color', desc.value )
+			.val( value )
+			.css( 'background-color', value )
 			.focus( function() {
 				$( '<div/>' )
 					.attr( 'id', 'colorpicker' )
@@ -484,7 +498,7 @@
 	
 	ColorField.prototype.getValidationSettings = function() {
 		var	settings = LabelField.prototype.getValidationSettings.call( this ),
-			fieldId = idPrefix + this.name;
+			fieldId = idPrefix + this.desc.name;
 		
 		settings.rules[fieldId] = {
 				"color": true
@@ -492,10 +506,12 @@
 		return settings;
 	}
 	
-	ColorField.prototype.getValue = function() {
-		var color = $.colorUtil.getRGB( this.$text.val() );
-		return '#' + pad( color[0].toString( 16 ), 2 ) +
+	ColorField.prototype.getValues = function() {
+		var color = $.colorUtil.getRGB( this.$text.val() ),
+			res = {}
+		res[this.desc.name] = '#' + pad( color[0].toString( 16 ), 2 ) +
 			pad( color[1].toString( 16 ), 2 ) + pad( color[2].toString( 16 ), 2 );
+		return res;
 	};
 
 	//If a click happens outside the colorpicker while it is showed, remove it
@@ -559,7 +575,6 @@
 		for ( var i = 0; i < description.fields.length; i++ ) {
 			//TODO: validate fieldName
 			var field = description.fields[i],
-				fieldName = field.name,
 				FieldConstructor = validFieldTypes[field.type];
 
 			if ( typeof FieldConstructor != 'function' ) {
@@ -569,7 +584,7 @@
 
 			var f;
 			try {
-				f = new FieldConstructor( $form, fieldName, field );
+				f = new FieldConstructor( $form, field, options.values );
 			} catch ( e ) {
 				mw.log( e );
 				return null; //constructor failed, wrong syntax in field description
@@ -610,7 +625,7 @@
 			
 			for ( var i = 0; i < data.fields.length; i++ ) {
 				var f = data.fields[i];
-				result[f.getName()] = f.getValue();
+				$.extend( result, f.getValues() );
 			}
 			 
 			return result;

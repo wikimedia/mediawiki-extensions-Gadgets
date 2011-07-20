@@ -51,14 +51,9 @@ class ApiGetGadgetPrefs extends ApiBase {
 		if ( $userPrefs === null ) {
 			throw new MWException( __METHOD__ . ': $userPrefs should not be null.' );
 		}
-				
-		//Add user preferences to preference description
-		foreach ( $prefsDescription['fields'] as $prefIdx => $prefDescription ) {
-			$prefName = $prefDescription['name'];
-			$prefsDescription['fields'][$prefIdx]['value'] = $userPrefs[$prefName];
-		}
-
-		$this->getResult()->addValue( null, $this->getModuleName(), $prefsDescription );
+		
+		$this->getResult()->addValue( null, 'description', $prefsDescription );
+		$this->getResult()->addValue( null, 'values', $userPrefs );
 	}
 
 	public function getAllowedParams() {

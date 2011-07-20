@@ -57,17 +57,21 @@
 						dataType: "json", // response type
 						success: function( response ) {
 							
-							if ( typeof response.getgadgetprefs != 'object' ) {
+							if ( typeof response.description != 'object'
+								|| typeof response.values != 'object')
+							{
 								alert( mw.msg( 'gadgets-unexpected-error' ) )
 								return;
 							}
 							
 							//Create and show dialog
 							
-							var prefs = response.getgadgetprefs;
+							var prefsDescription = response.description;
+							var values = response.values;
 							
-							var dialogBody = $( prefs ).formBuilder( {
-								gadget: gadget
+							var dialogBody = $( prefsDescription ).formBuilder( {
+								gadget: gadget,
+								values: values
 							} );
 							
 							$( dialogBody ).submit( function() {
