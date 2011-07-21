@@ -46,6 +46,10 @@ You must have appropriate permissions on destination wiki (including the right t
 
 	#rights
 	'right-gadgets-edit' => 'Edit pages in the Gadget: namespace',
+	'right-gadgets-manager-create' => 'Create new gadgets',
+	'right-gadgets-manager-delete' => 'Permanently delete gadgets',
+	'right-gadgets-manager-view' => 'View gadget properties',
+	'right-gadgets-manager-modify' => 'Modify gadget properties',
 );
 
 /** Message documentation (Message documentation)

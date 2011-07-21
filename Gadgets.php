@@ -33,7 +33,13 @@ define( 'NS_GADGET', 2300 );
 define( 'NS_GADGET_TALK', 2301 );
 
 $wgNamespaceProtection[NS_GADGET][] = array( 'gadgets-edit' );
-$wgAvailableRights[] = 'gadgets-edit';
+$wgAvailableRights = array_merge( $wgAvailableRights, array(
+	'gadgets-edit',
+	'gadgets-manager-create',
+	'gadgets-manager-delete',
+	'gadgets-manager-view',
+	'gadgets-manager-modify'
+) );
 
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::articleSaveComplete';
 $wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay';
