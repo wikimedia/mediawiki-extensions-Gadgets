@@ -29,8 +29,12 @@ $wgExtensionCredits['other'][] = array(
 	'descriptionmsg' => 'gadgets-desc',
 );
 
+define( 'NS_GADGET', 2300 );
+define( 'NS_GADGET_TALK', 2301 );
+
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::articleSaveComplete';
 $wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay';
+$wgHooks['CanonicalNamespaces'][]           = 'GadgetHooks::canonicalNamespaces';
 $wgHooks['GetPreferences'][]                = 'GadgetHooks::getPreferences';
 $wgHooks['LoadExtensionSchemaUpdates'][]    = 'GadgetHooks::loadExtensionSchemaUpdates';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetHooks::registerModules';
@@ -38,6 +42,7 @@ $wgHooks['UnitTestsList'][]                 = 'GadgetHooks::unitTestsList';
 
 $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
+$wgExtensionMessagesFiles['GadgetsNamespaces'] = $dir . 'Gadgets.namespaces.php';
 $wgExtensionAliasesFiles['Gadgets'] = $dir . 'Gadgets.alias.php';
 
 $wgAutoloadClasses['ApiQueryGadgetCategories'] = $dir . 'ApiQueryGadgetCategories.php';

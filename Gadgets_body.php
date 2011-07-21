@@ -187,6 +187,12 @@ class GadgetHooks {
 		$updater->addExtensionUpdate( array( 'addtable', 'gadgets', "$dir/sql/gadgets.sql", true ) );
 		return true;
 	}
+	
+	public static function canonicalNamespaces( &$list ) {
+		$list[NS_GADGET] = 'Gadget';
+		$list[NS_GADGET_TALK] = 'Gadget_talk';
+		return true;
+	}
 }
 
 /**
