@@ -32,6 +32,9 @@ $wgExtensionCredits['other'][] = array(
 define( 'NS_GADGET', 2300 );
 define( 'NS_GADGET_TALK', 2301 );
 
+$wgNamespaceProtection[NS_GADGET][] = array( 'gadgets-edit' );
+$wgAvailableRights[] = 'gadgets-edit';
+
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::articleSaveComplete';
 $wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay';
 $wgHooks['CanonicalNamespaces'][]           = 'GadgetHooks::canonicalNamespaces';

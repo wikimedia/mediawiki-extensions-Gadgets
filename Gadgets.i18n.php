@@ -43,6 +43,9 @@ go to Special:Import on destination wiki and upload it. Then add the following t
 <pre>$2</pre>
 You must have appropriate permissions on destination wiki (including the right to edit system messages) and import from file uploads must be enabled.',
 	'gadgets-export-download' => 'Download',
+
+	#rights
+	'right-gadgets-edit' => 'Edit pages in the Gadget: namespace',
 );
 
 /** Message documentation (Message documentation)
