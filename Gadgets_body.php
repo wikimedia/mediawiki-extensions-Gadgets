@@ -181,6 +181,12 @@ class GadgetHooks {
 		$files[] = dirname( __FILE__ ) . '/Gadgets_tests.php';
 		return true;
 	}
+	
+	public static function loadExtensionSchemaUpdates( $updater ) {
+		$dir = dirname( __FILE__ );
+		$updater->addExtensionUpdate( array( 'addtable', 'gadgets', "$dir/sql/gadgets.sql", true ) );
+		return true;
+	}
 }
 
 /**
