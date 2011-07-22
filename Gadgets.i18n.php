@@ -1891,8 +1891,8 @@ J'aministrator locaj a peulo regolé ij component disponibij ën dovrand le pàg
 	'gadgets-pagetext' => "Ambelessì sota a-i é na lista ëd component spessiaj che j'utent a peulo butesse avisch ant ij [[Special:Preferences|sò gust]], conforma a la [[MediaWiki:Gadgets-definition|definission dij component]]. 
 Sta lista complessiva a smon na stra còmoda për rivé a le pàgine ëd messagi ëd sistema ch'a definisso descrission e còdes ëd vira component.",
 	'gadgets-uses' => 'a dòvra',
-	'gadgets-required-rights' => "A ciama {{PLURAL:$2|ël drit $1|ij drit ch'a ven-o: $1}}.",
-	'gadgets-default' => 'Abilità për mincadun për default',
+	'gadgets-required-rights' => 'A ciama {{PLURAL:$2|ël drit $1|ij drit sì-dapress: $1}}.',
+	'gadgets-default' => 'Abilità për tuti coma stàndard',
 	'gadgets-export' => 'Esporté',
 	'gadgets-export-title' => "Esportassion d'acessòri",
 	'gadgets-not-found' => 'Acessòri "$1" pa trovà.',
