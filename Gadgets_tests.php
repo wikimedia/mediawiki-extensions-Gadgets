@@ -528,61 +528,74 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 	}
 
 	
-	//Data provider to be able to reuse this preference description for several tests.
+	//Data provider to be able to reuse a complex preference description for several tests.
 	function prefsDescProvider() {
 		return array( array(
 			array(
 				'fields' => array(
 					array(
-						'name' => 'testBoolean',
-						'type' => 'boolean',
-						'label' => '@foo',
-						'default' => true
-					),
-					array(
-						'name' => 'testBoolean2',
-						'type' => 'boolean',
-						'label' => '@@foo2',
-						'default' => true
-					),
-					array(
-						'name' => 'testNumber',
-						'type' => 'number',
-						'label' => '@foo3',
-						'min' => 2.3,
-						'max' => 13.94,
-						'default' => 7
-					),
-					array(
-						'name' => 'testNumber2',
-						'type' => 'number',
-						'label' => 'foo4',
-						'min' => 2.3,
-						'max' => 13.94,
-						'default' => 7
-					),
-					array(
-						'name' => 'testSelect',
-						'type' => 'select',
-						'label' => 'foo',
-						'default' => 3,
-						'options' => array(
-							'@opt1' => null,
-							'@opt2' => true,
-							'opt3' => 3,
-							'@opt4' => 'opt4value'
-						)
-					),
-					array(
-						'name' => 'testSelect2',
-						'type' => 'select',
-						'label' => 'foo',
-						'default' => 3,
-						'options' => array(
-							'@opt1' => null,
-							'opt2' => true,
-							'opt3' => 3,
-							'opt4' => 'opt4value'
+						'type' => 'bundle',
+						'sections' => array(
+							'@section1' => array(
+								'fields' => array (
+									array(
+										'name' => 'testBoolean',
+										'type' => 'boolean',
+										'label' => '@foo',
+										'default' => true
+									),
+									array(
+										'name' => 'testBoolean2',
+										'type' => 'boolean',
+										'label' => '@@foo2',
+										'default' => true
+									),
+									array(
+										'name' => 'testNumber',
+										'type' => 'number',
+										'label' => '@foo3',
+										'min' => 2.3,
+										'max' => 13.94,
+										'default' => 7
+									)
+								)
+							),
+							'Section2' => array(
+								'fields' => array(
+									array(
+										'name' => 'testNumber2',
+										'type' => 'number',
+										'label' => 'foo4',
+										'min' => 2.3,
+										'max' => 13.94,
+										'default' => 7
+									),
+									array(
+										'name' => 'testSelect',
+										'type' => 'select',
+										'label' => 'foo',
+										'default' => 3,
+										'options' => array(
+											'@opt1' => null,
+											'@opt2' => true,
+											'opt3' => 3,
+											'@opt4' => 'opt4value'
+										)
+									),
+									array(
+										'name' => 'testSelect2',
+										'type' => 'select',
+										'label' => 'foo',
+										'default' => 3,
+										'options' => array(
+											'@opt1' => null,
+											'opt2' => true,
+											'opt3' => 3,
+											'opt4' => 'opt4value'
+										)
+									)
+								)
+							)
 						)
 					)
 				)
@@ -636,9 +649,10 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals( $prefs2['testNumber'], $prefs['testNumber'] );
 		$this->assertEquals( $prefs2['testSelect'], $prefs['testSelect'] );
 
-		$this->assertEquals( $prefs2['testBoolean2'], $prefsDescription['fields'][1]['default'] );
-		$this->assertEquals( $prefs2['testNumber2'], $prefsDescription['fields'][3]['default'] );
-		$this->assertEquals( $prefs2['testSelect2'], $prefsDescription['fields'][5]['default'] );
+		$defaults = GadgetPrefs::getDefaults( $prefsDescription );
+		$this->assertEquals( $prefs2['testBoolean2'], $defaults['testBoolean2'] );
+		$this->assertEquals( $prefs2['testNumber2'], $defaults['testNumber2'] );
+		$this->assertEquals( $prefs2['testSelect2'], $defaults['testSelect2'] );
 		
 		$g = $this->create( '*foo[ResourceLoader]| foo.css|foo.js|foo.bar' );
 		$g->setPrefsDescription( $prefsDescription );
@@ -682,8 +696,9 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 	 */
 	function testGetMessages( $prefsDescription ) {
 		$msgs = GadgetPrefs::getMessages( $prefsDescription );
+		sort( $msgs );
 		$this->assertEquals( $msgs, array(
-			'foo', 'foo3', 'opt1', 'opt2', 'opt4'
+			'foo', 'foo3', 'opt1', 'opt2', 'opt4', 'section1'
 		) );
 	}
 }

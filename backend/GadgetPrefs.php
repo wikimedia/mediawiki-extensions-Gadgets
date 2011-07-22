@@ -14,6 +14,7 @@ class GadgetPrefs {
 	 * Syntax specifications of preference description language.
 	 * Each element describes a field; a "simple" field encodes exactly one gadget preference, but some fields
 	 * may encode for 0 or multiple gadget preferences.
+	 * "Simple" field always have the 'name', the 'label' and the 'default' members.
 	 * Each field has a 'description' and may have a 'validator', a 'flattener', and a 'checker'.
 	 * - 'description' is an array that describes all the members of that fields. Each member description has this shape:
 	 *     - 'isMandatory' is a boolean that specifies if that member is mandatory for the field;
@@ -193,6 +194,16 @@ class GadgetPrefs {
 				)
 			),
 			'checker' => 'GadgetPrefs::checkColorPref'
+		),
+		'bundle' => array(
+			'description' => array(
+				'sections' => array(
+					'isMandatory' => true,
+					'checker' => 'GadgetPrefs::validateBundleSectionsDefinition'
+				)
+			),
+			'getMessages' => 'GadgetPrefs::getBundleMessages',
+			'flattener' => 'GadgetPrefs::flattenBundleDefinition'
 		)
 	);
 	
@@ -232,6 +243,17 @@ class GadgetPrefs {
 	//default flattener for simple fields that encode for a single preference
 	private static function flattenSimpleField( $fieldDescription ) {
 		return array( $fieldDescription['name'] => $fieldDescription );
+	}
+	
+	//flattener for 'bundle' fields
+	private static function flattenBundleDefinition( $fieldDescription ) {
+		$flattenedPrefs = array();
+		foreach ( $fieldDescription['sections'] as $sectionName => $sectionDescription ) {
+			//Each section behaves like a full description of preferences
+			$flt = self::flattenPrefsDescription( $sectionDescription );
+			$flattenedPrefs = array_merge( $flattenedPrefs, $flt );
+		}
+		return $flattenedPrefs;
 	}
 	
 	//Further checks for 'number' options
@@ -297,10 +319,9 @@ class GadgetPrefs {
 	//Flattens a simple field, by calling its field-specific flattener if there is any,
 	//or the default flattener otherwise.
 	private static function flattenFieldDescription( $fieldDescription ) {
-		$typeSpec = self::$prefsDescriptionSpecifications[$fieldDescription['type']];
-		$typeDescription = $typeSpec['description'];
-		if ( isset( $typeSpec['flattener'] ) ) {
-			$flattener = $typeSpec['flattener'];
+		$fieldSpec = self::$prefsDescriptionSpecifications[$fieldDescription['type']];
+		if ( isset( $fieldSpec['flattener'] ) ) {
+			$flattener = $fieldSpec['flattener'];
 		} else {
 			$flattener = 'GadgetPrefs::flattenSimpleField';
 		}
@@ -316,6 +337,7 @@ class GadgetPrefs {
 			$flt = self::flattenFieldDescription( $fieldDescription );
 			$flattenedPrefsDescription = array_merge( $flattenedPrefsDescription, $flt );
 		}
+		
 		return $flattenedPrefsDescription;
 	}
 
@@ -415,8 +437,8 @@ class GadgetPrefs {
 					return false;
 				}
 				
-				$prefs = array( 'dummy' => $optionDefinition['default'] );
-				if ( !self::checkSinglePref( $optionDefinition, $prefs, 'dummy' ) ) {
+				$prefs = array( 'dummy' => $prefDescription['default'] );
+				if ( !self::checkSinglePref( $prefDescription, $prefs, 'dummy' ) ) {
 					return false;
 				}
 			}
@@ -426,6 +448,30 @@ class GadgetPrefs {
 				return false;
 			}
 			$flattenedPrefs = array_merge( $flattenedPrefs, $flt );
+		}
+		
+		return true;
+	}
+	
+	//validates the 'sections' member of a 'bundle' field
+	private static function validateBundleSectionsDefinition( $sections ) {
+		//validate each section, then ensure that preference names
+		//of each section are disjoint
+		
+		$prefs = array(); //names of preferences
+		
+		foreach ( $sections as $section ) {
+			if ( !self::validateSectionDefinition( $section ) ) {
+				return false;
+			}
+			
+			$flt = self::flattenPrefsDescription( $section );
+			$newPrefs = array_keys( $flt );
+			if ( array_intersect( $prefs, $newPrefs ) ) {
+				return false;
+			}
+			
+			$prefs = array_merge( $prefs, $newPrefs );
 		}
 		
 		return true;
@@ -721,6 +767,19 @@ class GadgetPrefs {
 				$msgs[] = substr( $optName, 1 );
 			}
 		}
-		return $msgs;
+		return array_unique( $msgs );
+	}
+
+	//Returns the messages for a 'bundle' field description
+	private static function getBundleMessages( $prefDescription ) {
+		//returns the union of all messages of all sections, plus section names
+		$msgs = array();
+		foreach ( $prefDescription['sections'] as $sectionName => $sectionDescription ) {
+			$msgs = array_merge( $msgs, self::getMessages( $sectionDescription ) );
+			if ( self::isMessage( $sectionName ) ) {
+				$msgs[] = substr( $sectionName, 1 );
+			}
+		}
+		return array_unique( $msgs );
 	}
 }

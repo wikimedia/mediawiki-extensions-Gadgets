@@ -86,7 +86,7 @@ $wgResourceModules['jquery.formBuilder'] = array(
 	'styles'        => array( 'jquery.formBuilder.css' ),
 	'dependencies' 	=> array(
 		'jquery', 'jquery.ui.slider', 'jquery.ui.datepicker', 'jquery.ui.position',
-		'jquery.farbtastic', 'jquery.colorUtil', 'jquery.validate'
+		'jquery.ui.tabs', 'jquery.farbtastic', 'jquery.colorUtil', 'jquery.validate'
 	),
 	'messages'      => array(
 		'gadgets-formbuilder-required', 'gadgets-formbuilder-minlength', 'gadgets-formbuilder-maxlength',
