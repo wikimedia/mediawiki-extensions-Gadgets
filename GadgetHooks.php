@@ -178,7 +178,7 @@ class GadgetHooks {
 	 * @param $files Array: List of extension test files
 	 */
 	public static function unitTestsList( $files ) {
-		$files[] = dirname( __FILE__ ) . 'tests/GadgetsTest.php';
+		$files[] = dirname( __FILE__ ) . '/tests/GadgetsTest.php';
 		return true;
 	}
 
