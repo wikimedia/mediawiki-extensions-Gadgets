@@ -56,7 +56,7 @@ $wgExtensionAliasesFiles['Gadgets'] = $dir . 'Gadgets.alias.php';
 
 $wgAutoloadClasses['ApiQueryGadgetCategories'] = $dir . 'ApiQueryGadgetCategories.php';
 $wgAutoloadClasses['ApiQueryGadgets'] = $dir . 'ApiQueryGadgets.php';
-$wgAutoloadClasses['GadgetHooks'] = $dir . 'Gadgets_body.php';
+$wgAutoloadClasses['GadgetHooks'] = $dir . 'GadgetHooks.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
