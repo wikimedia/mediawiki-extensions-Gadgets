@@ -689,6 +689,7 @@ Vi nepras la taŭgajn rajtojn ĉe cela vikio (inkluzivante rajton redakti sistem
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Fitoschido
  * @author Muro de Aguas
  * @author Remember the dot
  * @author Sanbec
@@ -707,6 +708,8 @@ Los administradores pueden editar los artilugios que están disponibles en las p
 	'gadgets-title' => 'Artilugios',
 	'gadgets-pagetext' => 'Debajo hay una lista de artilugios especiales que los usuarios pueden activar en sus [[Special:Preferences|preferencias]], según la [[MediaWiki:Gadgets-definition|lista de definición de artilugios]]. Esta vista provee un acceso fácil a la páginas de mensajes del sistema que definen la descripción y el código de cada artilugio.',
 	'gadgets-uses' => 'Usos',
+	'gadgets-required-rights' => 'Requiere {{PLURAL:$2|el derecho $1|los siguientes derechos: $1}}.',
+	'gadgets-default' => 'Activado para todos de manera predeterminada.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportación de gadget',
 	'gadgets-not-found' => 'Gadget "$1" no encontrado.',
