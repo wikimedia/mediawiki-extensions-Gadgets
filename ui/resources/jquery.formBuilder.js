@@ -12,13 +12,13 @@
 	//If str starts with "@" the rest of the string is assumed to be
 	//a message, and the result of mw.msg is returned.
 	//Two "@@" at the beginning escape for a single "@".
-	function preproc( $form, str ) {
+	function preproc( prefix, str ) {
 		if ( str.length <= 1 || str[0] !== '@' ) {
 			return str;
 		} else if ( str.substr( 0, 2 ) == '@@' ) {
 			return str.substr( 1 );
 		} else {
-			return mw.message( $form.data( 'formBuilder' ).prefix + str.substring( 1 ) ).plain();
+			return mw.message( prefix + str.substr( 1 ) ).plain();
 		}
 	}
 
@@ -38,6 +38,12 @@
 		return res;
 	}
 
+	//Returns an object with only one key and the corresponding value given in arguments;
+	function pair( key, val ) {
+		var res = {};
+		res[key] = val;
+		return res;
+	}
 
 	function testOptional( value, element ) {
 		var rules = $( element ).rules();
@@ -92,13 +98,98 @@
 		return new F();
 	}
 
+
+	//Field types that can be referred to by preference descriptions
+	var validFieldTypes = {};
+
+
+	//Describes 'name' and 'label' field members
+	var simpleField = [
+		{
+			"name": "name",
+			"type": "string",
+			"label": "name",
+			"required": true,
+			"maxlength": 40,
+			"default": ""
+		},
+		{
+			"name": "label",
+			"type": "string",
+			"label": "label",
+			"required": false,
+			"default": ""
+		}
+	];
+
+	//Used by preference editor to build field properties dialogs
+	var prefsDescriptionSpecifications = {
+		"boolean": simpleField,
+		"string" : simpleField.concat( [
+			{
+				"name": "required",
+				"type": "boolean",
+				"label": "required",
+				"default": false
+			},
+			{
+				"name": "minlength",
+				"type": "number",
+				"label": "minlength",
+				"integer": true,
+				"min": 0,
+				"required": false,
+				"default": null
+			},
+			{
+				"name": "maxlength",
+				"type": "number",
+				"label": "maxlength",
+				"integer": true,
+				"min": 0,
+				"required": false,
+				"default": null
+			}
+		] ),
+		"number" : simpleField.concat( [
+			{
+				"name": "required",
+				"type": "boolean",
+				"label": "required",
+				"default": true
+			},
+			{
+				"name": "integer",
+				"type": "boolean",
+				"label": "integer",
+				"default": false
+			},
+			{
+				"name": "min",
+				"type": "number",
+				"label": "min",
+				"required": false,
+				"default": null
+			},
+			{
+				"name": "max",
+				"type": "number",
+				"label": "max",
+				"required": false,
+				"default": null
+			}
+			//TODO: other fields
+		] )
+	};
+
 	/* Basic interface for fields */
-	function Field( $form, desc, values ) {
-		this.$form = $form;
+	function Field( desc, options ) {
+		this.prefix = options.prefix;
 		this.desc = desc;
+		this.options = options;
 	}
 
-	Field.prototype.getDesc = function() {
+	Field.prototype.getDesc = function( useValuesAsDefaults ) {
 		return this.desc;
 	};
 
@@ -120,97 +211,121 @@
 		};
 	};
 
-
 	/* A field with no content, generating an empty container */
 	EmptyField.prototype = object( Field.prototype );
 	EmptyField.prototype.constructor = EmptyField;
-	function EmptyField( $form, desc, values ) {
-		Field.call( this, $form, desc, values );
+	function EmptyField( desc, options ) {
+		Field.call( this, desc, options );
 		
 		//Check existence and type of the "type" field
-		if ( !desc.type || typeof desc.type != 'string' ) {
+		if ( !this.desc.type || typeof this.desc.type != 'string' ) {
 			$.error( "Missing 'type' parameter" );
 		}
 
-		this.$p = $( '<p/>' );
+		this.$div = $( '<div/>' ).data( 'field', this );
 	}
 
 	EmptyField.prototype.getElement = function() {
-		return this.$p;
+		return this.$div;
 	};
 
 	/* A field with just a label */
 	LabelField.prototype = object( EmptyField.prototype );
 	LabelField.prototype.constructor = LabelField;
-	function LabelField( $form, desc, values ) {
-		EmptyField.call( this, $form, desc, values );
+	function LabelField( desc, options ) {
+		EmptyField.call( this, desc, options );
 
 		//Check existence and type of the "label" field
-		if ( !desc.label || typeof desc.label != 'string' ) {
-			$.error( "Missing 'label' parameter" );
+		if ( typeof this.desc.label != 'string' ) {
+			$.error( "Missing or wrong 'label' parameter" );
 		}
 
 		var $label = $( '<label/>' )
-			.text( preproc( this.$form, this.desc.label ) )
+			.text( preproc( this.prefix, this.desc.label ) )
 			.attr('for', idPrefix + this.desc.name );
 
-		this.$p.append( $label );
+		this.$div.append( $label );
 	}
 
-	/* A field with a label and a checkbox */
-	BooleanField.prototype = object( LabelField.prototype );
-	BooleanField.prototype.constructor = BooleanField;
-	function BooleanField( $form, desc, values ){ 
-		LabelField.call( this, $form, desc, values );
-
-		var value = values[this.desc.name];
-		if ( typeof value != 'boolean' ) {
-			$.error( "value is invalid" );
+	/* Abstract base class for all "simple" fields. Should not be instantiated. */
+	SimpleField.prototype = object( LabelField.prototype );
+	SimpleField.prototype.constructor = SimpleField;
+	function SimpleField( desc, options ){ 
+		LabelField.call( this, desc, options );
+	}
+	
+	SimpleField.prototype.getDesc = function( useValuesAsDefaults ) {
+		var desc = LabelField.prototype.getDesc.call( this, useValuesAsDefaults );
+		if ( useValuesAsDefaults === true ) {
+			//set 'default' to current value.
+			var values = this.getValues();
+			desc['default'] = values[this.desc.name];
 		}
 		
-		this.$c = $( '<input/>' )
-			.attr( 'type', 'checkbox' )
-			.attr( 'id', idPrefix + this.desc.name )
-			.attr( 'name', idPrefix + this.desc.name )
-			.attr( 'checked', value );
+		return desc;
+	};
 
-		this.$p.append( this.$c );
+
+	/* A field with a label and a checkbox */
+	BooleanField.prototype = object( SimpleField.prototype );
+	BooleanField.prototype.constructor = BooleanField;
+	function BooleanField( desc, options ){ 
+		SimpleField.call( this, desc, options );
+
+		this.$c = $( '<input/>' ).attr( {
+			type: 'checkbox',
+			id: idPrefix + this.desc.name,
+			name: idPrefix + this.desc.name
+		} );
+
+		var value = options.values && options.values[this.desc.name];
+		if ( typeof value != 'undefined' ) {
+			if ( typeof value != 'boolean' ) {
+				$.error( "value is invalid" );
+			}
+			
+			this.$c.attr( 'checked', value );
+		}
+
+		this.$div.append( this.$c );
 	}
 	
 	BooleanField.prototype.getValues = function() {
-		var res = {};
-		res[this.desc.name] = this.$c.is( ':checked' );
-		return res;
+		return pair( this.desc.name, this.$c.is( ':checked' ) );
 	};
 
-	/* A field with a textbox accepting string values */
-	StringField.prototype = object( LabelField.prototype );
-	StringField.prototype.constructor = StringField;
-	function StringField( $form, desc, values ){ 
-		LabelField.call( this, $form, desc, values );
+	validFieldTypes["boolean"] = BooleanField;
 
-		var value = values[this.desc.name];
-		if ( typeof value != 'string' ) {
-			$.error( "value is invalid" );
+	/* A field with a textbox accepting string values */
+	StringField.prototype = object( SimpleField.prototype );
+	StringField.prototype.constructor = StringField;
+	function StringField( desc, options ){ 
+		SimpleField.call( this, desc, options );
+
+		this.$text = $( '<input/>' ).attr( {
+			type: 'text',
+			id: idPrefix + this.desc.name,
+			name: idPrefix + this.desc.name
+		} );
+		
+		var value = options.values && options.values[this.desc.name];
+		if ( typeof value != 'undefined' ) {
+			if ( typeof value != 'string' ) {
+				$.error( "value is invalid" );
+			}
+			
+			this.$text.val( value );
 		}
 
-		this.$text = $( '<input/>' )
-			.attr( 'type', 'text' )
-			.attr( 'id', idPrefix + this.desc.name )
-			.attr( 'name', idPrefix + this.desc.name )
-			.val( value );
-
-		this.$p.append( this.$text );
+		this.$div.append( this.$text );
 	}
 	
 	StringField.prototype.getValues = function() {
-		var res = {};
-		res[this.desc.name] = this.$text.val();
-		return res;
+		return pair( this.desc.name, this.$text.val() );
 	};
 
 	StringField.prototype.getValidationSettings = function() {
-		var	settings = LabelField.prototype.getValidationSettings.call( this ),
+		var	settings = SimpleField.prototype.getValidationSettings.call( this ),
 			fieldId = idPrefix + this.desc.name;
 		
 		settings.rules[fieldId] = {};
@@ -238,35 +353,40 @@
 		return settings;
 	};
 
-	/* A field with a textbox accepting numeric values */
-	NumberField.prototype = object( LabelField.prototype );
-	NumberField.prototype.constructor = NumberField;
-	function NumberField( $form, desc, values ){ 
-		LabelField.call( this, $form, desc, values );
+	validFieldTypes["string"] = StringField;
 
-		var value = values[this.desc.name];
-		if ( value !== null && typeof value != 'number' ) {
-			$.error( "value is invalid" );
+
+	/* A field with a textbox accepting numeric values */
+	NumberField.prototype = object( SimpleField.prototype );
+	NumberField.prototype.constructor = NumberField;
+	function NumberField( desc, options ){ 
+		SimpleField.call( this, desc, options );
+
+		this.$text = $( '<input/>' ).attr( {
+			type: 'text',
+			id: idPrefix + this.desc.name,
+			name: idPrefix + this.desc.name
+		} );
+
+		var value = options.values && options.values[this.desc.name];
+		if ( typeof value != 'undefined' ) {
+			if ( value !== null && typeof value != 'number' ) {
+				$.error( "value is invalid" );
+			}
+			
+			this.$text.val( value );
 		}
 
-		this.$text = $( '<input/>' )
-			.attr( 'type', 'text' )
-			.attr( 'id', idPrefix + this.desc.name )
-			.attr( 'name', idPrefix + this.desc.name )
-			.val( value );
-
-		this.$p.append( this.$text );
+		this.$div.append( this.$text );
 	}
 	
 	NumberField.prototype.getValues = function() {
-		var val = parseFloat( this.$text.val() ),
-			res = {};
-		res[this.desc.name] = isNaN( val ) ? null : val;
-		return res;
+		var val = parseFloat( this.$text.val() );
+		return pair( this.desc.name, isNaN( val ) ? null : val );
 	};
 
 	NumberField.prototype.getValidationSettings = function() {
-		var	settings = LabelField.prototype.getValidationSettings.call( this ),
+		var	settings = SimpleField.prototype.getValidationSettings.call( this ),
 			fieldId = idPrefix + this.desc.name;
 		
 		settings.rules[fieldId] = {};
@@ -300,137 +420,137 @@
 		return settings;
 	};
 
-	/* A field with a drop-down list */
-	SelectField.prototype = object( LabelField.prototype );
-	SelectField.prototype.constructor = SelectField;
-	function SelectField( $form, desc, values ){ 
-		LabelField.call( this, $form, desc, values );
+	validFieldTypes["number"] = NumberField;
 
-		var $select = this.$select = $( '<select/>' )
-			.attr( 'id', idPrefix + this.desc.name )
-			.attr( 'name', idPrefix + this.desc.name );
+	/* A field with a drop-down list */
+	SelectField.prototype = object( SimpleField.prototype );
+	SelectField.prototype.constructor = SelectField;
+	function SelectField( desc, options ){ 
+		SimpleField.call( this, desc, options );
+
+		var $select = this.$select = $( '<select/>' ).attr( {
+			id: idPrefix + this.desc.name,
+			name: idPrefix + this.desc.name
+		} );
 		
 		var validValues = [];
 		var self = this;
-		$.each( desc.options, function( optName, optVal ) {
+		$.each( this.desc.options, function( idx, option ) {
 			var i = validValues.length;
 			$( '<option/>' )
-				.text( preproc( self.$form, optName ) )
+				.text( preproc( self.prefix, option.name ) )
 				.val( i )
 				.appendTo( $select );
-			validValues.push( optVal );
+			validValues.push( option.value );
 		} );
 
 		this.validValues = validValues;
 
-		var value = values[this.desc.name];
-		if ( $.inArray( value, validValues ) == -1 ) {
-			$.error( "value is not in the list of possible values" );
+		var value = options.values && options.values[this.desc.name];
+		if ( typeof value != 'undefined' ) {
+			if ( $.inArray( value, validValues ) == -1 ) {
+				$.error( "value is not in the list of possible values" );
+			}
+
+			var i = $.inArray( value, validValues );
+			$select.val( i ).prop( 'selected', 'selected' );
 		}
 
-		var i = $.inArray( value, validValues );
-		$select.val( i ).attr( 'selected', 'selected' );
-
-		this.$p.append( $select );
+		this.$div.append( $select );
 	}
 	
 	SelectField.prototype.getValues = function() {
-		var i = parseInt( this.$select.val(), 10 ),
-			res = {};
-		res[this.desc.name] = this.validValues[i];
-		return res;
+		var i = parseInt( this.$select.val(), 10 );
+		return pair( this.desc.name, this.validValues[i] );
 	};
 
+	validFieldTypes["select"] = SelectField;
 
 	/* A field with a slider, representing ranges of numbers */
-	RangeField.prototype = object( LabelField.prototype );
+	RangeField.prototype = object( SimpleField.prototype );
 	RangeField.prototype.constructor = RangeField;
-	function RangeField( $form, desc, values ){ 
-		LabelField.call( this, $form, desc, values );
+	function RangeField( desc, options ){ 
+		SimpleField.call( this, desc, options );
 
-		var value = values[this.desc.name];
-		if ( typeof value != 'number' ) {
-			$.error( "value is invalid" );
-		}
-
-		if ( typeof desc.min != 'number' ) {
+		if ( typeof this.desc.min != 'number' ) {
 			$.error( "desc.min is invalid" );
 		}
 
-		if ( typeof desc.max != 'number' ) {
+		if ( typeof this.desc.max != 'number' ) {
 			$.error( "desc.max is invalid" );
 		}
 
-		if ( typeof desc.step != 'undefined' && typeof desc.step != 'number' ) {
+		if ( typeof this.desc.step != 'undefined' && typeof this.desc.step != 'number' ) {
 			$.error( "desc.step is invalid" );
 		}
 
-		if ( value < desc.min || value > desc.max ) {
-			$.error( "value is out of range" );
+		var value = options.values && options.values[this.desc.name];
+		if ( typeof value != 'undefined' ) {
+			if ( typeof value != 'number' ) {
+				$.error( "value is invalid" );
+			}
+			if ( value < this.desc.min || value > this.desc.max ) {
+				$.error( "value is out of range" );
+			}
 		}
 
 		var $slider = this.$slider = $( '<div/>' )
 			.attr( 'id', idPrefix + this.desc.name );
 
-		var options = {
-			min: desc.min,
-			max: desc.max,
-			value: value
+		var rangeOptions = {
+			min: this.desc.min,
+			max: this.desc.max
 		};
 
-		if ( typeof desc.step != 'undefined' ) {
-			options['step'] = desc.step;
+		if ( typeof value != 'undefined' ) {
+			rangeOptions['value'] = value;
 		}
 
-		$slider.slider( options );
+		if ( typeof this.desc.step != 'undefined' ) {
+			rangeOptions['step'] = this.desc.step;
+		}
 
-		this.$p.append( $slider );
+		$slider.slider( rangeOptions );
+
+		this.$div.append( $slider );
 	}
 	
 	RangeField.prototype.getValues = function() {
-		var res = {};
-		res[this.desc.name] = this.$slider.slider( 'value' );
-		return res;
+		return pair( this.desc.name, this.$slider.slider( 'value' ) );
 	};
-	
+
+	validFieldTypes["range"] = RangeField;	
 	
 	/* A field with a textbox with a datepicker */
-	DateField.prototype = object( LabelField.prototype );
+	DateField.prototype = object( SimpleField.prototype );
 	DateField.prototype.constructor = DateField;
-	function DateField( $form, desc, values ){ 
-		LabelField.call( this, $form, desc, values );
+	function DateField( desc, options ){ 
+		SimpleField.call( this, desc, options );
 
-		var value = values[this.desc.name];
-		if ( typeof value == 'undefined' ) {
-			$.error( "value is invalid" );
-		}
-
-		var date;
-		if ( value !== null ) {
-			date = new Date( value );
-			
-			if ( !isFinite( date ) ) {
-				$.error( "value is invalid" );
-			}
-		}
-
-		this.$text = $( '<input/>' )
-			.attr( 'type', 'text' )
-			.attr( 'id', idPrefix + this.desc.name )
-			.attr( 'name', idPrefix + this.desc.name )
-			.datepicker( {
+		this.$text = $( '<input/>' ).attr( {
+			type: 'text',
+			id: idPrefix + this.desc.name,
+			name: idPrefix + this.desc.name
+		} ).datepicker( {
 				onSelect: function() {
 					//Force validation, so that a previous 'invalid' state is removed
 					$( this ).valid();
 				}
 			} );
 
-		if ( value !== null ) {
+		var value = options.values && options.values[this.desc.name];
+		var date;
+		if ( typeof value != 'undefined' && value !== null ) {
+			date = new Date( value );
+			
+			if ( !isFinite( date ) ) {
+				$.error( "value is invalid" );
+			}
+
 			this.$text.datepicker( 'setDate', date );
 		}
 
-
-		this.$p.append( this.$text );
+		this.$div.append( this.$text );
 	}
 	
 	DateField.prototype.getValues = function() {
@@ -442,18 +562,17 @@
 		}
 
 		//UTC date in ISO 8601 format [YYYY]-[MM]-[DD]T[hh]:[mm]:[ss]Z
-		res[this.desc.name] = '' +
+		return pair( this.desc.name, '' +
 			pad( d.getUTCFullYear(), 4 ) + '-' +
 			pad( d.getUTCMonth() + 1, 2 ) + '-' +
 			pad( d.getUTCDate(), 2 ) + 'T' +
 			pad( d.getUTCHours(), 2 ) + ':' +
 			pad( d.getUTCMinutes(), 2 ) + ':' +
-			pad( d.getUTCSeconds(), 2 ) + 'Z';
-		return res;		
+			pad( d.getUTCSeconds(), 2 ) + 'Z' );
 	};
 
 	DateField.prototype.getValidationSettings = function() {
-		var	settings = LabelField.prototype.getValidationSettings.call( this ),
+		var	settings = SimpleField.prototype.getValidationSettings.call( this ),
 			fieldId = idPrefix + this.desc.name;
 		
 		settings.rules[fieldId] = {
@@ -461,6 +580,8 @@
 			};
 		return settings;
 	};
+
+	validFieldTypes["date"] = DateField;
 
 	/* A field with color picker */
 	
@@ -470,7 +591,6 @@
 		} );
 	}
 
-
 	//If a click happens outside the colorpicker while it is showed, remove it
 	$( document ).mousedown( function( event ) {
 		var $target = $( event.target );
@@ -479,25 +599,24 @@
 		}
 	} );
 	
-	ColorField.prototype = object( LabelField.prototype );
+	ColorField.prototype = object( SimpleField.prototype );
 	ColorField.prototype.constructor = ColorField;
-	function ColorField( $form, desc, values ){ 
-		LabelField.call( this, $form, desc, values );
+	function ColorField( desc, options ){ 
+		SimpleField.call( this, desc, options );
 
-		var value = values[this.desc.name];
-		if ( typeof value == 'undefined' ) {
-			$.error( "value is invalid" );
-		}
+		var value = ( options.values && options.values[this.desc.name] ) || '';
 
-		this.$text = $( '<input/>' )
-			.attr( 'type', 'text' )
-			.attr( 'id', idPrefix + this.desc.name )
-			.attr( 'name', idPrefix + this.desc.name )
+		this.$text = $( '<input/>' ).attr( {
+			type: 'text',
+			id: idPrefix + this.desc.name,
+			name: idPrefix + this.desc.name
+		} )
 			.addClass( 'colorpicker-input' )
 			.val( value )
 			.css( 'background-color', value )
 			.focus( function() {
 				$( '<div/>' )
+					.addClass( 'ui-widget ui-widget-content' )
 					.attr( 'id', 'colorpicker' )
 					.css( 'position', 'absolute' )
 					.hide()
@@ -525,11 +644,11 @@
 			} )
 			.blur( closeColorPicker );
 
-		this.$p.append( this.$text );
+		this.$div.append( this.$text );
 	}
 	
 	ColorField.prototype.getValidationSettings = function() {
-		var	settings = LabelField.prototype.getValidationSettings.call( this ),
+		var	settings = SimpleField.prototype.getValidationSettings.call( this ),
 			fieldId = idPrefix + this.desc.name;
 		
 		settings.rules[fieldId] = {
@@ -539,127 +658,656 @@
 	};
 	
 	ColorField.prototype.getValues = function() {
-		var color = $.colorUtil.getRGB( this.$text.val() ),
-			res = {};
-		res[this.desc.name] = '#' + pad( color[0].toString( 16 ), 2 ) +
-			pad( color[1].toString( 16 ), 2 ) + pad( color[2].toString( 16 ), 2 );
-		return res;
+		var color = $.colorUtil.getRGB( this.$text.val() );
+		return pair( this.desc.name, '#' + pad( color[0].toString( 16 ), 2 ) +
+			pad( color[1].toString( 16 ), 2 ) + pad( color[2].toString( 16 ), 2 ) );
 	};
+
+	validFieldTypes["color"] = ColorField;
+	
 	
 	/* A field that represent a section (group of fields) */
+
+	function deleteFieldRules( field ) {
+		//Remove all its validation rules
+		var validationSettings = field.getValidationSettings();
+		if ( validationSettings.rules ) {
+			$.each( validationSettings.rules, function( name, value ) {
+				var $input = $( '#' + name );
+				if ( $input.length > 0 ) {
+					$( '#' + name ).rules( 'remove' );
+				}
+			} );
+		}
+	}
+
+	function addFieldRules( field ) {
+		var validationSettings = field.getValidationSettings();
+		if ( validationSettings.rules ) {
+			$.each( validationSettings.rules, function( name, rules ) {
+				var $input = $( '#' + name );
+				
+				//Find messages associated to this rule, if any
+				if ( typeof validationSettings.messages != 'undefined' && 
+					typeof validationSettings.messages[name] != 'undefined')
+				{
+					rules.messages = validationSettings.messages[name];
+				}
+				
+				if ( $input.length > 0 ) {
+					$( '#' + name ).rules( 'add', rules );
+				}
+			} );
+		}
+	}
+	
+
 	SectionField.prototype = object( Field.prototype );
 	SectionField.prototype.constructor = SectionField;
-	function SectionField( $form, desc, values, id ) {
-		Field.call( this, $form, desc, values );
+	function SectionField( desc, options, id ) {
+		Field.call( this, desc, options );
 		
-		this.$p = $( '<p/>' );
+		this.$div = $( '<div/>' ).data( 'field', this );
 		
 		if ( id !== undefined ) {
-			this.$p.attr( 'id', id );
+			this.$div.attr( 'id', id );
 		}
-		
-		var fields = [],
-			settings = {}; //validator settings
 
-		for ( var i = 0; i < desc.fields.length; i++ ) {
+		//If there is an "intro", adds it to the section as a label
+		//TODO: kill "intro"s and make "label" fields, instead?
+		if ( typeof this.desc.intro == 'string' ) {
+			$( '<p/>' )
+				.text( preproc( this.prefix, this.desc.intro ) )
+				.addClass( 'formBuilder-intro' )
+				.appendTo( this.$div );
+		}
+
+		for ( var i = 0; i < this.desc.fields.length; i++ ) {
 			//TODO: validate fieldName
-			var field = desc.fields[i],
+
+			if ( options.editable === true ) {
+				//add an empty slot
+				this._createSlot( true ).appendTo( this.$div );
+			}
+
+			var field = this.desc.fields[i],
 				FieldConstructor = validFieldTypes[field.type];
 
 			if ( typeof FieldConstructor != 'function' ) {
 				$.error( "field with invalid type: " + field.type );
 			}
 
-			var f = new FieldConstructor( $form, field, values );
+			var f = new FieldConstructor( field, options ),
+				$slot = this._createSlot( options.editable === true, f );
 			
-			this.$p.append( f.getElement() );
-			
-			//If this field has validation rules, add them to settings
-			var	fieldSettings = f.getValidationSettings();
-			
-			if ( fieldSettings ) {
-				$.extend( true, settings, fieldSettings );
-			}
-			
-			fields.push( f );
+			$slot.appendTo( this.$div );
 		}
 		
-		this.settings = settings;
-		this.fields = fields;
+		if ( options.editable === true ) {
+			//add an empty slot
+			this._createSlot( true ).appendTo( this.$div );
+		}
 	}
 	
 	SectionField.prototype.getElement = function() {
-		return this.$p;
+		return this.$div;
+	};
+
+	SectionField.prototype.getDesc = function( useValuesAsDefaults ) {
+		var desc = this.desc;
+		desc.fields = [];
+		this.$div.children().each( function( idx, slot ) {
+			var field = $( slot ).data( 'field' );
+			if ( field !== undefined ) {
+				desc.fields.push( field.getDesc( useValuesAsDefaults ) );
+			}
+		} );
+		return desc;
+	};
+
+	SectionField.prototype.setTitle = function( newTitle ) {
+		this.desc.title = newTitle;
 	};
 
 	SectionField.prototype.getValues = function() {
 		var values = {};
-		for ( var i = 0; i < this.fields.length; i++ ) {
-			$.extend( values, this.fields[i].getValues() );
-		}
+		this.$div.children().each( function( idx, slot ) {
+			var field = $( slot ).data( 'field' );
+			if ( field !== undefined ) {
+				$.extend( values, field.getValues() );
+			}
+		} );
 		return values;
 	};
 
 	SectionField.prototype.getValidationSettings = function() {
-		return this.settings;
+		var settings = {};
+		this.$div.children().each( function( idx, slot ) {
+			var field = $( slot ).data( 'field' );
+			if ( field !== undefined ) {
+				var fieldSettings = $( slot ).data( 'field' ).getValidationSettings();
+				if ( fieldSettings ) {
+					$.extend( true, settings, fieldSettings );
+				}
+			}
+		} );
+
+		return settings;
 	};
+
+	SectionField.prototype._createFieldDialog = function( params ) {
+		var self = this;
+		
+		if ( typeof params.callback != 'function' ) {
+			$.error( 'createFieldDialog: missing or wrong "callback" parameter' );
+		}
+		
+		var type, description, values;
+		if ( typeof params.description == 'undefined' && typeof params.type == 'undefined' ) {
+			//Create a dialog to choose the type of field to create
+			var selectOptions = [];
+			$.each( validFieldTypes, function( fieldType ) {
+				selectOptions.push( {
+					name: fieldType,
+					value: fieldType
+				} );
+			} );
+			
+			$( {
+				fields: [ {
+					'name': "type",
+					'type': "select",
+					'label': mw.msg( 'gadgets-formbuilder-editor-chose-field' ),
+					'options': selectOptions,
+					'default': selectOptions[0].value
+				} ]
+			} ).formBuilder( {} ).dialog( {
+				width: 450,
+				modal: true,
+				resizable: false,
+				title: mw.msg( 'gadgets-formbuilder-editor-chose-field-title' ),
+				close: function() {
+					$( this ).remove();
+				},
+				buttons: [
+					{
+						text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
+						click: function() {
+							var values = $( this ).formBuilder( 'getValues' );
+							$( this ).dialog( "close" );
+							self._createFieldDialog( {
+								type: values.type,
+								callback: params.callback
+							} );
+						}
+					},
+					{
+						text: mw.msg( 'gadgets-formbuilder-editor-cancel' ),
+						click: function() {
+							$( this ).dialog( "close" );
+						}
+					}
+				]
+			} );
+			
+			return;
+		} else {
+			type = params.type;
+			if ( typeof prefsDescriptionSpecifications[type] == 'undefined' ) {
+				$.error( 'createFieldDialog: invalid type: ' + type );
+			}
+			
+			description = {
+				fields: prefsDescriptionSpecifications[type]
+			};
+		}
+		
+		if ( typeof params.values != 'undefined' ) {
+			values = params.values;
+		} else {
+			values = {};
+			//Set defaults (if given) as starting values
+			//TODO: should field constructors just use default if no value is given?
+			$.each( description.fields, function( idx, field ) {
+				if ( typeof field['default'] != 'undefined' ) {
+					values[field.name] = field['default'];
+				}
+			} );
+		}
+		
+		//Create the dialog to set field properties
+		var dlg = $( '<div/>' );
+		var form = $( description ).formBuilder( {
+			values: values
+		} ).appendTo( dlg );
+		
+		dlg.dialog( {
+			modal: true,
+			width: 550,
+			resizable: false,
+			title: mw.msg( 'gadgets-formbuilder-editor-create-field-title' ),
+			close: function() {
+				$( this ).remove();
+			},
+			buttons: [
+				{
+					text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
+					click: function() {
+						var isValid = $( form ).formBuilder( 'validate' );
+							
+						if ( isValid ) {
+							var fieldDescription = $( form ).formBuilder( 'getValues' );
+							
+							if ( typeof type != 'undefined' ) {
+								//Remove properties the equal their default
+								$.each( description.fields, function( index, fieldSpec ) {
+									var property = fieldSpec.name;
+									if ( fieldDescription[property] === fieldSpec['default'] ) {
+										delete fieldDescription[property];
+									}
+								} );
+							}
+							
+							//Try to create the field. In case of error, warn the user.
+							fieldDescription.type = type;
+							
+							var FieldConstructor = validFieldTypes[type];
+							var field;
+							
+							try {
+								field = new FieldConstructor( fieldDescription, self.options );
+							} catch ( err ) {
+								alert( "Invalid field options: " + err ); //TODO: i18n
+								return;
+							}
+
+							if ( params.callback( field ) === true ) {
+								$( this ).dialog( "close" );
+							}
+						}
+					}
+				},
+				{
+					text: mw.msg( 'gadgets-formbuilder-editor-cancel' ),
+					click: function() {
+						$( this ).dialog( "close" );
+						params.callback( null );
+					}
+				}
+			]
+		} );
+	};
+
+	SectionField.prototype._deleteSlot = function( $slot ) {
+		var field = $slot.data( 'field' );
+		if ( field !== undefined ) {
+			//Slot with a field
+			deleteFieldRules( field );
+		}
+		
+		//Delete it
+		$slot.remove();
+	};
+	
+	SectionField.prototype._createSlot = function( editable, field ) {
+		var self = this,
+			$slot = $( '<div/>' ).addClass( 'formbuilder-slot ui-widget' ),
+			$divButtons;
+		
+		if ( editable ) {
+			$slot.addClass( 'formbuilder-slot-editable' );
+
+			$divButtons = $( '<div/>' )
+				.addClass( 'formbuilder-editor-slot-buttons' )
+				.appendTo( $slot );
+		}
+		
+		if ( typeof field != 'undefined' ) {
+			//Nonempty slot
+			$slot.prepend( field.getElement() )
+				.data( 'field', field );
+			
+			if ( editable ) {
+				$slot.addClass( 'formbuilder-slot-nonempty' );
+				
+				//Add the handle for moving slots
+				$( '<span />' )
+					.addClass( 'formbuilder-editor-button formbuilder-editor-button-move ui-icon ui-icon-arrow-4' )
+					.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-move' ) )
+					.mousedown( function() {
+						$( this ).focus();
+					} )
+					.appendTo( $divButtons );
+				
+				//Add the button for changing existing slots
+				$( '<a href="javascript:;" />' )
+					.addClass( 'formbuilder-editor-button formbuilder-editor-button-edit ui-icon ui-icon-gear' )
+					.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-edit-field' ) )
+					.click( function() {
+						self._createFieldDialog( {
+							type: field.getDesc().type,
+							values: field.getDesc(),
+							callback: function( newField ) {
+								if ( newField !== null ) {
+									//check that there are no duplicate preference names
+									var existingValues = self.$div.closest( 'form' ).formBuilder( 'getValues' ),
+										removedValues = field.getValues(),
+										duplicateName = null;
+									$.each( field.getValues(), function( name, val ) {
+										//Only complain for preference names that are not in names for the field being replaced
+										if ( typeof existingValues[name] != 'undefined' && removedValues[name] == 'undefined'  ) {
+											duplicateName = name;
+											return false;
+										}
+									} );
+									
+									if ( duplicateName !== null ) {
+										alert( mw.msg( 'gadgets-formbuilder-editor-duplicate-name', duplicateName ) );
+										return false;
+									}
+									
+									var $newSlot = self._createSlot( true, newField );
+									
+									deleteFieldRules( field );
+									
+									$slot.replaceWith( $newSlot );
+									
+									//Add field's validation rules
+									addFieldRules( newField );
+								}
+								return true;
+							}
+						} );
+					} )
+					.appendTo( $divButtons );
+				
+				//Add the button to delete slots
+				$( '<a href="javascript:;" />' )
+					.addClass( 'formbuilder-editor-button formbuilder-editor-button-delete ui-icon ui-icon-trash' )
+					.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-delete-field' ) )
+					.click( function( event, ui ) {
+						//Make both slots disappear, then delete them 
+						$.each( [$slot, $slot.prev()], function( idx, $s ) {
+							$s.slideUp( function() {
+								self._deleteSlot( $s );
+							} );
+						} );
+					} ) 
+					.appendTo( $divButtons );
+
+				//Make this slot draggable to allow moving it
+				$slot.draggable( {
+					revert: true,
+					handle: ".formbuilder-editor-button-move",
+					helper: "original",
+					zIndex: $slot.closest( 'form' ).zIndex() + 1000, //TODO: ugly, find a better way
+					opacity: 0.8,
+					cursor: "move",
+					cursorAt: {
+						top: -5,
+						left: -5
+					}
+				} );
+			}
+		} else {
+			//Create empty slot
+			$slot.addClass( 'formbuilder-slot-empty' )
+				.droppable( {
+					hoverClass: 'formbuilder-slot-can-drop',
+					tolerance: 'pointer',
+					drop: function( event, ui ) {
+						var srcSlot = ui.draggable, dstSlot = this;
+						
+						//Remove one empty slot surrounding source
+						$( srcSlot ).prev().remove();
+						
+						//Replace dstSlot with srcSlot:
+						$( dstSlot ).replaceWith( srcSlot );
+						
+						//Add one empty slot before and one after the new position
+						self._createSlot( true ).insertBefore( srcSlot );
+						self._createSlot( true ).insertAfter( srcSlot );
+					},
+					accept: function( draggable ) {
+						//All non empty slots accepted, except for closest siblings
+						return $( draggable ).hasClass( 'formbuilder-slot-nonempty' ) &&
+							$( draggable ).prev().get( 0 ) !== $slot.get( 0 ) &&
+							$( draggable ).next().get( 0 ) !== $slot.get( 0 );
+					}
+				} );
+			
+			//The button to create a new field
+			$( '<a href="javascript:;" />' )
+				.addClass( 'formbuilder-editor-button formbuilder-editor-button-new ui-icon ui-icon-plus' )
+				.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-insert-field' ) )
+				.click( function() {
+					self._createFieldDialog( {
+						callback: function( field ) {
+							if ( field !== null ) {
+								//check that there are no duplicate preference names
+								var existingValues = $slot.closest( 'form' ).formBuilder( 'getValues' ),
+									duplicateName = null;
+								$.each( field.getValues(), function( name, val ) {
+									if ( typeof existingValues[name] != 'undefined' ) {
+										duplicateName = name;
+										return false;
+									}
+								} );
+								
+								if ( duplicateName !== null ) {
+									alert( mw.msg( 'gadgets-formbuilder-editor-duplicate-name' , duplicateName ) );
+									return false;
+								}
+
+								var $newSlot = self._createSlot( true, field ).hide(),
+									$newEmptySlot = self._createSlot( true ).hide();
+								
+								$slot.after( $newSlot, $newEmptySlot );
+								
+								$newSlot.slideDown();
+								$newEmptySlot.slideDown();
+								
+								//Add field's validation rules
+								addFieldRules( field );
+							}
+							return true;
+						}
+					} );
+				} )
+				.appendTo( $divButtons );
+		}
+		
+		return $slot;
+	};
+
 	
 	/* A field for 'bundle's */
 	BundleField.prototype = object( EmptyField.prototype );
 	BundleField.prototype.constructor = BundleField;
-	function BundleField( $form, desc, values ) {
-		EmptyField.call( this, $form, desc, values );
+	function BundleField( desc, options ) {
+		EmptyField.call( this, desc, options );
 
 		//Create tabs
 		var $tabs = this.$tabs = $( '<div><ul></ul></div>' )
 			.attr( 'id', idPrefix + 'tab-' + getIncrementalCounter() )
-			.tabs();
+			.tabs( {
+				add: function( event, ui ) {
+					//Links the anchor to the panel
+					$( ui.tab ).data( 'panel', ui.panel );
+					
+					if ( options.editable === true ) {
+						//Add "delete section" button
+						$( '<span />' )
+							.addClass( 'formbuilder-editor-button formbuilder-editor-button-delete-section ui-icon ui-icon-trash' )
+							.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-delete-section' ) )
+							.click( function() {
+								var sectionField = $( ui.panel ).data( 'field' );
+								deleteFieldRules( sectionField );
 
-		this.sections = [];
+								var index = $( "li", $tabs ).index( $( this ).closest( "li" ) );
+								index -= 1; //Don't count the "add section" button
+								
+								$tabs.tabs( 'remove', index );
+							} )
+							.appendTo( ui.tab );
+
+						//Add "edit section" button
+						$( '<span />' )
+							.addClass( 'formbuilder-editor-button formbuilder-editor-button-edit-section ui-icon ui-icon-gear' )
+							.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-edit-section' ) )
+							.click( function() {
+								var button = this,
+									sectionField = $( ui.panel ).data( 'field' );
+									
+								$( {
+									fields: [ {
+										'name': "title",
+										'type': "string",
+										'label': mw.msg( 'gadgets-formbuilder-editor-chose-title' )
+									} ]
+								} ).formBuilder( {
+									values: {
+										title: sectionField.getDesc().title
+									}
+								} ).dialog( {
+									modal: true,
+									resizable: false,
+									title: mw.msg( 'gadgets-formbuilder-editor-chose-title-title' ),
+									close: function() {
+										$( this ).remove(); //completely destroy on close
+									},
+									buttons: [
+										{
+											text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
+											click: function() {
+												var title = $( this ).formBuilder( 'getValues' ).title;
+												
+												//Update field description
+												sectionField.setTitle( title );
+												
+												//Update tab's title
+												$( button ).parent().find( ':first-child' ).text( title );
+												
+												$( this ).dialog( "close" );
+											}
+										},
+										{
+											text: mw.msg( 'gadgets-formbuilder-editor-cancel' ),
+											click: function() {
+												$( this ).dialog( "close" );
+											}
+										}
+									]
+								} );
+							} )
+							.appendTo( ui.tab );
+					}
+				}
+			} );
 
 		var self = this;
-		$.each( desc.sections, function( sectionName, sectionDescription ) {
+		$.each( this.desc.sections, function( index, sectionDescription ) {
 			var id = idPrefix + 'section-' + getIncrementalCounter(),
-				sec = new SectionField( $form, sectionDescription, values, id );
-			
-			self.sections.push( sec );
+				sec = new SectionField( sectionDescription, options, id );
 			
 			$tabs.append( sec.getElement() )
-				.tabs( 'add', '#' + id, preproc( $form, sectionName ) ); 
+				.tabs( 'add', '#' + id, preproc( options.prefix, sectionDescription.title ) ); 
 		} );
 
-		this.$p.append( $tabs );
+		if ( options.editable === true ) {
+			//Add the button to create a new section
+			$( '<span>' )
+				.addClass( 'formbuilder-editor-button formbuilder-editor-button-new-section ui-icon ui-icon-plus' )
+				.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-new-section' ) )
+				.click( function() {
+					$( {
+						fields: [ {
+							'name': "title",
+							'type': "string",
+							'label': mw.msg( 'gadgets-formbuilder-editor-chose-title' )
+						} ]
+					} ).formBuilder( {} ).dialog( {
+						modal: true,
+						resizable: false,
+						title: mw.msg( 'gadgets-formbuilder-editor-chose-title-title' ),
+						close: function() {
+							$( this ).remove();
+						},
+						buttons: [
+							{
+								text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
+								click: function() {
+									var title = $( this ).formBuilder( 'getValues' ).title,
+										id = idPrefix + 'section-' + getIncrementalCounter(),
+										newSectionDescription = {
+											title: title,
+											fields: []
+										},
+										newSection = new SectionField( newSectionDescription, options, id );
+									
+									$tabs.append( newSection.getElement() )
+										.tabs( 'add', '#' + id, preproc( options.prefix, title ) );
+									
+									$( this ).dialog( "close" );
+								}
+							},
+							{
+								text: mw.msg( 'gadgets-formbuilder-editor-cancel' ),
+								click: function() {
+									$( this ).dialog( "close" );
+								}
+							}
+						]
+					} );
+				} )
+				.wrap( '<li />' ).parent()
+				.prependTo( $tabs.find('.ui-tabs-nav' ) );
+	
+			//Make the tabs sortable
+			$tabs.tabs().find( '.ui-tabs-nav' ).sortable( {
+				axis: 'x',
+				items: 'li:not(:has(.formbuilder-editor-button-new-section))'
+			} );
+		}
+
+		this.$div.append( $tabs );
 	}
 	
 	BundleField.prototype.getValidationSettings = function() {
 		var settings = {};
-		$.each( this.sections, function( idx, section ) {
-			$.extend( true, settings, section.getValidationSettings() );
+		this.$div.find( '.ui-tabs-nav a' ).each( function( idx, anchor ) {
+			var panel = $( anchor ).data( 'panel' ),
+				field = $( panel ).data( 'field' );
+				
+			$.extend( true, settings, field.getValidationSettings() );
 		} );
 		return settings;
 	};
 
+	BundleField.prototype.getDesc = function( useValuesAsDefaults ) {
+		var desc = this.desc;
+		desc.sections = [];
+		this.$div.find( '.ui-tabs-nav a' ).each( function( idx, anchor ) {
+			var panel = $( anchor ).data( 'panel' ),
+				field = $( panel ).data( 'field' );
+				
+			desc.sections.push( field.getDesc( useValuesAsDefaults ) );
+		} );
+		return desc;
+	};
+
 	BundleField.prototype.getValues = function() {
 		var values = {};
-		$.each( this.sections, function( idx, section ) {
-			$.extend( values, section.getValues() );
+		this.$div.find( '.ui-tabs-nav a' ).each( function( idx, anchor ) {
+			var panel = $( anchor ).data( 'panel' ),
+				field = $( panel ).data( 'field' );
+				
+			$.extend( values, field.getValues() );
 		} );
 		return values;
 	};
 
-
-	//Field types that can be referred to by preference descriptions
-	var validFieldTypes = {
-		"boolean": BooleanField,
-		"string" : StringField,
-		"number" : NumberField,
-		"select" : SelectField,
-		"range"  : RangeField,
-		"date"   : DateField,
-		"color"  : ColorField,
-		"bundle" : BundleField
-	};
-
+	validFieldTypes["bundle"] = BundleField;
 
 	/* Public methods */
 	
@@ -670,8 +1318,8 @@
 	 * @param {Object} options
 	 * @return {Element} the object with the requested form body.
 	 */
-	function buildFormBody( options ) {
-		var description  = this.get( 0 );
+	function buildFormBody( options ) {		
+		var description = this.get( 0 );
 		if ( typeof description != 'object' ) {
 			mw.log( "description should be an object, instead of a " + typeof description );
 			return null;
@@ -679,32 +1327,26 @@
 
 		var $form = $( '<form/>' ).addClass( 'formbuilder' );
 		var prefix = options.gadget === undefined ? '' : ( 'Gadget-' + options.gadget + '-' );
-		$form.data( 'formBuilder', {
-			prefix: prefix //prefix for messages
-		} );
-
-		//If there is an "intro", adds it to the form as a label
-		if ( typeof description.intro == 'string' ) {
-			$( '<p/>' )
-				.text( preproc( $form, description.intro ) )
-				.addClass( 'formBuilder-intro' )
-				.appendTo( $form );
-		}
 
 		if ( typeof description.fields != 'object' ) {
 			mw.log( "description.fields should be an object, instead of a " + typeof description.fields );
 			return null;
 		}
 
-		var section = new SectionField( $form, description, options.values );
+		var section = new SectionField( description, { 
+			prefix: prefix,
+			values: options.values,
+			editable: options.editable === true
+		} );
 		
 		section.getElement().appendTo( $form );
 
 		var validator = $form.validate( section.getValidationSettings() );
 
-		var data = $form.data( 'formBuilder' );
-		data.mainSection = section;
-		data.validator = validator;
+		$form.data( 'formBuilder', {
+			mainSection: section,
+			validator: validator
+		} );
 
 		return $form;
 	}
@@ -723,6 +1365,20 @@
 		},
 
 		/**
+		 * Returns the current description, where current values as set for 'default' values.
+		 * Used by the preference editor.
+		 * 
+		 * NOTE: it is responsibility of the caller to call 'validate' and ensure that
+		 * current values pass validation before calling this method.
+		 * 
+		 * @return {Object}
+		 */
+		getDescription: function() {
+			var data = this.data( 'formBuilder' );
+			return data.mainSection.getDesc( true );
+		},
+
+		/**
 		 * Do validation of form fields and warn the user about wrong values, if any.
 		 * 
 		 * @return {Boolean} true if all fields pass validation, false otherwise.
@@ -731,7 +1387,6 @@
 			var data = this.data( 'formBuilder' );
 			return data.validator.form();
 		}
-
 	};
 
 	$.fn.formBuilder = function( method ) {

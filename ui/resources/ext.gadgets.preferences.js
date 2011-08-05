@@ -86,7 +86,7 @@
 								resizable: false,
 								title: mw.msg( 'gadgets-configuration-of', gadget ),
 								close: function() {
-									$( this ).dialog( 'destroy' ).empty(); //completely destroy on close
+									$( this ).remove();
 								},
 								buttons: [
 									//TODO: add a "Restore defaults" button

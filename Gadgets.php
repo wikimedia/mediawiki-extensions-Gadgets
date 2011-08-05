@@ -86,12 +86,18 @@ $wgResourceModules['jquery.formBuilder'] = array(
 	'styles'        => array( 'jquery.formBuilder.css' ),
 	'dependencies' 	=> array(
 		'jquery', 'jquery.ui.slider', 'jquery.ui.datepicker', 'jquery.ui.position',
+		'jquery.ui.draggable', 'jquery.ui.droppable', 'jquery.ui.sortable', 'jquery.ui.dialog',
 		'jquery.ui.tabs', 'jquery.farbtastic', 'jquery.colorUtil', 'jquery.validate'
 	),
 	'messages'      => array(
 		'gadgets-formbuilder-required', 'gadgets-formbuilder-minlength', 'gadgets-formbuilder-maxlength',
 		'gadgets-formbuilder-min', 'gadgets-formbuilder-max', 'gadgets-formbuilder-integer', 'gadgets-formbuilder-date',
-		'gadgets-formbuilder-color'
+		'gadgets-formbuilder-color',
+		'gadgets-formbuilder-editor-ok', 'gadgets-formbuilder-editor-cancel', 'gadgets-formbuilder-editor-move-field',
+		'gadgets-formbuilder-editor-delete-field', 'gadgets-formbuilder-editor-edit-field', 'gadgets-formbuilder-editor-insert-field',
+		'gadgets-formbuilder-editor-chose-field', 'gadgets-formbuilder-editor-chose-field-title', 'gadgets-formbuilder-editor-create-field-title',
+		'gadgets-formbuilder-editor-duplicate-name', 'gadgets-formbuilder-editor-delete-section', 'gadgets-formbuilder-editor-new-section',
+		'gadgets-formbuilder-editor-chose-title', 'gadgets-formbuilder-editor-chose-title-title'
 	),
 	'localBasePath' => $dir . 'ui/resources/',
 	'remoteExtPath' => 'Gadgets/ui/resources'

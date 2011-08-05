@@ -43,6 +43,65 @@
 }
 
 .farbtastic {
-	border: 1px solid #cccccc;
+	border: none;
+}
+
+.formbuilder-slot {
+	border: none;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+/* formBuilder editor */
+
+.formbuilder-slot-nonempty {
+	border: 1px solid #888;
+	padding: 0px;
+}
+
+.formbuilder-slot-empty {
+	border: 1px dashed #aaa;
+	padding: 0px;
+}
+
+.formbuilder-slot-can-drop {
+	border: 1px solid black;
+}
+
+.formbuilder-editor-slot-buttons {
+	height: 19px;
+}
+
+.formbuilder-editor-button {
+	cursor: pointer;
+}
+
+.formbuilder-editor-button-move {
+	cursor: move;
+}
+
+.formbuilder-editor-button-new, .formbuilder-editor-button-new-section {
+	float: left;
+}
+
+.formbuilder-editor-button-edit {
+	float: left;
+}
+
+.formbuilder-editor-button-move {
+	float: left;
+}
+
+.formbuilder-editor-button-delete {
+	float: right;
+}
+
+.formbuilder-editor-button-delete-section {
+	float: right;
+}
+
+.formbuilder-editor-button-edit-section {
+	float: right;
+	margin-left: 6px;
 }
 

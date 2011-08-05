@@ -74,7 +74,7 @@ class GadgetPrefs {
 					'validator' => 'is_integer'
 				)
 			),
-			'validator' => 'GadgetPrefs::validateStringOptionDefinition',
+			'validator' => 'GadgetPrefs::validateStringPrefDefinition',
 			'checker' => 'GadgetPrefs::checkStringPref'
 		),
 		'number' => array(
@@ -108,7 +108,7 @@ class GadgetPrefs {
 					'validator' => 'GadgetPrefs::isFloatOrInt'
 				)
 			),
-			'validator' => 'GadgetPrefs::validateNumberOptionDefinition',
+			'validator' => 'GadgetPrefs::validateNumberPrefDefinition',
 			'checker' => 'GadgetPrefs::checkNumberPref'
 		),
 		'select' => array(
@@ -126,10 +126,10 @@ class GadgetPrefs {
 				),
 				'options' => array(
 					'isMandatory' => true,
-					'validator' => 'is_array'
+					'validator' => 'GadgetPrefs::isOrdinaryArray'
 				)
 			),
-			'validator' => 'GadgetPrefs::validateSelectOptionDefinition',
+			'validator' => 'GadgetPrefs::validateSelectPrefDefinition',
 			'checker' => 'GadgetPrefs::checkSelectPref',
 			'getMessages' => 'GadgetPrefs::getSelectMessages'
 		),
@@ -160,7 +160,7 @@ class GadgetPrefs {
 					'validator' => 'GadgetPrefs::isFloatOrInt'
 				)
 			),
-			'validator' => 'GadgetPrefs::validateRangeOptionDefinition',
+			'validator' => 'GadgetPrefs::validateRangePrefDefinition',
 			'checker' => 'GadgetPrefs::checkRangePref'
 		),
 		'date' => array(
@@ -214,17 +214,17 @@ class GadgetPrefs {
 
 	
 	//Further checks for 'string' options
-	private static function validateStringOptionDefinition( $option ) {
-		if ( isset( $option['minlength'] ) && $option['minlength'] < 0 ) {
+	private static function validateStringPrefDefinition( $prefDefinition ) {
+		if ( isset( $prefDefinition['minlength'] ) && $prefDefinition['minlength'] < 0 ) {
 			return false;
 		}
 
-		if ( isset( $option['maxlength'] ) && $option['maxlength'] <= 0 ) {
+		if ( isset( $prefDefinition['maxlength'] ) && $prefDefinition['maxlength'] <= 0 ) {
 			return false;
 		}
 
-		if ( isset( $option['minlength']) && isset( $option['maxlength'] ) ) {
-			if ( $option['minlength'] > $option['maxlength'] ) {
+		if ( isset( $prefDefinition['minlength']) && isset( $prefDefinition['maxlength'] ) ) {
+			if ( $prefDefinition['minlength'] > $prefDefinition['maxlength'] ) {
 				return false;
 			}
 		}
@@ -240,6 +240,16 @@ class GadgetPrefs {
 		return is_float( $param ) || is_int( $param ) || $param === null;
 	}
 	
+	//Checks if $param is an ordinary (i.e.: not associative) array
+	private static function isOrdinaryArray( $param ) {
+		if ( !is_array( $param ) ) {
+			return false;
+		}
+
+		$count = count( $param );
+		return $count == 0 || array_keys( $param ) === range( 0, $count - 1 );
+	}
+	
 	//default flattener for simple fields that encode for a single preference
 	private static function flattenSimpleField( $fieldDescription ) {
 		return array( $fieldDescription['name'] => $fieldDescription );
@@ -248,7 +258,7 @@ class GadgetPrefs {
 	//flattener for 'bundle' fields
 	private static function flattenBundleDefinition( $fieldDescription ) {
 		$flattenedPrefs = array();
-		foreach ( $fieldDescription['sections'] as $sectionName => $sectionDescription ) {
+		foreach ( $fieldDescription['sections'] as $sectionDescription ) {
 			//Each section behaves like a full description of preferences
 			$flt = self::flattenPrefsDescription( $sectionDescription );
 			$flattenedPrefs = array_merge( $flattenedPrefs, $flt );
@@ -257,16 +267,16 @@ class GadgetPrefs {
 	}
 	
 	//Further checks for 'number' options
-	private static function validateNumberOptionDefinition( $option ) {
-		if ( isset( $option['integer'] ) && $option['integer'] === true ) {
+	private static function validateNumberPrefDefinition( $prefDefinition ) {
+		if ( isset( $prefDefinition['integer'] ) && $prefDefinition['integer'] === true ) {
 			//Check if 'min', 'max' and 'default' are integers (if given)
-			if ( intval( $option['default'] ) != $option['default'] ) {
+			if ( intval( $prefDefinition['default'] ) != $prefDefinition['default'] ) {
 				return false;
 			}
-			if ( isset( $option['min'] ) && intval( $option['min'] ) != $option['min'] ) {
+			if ( isset( $prefDefinition['min'] ) && intval( $prefDefinition['min'] ) != $prefDefinition['min'] ) {
 				return false;
 			}
-			if ( isset( $option['max'] ) && intval( $option['max'] ) != $option['max'] ) {
+			if ( isset( $prefDefinition['max'] ) && intval( $prefDefinition['max'] ) != $prefDefinition['max'] ) {
 				return false;
 			}
 		}
@@ -274,35 +284,49 @@ class GadgetPrefs {
 		return true;
 	}
 
-	private static function validateSelectOptionDefinition( $option ) {
-		$options = $option['options'];
+	private static function validateSelectPrefDefinition( $prefDefinition ) {
+		$options = $prefDefinition['options'];
 		
-		foreach ( $options as $opt => $optVal ) {
-			//Correct value for $optVal are NULL, boolean, integer, float or string
-			if ( $optVal !== NULL &&
-				!is_bool( $optVal ) &&
-				!is_int( $optVal ) &&
-				!is_float( $optVal ) &&
-				!is_string( $optVal ) )
+		//Check if it's a regular array
+		if ( !self::isOrdinaryArray( $options ) ) {
+			return false;
+		}
+		
+		foreach ( $options as $option ) {
+			//Using array_key_exists() because isset fails for null values
+			if ( !isset( $option['name'] ) || !array_key_exists( 'value', $option ) ) {
+				return false;
+			}
+		
+			//All names must be strings
+			if ( !is_string( $option['name'] ) ) {
+				return false;
+			}
+		
+			//Correct value for $value are null, boolean, integer, float or string
+			$value = $option['value'];
+			if ( $value !== null &&
+				!is_bool( $value ) &&
+				!is_int( $value ) &&
+				!is_float( $value ) &&
+				!is_string( $value ) )
 			{
 				return false;
 			}
 		}
-		
-		$values = array_values( $options );
-		
+
 		return true;
 	}
 	
-	private static function validateRangeOptionDefinition( $option ) {
-		$step = isset( $option['step'] ) ? $option['step'] : 1;
+	private static function validateRangePrefDefinition( $prefDefinition ) {
+		$step = isset( $prefDefinition['step'] ) ? $prefDefinition['step'] : 1;
 		
 		if ( $step <= 0 ) {
 			return false;
 		}
 		
-		$min = $option['min'];
-		$max = $option['max'];
+		$min = $prefDefinition['min'];
+		$max = $prefDefinition['max'];
 		
 		//Checks if 'max' is a valid value
 		//Valid values are min, min + step, min + 2*step, ...
@@ -458,10 +482,19 @@ class GadgetPrefs {
 		//validate each section, then ensure that preference names
 		//of each section are disjoint
 		
+		if ( !self::isOrdinaryArray( $sections ) ) {
+			return false;
+		}
+		
 		$prefs = array(); //names of preferences
 		
 		foreach ( $sections as $section ) {
 			if ( !self::validateSectionDefinition( $section ) ) {
+				return false;
+			}
+			
+			//Bundle sections must have a "title" field
+			if ( !isset( $section['title'] ) || !is_istring( $section['title'] ) ) {
 				return false;
 			}
 			
@@ -582,8 +615,13 @@ class GadgetPrefs {
 
 	//Checker for 'select' preferences
 	private static function checkSelectPref( $prefDescription, $value ) {
-		$values = array_values( $prefDescription['options'] );
-		return in_array( $value, $values, true );
+		foreach ( $prefDescription['options'] as $option ) {
+			if ( $option['value'] === $value ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	//Checker for 'range' preferences
@@ -762,7 +800,8 @@ class GadgetPrefs {
 	//Returns the messages for a 'select' field description
 	private static function getSelectMessages( $prefDescription ) {
 		$msgs = array();
-		foreach ( $prefDescription['options'] as $optName => $value ) {
+		foreach ( $prefDescription['options'] as $option ) {
+			$optName = $option['name'];
 			if ( self::isMessage( $optName ) ) {
 				$msgs[] = substr( $optName, 1 );
 			}
@@ -774,10 +813,11 @@ class GadgetPrefs {
 	private static function getBundleMessages( $prefDescription ) {
 		//returns the union of all messages of all sections, plus section names
 		$msgs = array();
-		foreach ( $prefDescription['sections'] as $sectionName => $sectionDescription ) {
+		foreach ( $prefDescription['sections'] as $sectionDescription ) {
 			$msgs = array_merge( $msgs, self::getMessages( $sectionDescription ) );
-			if ( self::isMessage( $sectionName ) ) {
-				$msgs[] = substr( $sectionName, 1 );
+			$sectionTitle = $sectionDescription['title']; 
+			if ( self::isMessage( $sectionTitle ) ) {
+				$msgs[] = substr( $sectionTitle, 1 );
 			}
 		}
 		return array_unique( $msgs );

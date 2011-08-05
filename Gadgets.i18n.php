@@ -61,6 +61,21 @@ You must have appropriate permissions on destination wiki (including the right t
 	'gadgets-formbuilder-integer' => 'Please enter an integer number.',
 	'gadgets-formbuilder-date' => 'Please enter a valid date.',
 	'gadgets-formbuilder-color' => 'Please enter a valid color.',
+	'gadgets-formbuilder-editor-ok' => 'OK',
+	'gadgets-formbuilder-editor-cancel' => 'Cancel',
+	'gadgets-formbuilder-editor-move-field' => 'Move this field',
+	'gadgets-formbuilder-editor-delete-field' => 'Delete this field',
+	'gadgets-formbuilder-editor-edit-field' => 'Edit field properties',
+	'gadgets-formbuilder-editor-insert-field' => 'Insert a new field',
+	'gadgets-formbuilder-editor-chose-field' => 'Chose the type of the new field:',
+	'gadgets-formbuilder-editor-chose-field-title' => 'Chose field type',
+	'gadgets-formbuilder-editor-create-field-title' => 'Create field',
+	'gadgets-formbuilder-editor-duplicate-name' => 'The preference name $1 has been used. Please chose a different name.',
+	'gadgets-formbuilder-editor-edit-section' => 'Edit this section\'s title',
+	'gadgets-formbuilder-editor-delete-section' => 'Delete this section and all his content',
+	'gadgets-formbuilder-editor-new-section' => 'Delete this section and all his content',
+	'gadgets-formbuilder-editor-chose-title' => 'Chose the title of the new section:',
+	'gadgets-formbuilder-editor-chose-title-title' => 'Chose section title',
 );
 
 /** Message documentation (Message documentation)

@@ -342,10 +342,10 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 					'label' => 'some label',
 					'default' => 3,
 					'options' => array(
-						'opt1' => null,
-						'opt2' => true,
-						'opt3' => 3,
-						'opt4' => 'test'
+						array( 'name' => 'opt1', 'value' => null ),
+						array( 'name' => 'opt2', 'value' => true ),
+						array( 'name' => 'opt3', 'value' => 3 ),
+						array( 'name' => 'opt4', 'value' => 'test' )
 					)
 				)
 			)
@@ -536,7 +536,8 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 					array(
 						'type' => 'bundle',
 						'sections' => array(
-							'@section1' => array(
+							array(
+								'title' => '@section1',
 								'fields' => array (
 									array(
 										'name' => 'testBoolean',
@@ -560,7 +561,8 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 									)
 								)
 							),
-							'Section2' => array(
+							array(
+								'title' => 'Section2',
 								'fields' => array(
 									array(
 										'name' => 'testNumber2',
@@ -576,10 +578,10 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 										'label' => 'foo',
 										'default' => 3,
 										'options' => array(
-											'@opt1' => null,
-											'@opt2' => true,
-											'opt3' => 3,
-											'@opt4' => 'opt4value'
+											array( 'name' => '@opt1', 'value' => null ),
+											array( 'name' => '@opt2', 'value' => true ),
+											array( 'name' => 'opt3', 'value' => 3 ),
+											array( 'name' => '@opt4', 'value' => 'opt4value' )
 										)
 									),
 									array(
@@ -588,10 +590,10 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 										'label' => 'foo',
 										'default' => 3,
 										'options' => array(
-											'@opt1' => null,
-											'opt2' => true,
-											'opt3' => 3,
-											'opt4' => 'opt4value'
+											array( 'name' => '@opt1', 'value' => null ),
+											array( 'name' => 'opt2', 'value' => true ),
+											array( 'name' => 'opt3', 'value' => 3 ),
+											array( 'name' => 'opt4', 'value' => 'opt4value' )
 										)
 									)
 								)
