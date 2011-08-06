@@ -78,13 +78,13 @@ $wgAvailableRights = array_merge( $wgAvailableRights, array(
 ) );
 
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::articleSaveComplete';
-$wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay';
+//$wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay'; // FIXME: broken
 $wgHooks['CanonicalNamespaces'][]           = 'GadgetHooks::canonicalNamespaces';
 $wgHooks['GetPreferences'][]                = 'GadgetHooks::getPreferences';
 $wgHooks['LoadExtensionSchemaUpdates'][]    = 'GadgetHooks::loadExtensionSchemaUpdates';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetHooks::registerModules';
 $wgHooks['TitleIsCssOrJsPage'][]            = 'GadgetHooks::titleIsCssOrJsPage';
-$wgHooks['UnitTestsList'][]                 = 'GadgetHooks::unitTestsList';
+//$wgHooks['UnitTestsList'][]                 = 'GadgetHooks::unitTestsList'; // FIXME: broken
 
 $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
