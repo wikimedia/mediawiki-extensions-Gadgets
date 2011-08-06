@@ -92,14 +92,16 @@ class GadgetHooks {
 	 * @param $resourceLoader ResourceLoader
 	 */
 	public static function registerModules( &$resourceLoader ) {
-		$gadgets = Gadget::loadList();
-		if ( !$gadgets ) {
-			return true;
-		}
-		foreach ( $gadgets as $g ) {
-			$module = $g->getModule();
-			if ( $module ) {
-				$resourceLoader->register( $g->getModuleName(), $module );
+		global $wgGadgetRepositories;
+		foreach ( $wgGadgetRepositories as $params ) {
+			$repoClass = $params['class'];
+			unset( $params['class'] );
+			$repo = new $repoClass( $params );
+			
+			$gadgets = $repo->getGadgetNames();
+			foreach ( $gadgets as $name ) {
+				$gadget = $repo->getGadget( $name );
+				$resourceLoader->register( $gadget->getModuleName(), $gadget->getModule() );
 			}
 		}
 		return true;
@@ -191,6 +193,13 @@ class GadgetHooks {
 	public static function canonicalNamespaces( &$list ) {
 		$list[NS_GADGET] = 'Gadget';
 		$list[NS_GADGET_TALK] = 'Gadget_talk';
+		return true;
+	}
+	
+	public static function titleIsCssOrJsPage( $title, &$result ) {
+		if ( $title->getNamespace() == NS_GADGET ) {
+			$result = true;
+		}
 		return true;
 	}
 }

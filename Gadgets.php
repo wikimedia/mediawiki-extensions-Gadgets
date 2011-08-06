@@ -83,6 +83,7 @@ $wgHooks['CanonicalNamespaces'][]           = 'GadgetHooks::canonicalNamespaces'
 $wgHooks['GetPreferences'][]                = 'GadgetHooks::getPreferences';
 $wgHooks['LoadExtensionSchemaUpdates'][]    = 'GadgetHooks::loadExtensionSchemaUpdates';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetHooks::registerModules';
+$wgHooks['TitleIsCssOrJsPage'][]            = 'GadgetHooks::titleIsCssOrJsPage';
 $wgHooks['UnitTestsList'][]                 = 'GadgetHooks::unitTestsList';
 
 $dir = dirname(__FILE__) . '/';
