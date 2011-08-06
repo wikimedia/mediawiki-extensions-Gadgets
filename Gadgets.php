@@ -29,6 +29,40 @@ $wgExtensionCredits['other'][] = array(
 	'descriptionmsg' => 'gadgets-desc',
 );
 
+/*** Configuration ***/
+
+/**
+ * Add gadget repositories here.
+ * 
+ * For foreign DB-based gadget repositories, use:
+ * // TODO: Document better by looking at WMF ForeignFileRepo config
+ * $wgGadgetRepositories[] = array(
+ * 	'class' => 'ForeignDBGadgetRepo',
+ * 	'source' => 'mediawikiwiki', // Name of the ResourceLoader source for the foreign wiki, see $wgResourceLoaderSources
+ * 	'dbType' => 'mysql', // Database type of the foreign wiki's database
+ * 	'dbServer' => 'db123', // Database host for the foreign wiki's master database
+ * 	'dbUser' => 'username', // User name for the foreign wiki's database
+ * 	'dbPassword' => 'password', // Password for the foreign wiki's database
+ * 	'dbName' => 'mediawikiwiki', // Name of the foreign wiki's database
+ *	// TODO: Make this the default?
+ * 	'dbFlags' => ( $wgDebugDumpSql ? DBO_DEBUG : 0 ) | DBO_DEFAULT // Use this value unless you know what you're doing
+ * 	'tablePrefix' => 'mw_', // Table prefix for the foreign wiki's database, or '' if no prefix
+ //*	'hasSharedCache' => true, // Whether the foreign wiki's cache is accessible through $wgMemc   // TODO: needed?
+ * );
+ * 
+ * For foreign API-based gadget repositories, use:
+ * $wgGadgetRepositories[] = array(
+ * 	'class' => 'ForeignAPIGadgetRepo',
+ *	// TODO
+ * );
+ */
+$wgGadgetRepositories = array(
+	array(
+		// Default local gadget repository. Doesn't need any parameters
+		'class' => 'LocalGadgetRepo',
+	)
+);
+
 define( 'NS_GADGET', 2300 );
 define( 'NS_GADGET_TALK', 2301 );
 
@@ -56,7 +90,12 @@ $wgExtensionAliasesFiles['Gadgets'] = $dir . 'Gadgets.alias.php';
 
 $wgAutoloadClasses['ApiQueryGadgetCategories'] = $dir . 'api/ApiQueryGadgetCategories.php';
 $wgAutoloadClasses['ApiQueryGadgets'] = $dir . 'api/ApiQueryGadgets.php';
+$wgAutoloadClasses['ForeignDBGadgetRepo'] = $dir . 'backend/ForeignDBGadgetRepo.php';
+$wgAutoloadClasses['Gadget'] = $dir . 'backend/Gadget.php';
 $wgAutoloadClasses['GadgetHooks'] = $dir . 'GadgetHooks.php';
+$wgAutoloadClasses['GadgetRepo'] = $dir . 'backend/GadgetRepo.php';
+$wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'backend/GadgetResourceLoaderModule.php';
+$wgAutoloadClasses['LocalGadgetRepo'] = $dir . 'backend/LocalGadgetRepo.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
