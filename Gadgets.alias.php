@@ -11,6 +11,7 @@ $specialPageAliases = array();
 /** English (English) */
 $specialPageAliases['en'] = array(
 	'Gadgets' => array( 'Gadgets' ),
+	'GadgetManager' => array( 'GadgetManager' ),
 );
 
 /** Afrikaans (Afrikaans) */

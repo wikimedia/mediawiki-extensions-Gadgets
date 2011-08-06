@@ -100,10 +100,13 @@ $wgAutoloadClasses['GadgetHooks'] = $dir . 'GadgetHooks.php';
 $wgAutoloadClasses['GadgetRepo'] = $dir . 'backend/GadgetRepo.php';
 $wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'backend/GadgetResourceLoaderModule.php';
 $wgAutoloadClasses['LocalGadgetRepo'] = $dir . 'backend/LocalGadgetRepo.php';
+$wgAutoloadClasses['SpecialGadgetManager'] = $dir . 'SpecialGadgetManager.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';
+$wgSpecialPages['GadgetManager'] = 'SpecialGadgetManager';
+$wgSpecialPageGroups['GadgetManager'] = 'wiki';
 
 $wgAPIModules['gadgetmanager'] = 'ApiGadgetManager';
 $wgAPIListModules['gadgetcategories'] = 'ApiQueryGadgetCategories';

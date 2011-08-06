@@ -43,6 +43,33 @@ go to Special:Import on destination wiki and upload it. Then add the following t
 <pre>$2</pre>
 You must have appropriate permissions on destination wiki (including the right to edit system messages) and import from file uploads must be enabled.',
 	'gadgets-export-download' => 'Download',
+	
+	# for gadget management (Special:GadgetMananger and the API)
+	'gadgetmanager' => 'Gadget manager',
+	'gadgetmanager-title' => 'Gadget manager',
+	'gadgetmanager-pagetext' => 'TODO, should link to [[Special:Log/gadgetman]]',
+	'gadgetmanager-modify-link' => 'modify',
+	'gadgetmanager-delete-link' => 'delete',
+	'gadgetmanager-prop-scripts' => 'Scripts',
+	'gadgetmanager-prop-styles' => 'Styles',
+	'gadgetmanager-prop-dependencies' => 'Dependencies',
+	'gadgetmanager-prop-messages' => 'Messages',
+	'gadgetmanager-prop-rights' => 'Rights',
+	'gadgetmanager-prop-default' => 'Default',
+	'gadgetmanager-prop-hidden' => 'Hidden',
+	'gadgetmanager-prop-shared' => 'Shared',
+	'gadgetmanager-prop-yes' => 'Yes',
+	'gadgetmanager-prop-no' => 'No',
+	
+	// TODO clean up inconsistencies between gadgetmanager- and gadgets-manager- etc
+	'gadgets-manager-create-exists' => 'This gadget cannot be created because there is an existing gadget with the name $1',
+	
+	# logging stuff
+	'gadgets-gadgetmanlog-page' => 'Gadget manager log',
+	'gadgets-gadgetmanlog-text' => 'This is a log of changes made to gadgets using the [[Special:GadgetManager|gadget manager]].',
+	'gadgets-gadgetmanlog-createentry' => 'created gadget [[Special:GadgetManager/$1|$1]]', // may want to change depending on what $1 ends up being
+	'gadgets-gadgetmanlog-modifyentry' => 'modified gadget [[Special:GadgetManager/$1|$1]]: $2', // TODO fill out $2, add handler
+	'gadgets-gadgetmanlog-deleteentry' => 'deleted gadget $1',
 
 	#rights
 	'right-gadgets-edit' => 'Edit pages in the Gadget: namespace',
