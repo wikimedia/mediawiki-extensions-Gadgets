@@ -63,16 +63,18 @@ $wgGadgetRepositories = array(
 	)
 );
 
+/*** Setup ***/
+
 define( 'NS_GADGET', 2300 );
 define( 'NS_GADGET_TALK', 2301 );
 
-$wgNamespaceProtection[NS_GADGET][] = array( 'gadgets-edit' );
+$wgNamespaceProtection[NS_GADGET][] = 'gadgets-edit';
 $wgAvailableRights = array_merge( $wgAvailableRights, array(
 	'gadgets-edit',
-	'gadgets-manager-create',
-	'gadgets-manager-delete',
 	'gadgets-manager-view',
-	'gadgets-manager-modify'
+	'gadgets-manager-create',
+	'gadgets-manager-modify',
+	'gadgets-manager-delete'
 ) );
 
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::articleSaveComplete';
