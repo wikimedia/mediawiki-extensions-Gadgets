@@ -103,3 +103,15 @@ $wgSpecialPageGroups['Gadgets'] = 'wiki';
 
 $wgAPIListModules['gadgetcategories'] = 'ApiQueryGadgetCategories';
 $wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
+
+$wgLogTypes[] = 'gadgetman';
+$wgLogNames['gadgetman'] = 'gadgets-gadgetmanlog-page'; // TODO define
+$wgLogHeaders['gadgetman'] = 'gadgets-gadgetmanlog-text'; // TODO define
+$wgLogActions['gadgetman/create'] = 'gadgets-gadgetmanlog-createentry';
+$wgLogActions['gadgetman/modify'] = 'gadgets-gadgetmanlog-modifyentry';
+$wgLogActions['gadgetman/delete'] = 'gadgets-gadgetmanlog-deleteentry';
+// TODO add as needed
+// TODO: create and modify will not have a summary, figure out how well that fares. User creation also doesn't have one
+#$wgLogActionsHandlers['gadgetman/create'] = '...';
+#$wgLogActionsHandlers['gadgetman/modify'] = '...';
+#$wgLogActionsHandlers['gadgetman/delete'] = '...';
