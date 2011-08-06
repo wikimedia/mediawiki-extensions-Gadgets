@@ -90,6 +90,7 @@ $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
 $wgExtensionMessagesFiles['GadgetsNamespaces'] = $dir . 'Gadgets.namespaces.php';
 $wgExtensionAliasesFiles['Gadgets'] = $dir . 'Gadgets.alias.php';
 
+$wgAutoloadClasses['ApiGadgetManager'] = $dir . 'api/ApiGadgetManager.php';
 $wgAutoloadClasses['ApiQueryGadgetCategories'] = $dir . 'api/ApiQueryGadgetCategories.php';
 $wgAutoloadClasses['ApiQueryGadgets'] = $dir . 'api/ApiQueryGadgets.php';
 $wgAutoloadClasses['ForeignDBGadgetRepo'] = $dir . 'backend/ForeignDBGadgetRepo.php';
@@ -103,6 +104,7 @@ $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';
 
+$wgAPIModules['gadgetmanager'] = 'ApiGadgetManager';
 $wgAPIListModules['gadgetcategories'] = 'ApiQueryGadgetCategories';
 $wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
 
