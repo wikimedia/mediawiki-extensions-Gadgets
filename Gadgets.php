@@ -123,3 +123,13 @@ $wgLogActions['gadgetman/delete'] = 'gadgets-gadgetmanlog-deleteentry';
 #$wgLogActionsHandlers['gadgetman/create'] = '...';
 #$wgLogActionsHandlers['gadgetman/modify'] = '...';
 #$wgLogActionsHandlers['gadgetman/delete'] = '...';
+
+$gadResourceTemplate = array(
+	'localBasePath' => $dir . 'modules',
+	'remoteExtPath' => 'Gadgets/modules'
+);
+$wgResourceModules += array(
+	'ext.gadgets.gadgetmanager' => $gadResourceTemplate + array(
+		'styles' => 'ext.gadgets.gadgetmanager.css',
+	)
+);

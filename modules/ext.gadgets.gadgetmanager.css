@@ -1,0 +1,50 @@
+.mw-gadgetman-gadgets {
+	background: #f9f9f9;
+}
+
+.mw-gadgetman-gadget {
+	background: #f2f2f2;
+	margin: 10px 2px;
+	padding: 5px 8px;
+	border: #dfdfdf;
+}
+
+.mw-gadgetman-toollinks {
+	float: right;
+	background: white;
+	padding: 2px 3px;
+}
+
+.mw-gadgetman-title {
+}
+
+.mw-gadgetman-descr {
+}
+
+.mw-gadgetman-props {
+	background: #dfdfdf;
+	overflow: hidden;
+}
+
+.mw-gadgetman-props-module,
+.mw-gadgetman-props-gadget {
+	width: 49%;
+	float: left;
+}
+
+.mw-gadgetman-props-gadget {
+	float: right;
+	border-left: 1px solid black;
+}
+
+.mw-gadgetman-props-listwrapper {
+	margin: 3px 0;
+	overflow: hidden;
+}
+
+.mw-gadgetman-props-listitem {
+	background: cyan;
+	border: 1px solid darkCyan;
+	border-radius: 10px;
+	padding: 1px 2px;
+}
