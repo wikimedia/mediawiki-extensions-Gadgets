@@ -41,6 +41,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			: false;
 		$this->listAllowed = isset( $params['allowedonly'] ) && $params['allowedonly'];
 		$this->listEnabled = isset( $params['enabledonly'] ) && $params['enabledonly'];
+		$this->listShared = isset( $params['sharedonly'] ) && $params['sharedonly'];
 
 		$this->getMain()->setCacheMode( $this->listAllowed || $this->listEnabled
 			? 'anon-public-user-private' : 'public' );
@@ -49,19 +50,24 @@ class ApiQueryGadgets extends ApiQueryBase {
 	}
 
 	private function getList() {
-		$gadgets = Gadget::loadStructuredList();
-
+		$repo = new LocalGadgetRepo( array() );
 		$result = array();
-		foreach ( $gadgets as $category => $list ) {
-			if ( $this->categories && !isset( $this->categories[$category] ) ) {
-				continue;
-			}
-			foreach ( $list as $g ) {
-				if ( $this->isNeeded( $g ) ) {
-					$result[] = $g;
-				}
+		
+		if ( $this->neededNames ) {
+			// Get all requested gadgets by name
+			$names = $this->neededNames;
+		} else {
+			// Get them all
+			$names = $repo->getGadgetNames();
+		}
+		
+		foreach ( $names as $name ) {
+			$gadget = $repo->getGadget( $name );
+			if ( $gadget && $this->isNeeded( $gadget ) ) {
+				$result[$name] = $gadget;
 			}
 		}
+		
 		return $result;
 	}
 
@@ -69,21 +75,26 @@ class ApiQueryGadgets extends ApiQueryBase {
 		$data = array();
 		$result = $this->getResult();
 
-		foreach ( $gadgets as $g ) {
+		foreach ( $gadgets as $name => $g ) {
 			$row = array();
 			if ( isset( $this->props['name'] ) ) {
-				$row['name'] = $g->getName();
+				$row['name'] = $name;
+			}
+			if ( isset( $this->props['json'] ) ) {
+				$row['json'] = $g->getJSON();
 			}
 			if ( isset( $this->props['desc'] ) ) {
-				$row['desc'] = $g->getDescription();
+				$row['desc'] = wfMessage( $g->getDescriptionMsg() )->parse();
 			}
 			if ( isset( $this->props['desc-raw'] ) ) {
-				$row['desc-raw'] = $g->getRawDescription();
+				$row['desc-raw'] = $row['desc'] = wfMessage( $g->getDescriptionMsg() )->plain();
 			}
 			if ( isset( $this->props['category'] ) ) {
-				$row['category'] = $g->getCategory();
+				$row['category'] = $g->getSection(); // TODO: clean up category vs. section mess in favor category
 			}
-			if ( isset( $this->props['resourceloader'] ) && $g->supportsResourceLoader() ) {
+			if ( isset( $this->props['resourceloader'] ) /*&& $g->supportsResourceLoader()*/ ) {
+				// Everything supports resourceloader now :D
+				// FIXME: We need to figure something out for legacy gadgets, or at least MaxSem thinks so
 				$row['resourceloader'] = '';
 			}
 			if ( isset( $this->props['scripts'] ) ) {
@@ -102,11 +113,8 @@ class ApiQueryGadgets extends ApiQueryBase {
 				$row['rights'] = $g->getRequiredRights();
 				$result->setIndexedTagName( $row['rights'], 'right' );
 			}
-			if ( isset( $this->props['default'] ) && $g->isOnByDefault() ) {
+			if ( isset( $this->props['default'] ) && $g->isEnabledByDefault() ) {
 				$row['default'] = '';
-			}
-			if ( isset( $this->props['definition'] ) ) {
-				$row['definition'] = $g->getDefinition();
 			}
 			$data[] = $row;
 		}
@@ -122,16 +130,19 @@ class ApiQueryGadgets extends ApiQueryBase {
 
 		return ( $this->neededNames === false || isset( $this->neededNames[$gadget->getName()] ) )
 			&& ( !$this->listAllowed || $gadget->isAllowed( $wgUser ) )
-			&& ( !$this->listEnabled || $gadget->isEnabled( $wgUser ) );
+			&& ( !$this->listEnabled || $gadget->isEnabled( $wgUser ) )
+			&& ( !$this->listShared || $gadget->isShared() )
+			&& ( !$this->categories || isset( $this->categories[$g->getSection()] ) );
 	}
 
 	public function getAllowedParams() {
 		return array(
 			'prop' => array(
-				ApiBase::PARAM_DFLT => 'name',
+				ApiBase::PARAM_DFLT => 'name|json',
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => array(
 					'name',
+					'json',
 					'desc',
 					'desc-raw',
 					'category',
@@ -141,7 +152,6 @@ class ApiQueryGadgets extends ApiQueryBase {
 					'dependencies',
 					'rights',
 					'default',
-					'definition',
 				),
 			),
 			'categories' => array(
@@ -154,6 +164,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			),
 			'allowedonly' => false,
 			'enabledonly' => false,
+			'sharedonly' => false,
 		);
 	}
 
@@ -166,6 +177,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'prop' => array(
 				'What gadget information to get:',
 				' name           - Internal gadget name',
+				' json           - JSON representation of the gadget metadata. All other prop attributes below are deprecated but provided for backwards compatibility',
 				' desc           - Gadget description transformed into HTML (can be slow, use only if really needed)',
 				' desc-raw       - Gadget description in raw wikitext',
 				' category       - Internal name of a category gadget belongs to (empty if top-level gadget)',
@@ -175,12 +187,12 @@ class ApiQueryGadgets extends ApiQueryBase {
 				' dependencies   - List of ResourceLoader modules gadget depends on',
 				' rights         - List of rights required to use gadget, if any',
 				' default        - Whether gadget is enabled by default',
-				' definition     - Line from MediaWiki:Gadgets-definition used to define the gadget',
 			),
 			'categories' => 'Gadgets from what categories to retrieve',
 			'names' => 'Name(s) of gadgets to retrieve',
 			'allowedonly' => 'List only gadgets allowed to current user',
 			'enabledonly' => 'List only gadgets enabled by current user',
+			'sharedonly' => 'Only list shared gadgets',
 		);
 	}
 
