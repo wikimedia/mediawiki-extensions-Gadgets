@@ -73,7 +73,7 @@ You must have appropriate permissions on destination wiki (including the right t
 	'gadgets-formbuilder-editor-duplicate-name' => 'The preference name $1 has been used. Please chose a different name.',
 	'gadgets-formbuilder-editor-edit-section' => 'Edit this section\'s title',
 	'gadgets-formbuilder-editor-delete-section' => 'Delete this section and all his content',
-	'gadgets-formbuilder-editor-new-section' => 'Delete this section and all his content',
+	'gadgets-formbuilder-editor-new-section' => 'Create a new section',
 	'gadgets-formbuilder-editor-chose-title' => 'Chose the title of the new section:',
 	'gadgets-formbuilder-editor-chose-title-title' => 'Chose section title',
 );

@@ -97,7 +97,7 @@ $wgResourceModules['jquery.formBuilder'] = array(
 		'gadgets-formbuilder-editor-delete-field', 'gadgets-formbuilder-editor-edit-field', 'gadgets-formbuilder-editor-insert-field',
 		'gadgets-formbuilder-editor-chose-field', 'gadgets-formbuilder-editor-chose-field-title', 'gadgets-formbuilder-editor-create-field-title',
 		'gadgets-formbuilder-editor-duplicate-name', 'gadgets-formbuilder-editor-delete-section', 'gadgets-formbuilder-editor-new-section',
-		'gadgets-formbuilder-editor-chose-title', 'gadgets-formbuilder-editor-chose-title-title'
+		'gadgets-formbuilder-editor-edit-section', 'gadgets-formbuilder-editor-chose-title', 'gadgets-formbuilder-editor-chose-title-title'
 	),
 	'localBasePath' => $dir . 'ui/resources/',
 	'remoteExtPath' => 'Gadgets/ui/resources'

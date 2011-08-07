@@ -70,7 +70,8 @@
 							var values = response.values;
 							
 							var dialogBody = $( prefsDescription ).formBuilder( {
-								gadget: gadget,
+								msgPrefix: "Gadget-" + gadget + "-",
+								idPrefix: "gadget-" + gadget + "-preferences-",
 								values: values
 							} );
 							

@@ -48,8 +48,6 @@
 
 .formbuilder-slot {
 	border: none;
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
 }
 
 /* formBuilder editor */
@@ -65,11 +63,12 @@
 }
 
 .formbuilder-slot-can-drop {
-	border: 1px solid black;
+	background: blue;
+	opacity: 0.1;
 }
 
 .formbuilder-editor-slot-buttons {
-	height: 19px;
+	height: 17px;
 }
 
 .formbuilder-editor-button {
@@ -80,20 +79,19 @@
 	cursor: move;
 }
 
-.formbuilder-editor-button-new, .formbuilder-editor-button-new-section {
-	float: left;
-}
-
-.formbuilder-editor-button-edit {
-	float: left;
-}
-
-.formbuilder-editor-button-move {
+.formbuilder-editor-button-new, .formbuilder-editor-button-new-section,
+.formbuilder-editor-button-edit, .formbuilder-editor-button-move
+{
 	float: left;
 }
 
 .formbuilder-editor-button-delete {
 	float: right;
+}
+
+/* Fixes a minor glitch in Firefox (buttons in tabs not floating properly) */
+.formbuilder .ui-tabs-nav a > span :not(.formbuilder-editor-button) {
+	float: left;
 }
 
 .formbuilder-editor-button-delete-section {

@@ -5,20 +5,21 @@
  */
 
 (function($, mw) {
-
-	var idPrefix = "mw-gadgets-dialog-";
-
+	
 	//Preprocesses strings end possibly replaces them with messages.
 	//If str starts with "@" the rest of the string is assumed to be
 	//a message, and the result of mw.msg is returned.
 	//Two "@@" at the beginning escape for a single "@".
-	function preproc( prefix, str ) {
+	function preproc( msgPrefix, str ) {
 		if ( str.length <= 1 || str[0] !== '@' ) {
 			return str;
 		} else if ( str.substr( 0, 2 ) == '@@' ) {
 			return str.substr( 1 );
 		} else {
-			return mw.message( prefix + str.substr( 1 ) ).plain();
+			if ( !msgPrefix ) {
+				msgPrefix = "";
+			}
+			return mw.message( msgPrefix + str.substr( 1 ) ).plain();
 		}
 	}
 
@@ -43,6 +44,10 @@
 		var res = {};
 		res[key] = val;
 		return res;
+	}
+
+	function isInteger( val ) {
+		return typeof val == 'number' && val === Math.floor( val );
 	}
 
 	function testOptional( value, element ) {
@@ -146,7 +151,7 @@
 				"type": "number",
 				"label": "maxlength",
 				"integer": true,
-				"min": 0,
+				"min": 1,
 				"required": false,
 				"default": null
 			}
@@ -178,13 +183,54 @@
 				"required": false,
 				"default": null
 			}
-			//TODO: other fields
-		] )
+		] ),
+		//TODO: "select" is missing
+		"range": simpleField.concat( [
+			{
+				"name": "min",
+				"type": "number",
+				"label": "min",
+				"required": true,
+			},
+			{
+				"name": "step",
+				"type": "number",
+				"label": "step",
+				"required": true,
+				"default": 1
+			},
+			{
+				"name": "max",
+				"type": "number",
+				"label": "max",
+				"required": true,
+			}
+		] ),
+		"date": simpleField,
+		"color": simpleField,
+		"bundle": function( options ) {
+			return new BundleField( {
+					"type": "bundle",
+					"sections": [
+						{
+							"title": "Section 1",
+							"fields": []
+						},
+						{
+							"title": "Section 2",
+							"fields": []
+						}
+					]
+				}, options )
+		}
 	};
 
 	/* Basic interface for fields */
 	function Field( desc, options ) {
-		this.prefix = options.prefix;
+		if ( typeof options.idPrefix == 'undefined' ) {
+			options.idPrefix = 'formbuilder-';
+		}
+		
 		this.desc = desc;
 		this.options = options;
 	}
@@ -241,8 +287,8 @@
 		}
 
 		var $label = $( '<label/>' )
-			.text( preproc( this.prefix, this.desc.label ) )
-			.attr('for', idPrefix + this.desc.name );
+			.text( preproc( this.options.msgPrefix, this.desc.label ) )
+			.attr('for', this.options.idPrefix + this.desc.name );
 
 		this.$div.append( $label );
 	}
@@ -252,6 +298,27 @@
 	SimpleField.prototype.constructor = SimpleField;
 	function SimpleField( desc, options ){ 
 		LabelField.call( this, desc, options );
+		
+		//Validate the 'name' member
+		if ( typeof desc.name != 'string' || /^[a-zA-Z_][a-zA-Z0-9_]*$/.test( desc.name ) === false ) {
+			$.error( 'invalid name' );
+		}
+		if ( typeof desc.name.length > 40 ) {
+			$.error( 'name must be no longer than 40 characters' );
+		}
+		
+		//Use default if it is given and no value has been set
+		if ( ( typeof options.values == 'undefined' || typeof options.values[desc.name] == 'undefined' )
+			&& typeof desc['default'] != 'undefined' )
+		{
+			if ( typeof options.values == 'undefined' ) {
+				options.values = {};
+			}
+			
+			options.values[desc.name] = desc['default'];
+			
+			this.options = options;
+		}
 	}
 	
 	SimpleField.prototype.getDesc = function( useValuesAsDefaults ) {
@@ -274,8 +341,8 @@
 
 		this.$c = $( '<input/>' ).attr( {
 			type: 'checkbox',
-			id: idPrefix + this.desc.name,
-			name: idPrefix + this.desc.name
+			id: this.options.idPrefix + this.desc.name,
+			name: this.options.idPrefix + this.desc.name
 		} );
 
 		var value = options.values && options.values[this.desc.name];
@@ -302,10 +369,24 @@
 	function StringField( desc, options ){ 
 		SimpleField.call( this, desc, options );
 
+		//Validate minlength and maxlength
+		var minlength = typeof desc.minlength != 'undefined' ? desc.minlength : 0,
+			maxlength = typeof desc.maxlength != 'undefined' ? desc.maxlength : 1024;
+		
+		if ( !isInteger( minlength ) || minlength < 0 ) {
+			$.error( "minlength must be a non-negative integer" );
+		}
+		if ( !isInteger( maxlength ) || maxlength <= 0 ) {
+			$.error( "maxlength must be a positive integer" );
+		}
+		if ( maxlength < minlength ) {
+			$.error( "maxlength must be no less than minlength" );
+		}
+
 		this.$text = $( '<input/>' ).attr( {
 			type: 'text',
-			id: idPrefix + this.desc.name,
-			name: idPrefix + this.desc.name
+			id: this.options.idPrefix + this.desc.name,
+			name: this.options.idPrefix + this.desc.name
 		} );
 		
 		var value = options.values && options.values[this.desc.name];
@@ -326,7 +407,7 @@
 
 	StringField.prototype.getValidationSettings = function() {
 		var	settings = SimpleField.prototype.getValidationSettings.call( this ),
-			fieldId = idPrefix + this.desc.name;
+			fieldId = this.options.idPrefix + this.desc.name;
 		
 		settings.rules[fieldId] = {};
 		var	fieldRules = settings.rules[fieldId],
@@ -362,10 +443,25 @@
 	function NumberField( desc, options ){ 
 		SimpleField.call( this, desc, options );
 
+		//Validation of description
+		if ( desc.integer === true ) {
+			if ( typeof desc.min != 'undefined' && !isInteger( desc.min ) ){
+				$.error( "min is not an integer" );
+			}
+			if ( typeof desc.max != 'undefined' && !isInteger( desc.max ) ){
+				$.error( "max is not an integer" );
+			}
+		}
+		
+		if ( typeof desc.min != 'undefined' && typeof desc.max != 'undefined' && desc.min > desc.max ) {
+			$.error( 'max must be no less than min' );
+		}
+
+
 		this.$text = $( '<input/>' ).attr( {
 			type: 'text',
-			id: idPrefix + this.desc.name,
-			name: idPrefix + this.desc.name
+			id: this.options.idPrefix + this.desc.name,
+			name: this.options.idPrefix + this.desc.name
 		} );
 
 		var value = options.values && options.values[this.desc.name];
@@ -387,7 +483,7 @@
 
 	NumberField.prototype.getValidationSettings = function() {
 		var	settings = SimpleField.prototype.getValidationSettings.call( this ),
-			fieldId = idPrefix + this.desc.name;
+			fieldId = this.options.idPrefix + this.desc.name;
 		
 		settings.rules[fieldId] = {};
 		var	fieldRules = settings.rules[fieldId],
@@ -429,8 +525,8 @@
 		SimpleField.call( this, desc, options );
 
 		var $select = this.$select = $( '<select/>' ).attr( {
-			id: idPrefix + this.desc.name,
-			name: idPrefix + this.desc.name
+			id: this.options.idPrefix + this.desc.name,
+			name: this.options.idPrefix + this.desc.name
 		} );
 		
 		var validValues = [];
@@ -438,7 +534,7 @@
 		$.each( this.desc.options, function( idx, option ) {
 			var i = validValues.length;
 			$( '<option/>' )
-				.text( preproc( self.prefix, option.name ) )
+				.text( preproc( self.options.msgPrefix, option.name ) )
 				.val( i )
 				.appendTo( $select );
 			validValues.push( option.value );
@@ -472,18 +568,22 @@
 	function RangeField( desc, options ){ 
 		SimpleField.call( this, desc, options );
 
-		if ( typeof this.desc.min != 'number' ) {
-			$.error( "desc.min is invalid" );
+		//Validation
+		if ( desc.min > desc.max ) {
+			$.error( "max must be no less than min" );
+		}
+		if ( desc.step <= 0 ) {
+			$.error( "step must be a positive number" );
 		}
 
-		if ( typeof this.desc.max != 'number' ) {
-			$.error( "desc.max is invalid" );
+		//Check that max differs from min by an integer multiple of step
+		//(that is: (max - min) / step is integer, with good approximation)
+		var eps = 1.0e-6; //tolerance
+		var tmp = ( desc.max - desc.min ) / desc.step;
+		if ( Math.abs( tmp - Math.floor( tmp ) ) > eps ) {
+			$.error( "The list {min, min + step, min + 2*step, ...} must contain max" );
 		}
-
-		if ( typeof this.desc.step != 'undefined' && typeof this.desc.step != 'number' ) {
-			$.error( "desc.step is invalid" );
-		}
-
+		
 		var value = options.values && options.values[this.desc.name];
 		if ( typeof value != 'undefined' ) {
 			if ( typeof value != 'number' ) {
@@ -495,7 +595,7 @@
 		}
 
 		var $slider = this.$slider = $( '<div/>' )
-			.attr( 'id', idPrefix + this.desc.name );
+			.attr( 'id', this.options.idPrefix + this.desc.name );
 
 		var rangeOptions = {
 			min: this.desc.min,
@@ -527,11 +627,12 @@
 	function DateField( desc, options ){ 
 		SimpleField.call( this, desc, options );
 
-		this.$text = $( '<input/>' ).attr( {
-			type: 'text',
-			id: idPrefix + this.desc.name,
-			name: idPrefix + this.desc.name
-		} ).datepicker( {
+		this.$text = $( '<input/>' )
+			.attr( {
+				type: 'text',
+				id: this.options.idPrefix + this.desc.name,
+				name: this.options.idPrefix + this.desc.name
+			} ).datepicker( {
 				onSelect: function() {
 					//Force validation, so that a previous 'invalid' state is removed
 					$( this ).valid();
@@ -558,7 +659,7 @@
 			res = {};
 		
 		if ( d === null ) {
-			return null;
+			return pair( this.desc.name, null );
 		}
 
 		//UTC date in ISO 8601 format [YYYY]-[MM]-[DD]T[hh]:[mm]:[ss]Z
@@ -573,7 +674,7 @@
 
 	DateField.prototype.getValidationSettings = function() {
 		var	settings = SimpleField.prototype.getValidationSettings.call( this ),
-			fieldId = idPrefix + this.desc.name;
+			fieldId = this.options.idPrefix + this.desc.name;
 		
 		settings.rules[fieldId] = {
 				"datePicker": true
@@ -604,13 +705,17 @@
 	function ColorField( desc, options ){ 
 		SimpleField.call( this, desc, options );
 
-		var value = ( options.values && options.values[this.desc.name] ) || '';
+		if ( typeof options.values != 'undefined' && typeof options.values[this.desc.name] != 'undefined' ) {
+			value = options.values[this.desc.name];
+		} else {
+			value = '';
+		}
 
 		this.$text = $( '<input/>' ).attr( {
-			type: 'text',
-			id: idPrefix + this.desc.name,
-			name: idPrefix + this.desc.name
-		} )
+				type: 'text',
+				id: this.options.idPrefix + this.desc.name,
+				name: this.options.idPrefix + this.desc.name
+			} )
 			.addClass( 'colorpicker-input' )
 			.val( value )
 			.css( 'background-color', value )
@@ -649,7 +754,7 @@
 	
 	ColorField.prototype.getValidationSettings = function() {
 		var	settings = SimpleField.prototype.getValidationSettings.call( this ),
-			fieldId = idPrefix + this.desc.name;
+			fieldId = this.options.idPrefix + this.desc.name;
 		
 		settings.rules[fieldId] = {
 				"color": true
@@ -659,8 +764,12 @@
 	
 	ColorField.prototype.getValues = function() {
 		var color = $.colorUtil.getRGB( this.$text.val() );
-		return pair( this.desc.name, '#' + pad( color[0].toString( 16 ), 2 ) +
-			pad( color[1].toString( 16 ), 2 ) + pad( color[2].toString( 16 ), 2 ) );
+		if ( color ) {
+			return pair( this.desc.name, '#' + pad( color[0].toString( 16 ), 2 ) +
+				pad( color[1].toString( 16 ), 2 ) + pad( color[2].toString( 16 ), 2 ) );
+		} else {
+			return pair( this.desc.name, null );
+		}
 	};
 
 	validFieldTypes["color"] = ColorField;
@@ -717,14 +826,12 @@
 		//TODO: kill "intro"s and make "label" fields, instead?
 		if ( typeof this.desc.intro == 'string' ) {
 			$( '<p/>' )
-				.text( preproc( this.prefix, this.desc.intro ) )
+				.text( preproc( this.options.msgPrefix, this.desc.intro ) )
 				.addClass( 'formBuilder-intro' )
 				.appendTo( this.$div );
 		}
 
 		for ( var i = 0; i < this.desc.fields.length; i++ ) {
-			//TODO: validate fieldName
-
 			if ( options.editable === true ) {
 				//add an empty slot
 				this._createSlot( true ).appendTo( this.$div );
@@ -855,7 +962,15 @@
 			type = params.type;
 			if ( typeof prefsDescriptionSpecifications[type] == 'undefined' ) {
 				$.error( 'createFieldDialog: invalid type: ' + type );
+			} else if ( typeof prefsDescriptionSpecifications[type] == 'function' ) {
+				var field = prefsDescriptionSpecifications[type]( this.options );
+				if ( params.callback( field ) === true ) {
+					$( this ).dialog( "close" );
+				}
+				return;
 			}
+			
+			//typeof prefsDescriptionSpecifications[type] == 'object'
 			
 			description = {
 				fields: prefsDescriptionSpecifications[type]
@@ -866,13 +981,6 @@
 			values = params.values;
 		} else {
 			values = {};
-			//Set defaults (if given) as starting values
-			//TODO: should field constructors just use default if no value is given?
-			$.each( description.fields, function( idx, field ) {
-				if ( typeof field['default'] != 'undefined' ) {
-					values[field.name] = field['default'];
-				}
-			} );
 		}
 		
 		//Create the dialog to set field properties
@@ -899,7 +1007,7 @@
 							var fieldDescription = $( form ).formBuilder( 'getValues' );
 							
 							if ( typeof type != 'undefined' ) {
-								//Remove properties the equal their default
+								//Remove properties that equal their default
 								$.each( description.fields, function( index, fieldSpec ) {
 									var property = fieldSpec.name;
 									if ( fieldDescription[property] === fieldSpec['default'] ) {
@@ -969,7 +1077,7 @@
 			
 			if ( editable ) {
 				$slot.addClass( 'formbuilder-slot-nonempty' );
-				
+
 				//Add the handle for moving slots
 				$( '<span />' )
 					.addClass( 'formbuilder-editor-button formbuilder-editor-button-move ui-icon ui-icon-arrow-4' )
@@ -980,46 +1088,49 @@
 					.appendTo( $divButtons );
 				
 				//Add the button for changing existing slots
-				$( '<a href="javascript:;" />' )
-					.addClass( 'formbuilder-editor-button formbuilder-editor-button-edit ui-icon ui-icon-gear' )
-					.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-edit-field' ) )
-					.click( function() {
-						self._createFieldDialog( {
-							type: field.getDesc().type,
-							values: field.getDesc(),
-							callback: function( newField ) {
-								if ( newField !== null ) {
-									//check that there are no duplicate preference names
-									var existingValues = self.$div.closest( 'form' ).formBuilder( 'getValues' ),
-										removedValues = field.getValues(),
-										duplicateName = null;
-									$.each( field.getValues(), function( name, val ) {
-										//Only complain for preference names that are not in names for the field being replaced
-										if ( typeof existingValues[name] != 'undefined' && removedValues[name] == 'undefined'  ) {
-											duplicateName = name;
+				var type = field.getDesc().type;
+				if ( typeof prefsDescriptionSpecifications[type] != 'function' ) {
+					$( '<a href="javascript:;" />' )
+						.addClass( 'formbuilder-editor-button formbuilder-editor-button-edit ui-icon ui-icon-gear' )
+						.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-edit-field' ) )
+						.click( function() {
+							self._createFieldDialog( {
+								type: field.getDesc().type,
+								values: field.getDesc(),
+								callback: function( newField ) {
+									if ( newField !== null ) {
+										//check that there are no duplicate preference names
+										var existingValues = self.$div.closest( '.formbuilder' ).formBuilder( 'getValues' ),
+											removedValues = field.getValues(),
+											duplicateName = null;
+										$.each( field.getValues(), function( name, val ) {
+											//Only complain for preference names that are not in names for the field being replaced
+											if ( typeof existingValues[name] != 'undefined' && removedValues[name] == 'undefined'  ) {
+												duplicateName = name;
+												return false;
+											}
+										} );
+										
+										if ( duplicateName !== null ) {
+											alert( mw.msg( 'gadgets-formbuilder-editor-duplicate-name', duplicateName ) );
 											return false;
 										}
-									} );
-									
-									if ( duplicateName !== null ) {
-										alert( mw.msg( 'gadgets-formbuilder-editor-duplicate-name', duplicateName ) );
-										return false;
+										
+										var $newSlot = self._createSlot( true, newField );
+										
+										deleteFieldRules( field );
+										
+										$slot.replaceWith( $newSlot );
+										
+										//Add field's validation rules
+										addFieldRules( newField );
 									}
-									
-									var $newSlot = self._createSlot( true, newField );
-									
-									deleteFieldRules( field );
-									
-									$slot.replaceWith( $newSlot );
-									
-									//Add field's validation rules
-									addFieldRules( newField );
+									return true;
 								}
-								return true;
-							}
-						} );
-					} )
-					.appendTo( $divButtons );
+							} );
+						} )
+						.appendTo( $divButtons );
+					}
 				
 				//Add the button to delete slots
 				$( '<a href="javascript:;" />' )
@@ -1040,7 +1151,8 @@
 					revert: true,
 					handle: ".formbuilder-editor-button-move",
 					helper: "original",
-					zIndex: $slot.closest( 'form' ).zIndex() + 1000, //TODO: ugly, find a better way
+					zIndex: $slot.closest( '.formbuilder' ).zIndex() + 1000, //TODO: ugly, find a better way
+					scroll: false,
 					opacity: 0.8,
 					cursor: "move",
 					cursorAt: {
@@ -1085,7 +1197,7 @@
 						callback: function( field ) {
 							if ( field !== null ) {
 								//check that there are no duplicate preference names
-								var existingValues = $slot.closest( 'form' ).formBuilder( 'getValues' ),
+								var existingValues = $slot.closest( '.formbuilder' ).formBuilder( 'getValues' ),
 									duplicateName = null;
 								$.each( field.getValues(), function( name, val ) {
 									if ( typeof existingValues[name] != 'undefined' ) {
@@ -1109,6 +1221,9 @@
 								
 								//Add field's validation rules
 								addFieldRules( field );
+								
+								//Ensure immediate visual feedback if the current value is invalid
+								self.$div.closest( '.formbuilder' ).formBuilder( 'validate' );
 							}
 							return true;
 						}
@@ -1129,11 +1244,35 @@
 
 		//Create tabs
 		var $tabs = this.$tabs = $( '<div><ul></ul></div>' )
-			.attr( 'id', idPrefix + 'tab-' + getIncrementalCounter() )
+			.attr( 'id', this.options.idPrefix + 'tab-' + getIncrementalCounter() )
 			.tabs( {
 				add: function( event, ui ) {
 					//Links the anchor to the panel
 					$( ui.tab ).data( 'panel', ui.panel );
+					
+					//Allow to drop over tabs to move slots around
+					var section = ui.panel;
+					$( ui.tab ).droppable( {
+						tolerance: 'pointer',
+						accept:  '.formbuilder-slot-nonempty',
+						drop: function( event, ui ) {
+							var $slot = $( ui.draggable ),
+								$srcSection = $slot.parent(),
+								$dstSection = $( section );
+							
+							if ( $dstSection.get( 0 ) !== $srcSection.get( 0 ) ) {
+								//move the slot (and the next empty slot) to dstSection with a nice animation
+								var $slots = $slot.add( $slot.next() );
+								$slots.slideUp( 'fast' )
+									.promise().done( function() {
+										$tabs.tabs( 'select', '#' + $dstSection.attr( 'id' ) );
+										$slots.detach()
+											.appendTo( $dstSection )
+											.slideDown( 'fast' );
+									} );
+							}
+						}
+					} );
 					
 					if ( options.editable === true ) {
 						//Add "delete section" button
@@ -1205,13 +1344,16 @@
 				}
 			} );
 
+		//Save for future reference
+		this.$ui_tabs_nav = $tabs.find( '.ui-tabs-nav' )
+
 		var self = this;
 		$.each( this.desc.sections, function( index, sectionDescription ) {
-			var id = idPrefix + 'section-' + getIncrementalCounter(),
+			var id = self.options.idPrefix + 'section-' + getIncrementalCounter(),
 				sec = new SectionField( sectionDescription, options, id );
 			
 			$tabs.append( sec.getElement() )
-				.tabs( 'add', '#' + id, preproc( options.prefix, sectionDescription.title ) ); 
+				.tabs( 'add', '#' + id, preproc( options.msgPrefix, sectionDescription.title ) ); 
 		} );
 
 		if ( options.editable === true ) {
@@ -1238,7 +1380,7 @@
 								text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
 								click: function() {
 									var title = $( this ).formBuilder( 'getValues' ).title,
-										id = idPrefix + 'section-' + getIncrementalCounter(),
+										id = self.options.idPrefix + 'section-' + getIncrementalCounter(),
 										newSectionDescription = {
 											title: title,
 											fields: []
@@ -1246,7 +1388,7 @@
 										newSection = new SectionField( newSectionDescription, options, id );
 									
 									$tabs.append( newSection.getElement() )
-										.tabs( 'add', '#' + id, preproc( options.prefix, title ) );
+										.tabs( 'add', '#' + id, preproc( options.msgPrefix, title ) );
 									
 									$( this ).dialog( "close" );
 								}
@@ -1261,10 +1403,10 @@
 					} );
 				} )
 				.wrap( '<li />' ).parent()
-				.prependTo( $tabs.find('.ui-tabs-nav' ) );
+				.prependTo( this.$ui_tabs_nav );
 	
 			//Make the tabs sortable
-			$tabs.tabs().find( '.ui-tabs-nav' ).sortable( {
+			this.$ui_tabs_nav.sortable( {
 				axis: 'x',
 				items: 'li:not(:has(.formbuilder-editor-button-new-section))'
 			} );
@@ -1275,7 +1417,7 @@
 	
 	BundleField.prototype.getValidationSettings = function() {
 		var settings = {};
-		this.$div.find( '.ui-tabs-nav a' ).each( function( idx, anchor ) {
+		this.$ui_tabs_nav.find( 'a' ).each( function( idx, anchor ) {
 			var panel = $( anchor ).data( 'panel' ),
 				field = $( panel ).data( 'field' );
 				
@@ -1287,7 +1429,7 @@
 	BundleField.prototype.getDesc = function( useValuesAsDefaults ) {
 		var desc = this.desc;
 		desc.sections = [];
-		this.$div.find( '.ui-tabs-nav a' ).each( function( idx, anchor ) {
+		this.$ui_tabs_nav.find( 'a' ).each( function( idx, anchor ) {
 			var panel = $( anchor ).data( 'panel' ),
 				field = $( panel ).data( 'field' );
 				
@@ -1298,7 +1440,7 @@
 
 	BundleField.prototype.getValues = function() {
 		var values = {};
-		this.$div.find( '.ui-tabs-nav a' ).each( function( idx, anchor ) {
+		this.$ui_tabs_nav.find( 'a' ).each( function( idx, anchor ) {
 			var panel = $( anchor ).data( 'panel' ),
 				field = $( panel ).data( 'field' );
 				
@@ -1326,7 +1468,6 @@
 		}
 
 		var $form = $( '<form/>' ).addClass( 'formbuilder' );
-		var prefix = options.gadget === undefined ? '' : ( 'Gadget-' + options.gadget + '-' );
 
 		if ( typeof description.fields != 'object' ) {
 			mw.log( "description.fields should be an object, instead of a " + typeof description.fields );
@@ -1334,7 +1475,8 @@
 		}
 
 		var section = new SectionField( description, { 
-			prefix: prefix,
+			idPrefix: options.idPrefix,
+			msgPrefix: options.msgPrefix,
 			values: options.values,
 			editable: options.editable === true
 		} );
