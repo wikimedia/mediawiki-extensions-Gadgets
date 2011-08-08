@@ -695,18 +695,17 @@ Vi nepras la taŭgajn rajtojn ĉe cela vikio (inkluzivante rajton redakti sistem
  * @author Sanbec
  */
 $messages['es'] = array(
-	'gadgets-desc' => 'Permite a los usuarios seleccionar [[Special:Gadgets|artilugios de CSS y JavaScript]] en sus [[Special:Preferences|preferencias]].',
-	'prefs-gadgets' => 'Artilugios',
-	'gadgets-prefstext' => "Debajo hay una lista de artilugios que puedes activar a tu gusto. Ten en cuenta que la mayoría de ellos utilizan JavaScript para funcionar, así que debes tenerlo activado en tu explorador si quieres que los artilugios que actives funcionen.
+	'gadgets-desc' => 'Permite a los usuarios seleccionar [[Special:Gadgets|accesorios de CSS y JavaScript personailzados]]
+en sus [[Special:Preferences|preferencias]].',
+	'prefs-gadgets' => 'Accesorios',
+	'gadgets-prefstext' => 'Debajo hay una lista de accesorios que puedes activar a tu gusto. Ten en cuenta que la mayoría de ellos utilizan JavaScript para funcionar, así que debes tenerlo activado en tu explorador si quieres que los accesorios que actives funcionen.
 
 Ten en cuenta también que estos complementos no forman parte del software MediaWiki, y están desarrollados por usuarios de este wiki.
 
-Los administradores pueden editar los artilugios que están disponibles en las páginas [[MediaWiki:Gadgets-definition]] y [[Special:Gadgets]]. 
-
-'''Los artilugios no tienen efecto en esta página.'''",
-	'gadgets' => 'Artilugios',
-	'gadgets-title' => 'Artilugios',
-	'gadgets-pagetext' => 'Debajo hay una lista de artilugios especiales que los usuarios pueden activar en sus [[Special:Preferences|preferencias]], según la [[MediaWiki:Gadgets-definition|lista de definición de artilugios]]. Esta vista provee un acceso fácil a la páginas de mensajes del sistema que definen la descripción y el código de cada artilugio.',
+Los administradores pueden editar los accesorios que están disponibles en las páginas [[MediaWiki:Gadgets-definition]] y [[Special:Gadgets]].',
+	'gadgets' => 'Accesorios',
+	'gadgets-title' => 'Accesorios',
+	'gadgets-pagetext' => 'Debajo hay una lista de accesorios especiales que los usuarios pueden activar en sus [[Special:Preferences|preferencias]], según la [[MediaWiki:Gadgets-definition|lista de definición de accesorios]]. Esta vista provee un acceso fácil a las páginas de mensajes del sistema que definen la descripción y el código de cada accesorio.',
 	'gadgets-uses' => 'Usos',
 	'gadgets-required-rights' => 'Requiere {{PLURAL:$2|el derecho $1|los siguientes derechos: $1}}.',
 	'gadgets-default' => 'Activado para todos de manera predeterminada.',
