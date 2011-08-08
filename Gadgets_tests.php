@@ -202,6 +202,32 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		) ) );
 	}
 
+	//Tests for 'label' type preferences
+	function testPrefsDescriptionsLabel() {
+		$correct = array(
+			'fields' => array(
+				array(
+					'type' => 'label',
+					'label' => 'foo'
+				)
+			)
+		);
+
+		//Tests with correct values for 'label'
+		foreach ( array( '', '@', '@message', 'foo', '@@not message' ) as $def ) {
+			$correct['fields'][0]['label'] = $def;
+			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
+		}
+		
+		//Tests with wrong values for 'label'
+		$wrong = $correct;
+		foreach ( array( 0, 1, true, false, null, array() ) as $label ) {
+			$wrong['fields'][0]['label'] = $label;
+			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
+		}
+		
+	}
+
 	//Tests for 'boolean' type preferences
 	function testPrefsDescriptionsBoolean() {
 		$correct = array(

@@ -129,6 +129,13 @@
 
 	//Used by preference editor to build field properties dialogs
 	var prefsDescriptionSpecifications = {
+		"label": [ {
+			"name": "label",
+			"type": "string",
+			"label": "label",
+			"required": false,
+			"default": ""
+		} ],
 		"boolean": simpleField,
 		"string" : simpleField.concat( [
 			{
@@ -268,7 +275,9 @@
 			$.error( "Missing 'type' parameter" );
 		}
 
-		this.$div = $( '<div/>' ).data( 'field', this );
+		this.$div = $( '<div/>' )
+			.addClass( 'formbuilder-slot-type-' + this.desc.type )
+			.data( 'field', this );
 	}
 
 	EmptyField.prototype.getElement = function() {
@@ -286,12 +295,13 @@
 			$.error( "Missing or wrong 'label' parameter" );
 		}
 
-		var $label = $( '<label/>' )
-			.text( preproc( this.options.msgPrefix, this.desc.label ) )
-			.attr('for', this.options.idPrefix + this.desc.name );
+		this.$label = $( '<label/>' )
+			.text( preproc( this.options.msgPrefix, this.desc.label ) );
 
-		this.$div.append( $label );
+		this.$div.append( this.$label );
 	}
+
+	validFieldTypes["label"] = LabelField;
 
 	/* Abstract base class for all "simple" fields. Should not be instantiated. */
 	SimpleField.prototype = object( LabelField.prototype );
@@ -306,7 +316,9 @@
 		if ( typeof desc.name.length > 40 ) {
 			$.error( 'name must be no longer than 40 characters' );
 		}
-		
+
+		this.$label.attr('for', this.options.idPrefix + this.desc.name );
+
 		//Use default if it is given and no value has been set
 		if ( ( typeof options.values == 'undefined' || typeof options.values[desc.name] == 'undefined' )
 			&& typeof desc['default'] != 'undefined' )
@@ -822,15 +834,6 @@
 			this.$div.attr( 'id', id );
 		}
 
-		//If there is an "intro", adds it to the section as a label
-		//TODO: kill "intro"s and make "label" fields, instead?
-		if ( typeof this.desc.intro == 'string' ) {
-			$( '<p/>' )
-				.text( preproc( this.options.msgPrefix, this.desc.intro ) )
-				.addClass( 'formBuilder-intro' )
-				.appendTo( this.$div );
-		}
-
 		for ( var i = 0; i < this.desc.fields.length; i++ ) {
 			if ( options.editable === true ) {
 				//add an empty slot
@@ -928,34 +931,38 @@
 					'options': selectOptions,
 					'default': selectOptions[0].value
 				} ]
-			} ).formBuilder( {} ).dialog( {
-				width: 450,
-				modal: true,
-				resizable: false,
-				title: mw.msg( 'gadgets-formbuilder-editor-chose-field-title' ),
-				close: function() {
-					$( this ).remove();
-				},
-				buttons: [
-					{
-						text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
-						click: function() {
-							var values = $( this ).formBuilder( 'getValues' );
-							$( this ).dialog( "close" );
-							self._createFieldDialog( {
-								type: values.type,
-								callback: params.callback
-							} );
-						}
+			} ).formBuilder( {} )
+				.submit( function() {
+					return false; //prevent form submission
+				} )
+				.dialog( {
+					width: 450,
+					modal: true,
+					resizable: false,
+					title: mw.msg( 'gadgets-formbuilder-editor-chose-field-title' ),
+					close: function() {
+						$( this ).remove();
 					},
-					{
-						text: mw.msg( 'gadgets-formbuilder-editor-cancel' ),
-						click: function() {
-							$( this ).dialog( "close" );
+					buttons: [
+						{
+							text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
+							click: function() {
+								var values = $( this ).formBuilder( 'getValues' );
+								$( this ).dialog( "close" );
+								self._createFieldDialog( {
+									type: values.type,
+									callback: params.callback
+								} );
+							}
+						},
+						{
+							text: mw.msg( 'gadgets-formbuilder-editor-cancel' ),
+							click: function() {
+								$( this ).dialog( "close" );
+							}
 						}
-					}
-				]
-			} );
+					]
+				} );
 			
 			return;
 		} else {

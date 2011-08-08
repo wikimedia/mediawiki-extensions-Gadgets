@@ -48,6 +48,14 @@
 
 .formbuilder-slot {
 	border: none;
+	padding: 3px;
+}
+
+/* type-specific styles */
+
+.formbuilder .formbuilder-slot-type-label label {
+	width: 100%;
+	text-align: left;
 }
 
 /* formBuilder editor */

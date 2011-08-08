@@ -30,6 +30,15 @@ class GadgetPrefs {
 	 *   a list of messages referred to by it. If omitted, only the "label" field is returned (if it is a message).
 	 */
 	private static $prefsDescriptionSpecifications = array(
+		'label' => array(
+			'description' => array(
+				'label' => array(
+					'isMandatory' => true,
+					'validator' => 'is_string'
+				)
+			),
+			'flattener' => 'GadgetPrefs::flattenLabelDefinition'
+		),
 		'boolean' => array( 
 			'description' => array(
 				'name' => array(
@@ -250,8 +259,12 @@ class GadgetPrefs {
 		return $count == 0 || array_keys( $param ) === range( 0, $count - 1 );
 	}
 	
+	private static function flattenLabelDefinition( $fieldDescription ) {
+		return array();
+	}
+	
 	//default flattener for simple fields that encode for a single preference
-	private static function flattenSimpleField( $fieldDescription ) {
+	private static function flattenSimpleFieldDefinition( $fieldDescription ) {
 		return array( $fieldDescription['name'] => $fieldDescription );
 	}
 	
@@ -347,7 +360,7 @@ class GadgetPrefs {
 		if ( isset( $fieldSpec['flattener'] ) ) {
 			$flattener = $fieldSpec['flattener'];
 		} else {
-			$flattener = 'GadgetPrefs::flattenSimpleField';
+			$flattener = 'GadgetPrefs::flattenSimpleFieldDefinition';
 		}
 		return call_user_func( $flattener, $fieldDescription );
 	}
@@ -776,11 +789,7 @@ class GadgetPrefs {
 	 */
 	public static function getMessages( $prefsDescription ) {
 		$msgs = array();
-		
-		if ( isset( $prefsDescription['intro'] ) && self::isMessage( $prefsDescription['intro'] ) ) {
-			$msgs[] = substr( $prefsDescription['intro'], 1 );
-		}
-		
+
 		foreach ( $prefsDescription['fields'] as $prefDesc ) {
 			$type = $prefDesc['type'];
 			$prefSpec = self::$prefsDescriptionSpecifications[$type];
