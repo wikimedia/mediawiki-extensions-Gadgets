@@ -111,3 +111,6 @@
 	margin-left: 6px;
 }
 
+.formbuilder-slot-editable .formbuilder-slot-type-composite {
+	padding: 1em;
+}

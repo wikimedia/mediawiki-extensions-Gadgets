@@ -50,6 +50,12 @@
 		return typeof val == 'number' && val === Math.floor( val );
 	}
 
+	function isValidPreferenceName( name ) {
+		return typeof name == 'string'
+			&& /^[a-zA-Z_][a-zA-Z0-9_]*$/.test( name )
+			&& name.length <= 40;
+	}
+
 	function testOptional( value, element ) {
 		var rules = $( element ).rules();
 		if ( typeof rules.required == 'undefined' || rules.required === false ) {
@@ -229,7 +235,15 @@
 						}
 					]
 				}, options )
-		}
+		},
+		"composite": [ {
+			"name": "name",
+			"type": "string",
+			"label": "name",
+			"required": true,
+			"maxlength": 40,
+			"default": ""
+		} ]
 	};
 
 	/* Basic interface for fields */
@@ -310,11 +324,8 @@
 		LabelField.call( this, desc, options );
 		
 		//Validate the 'name' member
-		if ( typeof desc.name != 'string' || /^[a-zA-Z_][a-zA-Z0-9_]*$/.test( desc.name ) === false ) {
+		if ( !isValidPreferenceName( desc.name ) ) {
 			$.error( 'invalid name' );
-		}
-		if ( typeof desc.name.length > 40 ) {
-			$.error( 'name must be no longer than 40 characters' );
 		}
 
 		this.$label.attr('for', this.options.idPrefix + this.desc.name );
@@ -951,6 +962,7 @@
 								$( this ).dialog( "close" );
 								self._createFieldDialog( {
 									type: values.type,
+									oldDescription: params.oldDescription,
 									callback: params.callback
 								} );
 							}
@@ -994,6 +1006,8 @@
 		var dlg = $( '<div/>' );
 		var form = $( description ).formBuilder( {
 			values: values
+		} ).submit( function() {
+			return false; //prevent form submission
 		} ).appendTo( dlg );
 		
 		dlg.dialog( {
@@ -1025,6 +1039,16 @@
 							
 							//Try to create the field. In case of error, warn the user.
 							fieldDescription.type = type;
+							
+							if ( typeof params.oldDescription != 'undefined' ) {
+								//If there are values in the old description that cannot be set by
+								//the dialog, don't lose them (e.g.: 'fields' member in composite fields).
+								$.each( params.oldDescription, function( key, value ) {
+									if ( typeof fieldDescription[key] == 'undefined' ) {
+										fieldDescription[key] = value;
+									}
+								} );
+							}
 							
 							var FieldConstructor = validFieldTypes[type];
 							var field;
@@ -1104,6 +1128,7 @@
 							self._createFieldDialog( {
 								type: field.getDesc().type,
 								values: field.getDesc(),
+								oldDescription: field.getDesc(),
 								callback: function( newField ) {
 									if ( newField !== null ) {
 										//check that there are no duplicate preference names
@@ -1457,6 +1482,55 @@
 	};
 
 	validFieldTypes["bundle"] = BundleField;
+
+
+	/* A field for 'composite' fields */
+
+	CompositeField.prototype = object( EmptyField.prototype );
+	CompositeField.prototype.constructor = CompositeField;
+	function CompositeField( desc, options ) {
+		EmptyField.call( this, desc, options );
+		
+		//Validate the 'name' member
+		if ( !isValidPreferenceName( desc.name ) ) {
+			$.error( 'invalid name' );
+		}
+		
+		if ( !$.isArray( desc.fields ) ) {
+			//Don't throw an error, to allow creating empty sections in the editor
+			desc.fields = [];
+		}
+		
+		//TODO: add something to easily visually identify 'composite' fields during editing
+		
+		var sectionOptions = $.extend( {}, options );
+		
+		//Add another chunk to the prefix, to ensure uniqueness
+		sectionOptions.idPrefix += desc.name + '-';
+		if ( typeof options.values != 'undefined' ) {
+			//Tell the section the actual values it should show
+			sectionOptions.values = options.values[desc.name];
+		}
+		
+		this._section = new SectionField( desc, sectionOptions );
+		this.$div.append( this._section.getElement() );
+	}
+
+	CompositeField.prototype.getDesc = function( useValuesAsDefaults ) {
+		var desc = this.desc;
+		desc.fields = this._section.getDesc( useValuesAsDefaults ).fields;
+		return desc;
+	};
+
+	CompositeField.prototype.getValues = function() {
+		return pair( this.desc.name, this._section.getValues() );
+	};
+	
+	CompositeField.prototype.getValidationSettings = function() {
+		return this._section.getValidationSettings();
+	};	
+
+	validFieldTypes["composite"] = CompositeField;
 
 	/* Public methods */
 	

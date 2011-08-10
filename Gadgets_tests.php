@@ -553,6 +553,69 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		}
 	}
 
+	//Tests for 'composite' type fields
+	function testPrefsDescriptionsComposite() {
+		$correct = array(
+			'fields' => array(
+				array(
+					'name' => 'foo',
+					'type' => 'composite',
+					'fields' => array(
+						array(
+							'name' => 'bar',
+							'type' => 'boolean',
+							'label' => '@msg1',
+							'default' => true
+						),
+						array(
+							'name' => 'car',
+							'type' => 'color',
+							'label' => '@msg2',
+							'default' => '#123456'
+						)
+					)
+				)
+			)
+		);
+		
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
+		$this->assertEquals(
+			GadgetPrefs::getDefaults( $correct ),
+			array( 'foo' => array( 'bar' => true, 'car' => '#123456' ) )
+		);
+		$this->assertEquals( GadgetPrefs::getMessages( $correct ), array( 'msg1', 'msg2' ) );
+		
+		$this->assertTrue( GadgetPrefs::checkPrefsAgainstDescription(
+			$correct,
+			array( 'foo' => array( 'bar' => false, 'car' => '#00aaff' ) )
+		) );
+
+		$this->assertFalse( GadgetPrefs::checkPrefsAgainstDescription(
+			$correct,
+			array( 'foo' => array( 'bar' => null, 'car' => '#00aaff' ) )
+		) );
+
+		$this->assertFalse( GadgetPrefs::checkPrefsAgainstDescription(
+			$correct,
+			array( 'foo' => array( 'bar' => false, 'car' => '#00aafz' ) )
+		) );
+
+		$this->assertFalse( GadgetPrefs::checkPrefsAgainstDescription(
+			$correct,
+			array( 'bar' => false, 'car' => '#00aaff' )
+		) );
+
+		$prefs = array(
+			'foo' => array(
+				'bar' => false,
+				'car' => null //wrong
+			)
+		);
+		
+		GadgetPrefs::matchPrefsWithDescription( $correct, $prefs );
+		//Check if only the wrong subfield has been reset to default value
+		$this->assertEquals( $prefs, array( 'foo' => array( 'bar' => false, 'car' => '#123456' ) ) );
+	}
 	
 	//Data provider to be able to reuse a complex preference description for several tests.
 	function prefsDescProvider() {

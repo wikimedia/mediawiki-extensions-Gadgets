@@ -26,6 +26,12 @@ class GadgetPrefs {
 	 *   If omitted (for "simple fields"), the default flattener is used.
 	 * - 'checker', only for "simple" fields, is the name of a function that takes a preference description and
 	 *   a preference value, and returns true if that value passes validation, false otherwise.
+	 * - 'matcher', only for "simple" fields, is the name of a function that takes the description of a field $prefDescription,
+	 *   an array of preference values $prefs and the name of a preference $preferenceName and returns an array where
+	 *   $prefs[$prefName] is changed in a way that passes validation. If omitted, the default action is to set $prefs[$prefName]
+	 *   to $prefDescription['default'].
+	 * - 'getDefault', only for "simple" fields, if a function che takes one argument, the descriptio of the field, and
+	 *   returns its default value; if omitted, the value of the 'default' field is returned.
 	 * - 'getMessages', if specified, is the name of a function that takes a valid description of a field and returns
 	 *   a list of messages referred to by it. If omitted, only the "label" field is returned (if it is a message).
 	 */
@@ -213,6 +219,23 @@ class GadgetPrefs {
 			),
 			'getMessages' => 'GadgetPrefs::getBundleMessages',
 			'flattener' => 'GadgetPrefs::flattenBundleDefinition'
+		),
+		'composite' => array(
+			'description' => array(
+				'name' => array(
+					'isMandatory' => true,
+					'validator' => 'GadgetPrefs::isValidPreferenceName'
+				),
+				'fields' => array(
+					'isMandatory' => true,
+					'validator' => 'is_array'
+				)
+			),
+			'validator' => 'GadgetPrefs::validateSectionDefinition',
+			'getMessages' => 'GadgetPrefs::getCompositeMessages',
+			'getDefault' => 'GadgetPrefs::getCompositeDefault',
+			'checker' => 'GadgetPrefs::checkCompositePref',
+			'matcher' => 'GadgetPrefs::matchCompositePref'
 		)
 	);
 	
@@ -470,12 +493,20 @@ class GadgetPrefs {
 			foreach ( $flt as $prefName => $prefDescription ) {
 				//Finally, check that the 'default' fields exists and is valid
 				//for all preferences encoded by this field
-				if ( !array_key_exists( 'default', $prefDescription ) ) {
-					return false;
+				
+				$type = $prefDescription['type'];
+				if ( isset( self::$prefsDescriptionSpecifications[$type]['getDefault'] ) ) {
+					$getDefault = self::$prefsDescriptionSpecifications[$type]['getDefault'];
+					$value = call_user_func( $getDefault, $prefDescription );
+				} else {
+					if ( !array_key_exists( 'default', $prefDescription ) ) {
+						return false;
+					}
+					$value = $prefDescription['default'];
 				}
 				
-				$prefs = array( 'dummy' => $prefDescription['default'] );
-				if ( !self::checkSinglePref( $prefDescription, $prefs, 'dummy' ) ) {
+				$prefs = array( $prefName => $value );
+				if ( !self::checkSinglePref( $prefDescription, $prefs, $prefName ) ) {
 					return false;
 				}
 			}
@@ -691,7 +722,23 @@ class GadgetPrefs {
 		return is_string( $value ) && preg_match( '/^#[0-9a-f]{6}$/', $value );
 	}
 
+	//Checker for 'composite' preferences
+	private static function checkCompositePref( $prefDescription, $value ) {
+		if ( !is_array( $value ) ) {
+			return false;
+		}
 
+		$flattened = self::flattenPrefsDescription( $prefDescription );
+
+		foreach ( $flattened as $subPrefName => $subPrefDescription ) {
+			if ( !array_key_exists( $subPrefName, $value ) ||
+				!self::checkSinglePref( $subPrefDescription, $value, $subPrefName ) )
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 
 	/**
 	 * Checks if $prefs is an array of preferences that passes validation.
@@ -724,6 +771,17 @@ class GadgetPrefs {
 		return true;
 	}
 
+	//Matcher for 'composite' type preferences
+	private static function matchCompositePref( $prefDescription, $prefs, $prefName ) {
+		if ( !array_key_exists( $prefName, $prefs ) || !is_array( $prefs[$prefName] ) ) {
+			$prefs[$prefName] = array();
+		}
+		
+		self::matchPrefsWithDescription( $prefDescription, $prefs[$prefName] );
+		
+		return $prefs;
+	}
+
 	/**
 	 * Fixes $prefs so that it matches the description given by $prefsDescription.
 	 * All values of $prefs that fail validation are replaced with default values.
@@ -740,7 +798,15 @@ class GadgetPrefs {
 		foreach ( $flattenedPrefs as $prefDescription ) {
 			$prefName = $prefDescription['name'];
 			if ( !self::checkSinglePref( $prefDescription, $prefs, $prefName ) ) {
-				$prefs[$prefName] = $prefDescription['default'];
+				$type = $prefDescription['type'];
+				if ( isset( self::$prefsDescriptionSpecifications[$type]['matcher'] ) ) {
+					//Use specific matcher for this type
+					$matcher = self::$prefsDescriptionSpecifications[$type]['matcher'];
+					$prefs = call_user_func( $matcher, $prefDescription, $prefs, $prefName );
+				} else {
+					//Default matcher, just use 'default' value
+					$prefs[$prefName] = $prefDescription['default'];
+				}
 			}
 			$validPrefs[$prefName] = true;
 		}
@@ -831,4 +897,15 @@ class GadgetPrefs {
 		}
 		return array_unique( $msgs );
 	}
+	
+	//Returns the default value of a 'composite' field, that is the object of the
+	//default values of its subfields.
+	private static function getCompositeDefault( $prefDescription ) {
+		return self::getDefaults( $prefDescription );
+	}
+	
+	//Returns the messages for a 'composite' field description
+	private static function getCompositeMessages( $prefDescription ) {
+		return self::getMessages( $prefDescription );
+	}	
 }
