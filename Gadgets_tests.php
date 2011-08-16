@@ -616,7 +616,117 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		//Check if only the wrong subfield has been reset to default value
 		$this->assertEquals( $prefs, array( 'foo' => array( 'bar' => false, 'car' => '#123456' ) ) );
 	}
-	
+
+	//Tests for 'list' type fields
+	function testPrefsDescriptionsList() {
+		$correct = array(
+			'fields' => array(
+				array(
+					'name' => 'foo',
+					'type' => 'list',
+					'default' => array(),
+					'field' => array(
+						'type' => 'composite',
+						'fields' => array(
+							array(
+								'name' => 'bar',
+								'type' => 'boolean',
+								'label' => '@msg1',
+								'default' => true
+							),
+							array(
+								'name' => 'car',
+								'type' => 'color',
+								'label' => '@msg2',
+								'default' => '#123456'
+							)
+						)
+					)
+				)
+			)
+		);
+		
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
+		
+		//Specifying the 'name' member for field must fail
+		$wrong = $correct;
+		$wrong['fields'][0]['field']['name'] = 'composite';
+		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
+		
+		
+		$this->assertEquals(
+			GadgetPrefs::getDefaults( $correct ),
+			array( 'foo' => array() )
+		);
+		
+		$this->assertEquals( GadgetPrefs::getMessages( $correct ), array( 'msg1', 'msg2' ) );
+
+		//Tests with correct pref values
+		$this->assertTrue( GadgetPrefs::checkPrefsAgainstDescription(
+			$correct,
+			array( 'foo' => array() )
+		) );
+
+		$this->assertTrue( GadgetPrefs::checkPrefsAgainstDescription(
+			$correct,
+			array( 'foo' => array(
+					array(
+						'bar' => true,
+						'car' => '#115599'
+					),
+					array(
+						'bar' => false,
+						'car' => '#123456'
+					),
+					array(
+						'bar' => true,
+						'car' => '#ffffff'
+					)
+				)
+			)
+		) );
+
+		//Tests with wrong pref values
+		$this->assertFalse( GadgetPrefs::checkPrefsAgainstDescription(
+			$correct,
+			array( 'foo' => array(
+					array(
+						'bar' => null, //wrong
+						'car' => '#115599'
+					)
+				)
+			)
+		) );
+
+		$this->assertFalse( GadgetPrefs::checkPrefsAgainstDescription(
+			$correct,
+			array( 'foo' => array( //wrong, not enclosed in array
+					'bar' => null,
+					'car' => '#115599'
+				)
+			)
+		) );
+
+		$prefs = array( 'foo' => array(
+				array(
+					'bar' => null,
+					'car' => '#115599'
+				),
+				array(
+					'bar' => false,
+					'car' => ''
+				),
+				array(
+					'bar' => true,
+					'car' => '#ffffff'
+				)
+			)
+		);
+		
+		GadgetPrefs::matchPrefsWithDescription( $correct, $prefs );
+		$this->assertTrue( GadgetPrefs::checkPrefsAgainstDescription( $correct, $prefs ) );
+	}
+
 	//Data provider to be able to reuse a complex preference description for several tests.
 	function prefsDescProvider() {
 		return array( array(

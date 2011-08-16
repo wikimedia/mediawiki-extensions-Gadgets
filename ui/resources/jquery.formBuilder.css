@@ -4,10 +4,6 @@
  * Released under the MIT and GPL licenses.
  */
 
-.formBuilder-intro {
-	margin-left: 1em;
-}
-
 .formbuilder label {
 	display: inline-block;
 	text-align: right;
@@ -53,9 +49,46 @@
 
 /* type-specific styles */
 
-.formbuilder .formbuilder-slot-type-label label {
-	width: 100%;
+.formbuilder-field-label label {
+	width: 95%;
 	text-align: left;
+}
+
+.formbuilder-button {
+	cursor: pointer;
+}
+
+.formbuilder-field-list {
+	border: 2px ridge;
+}
+
+.formbuilder-list-item-container {
+	float: left;
+	margin-right: -35px;
+	width: 100%;
+}
+
+.formbuilder-list-item-content {
+	margin-right: 35px;
+}
+
+.formbuilder-list-item-buttons {
+	float: right;
+	width: 35px;
+}
+
+.formbuilder-list-button-move, .formbuilder-list-button-delete {
+	float: right;
+}
+
+.formbuilder-list-button-move {
+	cursor: move;
+}
+
+/* Center the new item button */
+.formbuilder-list-button-new {
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /* formBuilder editor */
@@ -79,10 +112,6 @@
 	height: 17px;
 }
 
-.formbuilder-editor-button {
-	cursor: pointer;
-}
-
 .formbuilder-editor-button-move {
 	cursor: move;
 }
@@ -96,6 +125,7 @@
 .formbuilder-editor-button-delete {
 	float: right;
 }
+
 
 /* Fixes a minor glitch in Firefox (buttons in tabs not floating properly) */
 .formbuilder .ui-tabs-nav a > span :not(.formbuilder-editor-button) {
@@ -111,6 +141,6 @@
 	margin-left: 6px;
 }
 
-.formbuilder-slot-editable .formbuilder-slot-type-composite {
+.formbuilder-slot-editable .formbuilder-field-composite {
 	padding: 1em;
 }

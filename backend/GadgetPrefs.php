@@ -14,7 +14,7 @@ class GadgetPrefs {
 	 * Syntax specifications of preference description language.
 	 * Each element describes a field; a "simple" field encodes exactly one gadget preference, but some fields
 	 * may encode for 0 or multiple gadget preferences.
-	 * "Simple" field always have the 'name', the 'label' and the 'default' members.
+	 * "Simple" field always have the 'name' member. Not "simple" fields never do.
 	 * Each field has a 'description' and may have a 'validator', a 'flattener', and a 'checker'.
 	 * - 'description' is an array that describes all the members of that fields. Each member description has this shape:
 	 *     - 'isMandatory' is a boolean that specifies if that member is mandatory for the field;
@@ -30,7 +30,7 @@ class GadgetPrefs {
 	 *   an array of preference values $prefs and the name of a preference $preferenceName and returns an array where
 	 *   $prefs[$prefName] is changed in a way that passes validation. If omitted, the default action is to set $prefs[$prefName]
 	 *   to $prefDescription['default'].
-	 * - 'getDefault', only for "simple" fields, if a function che takes one argument, the descriptio of the field, and
+	 * - 'getDefault', only for "simple" fields, if a function che takes one argument, the description of the field, and
 	 *   returns its default value; if omitted, the value of the 'default' field is returned.
 	 * - 'getMessages', if specified, is the name of a function that takes a valid description of a field and returns
 	 *   a list of messages referred to by it. If omitted, only the "label" field is returned (if it is a message).
@@ -236,7 +236,26 @@ class GadgetPrefs {
 			'getDefault' => 'GadgetPrefs::getCompositeDefault',
 			'checker' => 'GadgetPrefs::checkCompositePref',
 			'matcher' => 'GadgetPrefs::matchCompositePref'
-		)
+		),
+		'list' => array(
+			'description' => array(
+				'name' => array(
+					'isMandatory' => true,
+					'validator' => 'GadgetPrefs::isValidPreferenceName'
+				),
+				'field' => array(
+					'isMandatory' => true,
+					'validator' => 'is_array'
+				),
+				'default' => array(
+					'isMandatory' => true
+				)
+			),
+			'validator' => 'GadgetPrefs::validateListPrefDefinition',
+			'getMessages' => 'GadgetPrefs::getListMessages',
+			'checker' => 'GadgetPrefs::checkListPref',
+			'matcher' => 'GadgetPrefs::matchListPref'
+		)		
 	);
 	
 	private static function isValidPreferenceName( $name ) {
@@ -376,6 +395,24 @@ class GadgetPrefs {
 		return true;
 	}
 
+	private static function validateListPrefDefinition( $prefDefinition ) {
+		//Name must not be set for the 'field' description
+		if ( array_key_exists( 'name', $prefDefinition['field'] ) ) {
+			return false;
+		}
+		
+		//Check if the field definition is valid, apart from missing the name
+		$itemDescription = $prefDefinition['field'];
+		$itemDescription['name'] = 'dummy';
+		if ( !self::validateFieldDefinition( $itemDescription ) ) {
+			return false;
+		};
+		
+		//Finally, type described by the 'field' member must be a simple type (e.g.: have "name" ).
+		$type = $itemDescription['type'];
+		return isset( self::$prefsDescriptionSpecifications[$type]['description']['name'] );
+	}
+
 	//Flattens a simple field, by calling its field-specific flattener if there is any,
 	//or the default flattener otherwise.
 	private static function flattenFieldDescription( $fieldDescription ) {
@@ -401,17 +438,10 @@ class GadgetPrefs {
 		return $flattenedPrefsDescription;
 	}
 
-	//Validate the description of a 'section' of preferences 
-	private static function validateSectionDefinition( $sectionDescription ) {
+	//Validates a single field
+	private static function validateFieldDefinition( $fieldDefinition ) {
 		static $mandatoryCount = array(), $initialized = false;
 
-		if ( !is_array( $sectionDescription )
-			|| !isset( $sectionDescription['fields'] )
-			|| !is_array( $sectionDescription['fields'] ) )
-		{
-			return false;
-		}
-		
 		if ( !$initialized ) {
 			//Count of mandatory members for each type
 			foreach ( self::$prefsDescriptionSpecifications as $type => $typeSpec ) {
@@ -423,6 +453,67 @@ class GadgetPrefs {
 				}
 			}
 			$initialized = true;
+		}
+
+		//Check if 'type' is set
+		if ( !isset( $fieldDefinition['type'] ) )  {
+			return false;
+		}
+		
+		$type = $fieldDefinition['type'];
+		
+		//check if 'type' is valid
+		if ( !isset( self::$prefsDescriptionSpecifications[$type] ) ) {
+			return false;
+		}
+		
+		//Check if all fields satisfy specification
+		$typeSpec = self::$prefsDescriptionSpecifications[$type];
+		$typeDescription = $typeSpec['description'];
+		$count = 0; //count of present mandatory members
+		foreach ( $fieldDefinition as $memberName => $memberValue ) {
+			
+			if ( $memberName == 'type' ) {
+				continue; //'type' must not be checked
+			}
+			
+			if ( !isset( $typeDescription[$memberName] ) ) {
+				return false;
+			}
+			
+			if ( $typeDescription[$memberName]['isMandatory'] ) {
+				++$count;
+			}
+			
+			if ( isset( $typeDescription[$memberName]['validator'] ) ) {
+				$validator = $typeDescription[$memberName]['validator'];
+				if ( !call_user_func( $validator, $memberValue ) ) {
+					return false;
+				}
+			}
+		}
+		
+		if ( $count != $mandatoryCount[$type] ) {
+			return false; //not all mandatory members are given
+		}
+		
+		if ( isset( $typeSpec['validator'] ) ) {
+			//Call type-specific checker for finer validation
+			if ( !call_user_func( $typeSpec['validator'], $fieldDefinition ) ) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+
+	//Validate the description of a 'section' of preferences 
+	private static function validateSectionDefinition( $sectionDescription ) {
+		if ( !is_array( $sectionDescription )
+			|| !isset( $sectionDescription['fields'] )
+			|| !is_array( $sectionDescription['fields'] ) )
+		{
+			return false;
 		}
 		
 		//Check if 'fields' is a regular (not-associative) array, and that it is not empty
@@ -436,59 +527,14 @@ class GadgetPrefs {
 		//Flattened preferences
 		$flattenedPrefs = array();
 		
-		foreach ( $sectionDescription['fields'] as $optionDefinition ) {
+		foreach ( $sectionDescription['fields'] as $fieldDefinition ) {
 			
-			//Check if 'type' is set
-			if ( !isset( $optionDefinition['type'] ) )  {
+			if ( self::validateFieldDefinition( $fieldDefinition ) == false ) {
 				return false;
-			}
-			
-			$type = $optionDefinition['type'];
-			
-			//check if 'type' is valid
-			if ( !isset( self::$prefsDescriptionSpecifications[$type] ) ) {
-				return false;
-			}
-			
-			//Check if all fields satisfy specification
-			$typeSpec = self::$prefsDescriptionSpecifications[$type];
-			$typeDescription = $typeSpec['description'];
-			$count = 0; //count of present mandatory members
-			foreach ( $optionDefinition as $fieldName => $fieldValue ) {
-				
-				if ( $fieldName == 'type' ) {
-					continue; //'type' must not be checked
-				}
-				
-				if ( !isset( $typeDescription[$fieldName] ) ) {
-					return false;
-				}
-				
-				if ( $typeDescription[$fieldName]['isMandatory'] ) {
-					++$count;
-				}
-				
-				if ( isset( $typeDescription[$fieldName]['validator'] ) ) {
-					$validator = $typeDescription[$fieldName]['validator'];
-					if ( !call_user_func( $validator, $fieldValue ) ) {
-						return false;
-					}
-				}
-			}
-			
-			if ( $count != $mandatoryCount[$type] ) {
-				return false; //not all mandatory members are given
-			}
-			
-			if ( isset( $typeSpec['validator'] ) ) {
-				//Call type-specific checker for finer validation
-				if ( !call_user_func( $typeSpec['validator'], $optionDefinition ) ) {
-					return false;
-				}
 			}
 
 			//flatten preferences described by this field
-			$flt = self::flattenFieldDescription( $optionDefinition );
+			$flt = self::flattenFieldDescription( $fieldDefinition );
 			
 			foreach ( $flt as $prefName => $prefDescription ) {
 				//Finally, check that the 'default' fields exists and is valid
@@ -740,6 +786,22 @@ class GadgetPrefs {
 		return true;
 	}
 
+	//Checker for 'list' preferences
+	private static function checkListPref( $prefDescription, $value ) {
+		if ( !self::isOrdinaryArray( $value ) ) {
+			return false;
+		}
+
+		$itemDescription = $prefDescription['field'];
+		foreach ( $value as $item ) {
+			if ( !self::checkSinglePref( $itemDescription, array( 'dummy' => $item ), 'dummy' ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
 	/**
 	 * Checks if $prefs is an array of preferences that passes validation.
 	 * It is assumed that $prefsDescription is a valid description of preferences.
@@ -778,6 +840,26 @@ class GadgetPrefs {
 		}
 		
 		self::matchPrefsWithDescription( $prefDescription, $prefs[$prefName] );
+		
+		return $prefs;
+	}
+
+	//Matcher for 'list' type preferences
+	//If value is not an array, just reset to default; otherwise, delete elements that fail validation
+	private static function matchListPref( $prefDescription, $prefs, $prefName ) {
+		if ( !isset( $prefs[$prefName] ) || !self::isOrdinaryArray( $prefs[$prefName] ) ) {
+			$prefs[$prefName] = $prefDescription['default'];
+			return $prefs;
+		}
+		
+		$itemDescription = $prefDescription['field'];
+		$newItems = array();
+		foreach( $prefs[$prefName] as $item ) {
+			if ( self::checkSinglePref( $itemDescription, array( 'dummy' => $item ), 'dummy' ) ) {
+				$newItems[] = $item;
+			}
+		}
+		$prefs[$prefName] = $newItems;
 		
 		return $prefs;
 	}
@@ -847,6 +929,24 @@ class GadgetPrefs {
 	}
 	
 	/**
+	 * Returns the list of messages used by a field. If the field type specifications define a "getMessages" method,
+	 * uses it, otherwise returns the message in the 'label' member (if any).
+	 */
+	private static function getFieldMessages( $fieldDescription ) {
+		$type = $fieldDescription['type'];
+		$prefSpec = self::$prefsDescriptionSpecifications[$type];
+		if ( isset( $prefSpec['getMessages'] ) ) {
+			$getMessages = $prefSpec['getMessages'];
+			return call_user_func( $getMessages, $fieldDescription );
+		} else {
+			if ( isset( $fieldDescription['label'] ) && self::isMessage( $fieldDescription['label'] ) ) {
+				return array( substr( $fieldDescription['label'], 1 ) );
+			}
+		}
+		return array();
+	}
+	
+	/**
 	 * Returns a list of (unprefixed) messages mentioned by $prefsDescription. It is assumed that
 	 * $prefsDescription is valid (i.e.: GadgetPrefs::isPrefsDescriptionValid( $prefsDescription ) === true).
 	 * 
@@ -855,20 +955,9 @@ class GadgetPrefs {
 	 */
 	public static function getMessages( $prefsDescription ) {
 		$msgs = array();
-
-		foreach ( $prefsDescription['fields'] as $prefDesc ) {
-			$type = $prefDesc['type'];
-			$prefSpec = self::$prefsDescriptionSpecifications[$type];
-			if ( isset( $prefSpec['getMessages'] ) ) {
-				$getMessages = $prefSpec['getMessages'];
-				$msgs = array_merge( $msgs, call_user_func( $getMessages, $prefDesc ) );
-			} else {
-				if ( isset( $prefDesc['label'] ) && self::isMessage( $prefDesc['label'] ) ) {
-					$msgs[] = substr( $prefDesc['label'], 1 );
-				}
-			}
+		foreach ( $prefsDescription['fields'] as $fieldDescription ) {
+			$msgs = array_merge( $msgs, self::getFieldMessages( $fieldDescription ) );
 		}
-		
 		return array_unique( $msgs );
 	}
 	
@@ -896,6 +985,11 @@ class GadgetPrefs {
 			}
 		}
 		return array_unique( $msgs );
+	}
+	
+	//Returns the messages for a 'list' field description
+	private static function getListMessages( $prefDescription ) {
+		return self::getFieldMessages( $prefDescription['field'] );
 	}
 	
 	//Returns the default value of a 'composite' field, that is the object of the

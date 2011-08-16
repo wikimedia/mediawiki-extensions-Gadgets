@@ -94,7 +94,7 @@ $wgResourceModules['jquery.formBuilder'] = array(
 		'gadgets-formbuilder-min', 'gadgets-formbuilder-max', 'gadgets-formbuilder-integer', 'gadgets-formbuilder-date',
 		'gadgets-formbuilder-color',
 		'gadgets-formbuilder-editor-ok', 'gadgets-formbuilder-editor-cancel', 'gadgets-formbuilder-editor-move-field',
-		'gadgets-formbuilder-editor-delete-field', 'gadgets-formbuilder-editor-edit-field', 'gadgets-formbuilder-editor-insert-field',
+		'gadgets-formbuilder-editor-delete-field', 'gadgets-formbuilder-editor-edit-field', 'gadgets-formbuilder-editor-edit-field-title', 'gadgets-formbuilder-editor-insert-field',
 		'gadgets-formbuilder-editor-chose-field', 'gadgets-formbuilder-editor-chose-field-title', 'gadgets-formbuilder-editor-create-field-title',
 		'gadgets-formbuilder-editor-duplicate-name', 'gadgets-formbuilder-editor-delete-section', 'gadgets-formbuilder-editor-new-section',
 		'gadgets-formbuilder-editor-edit-section', 'gadgets-formbuilder-editor-chose-title', 'gadgets-formbuilder-editor-chose-title-title'

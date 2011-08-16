@@ -5,6 +5,244 @@
  */
 
 (function($, mw) {
+
+	//Field types that can be referred to by preference descriptions
+	var validFieldTypes = {};
+
+	//Describes 'name' and 'label' field members, common to all "simple" fields
+	var simpleFields = [
+		{
+			"name": "name",
+			"type": "string",
+			"label": "name",
+			"required": true,
+			"maxlength": 40,
+			"default": ""
+		},
+		{
+			"name": "label",
+			"type": "string",
+			"label": "label",
+			"required": false,
+			"default": ""
+		}
+	];
+
+	//Used by preference editor to build field properties dialogs
+	//TODO: document
+	var prefsDescriptionSpecifications = {
+		"label": {
+			"simple": false,
+			"builder": [ {
+				"name": "label",
+				"type": "string",
+				"label": "label",
+				"required": false,
+				"default": ""
+			} ]
+		},
+		"boolean": {
+			"simple": true,
+			"builder": simpleFields
+		},
+		"string": {
+			"simple": true,
+			"builder": simpleFields.concat( [
+				{
+					"name": "required",
+					"type": "boolean",
+					"label": "required",
+					"default": false
+				},
+				{
+					"name": "minlength",
+					"type": "number",
+					"label": "minlength",
+					"integer": true,
+					"min": 0,
+					"required": false,
+					"default": null
+				},
+				{
+					"name": "maxlength",
+					"type": "number",
+					"label": "maxlength",
+					"integer": true,
+					"min": 1,
+					"required": false,
+					"default": null
+				}
+			] )
+		},
+		"number": {
+			"simple": true,
+			"builder": simpleFields.concat( [
+				{
+					"name": "required",
+					"type": "boolean",
+					"label": "required",
+					"default": true
+				},
+				{
+					"name": "integer",
+					"type": "boolean",
+					"label": "integer",
+					"default": false
+				},
+				{
+					"name": "min",
+					"type": "number",
+					"label": "min",
+					"required": false,
+					"default": null
+				},
+				{
+					"name": "max",
+					"type": "number",
+					"label": "max",
+					"required": false,
+					"default": null
+				}
+			] )
+		},
+		"range": {
+			"simple": true,
+			"builder": simpleFields.concat( [
+				{
+					"name": "min",
+					"type": "number",
+					"label": "min",
+					"required": true,
+				},
+				{
+					"name": "step",
+					"type": "number",
+					"label": "step",
+					"required": true,
+					"default": 1
+				},
+				{
+					"name": "max",
+					"type": "number",
+					"label": "max",
+					"required": true,
+				}
+			] )
+		},
+		"date": {
+			"simple": true,
+			"builder": simpleFields
+		},
+		"color": {
+			"simple": true,
+			"builder": simpleFields
+		},
+		"bundle": {
+			"simple": false,
+			"builder": function( options, callback ) {
+				callback(
+					new BundleField( {
+						"type": "bundle",
+						"sections": [
+							{
+								"title": "Section 1",
+								"fields": []
+							},
+							{
+								"title": "Section 2",
+								"fields": []
+							}
+						]
+					}, options )
+				);
+			}
+		},
+		"composite": {
+			"simple": true,
+			"builder": [ {
+				"name": "name",
+				"type": "string",
+				"label": "name",
+				"required": true,
+				"maxlength": 40,
+				"default": ""
+			} ]
+		},
+		"list": {
+			"simple": true,
+			"builder": function( options, callback ) {
+
+				//Create list of "simple" types
+				var selectOptions = [];
+				$.each( prefsDescriptionSpecifications, function( type, typeInfo ) {
+					if ( typeInfo.simple === true ) {
+						selectOptions.push( { "name": type, "value": type } );
+					}
+				} );
+				
+				//Create the dialog to chose the field type
+				var $form = $( {
+					fields: [ {
+						"name": "name",
+						"type": "string",
+						"label": "name",
+						"required": true,
+						"maxlength": 40,
+						"default": ""
+					},
+					{
+						"name": "type",
+						"type": "select",
+						"label": "type",
+						"options": selectOptions
+					} ]
+				} ).formBuilder( { idPrefix: 'list-chose-type-' } )
+					.submit( function() {
+						return false; //prevent form submission
+					} );
+				
+				$form.dialog( {
+						width: 450,
+						modal: true,
+						resizable: false,
+						title: mw.msg( 'gadgets-formbuilder-editor-create-field-title', 'list' ),
+						close: function() {
+							$( this ).remove();
+						},
+						buttons: [
+							{
+								text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
+								click: function() {
+									var values = $( this ).formBuilder( 'getValues' );
+									$( this ).dialog( "close" );
+									
+									var dialog = this;
+									createFieldDialog( {
+										type: values.type,
+										values: {
+											"name": values.name
+										},
+										callback: function( field ) {
+											$( dialog ).dialog( 'close' );
+											showEditFieldDialog( field.getDesc(), options, callback );
+											return true;
+										}
+									}, { editable: true } );
+								}
+							},
+							{
+								text: mw.msg( 'gadgets-formbuilder-editor-cancel' ),
+								click: function() {
+									$( this ).dialog( "close" );
+								}
+							}
+						]
+					} );
+			}
+		}
+	};
+
+	/* Utility functions */
 	
 	//Preprocesses strings end possibly replaces them with messages.
 	//If str starts with "@" the rest of the string is assumed to be
@@ -54,6 +292,258 @@
 		return typeof name == 'string'
 			&& /^[a-zA-Z_][a-zA-Z0-9_]*$/.test( name )
 			&& name.length <= 40;
+	}
+
+	//Make a deep copy of an object
+	function clone( obj ) {
+		return $.extend( true, {}, obj );
+	}
+
+	function deleteFieldRules( field ) {
+		//Remove all its validation rules
+		var validationSettings = field.getValidationSettings();
+		if ( validationSettings.rules ) {
+			$.each( validationSettings.rules, function( name, value ) {
+				var $input = $( '#' + name );
+				if ( $input.length > 0 ) {
+					$( '#' + name ).rules( 'remove' );
+				}
+			} );
+		}
+	}
+
+	function addFieldRules( field ) {
+		var validationSettings = field.getValidationSettings();
+		if ( validationSettings.rules ) {
+			$.each( validationSettings.rules, function( name, rules ) {
+				var $input = $( '#' + name );
+				
+				//Find messages associated to this rule, if any
+				if ( typeof validationSettings.messages != 'undefined' && 
+					typeof validationSettings.messages[name] != 'undefined')
+				{
+					rules.messages = validationSettings.messages[name];
+				}
+				
+				if ( $input.length > 0 ) {
+					$( '#' + name ).rules( 'add', rules );
+				}
+			} );
+		}
+	}
+
+	function createFieldDialog( params, options ) {
+		var self = this;
+		
+		if ( typeof params.callback != 'function' ) {
+			$.error( 'createFieldDialog: missing or wrong "callback" parameter' );
+		}
+		
+		if ( typeof options == 'undefined' ) {
+			options = {};
+		}
+		
+		var type, description, values;
+		if ( typeof params.description == 'undefined' && typeof params.type == 'undefined' ) {
+			//Create a dialog to choose the type of field to create
+			var selectOptions = [];
+			$.each( validFieldTypes, function( fieldType ) {
+				selectOptions.push( {
+					name: fieldType,
+					value: fieldType
+				} );
+			} );
+			
+			$( {
+				fields: [ {
+					'name': "type",
+					'type': "select",
+					'label': mw.msg( 'gadgets-formbuilder-editor-chose-field' ),
+					'options': selectOptions,
+					'default': selectOptions[0].value
+				} ]
+			} ).formBuilder( { idPrefix: 'chose-field-' } )
+				.submit( function() {
+					return false; //prevent form submission
+				} )
+				.dialog( {
+					width: 450,
+					modal: true,
+					resizable: false,
+					title: mw.msg( 'gadgets-formbuilder-editor-chose-field-title' ),
+					close: function() {
+						$( this ).remove();
+					},
+					buttons: [
+						{
+							text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
+							click: function() {
+								var values = $( this ).formBuilder( 'getValues' );
+								$( this ).dialog( "close" );
+								createFieldDialog( {
+									type: values.type,
+									oldDescription: params.oldDescription,
+									callback: params.callback
+								}, options );
+							}
+						},
+						{
+							text: mw.msg( 'gadgets-formbuilder-editor-cancel' ),
+							click: function() {
+								$( this ).dialog( "close" );
+							}
+						}
+					]
+				} );
+			
+			return;
+		} else {
+			type = params.type;
+			if ( typeof prefsDescriptionSpecifications[type] == 'undefined' ) {
+				$.error( 'createFieldDialog: invalid type: ' + type );
+			} else if ( typeof prefsDescriptionSpecifications[type].builder == 'function' ) {
+				prefsDescriptionSpecifications[type].builder( options, function( field ) {
+					if ( field !== null ) {
+						params.callback( field );
+					}
+				} );
+				return;
+			}
+			
+			//typeof prefsDescriptionSpecifications[type].builder == 'object'
+			
+			description = {
+				fields: prefsDescriptionSpecifications[type].builder
+			};
+		}
+		
+		if ( typeof params.values != 'undefined' ) {
+			values = params.values;
+		} else {
+			values = {};
+		}
+		
+		//Create the dialog to set field properties
+		var dlg = $( '<div/>' );
+		var form = $( description ).formBuilder( {
+			values: values,
+			idPrefix: 'create-field-'
+		} ).submit( function() {
+			return false; //prevent form submission
+		} ).appendTo( dlg );
+		
+		dlg.dialog( {
+			modal: true,
+			width: 550,
+			resizable: false,
+			title: mw.msg( 'gadgets-formbuilder-editor-create-field-title', type ),
+			close: function() {
+				$( this ).remove();
+			},
+			buttons: [
+				{
+					text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
+					click: function() {
+						var isValid = $( form ).formBuilder( 'validate' );
+							
+						if ( isValid ) {
+							var fieldDescription = $( form ).formBuilder( 'getValues' );
+							
+							if ( typeof type != 'undefined' ) {
+								//Remove properties that equal their default
+								$.each( description.fields, function( index, fieldSpec ) {
+									var property = fieldSpec.name;
+									if ( fieldDescription[property] === fieldSpec['default'] ) {
+										delete fieldDescription[property];
+									}
+								} );
+							}
+							
+							//Try to create the field. In case of error, warn the user.
+							fieldDescription.type = type;
+							
+							if ( typeof params.oldDescription != 'undefined' ) {
+								//If there are values in the old description that cannot be set by
+								//the dialog, don't lose them (e.g.: 'fields' member in composite fields).
+								$.each( params.oldDescription, function( key, value ) {
+									if ( typeof fieldDescription[key] == 'undefined' ) {
+										fieldDescription[key] = value;
+									}
+								} );
+							}
+							
+							var FieldConstructor = validFieldTypes[type];
+							var field;
+							
+							try {
+								field = new FieldConstructor( fieldDescription, options );
+							} catch ( err ) {
+								alert( "Invalid field options: " + err ); //TODO: i18n
+								return;
+							}
+
+							if ( params.callback( field ) === true ) {
+								$( this ).dialog( "close" );
+							}
+						}
+					}
+				},
+				{
+					text: mw.msg( 'gadgets-formbuilder-editor-cancel' ),
+					click: function() {
+						$( this ).dialog( "close" );
+						params.callback( null );
+					}
+				}
+			]
+		} );
+	}
+
+	function showEditFieldDialog( fieldDesc, options, callback ) {
+		$( { "fields": [ fieldDesc ] } )
+			.formBuilder( {
+				editable: true,
+				staticFields: true,
+				idPrefix: 'list-edit-field-'
+			} )
+			.submit( function() {
+				return false;
+			} )
+			.dialog( {
+				modal: true,
+				width: 550,
+				resizable: false,
+				title: mw.msg( 'gadgets-formbuilder-editor-edit-field-title' ),
+				close: function() {
+					$( this ).remove();
+				},
+				buttons: [
+					{
+						text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
+						click: function() {
+							var fieldDesc = $( this ).formBuilder( 'getDescription' ).fields[0];
+								name = fieldDesc.name;
+							
+							delete fieldDesc.name;
+							
+							$( this ).dialog( "close" );
+
+							callback( new ListField( {
+									type: 'list',
+									name: name,
+									field: fieldDesc
+								}, options ) );
+						}
+					},
+					{
+						text: mw.msg( 'gadgets-formbuilder-editor-cancel' ),
+						click: function() {
+							$( this ).dialog( "close" );
+							callback( null );
+						}
+					}
+				]
+			} );
 	}
 
 	function testOptional( value, element ) {
@@ -109,143 +599,6 @@
 		return new F();
 	}
 
-
-	//Field types that can be referred to by preference descriptions
-	var validFieldTypes = {};
-
-
-	//Describes 'name' and 'label' field members
-	var simpleField = [
-		{
-			"name": "name",
-			"type": "string",
-			"label": "name",
-			"required": true,
-			"maxlength": 40,
-			"default": ""
-		},
-		{
-			"name": "label",
-			"type": "string",
-			"label": "label",
-			"required": false,
-			"default": ""
-		}
-	];
-
-	//Used by preference editor to build field properties dialogs
-	var prefsDescriptionSpecifications = {
-		"label": [ {
-			"name": "label",
-			"type": "string",
-			"label": "label",
-			"required": false,
-			"default": ""
-		} ],
-		"boolean": simpleField,
-		"string" : simpleField.concat( [
-			{
-				"name": "required",
-				"type": "boolean",
-				"label": "required",
-				"default": false
-			},
-			{
-				"name": "minlength",
-				"type": "number",
-				"label": "minlength",
-				"integer": true,
-				"min": 0,
-				"required": false,
-				"default": null
-			},
-			{
-				"name": "maxlength",
-				"type": "number",
-				"label": "maxlength",
-				"integer": true,
-				"min": 1,
-				"required": false,
-				"default": null
-			}
-		] ),
-		"number" : simpleField.concat( [
-			{
-				"name": "required",
-				"type": "boolean",
-				"label": "required",
-				"default": true
-			},
-			{
-				"name": "integer",
-				"type": "boolean",
-				"label": "integer",
-				"default": false
-			},
-			{
-				"name": "min",
-				"type": "number",
-				"label": "min",
-				"required": false,
-				"default": null
-			},
-			{
-				"name": "max",
-				"type": "number",
-				"label": "max",
-				"required": false,
-				"default": null
-			}
-		] ),
-		//TODO: "select" is missing
-		"range": simpleField.concat( [
-			{
-				"name": "min",
-				"type": "number",
-				"label": "min",
-				"required": true,
-			},
-			{
-				"name": "step",
-				"type": "number",
-				"label": "step",
-				"required": true,
-				"default": 1
-			},
-			{
-				"name": "max",
-				"type": "number",
-				"label": "max",
-				"required": true,
-			}
-		] ),
-		"date": simpleField,
-		"color": simpleField,
-		"bundle": function( options ) {
-			return new BundleField( {
-					"type": "bundle",
-					"sections": [
-						{
-							"title": "Section 1",
-							"fields": []
-						},
-						{
-							"title": "Section 2",
-							"fields": []
-						}
-					]
-				}, options )
-		},
-		"composite": [ {
-			"name": "name",
-			"type": "string",
-			"label": "name",
-			"required": true,
-			"maxlength": 40,
-			"default": ""
-		} ]
-	};
-
 	/* Basic interface for fields */
 	function Field( desc, options ) {
 		if ( typeof options.idPrefix == 'undefined' ) {
@@ -290,7 +643,7 @@
 		}
 
 		this.$div = $( '<div/>' )
-			.addClass( 'formbuilder-slot-type-' + this.desc.type )
+			.addClass( 'formbuilder-field formbuilder-field-' + this.desc.type )
 			.data( 'field', this );
 	}
 
@@ -345,7 +698,7 @@
 	}
 	
 	SimpleField.prototype.getDesc = function( useValuesAsDefaults ) {
-		var desc = LabelField.prototype.getDesc.call( this, useValuesAsDefaults );
+		var desc = clone( LabelField.prototype.getDesc.call( this, useValuesAsDefaults ) );
 		if ( useValuesAsDefaults === true ) {
 			//set 'default' to current value.
 			var values = this.getValues();
@@ -800,40 +1153,6 @@
 	
 	/* A field that represent a section (group of fields) */
 
-	function deleteFieldRules( field ) {
-		//Remove all its validation rules
-		var validationSettings = field.getValidationSettings();
-		if ( validationSettings.rules ) {
-			$.each( validationSettings.rules, function( name, value ) {
-				var $input = $( '#' + name );
-				if ( $input.length > 0 ) {
-					$( '#' + name ).rules( 'remove' );
-				}
-			} );
-		}
-	}
-
-	function addFieldRules( field ) {
-		var validationSettings = field.getValidationSettings();
-		if ( validationSettings.rules ) {
-			$.each( validationSettings.rules, function( name, rules ) {
-				var $input = $( '#' + name );
-				
-				//Find messages associated to this rule, if any
-				if ( typeof validationSettings.messages != 'undefined' && 
-					typeof validationSettings.messages[name] != 'undefined')
-				{
-					rules.messages = validationSettings.messages[name];
-				}
-				
-				if ( $input.length > 0 ) {
-					$( '#' + name ).rules( 'add', rules );
-				}
-			} );
-		}
-	}
-	
-
 	SectionField.prototype = object( Field.prototype );
 	SectionField.prototype.constructor = SectionField;
 	function SectionField( desc, options, id ) {
@@ -846,9 +1165,9 @@
 		}
 
 		for ( var i = 0; i < this.desc.fields.length; i++ ) {
-			if ( options.editable === true ) {
+			if ( options.editable === true && !options.staticFields ) {
 				//add an empty slot
-				this._createSlot( true ).appendTo( this.$div );
+				this._createSlot( 'yes' ).appendTo( this.$div );
 			}
 
 			var field = this.desc.fields[i],
@@ -858,15 +1177,22 @@
 				$.error( "field with invalid type: " + field.type );
 			}
 
+			var editable;
+			if ( options.editable === true ) {
+				editable = options.staticFields ? 'partial' : 'yes';
+			} else {
+				editable = 'no';
+			}
+
 			var f = new FieldConstructor( field, options ),
-				$slot = this._createSlot( options.editable === true, f );
+				$slot = this._createSlot( editable, f );
 			
 			$slot.appendTo( this.$div );
 		}
 		
-		if ( options.editable === true ) {
+		if ( options.editable === true && !options.staticFields ) {
 			//add an empty slot
-			this._createSlot( true ).appendTo( this.$div );
+			this._createSlot( 'yes' ).appendTo( this.$div );
 		}
 	}
 	
@@ -875,7 +1201,7 @@
 	};
 
 	SectionField.prototype.getDesc = function( useValuesAsDefaults ) {
-		var desc = this.desc;
+		var desc = clone( this.desc );
 		desc.fields = [];
 		this.$div.children().each( function( idx, slot ) {
 			var field = $( slot ).data( 'field' );
@@ -916,167 +1242,6 @@
 		return settings;
 	};
 
-	SectionField.prototype._createFieldDialog = function( params ) {
-		var self = this;
-		
-		if ( typeof params.callback != 'function' ) {
-			$.error( 'createFieldDialog: missing or wrong "callback" parameter' );
-		}
-		
-		var type, description, values;
-		if ( typeof params.description == 'undefined' && typeof params.type == 'undefined' ) {
-			//Create a dialog to choose the type of field to create
-			var selectOptions = [];
-			$.each( validFieldTypes, function( fieldType ) {
-				selectOptions.push( {
-					name: fieldType,
-					value: fieldType
-				} );
-			} );
-			
-			$( {
-				fields: [ {
-					'name': "type",
-					'type': "select",
-					'label': mw.msg( 'gadgets-formbuilder-editor-chose-field' ),
-					'options': selectOptions,
-					'default': selectOptions[0].value
-				} ]
-			} ).formBuilder( {} )
-				.submit( function() {
-					return false; //prevent form submission
-				} )
-				.dialog( {
-					width: 450,
-					modal: true,
-					resizable: false,
-					title: mw.msg( 'gadgets-formbuilder-editor-chose-field-title' ),
-					close: function() {
-						$( this ).remove();
-					},
-					buttons: [
-						{
-							text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
-							click: function() {
-								var values = $( this ).formBuilder( 'getValues' );
-								$( this ).dialog( "close" );
-								self._createFieldDialog( {
-									type: values.type,
-									oldDescription: params.oldDescription,
-									callback: params.callback
-								} );
-							}
-						},
-						{
-							text: mw.msg( 'gadgets-formbuilder-editor-cancel' ),
-							click: function() {
-								$( this ).dialog( "close" );
-							}
-						}
-					]
-				} );
-			
-			return;
-		} else {
-			type = params.type;
-			if ( typeof prefsDescriptionSpecifications[type] == 'undefined' ) {
-				$.error( 'createFieldDialog: invalid type: ' + type );
-			} else if ( typeof prefsDescriptionSpecifications[type] == 'function' ) {
-				var field = prefsDescriptionSpecifications[type]( this.options );
-				if ( params.callback( field ) === true ) {
-					$( this ).dialog( "close" );
-				}
-				return;
-			}
-			
-			//typeof prefsDescriptionSpecifications[type] == 'object'
-			
-			description = {
-				fields: prefsDescriptionSpecifications[type]
-			};
-		}
-		
-		if ( typeof params.values != 'undefined' ) {
-			values = params.values;
-		} else {
-			values = {};
-		}
-		
-		//Create the dialog to set field properties
-		var dlg = $( '<div/>' );
-		var form = $( description ).formBuilder( {
-			values: values
-		} ).submit( function() {
-			return false; //prevent form submission
-		} ).appendTo( dlg );
-		
-		dlg.dialog( {
-			modal: true,
-			width: 550,
-			resizable: false,
-			title: mw.msg( 'gadgets-formbuilder-editor-create-field-title' ),
-			close: function() {
-				$( this ).remove();
-			},
-			buttons: [
-				{
-					text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
-					click: function() {
-						var isValid = $( form ).formBuilder( 'validate' );
-							
-						if ( isValid ) {
-							var fieldDescription = $( form ).formBuilder( 'getValues' );
-							
-							if ( typeof type != 'undefined' ) {
-								//Remove properties that equal their default
-								$.each( description.fields, function( index, fieldSpec ) {
-									var property = fieldSpec.name;
-									if ( fieldDescription[property] === fieldSpec['default'] ) {
-										delete fieldDescription[property];
-									}
-								} );
-							}
-							
-							//Try to create the field. In case of error, warn the user.
-							fieldDescription.type = type;
-							
-							if ( typeof params.oldDescription != 'undefined' ) {
-								//If there are values in the old description that cannot be set by
-								//the dialog, don't lose them (e.g.: 'fields' member in composite fields).
-								$.each( params.oldDescription, function( key, value ) {
-									if ( typeof fieldDescription[key] == 'undefined' ) {
-										fieldDescription[key] = value;
-									}
-								} );
-							}
-							
-							var FieldConstructor = validFieldTypes[type];
-							var field;
-							
-							try {
-								field = new FieldConstructor( fieldDescription, self.options );
-							} catch ( err ) {
-								alert( "Invalid field options: " + err ); //TODO: i18n
-								return;
-							}
-
-							if ( params.callback( field ) === true ) {
-								$( this ).dialog( "close" );
-							}
-						}
-					}
-				},
-				{
-					text: mw.msg( 'gadgets-formbuilder-editor-cancel' ),
-					click: function() {
-						$( this ).dialog( "close" );
-						params.callback( null );
-					}
-				}
-			]
-		} );
-	};
-
 	SectionField.prototype._deleteSlot = function( $slot ) {
 		var field = $slot.data( 'field' );
 		if ( field !== undefined ) {
@@ -1093,7 +1258,7 @@
 			$slot = $( '<div/>' ).addClass( 'formbuilder-slot ui-widget' ),
 			$divButtons;
 		
-		if ( editable ) {
+		if ( editable == 'partial' || editable == 'yes' ) {
 			$slot.addClass( 'formbuilder-slot-editable' );
 
 			$divButtons = $( '<div/>' )
@@ -1106,26 +1271,29 @@
 			$slot.prepend( field.getElement() )
 				.data( 'field', field );
 			
-			if ( editable ) {
+			if ( editable == 'partial' || editable == 'yes' ) {
 				$slot.addClass( 'formbuilder-slot-nonempty' );
 
-				//Add the handle for moving slots
-				$( '<span />' )
-					.addClass( 'formbuilder-editor-button formbuilder-editor-button-move ui-icon ui-icon-arrow-4' )
-					.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-move' ) )
-					.mousedown( function() {
-						$( this ).focus();
-					} )
-					.appendTo( $divButtons );
+				if ( editable == 'yes' ) {
+					//Add the handle for moving slots
+					$( '<span />' )
+						.addClass( 'formbuilder-button formbuilder-editor-button-move ui-icon ui-icon-arrow-4' )
+						.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-move' ) )
+						.mousedown( function() {
+							$( this ).focus();
+						} )
+						.appendTo( $divButtons );
+				}
 				
 				//Add the button for changing existing slots
 				var type = field.getDesc().type;
-				if ( typeof prefsDescriptionSpecifications[type] != 'function' ) {
+				//TODO: using the 'builder' info is not optimal
+				if ( typeof prefsDescriptionSpecifications[type].builder != 'function' ) {
 					$( '<a href="javascript:;" />' )
-						.addClass( 'formbuilder-editor-button formbuilder-editor-button-edit ui-icon ui-icon-gear' )
+						.addClass( 'formbuilder-button formbuilder-editor-button-edit ui-icon ui-icon-gear' )
 						.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-edit-field' ) )
 						.click( function() {
-							self._createFieldDialog( {
+							createFieldDialog( {
 								type: field.getDesc().type,
 								values: field.getDesc(),
 								oldDescription: field.getDesc(),
@@ -1148,7 +1316,7 @@
 											return false;
 										}
 										
-										var $newSlot = self._createSlot( true, newField );
+										var $newSlot = self._createSlot( 'yes', newField );
 										
 										deleteFieldRules( field );
 										
@@ -1159,39 +1327,41 @@
 									}
 									return true;
 								}
-							} );
+							}, this.options );
 						} )
 						.appendTo( $divButtons );
 					}
 				
-				//Add the button to delete slots
-				$( '<a href="javascript:;" />' )
-					.addClass( 'formbuilder-editor-button formbuilder-editor-button-delete ui-icon ui-icon-trash' )
-					.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-delete-field' ) )
-					.click( function( event, ui ) {
-						//Make both slots disappear, then delete them 
-						$.each( [$slot, $slot.prev()], function( idx, $s ) {
-							$s.slideUp( function() {
-								self._deleteSlot( $s );
+				if ( editable == 'yes' ) {
+					//Add the button to delete slots
+					$( '<a href="javascript:;" />' )
+						.addClass( 'formbuilder-button formbuilder-editor-button-delete ui-icon ui-icon-trash' )
+						.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-delete-field' ) )
+						.click( function( event, ui ) {
+							//Make both slots disappear, then delete them 
+							$.each( [$slot, $slot.prev()], function( idx, $s ) {
+								$s.slideUp( function() {
+									self._deleteSlot( $s );
+								} );
 							} );
-						} );
-					} ) 
-					.appendTo( $divButtons );
+						} ) 
+						.appendTo( $divButtons );
 
-				//Make this slot draggable to allow moving it
-				$slot.draggable( {
-					revert: true,
-					handle: ".formbuilder-editor-button-move",
-					helper: "original",
-					zIndex: $slot.closest( '.formbuilder' ).zIndex() + 1000, //TODO: ugly, find a better way
-					scroll: false,
-					opacity: 0.8,
-					cursor: "move",
-					cursorAt: {
-						top: -5,
-						left: -5
-					}
-				} );
+					//Make this slot draggable to allow moving it
+					$slot.draggable( {
+						revert: true,
+						handle: ".formbuilder-editor-button-move",
+						helper: "original",
+						zIndex: $slot.closest( '.formbuilder' ).zIndex() + 1000, //TODO: ugly, find a better way
+						scroll: false,
+						opacity: 0.8,
+						cursor: "move",
+						cursorAt: {
+							top: -5,
+							left: -5
+						}
+					} );
+				}
 			}
 		} else {
 			//Create empty slot
@@ -1209,8 +1379,8 @@
 						$( dstSlot ).replaceWith( srcSlot );
 						
 						//Add one empty slot before and one after the new position
-						self._createSlot( true ).insertBefore( srcSlot );
-						self._createSlot( true ).insertAfter( srcSlot );
+						self._createSlot( 'yes' ).insertBefore( srcSlot );
+						self._createSlot( 'yes' ).insertAfter( srcSlot );
 					},
 					accept: function( draggable ) {
 						//All non empty slots accepted, except for closest siblings
@@ -1222,10 +1392,10 @@
 			
 			//The button to create a new field
 			$( '<a href="javascript:;" />' )
-				.addClass( 'formbuilder-editor-button formbuilder-editor-button-new ui-icon ui-icon-plus' )
+				.addClass( 'formbuilder-button formbuilder-editor-button-new ui-icon ui-icon-plus' )
 				.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-insert-field' ) )
 				.click( function() {
-					self._createFieldDialog( {
+					createFieldDialog( {
 						callback: function( field ) {
 							if ( field !== null ) {
 								//check that there are no duplicate preference names
@@ -1243,8 +1413,8 @@
 									return false;
 								}
 
-								var $newSlot = self._createSlot( true, field ).hide(),
-									$newEmptySlot = self._createSlot( true ).hide();
+								var $newSlot = self._createSlot( 'yes', field ).hide(),
+									$newEmptySlot = self._createSlot( 'yes' ).hide();
 								
 								$slot.after( $newSlot, $newEmptySlot );
 								
@@ -1259,7 +1429,7 @@
 							}
 							return true;
 						}
-					} );
+					}, self.options );
 				} )
 				.appendTo( $divButtons );
 		}
@@ -1309,7 +1479,7 @@
 					if ( options.editable === true ) {
 						//Add "delete section" button
 						$( '<span />' )
-							.addClass( 'formbuilder-editor-button formbuilder-editor-button-delete-section ui-icon ui-icon-trash' )
+							.addClass( 'formbuilder-button formbuilder-editor-button-delete-section ui-icon ui-icon-trash' )
 							.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-delete-section' ) )
 							.click( function() {
 								var sectionField = $( ui.panel ).data( 'field' );
@@ -1324,7 +1494,7 @@
 
 						//Add "edit section" button
 						$( '<span />' )
-							.addClass( 'formbuilder-editor-button formbuilder-editor-button-edit-section ui-icon ui-icon-gear' )
+							.addClass( 'formbuilder-button formbuilder-editor-button-edit-section ui-icon ui-icon-gear' )
 							.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-edit-section' ) )
 							.click( function() {
 								var button = this,
@@ -1339,7 +1509,8 @@
 								} ).formBuilder( {
 									values: {
 										title: sectionField.getDesc().title
-									}
+									},
+									idPrefix: 'section-edit-title-'
 								} ).dialog( {
 									modal: true,
 									resizable: false,
@@ -1391,7 +1562,7 @@
 		if ( options.editable === true ) {
 			//Add the button to create a new section
 			$( '<span>' )
-				.addClass( 'formbuilder-editor-button formbuilder-editor-button-new-section ui-icon ui-icon-plus' )
+				.addClass( 'formbuilder-button formbuilder-editor-button-new-section ui-icon ui-icon-plus' )
 				.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-new-section' ) )
 				.click( function() {
 					$( {
@@ -1400,7 +1571,7 @@
 							'type': "string",
 							'label': mw.msg( 'gadgets-formbuilder-editor-chose-title' )
 						} ]
-					} ).formBuilder( {} ).dialog( {
+					} ).formBuilder( { idPrefix: 'section-create-' } ).dialog( {
 						modal: true,
 						resizable: false,
 						title: mw.msg( 'gadgets-formbuilder-editor-chose-title-title' ),
@@ -1459,7 +1630,7 @@
 	};
 
 	BundleField.prototype.getDesc = function( useValuesAsDefaults ) {
-		var desc = this.desc;
+		var desc = clone( this.desc );
 		desc.sections = [];
 		this.$ui_tabs_nav.find( 'a' ).each( function( idx, anchor ) {
 			var panel = $( anchor ).data( 'panel' ),
@@ -1503,7 +1674,7 @@
 		
 		//TODO: add something to easily visually identify 'composite' fields during editing
 		
-		var sectionOptions = $.extend( {}, options );
+		var sectionOptions = clone( options );
 		
 		//Add another chunk to the prefix, to ensure uniqueness
 		sectionOptions.idPrefix += desc.name + '-';
@@ -1517,7 +1688,7 @@
 	}
 
 	CompositeField.prototype.getDesc = function( useValuesAsDefaults ) {
-		var desc = this.desc;
+		var desc = clone( this.desc );
 		desc.fields = this._section.getDesc( useValuesAsDefaults ).fields;
 		return desc;
 	};
@@ -1531,6 +1702,155 @@
 	};	
 
 	validFieldTypes["composite"] = CompositeField;
+
+	/* A field for 'composite' fields */
+
+	ListField.prototype = object( EmptyField.prototype );
+	ListField.prototype.constructor = ListField;
+	function ListField( desc, options ) {
+		EmptyField.call( this, desc, options );
+		
+		if ( typeof desc.field != 'object' ) {
+			$.error( "The 'field' parameter is missing or wrong" );
+		}
+
+		if ( typeof desc.field.name != 'undefined' ) {
+			$.error( "The 'field' parameter must not specify the field 'name'" );
+		}
+
+		if ( ( typeof desc.field.type != 'string' )
+			|| prefsDescriptionSpecifications[desc.field.type].simple !== true )
+		{
+			$.error( "Missing or invalid field type specified in 'field' parameter." );
+		}
+		
+		this._$divItems = $( '<div/>' ).addClass( 'formbuilder-list-items' );
+		
+		if ( typeof options.values == 'undefined' ) {
+			options.values = {};
+		}
+		
+		var value = ( typeof options.values[desc.name] != 'undefined' ) ? options.values[desc.name] : desc['default'];
+		var self = this;
+		if ( typeof value != 'undefined' ) {
+			$.each( value, function( index, itemValue ) {
+				self._createItem( false, itemValue );
+			} );
+		}
+		
+		this._$divItems.sortable( {
+				axis: 'y',
+				items: '.formbuilder-list-item',
+				handle: '.formbuilder-list-button-move',
+				placeholder: 'ui-state-highlight',
+				forcePlaceholderSize: true
+			} )
+			.appendTo( this.$div );
+		
+		$( '<a href="javascript:;" />' )
+			.addClass( 'formbuilder-button formbuilder-list-button-new ui-icon ui-icon-plus' )
+			.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-insert-field' ) )
+			.click( function() {
+				self._createItem( true );
+			} )
+			.appendTo( this.$div );
+	}
+
+	ListField.prototype._createItem = function( animated, itemValue ) {
+		var itemDesc = $.extend( {}, this.desc.field, {
+				"name": this.desc.name
+			} );
+		var itemOptions = $.extend( {}, this.options, {
+				editable: false,
+				idPrefix: this.options.idPrefix + getIncrementalCounter() + "-"
+			} );
+
+		if ( typeof itemValue != 'undefined' ) {
+			itemOptions.values = pair( this.desc.name, itemValue );
+		} else {
+			itemOptions.values = pair( this.desc.name, this.desc.field['default'] );
+		}
+
+		var FieldConstructor = validFieldTypes[this.desc.field.type];
+		var itemField = new FieldConstructor( itemDesc, itemOptions );
+		var	$itemDiv = $( '<div/>' )
+			.addClass( 'formbuilder-list-item' )
+			.data( 'field', itemField );
+
+		var $itemContent = $( '<div/>' )
+			.addClass( 'formbuilder-list-item-content' )
+			.append( itemField.getElement() );
+		
+		$( '<div/>' )
+			.addClass( 'formbuilder-list-item-container' )
+			.append( $itemContent )
+			.appendTo( $itemDiv );
+		
+		var $itemButtons = $( '<div/>' )
+			.addClass( 'formbuilder-list-item-buttons' );
+		
+
+		$( '<span/>' )
+			.addClass( 'formbuilder-button formbuilder-list-button-delete ui-icon ui-icon-trash' )
+			.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-delete' ) )
+			.click( function() {
+				$itemDiv.slideUp( function() {
+					deleteFieldRules( itemField );
+					$itemDiv.remove();
+				} );
+			} )
+			.appendTo( $itemButtons );
+		
+		$( '<span/>' )
+			.addClass( 'formbuilder-button formbuilder-list-button-move ui-icon ui-icon-arrow-4' )
+			.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-move' ) )
+			.appendTo( $itemButtons );
+
+		$itemButtons.appendTo( $itemDiv );
+
+		//Add an empty div with clear:both style
+		$itemDiv.append( $('<div style="clear:both"></div>' ) );
+		
+		if ( animated ) {
+			$itemDiv.hide()
+				.appendTo( this._$divItems )
+				.slideDown();
+		} else {
+			$itemDiv.appendTo( this._$divItems );
+		}
+	};
+
+	ListField.prototype.getDesc = function( useValuesAsDefaults ) {
+		var desc = clone( this.desc );
+		if ( useValuesAsDefaults ) {
+			desc['default'] = this.getValues()[this.desc.name];
+		}
+		return desc;
+	};
+
+	ListField.prototype.getValues = function() {
+		var value = [];
+		this._$divItems.children().each( function( index, divItem ) {
+			var field = $( divItem ).data( 'field' );
+			$.each( field.getValues(), function( name, v ) {
+				value.push( v );
+			} );
+		} );
+		
+		return pair( this.desc.name, value );
+	};
+	
+	ListField.prototype.getValidationSettings = function() {
+		var validationSettings = {};
+		this._$divItems.children().each( function( index, divItem ) {
+			var field = $( divItem ).data( 'field' );
+			$.extend( true, validationSettings, field.getValidationSettings() );
+		} );
+		return validationSettings;
+	};
+
+	validFieldTypes["list"] = ListField;
+
 
 	/* Public methods */
 	
@@ -1559,7 +1879,8 @@
 			idPrefix: options.idPrefix,
 			msgPrefix: options.msgPrefix,
 			values: options.values,
-			editable: options.editable === true
+			editable: options.editable === true,
+			staticFields: options.staticFields === true
 		} );
 		
 		section.getElement().appendTo( $form );

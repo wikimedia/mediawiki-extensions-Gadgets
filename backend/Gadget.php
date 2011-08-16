@@ -113,9 +113,10 @@ class Gadget {
 			if ( isset( $prefsDescriptionJson ) ) {
 				$prefsDescription = FormatJson::decode( $prefsDescriptionJson, true );
 				$gadget->setPrefsDescription( $prefsDescription );
-				
-				//Load default gadget preferences. Only useful for anonymous users
-				$gadget->setPrefs( GadgetPrefs::getDefaults( $prefsDescription ) );
+				if ( $gadget->getPrefsDescription() !== null ) {
+					//Load default gadget preferences. Only useful for anonymous users
+					$gadget->setPrefs( GadgetPrefs::getDefaults( $prefsDescription ) );
+				}
 			}
 		}
 		
