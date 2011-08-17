@@ -979,15 +979,86 @@
 		};
 
 		if ( typeof value != 'undefined' ) {
-			rangeOptions['value'] = value;
+			rangeOptions.value = value;
 		}
 
 		if ( typeof this.desc.step != 'undefined' ) {
-			rangeOptions['step'] = this.desc.step;
+			rangeOptions.step = this.desc.step;
 		}
 
-		$slider.slider( rangeOptions );
+		//A tooltip to show current value.
+		//TODO: use jQuery UI tooltips when they are released (in 1.9)
+		var $tooltip = $( '<div/>' )
+			.addClass( 'formBuilder-slider-tooltip ui-widget ui-corner-all ui-widget-content' )
+			.css( {
+				position: 'absolute',
+				display: 'none'
+			} )
+			.appendTo( this.$div );
 
+		var tooltipShown = false, sliding = false, mouseOver = false;
+		
+		function refreshTooltip( visible, handle, value ) {
+			if ( !tooltipShown && visible ) {
+				$tooltip.fadeIn( 'fast' );
+				tooltipShown = true;
+			} else if ( tooltipShown && !visible ) {
+				$tooltip.fadeOut( 'fast' );
+				tooltipShown = false;
+			}
+			
+			$tooltip
+				.zIndex( $( handle ).parent().zIndex() + 1 )
+				.text( value )
+				.position( {
+					my: "bottom",
+					at: "top",
+					of: handle
+				} );
+		}
+
+		$.extend( rangeOptions, {
+			start: function( event, ui ) {
+				sliding = true;
+			},
+			slide: function( event, ui ) {
+				//Deferring to allow the widget to refresh his position
+				setTimeout( function() {
+					refreshTooltip( true, $slider.find( '.ui-slider-handle' ), ui.value );
+				}, 1 );
+			},
+			stop: function( event, ui ) {
+				setTimeout( function() {
+					if ( !$handle.is( ':focus' ) && !mouseOver) {
+						refreshTooltip( false, $slider.find( '.ui-slider-handle' ), ui.value );
+					}
+				}, 300 );
+				sliding = false;
+			}
+		} );
+
+		$slider.slider( rangeOptions );
+		
+		var $handle = $slider.find( '.ui-slider-handle' )
+			.focus( function( event ) {
+				refreshTooltip( true, $handle, $slider.slider( 'value' ) );
+			} )
+			.blur( function( event ) {
+				refreshTooltip( false, $handle, $slider.slider( 'value' ) );
+			} )
+			.mouseenter( function( event ) {
+				mouseOver = true;
+				refreshTooltip( true, $handle, $slider.slider( 'value' ) );
+			} )
+			.mouseleave( function( event ) {
+				setTimeout( function() {
+					if ( !$handle.is( ':focus' ) && !sliding ) {
+						refreshTooltip( false, $handle, $slider.slider( 'value' ) );
+					}
+				}, 1 );
+				mouseOver = false;
+			} );
+			
 		this.$div.append( $slider );
 	}
 	

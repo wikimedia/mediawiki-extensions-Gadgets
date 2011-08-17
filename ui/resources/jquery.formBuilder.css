@@ -26,6 +26,16 @@
 	width: 50%;
 }
 
+.formBuilder-slider-tooltip {
+    padding: 2px;
+    min-width: 20px;
+    text-align: center;
+    -o-box-shadow: 0 0 3px #aaa;
+    -moz-box-shadow: 0 0 3px #aaa;
+    -webkit-box-shadow: 0 0 3px #aaa;
+    box-shadow: 0 0 3px #aaa;
+}
+
 .formbuilder select {
 	width: 40%;
 }
