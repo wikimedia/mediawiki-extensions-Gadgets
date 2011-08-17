@@ -891,6 +891,125 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 	
 
 	/**
+	 * Tests GadgetPrefs::simplifyPrefs.
+	 */
+	function testSimplifyPrefs() {
+		$prefsDescription = array(
+			'fields' => array(
+				array(
+					'type' => 'boolean',
+					'name' => 'foo',
+					'label' => 'some label',
+					'default' => true
+				),
+				array(
+					'type' => 'bundle',
+					'sections' => array(
+						array(
+							'name' => 'Section 1',
+							'fields' => array(
+								array(
+									'type' => 'boolean',
+									'name' => 'bar',
+									'label' => 'dummy label',
+									'default' => false
+								),
+							)
+						),
+						array(
+							'name' => 'Section 2',
+							'fields' => array(
+								array(
+									'type' => 'string',
+									'name' => 'baz',
+									'label' => 'A string',
+									'default' => 'qwerty'
+								)
+							)
+						)
+					)
+				),
+				array(
+					'type' => 'composite',
+					'name' => 'cmp',
+					'fields' => array(
+						array(
+							'type' => 'number',
+							'name' => 'aNumber',
+							'label' => 'A number',
+							'default' => 3.14
+						),
+						array(
+							'type' => 'color',
+							'name' => 'aColor',
+							'label' => 'A color',
+							'default' => '#a023e2'
+						)
+					)
+				),
+				array(
+					'type' => 'list',
+					'name' => 'aList',
+					'default' => array( 2, 3, 5, 7 ),
+					'field' => array(
+						'type' => 'range',
+						'label' => 'A range',
+						'min' => 0,
+						'max' => 256,
+						'default' => 128
+					)
+				)
+			)
+		);
+		
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $prefsDescription ) );
+		
+		$prefs = array(
+			'foo' => true, //=default
+			'bar' => true,
+			'baz' => 'asdfgh',
+			'cmp' => array(
+				'aNumber' => 2.81,
+				'aColor' => '#a023e2' //=default
+			),
+			'aList' => array( 2, 3, 5, 9 )
+		);
+		
+		GadgetPrefs::simplifyPrefs( $prefsDescription, $prefs );
+		$this->assertEquals(
+			$prefs,
+			array(
+				'bar' => true,
+				'baz' => 'asdfgh',
+				'cmp' => array(
+					'aNumber' => 2.81,
+				),
+				'aList' => array( 2, 3, 5, 9 )
+			)
+		);
+		
+
+		$prefs = array(
+			'foo' => false,
+			'bar' => false, //=default
+			'baz' => 'asdfgh',
+			'cmp' => array(
+				'aNumber' => 3.14, //=default
+				'aColor' => '#a023e2' //=default
+			),
+			'aList' => array( 2, 3, 5, 7 ) //=default
+		);
+		GadgetPrefs::simplifyPrefs( $prefsDescription, $prefs );
+		$this->assertEquals(
+			$prefs,
+			array(
+				'foo' => false,
+				'baz' => 'asdfgh'
+			)
+		);
+	}
+
+	/**
 	 * Tests GadgetPrefs::getMessages.
 	 *
 	 * @dataProvider prefsDescProvider

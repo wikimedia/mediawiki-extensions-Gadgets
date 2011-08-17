@@ -30,6 +30,10 @@ class GadgetPrefs {
 	 *   an array of preference values $prefs and the name of a preference $preferenceName and returns an array where
 	 *   $prefs[$prefName] is changed in a way that passes validation. If omitted, the default action is to set $prefs[$prefName]
 	 *   to $prefDescription['default'].
+	 * - 'simplifier', only for "simple" fields, is an optional function that takes two arguments, a valid description
+	 *   of a field $prefDescription, and an array of preference values $prefs; it returns an array where the preference
+	 *   encoded by $prefDescription is removed if it is equal to default. If omitted, the preference is omitted if it
+	 *   equals $prefDescription['default'].
 	 * - 'getDefault', only for "simple" fields, if a function che takes one argument, the description of the field, and
 	 *   returns its default value; if omitted, the value of the 'default' field is returned.
 	 * - 'getMessages', if specified, is the name of a function that takes a valid description of a field and returns
@@ -235,7 +239,8 @@ class GadgetPrefs {
 			'getMessages' => 'GadgetPrefs::getCompositeMessages',
 			'getDefault' => 'GadgetPrefs::getCompositeDefault',
 			'checker' => 'GadgetPrefs::checkCompositePref',
-			'matcher' => 'GadgetPrefs::matchCompositePref'
+			'matcher' => 'GadgetPrefs::matchCompositePref',
+			'simplifier' => 'GadgetPrefs::simplifyCompositePref'
 		),
 		'list' => array(
 			'description' => array(
@@ -912,6 +917,44 @@ class GadgetPrefs {
 	public static function getDefaults( $prefsDescription ) {
 		$prefs = array();
 		self::matchPrefsWithDescription( $prefsDescription, $prefs );
+		return $prefs;
+	}
+	
+	/**
+	 * Removes from $prefs all preferences that don't need to be saved, because
+	 * they are equal to their default value.
+	 * It is assumed that $prefsDescription is a valid description of preferences.
+	 * 
+	 * @param $prefsDescription Array: the preferences description to use.
+	 * @param &$prefs Array: reference of the array of preferences to simplify.
+	 */
+	public static function simplifyPrefs( $prefsDescription, &$prefs ) {
+		$flattenedPrefs = self::flattenPrefsDescription( $prefsDescription );
+		
+		foreach( $flattenedPrefs as $prefName => $prefDescription ) {
+			$type = $prefDescription['type'];
+			
+			if ( isset( self::$prefsDescriptionSpecifications[$type]['simplifier'] ) ) {
+				$simplify = self::$prefsDescriptionSpecifications[$type]['simplifier'];
+				$prefs = call_user_func( $simplify, $prefDescription, $prefs );
+			} else {
+				$prefDefault = $prefDescription['default'];
+				if ( $prefs[$prefName] === $prefDefault ) {
+					unset( $prefs[$prefName] );
+				}
+			}
+		}
+	}
+	
+	//Simplifier for 'composite' type fields
+	private static function simplifyCompositePref( $prefDescription, $prefs ) {
+		$name = $prefDescription['name'];
+		if ( array_key_exists( $name, $prefs ) ) {
+			self::simplifyPrefs( $prefDescription, $prefs[$name] );
+			if ( count( $prefs[$name] ) == 0 ) {
+				unset( $prefs[$name] );
+			}
+		}
 		return $prefs;
 	}
 	
