@@ -242,6 +242,15 @@ $messages['ba'] = array(
 	'gadgets-export-download' => 'Күсереп алырға',
 );
 
+/** Bavarian (Boarisch)
+ * @author Mucalexx
+ */
+$messages['bar'] = array(
+	'gadgets' => 'Gadgets (Helferlein)',
+	'gadgets-title' => 'Gadgets (Helferlein)',
+	'gadgets-export-download' => 'Owerloon',
+);
+
 /** Southern Balochi (بلوچی مکرانی)
  * @author Mostafadaneshvar
  */
@@ -1011,6 +1020,7 @@ $messages['he'] = array(
 
 /** Hindi (हिन्दी)
  * @author Kaustubh
+ * @author Mayur
  * @author Shyam
  */
 $messages['hi'] = array(
@@ -1027,6 +1037,7 @@ $messages['hi'] = array(
 	'gadgets-pagetext' => 'नीचे विशेष जुगतों कि सूची दी गई है, जिन्हें सदस्य [[MediaWiki:Gadgets-definition]] की परिभाषा के अनुसार, अपने वरीयता पृष्ठ में सक्षम कर सकते हैं।
 यह समीक्षा तंत्र संदेश पृष्ठों तक पहुँचने का आसान मार्ग प्रदान करती है, जो की प्रत्येक जुगत के वर्णन एवं कूट भाषा को परिभाषित करते हैं।',
 	'gadgets-uses' => 'उपयोग',
+	'gadgets-default' => 'डिफ़ॉल्ट रूप से सभी के लिए सक्षम है।',
 );
 
 /** Croatian (Hrvatski)
@@ -2089,7 +2100,7 @@ $messages['rue'] = array(
 	'gadgets-export-download' => 'Скачати',
 );
 
-/** Yakut (Саха тыла)
+/** Sakha (Саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
