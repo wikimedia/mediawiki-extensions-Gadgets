@@ -131,14 +131,15 @@ class GadgetHooks {
 		//Register the ext.gadgets.preferences module
 		//TODO: fix caching issues for user-defined messages
 		$resourceLoader->register( 'ext.gadgets.preferences', array(
-			'scripts' 		=> array( 'ext.gadgets.preferences.js' ),
-			'dependencies' 	=> array(
+			'scripts'       => array( 'ext.gadgets.preferences.js' ),
+			'styles'        => array( 'ext.gadgets.preferences.css' ),
+			'dependencies'  => array(
 				'jquery', 'jquery.json', 'jquery.ui.dialog', 'jquery.formBuilder',
 				'mediawiki.htmlform', 'ext.gadgets'
 			),
 			'messages'      => array_merge( $messages, array(
-				'gadgets-configure', 'gadgets-configuration-of', 'gadgets-prefs-save', 'gadgets-prefs-cancel',
-				'gadgets-unexpected-error', 'gadgets-save-success', 'gadgets-save-failed'
+				'gadgets-configure', 'gadgets-configuration-of', 'gadgets-prefs-save', 'gadgets-prefs-close',
+				'gadgets-unexpected-error', 'gadgets-save-invalid', 'gadgets-save-success', 'gadgets-save-failed'
 			) ),
 			'localBasePath' => dirname( dirname( __FILE__ ) ) . '/ui/resources/',
 			'remoteExtPath' => 'Gadgets/ui/resources'

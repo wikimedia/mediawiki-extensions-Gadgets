@@ -599,6 +599,20 @@
 		return new F();
 	}
 
+	//Add a "smart" listener to watch for changes to an <input /> element
+	//This binds to several events, but calls the callback only if the value actually changed
+	function addSmartChangeListener( $input, callback ) {
+		var oldValue = $input.val();
+		//bind all events that may change the value of the field (some are brower-specific)
+		$input.bind( 'keyup change propertychange input paste', function() {
+			var newValue = $input.val();
+			if ( oldValue !== newValue ) {
+				oldValue = newValue;
+				callback();
+			}
+		} );
+	}
+
 	/* Basic interface for fields */
 	function Field( desc, options ) {
 		if ( typeof options.idPrefix == 'undefined' ) {
@@ -721,6 +735,12 @@
 			name: this.options.idPrefix + this.desc.name
 		} );
 
+		if ( options.change ) {
+			this.$c.change( function() {
+				options.change()
+			} );
+		}
+
 		var value = options.values && options.values[this.desc.name];
 		if ( typeof value != 'undefined' ) {
 			if ( typeof value != 'boolean' ) {
@@ -764,7 +784,7 @@
 			id: this.options.idPrefix + this.desc.name,
 			name: this.options.idPrefix + this.desc.name
 		} );
-		
+
 		var value = options.values && options.values[this.desc.name];
 		if ( typeof value != 'undefined' ) {
 			if ( typeof value != 'string' ) {
@@ -772,6 +792,11 @@
 			}
 			
 			this.$text.val( value );
+		}
+
+		//Add the change event listener
+		if ( options.change ) {
+			addSmartChangeListener( this.$text, options.change );
 		}
 
 		this.$div.append( this.$text );
@@ -847,6 +872,11 @@
 			}
 			
 			this.$text.val( value );
+		}
+
+		//Add the change event listener
+		if ( options.change ) {
+			addSmartChangeListener( this.$text, options.change );
 		}
 
 		this.$div.append( this.$text );
@@ -928,6 +958,13 @@
 			$select.val( i ).prop( 'selected', 'selected' );
 		}
 
+		//Add the change event listener
+		if ( options.change ) {
+			$select.change( function() {
+				options.change();
+			} );
+		}
+
 		this.$div.append( $select );
 	}
 	
@@ -973,17 +1010,17 @@
 		var $slider = this.$slider = $( '<div/>' )
 			.attr( 'id', this.options.idPrefix + this.desc.name );
 
-		var rangeOptions = {
+		var sliderOptions = {
 			min: this.desc.min,
 			max: this.desc.max
 		};
 
 		if ( typeof value != 'undefined' ) {
-			rangeOptions.value = value;
+			sliderOptions.value = value;
 		}
 
 		if ( typeof this.desc.step != 'undefined' ) {
-			rangeOptions.step = this.desc.step;
+			sliderOptions.step = this.desc.step;
 		}
 
 		//A tooltip to show current value.
@@ -1017,7 +1054,7 @@
 				} );
 		}
 
-		$.extend( rangeOptions, {
+		$.extend( sliderOptions, {
 			start: function( event, ui ) {
 				sliding = true;
 			},
@@ -1034,10 +1071,15 @@
 					}
 				}, 300 );
 				sliding = false;
+			},
+			change: function( event, ui ) {
+				if ( options.change ) {
+					options.change();
+				}
 			}
 		} );
 
-		$slider.slider( rangeOptions );
+		$slider.slider( sliderOptions );
 		
 		var $handle = $slider.find( '.ui-slider-handle' )
 			.focus( function( event ) {
@@ -1074,7 +1116,7 @@
 	function DateField( desc, options ){ 
 		SimpleField.call( this, desc, options );
 
-		this.$text = $( '<input/>' )
+		var $text = this.$text = $( '<input/>' )
 			.attr( {
 				type: 'text',
 				id: this.options.idPrefix + this.desc.name,
@@ -1083,6 +1125,8 @@
 				onSelect: function() {
 					//Force validation, so that a previous 'invalid' state is removed
 					$( this ).valid();
+					//trigger change event on the textbox
+					$text.trigger( 'change' );
 				}
 			} );
 
@@ -1096,6 +1140,11 @@
 			}
 
 			this.$text.datepicker( 'setDate', date );
+		}
+
+		//Add the change event listener
+		if ( options.change ) {
+			addSmartChangeListener( this.$text, options.change );
 		}
 
 		this.$div.append( this.$text );
@@ -1195,6 +1244,11 @@
 				$( this ).valid();
 			} )
 			.blur( closeColorPicker );
+
+		//Add the change event listener
+		if ( options.change ) {
+			addSmartChangeListener( this.$text, options.change );
+		}
 
 		this.$div.append( this.$text );
 	}
@@ -1929,7 +1983,18 @@
 	 * Main method; takes the given preferences description object and builds
 	 * the body of the form with the requested fields.
 	 * 
-	 * @param {Object} options
+	 * @param {Object} options options to set properties of the form and to change its behaviour.
+	 *     Valid options:
+	 *         idPrefix: compulsory, a unique prefix for all ids of elements created by formBuilder, to avoid conflicts.
+	 *         msgPrefix: compulsory, a prefix to be added to all messages referred to by the description.
+	 *         values: optional, a map of values of preferences; if omitted, default values will be used.
+	 *         editable: optional, defaults to false; true if the form must be editable via the UI; used by the preferences editor.
+	 *         staticFields: optional, defaults to false; ignored if editable is not true. If both editable and staticFields are true,
+	 *                       insertion or removal of fields is not allowed, but changing field properties is. Used by the preferences
+	 *                       editor.
+	 *         change: optional, a function that will be called back if the value of a field changes (it's not strictly warranted that
+	 *                 a field value has actually changed).
+	 *
 	 * @return {Element} the object with the requested form body.
 	 */
 	function buildFormBody( options ) {		
@@ -1946,16 +2011,10 @@
 			return null;
 		}
 
-		var section = new SectionField( description, { 
-			idPrefix: options.idPrefix,
-			msgPrefix: options.msgPrefix,
-			values: options.values,
-			editable: options.editable === true,
-			staticFields: options.staticFields === true
-		} );
-		
+		var section = new SectionField( description, options );
 		section.getElement().appendTo( $form );
 
+		//Initialize validator
 		var validator = $form.validate( section.getValidationSettings() );
 
 		$form.data( 'formBuilder', {

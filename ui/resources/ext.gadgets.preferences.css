@@ -1,0 +1,17 @@
+/*
+ * Styles for ext.gadgets.preferences module
+ */
+
+#mw-gadgets-prefsDialog-message {
+	float: right;
+	padding: 4px;
+	margin: 4px 25px 4px 4px;
+	-o-box-shadow: 2px 2px 4px 3px #aaaaaa;
+	-webkit-box-shadow: 2px 2px 3px 3px #aaaaaa;
+	-moz-box-shadow: 2px 2px 3px 3px #aaaaaa;
+	box-shadow: 2px 2px 3px 3px #aaaaaa;
+	-o-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}

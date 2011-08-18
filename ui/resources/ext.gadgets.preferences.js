@@ -2,10 +2,81 @@
  * JavaScript tweaks for Special:Preferences
  */
 ( function( $, mw ) {
+
+	//Deep comparison of two objects. It assumes that the two objects
+	//have the same keys (recursively).
+	function deepEquals( a, b ) {
+		if ( a === b ) {
+			return true;
+		}
+		
+		if ( $.isArray( a ) ) {
+			if ( !$.isArray( b ) || a.length != b.length ) {
+				return false;
+			}
+			
+			for ( var i = 0; i < a.length; i++ ) {
+				if ( !deepEquals( a[i], b[i] ) ) {
+					return false;
+				}
+			}
+		} else {
+			if ( typeof a != 'object' || typeof b != 'object' ) {
+				return false;
+			}
+			
+			for ( var key in a ) {
+				if ( a.hasOwnProperty( key ) ) {
+					if ( !deepEquals( a[key], b[key] ) ) {
+						return false;
+					}
+				}
+			}
+		}
+		return true;
+	}
+	
+	//Deletes a stylesheet object
+	function removeStylesheet( styleSheet ) {
+		var owner =
+			styleSheet.ownerNode ?
+			styleSheet.ownerNode :   //not-IE or IE >= 9
+			styleSheet.owningElement //IE < 9
+		owner.parentNode.removeChild( owner );
+	} 
+
+	//Shows a message in the bottom of the dialog, with fading
+	function showMsg( msg ) {
+		if ( msg === null ) {
+			$( '#mw-gadgets-prefsDialog-message' ).fadeTo( 200, 0 );
+		} else {
+			$( '#mw-gadgets-prefsDialog-message' )
+				.text( msg )
+				.fadeTo( 200, 1 );
+		}
+	}
 	
 	//"Save" button click handler
 	function saveConfig( $dialog, gadget, config ) {
 		var prefsJson = $.toJSON( config );
+		
+		//disable all dialog buttons
+		$( '#mw-gadgets-prefsDialog-close, #mw-gadgets-prefsDialog-save' ).button( 'disable' );
+		
+		//Set cursor to "wait" for all elements; save the stylesheet so it can be removed later
+		var waitCSS = mw.util.addCSS( '* { cursor: wait !important; }' );
+		
+		//just to avoid code duplication
+		function error() {
+			//Remove "wait" cursor
+			removeStylesheet( waitCSS )
+			
+			//Warn the user
+			showMsg( mw.msg( 'gadgets-save-failed' ) );
+
+			//Enable all dialog buttons
+			$( '#mw-gadgets-prefsDialog-close, #mw-gadgets-prefsDialog-save' ).button( 'enable' );
+		}
 		
 		$.ajax( {
 			url: mw.config.get( 'wgScriptPath' ) + '/api.php',
@@ -20,15 +91,21 @@
 			dataType: "json",
 			success: function( response ) {
 				if ( typeof response.error == 'undefined' ) {
-					alert( mw.msg( 'gadgets-save-success' ) );
-					$dialog.dialog( 'close' );
+					//Remove "wait" cursor
+					removeStylesheet( waitCSS )
+			
+					//Notify success to user
+					showMsg( mw.msg( 'gadgets-save-success' ) );
+
+					//enable cancel button (leaving 'save' disabled)
+					$( '#mw-gadgets-prefsDialog-close' ).button( 'enable' );
+					//update 'savedConfig'
+					$dialog.data( 'savedValues', config );
 				} else {
-					alert( mw.msg( 'gadgets-save-failed' ) );
+					error()
 				}
 			},
-			error: function( response ) {
-				alert( mw.msg( 'gadgets-save-failed' ) );
-			}
+			error: error
 		} );
 	}
 	
@@ -66,22 +143,45 @@
 							
 							//Create and show dialog
 							
-							var prefsDescription = response.description;
-							var values = response.values;
+							var prefsDescription = response.description,
+								values = response.values,
+								$dialogBody;
 							
-							var dialogBody = $( prefsDescription ).formBuilder( {
+							var $form = $( prefsDescription ).formBuilder( {
 								msgPrefix: "Gadget-" + gadget + "-",
 								idPrefix: "gadget-" + gadget + "-preferences-",
-								values: values
+								values: values,
+								change: function() {
+									//Hide current message, if any
+									showMsg( null );
+									
+									var savedValues = $dialogBody.data( 'savedValues' ),
+										currentValues = $form.formBuilder( 'getValues' );
+									//TODO: use a better way of comparing values...
+									if ( !deepEquals( currentValues, savedValues ) ) {
+										$( '#mw-gadgets-prefsDialog-save' ).button( 'enable' );
+									} else {
+										$( '#mw-gadgets-prefsDialog-save' ).button( 'disable' );
+									}
+								}
 							} );
 							
-							$( dialogBody ).submit( function() {
+							$form.submit( function() {
 								return false; //prevent form submission
 							} );
 							
-							$( dialogBody ).attr( 'id', 'mw-gadgets-prefsDialog' );
+							$dialogBody = $( '<div/>' )
+								.attr( 'id', 'mw-gadgets-prefsDialog' )
+								.append( $form )
+								.data( 'savedValues', values );
 							
-							$( dialogBody ).dialog( {
+							//Add a div to show messages
+							$( '<div>&nbsp;</div>' )
+								.attr( 'id', 'mw-gadgets-prefsDialog-message' )
+								.css( 'opacity', 0 )  //starts invisible
+								.appendTo( $dialogBody );
+							
+							$dialogBody.dialog( {
 								modal: true,
 								width: 550,
 								resizable: false,
@@ -92,18 +192,22 @@
 								buttons: [
 									//TODO: add a "Restore defaults" button
 									{
+										id: 'mw-gadgets-prefsDialog-save',
 										text: mw.msg( 'gadgets-prefs-save' ),
+										disabled: true,
 										click: function() {
-											var isValid = $( dialogBody ).formBuilder( 'validate' );
-											
+											var isValid = $form.formBuilder( 'validate' );
 											if ( isValid ) {
-												var values = $( dialogBody ).formBuilder( 'getValues' );
-												saveConfig( $( this ), gadget, values );
+												var currentValues = $form.formBuilder( 'getValues' );
+												saveConfig( $( this ), gadget, currentValues );
+											} else {
+												showMsg( mw.msg( 'gadgets-save-invalid' ) );
 											}
 										}
 									},
 									{
-										text: mw.msg( 'gadgets-prefs-cancel' ),
+										id: 'mw-gadgets-prefsDialog-close',
+										text: mw.msg( 'gadgets-prefs-close' ),
 										click: function() {
 											$( this ).dialog( "close" );
 										}
