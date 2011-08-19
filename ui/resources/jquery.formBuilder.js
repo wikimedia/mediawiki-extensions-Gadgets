@@ -914,7 +914,7 @@
 		var	value = options.values && options.values[this.desc.name],
 			date;
 		if ( typeof value != 'undefined' && value !== null ) {
-			date = new Date( value );
+			date = this._parseDate( value );
 			
 			if ( !isFinite( date ) ) {
 				$.error( "value is invalid" );
@@ -932,6 +932,39 @@
 	}
 	DateField.prototype = Object.create( SimpleField.prototype );
 	DateField.prototype.constructor = DateField;
+	
+	//Parses a date in the [YYYY]-[MM]-[DD]T[hh]:[mm]:[ss]Z format, returns a date object
+	//Used to avoid the "new Date( dateString )" constructor, which is implementation-specific.
+	DateField.prototype._parseDate = function( str ) {
+		var	date,
+			parts = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})Z$/.exec( str );
+		
+		if ( parts === null ) {
+			return new Date( NaN );
+		}
+		
+		var	year = parseInt( parts[1], 10 ),
+			month = parseInt( parts[2], 10 ) - 1,
+			day = parseInt( parts[3], 10 ),
+			h = parseInt( parts[4], 10 ),
+			m = parseInt( parts[5], 10 ),
+			s = parseInt( parts[6], 10 );
+		
+		date = new Date();
+		date.setUTCFullYear( year, month, day );
+		date.setUTCHours( h );
+		date.setUTCMinutes( m );
+		date.setUTCSeconds( s );
+		
+		//Check if the date was actually correct, since the date handling functions may wrap around invalid dates
+		if ( date.getUTCFullYear() !== year || date.getUTCMonth() !== month || date.getUTCDate() !== day ||
+			date.getUTCHours() !== h || date.getUTCMinutes() !== m || date.getUTCSeconds() !== s )
+		{
+			return new Date( NaN );
+		}
+		
+		return date;
+	};
 	
 	DateField.prototype.getValues = function() {
 		var	d = this.$text.datepicker( 'getDate' ),
