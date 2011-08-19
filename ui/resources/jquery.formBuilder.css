@@ -9,6 +9,7 @@
 	text-align: right;
 	margin-right: 2%;
 	width: 45%;
+	vertical-align: middle;
 }
 
 .formbuilder label.error {
@@ -17,11 +18,16 @@
 	font-size: 90%;
 }
 
+.formbuilder input {
+	vertical-align: middle;
+}
+
 .formbuilder input[type="text"] {
 	width: 50%;
 }
 
 .formbuilder .ui-slider {
+	vertical-align: middle;
 	display: inline-block;
 	width: 50%;
 }
@@ -37,6 +43,7 @@
 }
 
 .formbuilder select {
+	vertical-align: middle;
 	width: 40%;
 }
 
