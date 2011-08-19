@@ -40,8 +40,8 @@
 	function removeStylesheet( styleSheet ) {
 		var owner =
 			styleSheet.ownerNode ?
-			styleSheet.ownerNode :   //not-IE or IE >= 9
-			styleSheet.owningElement //IE < 9
+			styleSheet.ownerNode :    //not-IE or IE >= 9
+			styleSheet.owningElement; //IE < 9
 		owner.parentNode.removeChild( owner );
 	} 
 
@@ -69,7 +69,7 @@
 		//just to avoid code duplication
 		function error() {
 			//Remove "wait" cursor
-			removeStylesheet( waitCSS )
+			removeStylesheet( waitCSS );
 			
 			//Warn the user
 			showMsg( mw.msg( 'gadgets-save-failed' ) );
@@ -92,7 +92,7 @@
 			success: function( response ) {
 				if ( typeof response.error == 'undefined' ) {
 					//Remove "wait" cursor
-					removeStylesheet( waitCSS )
+					removeStylesheet( waitCSS );
 			
 					//Notify success to user
 					showMsg( mw.msg( 'gadgets-save-success' ) );
@@ -102,7 +102,7 @@
 					//update 'savedConfig'
 					$dialog.data( 'savedValues', config );
 				} else {
-					error()
+					error();
 				}
 			},
 			error: error
@@ -134,16 +134,16 @@
 						dataType: "json", // response type
 						success: function( response ) {
 							
-							if ( typeof response.description != 'object'
-								|| typeof response.values != 'object')
+							if ( typeof response.description != 'object' ||
+								typeof response.values != 'object')
 							{
-								alert( mw.msg( 'gadgets-unexpected-error' ) )
+								alert( mw.msg( 'gadgets-unexpected-error' ) );
 								return;
 							}
 							
 							//Create and show dialog
 							
-							var prefsDescription = response.description,
+							var	prefsDescription = response.description,
 								values = response.values,
 								$dialogBody;
 							
@@ -155,9 +155,9 @@
 									//Hide current message, if any
 									showMsg( null );
 									
-									var savedValues = $dialogBody.data( 'savedValues' ),
+									var	savedValues = $dialogBody.data( 'savedValues' ),
 										currentValues = $form.formBuilder( 'getValues' );
-									//TODO: use a better way of comparing values...
+
 									if ( !deepEquals( currentValues, savedValues ) ) {
 										$( '#mw-gadgets-prefsDialog-save' ).button( 'enable' );
 									} else {
