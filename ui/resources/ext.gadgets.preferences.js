@@ -186,6 +186,11 @@
 								width: 550,
 								resizable: false,
 								title: mw.msg( 'gadgets-configuration-of', gadget ),
+								create: function() {
+									//Remove styles to dialog buttons
+									$( this ).dialog( 'widget' ).find( '.ui-button' )
+										.removeClass().unbind( 'mouseover' ).unbind( 'mousedown' );
+								},
 								close: function() {
 									$( this ).remove();
 								},
