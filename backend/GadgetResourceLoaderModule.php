@@ -66,31 +66,11 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * @return String
 	 */
 	public function getScript( ResourceLoaderContext $context ) {
-		$prefs = $this->gadget->getPrefs();
-		
 		//Enclose gadget's code in a closure, with "this" bound to the
 		//configuration object (or to "window" for non-configurable gadgets)
-		$header = "(function(){";
-		
-		if ( $prefs !== null ) {
-			//Bind gadget info to "this".
-			$footer = "}).apply( mw.gadgets.info.get('{$this->gadget->getName()}') );";
-		} else {
-			//Bind window to "this"
-			$footer = "}).apply( window );";
-		}
-		
-		return $header . parent::getScript( $context ) . $footer;
-	}
-	
-	/**
-	 * Overrides ResourceLoaderModule::getModifiedTime()
-	 * @param $context ResourceLoaderContext
-	 * @return Integer
-	 */
-	public function getModifiedTime( ResourceLoaderContext $context ) {
-		//TODO: should also depend on the mTime of preferences description page
-		return parent::getModifiedTime( $context );
+		return "( function() {\n"
+			. parent::getScript( $context )
+			. "} ).apply( mw.gadgets.info.get( '{$this->gadget->getName()}' ) || window );";
 	}
 }
 
