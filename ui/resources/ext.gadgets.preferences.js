@@ -43,7 +43,19 @@
 			styleSheet.ownerNode :    //not-IE or IE >= 9
 			styleSheet.owningElement; //IE < 9
 		owner.parentNode.removeChild( owner );
-	} 
+	}
+	
+	//Function to set/remove "wait" cursor for all elements
+	var toggleWaitCursor = ( function() {
+		var waitCSS = null;
+		return function() {
+			if ( waitCSS === null ) {
+				waitCSS = mw.util.addCSS( '* { cursor: wait !important; }' );
+			} else {
+				waitCSS.disabled = !waitCSS.disabled;
+			}
+		};
+	} )();
 
 	//Shows a message in the bottom of the dialog, with fading
 	function showMsg( msg ) {
@@ -63,13 +75,13 @@
 		//disable all dialog buttons
 		$( '#mw-gadgets-prefsDialog-close, #mw-gadgets-prefsDialog-save' ).button( 'disable' );
 		
-		//Set cursor to "wait" for all elements; save the stylesheet so it can be removed later
-		var waitCSS = mw.util.addCSS( '* { cursor: wait !important; }' );
+		//Set "wait" cursor
+		toggleWaitCursor();
 		
 		//just to avoid code duplication
 		function error() {
 			//Remove "wait" cursor
-			removeStylesheet( waitCSS );
+			toggleWaitCursor();
 			
 			//Warn the user
 			showMsg( mw.msg( 'gadgets-save-failed' ) );
@@ -92,7 +104,7 @@
 			success: function( response ) {
 				if ( typeof response.error == 'undefined' ) {
 					//Remove "wait" cursor
-					removeStylesheet( waitCSS );
+					toggleWaitCursor();
 			
 					//Notify success to user
 					showMsg( mw.msg( 'gadgets-save-success' ) );
@@ -189,7 +201,10 @@
 								create: function() {
 									//Remove styles to dialog buttons
 									$( this ).dialog( 'widget' ).find( '.ui-button' )
-										.removeClass().unbind( 'mouseover' ).unbind( 'mousedown' );
+										.removeClass().addClass( 'ui-button-text-only' )
+										.unbind( 'mouseover' )
+										.unbind( 'mousedown' )
+										.unbind( 'focus' );
 								},
 								close: function() {
 									$( this ).remove();

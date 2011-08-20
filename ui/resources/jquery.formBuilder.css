@@ -10,6 +10,8 @@
 	margin-right: 2%;
 	width: 45%;
 	vertical-align: middle;
+	/* IE7 */
+	*width: 42%;
 }
 
 .formbuilder label.error {
@@ -30,6 +32,9 @@
 	vertical-align: middle;
 	display: inline-block;
 	width: 50%;
+	/* IE7 */
+	zoom: 1;
+	*display: inline;
 }
 
 .formBuilder-slider-tooltip {
