@@ -25,6 +25,8 @@ class ApiGetGadgetPrefs extends ApiBase {
 	public function execute() {
 		$user = RequestContext::getMain()->getUser();
 		
+		$this->getMain()->setCacheMaxAge( 0 ); //results should not be cached
+		
 		$params = $this->extractRequestParams();
 		//Check permissions
 		if ( !$user->isLoggedIn() ) {
