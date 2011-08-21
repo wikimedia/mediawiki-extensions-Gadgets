@@ -81,13 +81,19 @@
 }
 
 .formbuilder-field-list {
-	border: 2px ridge;
+	border: 1px solid #888;
 }
 
 .formbuilder-list-item-container {
 	float: left;
 	margin-right: -35px;
 	width: 100%;
+	border-bottom: 1px solid #888;
+}
+
+/* Show all the borders during dragging */
+.ui-sortable-helper .formbuilder-list-item-container {
+	border: 1px solid #888;
 }
 
 .formbuilder-list-item-content {

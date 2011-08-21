@@ -62,6 +62,7 @@ You must have appropriate permissions on destination wiki (including the right t
 	'gadgets-formbuilder-integer' => 'Please enter an integer number.',
 	'gadgets-formbuilder-date' => 'Please enter a valid date.',
 	'gadgets-formbuilder-color' => 'Please enter a valid color.',
+	'gadgets-formbuilder-scalar' => 'Valid values are true, false, null, a floating point number or a double quoted string.',
 	'gadgets-formbuilder-editor-ok' => 'OK',
 	'gadgets-formbuilder-editor-cancel' => 'Cancel',
 	'gadgets-formbuilder-editor-move-field' => 'Move this field',

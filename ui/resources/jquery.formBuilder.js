@@ -57,6 +57,13 @@
 		return typeof val == 'number' && val === Math.floor( val );
 	}
 
+	//Returns true if val is either true, false, null, a number or a string
+	function isScalar( val ) {
+		return val === true || val === false || val === null
+			|| typeof val == 'number' || typeof val == 'string';
+	}
+
+	//Returns true if name is a valid preference name
 	function isValidPreferenceName( name ) {
 		return typeof name == 'string'
 			&& /^[a-zA-Z_][a-zA-Z0-9_]*$/.test( name )
@@ -68,17 +75,17 @@
 		return $.extend( true, {}, obj );
 	}
 
-	//EcmaScript 5 standard function, emulate for older browsers
-	//From https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/create
-	if ( !Object.create ) {
-		Object.create = function ( o ) {
-			if ( arguments.length > 1 ) {
-				$.error('Object.create implementation only accepts the first parameter.');
-			}
-			function F() {}
-			F.prototype = o;
-			return new F();
-		};
+	//Helper function for inheritance, see http://javascript.crockford.com/prototypal.html
+	function object( o ) {
+		function F() {}
+		F.prototype = o;
+		return new F();
+	}
+
+	//Helper function for inheritance
+	function inherit( Derived, Base ) {
+		Derived.prototype = object( Base.prototype );
+		Derived.prototype.constructor = Derived;
 	}
 
 	//Add a "smart" listener to watch for changes to an <input /> element
@@ -97,6 +104,8 @@
 
 	/* Validator plugin utility functions and methods */
 
+	//Removes the field rules of "field" to the formbuilder form.
+	//NOTE: this method must be called before physically removing the element from the form.
 	function deleteFieldRules( field ) {
 		//Remove all its validation rules
 		var validationSettings = field.getValidationSettings();
@@ -107,12 +116,12 @@
 		}
 	}
 
+	//Adds the field rules of "field" to the formbuilder form.
+	//NOTE: the field's element must have been appended to the form, yet.
 	function addFieldRules( field ) {
 		var validationSettings = field.getValidationSettings();
 		if ( validationSettings.rules ) {
 			$.each( validationSettings.rules, function( name, rules ) {
-				var $input = $( '#' + name );
-				
 				//Find messages associated to this rule, if any
 				if ( typeof validationSettings.messages != 'undefined' &&
 					typeof validationSettings.messages[name] != 'undefined')
@@ -120,9 +129,7 @@
 					rules.messages = validationSettings.messages[name];
 				}
 				
-				if ( $input.length > 0 ) {
-					$( '#' + name ).rules( 'add', rules );
-				}
+				$( field.getElement() ).find( '#' + name ).rules( 'add', rules );
 			} );
 		}
 	}
@@ -174,11 +181,27 @@
 		return $.colorUtil.getRGB( value ) !== undefined;
 	}, mw.msg( 'gadgets-formbuilder-color' ) );
 
+	//validator for scalar fields
+	$.validator.addMethod( "scalar", function( value, element ) {
+		//parseJSON decodes interprets the empty string as 'null', and we don't want that
+		if ( value === '' ) {
+			return false;
+		}
+		
+		try {
+			if ( isScalar( $.parseJSON( value ) ) ) {
+				return true;
+			}
+		} catch( e ) { /* nothing */ }
+		
+		return false;
+	}, mw.msg( 'gadgets-formbuilder-scalar' ) );
+
 	/* Functions used by the preferences editor */
 		function createFieldDialog( params, options ) {
 		var self = this;
 		
-		if ( typeof params.callback != 'function' ) {
+		if ( !$.isFunction( params.callback ) ) {
 			$.error( 'createFieldDialog: missing or wrong "callback" parameter' );
 		}
 		
@@ -244,7 +267,7 @@
 			type = params.type;
 			if ( typeof prefsSpecifications[type] == 'undefined' ) {
 				$.error( 'createFieldDialog: invalid type: ' + type );
-			} else if ( typeof prefsSpecifications[type].builder == 'function' ) {
+			} else if ( $.isFunction( prefsSpecifications[type].builder ) ) {
 				prefsSpecifications[type].builder( options, function( field ) {
 					if ( field !== null ) {
 						params.callback( field );
@@ -364,6 +387,11 @@
 					{
 						text: mw.msg( 'gadgets-formbuilder-editor-ok' ),
 						click: function() {
+							
+							if ( !$( this ).formBuilder( 'validate' ) ) {
+								return;
+							}
+							
 							var	fieldDesc = $( this ).formBuilder( 'getDescription' ).fields[0],
 								name = fieldDesc.name;
 							
@@ -431,16 +459,21 @@
 		Field.call( this, desc, options );
 		
 		//Check existence and type of the "type" field
-		if ( !this.desc.type || typeof this.desc.type != 'string' ) {
+		if ( ( !this.desc.type || typeof this.desc.type != 'string' )
+			&& !$.isFunction( this.desc.type ) )
+		{
 			$.error( "Missing 'type' parameter" );
 		}
 
 		this.$div = $( '<div/>' )
-			.addClass( 'formbuilder-field formbuilder-field-' + this.desc.type )
+			.addClass( 'formbuilder-field' )
 			.data( 'field', this );
+		
+		if ( !$.isFunction( this.desc.type ) ) {
+			this.$div.addClass( 'formbuilder-field-' + this.desc.type );
+		}
 	}
-	EmptyField.prototype = Object.create( Field.prototype );
-	EmptyField.prototype.constructor = EmptyField;
+	inherit( EmptyField, Field );
 
 	EmptyField.prototype.getElement = function() {
 		return this.$div;
@@ -460,8 +493,7 @@
 
 		this.$div.append( this.$label );
 	}
-	LabelField.prototype = Object.create( EmptyField.prototype );
-	LabelField.prototype.constructor = LabelField;
+	inherit( LabelField, EmptyField );
 
 	validFieldTypes.label = LabelField;
 
@@ -489,8 +521,7 @@
 			this.options = options;
 		}
 	}
-	SimpleField.prototype = Object.create( LabelField.prototype );
-	SimpleField.prototype.constructor = SimpleField;
+	inherit( SimpleField, LabelField );
 	
 	SimpleField.prototype.getDesc = function( useValuesAsDefaults ) {
 		var desc = clone( LabelField.prototype.getDesc.call( this, useValuesAsDefaults ) );
@@ -531,8 +562,7 @@
 
 		this.$div.append( this.$c );
 	}
-	BooleanField.prototype = Object.create( SimpleField.prototype );
-	BooleanField.prototype.constructor = BooleanField;
+	inherit( BooleanField, SimpleField );
 	
 	BooleanField.prototype.getValues = function() {
 		return pair( this.desc.name, this.$c.is( ':checked' ) );
@@ -580,8 +610,7 @@
 
 		this.$div.append( this.$text );
 	}
-	StringField.prototype = Object.create( SimpleField.prototype );
-	StringField.prototype.constructor = StringField;
+	inherit( StringField, SimpleField );
 	
 	StringField.prototype.getValues = function() {
 		return pair( this.desc.name, this.$text.val() );
@@ -660,8 +689,7 @@
 
 		this.$div.append( this.$text );
 	}
-	NumberField.prototype = Object.create( SimpleField.prototype );
-	NumberField.prototype.constructor = NumberField;
+	inherit( NumberField, SimpleField );
 	
 	NumberField.prototype.getValues = function() {
 		var val = parseFloat( this.$text.val() );
@@ -746,8 +774,7 @@
 
 		this.$div.append( $select );
 	}
-	SelectField.prototype = Object.create( SimpleField.prototype );
-	SelectField.prototype.constructor = SelectField;
+	inherit( SelectField, SimpleField );
 	
 	SelectField.prototype.getValues = function() {
 		var i = parseInt( this.$select.val(), 10 );
@@ -884,8 +911,7 @@
 			
 		this.$div.append( $slider );
 	}
-	RangeField.prototype = Object.create( SimpleField.prototype );
-	RangeField.prototype.constructor = RangeField;
+	inherit( RangeField, SimpleField );
 	
 	RangeField.prototype.getValues = function() {
 		return pair( this.desc.name, this.$slider.slider( 'value' ) );
@@ -930,8 +956,7 @@
 
 		this.$div.append( this.$text );
 	}
-	DateField.prototype = Object.create( SimpleField.prototype );
-	DateField.prototype.constructor = DateField;
+	inherit( DateField, SimpleField );
 	
 	//Parses a date in the [YYYY]-[MM]-[DD]T[hh]:[mm]:[ss]Z format, returns a date object
 	//Used to avoid the "new Date( dateString )" constructor, which is implementation-specific.
@@ -1067,8 +1092,7 @@
 
 		this.$div.append( this.$text );
 	}
-	ColorField.prototype = Object.create( SimpleField.prototype );
-	ColorField.prototype.constructor = ColorField;
+	inherit( ColorField, SimpleField );
 	
 	ColorField.prototype.getValidationSettings = function() {
 		var	settings = SimpleField.prototype.getValidationSettings.call( this ),
@@ -1111,9 +1135,15 @@
 			}
 
 			var	field = this.desc.fields[i],
-				FieldConstructor = validFieldTypes[field.type];
+				FieldConstructor;
 
-			if ( typeof FieldConstructor != 'function' ) {
+			if ( $.isFunction( field.type ) ) {
+				FieldConstructor = field.type;
+			} else {
+				FieldConstructor = validFieldTypes[field.type];
+			}
+
+			if ( !$.isFunction( FieldConstructor ) ) {
 				$.error( "field with invalid type: " + field.type );
 			}
 
@@ -1135,8 +1165,7 @@
 			this._createSlot( 'yes' ).appendTo( this.$div );
 		}
 	}
-	SectionField.prototype = Object.create( Field.prototype );
-	SectionField.prototype.constructor = SectionField;
+	inherit( SectionField, Field );
 	
 	SectionField.prototype.getElement = function() {
 		return this.$div;
@@ -1230,7 +1259,7 @@
 				//Add the button for changing existing slots
 				var type = field.getDesc().type;
 				//TODO: using the 'builder' info is not optimal
-				if ( typeof prefsSpecifications[type].builder != 'function' ) {
+				if ( !$.isFunction( prefsSpecifications[type].builder ) ) {
 					$( '<a href="javascript:;" />' )
 						.addClass( 'formbuilder-button formbuilder-editor-button-edit ui-icon ui-icon-gear' )
 						.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-edit-field' ) )
@@ -1558,8 +1587,7 @@
 
 		this.$div.append( $tabs );
 	}
-	BundleField.prototype = Object.create( EmptyField.prototype );
-	BundleField.prototype.constructor = BundleField;
+	inherit( BundleField, EmptyField );
 	
 	BundleField.prototype.getValidationSettings = function() {
 		var settings = {};
@@ -1627,8 +1655,7 @@
 		this._section = new SectionField( desc, sectionOptions );
 		this.$div.append( this._section.getElement() );
 	}
-	CompositeField.prototype = Object.create( EmptyField.prototype );
-	CompositeField.prototype.constructor = CompositeField;
+	inherit( CompositeField, EmptyField );
 
 	CompositeField.prototype.getDesc = function( useValuesAsDefaults ) {
 		var desc = clone( this.desc );
@@ -1646,7 +1673,7 @@
 
 	validFieldTypes.composite = CompositeField;
 
-	/* A field for 'composite' fields */
+	/* A field for 'list' fields */
 
 	function ListField( desc, options ) {
 		EmptyField.call( this, desc, options );
@@ -1696,10 +1723,9 @@
 			} )
 			.appendTo( this.$div );
 	}
-	ListField.prototype = Object.create( EmptyField.prototype );
-	ListField.prototype.constructor = ListField;
+	inherit( ListField, EmptyField );
 
-	ListField.prototype._createItem = function( animated, itemValue ) {
+	ListField.prototype._createItem = function( afterInit, itemValue ) {
 		var	itemDesc = $.extend( {}, this.desc.field, {
 				"name": this.desc.name
 			} ),
@@ -1714,8 +1740,14 @@
 			itemOptions.values = pair( this.desc.name, this.desc.field['default'] );
 		}
 
-		var FieldConstructor = validFieldTypes[this.desc.field.type],
-			itemField = new FieldConstructor( itemDesc, itemOptions ),
+		var FieldConstructor;
+		if ( $.isFunction( this.desc.field.type ) ) {
+			FieldConstructor = this.desc.field.type;
+		} else {
+			FieldConstructor = validFieldTypes[this.desc.field.type];
+		}
+		
+		var itemField = new FieldConstructor( itemDesc, itemOptions ),
 			$itemDiv = $( '<div/>' )
 				.addClass( 'formbuilder-list-item' )
 				.data( 'field', itemField ),
@@ -1753,10 +1785,12 @@
 		//Add an empty div with clear:both style
 		$itemDiv.append( $('<div style="clear:both"></div>' ) );
 		
-		if ( animated ) {
+		if ( afterInit ) {
 			$itemDiv.hide()
 				.appendTo( this._$divItems )
 				.slideDown();
+
+			addFieldRules( itemField );
 		} else {
 			$itemDiv.appendTo( this._$divItems );
 		}
@@ -1793,6 +1827,66 @@
 
 	validFieldTypes.list = ListField;
 
+	/* Fields for internal use only */
+	
+	/*
+	 * A text field that allow an arbitrary javascript scalar value, that is:
+	 * true, false, a number, a (double quoted) string or null.
+	 * 
+	 * Used to create editor's select options.
+	 * 
+	 **/
+	function ScalarField( desc, options ) {
+		LabelField.call( this, desc, options );
+		
+		this.$div.addClass( 'formbuilder-field-scalar' );
+		
+		this.$text = $( '<input/>' )
+			.attr( {
+				type: 'text',
+				id: this.options.idPrefix + this.desc.name,
+				name: this.options.idPrefix + this.desc.name
+			} )
+			.appendTo( this.$div );
+
+		var value = options.values && options.values[this.desc.name];
+		if ( typeof value != 'undefined' ) {
+			if ( !isScalar( value ) ) {
+				$.error( "value is invalid" );
+			}
+			
+			this.$text.val( $.toJSON( value ) );
+		}
+	}
+	inherit( ScalarField, LabelField );
+
+	ScalarField.prototype.getDesc = function( useValuesAsDefault ) {
+		var desc = clone( LabelField.prototype.getDesc.call( this, useValuesAsDefaults ) );
+		if ( useValuesAsDefaults === true ) {
+			//set 'default' to current value.
+			var values = this.getValues();
+			desc['default'] = values[this.desc.name];
+		}
+	};
+
+	ScalarField.prototype.getValues = function() {
+		var text = this.$text.val();
+		
+		try {
+			var value = $.parseJSON( text );
+			return pair( this.desc.name, value );
+		} catch( e ) {
+			return pair( this.desc.name, undefined );
+		}
+	};
+
+	ScalarField.prototype.getValidationSettings = function() {
+		var	settings = Field.prototype.getValidationSettings.call( this ),
+			fieldId = this.options.idPrefix + this.desc.name;
+		
+		settings.rules[fieldId] = pair( "scalar", true );		
+		return settings;
+	};
 
 	/* Specifications of preferences descriptions syntax and field types */
 	
@@ -1889,6 +1983,33 @@
 					"label": "max",
 					"required": false,
 					"default": null
+				}
+			] )
+		},
+		"select": {
+			"simple": true,
+			"builder": simpleFields.concat( [
+				{
+					"name": "options",
+					"type": "list",
+					"default": [],
+					"field": {
+						"type": "composite",
+						"fields": [
+							{
+								"name": "name",
+								"type": "string",
+								"label": "Option name", //TODO: i18n
+								"default": ""
+							},
+							{
+								"name": "value",
+								"type": ScalarField,
+								"label": "Option value", //TODO: i18n
+								"default": ""
+							}
+						]
+					}
 				}
 			] )
 		},

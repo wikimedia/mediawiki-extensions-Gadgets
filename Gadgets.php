@@ -92,7 +92,7 @@ $wgResourceModules['jquery.formBuilder'] = array(
 	'messages'      => array(
 		'gadgets-formbuilder-required', 'gadgets-formbuilder-minlength', 'gadgets-formbuilder-maxlength',
 		'gadgets-formbuilder-min', 'gadgets-formbuilder-max', 'gadgets-formbuilder-integer', 'gadgets-formbuilder-date',
-		'gadgets-formbuilder-color',
+		'gadgets-formbuilder-color', 'gadgets-formbuilder-scalar',
 		'gadgets-formbuilder-editor-ok', 'gadgets-formbuilder-editor-cancel', 'gadgets-formbuilder-editor-move-field',
 		'gadgets-formbuilder-editor-delete-field', 'gadgets-formbuilder-editor-edit-field', 'gadgets-formbuilder-editor-edit-field-title', 'gadgets-formbuilder-editor-insert-field',
 		'gadgets-formbuilder-editor-chose-field', 'gadgets-formbuilder-editor-chose-field-title', 'gadgets-formbuilder-editor-create-field-title',
