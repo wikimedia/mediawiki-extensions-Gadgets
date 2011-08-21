@@ -39,8 +39,8 @@ class ApiQueryGadgets extends ApiQueryBase {
 		$this->neededNames = isset( $params['names'] )
 			? array_flip( $params['names'] )
 			: false;
-		$this->listAllowed = isset( $params['allowed'] ) && $params['allowed'];
-		$this->listEnabled = isset( $params['enabled'] ) && $params['enabled'];
+		$this->listAllowed = isset( $params['allowedonly'] ) && $params['allowedonly'];
+		$this->listEnabled = isset( $params['enabledonly'] ) && $params['enabledonly'];
 
 		$this->getMain()->setCacheMode( $this->listAllowed || $this->listEnabled
 			? 'anon-public-user-private' : 'public' );
@@ -152,8 +152,8 @@ class ApiQueryGadgets extends ApiQueryBase {
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_ISMULTI => true,
 			),
-			'allowed' => false,
-			'enabled' => false,
+			'allowedonly' => false,
+			'enabledonly' => false,
 		);
 	}
 
@@ -179,8 +179,8 @@ class ApiQueryGadgets extends ApiQueryBase {
 			),
 			'categories' => 'Gadgets from what categories to retrieve',
 			'names' => 'Name(s) of gadgets to retrieve',
-			'allowed' => 'List only gadgets allowed to current user',
-			'enabled' => 'List only gadgets enabled by current user',
+			'allowedonly' => 'List only gadgets allowed to current user',
+			'enabledonly' => 'List only gadgets enabled by current user',
 		);
 	}
 
@@ -197,7 +197,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'Get information about gadgets named "foo" and "bar":',
 			'    api.php?action=query&list=gadgets&ganames=foo|bar&gaprop=name|desc|category',
 			'Get a list of gadgets enabled by current user:',
-			'    api.php?action=query&list=gadgets&gaenabled',
+			'    api.php?action=query&list=gadgets&gaenabledonly',
 		);
 	}
 
