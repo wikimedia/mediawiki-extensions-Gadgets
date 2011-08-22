@@ -1917,6 +1917,20 @@ A-i é da manca d'avèj ij përmess aproprià an sla wiki ëd destinassion (comp
 	'gadgets-export-download' => 'Dëscaria',
 );
 
+/** Western Punjabi (پنجابی)
+ * @author Khalid Mahmood
+ */
+$messages['pnb'] = array(
+	'prefs-gadgets' => 'گیجٹ',
+	'gadgets' => 'گیجٹ',
+	'gadgets-title' => 'گیجٹ',
+	'gadgets-uses' => 'ورتن آلے',
+	'gadgets-export' => 'برامد کرو',
+	'gadgets-export-title' => 'گیجٹ برامد کرو',
+	'gadgets-not-found' => '"$1" گیجٹ نئیں لبیا',
+	'gadgets-export-download' => 'ڈاؤنلوڈ',
+);
+
 /** Pashto (پښتو)
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
