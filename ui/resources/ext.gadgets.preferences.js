@@ -205,6 +205,10 @@
 										.unbind( 'mouseover' )
 										.unbind( 'mousedown' )
 										.unbind( 'focus' );
+									
+									//Workaround for jQuery UI bug #7051, http://bugs.jqueryui.com/ticket/7051
+									var zIndex = $( this ).zIndex() + 1;
+									$( this ).find( '.ui-slider-handle' ).css( 'z-index', zIndex );
 								},
 								close: function() {
 									$( this ).remove();
