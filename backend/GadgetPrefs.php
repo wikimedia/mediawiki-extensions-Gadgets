@@ -605,7 +605,13 @@ class GadgetPrefs {
 		return true;
 	}
 	
-	//Checks if the given description of the preferences is valid
+	/**
+	 * Checks validity of a preferences description.
+	 * 
+	 * @param $prefsDescription Array: the preferences description to check.
+	 * 
+	 * @return boolean true if $prefsDescription is a valid description of preferences, false otherwise.
+	 */
 	public static function isPrefsDescriptionValid( $prefsDescription ) {
 		return self::validateSectionDefinition( $prefsDescription );
 	}
