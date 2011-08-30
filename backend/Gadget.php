@@ -5,11 +5,11 @@
  * The format of the JSON blob is as follows:
  * {
  *   "settings": {
- *     // The rights required to be able to enable this gadget
+ *     // The rights required to be able to enable/load this gadget
  *     "rights": ["delete", "block"],
  *     // Whether this gadget is enabled by default
  *     "default": true
- *     // Whether this gadget is hidden
+ *     // Whether this gadget is hidden from preferences
  *     "hidden": false,
  *     // Whether this gadget is shared
  *     "shared": true,
@@ -17,11 +17,11 @@
  *     "section": "key of gadget section",
  *   },
  *   "module": {
- *     // scripts and styles are pages in the Gadget: namespace
+ *     // Scripts and styles are pages in NS_GADGET
  *     "scripts": ["foobar.js"],
  *     "styles": ["foobar.css"],
- *     "messages": ["foobar-welcome", "recentchanges", "namespaces"],
- *     "dependencies": ["jquery.ui.tabs", "gadget.awesome"]
+ *     "dependencies": ["jquery.ui.tabs", "gadget.awesome"],
+ *     "messages": ["foobar-welcome", "foo-bye", "recentchanges"]
  *   }
  * }
  */
