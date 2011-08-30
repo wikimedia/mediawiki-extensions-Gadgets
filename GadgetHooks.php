@@ -36,31 +36,35 @@ class GadgetHooks {
 	 * @param $preferences Array: Preference descriptions
 	 */
 	public static function getPreferences( $user, &$preferences ) {
-		// TODO convert
-		return true;
-		$gadgets = Gadget::loadStructuredList();
-		if (!$gadgets) return true;
+		// TODO: Part of this is duplicated from registerModules(), factor out into the repo
+		$repo = new LocalGadgetRepo( array() );
 		
-		$options = array();
-		$default = array();
-		foreach( $gadgets as $section => $thisSection ) {
-			$available = array();
-			foreach( $thisSection as $gadget ) {
-				if ( $gadget->isAllowed( $user ) ) {
-					$gname = $gadget->getName();
-					$available[$gadget->getDescription()] = $gname;
-					if ( $gadget->isEnabled( $user ) ) {
-						$default[] = $gname;
-					}
-				}
+		$gadgets = $repo->getGadgetNames();
+		$sections = array(); // array( section => array( desc => name ) )
+		$default = array(); // array of Gadget names
+		foreach ( $gadgets as $name ) {
+			$gadget = $repo->getGadget( $name );
+			if ( !$gadget->isAllowed( $user ) || $gadget->isHidden() ) {
+				continue;
 			}
+			$section = $gadget->getSection();
+			
+			// Add the Gadget to the right section
+			$description = wfMessage( $gadget->getDescriptionMsg() )->parse();
+			$sections[$section][$description] = $name;
+			// Add the Gadget to the default list if enabled
+			if ( $gadget->isEnabledForUser( $user ) ) {
+				$default[] = $name;
+			}
+		}
+		
+		$options = array(); // array( desc1 => name1, section1 => array( desc2 => name2 ) )
+		foreach ( $sections as $section => $gadgets ) {
 			if ( $section !== '' ) {
-				$section = wfMsgExt( "gadget-section-$section", 'parseinline' );
-				if ( count ( $available ) ) {
-					$options[$section] = $available;
-				}
+				$sectionMsg = wfMsgExt( "gadget-section-$section", 'parseinline' );
+				$options[$sectionMsg] = $gadgets;
 			} else {
-				$options = array_merge( $options, $available );
+				$options += $gadgets;
 			}
 		}
 		
@@ -75,7 +79,6 @@ class GadgetHooks {
 				'raw' => 1,
 				'rawrow' => 1,
 			);
-		
 		$preferences['gadgets'] = 
 			array(
 				'type' => 'multiselect',
@@ -85,7 +88,6 @@ class GadgetHooks {
 				'prefix' => 'gadget-',
 				'default' => $default,
 			);
-			
 		return true;
 	}
 
