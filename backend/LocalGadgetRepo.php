@@ -42,33 +42,43 @@ class LocalGadgetRepo extends GadgetRepo {
 		return true;
 	}
 	
-	public function addGadget( Gadget $gadget ) {
+	public function modifyGadget( Gadget $gadget, $timestamp = null ) {
 		if ( !$this->isWriteable() ) {
 			return Status::newFatal( 'gadget-manager-readonly-repository' );
 		}
 		
-		// Try to detect a naming conflict beforehand
+		$dbw = $this->getMasterDB();
 		$this->loadData();
 		$name = $gadget->getName();
-		if ( isset( $this->data[$name] ) ) {
-			return Status::newFatal( 'gadget-manager-create-exists', $name );
-		}
-		
 		$json = $gadget->getJSON();
-		$dbw = $this->getMasterDB();
-		$ts = $dbw->timestamp();
-		// Use INSERT IGNORE so we don't die when there's a race condition causing a naming conflict
-		$dbw->insert( 'gadgets', array( array(
-				'gd_name' => $name,
-				'gd_blob' => $json,
-				'gd_shared' => $gadget->isShared(),
-				'gd_timestamp' => $ts
-			) ), __METHOD__, array( 'IGNORE' )
+		$ts = $dbw->timestamp( $gadget->getTimestamp() );
+		$newTs = $dbw->timestamp( $timestamp );
+		$row = array(
+			'gd_name' => $name,
+			'gd_blob' => $json,
+			'gd_shared' => $gadget->isShared(),
+			'gd_timestamp' => $newTs
 		);
 		
-		// Detect naming conflict after the fact
+		// First INSERT IGNORE the row, in case the gadget doesn't already exist
+		$dbw->begin();
+		$created = false;
+		$dbw->insert( 'gadgets', $row, __METHOD__, array( 'IGNORE' ) );
+		$created = $dbw->affectedRows() > 0;
+		// Then UPDATE it if it did already exist
+		if ( !$created ) {
+			$dbw->update( 'gadgets', $row, array(
+					'gd_name' => $name,
+					'gd_timestamp <= ' . $dbw->addQuotes( $ts ) // for conflict detection
+				), __METHOD__
+			);
+		}
+		$dbw->commit();
+		
+		// Detect conflicts
 		if ( $dbw->affectedRows() === 0 ) {
-			return Status::newFatal( 'gadget-manager-create-exists', $name );
+			// Some conflict occurred
+			return Status::newFatal( 'gadgets-manager-modify-conflict', $name, $ts );
 		}
 		
 		// Update our in-object cache
@@ -76,49 +86,6 @@ class LocalGadgetRepo extends GadgetRepo {
 		// to keep $this->data in a consistent format and have getGadget() always return
 		// a clone. If it returned a reference to a cached object, the caller could change
 		// that object and cause weird things to happen.
-		$this->data[$name] = array( 'json' => $json, 'timestamp' => $ts );
-		
-		return Status::newGood();
-	}
-	
-	public function modifyGadget( Gadget $gadget ) {
-		if ( !$this->isWriteable() ) {
-			return Status::newFatal( 'gadget-manager-readonly-repository' );
-		}
-		
-		$this->loadData();
-		$name = $gadget->getName();
-		if ( !isset( $this->data[$name] ) ) {
-			return Status::newFatal( 'gadget-manager-nosuchgadget', $name );
-		}
-		
-		$json = $gadget->getJSON();
-		$ts = $gadget->getTimestamp();
-		$dbw = $this->getMasterDB();
-		$newTs = $dbw->timestamp();
-		$dbw->update( 'gadgets', array(
-				'gd_blob' => $json,
-				'gd_shared' => $gadget->isShared(),
-				'gd_timestamp' => $dbw->timestamp()
-			), array(
-				'gd_name' => $name,
-				'gd_timestamp' => $ts // for conflict detection
-			), __METHOD__, array( 'IGNORE' )
-		);
-		
-		// Detect conflicts
-		if ( $dbw->affectedRows() === 0 ) {
-			// Some conflict occurred. Either the UPDATE failed because the
-			// timestamp condition didn't match, in which case someone else
-			// modified the gadget concurrently, or it failed to find a row
-			// for this gadget name at all, in which case someone else deleted
-			// the gadget entirely. We don't really care what happened, we'll
-			// just return an error and let the caller figure it out.
-			return Status::newFatal( 'gadgets-manager-modify-conflict', $name, $ts );
-		}
-		
-		// Update our in-object cache
-		// See comment in addGadget() for an explanation of why it's done this way
 		$this->data[$name] = array( 'json' => $json, 'timestamp' => $newTs );
 		
 		return Status::newGood();
@@ -168,6 +135,8 @@ class LocalGadgetRepo extends GadgetRepo {
 	 * $this->data must call this before accessing $this->data .
 	 */
 	protected function loadData() {
+		// FIXME: Make the cache shared somehow, it's getting repopulated for every instance now
+		// FIXME: Reconsider the query-everything behavior; maybe use memc?
 		if ( is_array( $this->data ) ) {
 			// Already loaded
 			return;

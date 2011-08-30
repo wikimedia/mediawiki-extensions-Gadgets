@@ -56,22 +56,15 @@ abstract class GadgetRepo {
 	abstract public function getDB();
 	
 	/**
-	 * Add a new gadget to the repository. Will fail if there is already
-	 * a gadget with the same name.
-	 * @param $gadget Gadget object
-	 * @return Status
-	 */
-	abstract public function addGadget( Gadget $gadget );
-	
-	/**
-	 * Modify an existing gadget, replacing its metadata with the
+	 * Modify a gadget, replacing its metadata with the
 	 * metadata in the provided Gadget object. The name is taken
-	 * from the Gadget object as well. Will fail if there is no
-	 * gadget by the same name.
+	 * from the Gadget object as well. If no Gadget exists by that name,
+	 * it will be created.
 	 * @param $gadget Gadget object
+	 * @param $timestamp Timestamp to record for this action, or current timestamp if null
 	 * @return Status
 	 */
-	abstract public function modifyGadget( Gadget $gadget );
+	abstract public function modifyGadget( Gadget $gadget, $timestamp = null );
 	
 	/**
 	 * Irrevocably delete a gadget from the repository. Will fail
