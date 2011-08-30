@@ -36,6 +36,8 @@ class GadgetHooks {
 	 * @param $preferences Array: Preference descriptions
 	 */
 	public static function getPreferences( $user, &$preferences ) {
+		// TODO convert
+		return true;
 		$gadgets = Gadget::loadStructuredList();
 		if (!$gadgets) return true;
 		
@@ -112,67 +114,26 @@ class GadgetHooks {
 	 * @param $out OutputPage
 	 */
 	public static function beforePageDisplay( $out ) {
-		global $wgUser;
+		global $wgUser, $wgGadgetRepositories;
 		
 		wfProfileIn( __METHOD__ );
-
-		$gadgets = Gadget::loadList();
-		if ( !$gadgets ) {
-			wfProfileOut( __METHOD__ );
-			return true;
-		}
-
-		$lb = new LinkBatch();
-		$lb->setCaller( __METHOD__ );
-		$pages = array();
-
-		foreach ( $gadgets as $gadget ) {
-			if ( $gadget->isEnabled( $wgUser ) && $gadget->isAllowed( $wgUser ) ) {
-				if ( $gadget->hasModule() ) {
+		
+		foreach ( $wgGadgetRepositories as $params ) {
+			$repoClass = $params['class'];
+			unset( $params['class'] );
+			$repo = new $repoClass( $params );
+			
+			$gadgets = $repo->getGadgetNames();
+			foreach ( $gadgets as $name ) {
+				$gadget = $repo->getGadget( $name );
+				if ( $gadget->isEnabledForUser( $wgUser ) && $gadget->isAllowed( $wgUser ) ) {
 					$out->addModules( $gadget->getModuleName() );
-				}
-				foreach ( $gadget->getLegacyScripts() as $page ) {
-					$lb->add( NS_MEDIAWIKI, $page );
-					$pages[] = $page;
 				}
 			}
 		}
-
-		$lb->execute( __METHOD__ );
-
-		$done = array();
-		foreach ( $pages as $page ) {
-			if ( isset( $done[$page] ) ) continue;
-			$done[$page] = true;
-			self::applyScript( $page, $out );
-		}
+		
 		wfProfileOut( __METHOD__ );
-
 		return true;
-	}
-
-	/**
-	 * Adds one legacy script to output.
-	 * 
-	 * @param $page String: Unprefixed page title
-	 * @param $out OutputPage
-	 */
-	private static function applyScript( $page, $out ) {
-		global $wgJsMimeType;
-
-		# bug 22929: disable gadgets on sensitive pages.  Scripts loaded through the
-		# ResourceLoader handle this in OutputPage::getModules()
-		# TODO: make this extension load everything via RL, then we don't need to worry
-		# about any of this.
-		if( $out->getAllowedModules( ResourceLoaderModule::TYPE_SCRIPTS ) < ResourceLoaderModule::ORIGIN_USER_SITEWIDE ){
-			return;
-		}
-
-		$t = Title::makeTitleSafe( NS_MEDIAWIKI, $page );
-		if ( !$t ) return;
-
-		$u = $t->getLocalURL( 'action=raw&ctype=' . $wgJsMimeType );
-		$out->addScriptFile( $u, $t->getLatestRevID() );
 	}
 
 	/**

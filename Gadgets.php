@@ -78,7 +78,7 @@ $wgAvailableRights = array_merge( $wgAvailableRights, array(
 ) );
 
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::articleSaveComplete';
-//$wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay'; // FIXME: broken
+$wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay';
 $wgHooks['CanonicalNamespaces'][]           = 'GadgetHooks::canonicalNamespaces';
 $wgHooks['GetPreferences'][]                = 'GadgetHooks::getPreferences';
 $wgHooks['LoadExtensionSchemaUpdates'][]    = 'GadgetHooks::loadExtensionSchemaUpdates';
