@@ -90,7 +90,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 				$row['desc-raw'] = $row['desc'] = wfMessage( $g->getDescriptionMsg() )->plain();
 			}
 			if ( isset( $this->props['category'] ) ) {
-				$row['category'] = $g->getSection(); // TODO: clean up category vs. section mess in favor category
+				$row['category'] = $g->getCategory();
 			}
 			if ( isset( $this->props['resourceloader'] ) /*&& $g->supportsResourceLoader()*/ ) {
 				// Everything supports resourceloader now :D
@@ -132,7 +132,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			&& ( !$this->listAllowed || $gadget->isAllowed( $wgUser ) )
 			&& ( !$this->listEnabled || $gadget->isEnabled( $wgUser ) )
 			&& ( !$this->listShared || $gadget->isShared() )
-			&& ( !$this->categories || isset( $this->categories[$g->getSection()] ) );
+			&& ( !$this->categories || isset( $this->categories[$g->getCategory()] ) );
 	}
 
 	public function getAllowedParams() {

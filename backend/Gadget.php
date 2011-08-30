@@ -13,8 +13,10 @@
  *     "hidden": false,
  *     // Whether this gadget is shared
  *     "shared": true,
- *     // The key of the section this gadget belongs to. The section title message key is gadgetsection-$section-title
- *     "section": "key of gadget section",
+ *     // The key of the category this gadget belongs to
+ *     // Interface message is "gadgetcategory-{category}"
+ *     // If this is an empty string, the gadget is uncategorized
+ *     "category": "maintenance-tools"
  *   },
  *   "module": {
  *     // Scripts and styles are pages in NS_GADGET
@@ -126,11 +128,11 @@ class Gadget {
 	}
 	
 	/**
-	 * Get the section (also called category) this gadget is in.
-	 * @return string Section key or empty string if not in any section
+	 * Get the name of the category this gadget is in.
+	 * @return string Category key or empty string if not in any category
 	 */
-	public function getSection() {
-		return $this->settings['section'];
+	public function getCategory() {
+		return $this->settings['category'];
 	}
 	
 	/**

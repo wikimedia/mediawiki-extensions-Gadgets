@@ -40,29 +40,29 @@ class GadgetHooks {
 		$repo = new LocalGadgetRepo( array() );
 		
 		$gadgets = $repo->getGadgetNames();
-		$sections = array(); // array( section => array( desc => name ) )
+		$categories = array(); // array( category => array( desc => name ) )
 		$default = array(); // array of Gadget names
 		foreach ( $gadgets as $name ) {
 			$gadget = $repo->getGadget( $name );
 			if ( !$gadget->isAllowed( $user ) || $gadget->isHidden() ) {
 				continue;
 			}
-			$section = $gadget->getSection();
+			$category = $gadget->getCategory();
 			
-			// Add the Gadget to the right section
+			// Add the Gadget to the right category
 			$description = wfMessage( $gadget->getDescriptionMsg() )->parse();
-			$sections[$section][$description] = $name;
+			$categories[$category][$description] = $name;
 			// Add the Gadget to the default list if enabled
 			if ( $gadget->isEnabledForUser( $user ) ) {
 				$default[] = $name;
 			}
 		}
 		
-		$options = array(); // array( desc1 => name1, section1 => array( desc2 => name2 ) )
-		foreach ( $sections as $section => $gadgets ) {
-			if ( $section !== '' ) {
-				$sectionMsg = wfMsgExt( "gadget-section-$section", 'parseinline' );
-				$options[$sectionMsg] = $gadgets;
+		$options = array(); // array( desc1 => name1, category1 => array( desc2 => name2 ) )
+		foreach ( $categories as $category => $gadgets ) {
+			if ( $category !== '' ) {
+				$categoryMsg = wfMsgExt( "gadgetcategory-$category", 'parseinline' );
+				$options[$categoryMsg] = $gadgets;
 			} else {
 				$options += $gadgets;
 			}

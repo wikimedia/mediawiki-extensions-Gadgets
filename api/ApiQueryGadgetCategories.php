@@ -52,10 +52,10 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 				}
 				if ( $category !== "" ) {
 					if ( isset( $this->props['desc'] ) ) {
-						$row['desc'] = wfMessage( "gadget-section-$category" )->parse();
+						$row['desc'] = wfMessage( "gadgetcategory-$category" )->parse();
 					}
 					if ( isset( $this->props['desc-raw'] ) ) {
-						$row['desc-raw'] = wfMessage( "gadget-section-$category" )->plain();
+						$row['desc-raw'] = wfMessage( "gadgetcategory-$category" )->plain();
 					}
 				}
 				if ( isset( $this->props['members'] ) ) {
