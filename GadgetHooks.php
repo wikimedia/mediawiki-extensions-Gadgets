@@ -156,12 +156,35 @@ class GadgetHooks {
 	public static function canonicalNamespaces( &$list ) {
 		$list[NS_GADGET] = 'Gadget';
 		$list[NS_GADGET_TALK] = 'Gadget_talk';
+		$list[NS_GADGET_DEFINITION] = 'Gadget_definition';
+		$list[NS_GADGET_DEFINITION_TALK] = 'Gadget_definition_talk';
 		return true;
 	}
 	
 	public static function titleIsCssOrJsPage( $title, &$result ) {
 		if ( $title->getNamespace() == NS_GADGET ) {
 			$result = true;
+		}
+		return true;
+	}
+	
+	public static function titleIsMovable( $title, &$result ) {
+		if ( $title->getNamespace() == NS_GADGET_DEFINITION ) {
+			$result = false;
+		}
+		return true;
+	}
+	
+	public static function getUserPermissionsErrors( $title, $user, $action, &$result ) {
+		if ( $title->getNamespace() == NS_GADGET_DEFINITION ) {
+			// Enforce restrictions on the Gadget_definition namespace
+			if ( $action == 'create' && !$user->isAllowed( 'gadgets-definition-create' ) ) {
+				$result[] = array( 'gadgets-cant-create' );
+				return false;
+			} elseif ( $action == 'delete' && !$user->isAllowed( 'gadgets-definition-delete' ) ) {
+				$result[] = array( 'gadgets-cant-delete' );
+				return false;
+			}
 		}
 		return true;
 	}

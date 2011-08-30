@@ -64,6 +64,10 @@ You must have appropriate permissions on destination wiki (including the right t
 	// TODO clean up inconsistencies between gadgetmanager- and gadgets-manager- etc
 	'gadgets-manager-create-exists' => 'This gadget cannot be created because there is an existing gadget with the name $1',
 	
+	# permission stuff
+	'gadgets-cant-create' => 'You do not have the right to create new Gadgets.',
+	'gadgets-cant-delete' => 'You do not have the right to delete Gadgets.',
+	
 	# logging stuff
 	'gadgets-gadgetmanlog-page' => 'Gadget manager log',
 	'gadgets-gadgetmanlog-text' => 'This is a log of changes made to gadgets using the [[Special:GadgetManager|gadget manager]].',
@@ -73,10 +77,9 @@ You must have appropriate permissions on destination wiki (including the right t
 
 	#rights
 	'right-gadgets-edit' => 'Edit pages in the Gadget: namespace',
-	'right-gadgets-manager-create' => 'Create new gadgets',
-	'right-gadgets-manager-delete' => 'Permanently delete gadgets',
-	'right-gadgets-manager-view' => 'View gadget properties',
-	'right-gadgets-manager-modify' => 'Modify gadget properties',
+	'right-gadgets-definition-create' => 'Create new gadgets',
+	'right-gadgets-definition-delete' => 'Delete gadgets',
+	'right-gadgets-definition-edit' => 'Modify gadget properties',
 );
 
 /** Message documentation (Message documentation)

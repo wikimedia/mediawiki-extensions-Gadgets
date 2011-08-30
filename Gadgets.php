@@ -75,14 +75,16 @@ $wgGadgetEnableSharing = true;
 
 define( 'NS_GADGET', 2300 );
 define( 'NS_GADGET_TALK', 2301 );
+define( 'NS_GADGET_DEFINITION', 2302 );
+define( 'NS_GADGET_DEFINITION_TALK', 2303 );
 
 $wgNamespaceProtection[NS_GADGET][] = 'gadgets-edit';
+$wgNamespaceProtection[NS_GADGET_DEFINITION][] = 'gadgets-definition-edit';
 $wgAvailableRights = array_merge( $wgAvailableRights, array(
 	'gadgets-edit',
-	'gadgets-manager-view',
-	'gadgets-manager-create',
-	'gadgets-manager-modify',
-	'gadgets-manager-delete'
+	'gadgets-definition-create',
+	'gadgets-definition-edit',
+	'gadgets-definition-delete'
 ) );
 
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::articleSaveComplete';
@@ -92,6 +94,8 @@ $wgHooks['GetPreferences'][]                = 'GadgetHooks::getPreferences';
 $wgHooks['LoadExtensionSchemaUpdates'][]    = 'GadgetHooks::loadExtensionSchemaUpdates';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetHooks::registerModules';
 $wgHooks['TitleIsCssOrJsPage'][]            = 'GadgetHooks::titleIsCssOrJsPage';
+$wgHooks['TitleIsMovable'][]                = 'GadgetHooks::titleIsMovable';
+$wgHooks['getUserPermissionsErrors'][]      = 'GadgetHooks::getUserPermissionsErrors';
 //$wgHooks['UnitTestsList'][]                 = 'GadgetHooks::unitTestsList'; // FIXME: broken
 
 $dir = dirname(__FILE__) . '/';
