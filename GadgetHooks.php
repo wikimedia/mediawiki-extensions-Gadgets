@@ -15,18 +15,101 @@
 class GadgetHooks {
 
 	/**
+	 * ArticleDeleteComplete hook handler.
+	 * 
+	 * @param $article Article
+	 * @param $user User
+	 * @param $reason String: Deletion summary
+	 * @param $id Int: Page ID
+	 */
+	public static function articleDeleteComplete( $article, $user, $reason, $id ) {
+		// FIXME: AARGH, duplication, refactor this
+		$title = $article->getTitle();
+		$name = $title->getText();
+		// Check that the deletion is in the Gadget definition: namespace and that the name ends in .js
+		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $name ) ) {
+			return true;
+		}
+		// Trim .js from the page name to obtain the gadget name
+		$name = substr( $name, 0, -3 );
+		
+		$repo = new LocalGadgetRepo( array() );
+		$repo->deleteGadget( $name );
+		// deleteGadget() may return an error if the Gadget didn't exist, but we don't care here
+		return true;
+	}
+
+	/**
 	 * ArticleSaveComplete hook handler.
 	 * 
 	 * @param $article Article
 	 * @param $user User
 	 * @param $text String: New page text
+	 * @param $summary String: Edit summary
+	 * @param $isMinor Bool: Whether this was a minor edit
+	 * @param $isWatch unused
+	 * @param $section unused
+	 * @param $flags: Int: Bitmap of flags passed to WikiPage::doEdit()
+	 * @param $revision: Revision object for the new revision
 	 */
-	public static function articleSaveComplete( $article, $user, $text ) {
-		//update cache if MediaWiki:Gadgets-definition was edited
-		$title = $article->mTitle;
-		if( $title->getNamespace() == NS_MEDIAWIKI && $title->getText() == 'Gadgets-definition' ) {
-			Gadget::loadStructuredList( $text );
+	public static function articleSaveComplete( $article, $user, $text, $summary, $isMinor,
+			$isWatch, $section, $flags, $revision )
+	{
+		$title = $article->getTitle();
+		$name = $title->getText();
+		// Check that the edit is in the Gadget definition: namespace, that the name ends in .js
+		// and that $revision isn't null (this happens for a no-op edit)
+		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $name ) || !$revision ) {
+			return true;
 		}
+		// Trim .js from the page name to obtain the gadget name
+		$name = substr( $name, 0, -3 );
+		
+		$previousRev = $revision->getPrevious();
+		$prevTs = $previousRev instanceof Revision ? $previousRev->getTimestamp() : wfTimestampNow();
+		
+		// Update the database entry for this gadget
+		$repo = new LocalGadgetRepo( array() );
+		// TODO: Timestamp in the constructor is ugly
+		$gadget = new Gadget( $name, $repo, $text, $prevTs );
+		$repo->modifyGadget( $gadget, $revision->getTimestamp() );
+		
+		// modifyGadget() returns a Status object with an error if there was a conflict,
+		// but we don't care. If a conflict occurred, that must be because a newer edit's
+		// DB update occurred before ours, in which case the right thing to do is to occu
+		
+		return true;
+	}
+	
+	public static function articleUndelete( $title, $created, $comment ) {
+		// FIXME: AARGH, duplication, refactor this
+		$name = $title->getText();
+		// Check that the deletion is in the Gadget definition: namespace and that the name ends in .js
+		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $name ) ) {
+			return true;
+		}
+		// Trim .js from the page name to obtain the gadget name
+		$name = substr( $name, 0, -3 );
+		
+		// Check whether this undeletion changed the latest revision of the page, by comparing
+		// the timestamp of the latest revision with the timestamp in the DB
+		$repo = new LocalGadgetRepo( array() );
+		$gadget = $repo->getGadget( $name );
+		$gadgetTS = $gadget ? $gadget->getTimestamp() : 0;
+		
+		$rev = Revision::newFromTitle( $title );
+		if ( wfTimestamp( TS_MW, $rev->getTimestamp() ) ===
+				wfTimestamp( TS_MW, $gadgetTS ) ) {
+			// The latest rev didn't change. Someone must've undeleted an older revision
+			return true;
+		}
+		
+		// Update the database entry for this gadget
+		$newGadget = new Gadget( $name, $repo, $rev->getRawText(), $gadgetTS );
+		$repo->modifyGadget( $newGadget, $rev->getTimestamp() );
+		
+		// modifyGadget() returns a Status object with an error if there was a conflict,
+		// but we do't care, see similar comment in articleSaveComplete()
 		return true;
 	}
 
@@ -162,7 +245,9 @@ class GadgetHooks {
 	}
 	
 	public static function titleIsCssOrJsPage( $title, &$result ) {
-		if ( $title->getNamespace() == NS_GADGET || $title->getNamespace() == NS_GADGET_DEFINITION ) {
+		if ( ( $title->getNamespace() == NS_GADGET || $title->getNamespace() == NS_GADGET_DEFINITION ) &&
+				preg_match( '!\.(css|js)$!u', $title->getText() ) )
+		{
 			$result = true;
 		}
 		return true;

@@ -92,7 +92,9 @@ $wgAvailableRights = array_merge( $wgAvailableRights, array(
 	'gadgets-definition-delete'
 ) );
 
+$wgHooks['ArticleDeleteComplete'][]         = 'GadgetHooks::articleDeleteComplete';
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::articleSaveComplete';
+$wgHooks['ArticleUndelete'][]               = 'GadgetHooks::articleUndelete';
 $wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay';
 $wgHooks['CanonicalNamespaces'][]           = 'GadgetHooks::canonicalNamespaces';
 $wgHooks['GetPreferences'][]                = 'GadgetHooks::getPreferences';
