@@ -111,8 +111,8 @@ $wgAutoloadClasses['LocalGadgetRepo'] = $dir . 'backend/LocalGadgetRepo.php';
 $wgAutoloadClasses['SpecialGadgetManager'] = $dir . 'SpecialGadgetManager.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 
-$wgSpecialPages['Gadgets'] = 'SpecialGadgets';
-$wgSpecialPageGroups['Gadgets'] = 'wiki';
+#$wgSpecialPages['Gadgets'] = 'SpecialGadgets';
+#$wgSpecialPageGroups['Gadgets'] = 'wiki';
 $wgSpecialPages['GadgetManager'] = 'SpecialGadgetManager';
 $wgSpecialPageGroups['GadgetManager'] = 'wiki';
 
