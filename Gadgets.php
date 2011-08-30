@@ -80,6 +80,11 @@ define( 'NS_GADGET_DEFINITION_TALK', 2303 );
 
 $wgNamespaceProtection[NS_GADGET][] = 'gadgets-edit';
 $wgNamespaceProtection[NS_GADGET_DEFINITION][] = 'gadgets-definition-edit';
+
+// Page titles in this namespace should match gadget names,
+// which historically may start both lowercase or uppercase.
+$wgCapitalLinkOverrides[NS_GADGET_DEFINITION] = false;
+
 $wgAvailableRights = array_merge( $wgAvailableRights, array(
 	'gadgets-edit',
 	'gadgets-definition-create',
