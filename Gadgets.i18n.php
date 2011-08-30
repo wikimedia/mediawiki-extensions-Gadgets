@@ -1831,6 +1831,13 @@ Aqueste susvòl dona un accès rapid a las paginas de messatges del sistèma que
 	'gadgets-uses' => 'Utiliza',
 );
 
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Odisha1
+ */
+$messages['or'] = array(
+	'gadgets-export' => 'ରପ୍ତାନୀ',
+);
+
 /** Pampanga (Kapampangan)
  * @author Katimawan2005
  */
