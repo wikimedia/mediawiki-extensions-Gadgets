@@ -162,7 +162,7 @@ class GadgetHooks {
 	}
 	
 	public static function titleIsCssOrJsPage( $title, &$result ) {
-		if ( $title->getNamespace() == NS_GADGET ) {
+		if ( $title->getNamespace() == NS_GADGET || $title->getNamespace() == NS_GADGET_DEFINITION ) {
 			$result = true;
 		}
 		return true;
