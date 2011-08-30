@@ -63,6 +63,14 @@ $wgGadgetRepositories = array(
 	)
 );
 
+/**
+ * Whether or not to allow gadgets to be shared in the gadget manager.
+ * Note that this does not make it impossible for someone to load a gadget
+ * from this wiki, it just removes the option from the interface for gadget managers,
+ * and enforces the option when saving.
+ */
+$wgGadgetEnableSharing = true;
+
 /*** Setup ***/
 
 define( 'NS_GADGET', 2300 );
