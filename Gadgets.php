@@ -103,7 +103,7 @@ $wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetHooks::registerModules';
 $wgHooks['TitleIsCssOrJsPage'][]            = 'GadgetHooks::titleIsCssOrJsPage';
 $wgHooks['TitleIsMovable'][]                = 'GadgetHooks::titleIsMovable';
 $wgHooks['getUserPermissionsErrors'][]      = 'GadgetHooks::getUserPermissionsErrors';
-//$wgHooks['UnitTestsList'][]                 = 'GadgetHooks::unitTestsList'; // FIXME: broken
+#$wgHooks['UnitTestsList'][]                 = 'GadgetHooks::unitTestsList'; // FIXME: broken
 
 $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
@@ -131,18 +131,6 @@ $wgAPIModules['gadgetmanager'] = 'ApiGadgetManager';
 $wgAPIListModules['gadgetcategories'] = 'ApiQueryGadgetCategories';
 $wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
 
-$wgLogTypes[] = 'gadgetman';
-$wgLogNames['gadgetman'] = 'gadgets-gadgetmanlog-page'; // TODO define
-$wgLogHeaders['gadgetman'] = 'gadgets-gadgetmanlog-text'; // TODO define
-$wgLogActions['gadgetman/create'] = 'gadgets-gadgetmanlog-createentry';
-$wgLogActions['gadgetman/modify'] = 'gadgets-gadgetmanlog-modifyentry';
-$wgLogActions['gadgetman/delete'] = 'gadgets-gadgetmanlog-deleteentry';
-// TODO add as needed
-// TODO: create and modify will not have a summary, figure out how well that fares. User creation also doesn't have one
-#$wgLogActionsHandlers['gadgetman/create'] = '...';
-#$wgLogActionsHandlers['gadgetman/modify'] = '...';
-#$wgLogActionsHandlers['gadgetman/delete'] = '...';
-
 $gadResourceTemplate = array(
 	'localBasePath' => $dir . 'modules',
 	'remoteExtPath' => 'Gadgets/modules'
@@ -150,5 +138,6 @@ $gadResourceTemplate = array(
 $wgResourceModules += array(
 	'ext.gadgets.gadgetmanager' => $gadResourceTemplate + array(
 		'styles' => 'ext.gadgets.gadgetmanager.css',
+		'position' => 'top',
 	)
 );

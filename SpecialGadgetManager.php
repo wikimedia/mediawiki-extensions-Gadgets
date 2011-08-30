@@ -1,141 +1,146 @@
 <?php
+/**
+ * SpecialPage for ArticleFeedback extension
+ *
+ * @file
+ * @ingroup Extensions
+ */
+
 class SpecialGadgetManager extends SpecialPage {
+
 	public function __construct() {
-		parent::__construct( 'GadgetManager', 'gadgets-manager-view' );
+		parent::__construct( 'GadgetManager' );
 	}
-	
+
+	/**
+	 * @param $par String: Optionally the gadgetname to show info for.
+	 */
 	public function execute( $par ) {
-		global $wgOut, $wgUser; // TODO does SpecialPage have an OutputPage member? RequestContext maybe?
-		
-		if ( !$this->userCanExecute( $wgUser ) ) {
-			$this->displayRestrictionError();
+		$out = $this->getOutput();
+
+		$this->setHeaders();
+		$out->setPagetitle( wfMsg( 'gadgetmanager-title' ) );
+		$out->addModules( 'ext.gadgets.gadgetmanager' );
+
+		// Determine view
+		if ( is_string( $par ) && $par !== '' ) {
+			$html = $this->generateGadgetView( $par );
+		} else {
+			$html = $this->generateOverview();
+		}
+
+		$out->addHtml( $html );
+	}
+
+	/**
+	 * @return String: HTML
+	 */
+	private function generateOverview() {
+		global $wgGadgetEnableSharing;
+
+		$repo = new LocalGadgetRepo( array() );
+		$gadgetNames = $repo->getGadgetNames();
+
+		// If there there are no gadgets at all, exit early.
+		if ( !count( $gadgetNames ) ) {
+			$noGadgetsMsgHtml = Html::element( 'p',
+				array(
+					'class' => 'mw-gadgetmanager-nogadgets'
+				), wfMessage( 'gadgetmanager-nogadgets' )->plain()
+			);
+			$this->getOutput()->addHtml( $noGadgetsMsgHtml );
 			return;
 		}
-		
-		$this->setHeaders();
-		$wgOut->setPagetitle( wfMsg( 'gadgetmanager-title' ) );
-		$wgOut->addWikiMsg( 'gadgetmanager-pagetext' );
-		$wgOut->addModuleStyles( 'ext.gadgets.gadgetmanager' );
-		
-		// Sort gadgets by section
-		$repo = new LocalGadgetRepo( array() );
-		$gadgetsBySection = array(); // array( section => array( name => Gadget ) )
-		foreach ( $repo->getGadgetNames() as $name ) {
-			$gadget = $repo->getGadget( $name );
-			$gadgetsBySection[$gadget->getSection()][$name] = $gadget;
-		}
-		
+		// There is atleast one gadget, let's get started.
+		$this->getOutput()->addWikiMsg( 'gadgetmanager-pagetext' );
 		$html = '';
-		foreach ( $gadgetsBySection as $section => $gadgets ) {
-			$sectionName = wfMessage( "Gadgetsection-$section-title" )->plain();
-			$html .= Html::element( 'h2', array( 'class' => 'mw-gadgetman-section' ), $sectionName );
-			$html .= '<div class="mw-gadgetman-gadgets">';
-			
-			foreach ( $gadgets as $name => $gadget ) {
-				// TODO trigger visibility of mod/delete by rights
-				// Leave empty wrapper if user has neither right
-				$modifyLink = Linker::link(
-					$this->getTitle( $name ),
-					wfMsg( 'gadgetmanager-modify-link' ),
-					array( 'class' => 'mw-gadgetman-modifylink' ),
-					array( 'action' => 'modify' )
-				);
-				$deleteLink = Linker::link(
-					$this->getTitle( $name ),
-					wfMsg( 'gadgetmanager-delete-link' ),
-					array( 'class' => 'mw-gadgetman-deletelink '),
-					array( 'action' => 'delete' )
-				);
-				$title = wfMessage( $gadget->getTitleMsg() )->plain();
-				$desc = wfMessage( $gadget->getDescriptionMsg() )->parse();
-				
-				$html .= "<div class=\"mw-gadgetman-gadget\"><div class=\"mw-gadgetman-toollinks\">$modifyLink $deleteLink</div>";
-				$html .= Html::element( 'h3', array( 'class' => 'mw-gadgetman-title' ), $title );
-				$html .= Html::element( 'p', array( 'class' => 'mw-gadgetman-desc' ), $desc );
-				
-				$html .= '<div class="mw-gadgetman-props"><div class="mw-gadgetman-props-module">';
-				$html .= $this->buildPropsArrayList(
-					'gadgetmanager-prop-scripts',
-					$gadget->getScripts(),
-					array_map( 'self::getLinkTitleForGadgetNS', $gadget->getScripts() )
-				);
-				$html .= $this->buildPropsArrayList(
-					'gadgetmanager-prop-styles',
-					$gadget->getStyles(),
-					array_map( 'self::getLinkTitleForGadgetNS', $gadget->getStyles() )
-				);
-				
-				$module = $gadget->getModule();
-				$html .= $this->buildPropsArrayList(
-					'gadgetmanager-prop-dependencies',
-					$module->getDependencies()
-				);
-				$html .= $this->buildPropsArrayList(
-					'gadgetmanager-prop-messages',
-					$module->getMessages(),
-					array_map( 'self::getLinkTitleForMediaWikiNS', $module->getMessages() )
-				);
-				// TODO implement load position
-				//$html .= Html::element( 'label', array(), wfMessage( 'gadgetmanager-prop-position' )->plain() );
-				//$html .= Html::element( 'span', array( 'class' => 'mw-gadgetman-props-value' ), $gadget->getPosition() );
-				//$html .= '<br />';
-				$html .= '</div>'; // close mw-gadgetman-props-module
-				
-				$html .= '<div class="mw-gadgetman-props-gadget">';
-				$html .= $this->buildPropsArrayList(
-					'gadgetmanager-prop-rights',
-					$gadget->getRequiredRights()
-				);
-				$html .= $this->buildBooleanProp( 'gadgetmanager-prop-default', $gadget->isEnabledByDefault() );
-				$html .= $this->buildBooleanProp( 'gadgetmanager-prop-hidden', $gadget->isHidden() );
-				$html .= $this->buildBooleanProp( 'gadgetmanager-prop-shared', $gadget->isShared() );
-				$html .= '</div></div></div>'; // close mw-gadgetman-props-gadget, mw-gadgetman-props and mw-gadgetman-gadget
-			}
-			$html .= '</div>'; // close mw-gadgetman-gadgets
+
+		// Sort gadgets by category
+		$gadgetsByCategory = array();
+		foreach ( $gadgetNames as $gadgetName ) {
+			$gadget = $repo->getGadget( $gadgetName );
+			$gadgetsByCategory[$gadget->getCategory()][$gadgetName] = $gadget;
 		}
-		$wgOut->addHTML( $html );
-	}
-	
-	protected function buildPropsArrayList( $labelMsg, $arr, $linkTitles = false ) {
-		$html = Html::element( 'label', array(), wfMessage( $labelMsg )->plain() );
-		$html .= '<span class="mw-gadgetman-props-value mw-gadgetman-props-listwrapper">';
-		foreach ( $arr as $i => $value ) {
-			if ( $linkTitles ) {
-				$value = Linker::link( $linkTitles[$i], $value );
+
+		// Sort categories alphabetically
+		// @todo Sort causes the key "''" to be at the top, it should be on the bottom.
+		ksort( $gadgetsByCategory );
+
+		foreach ( $gadgetsByCategory as $category => $gadgets ) {
+			// Avoid broken or empty headings. Fallback to a special message
+			// for uncategorized gadgets (e.g. gadgets with category '' ).
+			if ( $category != '' ) {
+				$categoryMsg = wfMessage( "gadgetcategory-$category" );
 			} else {
-				$value = htmlspecialchars( $value );
+				$categoryMsg = wfMessage( 'gadgetmanager-uncategorized' );
 			}
-			$html .= Html::rawElement( 'span', array( 'class' => 'mw-gadgetman-props-listitem' ), $value );
+
+			// Category header
+			$html .= Html::element( 'h2',
+				array( 'class' => 'mw-gadgetmanager-category' ),
+				$categoryMsg->exists() ? $categoryMsg->plain() : $this->getLang()->ucfirst( $category )
+			);
+
+			// Start per-category gadgets table
+			$html .= '<table class="mw-gadgetmanager-gadgets TablePager"><tr>';
+			$html .=
+				'<th>' . wfMessage( 'gadgetmanager-tablehead-title' )->escaped()
+				. '</th><th>' . wfMessage( 'gadgetmanager-tablehead-default' )->escaped()
+				. '</th><th>' . wfMessage( 'gadgetmanager-tablehead-hidden' )->escaped()
+				. '</th>';
+			if ( $wgGadgetEnableSharing ) {
+				$html .= '<th>' . wfMessage( 'gadgetmanager-tablehead-shared' )->escaped() . '</th>';
+			}
+			$html .= '</tr>';
+
+			// Populate table rows for the current category
+			foreach ( $gadgets as $gadgetName => $gadget ) {
+				$html .= '<tr>';
+
+				$tickedCheckboxHtml = Html::element( 'input', array(
+					'type' => 'checkbox',
+					'disabled' => 'disabled',
+					'value' => 1,
+					'checked' => 'checked',
+				) );
+
+				// Title
+				$titleMsg = wfMessage( $gadget->getTitleMsg() );
+				$titleLink = Linker::link(
+					$this->getTitle( $gadget->getName() ),
+					// MediaWiki-message is optional. This is for backwards compatibility (since
+					// the previous version didn't have titles), and to a allow wikis that only
+					// care about one language to save from creating NS_MEDIAWIKI pages.
+					// @todo: Centralize this logic.
+					$titleMsg->exists() ? $titleMsg->plain() : $this->getLang()->ucfirst( $gadget->getName() )
+				);
+				$html .= "<td class=\"mw-gadgetmanager-gadgets-title\">$titleLink</td>";
+				// Default
+				$html .= '<td class="mw-gadgetmanager-gadgets-default">'
+					. ( $gadget->isEnabledByDefault() ? $tickedCheckboxHtml : '' ) . '</td>';
+				// Hidden
+				$html .= '<td class="mw-gadgetmanager-gadgets-hidden">'
+					. ( $gadget->isHidden() ? $tickedCheckboxHtml : '' ) . '</td>';
+				// Shared
+				if ( $wgGadgetEnableSharing ) {
+					$html .= '<td class="mw-gadgetmanager-gadgets-shared">'
+						. ( $gadget->isShared() ? $tickedCheckboxHtml : '' ) . '</td>';
+				}
+
+				$html .= '</tr>';
+			}
+
+			// End of per-category gadgets table
+			$html .= '</table>';
 		}
-		$html .= '</span><br />';
+
 		return $html;
 	}
-	
-	protected function buildBooleanProp( $labelMsg, $value ) {
-		$html = Html::element( 'label', array(), wfMessage( $labelMsg )->plain() );
-		$msg = wfMessage( $value ? 'gadgetmanager-prop-yes' : 'gadgetmanager-prop-no' )->plain();
-		$html .= Html::element( 'span', array( 'class' => 'mw-gadgetman-props-value' ), $msg );
-		$html .= '<br />';
-		return $html;
-	}
-	
-	protected static function getLinkTitleForGadgetNS( $str ) {
-		return Title::makeTitle( NS_GADGET, $str );
-	}
-	
-	protected static function getLinkTitleForMediaWikiNS( $str ) {
-		return Title::makeTitle( NS_MEDIAWIKI, $str );
-	}
-	
+
 	/**
-	 * Log a gadget manager action
-	 * @param $action string Action name (one of 'create', 'modify', 'delete')
-	 * @param $title Title object for the gadget, like Special:GadgetManager/foo
-	 * @param $reason string Log reason TODO figure out how to implement optional reasons; is empty string good enough?
-	 * @param $params array Log parameters TODO document
+	 * @return String: HTML
 	 */
-	protected function logAction( $action, $title, $reason = '', $params = array() ) {
-		$log = new LogPage( 'gadgetman' );
-		$log->addEntry( $action, $title, $reason, $params );
+	public function generateGadgetView( $gadgetName ) {
+		return "Stub page where there will be some info about the gadget ($gadgetName). This is also used for permalinks to a gadget's config page.";
 	}
 }

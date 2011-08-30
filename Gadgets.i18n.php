@@ -15,10 +15,10 @@ $messages = array();
  * @author Daniel Kinzler, brightbyte.de
  */
 $messages['en'] = array(
-	#for Special:Version
+	# For Special:Version
 	'gadgets-desc'      => 'Lets users select custom [[Special:Gadgets|CSS and JavaScript gadgets]] in their [[Special:Preferences|preferences]]',
 
-	#for Special:Preferences
+	# For Special:Preferences
 	'prefs-gadgets'     => 'Gadgets',
 	'gadgets-prefstext' => 'Below is a list of special gadgets you can enable for your account.
 These gadgets are mostly based on JavaScript, so JavaScript has to be enabled in your browser for them to work.
@@ -27,7 +27,7 @@ Note that these gadgets will have no effect on this preferences page.
 Also note that these special gadgets are not part of the MediaWiki software, and are usually developed and maintained by users on your local wiki.
 Local administrators can edit the [[MediaWiki:Gadgets-definition|definitions]] and [[Special:Gadgets|descriptions]] of available gadgets.',
 
-	#for Special:Gadgets
+	# For Special:Gadgets
 	'gadgets'           => 'Gadgets',
 	'gadgets-title'     => 'Gadgets',
 	'gadgets-pagetext'  => "Below is a list of special gadgets users can enable on their [[Special:Preferences|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].
@@ -44,38 +44,37 @@ go to Special:Import on destination wiki and upload it. Then add the following t
 You must have appropriate permissions on destination wiki (including the right to edit system messages) and import from file uploads must be enabled.',
 	'gadgets-export-download' => 'Download',
 	
-	# for gadget management (Special:GadgetMananger and the API)
+	# For Special:GadgetManager
 	'gadgetmanager' => 'Gadget manager',
 	'gadgetmanager-title' => 'Gadget manager',
-	'gadgetmanager-pagetext' => 'TODO, should link to [[Special:Log/gadgetman]]',
-	'gadgetmanager-modify-link' => 'modify',
-	'gadgetmanager-delete-link' => 'delete',
+	'gadgetmanager-pagetext' => 'Below is an overview of all gadgets defined on this wiki. Users can opt-in or opt-out of these through their [[Special:Preferences|preferences page]].',
+	'gadgetmanager-nogadgets' => 'This wiki currently has no gadgets defined.',
+	'gadgetmanager-uncategorized' => 'Uncategorized',
+	'gadgetmanager-tablehead-title' => 'Gadget title',
+	'gadgetmanager-tablehead-default' => 'Default',
+	'gadgetmanager-tablehead-hidden' => 'Hidden',
+	'gadgetmanager-tablehead-shared' => 'Shared',
+	'gadgetmanager-propsgroup-settings' => 'Gadget settings',
+	'gadgetmanager-propsgroup-module' => 'Module properties',
 	'gadgetmanager-prop-scripts' => 'Scripts',
 	'gadgetmanager-prop-styles' => 'Styles',
 	'gadgetmanager-prop-dependencies' => 'Dependencies',
 	'gadgetmanager-prop-messages' => 'Messages',
+	'gadgetmanager-prop-category' => 'Category',
 	'gadgetmanager-prop-rights' => 'Rights',
-	'gadgetmanager-prop-default' => 'Default',
-	'gadgetmanager-prop-hidden' => 'Hidden',
-	'gadgetmanager-prop-shared' => 'Shared',
-	'gadgetmanager-prop-yes' => 'Yes',
-	'gadgetmanager-prop-no' => 'No',
+	'gadgetmanager-prop-default-yes' => 'This gadget is loaded by default.',
+	'gadgetmanager-prop-hidden-yes' => 'This is a hidden gadget.',
+	'gadgetmanager-prop-shared-yes' => 'This gadget is shared.',
+	'gadgetmanager-modifylink' => 'modify',
+	'gadgetmanager-modifylink-tooltip' => 'Modify this gadget',
+	'gadgetmanager-deletelink' => 'delete',
+	'gadgetmanager-deletelink-tooltip' => 'Delete ths gadget',
 	
-	// TODO clean up inconsistencies between gadgetmanager- and gadgets-manager- etc
-	'gadgets-manager-create-exists' => 'This gadget cannot be created because there is an existing gadget with the name $1',
-	
-	# permission stuff
+	# Permissions
 	'gadgets-cant-create' => 'You do not have the right to create new Gadgets.',
 	'gadgets-cant-delete' => 'You do not have the right to delete Gadgets.',
-	
-	# logging stuff
-	'gadgets-gadgetmanlog-page' => 'Gadget manager log',
-	'gadgets-gadgetmanlog-text' => 'This is a log of changes made to gadgets using the [[Special:GadgetManager|gadget manager]].',
-	'gadgets-gadgetmanlog-createentry' => 'created gadget [[Special:GadgetManager/$1|$1]]', // may want to change depending on what $1 ends up being
-	'gadgets-gadgetmanlog-modifyentry' => 'modified gadget [[Special:GadgetManager/$1|$1]]: $2', // TODO fill out $2, add handler
-	'gadgets-gadgetmanlog-deleteentry' => 'deleted gadget $1',
 
-	#rights
+	# User rights
 	'right-gadgets-edit' => 'Edit pages in the Gadget: namespace',
 	'right-gadgets-definition-create' => 'Create new gadgets',
 	'right-gadgets-definition-delete' => 'Delete gadgets',
@@ -290,7 +289,7 @@ $messages['bcc'] = array(
 	'gadgets-uses' => 'استفاده بیت',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author Cesco
  * @author EugeneZelenko
  * @author Jim-by
@@ -609,7 +608,7 @@ Du musst über die notwendigen Berechtigungen auf dem für den Import vorgesehen
 	'gadgets-export-download' => 'Herunterladen',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** German (formal address) (Deutsch (Sie-Form))
  * @author Kghbln
  */
 $messages['de-formal'] = array(
@@ -1328,7 +1327,7 @@ $messages['ka'] = array(
 	'gadgets-export-download' => 'ჩამოტვირთვა',
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)) */
 $messages['kk-arab'] = array(
 	'prefs-gadgets' => 'قاجەت قۇرالدار',
 	'gadgets-prefstext' => 'تومەندە ٴوز تىركەلگىڭىزدە قوسا الاتىن ارناۋلى قاجەت قۇرالدار ٴتىزىمى بەرىلەدى.
@@ -1787,7 +1786,7 @@ U moet de juiste rechten hebben op de doelwiki, inclusief het recht om bewerking
 	'gadgets-export-download' => 'Downloaden',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (Norsk (nynorsk))
  * @author Eirik
  * @author Harald Khan
  * @author Nghtwlkr
@@ -1807,7 +1806,7 @@ Dette oversynet gjev enkel tilgang til systemmeldingssidene som inneheld skildri
 	'gadgets-export-download' => 'Last ned',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian (bokmål) (Norsk (bokmål))
  * @author Jon Harald Søby
  * @author Laaknor
  * @author Nghtwlkr
@@ -2278,7 +2277,7 @@ Ju duhet të keni leje të përshtatshme në wiki-n e destinuar (duke përfshir�
 	'gadgets-export-download' => 'Shkarko',
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬)
+/** Serbian Cyrillic ekavian (Српски (ћирилица))
  * @author Millosh
  * @author Rancher
  * @author Жељко Тодоровић
@@ -2307,7 +2306,7 @@ $messages['sr-ec'] = array(
 	'gadgets-export-download' => 'Преузми',
 );
 
-/** Serbian Latin ekavian (‪Srpski (latinica)‬)
+/** Serbian Latin ekavian (Srpski (latinica))
  * @author Michaello
  * @author Жељко Тодоровић
  */
@@ -2676,7 +2675,7 @@ $messages['yue'] = array(
 	'gadgets-uses' => '用',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (中文(简体))
  * @author Gaoxuewei
  * @author Hydra
  * @author Shinjiman
@@ -2708,7 +2707,7 @@ $messages['zh-hans'] = array(
 	'gadgets-export-download' => '下载',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (中文(繁體))
  * @author Horacewai2
  * @author Mark85296341
  * @author Shinjiman
