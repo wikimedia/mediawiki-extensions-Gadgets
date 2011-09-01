@@ -26,6 +26,7 @@ Note that these gadgets will have no effect on this preferences page.
 
 Also note that these special gadgets are not part of the MediaWiki software, and are usually developed and maintained by users on your local wiki.
 Local administrators can edit the [[MediaWiki:Gadgets-definition|definitions]] and [[Special:Gadgets|descriptions]] of available gadgets.',
+	'gadgets-preference-description' => '$1: $2',
 
 	# For Special:Gadgets
 	'gadgets'           => 'Gadgets',
@@ -98,6 +99,7 @@ $messages['qqq'] = array(
 
 {{Identical|Gadgets}}',
 	'gadgets-prefstext' => 'In Gadgets extension. This is the explanation text displayed under the Gadgets tab in [[Special:Preferences]].',
+	'gadgets-preference-description' => 'Used for the description HTML of a Gadget in Special:Preferences. $1 is the title of the Gadget, $2 is the description of the Gadget.',
 	'gadgets' => '{{Identical|Gadgets}}',
 	'gadgets-title' => '{{Identical|Gadgets}}',
 	'gadgets-uses' => "This is used as a verb in third-person singular. It appears in front of a script name. Example: \"''Uses: Gadget-UTCLiveClock.js''\"

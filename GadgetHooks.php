@@ -193,8 +193,15 @@ class GadgetHooks {
 			$category = $gadget->getCategory();
 			
 			// Add the Gadget to the right category
-			$description = $gadget->getDescriptionMessage();
-			$categories[$category][$description] = $name;
+			$title = htmlspecialchars( $gadget->getTitleMessage() );
+			$description = $gadget->getDescriptionMessage(); // Is parsed, doesn't need escaping
+			if ( $description === '' ) {
+				// Empty description, just use the title
+				$text = $title;
+			} else {
+				$text = wfMessage( 'gadgets-preference-description' )->rawParams( $title, $description )->parse();
+			}
+			$categories[$category][$text] = $name;
 			// Add the Gadget to the default list if enabled
 			if ( $gadget->isEnabledForUser( $user ) ) {
 				$default[] = $name;
