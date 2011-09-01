@@ -51,11 +51,8 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 					$row['name'] = $category;
 				}
 				if ( $category !== "" ) {
-					if ( isset( $this->props['desc'] ) ) {
+					if ( isset( $this->props['title'] ) ) {
 						$row['desc'] = wfMessage( "gadget-section-$category" )->parse();
-					}
-					if ( isset( $this->props['desc-raw'] ) ) {
-						$row['desc-raw'] = wfMessage( "gadget-section-$category" )->plain();
 					}
 				}
 				if ( isset( $this->props['members'] ) ) {
@@ -75,8 +72,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => array(
 					'name',
-					'desc',
-					'desc-raw',
+					'title',
 					'members',
 				),
 			),
@@ -96,8 +92,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 			'prop' => array(
 				'What gadget category information to get:',
 				' name     - Internal category name',
-				' desc     - Category description transformed into HTML (can be slow, use only if really needed)',
-				' desc-raw - Category description in raw wikitext',
+				' title    - Category title',
 				' members  - Number of gadgets in category',
 			),
 			'names' => 'Name(s) of gadgets to retrieve',

@@ -74,39 +74,12 @@ class ApiQueryGadgets extends ApiQueryBase {
 			if ( isset( $this->props['name'] ) ) {
 				$row['name'] = $g->getName();
 			}
+			if ( isset( $this->props['metadata'] ) ) {
+				$row['metadata'] = $this->fakeMetadata( $g );
+				$this->setIndexedTagNameForMetadata( $row['metadata'] );
+			}
 			if ( isset( $this->props['desc'] ) ) {
 				$row['desc'] = $g->getDescription();
-			}
-			if ( isset( $this->props['desc-raw'] ) ) {
-				$row['desc-raw'] = $g->getRawDescription();
-			}
-			if ( isset( $this->props['category'] ) ) {
-				$row['category'] = $g->getCategory();
-			}
-			if ( isset( $this->props['resourceloader'] ) && $g->supportsResourceLoader() ) {
-				$row['resourceloader'] = '';
-			}
-			if ( isset( $this->props['scripts'] ) ) {
-				$row['scripts'] = $g->getScripts();
-				$result->setIndexedTagName( $row['scripts'], 'script' );
-			}
-			if ( isset( $this->props['styles'] ) ) {
-				$row['styles'] = $g->getStyles();
-				$result->setIndexedTagName( $row['styles'], 'style' );
-			}
-			if ( isset( $this->props['dependencies'] ) ) {
-				$row['dependencies'] = $g->getDependencies();
-				$result->setIndexedTagName( $row['dependencies'], 'module' );
-			}
-			if ( isset( $this->props['rights'] ) ) {
-				$row['rights'] = $g->getRequiredRights();
-				$result->setIndexedTagName( $row['rights'], 'right' );
-			}
-			if ( isset( $this->props['default'] ) && $g->isOnByDefault() ) {
-				$row['default'] = '';
-			}
-			if ( isset( $this->props['definition'] ) ) {
-				$row['definition'] = $g->getDefinition();
 			}
 			$data[] = $row;
 		}
@@ -124,26 +97,57 @@ class ApiQueryGadgets extends ApiQueryBase {
 			&& ( !$this->listAllowed || $gadget->isAllowed( $wgUser ) )
 			&& ( !$this->listEnabled || $gadget->isEnabled( $wgUser ) );
 	}
+	
+	private function fakeMetadata( Gadget $g ) {
+		return array(
+			'settings' => array(
+				'rights' => $g->getRequiredRights(),
+				'default' => $g->isOnByDefault(),
+				'hidden' => false, // Only exists in RL2 branch
+				'shared' => false, // Only exists in RL2 branch
+				'category' => $g->getCategory(),
+			),
+			'module' => array(
+				'scripts' => $g->getScripts(),
+				'styles' => $g->getStyles(),
+				'dependencies' => $g->getDependencies(),
+				'messages' => array(), // Only exists in RL2 branch
+			)
+		);
+	}
+
+	private function setIndexedTagNameForMetadata( &$metadata ) {
+		static $tagNames = array(
+			'rights' => 'right',
+			'scripts' => 'script',
+			'styles' => 'style',
+			'dependencies' => 'dependency',
+			'messages' => 'message',
+		);
+		
+		$result = $this->getResult();
+		foreach ( $metadata as $type => &$data ) {
+			foreach ( $data as $key => &$value ) {
+				if ( is_array( $value ) ) {
+					$tag = isset( $tagNames[$key] ) ? $tagNames[$key] : $key;
+					$result->setIndexedTagName( $value, $tag );
+				}
+			}
+		}
+	}
 
 	public function getAllowedParams() {
 		return array(
 			'prop' => array(
-				ApiBase::PARAM_DFLT => 'name',
+				ApiBase::PARAM_DFLT => 'name|metadata',
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => array(
 					'name',
+					'metadata',
 					'desc',
-					'desc-raw',
-					'category',
-					'resourceloader',
-					'scripts',
-					'styles',
-					'dependencies',
-					'rights',
-					'default',
-					'definition',
 				),
 			),
+			'language' => null,
 			'categories' => array(
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => 'string',
@@ -162,20 +166,13 @@ class ApiQueryGadgets extends ApiQueryBase {
 	}
 
 	public function getParamDescription() {
+		$p = $this->getModulePrefix();
 		return array(
 			'prop' => array(
 				'What gadget information to get:',
 				' name           - Internal gadget name',
+				' metadata       - The gadget metadata',
 				' desc           - Gadget description transformed into HTML (can be slow, use only if really needed)',
-				' desc-raw       - Gadget description in raw wikitext',
-				' category       - Internal name of a category gadget belongs to (empty if top-level gadget)',
-				' resourceloader - Whether gadget supports ResourceLoader',
-				" scripts        - List of gadget's scripts",
-				" styles         - List of gadget's styles",
-				' dependencies   - List of ResourceLoader modules gadget depends on',
-				' rights         - List of rights required to use gadget, if any',
-				' default        - Whether gadget is enabled by default',
-				' definition     - Line from MediaWiki:Gadgets-definition used to define the gadget',
 			),
 			'categories' => 'Gadgets from what categories to retrieve',
 			'names' => 'Name(s) of gadgets to retrieve',
@@ -195,7 +192,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'Get a list of gadgets belonging to caregory "foo":',
 			'    api.php?action=query&list=gadgets&gacategories=foo',
 			'Get information about gadgets named "foo" and "bar":',
-			'    api.php?action=query&list=gadgets&ganames=foo|bar&gaprop=name|desc|category',
+			'    api.php?action=query&list=gadgets&ganames=foo|bar&gaprop=name|desc|metadata',
 			'Get a list of gadgets enabled by current user:',
 			'    api.php?action=query&list=gadgets&gaenabledonly',
 		);
