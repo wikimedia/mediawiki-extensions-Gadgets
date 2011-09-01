@@ -33,6 +33,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 		$this->props = array_flip( $params['prop'] );
+		$this->language = $params['language'] === null ? null : $params['language'];
 		$this->categories = isset( $params['categories'] )
 			? array_flip( $params['categories'] )
 			: false;
@@ -90,7 +91,16 @@ class ApiQueryGadgets extends ApiQueryBase {
 				$row['definitiontimestamp'] = wfTimestamp( TS_ISO_8601, $g->getTimestamp() );
 			}
 			if ( isset( $this->props['desc'] ) ) {
-				$row['desc'] = $g->getDescriptionMessage();
+				$row['desc'] = $g->getDescriptionMessage( $this->language );
+			}
+			if ( isset( $this->props['desc-msgkey'] ) ) {
+				$row['desc-msgkey'] = $g->getDescriptionMessageKey();
+			}
+			if ( isset( $this->props['title'] ) ) {
+				$row['title'] = $g->getTitleMessage( $this->language );
+			}
+			if ( isset( $this->props['title-msgkey'] ) ) {
+				$row['title-msgkey'] = $g->getTitleMessageKey();
 			}
 			$data[] = $row;
 		}
@@ -121,8 +131,12 @@ class ApiQueryGadgets extends ApiQueryBase {
 					'timestamp',
 					'definitiontimestamp',
 					'desc',
+					'desc-msgkey',
+					'title',
+					'title-msgkey',
 				),
 			),
+			'language' => null,
 			'categories' => array(
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => 'string',
@@ -142,6 +156,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	}
 
 	public function getParamDescription() {
+		$p = $this->getModulePrefix();
 		return array(
 			'prop' => array(
 				'What gadget information to get:',
@@ -149,8 +164,12 @@ class ApiQueryGadgets extends ApiQueryBase {
 				' json           - JSON representation of the gadget metadata.',
 				' timestamp      - Last changed timestamp of the gadget module, including any files it references',
 				' definitiontimestamp - Last changed timestamp of the gadget metadata',
-				' desc           - Gadget description transformed into HTML (can be slow, use only if really needed)',
+				' desc           - Gadget description translated in the given language and transformed into HTML (can be slow, use only if really needed)',
+				' desc-msgkey    - Message key used for the Gadget description',
+				' title          - Gadget title translated in the given language',
+				' title-msgkey   - Message key used for the Gadget title',
 			),
+			'language' => "Language code to use for {$p}prop=desc and {$p}prop=title. Defaults to the user language",
 			'categories' => 'Gadgets from what categories to retrieve',
 			'names' => 'Name(s) of gadgets to retrieve',
 			'allowedonly' => 'List only gadgets allowed to current user',
