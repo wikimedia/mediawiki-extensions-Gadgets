@@ -85,7 +85,8 @@ class ApiQueryGadgets extends ApiQueryBase {
 				$row['json'] = $g->getJSON();
 			}
 			if ( isset( $this->props['timestamp'] ) ) {
-				$row['timestamp'] = wfTimestamp( TS_ISO_8601, $g->getModule()->getModifiedTime() );
+				$context = ResourceLoaderContext::newDummyContext();
+				$row['timestamp'] = wfTimestamp( TS_ISO_8601, $g->getModule()->getModifiedTime( $context ) );
 			}
 			if ( isset( $this->props['definitiontimestamp'] ) ) {
 				$row['definitiontimestamp'] = wfTimestamp( TS_ISO_8601, $g->getTimestamp() );
