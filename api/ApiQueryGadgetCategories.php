@@ -42,9 +42,17 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 	private function getList() {
 		$data = array();
 		$result = $this->getResult();
-		$gadgets = Gadget::loadStructuredList();
+		$repo = new LocalGadgetRepo( array() );
+		$gadgets = $repo->getGadgetNames();
+		
+		// TODO: Put the grouping in the repo
+		$gadgetsByCategory = array();
+		foreach ( $gadgets as $name ) {
+			$gadget = $repo->getGadget( $name );
+			$gadgetsByCategory[$gadget->getCategory()] = $gadget;
+		}
 
-		foreach ( $gadgets as $category => $list ) {
+		foreach ( $gadgetsByCategory as $category => $gadgets ) {
 			if ( !$this->neededNames || isset( $this->neededNames[$category] ) ) {
 				$row = array();
 				if ( isset( $this->props['name'] ) ) {
@@ -52,6 +60,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 				}
 				if ( $category !== "" ) {
 					if ( isset( $this->props['desc'] ) ) {
+						// TODO: Put message into the repo too, with fallback behavior
 						$row['desc'] = wfMessage( "gadgetcategory-$category" )->parse();
 					}
 					if ( isset( $this->props['desc-raw'] ) ) {
@@ -59,7 +68,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 					}
 				}
 				if ( isset( $this->props['members'] ) ) {
-					$row['members'] = count( $list );
+					$row['members'] = count( $gadgets );
 				}
 				$data[] = $row;
 			}
