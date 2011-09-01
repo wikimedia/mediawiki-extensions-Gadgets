@@ -15,6 +15,7 @@ class LocalGadgetRepo extends GadgetRepo {
 		parent::__construct( $options );
 		
 		// TODO: define options
+		// FIXME if there are none, drop the mandatory param
 	}
 	
 	public function getGadgetNames() {

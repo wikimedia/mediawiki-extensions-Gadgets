@@ -211,7 +211,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'Get a list of gadgets belonging to caregory "foo":',
 			'    api.php?action=query&list=gadgets&gacategories=foo',
 			'Get information about gadgets named "foo" and "bar":',
-			'    api.php?action=query&list=gadgets&ganames=foo|bar&gaprop=name|desc|category',
+			'    api.php?action=query&list=gadgets&ganames=foo|bar&gaprop=name|desc|metadata',
 			'Get a list of gadgets enabled by current user:',
 			'    api.php?action=query&list=gadgets&gaenabledonly',
 		);
