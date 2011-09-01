@@ -36,7 +36,7 @@ class GadgetPageList {
 		$dbw->insert( 'gadgetpagelist', array(
 				'gpl_extension' => self::determineExtension( $title ),
 				'gpl_namespace' => $title->getNamespace(),
-				'gpl_title' => $title->getPrefixedDBKey()
+				'gpl_title' => $title->getDBKey()
 			), __METHOD__, array( 'IGNORE' )
 		);
 	}
@@ -49,7 +49,7 @@ class GadgetPageList {
 		$dbw = wfGetDB( DB_MASTER );
 		$dbw->delete( 'gadgetpagelist', array(
 				'gpl_namespace' => $title->getNamespace(),
-				'gpl_title' => $title->getPrefixedDBKey()
+				'gpl_title' => $title->getDBKey()
 			), __METHOD__
 		);
 	}
