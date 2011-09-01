@@ -33,7 +33,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	public function execute() {
 		$params = $this->extractRequestParams();
 		$this->props = array_flip( $params['prop'] );
-		$this->language = $params['language'] === null ? null : $params['language'];
+		$this->language = $params['language'];
 		$this->categories = isset( $params['categories'] )
 			? array_flip( $params['categories'] )
 			: false;
