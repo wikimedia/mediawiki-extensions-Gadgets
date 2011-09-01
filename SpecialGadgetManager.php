@@ -1,6 +1,6 @@
 <?php
 /**
- * SpecialPage for ArticleFeedback extension
+ * SpecialPage for Gadget manager
  *
  * @file
  * @ingroup Extensions
