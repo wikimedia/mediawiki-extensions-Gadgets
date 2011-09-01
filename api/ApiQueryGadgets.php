@@ -90,10 +90,10 @@ class ApiQueryGadgets extends ApiQueryBase {
 				$row['definitiontimestamp'] = wfTimestamp( TS_ISO_8601, $g->getTimestamp() );
 			}
 			if ( isset( $this->props['desc'] ) ) {
-				$row['desc'] = wfMessage( $g->getDescriptionMsg() )->parse();
+				$row['desc'] = $g->getDescriptionMessage();
 			}
 			if ( isset( $this->props['desc-raw'] ) ) {
-				$row['desc-raw'] = $row['desc'] = wfMessage( $g->getDescriptionMsg() )->plain();
+				$row['desc-raw'] = $row['desc'] = wfMessage( $g->getDescriptionMessageKey() )->plain();
 			}
 			if ( isset( $this->props['category'] ) ) {
 				$row['category'] = $g->getCategory();

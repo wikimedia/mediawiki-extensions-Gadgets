@@ -207,7 +207,7 @@ class GadgetHooks {
 			$category = $gadget->getCategory();
 			
 			// Add the Gadget to the right category
-			$description = wfMessage( $gadget->getDescriptionMsg() )->parse();
+			$description = $gadget->getDescriptionMessage();
 			$categories[$category][$description] = $name;
 			// Add the Gadget to the default list if enabled
 			if ( $gadget->isEnabledForUser( $user ) ) {

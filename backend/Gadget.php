@@ -111,20 +111,56 @@ class Gadget {
 	}
 	
 	/**
-	 * Get the title message for this gadget. This is the interface message that controls the name of the
-	 * gadget as shown to the user.
+	 * Get the key of the title message for this gadget. This is the interface message that
+	 * controls the name of the gadget as shown to the user.
 	 * @return string Message key
 	 */
-	public function getTitleMsg() {
+	public function getTitleMessageKey() {
 		return "gadget-{$this->name}-title";
 	}
 	
 	/**
-	 * Get the description message for this gadget.
+	 * Get the title message for this gadget
+	 * @param $langcode string Language code. If null, user language is used
+	 * @return The title message in the given language, or the name of the gadget if the message doesn't exist
+	 */
+	public function getTitleMessage( $langcode = null ) {
+		$msg = wfMessage( $this->getTitleMessageKey() );
+		if ( !$msg->exists() ) {
+			// Fallback: return the name of the gadget
+			$lang = Language::factory( $langcode );
+			return $lang->ucfirst( $this->name );
+		}
+		if ( $langcode !== null ) {
+			$msg->inLanguage( $langcode );
+		}
+		return $msg->plain();
+		
+	}
+	
+	/**
+	 * Get the key of the description message for this gadget.
 	 * @return string Message key
 	 */
-	public function getDescriptionMsg() {
+	public function getDescriptionMessageKey() {
 		return "gadget-{$this->name}-desc";
+	}
+	
+	/**
+	 * Get the description message for this gadget
+	 * @param $langcode string Language code. If null, user language is used
+	 * @return The description message HTML in the given language, or an empty string if the message doesn't exist
+	 */
+	public function getDescriptionMessage( $langcode = null ) {
+		$msg = wfMessage( $this->getDescriptionMessageKey() );
+		if ( !$msg->exists() ) {
+			// Fallback: return empty string
+			return '';
+		}
+		if ( $langcode !== null ) {
+			$msg->inLanguage( $langcode );
+		}
+		return $msg->parse();
 	}
 	
 	/**
