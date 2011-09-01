@@ -47,7 +47,7 @@ You must have appropriate permissions on destination wiki (including the right t
 	# For Special:GadgetManager
 	'gadgetmanager' => 'Gadget manager',
 	'gadgetmanager-title' => 'Gadget manager',
-	'gadgetmanager-pagetext' => 'Below is an overview of all gadgets defined on this wiki. Users can opt-in or opt-out of these through their [[Special:Preferences|preferences page]].',
+	'gadgetmanager-pagetext' => 'Below is an overview of all gadgets defined on this wiki. Users can opt in or opt out of these through their [[Special:Preferences|preferences page]].',
 	'gadgetmanager-nogadgets' => 'This wiki currently has no gadgets defined.',
 	'gadgetmanager-uncategorized' => 'Uncategorized',
 	'gadgetmanager-tablehead-title' => 'Gadget title',
