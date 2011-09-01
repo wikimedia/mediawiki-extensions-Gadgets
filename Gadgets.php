@@ -116,6 +116,7 @@ $wgExtensionAliasesFiles['Gadgets'] = $dir . 'Gadgets.alias.php';
 
 $wgAutoloadClasses['ApiGadgetManager'] = $dir . 'api/ApiGadgetManager.php';
 $wgAutoloadClasses['ApiQueryGadgetCategories'] = $dir . 'api/ApiQueryGadgetCategories.php';
+$wgAutoloadClasses['ApiQueryGadgetPages'] = $dir . 'api/ApiQueryGadgetPages.php';
 $wgAutoloadClasses['ApiQueryGadgets'] = $dir . 'api/ApiQueryGadgets.php';
 $wgAutoloadClasses['ForeignDBGadgetRepo'] = $dir . 'backend/ForeignDBGadgetRepo.php';
 $wgAutoloadClasses['Gadget'] = $dir . 'backend/Gadget.php';
@@ -135,6 +136,7 @@ $wgSpecialPageGroups['GadgetManager'] = 'wiki';
 $wgAPIModules['gadgetmanager'] = 'ApiGadgetManager';
 $wgAPIListModules['gadgetcategories'] = 'ApiQueryGadgetCategories';
 $wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
+$wgAPIListModules['gadgetpages'] = 'ApiQueryGadgetPages';
 
 $gadResourceTemplate = array(
 	'localBasePath' => $dir . 'modules',
