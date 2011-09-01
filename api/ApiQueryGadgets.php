@@ -37,7 +37,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			? array_flip( $params['categories'] )
 			: false;
 		$this->neededNames = isset( $params['names'] )
-			? array_flip( $params['names'] )
+			? $params['names']
 			: false;
 		$this->listAllowed = isset( $params['allowedonly'] ) && $params['allowedonly'];
 		$this->listEnabled = isset( $params['enabledonly'] ) && $params['enabledonly'];
@@ -128,8 +128,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	private function isNeeded( Gadget $gadget ) {
 		global $wgUser;
 
-		return ( $this->neededNames === false || isset( $this->neededNames[$gadget->getName()] ) )
-			&& ( !$this->listAllowed || $gadget->isAllowed( $wgUser ) )
+		return ( !$this->listAllowed || $gadget->isAllowed( $wgUser ) )
 			&& ( !$this->listEnabled || $gadget->isEnabled( $wgUser ) )
 			&& ( !$this->listShared || $gadget->isShared() )
 			&& ( !$this->categories || isset( $this->categories[$g->getCategory()] ) );
