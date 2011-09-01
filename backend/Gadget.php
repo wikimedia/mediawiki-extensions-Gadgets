@@ -78,11 +78,19 @@ class Gadget {
 	}
 	
 	/**
+	 * Retrieve the metadata of this gadget, in the same format as $properties in __construct()
+	 * @return array
+	 */
+	public function getMetadata() {
+		return array( 'settings' => $this->settings, 'module' => $this->moduleData );
+	}
+	
+	/**
 	 * Retrieve the JSON representation of this gadget, in the same format as $properties in __construct().
 	 * @return string JSON
 	 */
 	public function getJSON() {
-		return FormatJson::encode( array( 'settings' => $this->settings, 'module' => $this->moduleData ) );
+		return FormatJson::encode( $this->getMetadata() );
 	}
 	
 	/**
