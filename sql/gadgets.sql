@@ -13,3 +13,16 @@ CREATE TABLE /*_*/gadgets (
 
 CREATE INDEX /*i*/gd_shared_name ON /*_*/gadgets (gd_shared, gd_name);
 CREATE INDEX /*i*/gd_name_timestamp ON /*_*/gadgets (gd_name, gd_timestamp);
+
+-- Table tracking .js and .css pages to make efficient prefix searches by extension possible
+-- (used for AJAX autocompletion)
+CREATE TABLE /*_*/gadgetpagelist (
+	-- Extension of the page. Right now this can only be 'js' or 'css' but this may change in the future
+	gpl_extension varchar(32) NOT NULL,
+	-- Namespace
+	gpl_namespace int NOT NULL,
+	-- Page title
+	gpl_title varchar(255) NOT NULL
+) /*$wgDBTableOptions*/;
+CREATE UNIQUE INDEX /*i*/gpl_namespace_title ON /*_*/gadgetpagelist (gpl_namespace, gpl_title);
+CREATE INDEX /*i*/gpl_extension_namespace_title ON /*_*/gadgetpagelist (gpl_extension, gpl_namespace, gpl_title);

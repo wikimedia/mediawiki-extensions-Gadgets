@@ -92,9 +92,12 @@ $wgAvailableRights = array_merge( $wgAvailableRights, array(
 	'gadgets-definition-delete'
 ) );
 
-$wgHooks['ArticleDeleteComplete'][]         = 'GadgetHooks::articleDeleteComplete';
-$wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::articleSaveComplete';
-$wgHooks['ArticleUndelete'][]               = 'GadgetHooks::articleUndelete';
+$wgHooks['ArticleDeleteComplete'][]         = 'GadgetHooks::gadgetDefinitionDelete';
+$wgHooks['ArticleDeleteComplete'][]         = 'GadgetHooks::cssJsPageDelete';
+$wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::gadgetDefinitionSave';
+$wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::cssOrJsPageSave';
+$wgHooks['ArticleUndelete'][]               = 'GadgetHooks::gadgetDefinitionUndelete';
+$wgHooks['ArticleUndelete'][]               = 'GadgetHooks::cssOrJsPageUndelete';
 $wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay';
 $wgHooks['CanonicalNamespaces'][]           = 'GadgetHooks::canonicalNamespaces';
 $wgHooks['GetPreferences'][]                = 'GadgetHooks::getPreferences';
@@ -102,6 +105,7 @@ $wgHooks['LoadExtensionSchemaUpdates'][]    = 'GadgetHooks::loadExtensionSchemaU
 $wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetHooks::registerModules';
 $wgHooks['TitleIsCssOrJsPage'][]            = 'GadgetHooks::titleIsCssOrJsPage';
 $wgHooks['TitleIsMovable'][]                = 'GadgetHooks::titleIsMovable';
+$wgHooks['TitleMoveComplete'][]             = 'GadgetHooks::cssOrJsPageMove';
 $wgHooks['getUserPermissionsErrors'][]      = 'GadgetHooks::getUserPermissionsErrors';
 #$wgHooks['UnitTestsList'][]                 = 'GadgetHooks::unitTestsList'; // FIXME: broken
 
@@ -116,6 +120,7 @@ $wgAutoloadClasses['ApiQueryGadgets'] = $dir . 'api/ApiQueryGadgets.php';
 $wgAutoloadClasses['ForeignDBGadgetRepo'] = $dir . 'backend/ForeignDBGadgetRepo.php';
 $wgAutoloadClasses['Gadget'] = $dir . 'backend/Gadget.php';
 $wgAutoloadClasses['GadgetHooks'] = $dir . 'GadgetHooks.php';
+$wgAutoloadClasses['GadgetPageList'] = $dir . 'backend/GadgetPageList.php';
 $wgAutoloadClasses['GadgetRepo'] = $dir . 'backend/GadgetRepo.php';
 $wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'backend/GadgetResourceLoaderModule.php';
 $wgAutoloadClasses['LocalGadgetRepo'] = $dir . 'backend/LocalGadgetRepo.php';

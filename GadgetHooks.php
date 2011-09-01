@@ -22,7 +22,7 @@ class GadgetHooks {
 	 * @param $reason String: Deletion summary
 	 * @param $id Int: Page ID
 	 */
-	public static function articleDeleteComplete( $article, $user, $reason, $id ) {
+	public static function gadgetDefinitionDelete( $article, $user, $reason, $id ) {
 		// FIXME: AARGH, duplication, refactor this
 		$title = $article->getTitle();
 		$name = $title->getText();
@@ -52,7 +52,7 @@ class GadgetHooks {
 	 * @param $flags: Int: Bitmap of flags passed to WikiPage::doEdit()
 	 * @param $revision: Revision object for the new revision
 	 */
-	public static function articleSaveComplete( $article, $user, $text, $summary, $isMinor,
+	public static function gadgetDefinitionSave( $article, $user, $text, $summary, $isMinor,
 			$isWatch, $section, $flags, $revision )
 	{
 		$title = $article->getTitle();
@@ -80,8 +80,14 @@ class GadgetHooks {
 		
 		return true;
 	}
-	
-	public static function articleUndelete( $title, $created, $comment ) {
+
+	/**
+	 * ArticleUndelete hook handler
+	 * @param $title Title object
+	 * @param $created Bool: Whether this undeletion recreated the page
+	 * @param $comment String: Undeletion summary
+	 */
+	public static function gadgetDefinitionUndelete( $title, $created, $comment ) {
 		// FIXME: AARGH, duplication, refactor this
 		$name = $title->getText();
 		// Check that the deletion is in the Gadget definition: namespace and that the name ends in .js
@@ -110,6 +116,74 @@ class GadgetHooks {
 		
 		// modifyGadget() returns a Status object with an error if there was a conflict,
 		// but we do't care, see similar comment in articleSaveComplete()
+		return true;
+	}
+
+	/**
+	 * ArticleDeleteComplete hook handler.
+	 * 
+	 * @param $article Article
+	 * @param $user User
+	 * @param $reason String: Deletion summary
+	 * @param $id Int: Page ID
+	 */
+	public static function cssJsPageDelete( $article, $user, $reason, $id ) {
+		GadgetPageList::delete( $article->getTitle() );
+		return true;
+	}
+	
+	/**
+	 * ArticleSaveComplete hook handler.
+	 * 
+	 * @param $article Article
+	 * @param $user User
+	 * @param $text String: New page text
+	 * @param $summary String: Edit summary
+	 * @param $isMinor Bool: Whether this was a minor edit
+	 * @param $isWatch unused
+	 * @param $section unused
+	 * @param $flags: Int: Bitmap of flags passed to WikiPage::doEdit()
+	 * @param $revision: Revision object for the new revision
+	 */
+	public static function cssOrJsPageSave(  $article, $user, $text, $summary, $isMinor,
+			$isWatch, $section, $flags, $revision )
+	{
+		$title = $article->getTitle();
+		if ( $title->isCssOrJsPage() || $title->isCssJsSubpage() ) {
+			if ( $title->isRedirect() ) {
+				GadgetPageList::delete( $title );
+			} else {
+				GadgetPageList::add( $title );
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * ArticleUndelete hook handler
+	 * @param $title Title object
+	 * @param $created Bool: Whether this undeletion recreated the page
+	 * @param $comment String: Undeletion summary
+	 */
+	public static function cssOrJsPageUndelete( $title, $created, $comment ) {
+		if ( ( $title->isCssOrJsPage() || $title->isCssJsSubpage() ) && !$title->isRedirect() ) {
+			GadgetPageList::add( $title );
+		}
+		return true;
+	}
+
+	public static function cssOrJsPageMove( $oldTitle, $newTitle, $user, $pageid, $redirid ) {
+		// Delete the old title from the list. Even if it still exists after the move,
+		// it'll be a redirect and we don't want those in there
+		GadgetPageList::delete( $oldTitle );
+		
+		if ( $newTitle->isCssOrJsPage() || $newTitle->isCssJsSubpage() ) {
+			if ( $title->isRedirect() ) {
+				GadgetPageList::delete( $newTitle );
+			} else {
+				GadgetPageList::add( $newTitle );
+			}
+		}
 		return true;
 	}
 
@@ -233,6 +307,7 @@ class GadgetHooks {
 	public static function loadExtensionSchemaUpdates( $updater ) {
 		$dir = dirname( __FILE__ );
 		$updater->addExtensionUpdate( array( 'addtable', 'gadgets', "$dir/sql/gadgets.sql", true ) );
+		$updater->addExtensionUpdate( array( 'addtable', 'gadgetpagelist', "$dir/sql/patch-gadgetpagelist.sql", true ) );
 		return true;
 	}
 
