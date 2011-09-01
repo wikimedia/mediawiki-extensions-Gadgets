@@ -210,6 +210,10 @@ class Gadget {
 		return $this->moduleData['styles'];
 	}
 	
+	public function getDependencies() {
+		return $this->moduleData['dependencies'];
+	}
+	
 	/*** Public methods ***/
 	
 	/**
