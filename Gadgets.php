@@ -141,8 +141,9 @@ $gadResourceTemplate = array(
 	'remoteExtPath' => 'Gadgets/modules'
 );
 $wgResourceModules += array(
-	'ext.gadgets.gadgetmanager' => $gadResourceTemplate + array(
-		'styles' => 'ext.gadgets.gadgetmanager.css',
+	// Also loaded in if javascript disabled
+	'ext.gadgets.gadgetmanager.prejs' => $gadResourceTemplate + array(
+		'styles' => 'ext.gadgets.gadgetmanager.prejs.css',
 		'position' => 'top',
-	)
+	),
 );

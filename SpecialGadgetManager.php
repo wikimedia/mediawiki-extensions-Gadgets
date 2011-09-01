@@ -20,7 +20,7 @@ class SpecialGadgetManager extends SpecialPage {
 
 		$this->setHeaders();
 		$out->setPagetitle( wfMsg( 'gadgetmanager-title' ) );
-		$out->addModules( 'ext.gadgets.gadgetmanager' );
+		$out->addModuleStyles( 'ext.gadgets.gadgetmanager.prejs' );
 
 		// Determine view
 		if ( is_string( $par ) && $par !== '' ) {
@@ -69,7 +69,7 @@ class SpecialGadgetManager extends SpecialPage {
 		foreach ( $gadgetsByCategory as $category => $gadgets ) {
 			// Avoid broken or empty headings. Fallback to a special message
 			// for uncategorized gadgets (e.g. gadgets with category '' ).
-			if ( $category != '' ) {
+			if ( $category !== '' ) {
 				$categoryMsg = wfMessage( "gadgetcategory-$category" );
 			} else {
 				$categoryMsg = wfMessage( 'gadgetmanager-uncategorized' );
@@ -82,7 +82,7 @@ class SpecialGadgetManager extends SpecialPage {
 			);
 
 			// Start per-category gadgets table
-			$html .= '<table class="mw-gadgetmanager-gadgets TablePager"><tr>';
+			$html .= '<table class="mw-gadgetmanager-gadgets mw-datatable"><tr>';
 			$html .=
 				'<th>' . wfMessage( 'gadgetmanager-tablehead-title' )->escaped()
 				. '</th><th>' . wfMessage( 'gadgetmanager-tablehead-default' )->escaped()
