@@ -139,7 +139,8 @@ class Gadget {
 		}
 		if ( !$msg->exists() ) {
 			// Fallback: return the name of the gadget
-			$lang = Language::factory( $langcode );
+			global $wgLang;
+			$lang = $langcode === null ? $wgLang : Language::factory( $langcode );
 			return $lang->ucfirst( $this->name );
 		}
 		return $msg->plain();
