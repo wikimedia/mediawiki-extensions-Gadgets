@@ -126,13 +126,13 @@ class Gadget {
 	 */
 	public function getTitleMessage( $langcode = null ) {
 		$msg = wfMessage( $this->getTitleMessageKey() );
+		if ( $langcode !== null ) {
+			$msg = $msg->inLanguage( $langcode );
+		}
 		if ( !$msg->exists() ) {
 			// Fallback: return the name of the gadget
 			$lang = Language::factory( $langcode );
 			return $lang->ucfirst( $this->name );
-		}
-		if ( $langcode !== null ) {
-			$msg = $msg->inLanguage( $langcode );
 		}
 		return $msg->plain();
 		
@@ -153,12 +153,12 @@ class Gadget {
 	 */
 	public function getDescriptionMessage( $langcode = null ) {
 		$msg = wfMessage( $this->getDescriptionMessageKey() );
+		if ( $langcode !== null ) {
+			$msg = $msg->inLanguage( $langcode );
+		}
 		if ( !$msg->exists() ) {
 			// Fallback: return empty string
 			return '';
-		}
-		if ( $langcode !== null ) {
-			$msg = $msg->inLanguage( $langcode );
 		}
 		return $msg->parse();
 	}
