@@ -83,6 +83,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 			if ( isset( $this->props['json'] ) ) {
 				$row['json'] = $g->getJSON();
 			}
+			if ( isset( $this->props['timestamp'] ) ) {
+				$row['timestamp'] = wfTimestamp( TS_ISO_8601, $g->getTimestamp() );
+			}
 			if ( isset( $this->props['desc'] ) ) {
 				$row['desc'] = wfMessage( $g->getDescriptionMsg() )->parse();
 			}
@@ -137,11 +140,12 @@ class ApiQueryGadgets extends ApiQueryBase {
 	public function getAllowedParams() {
 		return array(
 			'prop' => array(
-				ApiBase::PARAM_DFLT => 'name|json',
+				ApiBase::PARAM_DFLT => 'name|json|timestamp',
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => array(
 					'name',
 					'json',
+					'timestamp',
 					'desc',
 					'desc-raw',
 					'category',
@@ -177,6 +181,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 				'What gadget information to get:',
 				' name           - Internal gadget name',
 				' json           - JSON representation of the gadget metadata. All other prop attributes below are deprecated but provided for backwards compatibility',
+				' timestamp      - Last changed timestamp of the gadget metadata',
 				' desc           - Gadget description transformed into HTML (can be slow, use only if really needed)',
 				' desc-raw       - Gadget description in raw wikitext',
 				' category       - Internal name of a category gadget belongs to (empty if top-level gadget)',
