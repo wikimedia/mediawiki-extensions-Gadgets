@@ -92,36 +92,6 @@ class ApiQueryGadgets extends ApiQueryBase {
 			if ( isset( $this->props['desc'] ) ) {
 				$row['desc'] = $g->getDescriptionMessage();
 			}
-			if ( isset( $this->props['desc-raw'] ) ) {
-				$row['desc-raw'] = $row['desc'] = wfMessage( $g->getDescriptionMessageKey() )->plain();
-			}
-			if ( isset( $this->props['category'] ) ) {
-				$row['category'] = $g->getCategory();
-			}
-			if ( isset( $this->props['resourceloader'] ) /*&& $g->supportsResourceLoader()*/ ) {
-				// Everything supports resourceloader now :D
-				// FIXME: We need to figure something out for legacy gadgets, or at least MaxSem thinks so
-				$row['resourceloader'] = '';
-			}
-			if ( isset( $this->props['scripts'] ) ) {
-				$row['scripts'] = $g->getScripts();
-				$result->setIndexedTagName( $row['scripts'], 'script' );
-			}
-			if ( isset( $this->props['styles'] ) ) {
-				$row['styles'] = $g->getStyles();
-				$result->setIndexedTagName( $row['styles'], 'style' );
-			}
-			if ( isset( $this->props['dependencies'] ) ) {
-				$row['dependencies'] = $g->getDependencies();
-				$result->setIndexedTagName( $row['dependencies'], 'module' );
-			}
-			if ( isset( $this->props['rights'] ) ) {
-				$row['rights'] = $g->getRequiredRights();
-				$result->setIndexedTagName( $row['rights'], 'right' );
-			}
-			if ( isset( $this->props['default'] ) && $g->isEnabledByDefault() ) {
-				$row['default'] = '';
-			}
 			$data[] = $row;
 		}
 		$result->setIndexedTagName( $data, 'gadget' );
@@ -151,14 +121,6 @@ class ApiQueryGadgets extends ApiQueryBase {
 					'timestamp',
 					'definitiontimestamp',
 					'desc',
-					'desc-raw',
-					'category',
-					'resourceloader',
-					'scripts',
-					'styles',
-					'dependencies',
-					'rights',
-					'default',
 				),
 			),
 			'categories' => array(
@@ -184,18 +146,10 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'prop' => array(
 				'What gadget information to get:',
 				' name           - Internal gadget name',
-				' json           - JSON representation of the gadget metadata. All other prop attributes below are deprecated but provided for backwards compatibility',
+				' json           - JSON representation of the gadget metadata.',
 				' timestamp      - Last changed timestamp of the gadget module, including any files it references',
 				' definitiontimestamp - Last changed timestamp of the gadget metadata',
 				' desc           - Gadget description transformed into HTML (can be slow, use only if really needed)',
-				' desc-raw       - Gadget description in raw wikitext',
-				' category       - Internal name of a category gadget belongs to (empty if top-level gadget)',
-				' resourceloader - Whether gadget supports ResourceLoader',
-				" scripts        - List of gadget's scripts",
-				" styles         - List of gadget's styles",
-				' dependencies   - List of ResourceLoader modules gadget depends on',
-				' rights         - List of rights required to use gadget, if any',
-				' default        - Whether gadget is enabled by default',
 			),
 			'categories' => 'Gadgets from what categories to retrieve',
 			'names' => 'Name(s) of gadgets to retrieve',
