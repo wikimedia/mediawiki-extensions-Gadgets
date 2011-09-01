@@ -149,13 +149,7 @@ class GadgetHooks {
 			$isWatch, $section, $flags, $revision )
 	{
 		$title = $article->getTitle();
-		if ( $title->isCssOrJsPage() || $title->isCssJsSubpage() ) {
-			if ( $title->isRedirect() ) {
-				GadgetPageList::delete( $title );
-			} else {
-				GadgetPageList::add( $title );
-			}
-		}
+		GadgetPageList::updatePageStatus( $title );
 		return true;
 	}
 
@@ -166,9 +160,7 @@ class GadgetHooks {
 	 * @param $comment String: Undeletion summary
 	 */
 	public static function cssOrJsPageUndelete( $title, $created, $comment ) {
-		if ( ( $title->isCssOrJsPage() || $title->isCssJsSubpage() ) && !$title->isRedirect() ) {
-			GadgetPageList::add( $title );
-		}
+		GadgetPageList::updatePageStatus( $title );
 		return true;
 	}
 
@@ -177,13 +169,7 @@ class GadgetHooks {
 		// it'll be a redirect and we don't want those in there
 		GadgetPageList::delete( $oldTitle );
 		
-		if ( $newTitle->isCssOrJsPage() || $newTitle->isCssJsSubpage() ) {
-			if ( $title->isRedirect() ) {
-				GadgetPageList::delete( $newTitle );
-			} else {
-				GadgetPageList::add( $newTitle );
-			}
-		}
+		GadgetPageList::updatePageStatus( $newTitle );
 		return true;
 	}
 
