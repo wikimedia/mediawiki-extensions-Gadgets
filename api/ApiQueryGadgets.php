@@ -81,8 +81,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 			if ( isset( $this->props['name'] ) ) {
 				$row['name'] = $name;
 			}
-			if ( isset( $this->props['json'] ) ) {
-				$row['json'] = $g->getJSON();
+			if ( isset( $this->props['metadata'] ) ) {
+				$row['metadata'] = $g->getMetadata();
+				$this->setIndexedTagNameForMetadata( $row['metadata'] );
 			}
 			if ( isset( $this->props['timestamp'] ) ) {
 				$context = ResourceLoaderContext::newDummyContext();
@@ -120,15 +121,35 @@ class ApiQueryGadgets extends ApiQueryBase {
 			&& ( !$this->listShared || $gadget->isShared() )
 			&& ( !$this->categories || isset( $this->categories[$g->getCategory()] ) );
 	}
+	
+	private function setIndexedTagNameForMetadata( &$metadata ) {
+		static $tagNames = array(
+			'rights' => 'right',
+			'scripts' => 'script',
+			'styles' => 'style',
+			'dependencies' => 'dependency',
+			'messages' => 'message',
+		);
+		
+		$result = $this->getResult();
+		foreach ( $metadata as $type => &$data ) {
+			foreach ( $data as $key => &$value ) {
+				if ( is_array( $value ) ) {
+					$tag = isset( $tagNames[$key] ) ? $tagNames[$key] : $key;
+					$result->setIndexedTagName( $value, $tag );
+				}
+			}
+		}
+	}
 
 	public function getAllowedParams() {
 		return array(
 			'prop' => array(
-				ApiBase::PARAM_DFLT => 'name|json',
+				ApiBase::PARAM_DFLT => 'name|metadata',
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => array(
 					'name',
-					'json',
+					'metadata',
 					'timestamp',
 					'definitiontimestamp',
 					'desc',
@@ -162,7 +183,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'prop' => array(
 				'What gadget information to get:',
 				' name           - Internal gadget name',
-				' json           - JSON representation of the gadget metadata.',
+				' metadata       - The gadget metadata',
 				' timestamp      - Last changed timestamp of the gadget module, including any files it references',
 				' definitiontimestamp - Last changed timestamp of the gadget metadata',
 				' desc           - Gadget description translated in the given language and transformed into HTML (can be slow, use only if really needed)',
