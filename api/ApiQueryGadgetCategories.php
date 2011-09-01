@@ -33,6 +33,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 		$this->neededNames = isset( $params['names'] )
 			? array_flip( $params['names'] )
 			: false;
+		$this->language = $params['language'];
 
 		$this->getMain()->setCacheMode( 'public' );
 
@@ -58,13 +59,19 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 				if ( isset( $this->props['name'] ) ) {
 					$row['name'] = $category;
 				}
-				if ( $category !== "" ) {
-					if ( isset( $this->props['desc'] ) ) {
-						// TODO: Put message into the repo too, with fallback behavior
-						$row['desc'] = wfMessage( "gadgetcategory-$category" )->parse();
+				if ( isset( $this->props['title'] ) ) {
+					// TODO: Put all this logic in the repo class
+					$message = $category === '' ? 'gadgetmanager-uncategorized' : "gadgetcategory-$category";
+					$message = wfMessage( $message );
+					if ( $this->language !== null ) {
+						$message = $message->inLanguage( $this->language );
 					}
-					if ( isset( $this->props['desc-raw'] ) ) {
-						$row['desc-raw'] = wfMessage( "gadgetcategory-$category" )->plain();
+					if ( !$message->exists() ) {
+						global $wgLang;
+						$lang = $this->language === null ? $wgLang : Language::factory( $lang );
+						$row['title'] = $lang->ucfirst( $category );
+					} else {
+						$row['title'] = $message->plain();
 					}
 				}
 				if ( isset( $this->props['members'] ) ) {
@@ -84,8 +91,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => array(
 					'name',
-					'desc',
-					'desc-raw',
+					'title',
 					'members',
 				),
 			),
@@ -93,6 +99,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_ISMULTI => true,
 			),
+			'language' => null,
 		);
 	}
 
@@ -101,15 +108,16 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 	}
 
 	public function getParamDescription() {
+		$p = $this->getModulePrefix();
 		return array(
 			'prop' => array(
 				'What gadget category information to get:',
 				' name     - Internal category name',
-				' desc     - Category description transformed into HTML (can be slow, use only if really needed)',
-				' desc-raw - Category description in raw wikitext',
+				' title    - Category title, translated in the given language',
 				' members  - Number of gadgets in category',
 			),
 			'names' => 'Name(s) of gadgets to retrieve',
+			'language' => "Language to use for {$p}prop=title",
 		);
 	}
 
