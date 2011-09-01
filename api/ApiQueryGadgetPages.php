@@ -140,7 +140,7 @@ class ApiQueryGadgetPages extends ApiQueryGeneratorBase {
 		);
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		return array(
 			'Get a list of .js pages in the MediaWiki namespace:',
 			'    api.php?action=query&list=gadgetpages&gpextension=js&gpnamespace=8',

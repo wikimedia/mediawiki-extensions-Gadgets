@@ -200,7 +200,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 		);
 	}
 
-	protected function getExamples() {
+	public function getExamples() {
 		$params = $this->getAllowedParams();
 		$allProps = implode( '|', $params['prop'][ApiBase::PARAM_TYPE] );
 		return array(
