@@ -132,7 +132,7 @@ class Gadget {
 			return $lang->ucfirst( $this->name );
 		}
 		if ( $langcode !== null ) {
-			$msg->inLanguage( $langcode );
+			$msg = $msg->inLanguage( $langcode );
 		}
 		return $msg->plain();
 		
@@ -158,7 +158,7 @@ class Gadget {
 			return '';
 		}
 		if ( $langcode !== null ) {
-			$msg->inLanguage( $langcode );
+			$msg = $msg->inLanguage( $langcode );
 		}
 		return $msg->parse();
 	}
