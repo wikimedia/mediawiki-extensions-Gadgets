@@ -53,7 +53,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 		$repo = new LocalGadgetRepo( array() );
 		$result = array();
 		
-		if ( $this->neededNames ) {
+		if ( $this->neededNames !== false ) {
 			// Get all requested gadgets by name
 			$names = $this->neededNames;
 		} else {
