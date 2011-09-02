@@ -1511,6 +1511,7 @@ Dit euverzich bi-jtj uch einvoudige toegank toet de systeemtekspazjena wo de bes
 );
 
 /** Lithuanian (Lietuvių)
+ * @author Eitvys200
  * @author Homo
  * @author Vpovilaitis
  */
@@ -1526,6 +1527,8 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
 	'gadgets-title' => 'Priemonės',
 	'gadgets-pagetext' => 'Žemiau yra sąrašas specialių priemonių, kurias naudotojai gali įjungti savo [[Special:Preferences|nustatymų puslapyje]]. Jos apibūdintos [[MediaWiki:Gadgets-definition|priemonių aprašyme]]. Ši apžvalga suteikia lengvą priėjimą prie sisteminių pranešimų puslapių, kuriuose pateiktas kiekvienos priemonės trumpas aprašas ir kodas.',
 	'gadgets-uses' => 'Panaudojimai',
+	'gadgets-export' => 'Eksportas',
+	'gadgets-export-download' => 'Parsisiųsti',
 );
 
 /** Latvian (Latviešu)
@@ -2029,6 +2032,8 @@ $messages['ro'] = array(
 	'gadgets' => 'Gadgeturi',
 	'gadgets-title' => 'Gadgeturi',
 	'gadgets-uses' => 'Utilizări',
+	'gadgets-required-rights' => 'Necesită {{PLURAL:$2|dreptul $1|următoarele drepturi: $1}}.',
+	'gadgets-default' => 'Activat pentru toată lumea în mod implicit.',
 	'gadgets-export' => 'Exportă',
 	'gadgets-export-title' => 'Exportul de gadgeturi',
 	'gadgets-not-found' => 'Gadgetul „$1” nu a fost găsit.',
