@@ -80,8 +80,9 @@
 	cursor: pointer;
 }
 
-.formbuilder-field-list {
+.formbuilder-list-items {
 	border: 1px solid #888;
+	border-bottom: none;
 }
 
 .formbuilder-list-item-container {

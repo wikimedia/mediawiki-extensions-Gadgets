@@ -198,7 +198,7 @@
 	}, mw.msg( 'gadgets-formbuilder-scalar' ) );
 
 	/* Functions used by the preferences editor */
-		function createFieldDialog( params, options ) {
+	function createFieldDialog( params, options ) {
 		var self = this;
 		
 		if ( !$.isFunction( params.callback ) ) {
@@ -365,7 +365,7 @@
 		} );
 	}
 
-	function showEditFieldDialog( fieldDesc, options, callback ) {
+	function showEditFieldDialog( fieldDesc, listParams, options, callback ) {
 		$( { "fields": [ fieldDesc ] } )
 			.formBuilder( {
 				editable: true,
@@ -400,11 +400,14 @@
 							$( this ).dialog( "close" );
 
 							var ListField = validFieldTypes.list;
-							callback( new ListField( {
-									type: 'list',
-									name: name,
-									field: fieldDesc
-								}, options ) );
+							
+							$.extend( listParams, {
+								type: 'list',
+								name: name,
+								field: fieldDesc
+							} );
+							
+							callback( new ListField( listParams, options ) );
 						}
 					},
 					{
@@ -1722,8 +1725,25 @@
 				self._createItem( true );
 			} )
 			.appendTo( this.$div );
+		
+		//Add a hidden input to attach validation rules on the number of items
+		//We set its value to "" if there are no elements, or to the number of items otherwise
+		this._$hiddenInput = $( '<input/>').attr( {
+				type: 'hidden',
+				name: this.options.idPrefix + this.desc.name,
+				id: this.options.idPrefix + this.desc.name
+			} )
+			.hide()
+			.appendTo( this.$div );
+		
+		this._refreshHiddenField();
 	}
 	inherit( ListField, EmptyField );
+
+	ListField.prototype._refreshHiddenField = function() {
+		var nItems = this._$divItems.children().length;
+		this._$hiddenInput.val( nItems ? nItems : "" );
+	};
 
 	ListField.prototype._createItem = function( afterInit, itemValue ) {
 		var	itemDesc = $.extend( {}, this.desc.field, {
@@ -1763,7 +1783,7 @@
 		var $itemButtons = $( '<div/>' )
 			.addClass( 'formbuilder-list-item-buttons' );
 		
-
+		var self = this;
 		$( '<span/>' )
 			.addClass( 'formbuilder-button formbuilder-list-button-delete ui-icon ui-icon-trash' )
 			.attr( 'title', mw.msg( 'gadgets-formbuilder-editor-delete' ) )
@@ -1771,6 +1791,8 @@
 				$itemDiv.slideUp( function() {
 					deleteFieldRules( itemField );
 					$itemDiv.remove();
+					self._refreshHiddenField();
+					self._$hiddenInput.valid(); //force revalidation of the number of items
 				} );
 			} )
 			.appendTo( $itemButtons );
@@ -1791,6 +1813,9 @@
 				.slideDown();
 
 			addFieldRules( itemField );
+
+			this._refreshHiddenField();
+			this._$hiddenInput.valid(); //force revalidation of the number of items
 		} else {
 			$itemDiv.appendTo( this._$divItems );
 		}
@@ -1817,7 +1842,28 @@
 	};
 	
 	ListField.prototype.getValidationSettings = function() {
-		var validationSettings = {};
+		var validationSettings = EmptyField.prototype.getValidationSettings.call( this );
+			hiddenFieldRules = {}, hiddenFieldMessages = {};
+
+		if ( typeof this.desc.required != 'undefined' ) {
+			hiddenFieldRules.required = this.desc.required;
+			hiddenFieldMessages.required = mw.msg( 'gadgets-formbuilder-list-required' );
+		}
+		
+		if ( typeof this.desc.minlength != 'undefined' ) {
+			hiddenFieldRules.min = this.desc.minlength;
+			hiddenFieldMessages.min = mw.msg( 'gadgets-formbuilder-list-minlength', this.desc.minlength );
+		}
+
+		if ( typeof this.desc.maxlength == 'undefined' ) {
+			this.desc.maxlength = 1024;
+		}
+		hiddenFieldRules.max = this.desc.maxlength;
+		hiddenFieldMessages.max = mw.msg( 'gadgets-formbuilder-list-maxlength', this.desc.maxlength );
+
+		validationSettings.rules[this.options.idPrefix + this.desc.name] = hiddenFieldRules;
+		validationSettings.messages[this.options.idPrefix + this.desc.name] = hiddenFieldMessages;
+		
 		this._$divItems.children().each( function( index, divItem ) {
 			var field = $( divItem ).data( 'field' );
 			$.extend( true, validationSettings, field.getValidationSettings() );
@@ -1931,9 +1977,23 @@
 			"builder": simpleFields.concat( [
 				{
 					"name": "required",
-					"type": "boolean",
+					"type": "select",
 					"label": "required",
-					"default": false
+					"default": null,
+					"options": [
+						{
+							"name": "not specified",
+							"value": null
+						},
+						{
+							"name": "true",
+							"value": true
+						},
+						{
+							"name": "false",
+							"value": false
+						}
+					]
 				},
 				{
 					"name": "minlength",
@@ -2088,23 +2148,64 @@
 					}
 				} );
 				
-				//Create the dialog to chose the field type
-				var $form = $( {
-					fields: [ {
-						"name": "name",
-						"type": "string",
-						"label": "name",
-						"required": true,
-						"maxlength": 40,
-						"default": ""
-					},
-					{
-						"name": "type",
-						"type": "select",
-						"label": "type",
-						"options": selectOptions
-					} ]
-				} ).formBuilder( { idPrefix: 'list-chose-type-' } )
+				//Create the dialog to chose the field type and set list properties
+				var description = {
+					"fields": [
+						{
+							"name": "name",
+							"type": "string",
+							"label": "name",
+							"required": true,
+							"maxlength": 40,
+							"default": ""
+						},
+						{
+							"name": "required",
+							"type": "select",
+							"label": "required",
+							"default": null,
+							"options": [
+								{
+									"name": "not specified",
+									"value": null
+								},
+								{
+									"name": "true",
+									"value": true
+								},
+								{
+									"name": "false",
+									"value": false
+								}
+							]
+						},
+						{
+							"name": "minlength",
+							"type": "number",
+							"label": "minlength",
+							"integer": true,
+							"min": 0,
+							"required": false,
+							"default": null
+						},
+						{
+							"name": "maxlength",
+							"type": "number",
+							"label": "maxlength",
+							"integer": true,
+							"min": 1,
+							"required": false,
+							"default": null
+						},
+						{
+							"name": "type",
+							"type": "select",
+							"label": "type",
+							"options": selectOptions
+						}
+					]
+				};
+				var $form = $( description ).formBuilder( { idPrefix: 'list-chose-type-' } )
 					.submit( function() {
 						return false; //prevent form submission
 					} );
@@ -2123,6 +2224,14 @@
 								click: function() {
 									var values = $( this ).formBuilder( 'getValues' );
 									$( this ).dialog( "close" );
+
+									//Remove properties that equal their default
+									$.each( description.fields, function( index, fieldSpec ) {
+										var property = fieldSpec.name;
+										if ( values[property] === fieldSpec['default'] ) {
+											delete values[property];
+										}
+									} );
 									
 									var $dialog = $( this );
 									createFieldDialog( {
@@ -2132,7 +2241,7 @@
 										},
 										callback: function( field ) {
 											$dialog.dialog( 'close' );
-											showEditFieldDialog( field.getDesc(), options, callback );
+											showEditFieldDialog( field.getDesc(), values, options, callback );
 											return true;
 										}
 									}, { editable: true } );

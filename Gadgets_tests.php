@@ -274,7 +274,6 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 					'label' => 'some label',
 					'minlength' => 6,
 					'maxlength' => 10,
-					'required' => false,
 					'default' => 'default'
 				)
 			)
@@ -282,8 +281,23 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 
 		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
 
-		//Tests with wrong default values
+		//Tests with wrong default values (when 'required' is not given)
 		$wrong = $correct;
+		foreach ( array( null, '', true, false, 0, 1, array(), 'short', 'veryverylongstring' ) as $def ) {
+			$wrong['fields'][0]['default'] = $def;
+			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
+		}
+
+		//Tests with correct default values (when required is not given)
+		$correct2 = $correct;
+		foreach ( array( '6chars', '1234567890' ) as $def ) {
+			$correct2['fields'][0]['default'] = $def;
+			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
+		}
+
+		//Tests with wrong default values (when 'required' is false)
+		$wrong = $correct;
+		$wrong['fields'][0]['required'] = false;
 		foreach ( array( null, true, false, 0, 1, array(), 'short', 'veryverylongstring' ) as $def ) {
 			$wrong['fields'][0]['default'] = $def;
 			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
@@ -291,16 +305,36 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 
 		//Tests with correct default values (when required is false)
 		$correct2 = $correct;
+		$correct2['fields'][0]['required'] = false;
 		foreach ( array( '', '6chars', '1234567890' ) as $def ) {
 			$correct2['fields'][0]['default'] = $def;
 			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 		}
 
+		$correct = array(
+			'fields' => array(
+				array(
+					'name' => 'testString',
+					'type' => 'string',
+					'label' => 'some label',
+					'default' => ''
+				)
+			)
+		);
+
+		//Test with empty default when "required" is true
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
+
 		//Test with empty default when "required" is true
 		$wrong = $correct;
-		$wrong['fields']['testString']['required'] = true;
-		$wrong['fields']['testString']['default'] = '';
+		$wrong['fields'][0]['required'] = true;
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
+
+		//Test with empty default when "required" is false and minlength is given
+		$correct2 = $correct;
+		$correct2['fields'][0]['required'] = false;
+		$correct2['fields'][0]['minlength'] = 3;
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 	}
 
 	//Tests for 'number' type preferences
@@ -707,6 +741,54 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 			)
 		) );
 
+
+		//Tests with 'minlength' and 'maxlength' options
+		$wrong = $correct;
+		$wrong['fields'][0]['minlength'] = 4;
+		$wrong['fields'][0]['maxlength'] = 3; //maxlength < minlength, wrong
+		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
+		
+		$correct2 = $correct;
+		$correct2['fields'][0]['minlength'] = 2;
+		$correct2['fields'][0]['maxlength'] = 3;
+		$correct2['fields'][0]['default'] = array(
+			array( 'bar' => true, 'car' => '#115599' ),
+			array( 'bar' => false, 'car' => '#123456' )
+		);
+		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
+
+		$this->assertFalse( GadgetPrefs::checkPrefsAgainstDescription(
+			$correct2,
+			array( 'foo' => array( //less than minlength items
+					array( 'bar' => true, 'car' => '#115599' )
+				)
+			)
+		) );
+
+		$this->assertFalse( GadgetPrefs::checkPrefsAgainstDescription(
+			$correct2,
+			array( 'foo' => array() ) //empty array, must fail because "required" is not false
+		) );
+
+		$this->assertFalse( GadgetPrefs::checkPrefsAgainstDescription(
+			$correct2,
+			array( 'foo' => array( //more than minlength items
+					array( 'bar' => true, 'car' => '#115599' ),
+					array( 'bar' => false, 'car' => '#123456' ),
+					array( 'bar' => true, 'car' => '#ffffff' ),
+					array( 'bar' => false, 'car' => '#2357bd' )
+				)
+			)
+		) );
+
+		//Test with 'required'
+		$correct2['fields'][0]['required'] = false;
+		$this->assertTrue( GadgetPrefs::checkPrefsAgainstDescription(
+			$correct2,
+			array( 'foo' => array() ) //empty array, must be accepted because "required" is false
+		) );
+		
+		//Tests matchPrefsWithDescription
 		$prefs = array( 'foo' => array(
 				array(
 					'bar' => null,
@@ -722,6 +804,7 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 				)
 			)
 		);
+		
 		
 		GadgetPrefs::matchPrefsWithDescription( $correct, $prefs );
 		$this->assertTrue( GadgetPrefs::checkPrefsAgainstDescription( $correct, $prefs ) );

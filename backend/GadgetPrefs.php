@@ -254,6 +254,18 @@ class GadgetPrefs {
 				),
 				'default' => array(
 					'isMandatory' => true
+				),
+				'required' => array(
+					'isMandatory' => false,
+					'validator' => 'is_bool'
+				),
+				'minlength' => array(
+					'isMandatory' => false,
+					'validator' => 'is_integer'
+				),
+				'maxlength' => array(
+					'isMandatory' => false,
+					'validator' => 'is_integer'
 				)
 			),
 			'validator' => 'GadgetPrefs::validateListPrefDefinition',
@@ -403,6 +415,13 @@ class GadgetPrefs {
 	private static function validateListPrefDefinition( $prefDefinition ) {
 		//Name must not be set for the 'field' description
 		if ( array_key_exists( 'name', $prefDefinition['field'] ) ) {
+			return false;
+		}
+		
+		//Validate minlength and maxlength
+		$minlength = isset( $prefDefinition['minlength'] ) ? $prefDefinition['minlength'] : 0;
+		$maxlength = isset( $prefDefinition['maxlength'] ) ? $prefDefinition['maxlength'] : 1024;
+		if ( $minlength < 0 || $maxlength <= 0 || $minlength > $maxlength ) {
 			return false;
 		}
 		
@@ -654,11 +673,13 @@ class GadgetPrefs {
 		$len = strlen( $value );
 		
 		//Checks the "required" option, if present
-		$required = isset( $prefDescription['required'] ) ? $prefDescription['required'] : true;
-		if ( $required === true && $len == 0 ) {
-			return false;
-		} elseif ( $required === false && $len == 0 ) {
-			return true; //overriding 'minlength'
+		if ( isset( $prefDescription['required'] ) ) {
+			$required = isset( $prefDescription['required'] ) ? $prefDescription['required'] : true;
+			if ( $required === true && $len == 0 ) {
+				return false;
+			} elseif ( $required === false && $len == 0 ) {
+				return true; //overriding 'minlength', if given
+			}
 		}
 		
 		//Checks the "minlength" option, if present
@@ -800,6 +821,24 @@ class GadgetPrefs {
 	//Checker for 'list' preferences
 	private static function checkListPref( $prefDescription, $value ) {
 		if ( !self::isOrdinaryArray( $value ) ) {
+			return false;
+		}
+
+		$nItems = count( $value );
+		
+		//Checks the "required" option, if present
+		if ( isset( $prefDescription['required'] ) ) {
+			$required = $prefDescription['required'];
+			if ( $required === true && $nItems == 0 ) {
+				return false;
+			} elseif ( $required === false && $nItems == 0 ) {
+				return true; //overriding 'minlength'
+			}
+		}
+
+		$minlength = isset( $prefDescription['minlength'] ) ? $prefDescription['minlength'] : 0;
+		$maxlength = isset( $prefDescription['maxlength'] ) ? $prefDescription['maxlength'] : 1024;
+		if ( $nItems < $minlength || $nItems > $maxlength ) {
 			return false;
 		}
 
