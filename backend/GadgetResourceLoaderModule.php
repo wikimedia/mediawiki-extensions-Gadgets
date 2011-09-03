@@ -3,7 +3,7 @@
  * ResourceLoader module for a single gadget
  */
 class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
-	protected $pages, $dependencies, $messages, $source, $timestamp;
+	protected $pages, $dependencies, $messages, $source, $definitiontimestamp;
 
 	/**
 	 * Creates an instance of this class
@@ -16,15 +16,15 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * @param $dependencies Array: Names of resources this module depends on
 	 * @param $messages Array: Keys of the i18n messages that this module needs
 	 * @param $source String: Name of the source of this module, as defined in ResourceLoader
-	 * @param $timestamp String: Last modification timestamp of the gadget metadata
+	 * @param $definitiontimestamp String: Last modification timestamp of the gadget metadata
 	 * @param $db Database: Remote database object // TODO: How will this work for ForeignAPIGadgetRepo?
 	 */
-	public function __construct( $pages, $dependencies, $messages, $source, $timestamp, $db ) {
+	public function __construct( $pages, $dependencies, $messages, $source, $definitiontimestamp, $db ) {
 		$this->pages = $pages;
 		$this->dependencies = $dependencies;
 		$this->messages = $messages;
 		$this->source = $source;
-		$this->timestamp = $timestamp;
+		$this->definitiontimestamp = $definitiontimestamp;
 		$this->db = $db;
 	}
 	
@@ -65,13 +65,13 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	}
 	
 	/**
-	 * Overrides ResourceLoaderWikiModule::getModifiedTime() to take $timestamp
+	 * Overrides ResourceLoaderWikiModule::getModifiedTime() to take $definitiontimestamp
 	 * into account.
 	 * @param $context ResourceLoaderContext object
 	 * @return int UNIX timestamp
 	 */
 	public function getModifiedTime( ResourceLoaderContext $context ) {
 		$retval = parent::getModifiedTime( $context );
-		return max( $retval, wfTimestamp( TS_UNIX, $this->timestamp ) );
+		return max( $retval, wfTimestamp( TS_UNIX, $this->definitiontimestamp ) );
 	}
 }
