@@ -75,7 +75,7 @@ class ApiQueryGadgetPages extends ApiQueryGeneratorBase {
 			
 			$title = Title::makeTitle( $row->gpl_namespace, $row->gpl_title );
 			if ( is_null( $resultPageSet ) ) {
-				$vals = array( 'pagename' => $title->getPrefixedText() );
+				$vals = array( 'pagename' => $title->getText() );
 				self::addTitleInfo( $vals, $title );
 				$fit = $result->addValue( array( 'query', $this->getModuleName() ), null, $vals );
 				if ( !$fit ) {
