@@ -660,6 +660,7 @@ $messages['el'] = array(
 Αυτή η επισκόπηση παρέχει εύκολη πρόσβαση στις σελίδες μηνυμάτων του συστήματος που ορίζουν την περιγραφή και τον κώδικα κάθε λειτουργίας.',
 	'gadgets-uses' => 'Χρήσεις',
 	'gadgets-required-rights' => 'Απαιτεί το {{PLURAL:$2|$1 right|following rights: $1}}.',
+	'gadgets-default' => 'Ενεργοποιήθηκε για τον καθένα από προεπιλογή.',
 	'gadgets-export' => 'Εξαγωγή',
 	'gadgets-export-title' => 'Μικροεφαρμογή εξαγωγής',
 	'gadgets-not-found' => 'Μικροεφαρμογή "$1" δεν βρέθηκε.',
@@ -822,6 +823,7 @@ $messages['fa'] = array(
 /** Finnish (Suomi)
  * @author Crt
  * @author Nike
+ * @author Olli
  */
 $messages['fi'] = array(
 	'gadgets-desc' => 'Tarjoaa mahdollisuuden käyttäjille ottaa käyttöön [[Special:Gadgets|määritettyjä CSS- ja JavaScript-pienoisohjelmia]] omista [[Special:Preferences|asetuksistaan]].',
@@ -835,6 +837,8 @@ Huomio myös, että nämä pienoisohjelmat eivät ole osa MediaWiki-ohjelmistoa 
 
 Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät pienoisohjelmien kuvauksen ja koodin.',
 	'gadgets-uses' => 'Käyttää',
+	'gadgets-required-rights' => 'Seuraava{{PLURAL:$2| $1 oikeus|t $1 oikeutta}} on vaadittu.',
+	'gadgets-default' => 'Oletusarvoisesti käytössä kaikille.',
 	'gadgets-export' => 'Vie',
 	'gadgets-export-title' => 'Pienoisohjelmien vienti',
 	'gadgets-not-found' => 'Pienoisohjelmaa $1 ei löytynyt.',
@@ -898,6 +902,8 @@ Los administrators locals pôvont changiér los outils disponiblos en utilisent 
 	'gadgets-pagetext' => 'Vê-que una lista d’outils que los utilisators pôvont activar dens lor [[Special:Preferences|pâge de prèferences]], coment dèfeni dens les [[MediaWiki:Gadgets-definition|dèfinicions]].
 Ceti apèrçu balye un accès vito fêt a les pâges de mèssâjos sistèmo que dèfenéssont la dèscripcion et lo code de châque outil.',
 	'gadgets-uses' => 'Utilise',
+	'gadgets-required-rights' => 'At fôta {{PLURAL:$2|du drêt $1|de cetos drêts : $1}}.',
+	'gadgets-default' => 'Activâ por tot lo mondo per dèfôt.',
 	'gadgets-export' => 'Èxportacion',
 	'gadgets-export-title' => 'Èxportacion d’outil',
 	'gadgets-not-found' => 'Outil « $1 » pas trovâ.',
@@ -1528,6 +1534,8 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
 	'gadgets-pagetext' => 'Žemiau yra sąrašas specialių priemonių, kurias naudotojai gali įjungti savo [[Special:Preferences|nustatymų puslapyje]]. Jos apibūdintos [[MediaWiki:Gadgets-definition|priemonių aprašyme]]. Ši apžvalga suteikia lengvą priėjimą prie sisteminių pranešimų puslapių, kuriuose pateiktas kiekvienos priemonės trumpas aprašas ir kodas.',
 	'gadgets-uses' => 'Panaudojimai',
 	'gadgets-export' => 'Eksportas',
+	'gadgets-export-title' => 'Įtaiso eksportas',
+	'gadgets-not-found' => 'Įtaisas " $1 " nerastas.',
 	'gadgets-export-download' => 'Parsisiųsti',
 );
 
@@ -1839,6 +1847,7 @@ Aqueste susvòl dona un accès rapid a las paginas de messatges del sistèma que
  */
 $messages['or'] = array(
 	'gadgets-export' => 'ରପ୍ତାନୀ',
+	'gadgets-export-download' => 'ଡାଉନଲୋଡ଼',
 );
 
 /** Pampanga (Kapampangan)
@@ -2119,6 +2128,8 @@ $messages['rue'] = array(
 	'gadgets-pagetext' => 'Ниже є перегляд шпеціалных додатків, котры собі хоснователї можуть запнути у своїм [[Special:Preferences|наставлїню]]. Їх список ся дасть управляти на сторінцї [[MediaWiki:Gadgets-definition]].
 Тот перегляд додавать простый приступ к&nbsp;сістемным повідомлїням, котры дефінують код і&nbsp;попис каждого додатку.',
 	'gadgets-uses' => 'Хоснує',
+	'gadgets-required-rights' => 'Потребує {{PLURAL:$2|права $1|наступны права: $1}}.',
+	'gadgets-default' => 'Імпліцітно запнуте вшыткым.',
 	'gadgets-export' => 'Експортовати',
 	'gadgets-export-title' => 'Експорт додатку',
 	'gadgets-not-found' => 'Додато „$1“ не найдженый.',
