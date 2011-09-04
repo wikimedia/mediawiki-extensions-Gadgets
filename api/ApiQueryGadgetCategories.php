@@ -50,7 +50,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 		$gadgetsByCategory = array();
 		foreach ( $gadgets as $name ) {
 			$gadget = $repo->getGadget( $name );
-			$gadgetsByCategory[$gadget->getCategory()] = $gadget;
+			$gadgetsByCategory[$gadget->getCategory()][] = $gadget;
 		}
 
 		foreach ( $gadgetsByCategory as $category => $gadgets ) {
