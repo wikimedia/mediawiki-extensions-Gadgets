@@ -223,9 +223,12 @@ Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del
 
 /** Azerbaijani (Azərbaycanca)
  * @author Cekli829
+ * @author Vago
  * @author Vugar 1981
  */
 $messages['az'] = array(
+	'gadgets' => 'Alətlər',
+	'gadgets-title' => 'Alətlər',
 	'gadgets-uses' => 'İstifadə',
 	'gadgets-export' => 'İxrac',
 	'gadgets-export-download' => 'Yüklə',
