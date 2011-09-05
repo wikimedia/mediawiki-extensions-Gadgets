@@ -1,37 +1,36 @@
 <?php
 /**
- * Internationalisation file for extension Gadgets.
+ * Internationalisation file for Gadgets extension.
  *
  * @file
  * @ingroup Extensions
- * @author Daniel Kinzler, brightbyte.de
- * @copyright © 2007 Daniel Kinzler
- * @license GNU General Public Licence 2.0 or later
  */
 
 $messages = array();
 
 /** English
  * @author Daniel Kinzler, brightbyte.de
+ * @author Roan Kattouw
+ * @author Timo Tijhof
  */
 $messages['en'] = array(
 	# For Special:Version
-	'gadgets-desc'      => 'Lets users select custom [[Special:Gadgets|CSS and JavaScript gadgets]] in their [[Special:Preferences|preferences]]',
+	'gadgets-desc'      => 'Lets users select custom [[Special:Gadgets|CSS and JavaScript gadgets]] in their [[Special:Preferences#mw-prefsection-gadgets|preferences]].',
 
 	# For Special:Preferences
 	'prefs-gadgets'     => 'Gadgets',
-	'gadgets-prefstext' => 'Below is a list of special gadgets you can enable for your account.
+	'gadgets-prefstext' => 'Below is a list of gadgets you can enable for your account.
 These gadgets are mostly based on JavaScript, so JavaScript has to be enabled in your browser for them to work.
 Note that these gadgets will have no effect on this preferences page.
 
-Also note that these special gadgets are not part of the MediaWiki software, and are usually developed and maintained by users on your local wiki.
-Local administrators can edit the [[MediaWiki:Gadgets-definition|definitions]] and [[Special:Gadgets|descriptions]] of available gadgets.',
+Also note that these gadgets are not part of the MediaWiki software, and are usually developed and maintained by users of the wiki.
+Administrators manage to the [[Special:GadgetManager|gadget definitions]] and the [[Special:Gadgets|titles and descriptions]] of available gadgets.',
 	'gadgets-preference-description' => '$1: $2',
 
-	# For Special:Gadgets
+	# For Special:Gadgets (overview for users and people with editinterface)
 	'gadgets'           => 'Gadgets',
 	'gadgets-title'     => 'Gadgets',
-	'gadgets-pagetext'  => "Below is a list of special gadgets users can enable on their [[Special:Preferences|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].
+	'gadgets-pagetext'  => "Below is a list of special gadgets users can enable on their [[Special:Preferences#mw-prefsection-gadgets|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].
 This overview provides easy access to the system message pages that define each gadget's description and code.",
 	'gadgets-uses'      => 'Uses',
 	'gadgets-required-rights' => 'Requires the {{PLURAL:$2|$1 right|following rights: $1}}.',
@@ -44,17 +43,23 @@ go to Special:Import on destination wiki and upload it. Then add the following t
 <pre>$2</pre>
 You must have appropriate permissions on destination wiki (including the right to edit system messages) and import from file uploads must be enabled.',
 	'gadgets-export-download' => 'Download',
-	
-	# For Special:GadgetManager
+
+	# For Special:GadgetManager (for gadget meta-data management)
 	'gadgetmanager' => 'Gadget manager',
 	'gadgetmanager-title' => 'Gadget manager',
-	'gadgetmanager-pagetext' => 'Below is an overview of all gadgets defined on this wiki. Users can opt in or opt out of these through their [[Special:Preferences|preferences page]].',
+	'gadgetmanager-pagetext' => 'Below is an overview of all gadgets defined on this wiki. Users can opt in or opt out of these through their [[Special:Preferences#mw-prefsection-gadgets|preferences page]].',
 	'gadgetmanager-nogadgets' => 'This wiki currently has no gadgets defined.',
 	'gadgetmanager-uncategorized' => 'Uncategorized',
 	'gadgetmanager-tablehead-title' => 'Gadget title',
 	'gadgetmanager-tablehead-default' => 'Default',
 	'gadgetmanager-tablehead-hidden' => 'Hidden',
 	'gadgetmanager-tablehead-shared' => 'Shared',
+	'gadgetmanager-tablehead-lastmod' => 'Last modified',
+	'gadgetmanager-tablecell-lastmod' => '$1 by $2',
+	'gadgetmanager-editor-title' => 'Editing $1:',
+	'gadgetmanager-editor-removeprop-tooltip' => 'Remove this item',
+	'gadgetmanager-editor-save' => 'Save gadget',
+	'gadgetmanager-editor-cancel' => 'Cancel',
 	'gadgetmanager-propsgroup-settings' => 'Gadget settings',
 	'gadgetmanager-propsgroup-module' => 'Module properties',
 	'gadgetmanager-prop-scripts' => 'Scripts',
@@ -62,7 +67,10 @@ You must have appropriate permissions on destination wiki (including the right t
 	'gadgetmanager-prop-dependencies' => 'Dependencies',
 	'gadgetmanager-prop-messages' => 'Messages',
 	'gadgetmanager-prop-category' => 'Category',
-	'gadgetmanager-prop-rights' => 'Rights',
+	'gadgetmanager-prop-rights' => 'Required user rights',
+	'gadgetmanager-prop-default' => 'Enable by default',
+	'gadgetmanager-prop-hidden' => 'Hide gadget',
+	'gadgetmanager-prop-shared' => 'Share gadget',
 	'gadgetmanager-prop-default-yes' => 'This gadget is loaded by default.',
 	'gadgetmanager-prop-hidden-yes' => 'This is a hidden gadget.',
 	'gadgetmanager-prop-shared-yes' => 'This gadget is shared.',
@@ -70,7 +78,7 @@ You must have appropriate permissions on destination wiki (including the right t
 	'gadgetmanager-modifylink-tooltip' => 'Modify this gadget',
 	'gadgetmanager-deletelink' => 'delete',
 	'gadgetmanager-deletelink-tooltip' => 'Delete ths gadget',
-	
+
 	# Permissions
 	'gadgets-cant-create' => 'You do not have the right to create new Gadgets.',
 	'gadgets-cant-delete' => 'You do not have the right to delete Gadgets.',
@@ -92,6 +100,7 @@ You must have appropriate permissions on destination wiki (including the right t
  * @author SPQRobin
  * @author Siebrand
  * @author The Evil IP address
+ * @author Timo Tijhof
  */
 $messages['qqq'] = array(
 	'gadgets-desc' => '{{desc}}',
@@ -112,6 +121,13 @@ See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimed
 {{Identical|Export}}',
 	'gadgets-export-download' => 'Use the verb for this message. Submit button.
 {{Identical|Download}}',
+	'gadgetmanager-tablehead-lastmodified' => '{{Identical|Last modified}}',
+	'gadgetmanager-tablecell-lastmod' => 'This message is used on Special:GadgetManager to indicate the last modified date, time and user for gadget definitions.
+* $1 is a time and date (duplicated in $3 and $4)
+* $2 is a link to a user page with a user name as link text, followed by a series of related links
+* $3 is the date
+* $4 is the time
+* $5 is the user name which can be used with GENDER'
 );
 
 /** Afrikaans (Afrikaans)

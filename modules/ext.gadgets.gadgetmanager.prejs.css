@@ -1,5 +1,6 @@
-.mw-gadgetmanager-gadgets {
-	width: 100%;
+.mw-gadgetmanager-gadgets.mw-datatable th,
+.mw-gadgetmanager-gadgets.mw-datatable td {
+	padding: 2px 5px;
 }
 
 .mw-gadgetmanager-gadgets-default,

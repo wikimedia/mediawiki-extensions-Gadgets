@@ -1,0 +1,67 @@
+/**
+ * Styling for the gadget manager javascript-generated user interface.
+ */
+
+/**
+ * Form
+ */
+.mw-gadgetmanager-form fieldset {
+	margin: 0;
+}
+
+.mw-gadgetmanager-form table {
+	width: 100%;
+}
+
+.mw-gadgetmanager-form td,
+.mw-gadgetmanager-form th {
+	vertical-align: top;
+}
+
+/**
+ * The PropCloud
+ */
+.mw-gadgetmanager-propcloud {
+	background: white;
+	border: 1px solid grey;
+	overflow: hidden;
+}
+
+.mw-gadgetmanager-propcontainer {}
+
+.mw-gadgetmanager-prop {
+	float: left;
+	margin: 2px 5px 5px 2px;
+	padding: 2px 5px;
+	background: #e5eff6;
+	border: 1px solid #a4d2fb;
+	border-radius: 10px;
+	line-height: 1;
+}
+
+.mw-gadgetmanager-prop-label {}
+
+.mw-gadgetmanager-prop-delete {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	/* @embed */
+	background: url(images/close.png) 50% 50% no-repeat;
+	opacity: 0.4;
+}
+
+.mw-gadgetmanager-prop:hover .mw-gadgetmanager-prop-delete {
+	opacity: 0.7;
+}
+
+.mw-gadgetmanager-prop:hover .mw-gadgetmanager-prop-delete:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.mw-gadgetmanager-propinput,
+.mw-gadgetmanager-propinput:focus {
+	border: 0;
+	outline: 0;
+	background: transparent;
+}

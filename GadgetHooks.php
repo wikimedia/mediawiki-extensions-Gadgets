@@ -289,6 +289,23 @@ class GadgetHooks {
 	}
 
 	/**
+	 * MakeGlobalVariablesScript hook handler
+	 * @param $vars Array: Key/value pars for mw.config.set on this page.
+	 * @param $out OutputPage
+	 */
+	public static function makeGlobalVariablesScript( &$vars, $out ) {
+		if ( $out->getTitle()->equals( SpecialPage::getTitleFor( 'GadgetManager' ) ) ) {
+			global $wgGadgetEnableSharing;
+
+			$vars['gadgetManagerConf'] = array(
+				'enableSharing' => $wgGadgetEnableSharing,
+				'allRights' => User::getAllRights(),
+			);
+		}
+		return true;
+	}
+
+	/**
 	 * UnitTestsList hook handler
 	 * @param $files Array: List of extension test files
 	 */

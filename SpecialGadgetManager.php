@@ -22,6 +22,11 @@ class SpecialGadgetManager extends SpecialPage {
 		$out->setPagetitle( wfMsg( 'gadgetmanager-title' ) );
 		$out->addModuleStyles( 'ext.gadgets.gadgetmanager.prejs' );
 
+		// Only load ajax editor if user is allowed to edit
+		if ( $this->getUser()->isAllowed( 'gadgets-definition-edit' ) ) {
+			$out->addModules( 'ext.gadgets.gadgetmanager.ui' );
+		}
+
 		// Determine view
 		if ( is_string( $par ) && $par !== '' ) {
 			$html = $this->generateGadgetView( $par );
@@ -91,7 +96,7 @@ class SpecialGadgetManager extends SpecialPage {
 			if ( $wgGadgetEnableSharing ) {
 				$html .= '<th>' . wfMessage( 'gadgetmanager-tablehead-shared' )->escaped() . '</th>';
 			}
-			$html .= '</tr>';
+			$html .= '<th>' . wfMessage( 'gadgetmanager-tablehead-lastmod' )->escaped() . '</tr>';
 
 			// Populate table rows for the current category
 			foreach ( $gadgets as $gadgetName => $gadget ) {
@@ -105,14 +110,10 @@ class SpecialGadgetManager extends SpecialPage {
 				) );
 
 				// Title
-				$titleMsg = wfMessage( $gadget->getTitleMsg() );
 				$titleLink = Linker::link(
 					$this->getTitle( $gadget->getName() ),
-					// MediaWiki-message is optional. This is for backwards compatibility (since
-					// the previous version didn't have titles), and to a allow wikis that only
-					// care about one language to save from creating NS_MEDIAWIKI pages.
-					// @todo: Centralize this logic.
-					$titleMsg->exists() ? $titleMsg->plain() : $this->getLang()->ucfirst( $gadget->getName() )
+					$gadget->getTitleMessage(),
+					array( 'data-gadgetname' => $gadget->getName() )
 				);
 				$html .= "<td class=\"mw-gadgetmanager-gadgets-title\">$titleLink</td>";
 				// Default
@@ -125,6 +126,39 @@ class SpecialGadgetManager extends SpecialPage {
 				if ( $wgGadgetEnableSharing ) {
 					$html .= '<td class="mw-gadgetmanager-gadgets-shared">'
 						. ( $gadget->isShared() ? $tickedCheckboxHtml : '' ) . '</td>';
+				}
+
+				// Last modified
+				$lastModText = '';
+				$definitionTitle = Title::newFromText( $gadget->getName() . '.js', NS_GADGET_DEFINITION );
+				if ( $definitionTitle ) {
+					$definitionRev = Revision::newFromTitle( $definitionTitle ); 
+					if ( $definitionRev ) {
+						$userLang = $this->getLang();
+						$revTimestamp = $definitionRev->getTimestamp();
+						$userText = $definitionRev->getUserText();
+						$userLinks =
+							Linker::userLink(
+								$definitionRev->getUser(),
+								$userText
+							) .
+							Linker::userToolLinks(
+								$definitionRev->getUser(),
+								$userText
+							);
+						$lastModText = wfMsgExt(
+							'gadgetmanager-tablecell-lastmod',
+							array( 'replaceafter', 'parseinline' ),
+							array(
+								$userLang->timeanddate( $revTimestamp, true ),
+								$userLinks,
+								$userLang->date( $revTimestamp, true ),
+								$userLang->time( $revTimestamp, true ),
+								$userText
+							)
+						);
+					}
+					$html .= "<td>$lastModText</td>";
 				}
 
 				$html .= '</tr>';
@@ -141,6 +175,8 @@ class SpecialGadgetManager extends SpecialPage {
 	 * @return String: HTML
 	 */
 	public function generateGadgetView( $gadgetName ) {
-		return "Stub page where there will be some info about the gadget ($gadgetName). This is also used for permalinks to a gadget's config page.";
+		return 'TODO - This page is about "'
+			. htmlspecialchars( $gadgetName )
+			. '". Also used as permalink from other places.';
 	}
 }

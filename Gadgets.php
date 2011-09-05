@@ -99,6 +99,7 @@ $wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::cssOrJsPageSave';
 $wgHooks['ArticleUndelete'][]               = 'GadgetHooks::gadgetDefinitionUndelete';
 $wgHooks['ArticleUndelete'][]               = 'GadgetHooks::cssOrJsPageUndelete';
 $wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay';
+$wgHooks['MakeGlobalVariablesScript'][]     = 'GadgetHooks::makeGlobalVariablesScript';
 $wgHooks['CanonicalNamespaces'][]           = 'GadgetHooks::canonicalNamespaces';
 $wgHooks['GetPreferences'][]                = 'GadgetHooks::getPreferences';
 $wgHooks['LoadExtensionSchemaUpdates'][]    = 'GadgetHooks::loadExtensionSchemaUpdates';
@@ -147,5 +148,45 @@ $wgResourceModules += array(
 	'ext.gadgets.gadgetmanager.prejs' => $gadResourceTemplate + array(
 		'styles' => 'ext.gadgets.gadgetmanager.prejs.css',
 		'position' => 'top',
+	),
+	// Method to interact with API
+	'ext.gadgets.gadgetmanager.api' => $gadResourceTemplate + array(
+		'scripts' => 'ext.gadgets.gadgetmanager.api.js',
+		'dependencies' => 'mediawiki.util',
+	),
+	// jQuery plugin
+	'jquery.createPropCloud' => $gadResourceTemplate + array(
+		'scripts' => 'jquery.createPropCloud.js',
+		'messages' => array(
+			'gadgetmanager-editor-prop-remove',
+		),
+	),
+	// Event handling, UI components, initiates on document ready
+	'ext.gadgets.gadgetmanager.ui' => $gadResourceTemplate + array(
+		'scripts' => 'ext.gadgets.gadgetmanager.ui.js',
+		'styles' => 'ext.gadgets.gadgetmanager.ui.css',
+		'dependencies' => array(
+			'ext.gadgets.gadgetmanager.api',
+			'jquery.localize',
+			'jquery.ui.autocomplete',
+			'jquery.ui.dialog',
+			'mediawiki.Title',
+			'jquery.createPropCloud',
+		),
+		'messages' => array(
+			'gadgetmanager-editor-title',
+			'gadgetmanager-editor-removeprop-tooltip',
+			'gadgetmanager-editor-save',
+			'gadgetmanager-editor-cancel',
+			'gadgetmanager-prop-scripts',
+			'gadgetmanager-prop-styles',
+			'gadgetmanager-prop-dependencies',
+			'gadgetmanager-prop-messages',
+			'gadgetmanager-prop-category',
+			'gadgetmanager-prop-rights',
+			'gadgetmanager-prop-default',
+			'gadgetmanager-prop-hidden',
+			'gadgetmanager-prop-shared',
+		),
 	),
 );

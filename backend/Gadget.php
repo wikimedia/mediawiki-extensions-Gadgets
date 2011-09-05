@@ -8,7 +8,7 @@
  *     // The rights required to be able to enable/load this gadget
  *     "rights": ["delete", "block"],
  *     // Whether this gadget is enabled by default
- *     "default": true
+ *     "default": true,
  *     // Whether this gadget is hidden from preferences
  *     "hidden": false,
  *     // Whether this gadget is shared
