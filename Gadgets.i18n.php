@@ -910,6 +910,10 @@ Ceti apèrçu balye un accès vito fêt a les pâges de mèssâjos sistèmo que 
 	'gadgets-export' => 'Èxportacion',
 	'gadgets-export-title' => 'Èxportacion d’outil',
 	'gadgets-not-found' => 'Outil « $1 » pas trovâ.',
+	'gadgets-export-text' => 'Por èxportar l’outil $1, clicar sur lo boton « {{int:gadgets-export-download}} », encartar lo fichiér tèlèchargiê,
+pués alar sur la pâge « Spèciâl:Importacion du vouiqui de dèstinacion » et pués l’importar. Apondre aprés ceti tèxto dens la pâge « MediaWiki:Gadgets-definition » :
+<pre>$2</pre>
+O est nècèssèro de d’avêr los drêts corrèspondents sur lo vouiqui de dèstinacion (celi de changiér los mèssâjos sistèmo avouéc) et pués l’importacion dês des fichiérs dêt étre activâ.',
 	'gadgets-export-download' => 'Tèlèchargiér',
 );
 
