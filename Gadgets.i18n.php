@@ -223,14 +223,18 @@ Esta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del
 
 /** Azerbaijani (Azərbaycanca)
  * @author Cekli829
+ * @author PPerviz
  * @author Vago
  * @author Vugar 1981
  */
 $messages['az'] = array(
-	'gadgets' => 'Alətlər',
-	'gadgets-title' => 'Alətlər',
+	'prefs-gadgets' => 'Qadjetlər',
+	'gadgets' => 'Qadjetlər',
+	'gadgets-title' => 'Qadjetlər',
 	'gadgets-uses' => 'İstifadə',
 	'gadgets-export' => 'İxrac',
+	'gadgets-export-title' => 'Qadjet ixracı',
+	'gadgets-not-found' => 'Qadjet "$1" tapılmadı.',
 	'gadgets-export-download' => 'Yüklə',
 );
 
@@ -1853,6 +1857,7 @@ Aqueste susvòl dona un accès rapid a las paginas de messatges del sistèma que
  * @author Odisha1
  */
 $messages['or'] = array(
+	'gadgets-uses' => 'ବ୍ୟବହାର',
 	'gadgets-export' => 'ରପ୍ତାନୀ',
 	'gadgets-export-download' => 'ଡାଉନଲୋଡ଼',
 );
