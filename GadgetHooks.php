@@ -118,6 +118,14 @@ class GadgetHooks {
 		// but we do't care, see similar comment in articleSaveComplete()
 		return true;
 	}
+	
+	public static function gadgetDefinitionImport( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
+		// HACK: AAAAAAARGH. Should fix this duplication properly
+		// Logic is the same as in gadgetDefinitionUndelete() and that function only uses the $title parameter
+		// Shit, shit, shit, this is ugly
+		self::gadgetDefinitionUndelete( $title, true, '' );
+		return true;
+	}
 
 	/**
 	 * ArticleDeleteComplete hook handler.
