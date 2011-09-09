@@ -21,7 +21,7 @@
 
 class ApiQueryGadgets extends ApiQueryBase {
 	private $props,
-		$category,
+		$categories,
 		$neededNames,
 		$listAllowed,
 		$listEnabled;
@@ -48,6 +48,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 		$this->applyList( $this->getList() );
 	}
 
+	/**
+	 * @return array
+	 */
 	private function getList() {
 		$gadgets = Gadget::loadStructuredList();
 
@@ -88,7 +91,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	}
 
 	/**
-	 * 
+	 * @return bool
 	 */
 	private function isNeeded( Gadget $gadget ) {
 		global $wgUser;
@@ -97,7 +100,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			&& ( !$this->listAllowed || $gadget->isAllowed( $wgUser ) )
 			&& ( !$this->listEnabled || $gadget->isEnabled( $wgUser ) );
 	}
-	
+
 	private function fakeMetadata( Gadget $g ) {
 		return array(
 			'settings' => array(
@@ -124,9 +127,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'dependencies' => 'dependency',
 			'messages' => 'message',
 		);
-		
+
 		$result = $this->getResult();
-		foreach ( $metadata as $type => &$data ) {
+		foreach ( $metadata as &$data ) {
 			foreach ( $data as $key => &$value ) {
 				if ( is_array( $value ) ) {
 					$tag = isset( $tagNames[$key] ) ? $tagNames[$key] : $key;
