@@ -117,7 +117,7 @@
 
 	gm.ui = {
 		/**
-		 * Initilizes the the page. For now just binding click handlers
+		 * Initializes the the page. For now just binding click handlers
 		 * to the anchor tags in the table.
 		 */
 		initUI: function() {

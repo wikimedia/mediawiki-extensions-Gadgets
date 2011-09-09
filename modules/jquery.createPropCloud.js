@@ -68,18 +68,18 @@
 			$cloud = $input.wrap( '<div class="' + o.prefix + 'propcloud"></div>' ).parent(),
 			$container = $( '<div class="' + o.prefix + 'propcontainer"></div>' );
 
-		// Append while container is still off the dom
-		// This is faster and prevents visible build up
+		// Append while container is still off the DOM
+		// This is faster and prevents visible build-up
 		for ( var i = 0, props = o.props, len = props.length; i < len; i++ ) {
 			$container.append( newPropHtml( '' + props[i], o ) );
 		}
 
 		$input.autocomplete( {
-			// The source is entirly up to you
+			// The source is entirely up to you
 			source: o.autocompleteSource,
 
 			// A value is choosen
-			// (ie. by pressing return/tab, clicking on suggestion, etc.)
+			// (e.g. by pressing return/tab, clicking on suggestion, etc.)
 			select: function( e, data ){
 				var val = data.item.value;
 

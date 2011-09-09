@@ -20,8 +20,8 @@
 
 	/**
 	 * For most returns from api.* functions, a clone is made when data from
-	 * cached is used. This is to avoid situations where later modifications
-	 * (ie. by the ajax editor) on the object affecting the cache (because
+	 * cache is used. This is to avoid situations where later modifications
+	 * (e.g. by the AJAX editor) to the object affect the cache (because
 	 * the object would otherwise be passed by reference).
 	 */
 	function objClone( obj ) {
@@ -34,10 +34,10 @@
 		 *     var a = { words: [ 'foo', 'bar','baz' ] };
 		 *     var b = $.extend( {}, a );
 		 *     b.words.push( 'quux' );
-		 *     a.words[4]; // quux !
+		 *     a.words[3]; // quux !
 		 * </code>
 		 */
-		 return $.extend( true /* resursive */, {}, obj );
+		 return $.extend( true /* recursive */, {}, obj );
 	}
 	function arrClone( arr ) {
 		return arr.slice();
@@ -151,7 +151,7 @@
 			 * - blob {Object} Gadget meta data
 			 * @param callback {Function} Called with two arguments:
 			 * - status ('ok' or 'error')
-			 * - msg (localized, something like "Successfull", "Conflict occurred" etc.)
+			 * - msg (localized, something like "Successful", "Conflict occurred" etc.)
 			 * @return {jqXHR|Null}: Null if served from cache, otherwise the jqXHR.
 			 */
 			doModifyGadget: function( gadget, callback ) {
