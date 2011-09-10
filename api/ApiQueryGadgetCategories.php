@@ -68,7 +68,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 					}
 					if ( !$message->exists() ) {
 						global $wgLang;
-						$lang = $this->language === null ? $wgLang : Language::factory( $lang );
+						$lang = $this->language === null ? $wgLang : Language::factory( $this->language );
 						$row['title'] = $lang->ucfirst( $category );
 					} else {
 						$row['title'] = $message->plain();
