@@ -96,7 +96,7 @@ class SpecialGadgetManager extends SpecialPage {
 			if ( $wgGadgetEnableSharing ) {
 				$html .= '<th>' . wfMessage( 'gadgetmanager-tablehead-shared' )->escaped() . '</th>';
 			}
-			$html .= '<th>' . wfMessage( 'gadgetmanager-tablehead-lastmod' )->escaped() . '</tr>';
+			$html .= '<th>' . wfMessage( 'gadgetmanager-tablehead-lastmod' )->escaped() . '</th></tr>';
 
 			// Populate table rows for the current category
 			foreach ( $gadgets as $gadgetName => $gadget ) {
@@ -130,7 +130,7 @@ class SpecialGadgetManager extends SpecialPage {
 
 				// Last modified
 				$lastModText = '';
-				$definitionTitle = Title::newFromText( $gadget->getName() . '.js', NS_GADGET_DEFINITION );
+				$definitionTitle = Title::makeTitleSafe( NS_GADGET_DEFINITION, $gadget->getName() . '.js' );
 				if ( $definitionTitle ) {
 					$definitionRev = Revision::newFromTitle( $definitionTitle ); 
 					if ( $definitionRev ) {

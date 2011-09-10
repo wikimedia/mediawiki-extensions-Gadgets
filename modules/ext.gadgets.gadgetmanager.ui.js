@@ -5,7 +5,7 @@
  * @copyright © 2011 Timo Tijhof
  * @license GNU General Public Licence 2.0 or later
  */
-( function() {
+( function( $ ) {
 
 	var
 		/**
@@ -94,25 +94,6 @@
 		  */
 		 gadgetCategoriesCache = [];
 
-	/* Local functions */
-
-	/**
-	 * Remove all occurences of a value from an array.
-	 *
-	 * @param arr {Array} Array to be changed
-	 * @param val {Mixed} Value to be removed from the array
-	 * @return {Array} May or may not be changed, reference kept
-	 */
-	function arrayRemove( arr, val ) {
-		var i;
-		// Parentheses are crucial here. Without them, var i will be a
-		// boolean instead of a number, resulting in an infinite loop!
-		while ( ( i = arr.indexOf( val ) ) !== -1 ) {
-			arr.splice( i, 1 );
-		}
-		return arr;
-	}
-
 	/* Public functions */
 
 	gm.ui = {
@@ -175,7 +156,7 @@
 			var buttons = {};
 			buttons[mw.msg( 'gadgetmanager-editor-save' )] = function() {
 				gm.api.doModifyGadget( gadget, function( status, msg ) {
-					alert( "Save result: \n- status: " + status + "\n- msg: " + msg );
+					mw.log( "gm.api.doModifyGadget: status: ", status, "msg: ", + msg );
 					/* @todo Notification
 					addNotification( {
 						msg: msg,
@@ -243,10 +224,10 @@
 							gpprefix: data.term
 						}, function( json ) {
 							if ( json && json.query && json.query.gadgetpages ) {
-								var suggestions = $.map( json.query.gadgetpages, function( val, i ) {
+								var suggestions = json.query.gadgetpages.splice( 0, suggestLimit );
+								suggestions = $.map( suggestions, function( val, i ) {
 									return val.pagename;
 								});
-								suggestions = suggestions.splice( 0, suggestLimit );
 
 								// Update cache
 								suggestCacheScripts[data.term] = suggestions;
@@ -258,10 +239,8 @@
 						}
 					);
 				},
-				prefix: 'mw-gadgetmanager',
-				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' ),
-				onAdd: function( prop ) { metadata.module.scripts.push( prop ); },
-				onRemove: function( prop ) { arrayRemove( metadata.module.scripts, prop ); }
+				prefix: 'mw-gadgetmanager-',
+				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )
 			});
 
 			// Module properties: styles
@@ -297,10 +276,8 @@
 						}
 					);
 				},
-				prefix: 'mw-gadgetmanager',
-				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' ),
-				onAdd: function( prop ) { metadata.module.styles.push( prop ); },
-				onRemove: function( prop ) { arrayRemove( metadata.module.styles, prop ); }
+				prefix: 'mw-gadgetmanager-',
+				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )
 			});
 
 			// Module properties: dependencies
@@ -313,10 +290,8 @@
 					var output = $.ui.autocomplete.filter( suggestCacheDependencies, data.term );
 					response( output.slice( 0, suggestLimit ) );
 				},
-				prefix: 'mw-gadgetmanager',
-				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' ),
-				onAdd: function( prop ) { metadata.module.dependencies.push( prop ); },
-				onRemove: function( prop ) { arrayRemove( metadata.module.dependencies, prop ); }
+				prefix: 'mw-gadgetmanager-',
+				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )
 			});
 
 			// Module properties: messages
@@ -352,10 +327,8 @@
 						}
 					);
 				},
-				prefix: 'mw-gadgetmanager',
-				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' ),
-				onAdd: function( prop ) { metadata.module.messages.push( prop ); },
-				onRemove: function( prop ) { arrayRemove( metadata.module.messages, prop ); }
+				prefix: 'mw-gadgetmanager-',
+				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )
 			});
 
 			// Gadget settings: category
@@ -383,10 +356,8 @@
 					var output = $.ui.autocomplete.filter( suggestCacheRights, data.term );
 					response( output.slice( 0, suggestLimit ) );
 				},
-				prefix: 'mw-gadgetmanager',
-				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' ),
-				onAdd: function( prop ) { metadata.settings.rights.push( prop ); },
-				onRemove: function( prop ) { arrayRemove( metadata.settings.rights, prop ); }
+				prefix: 'mw-gadgetmanager-',
+				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )
 			});
 
 			// Gadget settings: Default
@@ -414,4 +385,4 @@
 	// Launch on document ready
 	$( document ).ready( gm.ui.initUI );
 
-})();
+})( jQuery );

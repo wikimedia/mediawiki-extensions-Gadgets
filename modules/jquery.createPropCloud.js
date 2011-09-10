@@ -2,18 +2,47 @@
  * jQuery PropCloud plugin
  * @author Timo Tijhof, 2011
  */
-( function() {
+( function( $ ) {
 
+	/**
+	 * Remove all occurences of a value from an array.
+	 *
+	 * @param arr {Array} Array to be changed
+	 * @param val {Mixed} Value to be removed from the array
+	 * @return {Array} May or may not be changed, reference kept
+	 */
+	function arrayRemove( arr, val ) {
+		var i;
+		// Parentheses are crucial here. Without them, var i will be a
+		// boolean instead of a number, resulting in an infinite loop!
+		while ( ( i = arr.indexOf( val ) ) !== -1 ) {
+			arr.splice( i, 1 );
+		}
+		return arr;
+	}
+
+	/**
+	 * Create prop-element for a given label.
+	 *
+	 * @param label {String}
+	 * @param o {Object} $.fn.createPropCloud options object
+	 * @return {jQuery} <span class="(prefix)prop"> .. </span>
+	 */
 	function newPropHtml( label, o ) {
-		return $( '<span class="' + o.prefix + 'prop"></span>' )
+		return $( '<span>' ).addClass( o.prefix + 'prop' )
 			.append(
-				$( '<span class="' + o.prefix + 'prop-label"></span>' ).text( label )
+				$( '<span>' ).addClass( o.prefix + 'prop-label' ).text( label )
 			)
 			.append(
-				$( '<span class="' + o.prefix + 'prop-delete"></span> ')
+				$( '<span>' )
+					.addClass( o.prefix + 'prop-delete' )
 					.attr( 'title', o.removeTooltip )
 					.click( function() {
+						// Update UI
 						$(this).parent().remove();
+						// Update props
+						arrayRemove( o.props, label );
+						// Callback
 						o.onRemove( label );
 					}
 				)
@@ -27,7 +56,7 @@
 	 *
 	 * <div class="editor-propcloud">
 	 *     <div class="editor-propcontainer">
-	 *         <span editor="jquery-prop">
+	 *         <span class="editor-prop">
 	 *             <span class="editor-prop-label"> .. </span>
 	 *             <span class="editor-prop-delete" title="Remove this item"></span>
 	 *         </span>
@@ -45,8 +74,10 @@
 	 *     - props {Array} Array of properties to start with
 	 *     - autocompleteSource {Function|Array} Source of autocomplete suggestions (required)
 	 *       See also http://jqueryui.com/demos/autocomplete/#options (source)
-	 *     - onAdd {Function} Callback when an item is added
-	 *     - onRemove {Function} Callback when an item is deleted
+	 *     - onAdd {Function} Callback for when an item is added.
+	 *       Called with one argument (the value).
+	 *     - onRemove {Function} Callback for when an item is removed.
+	 *       Called with one argument (the value).
 	 *     - removeTooltip {String} Tooltip for the remove-icon
 	 *
 	 * @return {jQuery} prop cloud (input field inside)
@@ -54,19 +85,18 @@
 	$.fn.createPropCloud = function( o ) {
 		// Some defaults
 		o = $.extend({
-			prefix: 'editor',
+			prefix: 'editor-',
 			props: [],
 			autocompleteSource: [],
 			onAdd: function( prop ) {},
 			onRemove: function( prop ) {},
 			removeTooltip: 'Remove this item'
 		}, o );
-		o.prefix = o.prefix + '-';
 
 		var	$el = this.eq(0),
 			$input = $el.addClass( o.prefix + 'propinput' ),
-			$cloud = $input.wrap( '<div class="' + o.prefix + 'propcloud"></div>' ).parent(),
-			$container = $( '<div class="' + o.prefix + 'propcontainer"></div>' );
+			$cloud = $input.wrap( '<div>' ).parent().addClass( o.prefix + 'propcloud' ),
+			$container = $( '<div>' ).addClass( o.prefix + 'propcontainer' );
 
 		// Append while container is still off the DOM
 		// This is faster and prevents visible build-up
@@ -85,7 +115,11 @@
 
 				// Prevent duplicate values
 				if ( o.props.indexOf( val ) === -1 ) {
+					// Update UI
 					$container.append( newPropHtml( val, o ) );
+					// Update props
+					o.props.push( val );
+					// Callback for custom stuff
 					o.onAdd( val );
 				}
 
@@ -104,4 +138,4 @@
 		return $cloud;
 	};
 
-})();
+})( jQuery );

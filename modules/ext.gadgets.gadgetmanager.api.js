@@ -5,7 +5,7 @@
  * @copyright © 2011 Timo Tijhof
  * @license GNU General Public Licence 2.0 or later
  */
-( function() {
+( function( $ ) {
 
 	var
 		/**
@@ -13,7 +13,8 @@
 		 */
 		gadgetCache = {},
 		/**
-		 * @var {Object|Null} If cache, object with category ids and the member counts */
+		 * @var {Object} If cached, object keyed by category id with categormember-count as value.
+		 * Set to null if there is no cache, yet, or when the cache is cleared. */
 		gadgetCategoryCache = null;
 
 	/* Local functions */
@@ -184,4 +185,4 @@
 		}
 	};
 
-})();
+})( jQuery );
