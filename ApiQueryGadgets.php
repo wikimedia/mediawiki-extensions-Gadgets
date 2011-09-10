@@ -68,6 +68,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 		return $result;
 	}
 
+	/**
+	 * @param $gadgets array
+	 */
 	private function applyList( $gadgets ) {
 		$data = array();
 		$result = $this->getResult();
@@ -91,6 +94,8 @@ class ApiQueryGadgets extends ApiQueryBase {
 	}
 
 	/**
+	 * @param $gadget Gadget
+	 *
 	 * @return bool
 	 */
 	private function isNeeded( Gadget $gadget ) {
@@ -101,6 +106,10 @@ class ApiQueryGadgets extends ApiQueryBase {
 			&& ( !$this->listEnabled || $gadget->isEnabled( $wgUser ) );
 	}
 
+	/**
+	 * @param $g Gadget
+	 * @return array
+	 */
 	private function fakeMetadata( Gadget $g ) {
 		return array(
 			'settings' => array(
@@ -169,7 +178,6 @@ class ApiQueryGadgets extends ApiQueryBase {
 	}
 
 	public function getParamDescription() {
-		$p = $this->getModulePrefix();
 		return array(
 			'prop' => array(
 				'What gadget information to get:',
