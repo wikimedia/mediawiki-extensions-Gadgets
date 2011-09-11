@@ -20,21 +20,21 @@ abstract class GadgetRepo {
 	abstract public function getSource();
 	
 	/**
-	 * Get the names of the gadgets provided by this repository
-	 * @return array of names (strings)
+	 * Get the ids of the gadgets provided by this repository
+	 * @return array of ids (strings)
 	 */
-	abstract public function getGadgetNames();
+	abstract public function getGadgetIds();
 	
 	/**
-	 * Get a Gadget object for a given gadget name
-	 * @param $name string Gadget name
+	 * Get a Gadget object for a given gadget id
+	 * @param $id string Gadget id
 	 * @return Gadget object or null if no such gadget
 	 */
-	abstract public function getGadget( $name );
+	abstract public function getGadget( $id );
 	
 	/**
 	 * Clear any in-object caches this repository may have. In particular,
-	 * the return values of getGadgetNames() and getGadget() may be cached.
+	 * the return values of getGadgetIds() and getGadget() may be cached.
 	 * Callers may wish to clear this cache and reobtain a Gadget object
 	 * when they get a conflict error.
 	 */
@@ -57,8 +57,8 @@ abstract class GadgetRepo {
 	
 	/**
 	 * Modify a gadget, replacing its metadata with the
-	 * metadata in the provided Gadget object. The name is taken
-	 * from the Gadget object as well. If no Gadget exists by that name,
+	 * metadata in the provided Gadget object. The id is taken
+	 * from the Gadget object as well. If no Gadget exists by that id,
 	 * it will be created.
 	 * @param $gadget Gadget object
 	 * @param $timestamp Timestamp to record for this action, or current timestamp if null
@@ -68,11 +68,11 @@ abstract class GadgetRepo {
 	
 	/**
 	 * Irrevocably delete a gadget from the repository. Will fail
-	 * if there is no gadget by the given name.
-	 * @param $name string Name of the gadget to delete
+	 * if there is no gadget by the given id.
+	 * @param $id string Unique id of the gadget to delete
 	 * @return Status
 	 */
-	abstract public function deleteGadget( $name );
+	abstract public function deleteGadget( $id );
 	
 	// TODO: cache purging
 }

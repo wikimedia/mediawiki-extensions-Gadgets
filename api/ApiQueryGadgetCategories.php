@@ -44,12 +44,12 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 		$data = array();
 		$result = $this->getResult();
 		$repo = new LocalGadgetRepo( array() );
-		$gadgets = $repo->getGadgetNames();
+		$gadgets = $repo->getGadgetIds();
 		
 		// TODO: Put the grouping in the repo
 		$gadgetsByCategory = array();
-		foreach ( $gadgets as $name ) {
-			$gadget = $repo->getGadget( $name );
+		foreach ( $gadgets as $id ) {
+			$gadget = $repo->getGadget( $id );
 			$gadgetsByCategory[$gadget->getCategory()][] = $gadget;
 		}
 
@@ -116,7 +116,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 				' title    - Category title, translated in the given language',
 				' members  - Number of gadgets in category',
 			),
-			'names' => 'Name(s) of gadgets to retrieve',
+			'names' => 'Name(s) of categories to retrieve',
 			'language' => "Language to use for {$p}prop=title",
 		);
 	}

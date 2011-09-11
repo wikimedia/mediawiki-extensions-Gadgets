@@ -19,7 +19,7 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 
 	function testSimpleCases() {
 		$g = $this->create( '* foo bar| foo.css|foo.js|foo.bar' );
-		$this->assertEquals( 'foo_bar', $g->getName() );
+		$this->assertEquals( 'foo_bar', $g->getId() );
 		$this->assertEquals( 'ext.gadget.foo_bar', $g->getModuleName() );
 		$this->assertEquals( array( 'Gadget-foo.js' ), $g->getScripts() );
 		$this->assertEquals( array( 'Gadget-foo.css' ), $g->getStyles() );
@@ -32,7 +32,7 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 
 	function testRLtag() {
 		$g = $this->create( '*foo [ResourceLoader]|foo.js|foo.css' );
-		$this->assertEquals( 'foo', $g->getName() );
+		$this->assertEquals( 'foo', $g->getId() );
 		$this->assertTrue( $g->supportsResourceLoader() );
 		$this->assertEquals(0, count( $g->getLegacyScripts() ) );
 	}

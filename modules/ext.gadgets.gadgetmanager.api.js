@@ -73,8 +73,8 @@
 						format: 'json',
 						action: 'query',
 						list: 'gadgets',
-						gaprop: 'name|metadata|desc',
-						ganames: id,
+						gaprop: 'id|metadata|desc',
+						gaids: id,
 						galanguage: mw.config.get( 'wgUserLanguage' )
 					},
 					type: 'GET',

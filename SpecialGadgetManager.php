@@ -13,7 +13,7 @@ class SpecialGadgetManager extends SpecialPage {
 	}
 
 	/**
-	 * @param $par String: Optionally the gadgetname to show info for.
+	 * @param $par String: Optionally the id of the gadget to show info for.
 	 */
 	public function execute( $par ) {
 		$out = $this->getOutput();
@@ -44,10 +44,10 @@ class SpecialGadgetManager extends SpecialPage {
 		global $wgGadgetEnableSharing;
 
 		$repo = new LocalGadgetRepo( array() );
-		$gadgetNames = $repo->getGadgetNames();
+		$gadgetIds = $repo->getGadgetIds();
 
 		// If there there are no gadgets at all, exit early.
-		if ( !count( $gadgetNames ) ) {
+		if ( !count( $gadgetIds ) ) {
 			$noGadgetsMsgHtml = Html::element( 'p',
 				array(
 					'class' => 'mw-gadgetmanager-nogadgets'
@@ -62,9 +62,9 @@ class SpecialGadgetManager extends SpecialPage {
 
 		// Sort gadgets by category
 		$gadgetsByCategory = array();
-		foreach ( $gadgetNames as $gadgetName ) {
-			$gadget = $repo->getGadget( $gadgetName );
-			$gadgetsByCategory[$gadget->getCategory()][$gadgetName] = $gadget;
+		foreach ( $gadgetIds as $gadgetId ) {
+			$gadget = $repo->getGadget( $gadgetId );
+			$gadgetsByCategory[$gadget->getCategory()][$gadgetId] = $gadget;
 		}
 
 		// Sort categories alphabetically
@@ -99,7 +99,7 @@ class SpecialGadgetManager extends SpecialPage {
 			$html .= '<th>' . wfMessage( 'gadgetmanager-tablehead-lastmod' )->escaped() . '</th></tr>';
 
 			// Populate table rows for the current category
-			foreach ( $gadgets as $gadgetName => $gadget ) {
+			foreach ( $gadgets as $gadgetId => $gadget ) {
 				$html .= '<tr>';
 
 				$tickedCheckboxHtml = Html::element( 'input', array(
@@ -111,9 +111,9 @@ class SpecialGadgetManager extends SpecialPage {
 
 				// Title
 				$titleLink = Linker::link(
-					$this->getTitle( $gadget->getName() ),
+					$this->getTitle( $gadget->getId() ),
 					$gadget->getTitleMessage(),
-					array( 'data-gadgetname' => $gadget->getName() )
+					array( 'data-gadget-id' => $gadget->getId() )
 				);
 				$html .= "<td class=\"mw-gadgetmanager-gadgets-title\">$titleLink</td>";
 				// Default
@@ -130,7 +130,7 @@ class SpecialGadgetManager extends SpecialPage {
 
 				// Last modified
 				$lastModText = '';
-				$definitionTitle = Title::makeTitleSafe( NS_GADGET_DEFINITION, $gadget->getName() . '.js' );
+				$definitionTitle = Title::makeTitleSafe( NS_GADGET_DEFINITION, $gadget->getId() . '.js' );
 				if ( $definitionTitle ) {
 					$definitionRev = Revision::newFromTitle( $definitionTitle ); 
 					if ( $definitionRev ) {
@@ -174,9 +174,9 @@ class SpecialGadgetManager extends SpecialPage {
 	/**
 	 * @return String: HTML
 	 */
-	public function generateGadgetView( $gadgetName ) {
+	public function generateGadgetView( $gadgetId ) {
 		return 'TODO - This page is about "'
-			. htmlspecialchars( $gadgetName )
+			. htmlspecialchars( $gadgetId )
 			. '". Also used as permalink from other places.';
 	}
 }

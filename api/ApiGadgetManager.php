@@ -53,7 +53,7 @@ class ApiGadgetManager extends ApiBase {
 			}
 			
 			// FIXME: Passing lasttimestamp into the constructor like this is a bit hacky
-			$gadget = new Gadget( $params['name'], $repo, $json, $params['edittimestamp'] );
+			$gadget = new Gadget( $params['id'], $repo, $json, $params['edittimestamp'] );
 		}
 		
 		if ( $op === 'create' ) {
@@ -61,7 +61,7 @@ class ApiGadgetManager extends ApiBase {
 		} else if ( $op === 'modify' ) {
 			$status = $repo->modifyGadget( $gadget );
 		} else if ( $op === 'delete' ) {
-			$status = $repo->deleteGadget( $params['name'] );
+			$status = $repo->deleteGadget( $params['id'] );
 		}
 		
 		if ( !$status->isGood() ) {
@@ -69,7 +69,7 @@ class ApiGadgetManager extends ApiBase {
 			$this->dieUsageMsg( $errors[0] ); // TODO: Actually register all the error messages in ApiBase::$messageMap somehow
 		}
 		
-		$r = array( 'result' => 'success', 'name' => $params['name'], 'op' => $op );
+		$r = array( 'result' => 'success', 'id' => $params['id'], 'op' => $op );
 		$this->getResult()->addValue( null, $this->getModuleName(), $r );
 	}
 	
@@ -87,7 +87,7 @@ class ApiGadgetManager extends ApiBase {
 				ApiBase::PARAM_TYPE => array( 'create', 'modify', 'delete' ),
 				ApiBase::PARAM_REQUIRED => true
 			),
-			'name' => array(
+			'id' => array(
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_REQUIRED => true
 			),
@@ -104,7 +104,7 @@ class ApiGadgetManager extends ApiBase {
 	public function getParamDescription() {
 		return array(
 			'op' => 'Operation to carry out',
-			'name' => 'Gadget name',
+			'id' => 'Gadget id',
 			'json' => 'If op=create or op=modify, JSON blob with the new gadget metadata. Ignored if op=delete',
 			'edittimestamp' => 'If op=modify, the last modified timestamp of the gadget metadata, exactly as given by list=gadgets',
 			'token' => 'Edit token',

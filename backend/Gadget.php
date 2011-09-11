@@ -28,8 +28,8 @@
  * }
  */
 class Gadget {
-	/** Gadget name (string) */
-	protected $name;
+	/** Gadget id (string) */
+	protected $id;
 	
 	/** Gadget repository this gadget came from (GadgetRepo object) */
 	protected $repo;
@@ -54,13 +54,13 @@ class Gadget {
 	
 	/**
 	 * Constructor
-	 * @param $name string Name
+	 * @param $id string Unique id of the gadget
 	 * @param $repo GadgetRepo that this gadget came from
 	 * @param $properties mixed Array or JSON blob (string) with settings and module info
 	 * @param $timestamp string Timestamp (TS_MW) this gadget's metadata was last touched
 	 * @throws MWException if $properties is invalid
 	 */
-	public function __construct( $name, $repo, $properties, $timestamp ) {
+	public function __construct( $id, $repo, $properties, $timestamp ) {
 		if ( is_string( $properties ) ) {
 			$properties = FormatJson::decode( $properties, true );
 		}
@@ -70,7 +70,7 @@ class Gadget {
 			throw new MWException( 'Invalid property array passed to ' . __METHOD__ );
 		}
 		
-		$this->name = $name;
+		$this->id = $id;
 		$this->repo = $repo;
 		$this->timestamp = $timestamp;
 		$this->settings = $properties['settings'];
@@ -94,12 +94,13 @@ class Gadget {
 	}
 	
 	/**
-	 * Get the name of the gadget. This name must be unique within its repository and must never change.
-	 * It is only used internally; the name displayed to the user is controlled by getNameMsg().
+	 * Get the id of the gadget. This id must be unique within its repository and must never change.
+	 * It is only used internally; the title displayed to the user is controlled by
+	 * getTitleMessage() and getTitleMessageKey().
 	 * @return string
 	 */
-	public function getName() {
-		return $this->name;
+	public function getId() {
+		return $this->id;
 	}
 	
 	/**
@@ -120,17 +121,17 @@ class Gadget {
 	
 	/**
 	 * Get the key of the title message for this gadget. This is the interface message that
-	 * controls the name of the gadget as shown to the user.
+	 * controls the title of the gadget as shown to the user.
 	 * @return string Message key
 	 */
 	public function getTitleMessageKey() {
-		return "gadget-{$this->name}-title";
+		return "gadget-{$this->id}-title";
 	}
 	
 	/**
 	 * Get the title message for this gadget
 	 * @param $langcode string Language code. If null, user language is used
-	 * @return The title message in the given language, or the name of the gadget if the message doesn't exist
+	 * @return The title message in the given language, or the id of the gadget if the message doesn't exist
 	 */
 	public function getTitleMessage( $langcode = null ) {
 		$msg = wfMessage( $this->getTitleMessageKey() );
@@ -138,10 +139,10 @@ class Gadget {
 			$msg = $msg->inLanguage( $langcode );
 		}
 		if ( !$msg->exists() ) {
-			// Fallback: return the name of the gadget
+			// Fallback: return the id of the gadget
 			global $wgLang;
 			$lang = $langcode === null ? $wgLang : Language::factory( $langcode );
-			return $lang->ucfirst( $this->name );
+			return $lang->ucfirst( $this->id );
 		}
 		return $msg->plain();
 		
@@ -152,7 +153,7 @@ class Gadget {
 	 * @return string Message key
 	 */
 	public function getDescriptionMessageKey() {
-		return "gadget-{$this->name}-desc";
+		return "gadget-{$this->id}-desc";
 	}
 	
 	/**
@@ -244,7 +245,7 @@ class Gadget {
 	 * @return string Module name
 	 */
 	public function getModuleName() {
-		return "gadget.{$this->name}";
+		return "gadget.{$this->id}";
 	}
 	
 	public function getScripts() {
@@ -267,8 +268,8 @@ class Gadget {
 	 * @return bool
 	 */
 	public function isEnabledForUser( $user ) {
-		$name = $this->getName();
-		return (bool)$user->getOption( "gadget-$name", $this->isEnabledByDefault() );
+		$id = $this->getId();
+		return (bool)$user->getOption( "gadget-$id", $this->isEnabledByDefault() );
 	}
 	
 	/**

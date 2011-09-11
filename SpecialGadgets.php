@@ -85,16 +85,16 @@ class SpecialGadgets extends SpecialPage {
 			}
 
 			foreach ( $entries as $gadget ) {
-				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-{$gadget->getName()}$lang" );
+				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-{$gadget->getId()}$lang" );
 				if ( !$t ) continue;
 
 				$links = array();
 				if ( $editInterfaceAllowed ) {
 					$links[] = $skin->link( $t, wfMsgHTML( 'edit' ), array(), array( 'action' => 'edit' ) );
 				}
-				$links[] = $skin->link( $this->getTitle( "export/{$gadget->getName()}" ), wfMsgHtml( 'gadgets-export' ) );
+				$links[] = $skin->link( $this->getTitle( "export/{$gadget->getId()}" ), wfMsgHtml( 'gadgets-export' ) );
 				
-				$ttext = wfMsgExt( "gadget-{$gadget->getName()}", $msgOpt );
+				$ttext = wfMsgExt( "gadget-{$gadget->getId()}", $msgOpt );
 
 				if( !$listOpen ) {
 					$listOpen = true;

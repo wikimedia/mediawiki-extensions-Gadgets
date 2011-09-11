@@ -108,7 +108,7 @@
 					e.preventDefault();
 					var $el = $( this );
 					var gadget = {
-						id: $el.data( 'gadgetname' ),
+						id: $el.data( 'gadget-id' ),
 						displayTitle: $el.text(),
 						metadata: null
 					};

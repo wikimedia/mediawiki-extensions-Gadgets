@@ -30,11 +30,11 @@ class GadgetHooks {
 		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $name ) ) {
 			return true;
 		}
-		// Trim .js from the page name to obtain the gadget name
-		$name = substr( $name, 0, -3 );
+		// Trim .js from the page name to obtain the gadget id
+		$id = substr( $name, 0, -3 );
 		
 		$repo = new LocalGadgetRepo( array() );
-		$repo->deleteGadget( $name );
+		$repo->deleteGadget( $id );
 		// deleteGadget() may return an error if the Gadget didn't exist, but we don't care here
 		return true;
 	}
@@ -62,8 +62,8 @@ class GadgetHooks {
 		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $name ) || !$revision ) {
 			return true;
 		}
-		// Trim .js from the page name to obtain the gadget name
-		$name = substr( $name, 0, -3 );
+		// Trim .js from the page name to obtain the gadget id
+		$id = substr( $name, 0, -3 );
 		
 		$previousRev = $revision->getPrevious();
 		$prevTs = $previousRev instanceof Revision ? $previousRev->getTimestamp() : wfTimestampNow();
@@ -71,7 +71,7 @@ class GadgetHooks {
 		// Update the database entry for this gadget
 		$repo = new LocalGadgetRepo( array() );
 		// TODO: Timestamp in the constructor is ugly
-		$gadget = new Gadget( $name, $repo, $text, $prevTs );
+		$gadget = new Gadget( $id, $repo, $text, $prevTs );
 		$repo->modifyGadget( $gadget, $revision->getTimestamp() );
 		
 		// modifyGadget() returns a Status object with an error if there was a conflict,
@@ -94,13 +94,13 @@ class GadgetHooks {
 		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $name ) ) {
 			return true;
 		}
-		// Trim .js from the page name to obtain the gadget name
-		$name = substr( $name, 0, -3 );
+		// Trim .js from the page name to obtain the gadget id
+		$id = substr( $name, 0, -3 );
 		
 		// Check whether this undeletion changed the latest revision of the page, by comparing
 		// the timestamp of the latest revision with the timestamp in the DB
 		$repo = new LocalGadgetRepo( array() );
-		$gadget = $repo->getGadget( $name );
+		$gadget = $repo->getGadget( $id );
 		$gadgetTS = $gadget ? $gadget->getTimestamp() : 0;
 		
 		$rev = Revision::newFromTitle( $title );
@@ -111,7 +111,7 @@ class GadgetHooks {
 		}
 		
 		// Update the database entry for this gadget
-		$newGadget = new Gadget( $name, $repo, $rev->getRawText(), $gadgetTS );
+		$newGadget = new Gadget( $id, $repo, $rev->getRawText(), $gadgetTS );
 		$repo->modifyGadget( $newGadget, $rev->getTimestamp() );
 		
 		// modifyGadget() returns a Status object with an error if there was a conflict,
@@ -190,11 +190,11 @@ class GadgetHooks {
 		// TODO: Part of this is duplicated from registerModules(), factor out into the repo
 		$repo = new LocalGadgetRepo( array() );
 		
-		$gadgets = $repo->getGadgetNames();
+		$gadgets = $repo->getGadgetIds();
 		$categories = array(); // array( category => array( desc => name ) )
-		$default = array(); // array of Gadget names
-		foreach ( $gadgets as $name ) {
-			$gadget = $repo->getGadget( $name );
+		$default = array(); // array of Gadget ids
+		foreach ( $gadgets as $id ) {
+			$gadget = $repo->getGadget( $id );
 			if ( !$gadget->isAllowed( $user ) || $gadget->isHidden() ) {
 				continue;
 			}
@@ -209,14 +209,14 @@ class GadgetHooks {
 			} else {
 				$text = wfMessage( 'gadgets-preference-description' )->rawParams( $title, $description )->parse();
 			}
-			$categories[$category][$text] = $name;
+			$categories[$category][$text] = $id;
 			// Add the Gadget to the default list if enabled
 			if ( $gadget->isEnabledForUser( $user ) ) {
-				$default[] = $name;
+				$default[] = $id;
 			}
 		}
 		
-		$options = array(); // array( desc1 => name1, category1 => array( desc2 => name2 ) )
+		$options = array(); // array( desc1 => gadget1, category1 => array( desc2 => gadget2 ) )
 		foreach ( $categories as $category => $gadgets ) {
 			if ( $category !== '' ) {
 				$categoryMsg = wfMsgExt( "gadgetcategory-$category", 'parseinline' );
@@ -260,9 +260,9 @@ class GadgetHooks {
 			unset( $params['class'] );
 			$repo = new $repoClass( $params );
 			
-			$gadgets = $repo->getGadgetNames();
-			foreach ( $gadgets as $name ) {
-				$gadget = $repo->getGadget( $name );
+			$gadgets = $repo->getGadgetIds();
+			foreach ( $gadgets as $id ) {
+				$gadget = $repo->getGadget( $id );
 				$resourceLoader->register( $gadget->getModuleName(), $gadget->getModule() );
 			}
 		}
@@ -283,9 +283,9 @@ class GadgetHooks {
 			unset( $params['class'] );
 			$repo = new $repoClass( $params );
 			
-			$gadgets = $repo->getGadgetNames();
-			foreach ( $gadgets as $name ) {
-				$gadget = $repo->getGadget( $name );
+			$gadgets = $repo->getGadgetIds();
+			foreach ( $gadgets as $id ) {
+				$gadget = $repo->getGadget( $id );
 				if ( $gadget->isEnabledForUser( $wgUser ) && $gadget->isAllowed( $wgUser ) ) {
 					$out->addModules( $gadget->getModuleName() );
 				}
