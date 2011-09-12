@@ -16,7 +16,7 @@
 class ForeignDBGadgetRepo extends LocalGadgetRepo {
 	protected $db = null;
 	
-	protected $source, $dbServer, $dbUser, $dbPassword, $dbName, $dbFlags, $tablePrefix/*, $hasSharedCache*/;
+	protected $source, $dbServer, $dbUser, $dbPassword, $dbName, $dbFlags, $tablePrefix, $hasSharedCache;
 	
 	/**
 	 * Constructor.
@@ -25,13 +25,13 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 	public function __construct( array $options ) {
 		parent::__construct( $options );
 		
-		$this->namesKey = $this->getMemcKey( 'gadgets', 'foreigndbreponames' );
-		
 		$optionKeys = array( 'source', 'dbType', 'dbServer', 'dbUser', 'dbPassword', 'dbName',
 			'dbFlags', 'tablePrefix', 'hasSharedCache' );
 		foreach ( $optionKeys as $optionKey ) {
 			$this->{$optionKey} = $options[$optionKey];
 		}
+		
+		$this->namesKey = $this->getMemcKey( 'gadgets', 'foreigndbreponames' );
 	}
 	
 	public function isWriteable() {
