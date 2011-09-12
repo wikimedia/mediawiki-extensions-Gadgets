@@ -101,4 +101,14 @@ abstract class GadgetRepo {
 		return $msg->plain();
 	}
 	
+	public function getGadgetsByCategory() {
+		$retval = array();
+		$gadgetIDs = $this->getGadgetIds();
+		foreach ( $gadgetIDs as $id ) {
+			$gadget = $this->getGadget( $id );
+			$retval[$gadget->getCategory()][] = $gadget;
+		}
+		return $retval;
+	}
+	
 }

@@ -44,15 +44,8 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 		$data = array();
 		$result = $this->getResult();
 		$repo = new LocalGadgetRepo( array() );
-		$gadgets = $repo->getGadgetIds();
 		
-		// TODO: Put the grouping in the repo
-		$gadgetsByCategory = array();
-		foreach ( $gadgets as $id ) {
-			$gadget = $repo->getGadget( $id );
-			$gadgetsByCategory[$gadget->getCategory()][] = $gadget;
-		}
-
+		$gadgetsByCategory = $repo->getGadgetsByCategory();
 		foreach ( $gadgetsByCategory as $category => $gadgets ) {
 			if ( !$this->neededNames || isset( $this->neededNames[$category] ) ) {
 				$row = array();

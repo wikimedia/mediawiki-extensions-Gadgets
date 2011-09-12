@@ -44,10 +44,10 @@ class SpecialGadgetManager extends SpecialPage {
 		global $wgGadgetEnableSharing;
 
 		$repo = new LocalGadgetRepo( array() );
-		$gadgetIds = $repo->getGadgetIds();
+		$gadgetsByCategory = $repo->getGadgetsByCategory();
 
 		// If there there are no gadgets at all, exit early.
-		if ( !count( $gadgetIds ) ) {
+		if ( !count( $gadgetsByCategory ) ) {
 			$noGadgetsMsgHtml = Html::element( 'p',
 				array(
 					'class' => 'mw-gadgetmanager-nogadgets'
@@ -59,14 +59,7 @@ class SpecialGadgetManager extends SpecialPage {
 		// There is atleast one gadget, let's get started.
 		$this->getOutput()->addWikiMsg( 'gadgetmanager-pagetext' );
 		$html = '';
-
-		// Sort gadgets by category
-		$gadgetsByCategory = array();
-		foreach ( $gadgetIds as $gadgetId ) {
-			$gadget = $repo->getGadget( $gadgetId );
-			$gadgetsByCategory[$gadget->getCategory()][$gadgetId] = $gadget;
-		}
-
+		
 		// Sort categories alphabetically
 		// @todo Sort causes the key "''" to be at the top, it should be on the bottom.
 		ksort( $gadgetsByCategory );
