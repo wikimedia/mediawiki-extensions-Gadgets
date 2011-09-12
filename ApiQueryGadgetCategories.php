@@ -95,7 +95,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 				' title    - Category title',
 				' members  - Number of gadgets in category',
 			),
-			'names' => 'Name(s) of gadgets to retrieve',
+			'names' => 'Name(s) of categories to retrieve',
 		);
 	}
 
