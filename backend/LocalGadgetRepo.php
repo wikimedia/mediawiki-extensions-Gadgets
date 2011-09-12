@@ -204,7 +204,7 @@ class LocalGadgetRepo extends GadgetRepo {
 			$toCache[$row->gd_id] = null;
 		}
 		// Write to memc
-		$wgMemc->set( $key, $toCache );
+		$wgMemc->set( $this->namesKey, $toCache );
 		$this->namesLoaded = true;
 		return array_keys( $this->data );
 	}
