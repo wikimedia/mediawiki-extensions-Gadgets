@@ -84,17 +84,16 @@ class GadgetHooks {
 		
 		return true;
 	}
-
+	
 	/**
-	 * ArticleUndelete hook handler
+	 * Update the database entry for a gadget if the description page is
+	 * newer than the database entry.
 	 * @param $title Title object
-	 * @param $created Bool: Whether this undeletion recreated the page
-	 * @param $comment String: Undeletion summary
 	 */
-	public static function gadgetDefinitionUndelete( $title, $created, $comment ) {
+	public static function gadgetDefinitionUpdateIfChanged( $title ) {
 		$id = self::getIDFromTitle( $title );
 		if ( !$id ) {
-			return true;
+			return;
 		}
 		
 		// Check whether this undeletion changed the latest revision of the page, by comparing
@@ -107,7 +106,7 @@ class GadgetHooks {
 		if ( wfTimestamp( TS_MW, $rev->getTimestamp() ) ===
 				wfTimestamp( TS_MW, $gadgetTS ) ) {
 			// The latest rev didn't change. Someone must've undeleted an older revision
-			return true;
+			return;
 		}
 		
 		// Update the database entry for this gadget
@@ -116,14 +115,22 @@ class GadgetHooks {
 		
 		// modifyGadget() returns a Status object with an error if there was a conflict,
 		// but we do't care, see similar comment in articleSaveComplete()
+		return;
+	}
+
+	/**
+	 * ArticleUndelete hook handler
+	 * @param $title Title object
+	 * @param $created Bool: Whether this undeletion recreated the page
+	 * @param $comment String: Undeletion summary
+	 */
+	public static function gadgetDefinitionUndelete( $title, $created, $comment ) {
+		self::gadgetDefinitionUpdateIfChanged( $title );
 		return true;
 	}
 	
 	public static function gadgetDefinitionImport( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
-		// HACK: AAAAAAARGH. Should fix this duplication properly
-		// Logic is the same as in gadgetDefinitionUndelete() and that function only uses the $title parameter
-		// Shit, shit, shit, this is ugly
-		self::gadgetDefinitionUndelete( $title, true, '' );
+		self::gadgetDefinitionUpdateIfChanged( $title );
 		return true;
 	}
 
