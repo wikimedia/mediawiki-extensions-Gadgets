@@ -13,6 +13,20 @@
  */
 
 class GadgetHooks {
+	/**
+	 * Get the gadget ID from a title
+	 * @param $title Title object
+	 * @return string Gadget name or null if not a gadget definition page
+	 */
+	public static function getIDFromTitle( Title $title ) {
+		$name = $title->getText();
+		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $name ) ) {
+			// Not a gadget definition page
+			return null;
+		}
+		// Trim .js from the page name to obtain the gadget ID
+		return substr( $name, 0, -3 );
+	}
 
 	/**
 	 * ArticleDeleteComplete hook handler.
@@ -23,15 +37,10 @@ class GadgetHooks {
 	 * @param $id Int: Page ID
 	 */
 	public static function gadgetDefinitionDelete( $article, $user, $reason, $id ) {
-		// FIXME: AARGH, duplication, refactor this
-		$title = $article->getTitle();
-		$name = $title->getText();
-		// Check that the deletion is in the Gadget definition: namespace and that the name ends in .js
-		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $name ) ) {
+		$id = self::getIDFromTitle( $article->getTitle() );
+		if ( !$id ) {
 			return true;
 		}
-		// Trim .js from the page name to obtain the gadget id
-		$id = substr( $name, 0, -3 );
 		
 		$repo = new LocalGadgetRepo( array() );
 		$repo->deleteGadget( $id );
@@ -55,15 +64,10 @@ class GadgetHooks {
 	public static function gadgetDefinitionSave( $article, $user, $text, $summary, $isMinor,
 			$isWatch, $section, $flags, $revision )
 	{
-		$title = $article->getTitle();
-		$name = $title->getText();
-		// Check that the edit is in the Gadget definition: namespace, that the name ends in .js
-		// and that $revision isn't null (this happens for a no-op edit)
-		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $name ) || !$revision ) {
+		$id = self::getIDFromTitle( $article->getTitle() );
+		if ( !$id ) {
 			return true;
 		}
-		// Trim .js from the page name to obtain the gadget id
-		$id = substr( $name, 0, -3 );
 		
 		$previousRev = $revision->getPrevious();
 		$prevTs = $previousRev instanceof Revision ? $previousRev->getTimestamp() : wfTimestampNow();
@@ -88,14 +92,10 @@ class GadgetHooks {
 	 * @param $comment String: Undeletion summary
 	 */
 	public static function gadgetDefinitionUndelete( $title, $created, $comment ) {
-		// FIXME: AARGH, duplication, refactor this
-		$name = $title->getText();
-		// Check that the deletion is in the Gadget definition: namespace and that the name ends in .js
-		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $name ) ) {
+		$id = self::getIDFromTitle( $title );
+		if ( !$id ) {
 			return true;
 		}
-		// Trim .js from the page name to obtain the gadget id
-		$id = substr( $name, 0, -3 );
 		
 		// Check whether this undeletion changed the latest revision of the page, by comparing
 		// the timestamp of the latest revision with the timestamp in the DB
