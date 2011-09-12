@@ -59,4 +59,4 @@ class PopulateGadgetPageList extends Maintenance {
 }
 
 $maintClass = "PopulateGadgetPageList";
-require_once( DO_MAINTENANCE );
+require_once( RUN_MAINTENANCE_IF_MAIN );
