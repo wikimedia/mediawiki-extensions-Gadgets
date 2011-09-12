@@ -47,7 +47,7 @@ $wgExtensionCredits['other'][] = array(
  *	// TODO: Make this the default?
  * 	'dbFlags' => ( $wgDebugDumpSql ? DBO_DEBUG : 0 ) | DBO_DEFAULT // Use this value unless you know what you're doing
  * 	'tablePrefix' => 'mw_', // Table prefix for the foreign wiki's database, or '' if no prefix
- //*	'hasSharedCache' => true, // Whether the foreign wiki's cache is accessible through $wgMemc   // TODO: needed?
+ *	'hasSharedCache' => true, // Whether the foreign wiki's cache is accessible through $wgMemc
  * );
  * 
  * For foreign API-based gadget repositories, use:

@@ -11,7 +11,7 @@
  * 'dbName': Database name
  * 'dbFlags': Bitmap of the DBO_* flags. Recommended value is  ( $wgDebugDumpSql ? DBO_DEBUG : 0 ) | DBO_DEFAULT
  * 'tablePrefix': Table prefix
- //* 'hasSharedCache': Whether the foreign wiki's cache is accessible through $wgMemc   // TODO: needed?
+ * 'hasSharedCache': Whether the foreign wiki's cache is accessible through $wgMemc
  */
 class ForeignDBGadgetRepo extends LocalGadgetRepo {
 	protected $db = null;
@@ -26,7 +26,7 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 		parent::__construct( $options );
 		
 		$optionKeys = array( 'source', 'dbType', 'dbServer', 'dbUser', 'dbPassword', 'dbName',
-			'dbFlags', 'tablePrefix'/*, 'hasSharedCache'*/ );
+			'dbFlags', 'tablePrefix', 'hasSharedCache' );
 		foreach ( $optionKeys as $optionKey ) {
 			$this->{$optionKey} = $options[$optionKey];
 		}
@@ -61,8 +61,29 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 		return $this->db;
 	}
 	
-	protected function getLoadDataQuery() {
-		$query = parent::getLoadDataQuery();
+	protected function getMemcKey( /* ... */ ) {
+		if ( $this->hasSharedCache ) {
+			$args = func_get_args();
+			// FIXME: This is a dirty hack. Need to cache localrepo and foreignrepo name lists separately
+			// because one includes non-shared gadgets and the other doesn't
+			if ( $args[1] === 'localreponames' ) {
+				$args[1] = 'foreignreponames';
+			}
+			array_unshift( $args, $this->dbName, $this->tablePrefix );
+			return call_user_func_array( 'wfForeignMemcKey', $args );
+		} else {
+			return false;
+		}
+	}
+	
+	protected function getLoadIDsQuery() {
+		$query = parent::getLoadIDsQuery();
+		$query['conds']['gd_shared'] = 1;
+		return $query;
+	}
+	
+	protected function getLoadDataForQuery( $id ) {
+		$query = parent::getLoadDataForQuery( $id );
 		$query['conds']['gd_shared'] = 1;
 		return $query;
 	}
