@@ -8,6 +8,9 @@ class LocalGadgetRepo extends GadgetRepo {
 	protected $data = array();
 	protected $namesLoaded = false;
 	
+	/** Memcached key of the gadget names list. Subclasses may override this in their constructor */
+	protected $namesKey;
+	
 	/*** Public methods inherited from GadgetRepo ***/
 	
 	/**
@@ -19,6 +22,8 @@ class LocalGadgetRepo extends GadgetRepo {
 		
 		// TODO: define options
 		// FIXME if there are none, drop the mandatory param
+		
+		$this->namesKey = $this->getMemcKey( 'gadgets', 'localreponames' );
 	}
 	
 	public function getGadgetIds() {
@@ -99,9 +104,8 @@ class LocalGadgetRepo extends GadgetRepo {
 			$wgMemc->set( $key, $this->data[$id] );
 		}
 		// Clear the gadget names array in memc
-		$namesKey = $this->getMemcKey( 'gadgets', 'localreponames' );
-		if ( $namesKey !== false ) {
-			$wgMemc->delete( $namesKey );
+		if ( $this->namesKey !== false ) {
+			$wgMemc->delete( $this->namesKey );
 		}
 		
 		return Status::newGood();
@@ -126,9 +130,8 @@ class LocalGadgetRepo extends GadgetRepo {
 			$wgMemc->delete( $key );
 		}
 		// Clear the gadget names array in memc
-		$namesKey = $this->getMemcKey( 'gadgets', 'localreponames' );
-		if ( $namesKey !== false ) {
-			$wgMemc->delete( $namesKey );
+		if ( $this->namesKey !== false ) {
+			$wgMemc->delete( $this->namesKey );
 		}
 		
 		if ( $affectedRows === 0 ) {
@@ -180,8 +183,7 @@ class LocalGadgetRepo extends GadgetRepo {
 		}
 		
 		// Try memc
-		$key = $this->getMemcKey( 'gadgets', 'localreponames' );
-		$cached = $key !== false ? $wgMemc->get( $key ) : false;
+		$cached = $this->namesKey !== false ? $wgMemc->get( $this->namesKey ) : false;
 		if ( is_array( $cached ) ) {
 			// Yay, data is in cache
 			// Add to $this->data , but let things already in $this->data take precedence

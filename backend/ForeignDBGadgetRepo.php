@@ -25,6 +25,8 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 	public function __construct( array $options ) {
 		parent::__construct( $options );
 		
+		$this->namesKey = $this->getMemcKey( 'gadgets', 'foreigndbreponames' );
+		
 		$optionKeys = array( 'source', 'dbType', 'dbServer', 'dbUser', 'dbPassword', 'dbName',
 			'dbFlags', 'tablePrefix', 'hasSharedCache' );
 		foreach ( $optionKeys as $optionKey ) {
@@ -64,11 +66,6 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 	protected function getMemcKey( /* ... */ ) {
 		if ( $this->hasSharedCache ) {
 			$args = func_get_args();
-			// FIXME: This is a dirty hack. Need to cache localrepo and foreignrepo name lists separately
-			// because one includes non-shared gadgets and the other doesn't
-			if ( $args[1] === 'localreponames' ) {
-				$args[1] = 'foreignreponames';
-			}
 			array_unshift( $args, $this->dbName, $this->tablePrefix );
 			return call_user_func_array( 'wfForeignMemcKey', $args );
 		} else {
