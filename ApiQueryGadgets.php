@@ -22,7 +22,7 @@
 class ApiQueryGadgets extends ApiQueryBase {
 	private $props,
 		$categories,
-		$neededNames,
+		$neededIds,
 		$listAllowed,
 		$listEnabled;
 
@@ -36,8 +36,8 @@ class ApiQueryGadgets extends ApiQueryBase {
 		$this->categories = isset( $params['categories'] )
 			? array_flip( $params['categories'] )
 			: false;
-		$this->neededNames = isset( $params['names'] )
-			? array_flip( $params['names'] )
+		$this->neededIds = isset( $params['ids'] )
+			? array_flip( $params['ids'] )
 			: false;
 		$this->listAllowed = isset( $params['allowedonly'] ) && $params['allowedonly'];
 		$this->listEnabled = isset( $params['enabledonly'] ) && $params['enabledonly'];
@@ -77,8 +77,8 @@ class ApiQueryGadgets extends ApiQueryBase {
 
 		foreach ( $gadgets as $g ) {
 			$row = array();
-			if ( isset( $this->props['name'] ) ) {
-				$row['name'] = $g->getName();
+			if ( isset( $this->props['id'] ) ) {
+				$row['id'] = $g->getName();
 			}
 			if ( isset( $this->props['metadata'] ) ) {
 				$row['metadata'] = $this->fakeMetadata( $g );
@@ -101,7 +101,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	private function isNeeded( Gadget $gadget ) {
 		global $wgUser;
 
-		return ( $this->neededNames === false || isset( $this->neededNames[$gadget->getName()] ) )
+		return ( $this->neededIds === false || isset( $this->neededIds[$gadget->getName()] ) )
 			&& ( !$this->listAllowed || $gadget->isAllowed( $wgUser ) )
 			&& ( !$this->listEnabled || $gadget->isEnabled( $wgUser ) );
 	}
@@ -151,10 +151,10 @@ class ApiQueryGadgets extends ApiQueryBase {
 	public function getAllowedParams() {
 		return array(
 			'prop' => array(
-				ApiBase::PARAM_DFLT => 'name|metadata',
+				ApiBase::PARAM_DFLT => 'id|metadata',
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => array(
-					'name',
+					'id',
 					'metadata',
 					'desc',
 				),
@@ -164,7 +164,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => 'string',
 			),
-			'names' => array(
+			'ids' => array(
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_ISMULTI => true,
 			),
@@ -181,12 +181,12 @@ class ApiQueryGadgets extends ApiQueryBase {
 		return array(
 			'prop' => array(
 				'What gadget information to get:',
-				' name           - Internal gadget name',
+				' id             - Internal gadget ID',
 				' metadata       - The gadget metadata',
 				' desc           - Gadget description transformed into HTML (can be slow, use only if really needed)',
 			),
 			'categories' => 'Gadgets from what categories to retrieve',
-			'names' => 'Name(s) of gadgets to retrieve',
+			'ids' => 'ID(s) of gadgets to retrieve',
 			'allowedonly' => 'List only gadgets allowed to current user',
 			'enabledonly' => 'List only gadgets enabled by current user',
 		);
@@ -197,13 +197,13 @@ class ApiQueryGadgets extends ApiQueryBase {
 		$allProps = implode( '|', $params['prop'][ApiBase::PARAM_TYPE] );
 		return array(
 			'Get a list of gadgets along with their descriptions:',
-			'    api.php?action=query&list=gadgets&gaprop=name|desc',
+			'    api.php?action=query&list=gadgets&gaprop=id|desc',
 			'Get a list of gadgets with all possble properties:',
 			"    api.php?action=query&list=gadgets&gaprop=$allProps",
 			'Get a list of gadgets belonging to caregory "foo":',
 			'    api.php?action=query&list=gadgets&gacategories=foo',
-			'Get information about gadgets named "foo" and "bar":',
-			'    api.php?action=query&list=gadgets&ganames=foo|bar&gaprop=name|desc|metadata',
+			'Get information about gadgets "foo" and "bar":',
+			'    api.php?action=query&list=gadgets&gaids=foo|bar&gaprop=id|desc|metadata',
 			'Get a list of gadgets enabled by current user:',
 			'    api.php?action=query&list=gadgets&gaenabledonly',
 		);
