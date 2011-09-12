@@ -75,15 +75,15 @@ class SpecialGadgetManager extends SpecialPage {
 			// Avoid broken or empty headings. Fallback to a special message
 			// for uncategorized gadgets (e.g. gadgets with category '' ).
 			if ( $category !== '' ) {
-				$categoryMsg = wfMessage( "gadgetcategory-$category" );
+				$categoryTitle = GadgetRepo::getCategoryTitle( $category );
 			} else {
-				$categoryMsg = wfMessage( 'gadgetmanager-uncategorized' );
+				$categoryTitle = wfMessage( 'gadgetmanager-uncategorized' )->plain();
 			}
 
 			// Category header
 			$html .= Html::element( 'h2',
 				array( 'class' => 'mw-gadgetmanager-category' ),
-				$categoryMsg->exists() ? $categoryMsg->plain() : $this->getLang()->ucfirst( $category )
+				$categoryTitle
 			);
 
 			// Start per-category gadgets table

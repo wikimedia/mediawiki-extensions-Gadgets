@@ -60,18 +60,10 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 					$row['name'] = $category;
 				}
 				if ( isset( $this->props['title'] ) ) {
-					// TODO: Put all this logic in the repo class
-					$message = $category === '' ? 'gadgetmanager-uncategorized' : "gadgetcategory-$category";
-					$message = wfMessage( $message );
-					if ( $this->language !== null ) {
-						$message = $message->inLanguage( $this->language );
-					}
-					if ( !$message->exists() ) {
-						global $wgLang;
-						$lang = $this->language === null ? $wgLang : Language::factory( $this->language );
-						$row['title'] = $lang->ucfirst( $category );
+					if ( $category === '' ) {
+						$row['title'] = wfMessage( 'gadgetmanager-uncategorized' )->plain();
 					} else {
-						$row['title'] = $message->plain();
+						$row['title'] = GadgetRepo::getCategoryTitle( $category, $this->language );
 					}
 				}
 				if ( isset( $this->props['members'] ) ) {

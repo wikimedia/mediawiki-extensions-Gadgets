@@ -12,6 +12,8 @@ abstract class GadgetRepo {
 		// TODO: Common config stuff for all repos?
 	}
 	
+	/**** Abstract functions ****/
+	
 	/**
 	 * Get the name of the ResourceLoader source of the modules
 	 * returned by this repository.
@@ -74,5 +76,29 @@ abstract class GadgetRepo {
 	 */
 	abstract public function deleteGadget( $id );
 	
-	// TODO: cache purging
+	/**** Public functions ****/
+	
+	/**
+	 * Get the localized title for a given category in a given language.
+	 * 
+	 * The "gadgetcategory-$category" message is used, if it exists.
+	 * If it doesn't exist, ucfirst( $category ) is returned.
+	 * 
+	 * @param $category string Category ID
+	 * @param $lang string Language code. If null, $wgLang is used
+	 * @return string Localized category title
+	 */
+	public static function getCategoryTitle( $category, $lang = null ) {
+		$msg = wfMessage( "gadgetcategory-$category" );
+		if ( $lang !== null ) {
+			$msg = $msg->inLanguage( $lang );
+		}
+		if ( !$msg->exists() ) {
+			global $wgLang;
+			$langObj = $lang === null ? $wgLang : Language::factory( $lang );
+			return $lang->ucfirst( $category );
+		}
+		return $msg->plain();
+	}
+	
 }

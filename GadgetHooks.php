@@ -219,7 +219,7 @@ class GadgetHooks {
 		$options = array(); // array( desc1 => gadget1, category1 => array( desc2 => gadget2 ) )
 		foreach ( $categories as $category => $gadgets ) {
 			if ( $category !== '' ) {
-				$categoryMsg = wfMsgExt( "gadgetcategory-$category", 'parseinline' );
+				$categoryMsg = htmlspecialchars( GadgetRepo::getCategoryTitle( $category ) );
 				$options[$categoryMsg] = $gadgets;
 			} else {
 				$options += $gadgets;
