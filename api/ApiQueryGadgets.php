@@ -51,7 +51,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	}
 
 	private function getList() {
-		$repo = new LocalGadgetRepo;
+		$repo = LocalGadgetRepo::singleton();
 		$result = array();
 		
 		if ( $this->neededIds !== false ) {

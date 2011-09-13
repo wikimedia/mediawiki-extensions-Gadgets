@@ -43,7 +43,7 @@ class SpecialGadgetManager extends SpecialPage {
 	private function generateOverview() {
 		global $wgGadgetEnableSharing;
 
-		$repo = new LocalGadgetRepo;
+		$repo = LocalGadgetRepo::singleton();
 		$gadgetsByCategory = $repo->getGadgetsByCategory();
 
 		// If there there are no gadgets at all, exit early.

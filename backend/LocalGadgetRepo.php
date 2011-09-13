@@ -1,6 +1,4 @@
 <?php
-// TODO: Make LocalGadgetRepo a singleton
-
 /**
  * Gadget repository that gets its gadgets from the local database.
  */
@@ -8,8 +6,24 @@ class LocalGadgetRepo extends GadgetRepo {
 	protected $data = array();
 	protected $namesLoaded = false;
 	
-	/** Memcached key of the gadget names list. Subclasses may override this in their constructor */
+	/** Memcached key of the gadget names list. Subclasses may override this in their constructor.
+	  * This could've been a static member if we had PHP 5.3's late static binding.
+	  */
 	protected $namesKey;
+	
+	/*** Public static methods ***/
+	
+	/**
+	 * Get the instance of this class
+	 * @return LocalGadgetRepo
+	 */
+	public static function singleton() {
+		static $instance = null;
+		if ( $instance === null ) {
+			$instance = new self;
+		}
+		return $instance;
+	}
 	
 	/*** Public methods inherited from GadgetRepo ***/
 	
