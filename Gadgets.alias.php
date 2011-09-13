@@ -200,7 +200,7 @@ $specialPageAliases['mt'] = array(
 
 /** Nedersaksisch (Nedersaksisch) */
 $specialPageAliases['nds-nl'] = array(
-	'Gadgets' => array( 'Technisch_spul' ),
+	'Gadgets' => array( 'Technies_spul' ),
 );
 
 /** Dutch (Nederlands) */
@@ -253,7 +253,7 @@ $specialPageAliases['sl'] = array(
 	'Gadgets' => array( 'Vtičniki', 'Vticniki' ),
 );
 
-/** Serbian Cyrillic ekavian (‪Српски (ћирилица)‬) */
+/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬) */
 $specialPageAliases['sr-ec'] = array(
 	'Gadgets' => array( 'Гаџети' ),
 );
@@ -278,7 +278,7 @@ $specialPageAliases['tr'] = array(
 	'Gadgets' => array( 'KüçükAraçlar' ),
 );
 
-/** Татарча (Татарча) */
+/** Tatar (Cyrillic script) (Татарча) */
 $specialPageAliases['tt-cyrl'] = array(
 	'Gadgets' => array( 'Гаджетлар' ),
 );
