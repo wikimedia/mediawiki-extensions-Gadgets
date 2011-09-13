@@ -43,11 +43,66 @@ class Gadget {
 	/** array of module settings, see "module" key in the JSON blob */
 	protected $moduleData;
 	
+	/**
+	 * Validation metadata.
+	 * 'foo.bar.baz' => array( 'callback', 'type name' [, 'membercallback', 'member type name'] )
+	 */
+	protected static $propertyValidation = array(
+		'settings' => array( 'is_array', 'array' ),
+		'settings.rights' => array( 'is_array', 'array' , 'is_string', 'string' ),
+		'settings.default' => array( 'is_bool', 'boolean' ),
+		'settings.hidden' => array( 'is_bool', 'boolean' ),
+		'settings.shared' => array( 'is_bool', 'boolean' ),
+		'settings.category' => array( 'is_string', 'string' ),
+		'module' => array( 'is_array', 'array' ),
+		'module.scripts' => array( 'is_array', 'array', 'is_string', 'string' ),
+		'module.styles' => array( 'is_array', 'array', 'is_string', 'string' ),
+		'module.dependencies' => array( 'is_array', 'array', 'is_string', 'string' ),
+		'module.messages' => array( 'is_array', 'array', 'is_string', 'string' ),
+	);
+	
 	/*** Public static methods ***/
 	
-	public static function isValidPropertiesArray( $properties ) {
-		// TODO: Also validate existence of individual properties
-		return is_array( $properties ) && isset( $properties['settings'] ) && isset( $properties['module'] );
+	/**
+	 * Check the validity of the given properties array
+	 * @param $properties Return value of FormatJson::decode( $blob, true )
+	 * @return Status object with error message if applicable
+	 */
+	public static function validatePropertiesArray( $properties ) {
+		if ( $properties === null ) {
+			return Status::newFatal( 'gadgets-validate-invalidjson' );
+		}
+		if ( !is_array( $properties ) ) {
+			return Status::newFatal( 'gadgets-validate-notanobject', gettype( $properties ) ); // Use JSON terminology
+		}
+		
+		foreach ( self::$propertyValidation as $property => $validation ) {
+			$path = explode( '.', $property );
+			$var = $properties;
+			foreach ( $path as $p ) {
+				if ( !isset( $var[$p] ) ) {
+					return Status::newFatal( 'gadgets-validate-notset', $property );
+				}
+				$var = $var[$p];
+			}
+			
+			$func = $validation[0];
+			if ( !$func( $var ) ) {
+				return Status::newFatal( 'gadgets-validate-wrongtype', $property, $validation[1], gettype( $var ) );
+			}
+			
+			if ( isset( $validation[2] ) ) {
+				// Descend into the array and check the type of each element
+				$func = $validation[2];
+				foreach ( $var as $i => $v ) {
+					if ( !$func( $v ) ){
+						return Status::newFatal( 'gadgets-validate-wrongtype', "{$property}[{$i}]", $validation[3], gettype( $v ) );
+					}
+				}
+			}
+		}
+		
+		return Status::newGood();
 	}
 	
 	/*** Public methods ***/
@@ -65,8 +120,8 @@ class Gadget {
 			$properties = FormatJson::decode( $properties, true );
 		}
 		
-		
-		if ( !self::isValidPropertiesArray( $properties ) ) {
+		// Do a quick sanity check rather than full validation
+		if ( !is_array( $properties ) || !isset( $properties['settings'] ) || !isset( $properties['module'] ) ) {
 			throw new MWException( 'Invalid property array passed to ' . __METHOD__ );
 		}
 		
