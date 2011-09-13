@@ -107,7 +107,7 @@ abstract class GadgetRepo {
 		if ( !$msg->exists() ) {
 			global $wgLang;
 			$langObj = $lang === null ? $wgLang : Language::factory( $lang );
-			return $lang->ucfirst( $category );
+			return $langObj->ucfirst( $category );
 		}
 		return $msg->plain();
 	}
