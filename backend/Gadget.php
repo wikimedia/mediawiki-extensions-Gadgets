@@ -45,7 +45,7 @@ class Gadget {
 	
 	/**
 	 * Validation metadata.
-	 * 'foo.bar.baz' => array( 'callback', 'type name' [, 'membercallback', 'member type name'] )
+	 * 'foo.bar.baz' => array( 'type check callback', 'type name' [, 'member type check callback', 'member type name'] )
 	 */
 	protected static $propertyValidation = array(
 		'settings' => array( 'is_array', 'array' ),
@@ -75,33 +75,36 @@ class Gadget {
 		if ( !is_array( $properties ) ) {
 			return Status::newFatal( 'gadgets-validate-notanobject', gettype( $properties ) ); // Use JSON terminology
 		}
-		
+
 		foreach ( self::$propertyValidation as $property => $validation ) {
 			$path = explode( '.', $property );
-			$var = $properties;
+			$val = $properties;
+
+			// Walk down and verify that the path from the root to this property exists
 			foreach ( $path as $p ) {
-				if ( !isset( $var[$p] ) ) {
+				if ( !isset( $val[$p] ) ) {
 					return Status::newFatal( 'gadgets-validate-notset', $property );
 				}
-				$var = $var[$p];
+				$val = $val[$p];
 			}
-			
+
+			// Do the actual validation of this property
 			$func = $validation[0];
-			if ( !$func( $var ) ) {
-				return Status::newFatal( 'gadgets-validate-wrongtype', $property, $validation[1], gettype( $var ) );
+			if ( !$func( $val ) ) {
+				return Status::newFatal( 'gadgets-validate-wrongtype', $property, $validation[1], gettype( $val ) );
 			}
-			
+
 			if ( isset( $validation[2] ) ) {
 				// Descend into the array and check the type of each element
 				$func = $validation[2];
-				foreach ( $var as $i => $v ) {
+				foreach ( $val as $i => $v ) {
 					if ( !$func( $v ) ){
 						return Status::newFatal( 'gadgets-validate-wrongtype', "{$property}[{$i}]", $validation[3], gettype( $v ) );
 					}
 				}
 			}
 		}
-		
+
 		return Status::newGood();
 	}
 	
