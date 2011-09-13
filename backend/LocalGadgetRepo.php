@@ -150,16 +150,6 @@ class LocalGadgetRepo extends GadgetRepo {
 		return Status::newGood();
 	}
 	
-	/*** Protected methods ***/
-	
-	/**
-	 * Get the master DB connection. Subclasses can override this to use a different DB
-	 * @return Database
-	 */
-	protected function getMasterDB() {
-		return wfGetDB( DB_MASTER );
-	}
-	
 	/**
 	 * Get the slave DB connection. Subclasses can override this to use a different DB
 	 * @return Database
@@ -170,6 +160,14 @@ class LocalGadgetRepo extends GadgetRepo {
 	
 	
 	/*** Protected methods ***/
+	
+	/**
+	 * Get the master DB connection. Subclasses can override this to use a different DB
+	 * @return Database
+	 */
+	protected function getMasterDB() {
+		return wfGetDB( DB_MASTER );
+	}
 	
 	/**
 	 * Get a memcached key. Subclasses can override this to use a foreign memc

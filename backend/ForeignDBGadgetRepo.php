@@ -46,7 +46,7 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 		return $this->getMasterDB();
 	}
 	
-	/*** Overridden protected functions from LocalGadgetRepo ***/
+	/*** Overridden protected methods from LocalGadgetRepo ***/
 	protected function getMasterDB() {
 		if ( $this->db === null ) {
 			$this->db = DatabaseBase::factory( $this->dbType,

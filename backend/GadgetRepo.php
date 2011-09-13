@@ -11,7 +11,7 @@ abstract class GadgetRepo {
 	public function __construct( array $info = array() ) {
 	}
 	
-	/**** Abstract functions ****/
+	/**** Abstract methods ****/
 	
 	/**
 	 * Get the name of the ResourceLoader source of the modules
@@ -75,7 +75,19 @@ abstract class GadgetRepo {
 	 */
 	abstract public function deleteGadget( $id );
 	
-	/**** Public functions ****/
+	/**** Public methods ****/
+	
+	public function getGadgetsByCategory() {
+		$retval = array();
+		$gadgetIDs = $this->getGadgetIds();
+		foreach ( $gadgetIDs as $id ) {
+			$gadget = $this->getGadget( $id );
+			$retval[$gadget->getCategory()][] = $gadget;
+		}
+		return $retval;
+	}
+	
+	/*** Public static methods ***/
 	
 	/**
 	 * Get the localized title for a given category in a given language.
@@ -99,15 +111,4 @@ abstract class GadgetRepo {
 		}
 		return $msg->plain();
 	}
-	
-	public function getGadgetsByCategory() {
-		$retval = array();
-		$gadgetIDs = $this->getGadgetIds();
-		foreach ( $gadgetIDs as $id ) {
-			$gadget = $this->getGadget( $id );
-			$retval[$gadget->getCategory()][] = $gadget;
-		}
-		return $retval;
-	}
-	
 }
