@@ -273,13 +273,12 @@ class GadgetHooks {
 	 * @param $out OutputPage
 	 */
 	public static function beforePageDisplay( $out ) {
-		global $wgUser;
-		
 		wfProfileIn( __METHOD__ );
-		
+
+		$user = $out->getUser();
 		$gadgets = GadgetRepo::getAllGadgets();
 		foreach ( $gadgets as $gadget ) {
-			if ( $gadget->isEnabledForUser( $wgUser ) && $gadget->isAllowed( $wgUser ) ) {
+			if ( $gadget->isEnabledForUser( $user ) && $gadget->isAllowed( $user ) ) {
 				$out->addModules( $gadget->getModuleName() );
 			}
 		}
