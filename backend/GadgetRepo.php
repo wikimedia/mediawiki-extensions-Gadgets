@@ -141,5 +141,6 @@ abstract class GadgetRepo {
 				$retval[] = $repo->getGadget( $id );
 			}
 		}
+		return $retval;
 	}
 }
