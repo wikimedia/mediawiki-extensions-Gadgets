@@ -261,18 +261,9 @@ class GadgetHooks {
 	 * @param $resourceLoader ResourceLoader
 	 */
 	public static function registerModules( &$resourceLoader ) {
-		global $wgGadgetRepositories;
-		// TODO: Factor this loop out somewhere and include LocalGadgetRepo more magically so we can use ::singleton()
-		foreach ( $wgGadgetRepositories as $params ) {
-			$repoClass = $params['class'];
-			unset( $params['class'] );
-			$repo = new $repoClass( $params );
-			
-			$gadgets = $repo->getGadgetIds();
-			foreach ( $gadgets as $id ) {
-				$gadget = $repo->getGadget( $id );
-				$resourceLoader->register( $gadget->getModuleName(), $gadget->getModule() );
-			}
+		$gadgets = GadgetRepo::getAllGadgets();
+		foreach ( $gadgets as $gadget ) {
+			$resourceLoader->register( $gadget->getModuleName(), $gadget->getModule() );
 		}
 		return true;
 	}
@@ -282,21 +273,14 @@ class GadgetHooks {
 	 * @param $out OutputPage
 	 */
 	public static function beforePageDisplay( $out ) {
-		global $wgUser, $wgGadgetRepositories;
+		global $wgUser;
 		
 		wfProfileIn( __METHOD__ );
 		
-		foreach ( $wgGadgetRepositories as $params ) {
-			$repoClass = $params['class'];
-			unset( $params['class'] );
-			$repo = new $repoClass( $params );
-			
-			$gadgets = $repo->getGadgetIds();
-			foreach ( $gadgets as $id ) {
-				$gadget = $repo->getGadget( $id );
-				if ( $gadget->isEnabledForUser( $wgUser ) && $gadget->isAllowed( $wgUser ) ) {
-					$out->addModules( $gadget->getModuleName() );
-				}
+		$gadgets = GadgetRepo::getAllGadgets();
+		foreach ( $gadgets as $gadget ) {
+			if ( $gadget->isEnabledForUser( $wgUser ) && $gadget->isAllowed( $wgUser ) ) {
+				$out->addModules( $gadget->getModuleName() );
 			}
 		}
 		

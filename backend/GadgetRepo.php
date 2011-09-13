@@ -111,4 +111,35 @@ abstract class GadgetRepo {
 		}
 		return $msg->plain();
 	}
+	
+	/**
+	 * Get all gadget repositories. Returns the LocalGadgetRepo singleton and any
+	 * repositories configured in $wgGadgetRepositories
+	 * @return array of GadgetRepo objects
+	 */
+	public static function getAllRepos() {
+		global $wgGadgetRepositories;
+		$repos = array( LocalGadgetRepo::singleton() );
+		foreach ( $wgGadgetRepositories as $params ) {
+			$repoClass = $params['class'];
+			unset( $params['class'] ); // Safe because foreach operates on a copy of the array
+			$repos[] = new $repoClass( $params );
+		}
+		return $repos;
+	}
+	
+	/**
+	 * Get all gadgets from all repositories.
+	 * @return array of Gadget objects
+	 */
+	public static function getAllGadgets() {
+		$retval = array();
+		$repos = GadgetRepo::getAllRepos();
+		foreach ( $repos as $repo ) {
+			$gadgets = $repo->getGadgetIds();
+			foreach ( $gadgets as $id ) {
+				$retval[] = $repo->getGadget( $id );
+			}
+		}
+	}
 }

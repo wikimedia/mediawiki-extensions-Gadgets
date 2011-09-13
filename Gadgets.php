@@ -56,12 +56,7 @@ $wgExtensionCredits['other'][] = array(
  *	// TODO
  * );
  */
-$wgGadgetRepositories = array(
-	array(
-		// Default local gadget repository. Doesn't need any parameters
-		'class' => 'LocalGadgetRepo',
-	)
-);
+$wgGadgetRepositories = array();
 
 /**
  * Whether or not to allow gadgets to be shared in the gadget manager.
