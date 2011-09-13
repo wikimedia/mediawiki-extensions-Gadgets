@@ -42,7 +42,7 @@ class GadgetHooks {
 			return true;
 		}
 		
-		$repo = new LocalGadgetRepo( array() );
+		$repo = new LocalGadgetRepo;
 		$repo->deleteGadget( $id );
 		// deleteGadget() may return an error if the Gadget didn't exist, but we don't care here
 		return true;
@@ -73,7 +73,7 @@ class GadgetHooks {
 		$prevTs = $previousRev instanceof Revision ? $previousRev->getTimestamp() : wfTimestampNow();
 		
 		// Update the database entry for this gadget
-		$repo = new LocalGadgetRepo( array() );
+		$repo = new LocalGadgetRepo;
 		// TODO: Timestamp in the constructor is ugly
 		$gadget = new Gadget( $id, $repo, $text, $prevTs );
 		$repo->modifyGadget( $gadget, $revision->getTimestamp() );
@@ -98,7 +98,7 @@ class GadgetHooks {
 		
 		// Check whether this undeletion changed the latest revision of the page, by comparing
 		// the timestamp of the latest revision with the timestamp in the DB
-		$repo = new LocalGadgetRepo( array() );
+		$repo = new LocalGadgetRepo;
 		$gadget = $repo->getGadget( $id );
 		$gadgetTS = $gadget ? $gadget->getTimestamp() : 0;
 		
@@ -195,7 +195,7 @@ class GadgetHooks {
 	 */
 	public static function getPreferences( $user, &$preferences ) {
 		// TODO: Part of this is duplicated from registerModules(), factor out into the repo
-		$repo = new LocalGadgetRepo( array() );
+		$repo = new LocalGadgetRepo;
 		
 		$gadgets = $repo->getGadgetIds();
 		$categories = array(); // array( category => array( desc => name ) )

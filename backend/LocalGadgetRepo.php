@@ -15,14 +15,10 @@ class LocalGadgetRepo extends GadgetRepo {
 	
 	/**
 	 * Constructor.
-	 * @param info array of options
+	 * @param info array of options. There are no applicable options for this class
 	 */
-	public function __construct( array $options ) {
+	public function __construct( array $options = array() ) {
 		parent::__construct( $options );
-		
-		// TODO: define options
-		// FIXME if there are none, drop the mandatory param
-		
 		$this->namesKey = $this->getMemcKey( 'gadgets', 'localreponames' );
 	}
 	

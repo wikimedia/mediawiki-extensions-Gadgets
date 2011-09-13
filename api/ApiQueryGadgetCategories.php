@@ -43,7 +43,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 	private function getList() {
 		$data = array();
 		$result = $this->getResult();
-		$repo = new LocalGadgetRepo( array() );
+		$repo = new LocalGadgetRepo;
 		
 		$gadgetsByCategory = $repo->getGadgetsByCategory();
 		foreach ( $gadgetsByCategory as $category => $gadgets ) {

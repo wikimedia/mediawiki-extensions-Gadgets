@@ -8,8 +8,7 @@ abstract class GadgetRepo {
 	 * Constructor.
 	 * @param $info array with configuration data, depends on repo type
 	 */
-	public function __construct( array $info ) {
-		// TODO: Common config stuff for all repos?
+	public function __construct( array $info = array() ) {
 	}
 	
 	/**** Abstract functions ****/
