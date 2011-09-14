@@ -158,6 +158,31 @@ class LocalGadgetRepo extends GadgetRepo {
 		return wfGetDB( DB_SLAVE );
 	}
 	
+	/*** Public methods ***/
+	
+	/**
+	 * Get the localized title for a given category in a given language.
+	 * 
+	 * The "gadgetcategory-$category" message is used, if it exists.
+	 * If it doesn't exist, ucfirst( $category ) is returned.
+	 * 
+	 * @param $category string Category ID
+	 * @param $lang string Language code. If null, $wgLang is used
+	 * @return string Localized category title
+	 */
+	public function getCategoryTitle( $category, $lang = null ) {
+		$msg = wfMessage( "gadgetcategory-$category" );
+		if ( $lang !== null ) {
+			$msg = $msg->inLanguage( $lang );
+		}
+		if ( !$msg->exists() ) {
+			global $wgLang;
+			$langObj = $lang === null ? $wgLang : Language::factory( $lang );
+			return $langObj->ucfirst( $category );
+		}
+		return $msg->plain();
+	}
+	
 	
 	/*** Protected methods ***/
 	

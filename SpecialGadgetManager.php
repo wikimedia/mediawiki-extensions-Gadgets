@@ -68,7 +68,7 @@ class SpecialGadgetManager extends SpecialPage {
 			// Avoid broken or empty headings. Fallback to a special message
 			// for uncategorized gadgets (e.g. gadgets with category '' ).
 			if ( $category !== '' ) {
-				$categoryTitle = GadgetRepo::getCategoryTitle( $category );
+				$categoryTitle = $repo->getCategoryTitle( $category );
 			} else {
 				$categoryTitle = wfMessage( 'gadgetmanager-uncategorized' )->plain();
 			}
