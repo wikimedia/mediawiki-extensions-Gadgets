@@ -88,11 +88,34 @@
 		/**
 		 * @var {Number} Maximum number of autocomplete suggestions in the gadget editor input fields.
 		 */
-		 suggestLimit = 7,
-		 /**
-		  * @var {Array} List of category objects with their name, localized title and member count.
-		  */
-		 gadgetCategoriesCache = [];
+		 suggestLimit = 7;
+
+	/* Local functions */
+
+	/**
+	 * Utility function to pad a zero
+	 * to single digit number. Used by ISODateString().
+	 * @param n {Number}
+	 * @return {String}
+	 */
+	function pad( n ) {
+		return n < 10 ? '0' + n : n;
+	}
+	/**
+	 * Format a date in an ISO 8601 format using UTC.
+	 * https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date#Example:_ISO_8601_formatted_dates
+	 *
+	 * @param d {Date}
+	 * @return {String}
+	 */
+	function ISODateString( d ) {
+		return d.getUTCFullYear() + '-'
+		+ pad( d.getUTCMonth() + 1 ) + '-'
+		+ pad( d.getUTCDate() ) + 'T'
+		+ pad( d.getUTCHours() ) + ':'
+		+ pad( d.getUTCMinutes() ) + ':'
+		+ pad( d.getUTCSeconds() ) + 'Z';
+	}
 
 	/* Public functions */
 
@@ -106,13 +129,7 @@
 			$( '.mw-gadgetmanager-gadgets .mw-gadgetmanager-gadgets-title a' )
 				.click( function( e ) {
 					e.preventDefault();
-					var $el = $( this );
-					var gadget = {
-						id: $el.data( 'gadget-id' ),
-						displayTitle: $el.text(),
-						metadata: null
-					};
-					gm.ui.startGadgetEditor( gadget );
+					gm.ui.startGadgetEditor( $( this ).data( 'gadget-id' ) );
 				});
 		},
 
@@ -120,55 +137,60 @@
 		 * Initialize the gadget editor dialog.
 		 *
 		 * @asynchronous
-		 * @param id {String}
-		 * @param displayTitle {String}
+		 * @param gadgetId {String}
 		 */
-		startGadgetEditor: function( gadget ) {
-			// We need two things. Gadget meta-data and category information.
-			var done = 0, ready = 2;
+		startGadgetEditor: function( gadgetId ) {
+			// Ad hoc multi-loader. We need both requests, which are asynchronous,
+			// to be complete. Which ever finishes first will set the local variable
+			// to it's return value for the other callback to use.
+			// @todo Notification: In case of an 'error'.
+			var gadget, cats;
 
-			gm.api.getGadgetMetadata( gadget.id, function( metadata, status ) {
-				// @todo Notification: If status is 'error'
-				gadget.metadata = metadata;
-				done++;
-				if ( done >= ready ) {
-					gm.ui.showFancyForm( gadget );
+			gm.api.getGadgetCategories( function( ret ) {
+				if ( gadget ) {
+					// getGadgetData already done
+					return gm.ui.showFancyForm( gadget, ret );
 				}
+				// getGadgetData not done yet, leave cats for it's callback to use
+				cats = ret;
 			});
 
-			gm.api.getGadgetCategories( function( cats ) {
-				gadgetCategoriesCache = cats;
-				done++;
-				if ( done >= ready ) {
-					gm.ui.showFancyForm( gadget );
+			gm.api.getGadgetData( gadgetId, function( ret ) {
+				if ( cats ) {
+					// getGadgetCategories already done
+					return gm.ui.showFancyForm( ret, cats );
 				}
+				// getGadgetCategories not done yet, leave gadget for it's callback to use
+				gadget = ret;
 			});
 		},
 
 		/**
 		 * Generate form, create a dialog and open it into view.
 		 *
-		 * @param gadget {Object}
+		 * @param gadget {Object} Gadget object of the gadget to be modified.
+		 * @param categories {Array} Gadget categories.
 		 * @return {jQuery} The (dialogged) form.
 		 */
-		showFancyForm: function( gadget ) {
-			var $form = gm.ui.getFancyForm( gadget.metadata );
-			var buttons = {};
+		showFancyForm: function( gadget, categories ) {
+			var	$form = gm.ui.getFancyForm( gadget.metadata, categories ),
+				buttons = {};
+
+			// Form submit
 			buttons[mw.msg( 'gadgetmanager-editor-save' )] = function() {
-				gm.api.doModifyGadget( gadget, function( status, msg ) {
-					mw.log( "gm.api.doModifyGadget: status: ", status, "msg: ", + msg );
-					/* @todo Notification
-					addNotification( {
-						msg: msg,
-						type: status !== 'error' ? 'success' : status,
-						timedActionDelay: 5,
-						timedAction: function(){
-							// refresh page
-						}
-					});
-					*/
+				gm.api.doModifyGadget( gadget, {
+					starttimestamp: ISODateString( new Date() ),
+					success: function( response ) {
+						$form.dialog( 'close' );
+						window.location.reload();
+					},
+					error: function( error ) {
+						mw.log( 'gm.api.doModifyGadget: error', error );
+						// @todo Notification: $formNotif.add( .. );
+					}
 				});
 			};
+
 			return $form
 				.dialog({
 					autoOpen: true,
@@ -176,20 +198,14 @@
 					modal: true,
 					draggable: false,
 					resizable: false,
-					title: mw.message( 'gadgetmanager-editor-title', gadget.displayTitle ).escaped(),
+					title: mw.message( 'gadgetmanager-editor-title', gadget.title ).escaped(),
 					buttons: buttons,
 					open: function() {
 						// Dialog is ready for action.
 						// Push out any notifications if some were queued up already between
 						// getting the gadget data and the display of the form.
-						/* @todo Notification
-						if ( gm.ui.notifications.length ) {
-							for ( in ) {
-								slice(i,1)_remove;
-								gm.ui.addNotification( $form, n[i] );
-							}
-						}
-						*/
+
+						// @todo Notification: $formNotif.add( .. );
 					}
 				});
 		},
@@ -200,9 +216,10 @@
 		 *
 		 * @param metadata {Object} Object to read and write to, used when saving
 		 * the gadget metadata back through the API.
+		 * @param categories {Array} Gadget categories.
 		 * @return {jQuery} The form.
 		 */
-		 getFancyForm: function( metadata ) {
+		 getFancyForm: function( metadata, categories ) {
 			var	nsGadgetId = mw.config.get( 'wgNamespaceIds' ).gadget,
 				$form = $( tpl.fancyForm ).localize();
 
@@ -337,8 +354,8 @@
 					opts = '',
 					i = 0,
 					cat;
-				for ( ; i < gadgetCategoriesCache.length; i++ ) {
-					cat = gadgetCategoriesCache[i];
+				for ( ; i < categories.length; i++ ) {
+					cat = categories[i];
 					opts += mw.html.element( 'option', {
 						value: cat.name,
 						selected: cat.name === current

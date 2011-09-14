@@ -70,15 +70,15 @@
 	 *
 	 * @context {jQuery}
 	 * @param o {Object} All optional
-	 *     - prefix {String} Class name prefix
-	 *     - props {Array} Array of properties to start with
-	 *     - autocompleteSource {Function|Array} Source of autocomplete suggestions (required)
-	 *       See also http://jqueryui.com/demos/autocomplete/#options (source)
-	 *     - onAdd {Function} Callback for when an item is added.
-	 *       Called with one argument (the value).
-	 *     - onRemove {Function} Callback for when an item is removed.
-	 *       Called with one argument (the value).
-	 *     - removeTooltip {String} Tooltip for the remove-icon
+	 *  - prefix {String} Class name prefix
+	 *  - props {Array} Array of properties to start with
+	 *  - autocompleteSource {Function|Array} Source of autocomplete suggestions (required)
+	 *    See also http://jqueryui.com/demos/autocomplete/#options (source)
+	 *  - onAdd {Function} Callback for when an item is added.
+	 *    Called with one argument (the value).
+	 *  - onRemove {Function} Callback for when an item is removed.
+	 *    Called with one argument (the value).
+	 *  - removeTooltip {String} Tooltip for the remove-icon
 	 *
 	 * @return {jQuery} prop cloud (input field inside)
 	 */

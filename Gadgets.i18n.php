@@ -27,11 +27,11 @@ Also note that these gadgets are not part of the MediaWiki software, and are usu
 Administrators manage to the [[Special:GadgetManager|gadget definitions]] and the [[Special:Gadgets|titles and descriptions]] of available gadgets.',
 	'gadgets-preference-description' => '$1: $2',
 
-	# For Special:Gadgets (overview for users and people with editinterface)
+	# For Special:Gadgets (overview for users; titles, messages, description, exporting etc.)
 	'gadgets'           => 'Gadgets',
 	'gadgets-title'     => 'Gadgets',
-	'gadgets-pagetext'  => "Below is a list of special gadgets users can enable on their [[Special:Preferences#mw-prefsection-gadgets|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].
-This overview provides easy access to the system message pages that define each gadget's description and code.",
+	'gadgets-pagetext'  => "Below is a list of gadgets available on this wiki. Users can enable or disable these through their [[Special:Preferences#mw-prefsection-gadgets|preferences page]].
+This overview provides easy access to the system message pages that define each gadget's description and title.",
 	'gadgets-uses'      => 'Uses',
 	'gadgets-required-rights' => 'Requires the {{PLURAL:$2|$1 right|following rights: $1}}.',
 	'gadgets-default'   => 'Enabled for everyone by default.',
@@ -39,15 +39,13 @@ This overview provides easy access to the system message pages that define each 
 	'gadgets-export-title' => 'Gadget export',
 	'gadgets-not-found' => 'Gadget "$1" not found.',
 	'gadgets-export-text' => 'To export the $1 gadget, click on "{{int:gadgets-export-download}}" button, save the downloaded file,
-go to Special:Import on destination wiki and upload it. Then add the following to MediaWiki:Gadgets-definition page:
-<pre>$2</pre>
-You must have appropriate permissions on destination wiki (including the right to edit system messages) and import from file uploads must be enabled.',
+go to Special:Import on destination wiki and upload it. You must have appropriate permissions on the destination wiki (including the right to edit in the {{ns:Gadget}} and {{ns:Gadget definition}} namespaces) and the import from file uploads must be enabled.',
 	'gadgets-export-download' => 'Download',
 
-	# For Special:GadgetManager (for gadget meta-data management)
+	# For Special:GadgetManager (for gadget definition management)
 	'gadgetmanager' => 'Gadget manager',
-	'gadgetmanager-title' => 'Gadget manager',
-	'gadgetmanager-pagetext' => 'Below is an overview of all gadgets defined on this wiki. Users can opt in or opt out of these through their [[Special:Preferences#mw-prefsection-gadgets|preferences page]].',
+	'gadgetmanager-title' => 'Gadget management',
+	'gadgetmanager-pagetext' => 'Welcome to the gadget management interface. Below is an overview of all gadgets defined on this wiki. Users can opt in or opt out of these through their [[Special:Preferences#mw-prefsection-gadgets|preferences page]]. All modifications to gadget definitions can be followed in the [$1 recent changes].',
 	'gadgetmanager-nogadgets' => 'This wiki currently has no gadgets defined.',
 	'gadgetmanager-uncategorized' => 'Uncategorized',
 	'gadgetmanager-tablehead-title' => 'Gadget title',
@@ -74,10 +72,7 @@ You must have appropriate permissions on destination wiki (including the right t
 	'gadgetmanager-prop-default-yes' => 'This gadget is loaded by default.',
 	'gadgetmanager-prop-hidden-yes' => 'This is a hidden gadget.',
 	'gadgetmanager-prop-shared-yes' => 'This gadget is shared.',
-	'gadgetmanager-modifylink' => 'modify',
-	'gadgetmanager-modifylink-tooltip' => 'Modify this gadget',
-	'gadgetmanager-deletelink' => 'delete',
-	'gadgetmanager-deletelink-tooltip' => 'Delete ths gadget',
+	'gadgetmanager-comment-modify' => 'Modified definition of gadget [[Special:GadgetManager/$1|$1]]',
 	
 	# Validation error messages
 	'gadget-validate-invalidjson' => 'The gadget definition page contents are not a valid JSON object.',
@@ -108,17 +103,22 @@ You must have appropriate permissions on destination wiki (including the right t
  * @author Timo Tijhof
  */
 $messages['qqq'] = array(
+	# For Special:Version
+	'gadgets' => '{{Identical|Gadgets}}',
 	'gadgets-desc' => '{{desc}}',
+
+	# For Special:Preferences
 	'prefs-gadgets' => 'In Gadgets extension. The name of a tab in [[Special:Preferences]] where user set their preferences for the extension.
 
 {{Identical|Gadgets}}',
 	'gadgets-prefstext' => 'In Gadgets extension. This is the explanation text displayed under the Gadgets tab in [[Special:Preferences]].',
 	'gadgets-preference-description' => 'Used for the description HTML of a Gadget in Special:Preferences. $1 is the title of the Gadget, $2 is the description of the Gadget.',
-	'gadgets' => '{{Identical|Gadgets}}',
+
+	# For Special:Gadgets
 	'gadgets-title' => '{{Identical|Gadgets}}',
 	'gadgets-uses' => "This is used as a verb in third-person singular. It appears in front of a script name. Example: \"''Uses: Gadget-UTCLiveClock.js''\"
 
-See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimedia.org]",
+See [http://mediawiki.org/wiki/Special:Gadgets Gadgets overview on mediawiki.org]",
 	'gadgets-required-rights' => 'Parameters:
 * $1 - a list.
 * $2 - the number of items in list $1 for PLURAL use.',
@@ -126,17 +126,29 @@ See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimed
 {{Identical|Export}}',
 	'gadgets-export-download' => 'Use the verb for this message. Submit button.
 {{Identical|Download}}',
-	'gadgetmanager-tablehead-lastmodified' => '{{Identical|Last modified}}',
+
+	# Validation error messages
+	'gadget-validate-notset' => '$1 is the name of the property, e.g. settings.rights .',
+	'gadget-validate-wrongtype' => '* $1 is the name of the property, e.g. settings.rights or module.messages[3].
+* $2 is the type that this property is expected to have
+* $3 is the type it actually had',
+
+	# For Special:GadgetManager
+	'gadgetmanager-tablehead-lastmodified' => '{{Identical|Last modified}}
+{{Output|plain}}',
 	'gadgetmanager-tablecell-lastmod' => 'This message is used on Special:GadgetManager to indicate the last modified date, time and user for gadget definitions.
 * $1 is a time and date (duplicated in $3 and $4)
 * $2 is a link to a user page with a user name as link text, followed by a series of related links
 * $3 is the date
 * $4 is the time
 * $5 is the user name which can be used with GENDER',
-	'gadget-validate-notset' => '$1 is the name of the property, e.g. settings.rights .',
-	'gadget-validate-wrongtype' => '* $1 is the name of the property, e.g. settings.rights or module.messages[3].
-* $2 is the type that this property is expected to have
-* $3 is the type it actually had',
+	'gadgetmanager-comment-modify' => 'Edit summary used when editing definitions from [[Special:GadgetManager]].',
+
+	# User rights
+	'right-gadgets-edit' => '{{doc-right}}',
+	'right-gadgets-definition-create' => '{{doc-right}}',
+	'right-gadgets-definition-delete' => '{{doc-right}}',
+	'right-gadgets-definition-edit' => '{{doc-right}}',
 );
 
 /** Afrikaans (Afrikaans)

@@ -56,14 +56,15 @@
 			 * Get gadget blob from the API (or from cache if available).
 			 *
 			 * @param id {String} Gadget id.
-			 * @param callback {Function} To be called with an object as first argument,
-			 * and status as second argument (success or error).
+			 * @param success {Function} To be called with the gadget object as first argument.
+			 * @param error {Fucntion} If something went wrong (inexisting gadget, api
+			 * error, request error), this is called with error code as first argument.
 			 * @return {jqXHR|Null}: Null if served from cache, otherwise the jqXHR.
 			 */
-			getGadgetMetadata: function( id, callback ) {
+			getGadgetData: function( id, success, error ) {
 				// Check cache
 				if ( id in gadgetCache && gadgetCache[id] !== null ) {
-					callback( objClone( gadgetCache[id] ), 'success' );
+					success( objClone( gadgetCache[id] ) );
 					return null;
 				}
 				// Get from API if not cached
@@ -73,7 +74,7 @@
 						format: 'json',
 						action: 'query',
 						list: 'gadgets',
-						gaprop: 'id|metadata|desc',
+						gaprop: 'id|title|metadata|definitiontimestamp',
 						gaids: id,
 						galanguage: mw.config.get( 'wgUserLanguage' )
 					},
@@ -81,27 +82,30 @@
 					dataType: 'json',
 					success: function( data ) {
 						if ( data && data.query && data.query.gadgets && data.query.gadgets[0] ) {
-							data = data.query.gadgets[0].metadata;
+							data = data.query.gadgets[0];
 							// Update cache
 							gadgetCache[id] = data;
-							callback( objClone( data ), 'success' );
+							success( objClone( data ) );
 						} else {
 							// Invalidate cache
 							gadgetCache[id] = null;
-							callback( {}, 'error' );
+							if ( data && data.error ) {
+								error( data.error.code );
+							} else {
+								error( 'unknown' );
+							}
 						}
 					},
 					error: function() {
 						// Invalidate cache
 						gadgetCache[id] = null;
-						callback( {}, 'error' );
+						error( 'unknown' );
 					}
 				});
 			},
 
 			/**
-			 * @param callback {Function} To be called with an array as first argument,
-			 * and status as second argument (success or error).
+			 * @param callback {Function} To be called with an array as first argument.
 			 * @return {jqXHR|Null}: Null if served from cache, otherwise the jqXHR.
 			 */
 			getGadgetCategories: function( callback ) {
@@ -133,13 +137,13 @@
 						} else {
 							// Invalidate cache
 							gadgetCategoryCache = null;
-							callback( [], 'error' );
+							callback( [] );
 						}
 					},
 					error: function() {
 						// Invalidate cache
 						gadgetCategoryCache = null;
-						callback( [], 'error' );
+						callback( [] );
 					}
 				});
 			},
@@ -149,22 +153,56 @@
 			 *
 			 * @param gadget {Object}
 			 * - id {String} Id of the gadget to modify
-			 * - blob {Object} Gadget meta data
-			 * @param callback {Function} Called with two arguments:
-			 * - status ('ok' or 'error')
-			 * - msg (localized, something like "Successful", "Conflict occurred" etc.)
-			 * @return {jqXHR|Null}: Null if served from cache, otherwise the jqXHR.
+			 * - metadata {Object} Gadget meta data
+			 * @param o {Object} Additional options:
+			 * - starttimestamp {String} ISO_8601 timestamp of when user started editing
+			 * - success {Function} Called with one argument (API response object of the
+			 * 'edit' action)
+			 * - error {Function} Called with one argument (status from API if availabe,
+			 * otherwise, if the request failed, 'unknown' is given)
+			 * @return {jqXHR}
 			 */
-			doModifyGadget: function( gadget, callback ) {
-				mw.log( gadget );
-				// @todo
-				// Get token
-				// JSON.stringify
-				// Do with ApiEdit
-				// Invalidate cache
-				gadgetCache[gadget.id] = null;
-				callback( 'error', '@todo: Saving not implemented yet. Check console for object that would be saved.' );
-				return null;
+			doModifyGadget: function( gadget, o ) {
+				var t = new mw.Title(
+					gadget.id + '.js',
+					mw.config.get( 'wgNamespaceIds' ).gadget_definition
+				);
+				return $.ajax({
+					url: mw.util.wikiScript( 'api' ),
+					type: 'POST',
+					data: {
+						format: 'json',
+						action: 'edit',
+						title: t.getPrefixedDb(),
+						text: $.toJSON( gadget.metadata ),
+						summary: mw.msg( 'gadgetmanager-comment-modify', gadget.id ),
+						token: mw.user.tokens.get( 'editToken' ),
+						basetimestamp: gadget.definitiontimestamp,
+						starttimestamp: o.starttimestamp
+					},
+					dataType: 'json',
+					success: function( data ) {
+						// Invalidate cache
+						gadgetCache[gadget.id] = null;
+
+						if ( data && data.edit && data.edit ) {
+							if ( data.edit.result === 'Success' ) {
+								o.success( data.edit );
+							} else {
+								o.error( data.edit.result );
+							}
+						} else if ( data && data.error ) {
+							o.error( data.error.code );
+						} else {
+							o.error( 'unknown' );
+						}
+					},
+					error: function(){
+						// Invalidate cache
+						gadgetCache[gadget.id] = null;
+						o.error( 'unknown' );
+					}
+				});
 			},
 
 			/**
@@ -172,14 +210,13 @@
 			 *
 			 * @param id {String} Id of the gadget to delete.
 			 * @param callback {Function} Called with one argument (ok', 'error' or 'conflict').
-			 * @return {jqXHR|Null}: Null if served from cache, otherwise the jqXHR.
+			 * @return {jqXHR}
 			 */
-			doDeleteGadget: function( id, callback ) {
-				// @todo
-				// Do with ApiDelete
+			doDeleteGadget: function( id, success, error ) {
+				// @todo ApiDelete
 				// Invalidate cache
 				gadgetCache[id] = null;
-				callback( 'error' );
+				error( '@todo' );
 				return null;
 			}
 		}

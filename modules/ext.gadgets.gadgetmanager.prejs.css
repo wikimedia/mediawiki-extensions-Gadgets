@@ -1,4 +1,7 @@
-.mw-gadgetmanager-gadgets.mw-datatable th,
+.mw-gadgetmanager-gadgets.mw-datatable th {
+	padding: 2px 21px 2px 5px;
+}
+
 .mw-gadgetmanager-gadgets.mw-datatable td {
 	padding: 2px 5px;
 }

@@ -166,12 +166,15 @@ $wgResourceModules += array(
 			'jquery.ui.dialog',
 			'mediawiki.Title',
 			'jquery.createPropCloud',
+			'jquery.json',
 		),
 		'messages' => array(
 			'gadgetmanager-editor-title',
 			'gadgetmanager-editor-removeprop-tooltip',
 			'gadgetmanager-editor-save',
 			'gadgetmanager-editor-cancel',
+			'gadgetmanager-propsgroup-settings',
+			'gadgetmanager-propsgroup-module',
 			'gadgetmanager-prop-scripts',
 			'gadgetmanager-prop-styles',
 			'gadgetmanager-prop-dependencies',
@@ -181,6 +184,7 @@ $wgResourceModules += array(
 			'gadgetmanager-prop-default',
 			'gadgetmanager-prop-hidden',
 			'gadgetmanager-prop-shared',
+			'gadgetmanager-comment-modify',
 		),
 	),
 );

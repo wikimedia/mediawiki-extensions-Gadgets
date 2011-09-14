@@ -57,7 +57,7 @@ class SpecialGadgetManager extends SpecialPage {
 			return;
 		}
 		// There is atleast one gadget, let's get started.
-		$this->getOutput()->addWikiMsg( 'gadgetmanager-pagetext' );
+		$this->getOutput()->addWikiMsg( 'gadgetmanager-pagetext', SpecialPage::getTitleFor( 'Recentchanges' )->getFullURL('namespace=' . NS_GADGET_DEFINITION ) );
 		$html = '';
 		
 		// Sort categories alphabetically
@@ -80,7 +80,7 @@ class SpecialGadgetManager extends SpecialPage {
 			);
 
 			// Start per-category gadgets table
-			$html .= '<table class="mw-gadgetmanager-gadgets mw-datatable"><tr>';
+			$html .= '<table class="mw-gadgetmanager-gadgets mw-datatable sortable"><thead><tr>';
 			$html .=
 				'<th>' . wfMessage( 'gadgetmanager-tablehead-title' )->escaped()
 				. '</th><th>' . wfMessage( 'gadgetmanager-tablehead-default' )->escaped()
@@ -89,7 +89,8 @@ class SpecialGadgetManager extends SpecialPage {
 			if ( $wgGadgetEnableSharing ) {
 				$html .= '<th>' . wfMessage( 'gadgetmanager-tablehead-shared' )->escaped() . '</th>';
 			}
-			$html .= '<th>' . wfMessage( 'gadgetmanager-tablehead-lastmod' )->escaped() . '</th></tr>';
+			$html .= '<th>' . wfMessage( 'gadgetmanager-tablehead-lastmod' )->escaped() . '</th>';
+			$html .= '</tr></thead><tbody>';
 
 			// Populate table rows for the current category
 			foreach ( $gadgets as $gadgetId => $gadget ) {
@@ -151,14 +152,14 @@ class SpecialGadgetManager extends SpecialPage {
 							)
 						);
 					}
-					$html .= "<td>$lastModText</td>";
+					$html .= "<td class=\"mw-gadgetmanager-gadgets-lastmod\">$lastModText</td>";
 				}
 
 				$html .= '</tr>';
 			}
 
 			// End of per-category gadgets table
-			$html .= '</table>';
+			$html .= '</tbody></table>';
 		}
 
 		return $html;
