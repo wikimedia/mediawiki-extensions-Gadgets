@@ -194,9 +194,7 @@ class GadgetHooks {
 	 * @param $preferences Array: Preference descriptions
 	 */
 	public static function getPreferences( $user, &$preferences ) {
-		// TODO: Part of this is duplicated from registerModules(), factor out into the repo
 		$repo = LocalGadgetRepo::singleton();
-		
 		$gadgets = $repo->getGadgetIds();
 		$categories = array(); // array( category => array( desc => name ) )
 		$default = array(); // array of Gadget ids
