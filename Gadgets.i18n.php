@@ -78,6 +78,11 @@ You must have appropriate permissions on destination wiki (including the right t
 	'gadgetmanager-modifylink-tooltip' => 'Modify this gadget',
 	'gadgetmanager-deletelink' => 'delete',
 	'gadgetmanager-deletelink-tooltip' => 'Delete ths gadget',
+	
+	# Validation error messages
+	'gadget-validate-invalidjson' => 'The gadget definition page contents are not a valid JSON object.',
+	'gadget-validate-notset' => 'The property $1 is not set.',
+	'gadget-validate-wrongtype' => 'The property $1 must be of type $2 instead of $3.',
 
 	# Permissions
 	'gadgets-cant-create' => 'You do not have the right to create new Gadgets.',
@@ -127,7 +132,11 @@ See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimed
 * $2 is a link to a user page with a user name as link text, followed by a series of related links
 * $3 is the date
 * $4 is the time
-* $5 is the user name which can be used with GENDER'
+* $5 is the user name which can be used with GENDER',
+	'gadget-validate-notset' => '$1 is the name of the property, e.g. settings.rights .',
+	'gadget-validate-wrongtype' => '* $1 is the name of the property, e.g. settings.rights or module.messages[3].
+* $2 is the type that this property is expected to have
+* $3 is the type it actually had',
 );
 
 /** Afrikaans (Afrikaans)

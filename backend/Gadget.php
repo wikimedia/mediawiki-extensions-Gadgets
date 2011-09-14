@@ -69,13 +69,9 @@ class Gadget {
 	 * @return Status object with error message if applicable
 	 */
 	public static function validatePropertiesArray( $properties ) {
-		if ( $properties === null ) {
+		if ( $properties === null || !is_array( $properties ) ) {
 			return Status::newFatal( 'gadgets-validate-invalidjson' );
 		}
-		if ( !is_array( $properties ) ) {
-			return Status::newFatal( 'gadgets-validate-notanobject', gettype( $properties ) ); // Use JSON terminology
-		}
-
 		foreach ( self::$propertyValidation as $property => $validation ) {
 			$path = explode( '.', $property );
 			$val = $properties;
