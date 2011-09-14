@@ -19,6 +19,7 @@ $messages['en'] = array(
 
 	# For Special:Preferences
 	'prefs-gadgets'     => 'Gadgets',
+	'prefs-gadgets-shared' => 'Shared gadgets',
 	'gadgets-prefstext' => 'Below is a list of gadgets you can enable for your account.
 These gadgets are mostly based on JavaScript, so JavaScript has to be enabled in your browser for them to work.
 Note that these gadgets will have no effect on this preferences page.
@@ -26,6 +27,7 @@ Note that these gadgets will have no effect on this preferences page.
 Also note that these gadgets are not part of the MediaWiki software, and are usually developed and maintained by users of the wiki.
 Administrators manage to the [[Special:GadgetManager|gadget definitions]] and the [[Special:Gadgets|titles and descriptions]] of available gadgets.',
 	'gadgets-preference-description' => '$1: $2',
+	'gadgets-sharedprefstext' => 'Below is a list of gadgets from other wikis. TODO: This needs more text',
 
 	# For Special:Gadgets (overview for users; titles, messages, description, exporting etc.)
 	'gadgets'           => 'Gadgets',

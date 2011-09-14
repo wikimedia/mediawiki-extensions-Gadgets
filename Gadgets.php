@@ -187,4 +187,7 @@ $wgResourceModules += array(
 			'gadgetmanager-comment-modify',
 		),
 	),
+	'ext.gadgets.preferences' => $gadResourceTemplate + array(
+		'scripts' => 'ext.gadgets.preferences.js',
+	),
 );

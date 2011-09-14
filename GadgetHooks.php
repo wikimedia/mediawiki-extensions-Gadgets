@@ -251,6 +251,28 @@ class GadgetHooks {
 				'prefix' => 'gadget-',
 				'default' => $default,
 			);
+		
+		// Add tab for shared gadgets
+		$preferences['gadgets-intro-shared'] =
+			array(
+				'type' => 'info',
+				'label' => '&#160;',
+				'default' => Xml::tags( 'tr', array(),
+					Xml::tags( 'td', array( 'colspan' => 2 ),
+						wfMsgExt( 'gadgets-sharedprefstext', 'parse' ) ) ),
+				'section' => 'gadgets-shared',
+				'raw' => 1,
+				'rawrow' => 1,
+			);
+		$preferences['gadgets-shared'] =
+			array(
+				'type' => 'multiselect',
+				'options' => array(), // TODO: Maybe fill in stuff anyway? The backend may need that
+				'section' => 'gadgets-shared',
+				'label' => '&#160;',
+				'prefix' => 'gadget-',
+				'default' => array(),
+			);
 		return true;
 	}
 
@@ -279,6 +301,11 @@ class GadgetHooks {
 			if ( $gadget->isEnabledForUser( $user ) && $gadget->isAllowed( $user ) ) {
 				$out->addModules( $gadget->getModuleName() );
 			}
+		}
+		
+		// Add preferences JS if we're on Special:Preferences
+		if ( $out->getTitle()->equals( SpecialPage::getTitleFor( 'Preferences' ) ) ) {
+			$out->addModules( 'ext.gadgets.preferences' );
 		}
 		
 		wfProfileOut( __METHOD__ );
