@@ -17,7 +17,7 @@
 		 * @var {Object} Keyed by repo, array of category objects
 		 * @example { repoName: [ {name: .., title: .., members: .. }, { .. },  { .. } ] }
 		 */
-		gadgetCategoryCache = null;
+		gadgetCategoryCache = {};
 	
 	/* Local functions */
 	
@@ -73,14 +73,14 @@
 	 * @param data {Object} Data to put in the cache
 	 */
 	function cacheGadgetData( repoName, id, data ) {
-	    if ( id === null ) {
-		gadgetCache[repoName] = data;
-	    } else {
-		if ( !( repoName in cache ) ) {
-		    gadgetCache[repoName] = {};
+		if ( id === null ) {
+			gadgetCache[repoName] = data;
+		} else {
+			if ( !( repoName in gadgetCache ) ) {
+				gadgetCache[repoName] = {};
+			}
+			gadgetCache[repoName][id] = data;
 		}
-		gadgetCache[repoName][id] = data;
-	    }
 	}
 	
 	/* Public functions */
@@ -103,20 +103,21 @@
 				// Find out how many repos there are
 				// Needs to be in a separate loop because we have to have the final number ready
 				// before we fire the first potentially (since it could be cached) async request
-				for ( repo in this.conf.repos ) {
+				for ( repo in mw.gadgets.conf.repos ) {
 				    numRepos++;
 				}
 				
-				for ( repo in this.conf.repos ) {
-				    mw.gadgets.api.getGadgetData( null, function( data ) {
-					    combined[repo] = data;
-					    if ( ++successes === numRepos ) {
-						success( combined );
-					    }
-					}, function( errorCode ) {
-					    error( errorCode );
-					}, repo
-				    );
+				for ( repo in mw.gadgets.conf.repos ) {
+					mw.gadgets.api.getGadgetData( null,
+						function( data ) {
+							combined[repo] = data;
+							if ( ++successes === numRepos ) {
+								success( combined );
+							}
+						}, function( errorCode ) {
+							error( errorCode );
+						}, repo
+					);
 				}
 			},
 			
@@ -133,18 +134,19 @@
 				// Find out how many repos there are
 				// Needs to be in a separate loop because we have to have the final number ready
 				// before we fire the first async request
-				for ( repo in this.conf.repos ) {
+				for ( repo in mw.gadgets.conf.repos ) {
 					numRepos++;
 				}
 				
-				for ( repo in this.conf.repos ) {
-					mw.gadgets.api.getGadgetCategories( function( data ) {
-						combined[repo] = data;
-						if ( ++successes === numRepos ) {
-							success( combined );
-						}
+				for ( repo in mw.gadgets.conf.repos ) {
+					mw.gadgets.api.getGadgetCategories(
+						function( data ) {
+							combined[repo] = data;
+							if ( ++successes === numRepos ) {
+								success( combined );
+							}
 						}, function( errorCode ) {
-						error( errorCode );
+							error( errorCode );
 						}, repo
 					);
 				}
@@ -156,9 +158,10 @@
 			 * @param success {Function} To be called with the gadget object or array of gadget objects as first argument.
 			 * @param error {Function} If something went wrong (inexisting gadget, api
 			 * error, request error), this is called with error code as first argument.
-			 * @param repoName {String} Name of the repository, key in this.conf.repos
+			 * @param repoName {String} Name of the repository, key in mw.gadgets.conf.repos. Defaults to 'local'
 			 */
 			getGadgetData: function( id, success, error, repoName ) {
+				repoName = repoName || 'local';
 				// Check cache
 				if ( repoName in gadgetCache && gadgetCache[repoName] !== null ) {
 					if ( id === null ) {
@@ -178,10 +181,10 @@
 					galanguage: mw.config.get( 'wgUserLanguage' )
 				};
 				if ( id !== null ) {
-					data.gaids = id;
+					queryData.gaids = id;
 				}
 				$.ajax({
-					url: this.conf.repos[repoName].apiScript || mw.util.wikiScript( 'api' ),
+					url: mw.gadgets.conf.repos[repoName].apiScript,
 					data: queryData,
 					type: 'GET',
 					dataType: 'json',
@@ -218,10 +221,11 @@
 			 * 
 			 * @param success {Function} To be called with an array as first argument.
 			 * @param error {Function} To be called with a string (error code) as first argument.
-			 * @param repoName {String} Name of the repository, key in this.conf.repos
+			 * @param repoName {String} Name of the repository, key in mw.gadgets.conf.repos . Defaults to 'local'
 			 * @return {jqXHR|Null}: Null if served from cache, otherwise the jqXHR.
 			 */
 			getGadgetCategories: function( success, error, repoName ) {
+				repoName = repoName || 'local';
 				// Check cache
 				if ( repoName in gadgetCategoryCache && gadgetCategoryCache[repoName] !== null ) {
 					success( arrClone( gadgetCategoryCache[repoName] ) );
@@ -229,7 +233,7 @@
 				}
 				// Get from API if not cached
 				return $.ajax({
-					url: this.conf.repos[repoName].apiScript || mw.util.wikiScript( 'api' ),
+					url: mw.gadgets.conf.repos[repoName].apiScript,
 					data: {
 						format: 'json',
 						action: 'query',
