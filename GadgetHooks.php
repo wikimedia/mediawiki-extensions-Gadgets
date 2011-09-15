@@ -318,12 +318,26 @@ class GadgetHooks {
 	 * @param $out OutputPage
 	 */
 	public static function makeGlobalVariablesScript( &$vars, $out ) {
-		if ( $out->getTitle()->equals( SpecialPage::getTitleFor( 'GadgetManager' ) ) ) {
+		$title = $out->getTitle();
+		// FIXME: This is not a nice way to do it. Maybe we should check for the presence
+		// of a module instead or something.
+		if ( $title->equals( SpecialPage::getTitleFor( 'GadgetManager' ) ) ||
+				$title->equals( SpecialPage::getTitleFor( 'Preferences' ) ) )
+		{
 			global $wgGadgetEnableSharing;
+			
+			// Pass the source data for each source that is used by a repository
+			$repos = GadgetRepo::getAllRepos();
+			$sources = $out->getResourceLoader()->getSources();
+			$repoData = array();
+			foreach ( $repos as $repo ) {
+				$repoData[$repo->getSource()] = $sources[$repo->getSource()];
+			}
 
-			$vars['gadgetManagerConf'] = array(
+			$vars['gadgetsConf'] = array(
 				'enableSharing' => $wgGadgetEnableSharing,
 				'allRights' => User::getAllRights(),
+				'repos' => $repoData
 			);
 		}
 		return true;
