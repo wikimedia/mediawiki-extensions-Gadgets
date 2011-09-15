@@ -9,9 +9,9 @@
 
 	var
 		/**
-		 * @var {Object} Local alias to gadgetmananger
+		 * @var {Object} Local alias to mw.gadgets
 		 */
-		gm = mw.gadgetManager,
+		ga = mw.gadgets,
 		/**
 		 * @var {Object} HTML fragements
 		 */
@@ -57,7 +57,7 @@
 								<td><label for="mw-gadgetmanager-input-hidden"><html:msg key="gadgetmanager-prop-hidden"></label></td>\
 								<td><input type="checkbox" id="mw-gadgetmanager-input-hidden" /></td>\
 							</tr>\
-							' + ( gm.conf.enableSharing ? '<tr>\
+							' + ( ga.conf.enableSharing ? '<tr>\
 								<td><label for="mw-gadgetmanager-input-shared"><html:msg key="gadgetmanager-prop-shared"></label></td>\
 								<td><input type="checkbox" id="mw-gadgetmanager-input-shared" /></td>\
 							</tr>\
@@ -84,7 +84,7 @@
 		/**
 		 * @var {Object} Complete static cache for all rights.
 		 */
-		 suggestCacheRights = gm.conf.allRights,
+		 suggestCacheRights = ga.conf.allRights,
 		/**
 		 * @var {Number} Maximum number of autocomplete suggestions in the gadget editor input fields.
 		 */
@@ -119,7 +119,7 @@
 
 	/* Public functions */
 
-	gm.ui = {
+	ga.ui = {
 		/**
 		 * Initializes the the page. For now just binding click handlers
 		 * to the anchor tags in the table.
@@ -129,7 +129,7 @@
 			$( '.mw-gadgetmanager-gadgets .mw-gadgetmanager-gadgets-title a' )
 				.click( function( e ) {
 					e.preventDefault();
-					gm.ui.startGadgetEditor( $( this ).data( 'gadget-id' ) );
+					ga.ui.startGadgetEditor( $( this ).data( 'gadget-id' ) );
 				});
 		},
 
@@ -146,19 +146,19 @@
 			// @todo Notification: In case of an 'error'.
 			var gadget, cats;
 
-			gm.api.getGadgetCategories( function( ret ) {
+			ga.api.getGadgetCategories( function( ret ) {
 				if ( gadget ) {
 					// getGadgetData already done
-					return gm.ui.showFancyForm( gadget, ret );
+					return ga.ui.showFancyForm( gadget, ret );
 				}
 				// getGadgetData not done yet, leave cats for it's callback to use
 				cats = ret;
 			});
 
-			gm.api.getGadgetData( gadgetId, function( ret ) {
+			ga.api.getGadgetData( gadgetId, function( ret ) {
 				if ( cats ) {
 					// getGadgetCategories already done
-					return gm.ui.showFancyForm( ret, cats );
+					return ga.ui.showFancyForm( ret, cats );
 				}
 				// getGadgetCategories not done yet, leave gadget for it's callback to use
 				gadget = ret;
@@ -173,19 +173,19 @@
 		 * @return {jQuery} The (dialogged) form.
 		 */
 		showFancyForm: function( gadget, categories ) {
-			var	$form = gm.ui.getFancyForm( gadget.metadata, categories ),
+			var	$form = ga.ui.getFancyForm( gadget.metadata, categories ),
 				buttons = {};
 
 			// Form submit
 			buttons[mw.msg( 'gadgetmanager-editor-save' )] = function() {
-				gm.api.doModifyGadget( gadget, {
+				ga.api.doModifyGadget( gadget, {
 					starttimestamp: ISODateString( new Date() ),
 					success: function( response ) {
 						$form.dialog( 'close' );
 						window.location.reload();
 					},
 					error: function( error ) {
-						mw.log( 'gm.api.doModifyGadget: error', error );
+						mw.log( 'mw.gadgets.api.doModifyGadget: error', error );
 						// @todo Notification: $formNotif.add( .. );
 					}
 				});
@@ -400,6 +400,6 @@
 	};
 
 	// Launch on document ready
-	$( document ).ready( gm.ui.initUI );
+	$( document ).ready( ga.ui.initUI );
 
 })( jQuery );
