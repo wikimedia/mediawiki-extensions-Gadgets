@@ -144,8 +144,8 @@ $wgResourceModules += array(
 		'position' => 'top',
 	),
 	// Method to interact with API
-	'ext.gadgets.gadgetmanager.api' => $gadResourceTemplate + array(
-		'scripts' => 'ext.gadgets.gadgetmanager.api.js',
+	'ext.gadgets.api' => $gadResourceTemplate + array(
+		'scripts' => 'ext.gadgets.api.js',
 		'dependencies' => 'mediawiki.util',
 	),
 	// jQuery plugin
@@ -160,7 +160,7 @@ $wgResourceModules += array(
 		'scripts' => 'ext.gadgets.gadgetmanager.ui.js',
 		'styles' => 'ext.gadgets.gadgetmanager.ui.css',
 		'dependencies' => array(
-			'ext.gadgets.gadgetmanager.api',
+			'ext.gadgets.api',
 			'jquery.localize',
 			'jquery.ui.autocomplete',
 			'jquery.ui.dialog',
