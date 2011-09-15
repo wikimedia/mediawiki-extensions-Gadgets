@@ -146,7 +146,8 @@ $wgResourceModules += array(
 	// Method to interact with API
 	'ext.gadgets.api' => $gadResourceTemplate + array(
 		'scripts' => 'ext.gadgets.api.js',
-		'dependencies' => 'mediawiki.util',
+		// Can't depend on user.tokens yet due to a bug in ResourceLoader (bug 30914)
+		'dependencies' => array( 'mediawiki.util', 'mediawiki.Title'/*, 'user.tokens'*/ ),
 	),
 	// jQuery plugin
 	'jquery.createPropCloud' => $gadResourceTemplate + array(
