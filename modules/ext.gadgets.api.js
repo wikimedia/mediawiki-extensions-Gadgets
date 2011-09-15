@@ -1,24 +1,26 @@
 /**
- * Implement the editing API for the gadget manager.
+ * Interface to the API for the gadgets extension.
  *
  * @author Timo Tijhof
- * @copyright © 2011 Timo Tijhof
+ * @author Roan Kattouw
  * @license GNU General Public Licence 2.0 or later
  */
-( function( $ ) {
 
+( function( $ ) {
 	var
 		/**
-		 * @var {Object} Keyed by gadget id, contains the metadata as an object.
+		 * @var {Object} Keyed by repo, object of gadget objects by id
+		 * @example { repoName: { gadgetID: { title: .., metadata: ..}, otherId: { .. } } }
 		 */
 		gadgetCache = {},
 		/**
-		 * @var {Object} If cached, object keyed by category id with categormember-count as value.
-		 * Set to null if there is no cache, yet, or when the cache is cleared. */
+		 * @var {Object} Keyed by repo, array of category objects
+		 * @example { repoName: [ {name: .., title: .., members: .. }, { .. },  { .. } ] }
+		 */
 		gadgetCategoryCache = null;
-
+	
 	/* Local functions */
-
+	
 	/**
 	 * For most returns from api.* functions, a clone is made when data from
 	 * cache is used. This is to avoid situations where later modifications
@@ -26,7 +28,7 @@
 	 * the object would otherwise be passed by reference).
 	 */
 	function objClone( obj ) {
-		/**
+		/*
 		 * A normal `$.extend( {}, obj );` is not suffecient,
 		 * it has to be recursive, because the values of this
 		 * object are also refererenes to objects.
@@ -40,55 +42,163 @@
 		 */
 		 return $.extend( true /* recursive */, {}, obj );
 	}
+	
 	function arrClone( arr ) {
 		return arr.slice();
 	}
-
+	
+	/**
+	 * Reformat an array of gadget objects, into an object keyed by the id.
+	 * Note: Maintains object reference
+	 * @param arr {Array}
+	 * @return {Object}
+	 */ 
+	function gadgetArrToObj( arr ) {
+	    for( var obj = {}, i = 0, g = arr[i], len = arr.length; i < len; g = arr[++i] ) {
+		obj[g.id] = g;
+	    }
+	    return obj;
+	}
+	
+	/**
+	 * Write data to gadgetCache, taking into account that id may be null
+	 * and working around JS's annoying refusal to just let us do
+	 * var foo = {}; foo[bar][baz] = quux;
+	 * 
+	 * This sets gadgetCache[repoName][id] = data; if id is not null,
+	 * or gadgetCache[repoName] = data; if id is null.
+	 * 
+	 * @param repoName {String} Repository name
+	 * @param id {String|null} Gadget ID or null
+	 * @param data {Object} Data to put in the cache
+	 */
+	function cacheGadgetData( repoName, id, data ) {
+	    if ( id === null ) {
+		gadgetCache[repoName] = data;
+	    } else {
+		if ( !( repoName in cache ) ) {
+		    gadgetCache[repoName] = {};
+		}
+		gadgetCache[repoName][id] = data;
+	    }
+	}
+	
 	/* Public functions */
-
-	mw.gadgetManager = {
-
-		conf: mw.config.get( 'gadgetManagerConf' ),
-
+	
+	mw.gadgets = {
+		/**
+		 * @todo: Add something derived from $wgGadgetRepositories to gadgetsConf
+		 * ... + repos: { local: { apiScript: .. }, awesomeRepo: { .. }, .. }
+		 */
+		conf: mw.config.get( 'gadgetsConf' ),
 		api: {
-
+			/**
+			 * Get the gadget blobs for all gadgets from all repositories.
+			 * 
+			 * @param success {Function} To be called with an object of arrays of gadget objects, keyed by repository name, as first argument.
+			 * @param error {Function} To be called with a string (error code) as first argument.
+			 */
+			getForeignGadgetsData: function( success, error ) {
+				var combined = {}, successes = 0, numRepos = 0, repo;
+				// Find out how many repos there are
+				// Needs to be in a separate loop because we have to have the final number ready
+				// before we fire the first potentially (since it could be cached) async request
+				for ( repo in this.conf.repos ) {
+				    numRepos++;
+				}
+				
+				for ( repo in this.conf.repos ) {
+				    mw.gadgets.api.getGadgetData( null, function( data ) {
+					    combined[repo] = data;
+					    if ( ++successes === numRepos ) {
+						success( combined );
+					    }
+					}, function( errorCode ) {
+					    error( errorCode );
+					}, repo
+				    );
+				}
+			},
+			
+			/**
+			 * Get the gadget categories from all repositories.
+			 * 
+			 * @param success {Function} To be called with an array 
+			 * @param success {Function} To be called with an object of arrays of category objects, keyed by repository name, as first argument.
+			 * @param error {Function} To be called with a string (error code) as the first argument.
+			 */
+			getForeignGadgetCategories: function( success, error ){
+				// TODO: Almost entirely duplicated from the function above. Factoring this out is easy
+				var combined = {}, successes = 0, numRepos = 0, repo;
+				// Find out how many repos there are
+				// Needs to be in a separate loop because we have to have the final number ready
+				// before we fire the first async request
+				for ( repo in this.conf.repos ) {
+					numRepos++;
+				}
+				
+				for ( repo in this.conf.repos ) {
+					mw.gadgets.api.getGadgetCategories( function( data ) {
+						combined[repo] = data;
+						if ( ++successes === numRepos ) {
+							success( combined );
+						}
+						}, function( errorCode ) {
+						error( errorCode );
+						}, repo
+					);
+				}
+			},
 			/**
 			 * Get gadget blob from the API (or from cache if available).
 			 *
-			 * @param id {String} Gadget id.
-			 * @param success {Function} To be called with the gadget object as first argument.
-			 * @param error {Fucntion} If something went wrong (inexisting gadget, api
+			 * @param id {String|null} Gadget id, or null to get all from the repo.
+			 * @param success {Function} To be called with the gadget object or array of gadget objects as first argument.
+			 * @param error {Function} If something went wrong (inexisting gadget, api
 			 * error, request error), this is called with error code as first argument.
-			 * @return {jqXHR|Null}: Null if served from cache, otherwise the jqXHR.
+			 * @param repoName {String} Name of the repository, key in this.conf.repos
 			 */
-			getGadgetData: function( id, success, error ) {
+			getGadgetData: function( id, success, error, repoName ) {
 				// Check cache
-				if ( id in gadgetCache && gadgetCache[id] !== null ) {
-					success( objClone( gadgetCache[id] ) );
-					return null;
+				if ( repoName in gadgetCache && gadgetCache[repoName] !== null ) {
+					if ( id === null ) {
+						success( objClone( gadgetCache[repoName] ) );
+						return;
+					} else if ( id in gadgetCache[repoName] && gadgetCache[repoName][id] !== null ) {
+						success( objClone( gadgetCache[repoName][id] ) );
+						return;
+					}
 				}
 				// Get from API if not cached
-				return $.ajax({
-					url: mw.util.wikiScript( 'api' ),
-					data: {
-						format: 'json',
-						action: 'query',
-						list: 'gadgets',
-						gaprop: 'id|title|metadata|definitiontimestamp',
-						gaids: id,
-						galanguage: mw.config.get( 'wgUserLanguage' )
-					},
+				var queryData = {
+					format: 'json',
+					action: 'query',
+					list: 'gadgets',
+					gaprop: 'id|title|metadata|definitiontimestamp',
+					galanguage: mw.config.get( 'wgUserLanguage' )
+				};
+				if ( id !== null ) {
+					data.gaids = id;
+				}
+				$.ajax({
+					url: this.conf.repos[repoName].apiScript || mw.util.wikiScript( 'api' ),
+					data: queryData,
 					type: 'GET',
 					dataType: 'json',
 					success: function( data ) {
-						if ( data && data.query && data.query.gadgets && data.query.gadgets[0] ) {
-							data = data.query.gadgets[0];
+						if ( data && data.query && data.query.gadgets ) {
+							data = data.query.gadgets;
+							if ( id !== null ) {
+								data = data[0] || null;
+							} else {
+								data = gadgetArrToObj( data );
+							}
 							// Update cache
-							gadgetCache[id] = data;
+							cacheGadgetData( repoName, id, data );
 							success( objClone( data ) );
 						} else {
 							// Invalidate cache
-							gadgetCache[id] = null;
+							cacheGadgetData( repoName, id, null );
 							if ( data && data.error ) {
 								error( data.error.code );
 							} else {
@@ -98,25 +208,28 @@
 					},
 					error: function() {
 						// Invalidate cache
-						gadgetCache[id] = null;
+						cacheGadgetData( repoName, id, null );
 						error( 'unknown' );
 					}
 				});
 			},
-
 			/**
-			 * @param callback {Function} To be called with an array as first argument.
+			 * Get the gadget categories for a certain repository from the API.
+			 * 
+			 * @param success {Function} To be called with an array as first argument.
+			 * @param error {Function} To be called with a string (error code) as first argument.
+			 * @param repoName {String} Name of the repository, key in this.conf.repos
 			 * @return {jqXHR|Null}: Null if served from cache, otherwise the jqXHR.
 			 */
-			getGadgetCategories: function( callback ) {
+			getGadgetCategories: function( success, error, repoName ) {
 				// Check cache
-				if ( gadgetCategoryCache !== null ) {
-					callback( arrClone( gadgetCategoryCache ) );
+				if ( repoName in gadgetCategoryCache && gadgetCategoryCache[repoName] !== null ) {
+					success( arrClone( gadgetCategoryCache[repoName] ) );
 					return null;
 				}
 				// Get from API if not cached
 				return $.ajax({
-					url: mw.util.wikiScript( 'api' ),
+					url: this.conf.repos[repoName].apiScript || mw.util.wikiScript( 'api' ),
 					data: {
 						format: 'json',
 						action: 'query',
@@ -132,22 +245,25 @@
 						{
 							data = data.query.gadgetcategories;
 							// Update cache
-							gadgetCategoryCache = data;
-							callback( arrClone( data ), 'success' );
+							gadgetCategoryCache[repoName] = data;
+							success( arrClone( data ) );
 						} else {
 							// Invalidate cache
-							gadgetCategoryCache = null;
-							callback( [] );
+							gadgetCategoryCache[repoName] = null;
+							if ( data && data.error ) {
+								error( data.error.code );
+							} else {
+								error( 'unknown' );
+							}
 						}
 					},
 					error: function() {
 						// Invalidate cache
-						gadgetCategoryCache = null;
-						callback( [] );
+						gadgetCategoryCache[repoName] = null;
+						error( 'unknown' );
 					}
 				});
 			},
-
 			/**
 			 * Creates or edits an existing gadget definition.
 			 *
@@ -183,8 +299,7 @@
 					dataType: 'json',
 					success: function( data ) {
 						// Invalidate cache
-						gadgetCache[gadget.id] = null;
-
+						cacheGadgetData( 'local', id, null );
 						if ( data && data.edit && data.edit ) {
 							if ( data.edit.result === 'Success' ) {
 								o.success( data.edit );
@@ -199,12 +314,11 @@
 					},
 					error: function(){
 						// Invalidate cache
-						gadgetCache[gadget.id] = null;
+						cacheGadgetData( 'local', id, null );
 						o.error( 'unknown' );
 					}
 				});
 			},
-
 			/**
 			 * Deletes a gadget definition.
 			 *
@@ -215,11 +329,10 @@
 			doDeleteGadget: function( id, success, error ) {
 				// @todo ApiDelete
 				// Invalidate cache
-				gadgetCache[id] = null;
+				cacheGadgetData( 'local', id, null );
 				error( '@todo' );
 				return null;
 			}
 		}
 	};
-
 })( jQuery );
