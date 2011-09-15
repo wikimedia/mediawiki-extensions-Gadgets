@@ -83,6 +83,38 @@
 		}
 	}
 	
+	/**
+	 * Call an asynchronous function for each repository, and merge
+	 * their return values into an object keyed by repository name.
+	 * @param getter function( success, error, repoName ), called for each repo to get the data
+	 * @param success function( data ), called when all data has successfully been retrieved
+	 * @param error function( error ), called if one of the getter calls called its error callback
+	 */
+	function mergeRepositoryData( getter, success, error ) {
+		var combined = {}, successes = 0, numRepos = 0, repo;
+		// Find out how many repos there are
+		// Needs to be in a separate loop because we have to have the final number ready
+		// before we fire the first potentially (since it could be cached) async request
+		for ( repo in mw.gadgets.conf.repos ) {
+			numRepos++;
+		}
+		
+		// Use $.each instead of a for loop so we can access repoName in the success callback
+		// without annoying issues
+		$.each( mw.gadgets.conf.repos, function( repoName, repoData ) {
+			getter(
+				function( data ) {
+					combined[repoName] = data;
+					if ( ++successes === numRepos ) {
+						success( combined );
+					}
+				}, function( errorCode ) {
+					error( errorCode );
+				}, repoName
+			);
+		} );
+	}
+	
 	/* Public functions */
 	
 	mw.gadgets = {
@@ -99,26 +131,10 @@
 			 * @param error {Function} To be called with a string (error code) as first argument.
 			 */
 			getForeignGadgetsData: function( success, error ) {
-				var combined = {}, successes = 0, numRepos = 0, repo;
-				// Find out how many repos there are
-				// Needs to be in a separate loop because we have to have the final number ready
-				// before we fire the first potentially (since it could be cached) async request
-				for ( repo in mw.gadgets.conf.repos ) {
-				    numRepos++;
-				}
-				
-				for ( repo in mw.gadgets.conf.repos ) {
-					mw.gadgets.api.getGadgetData( null,
-						function( data ) {
-							combined[repo] = data;
-							if ( ++successes === numRepos ) {
-								success( combined );
-							}
-						}, function( errorCode ) {
-							error( errorCode );
-						}, repo
-					);
-				}
+				mergeRepositoryData(
+					function( s, e, repoName ) { mw.gadgets.api.getGadgetData( null, s, e, repoName ); },
+					success, error
+				);
 			},
 			
 			/**
@@ -128,28 +144,8 @@
 			 * @param success {Function} To be called with an object of arrays of category objects, keyed by repository name, as first argument.
 			 * @param error {Function} To be called with a string (error code) as the first argument.
 			 */
-			getForeignGadgetCategories: function( success, error ){
-				// TODO: Almost entirely duplicated from the function above. Factoring this out is easy
-				var combined = {}, successes = 0, numRepos = 0, repo;
-				// Find out how many repos there are
-				// Needs to be in a separate loop because we have to have the final number ready
-				// before we fire the first async request
-				for ( repo in mw.gadgets.conf.repos ) {
-					numRepos++;
-				}
-				
-				for ( repo in mw.gadgets.conf.repos ) {
-					mw.gadgets.api.getGadgetCategories(
-						function( data ) {
-							combined[repo] = data;
-							if ( ++successes === numRepos ) {
-								success( combined );
-							}
-						}, function( errorCode ) {
-							error( errorCode );
-						}, repo
-					);
-				}
+			getForeignGadgetCategories: function( success, error ) {
+				mergeRepositoryData( mw.gadgets.api.getGadgetCategories, success, error );
 			},
 			/**
 			 * Get gadget blob from the API (or from cache if available).
