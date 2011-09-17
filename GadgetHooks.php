@@ -20,7 +20,7 @@ class GadgetHooks {
 	 */
 	public static function getIDFromTitle( Title $title ) {
 		$id = $title->getText();
-		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $name ) ) {
+		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $id ) ) {
 			// Not a gadget definition page
 			return null;
 		}
