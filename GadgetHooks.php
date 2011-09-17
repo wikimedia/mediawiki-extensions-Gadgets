@@ -16,16 +16,16 @@ class GadgetHooks {
 	/**
 	 * Get the gadget ID from a title
 	 * @param $title Title object
-	 * @return string Gadget name or null if not a gadget definition page
+	 * @return string Gadget id or null if not a gadget definition page
 	 */
 	public static function getIDFromTitle( Title $title ) {
-		$name = $title->getText();
+		$id = $title->getText();
 		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $name ) ) {
 			// Not a gadget definition page
 			return null;
 		}
 		// Trim .js from the page name to obtain the gadget ID
-		return substr( $name, 0, -3 );
+		return substr( $id, 0, -3 );
 	}
 
 	/**
@@ -196,7 +196,7 @@ class GadgetHooks {
 	public static function getPreferences( $user, &$preferences ) {
 		$repo = LocalGadgetRepo::singleton();
 		$gadgets = $repo->getGadgetIds();
-		$categories = array(); // array( category => array( desc => name ) )
+		$categories = array(); // array( category => array( desc => title ) )
 		$default = array(); // array of Gadget ids
 		foreach ( $gadgets as $id ) {
 			$gadget = $repo->getGadget( $id );

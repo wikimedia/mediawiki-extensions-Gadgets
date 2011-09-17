@@ -4,7 +4,7 @@
  */
 class LocalGadgetRepo extends GadgetRepo {
 	protected $data = array();
-	protected $namesLoaded = false;
+	protected $idsLoaded = false;
 	
 	/** Memcached key of the gadget names list. Subclasses may override this in their constructor.
 	  * This could've been a static member if we had PHP 5.3's late static binding.
@@ -210,7 +210,7 @@ class LocalGadgetRepo extends GadgetRepo {
 	 */
 	protected function loadIDs() {
 		global $wgMemc;
-		if ( $this->namesLoaded ) {
+		if ( $this->idsLoaded ) {
 			// Already loaded
 			return array_keys( $this->data );
 		}
@@ -221,7 +221,7 @@ class LocalGadgetRepo extends GadgetRepo {
 			// Yay, data is in cache
 			// Add to $this->data , but let things already in $this->data take precedence
 			$this->data += $cached;
-			$this->namesLoaded = true;
+			$this->idsLoaded = true;
 			return array_keys( $this->data );
 		}
 		
@@ -238,7 +238,7 @@ class LocalGadgetRepo extends GadgetRepo {
 		}
 		// Write to memc
 		$wgMemc->set( $this->namesKey, $toCache );
-		$this->namesLoaded = true;
+		$this->idsLoaded = true;
 		return array_keys( $this->data );
 	}
 	
