@@ -31,6 +31,24 @@ class GadgetHooks {
 	}
 
 	/**
+	 * UserGetDefaultOptions hook handler
+	 * @param $defaultOptions Array of default preference keys and values
+	 */
+	public static function userGetDefaultOptions( &$defaultOptions ) {
+		$gadgets = Gadget::loadStructuredList();
+		if (!$gadgets) return true;
+
+		foreach( $gadgets as $section => $thisSection ) {
+			foreach( $thisSection as $gadgetId => $gadget ) {
+				if ( $gadget->isOnByDefault() ) {
+					$defaultOptions['gadget-' . $gadgetId] = 1;
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
 	 * GetPreferences hook handler.
 	 * @param $user User
 	 * @param $preferences Array: Preference descriptions

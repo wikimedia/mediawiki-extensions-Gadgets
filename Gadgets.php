@@ -17,8 +17,8 @@ if( !defined( 'MEDIAWIKI' ) ) {
 	die( 1 );
 }
 
-if ( version_compare( $wgVersion, '1.17alpha', '<' ) ) {
-	die( "This version of Extension:Gadgets requires MediaWiki 1.17+\n" );
+if ( version_compare( $wgVersion, '1.18', '<' ) ) {
+	die( "This version of Extension:Gadgets requires MediaWiki 1.18+\n" );
 }
 
 $wgExtensionCredits['other'][] = array(
@@ -31,6 +31,7 @@ $wgExtensionCredits['other'][] = array(
 
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::articleSaveComplete';
 $wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay';
+$wgHooks['UserGetDefaultOptions'][]         = 'GadgetHooks::userGetDefaultOptions';
 $wgHooks['GetPreferences'][]                = 'GadgetHooks::getPreferences';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetHooks::registerModules';
 $wgHooks['UnitTestsList'][]                 = 'GadgetHooks::unitTestsList';
