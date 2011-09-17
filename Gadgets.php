@@ -17,7 +17,7 @@ if( !defined( 'MEDIAWIKI' ) ) {
 	die( 1 );
 }
 
-if ( version_compare( $wgVersion, '1.18', '<' ) ) {
+if ( version_compare( $wgVersion, '1.18alpha', '<' ) ) {
 	die( "This version of Extension:Gadgets requires MediaWiki 1.18+\n" );
 }
 
