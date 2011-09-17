@@ -98,6 +98,7 @@ $wgHooks['BeforePageDisplay'][]             = 'GadgetHooks::beforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][]     = 'GadgetHooks::makeGlobalVariablesScript';
 $wgHooks['CanonicalNamespaces'][]           = 'GadgetHooks::canonicalNamespaces';
 $wgHooks['GetPreferences'][]                = 'GadgetHooks::getPreferences';
+$wgHooks['UserGetDefaultOptions'][]         = 'GadgetHooks::userGetDefaultOptions';
 $wgHooks['LoadExtensionSchemaUpdates'][]    = 'GadgetHooks::loadExtensionSchemaUpdates';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetHooks::registerModules';
 $wgHooks['TitleIsCssOrJsPage'][]            = 'GadgetHooks::titleIsCssOrJsPage';

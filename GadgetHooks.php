@@ -189,6 +189,22 @@ class GadgetHooks {
 	}
 
 	/**
+	 * UserGetDefaultOptions hook handler
+	 * @param $defaultOptions Array of default preference keys and values
+	 */
+	public static function userGetDefaultOptions( &$defaultOptions ) {
+		$repo = LocalGadgetRepo::singleton();
+		$gadgetIds = $repo->getGadgetIds();
+		foreach ( $gadgetIds as $gadgetId ) {
+			$gadget = $repo->getGadget( $gadgetId );
+			if ( $gadget->isEnabledByDefault() ) {
+				$defaultOptions['gadget-' . $gadget->getId()] = 1;
+			}
+		}
+		return true;
+	}
+
+	/**
 	 * GetPreferences hook handler.
 	 * @param $user User
 	 * @param $preferences Array: Preference descriptions
