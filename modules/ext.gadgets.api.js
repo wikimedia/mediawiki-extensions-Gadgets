@@ -299,7 +299,7 @@
 					dataType: 'json',
 					success: function( data ) {
 						// Invalidate cache
-						cacheGadgetData( 'local', id, null );
+						cacheGadgetData( 'local', gadget.id, null );
 						if ( data && data.edit && data.edit ) {
 							if ( data.edit.result === 'Success' ) {
 								o.success( data.edit );
@@ -314,7 +314,7 @@
 					},
 					error: function(){
 						// Invalidate cache
-						cacheGadgetData( 'local', id, null );
+						cacheGadgetData( 'local', gadget.id, null );
 						o.error( 'unknown' );
 					}
 				});
