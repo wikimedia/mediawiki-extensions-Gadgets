@@ -1860,10 +1860,18 @@ Aqueste susvòl dona un accès rapid a las paginas de messatges del sistèma que
 
 /** Oriya (ଓଡ଼ିଆ)
  * @author Odisha1
+ * @author Psubhashish
  */
 $messages['or'] = array(
+	'prefs-gadgets' => 'ଗ୍ୟାଜେଟ',
+	'gadgets' => 'ଗ୍ୟାଜେଟ',
+	'gadgets-title' => 'ଗ୍ୟାଜେଟ',
 	'gadgets-uses' => 'ବ୍ୟବହାର',
+	'gadgets-required-rights' => '{{PLURAL:$2|$1 ଅଧିକାର|ଏହିସବୁ ଅଧିକାର: $1}} ଲୋଡ଼ା ।',
+	'gadgets-default' => 'ଆପେଆପେ ସଭିଙ୍କ ପାଇଁ ସଚଳ କରାଗଲା ।',
 	'gadgets-export' => 'ରପ୍ତାନୀ',
+	'gadgets-export-title' => 'ଗ୍ୟାଜେଟ ରପ୍ତାନି',
+	'gadgets-not-found' => '"$1"  ଗ୍ୟାଜେଟଟି ମିଳିଲା ନାହିଁ ।',
 	'gadgets-export-download' => 'ଡାଉନଲୋଡ଼',
 );
 
