@@ -29,11 +29,12 @@ Administrators manage to the [[Special:GadgetManager|gadget definitions]] and th
 	'gadgets-preference-description' => '$1: $2',
 	'gadgets-sharedprefstext' => 'Below is a list of gadgets from other wikis. TODO: This needs more text',
 
-	# For Special:Gadgets (overview for users; titles, messages, description, exporting etc.)
+	# For Special:Gadgets
 	'gadgets'           => 'Gadgets',
 	'gadgets-title'     => 'Gadgets',
 	'gadgets-pagetext'  => "Below is a list of gadgets available on this wiki. Users can enable or disable these through their [[Special:Preferences#mw-prefsection-gadgets|preferences page]].
-This overview provides easy access to the system message pages that define each gadget's description and title.",
+This overview provides easy access to the system message pages that define each gadget's description and title. Welcome to the gadget management interface. Below is an overview of all the configurable options for this gadget. defined on this wiki. Users can opt in or opt out of these through their [[Special:Preferences#mw-prefsection-gadgets|preferences page]]. All modifications to gadget definitions can be followed in the [$1 recent changes]",
+	'gadgets-nogadgets' => 'This wiki currently has no gadgets defined.',
 	'gadgets-uses'      => 'Uses',
 	'gadgets-required-rights' => 'Requires the {{PLURAL:$2|$1 right|following rights: $1}}.',
 	'gadgets-default'   => 'Enabled for everyone by default.',
@@ -44,16 +45,9 @@ This overview provides easy access to the system message pages that define each 
 go to Special:Import on destination wiki and upload it. You must have appropriate permissions on the destination wiki (including the right to edit in the {{ns:Gadget}} and {{ns:Gadget definition}} namespaces) and the import from file uploads must be enabled.',
 	'gadgets-export-download' => 'Download',
 
-	# For Special:GadgetManager (for gadget definition management)
-	'gadgetmanager' => 'Gadget manager',
+	# For the ext.gadgets.gadgetmanager module
 	'gadgetmanager-title' => 'Gadget management',
-	'gadgetmanager-pagetext' => 'Welcome to the gadget management interface. Below is an overview of all gadgets defined on this wiki. Users can opt in or opt out of these through their [[Special:Preferences#mw-prefsection-gadgets|preferences page]]. All modifications to gadget definitions can be followed in the [$1 recent changes].',
-	'gadgetmanager-nogadgets' => 'This wiki currently has no gadgets defined.',
 	'gadgetmanager-uncategorized' => 'Uncategorized',
-	'gadgetmanager-tablehead-title' => 'Gadget title',
-	'gadgetmanager-tablehead-default' => 'Default',
-	'gadgetmanager-tablehead-hidden' => 'Hidden',
-	'gadgetmanager-tablehead-shared' => 'Shared',
 	'gadgetmanager-tablehead-lastmod' => 'Last modified',
 	'gadgetmanager-tablecell-lastmod' => '$1 by $2',
 	'gadgetmanager-editor-title' => 'Editing $1:',
@@ -68,7 +62,7 @@ go to Special:Import on destination wiki and upload it. You must have appropriat
 	'gadgetmanager-prop-messages' => 'Messages',
 	'gadgetmanager-prop-category' => 'Category',
 	'gadgetmanager-prop-rights' => 'Required user rights',
-	'gadgetmanager-prop-default' => 'Enable by default',
+	'gadgetmanager-prop-default' => 'Enable for everyone by default',
 	'gadgetmanager-prop-hidden' => 'Hide gadget',
 	'gadgetmanager-prop-shared' => 'Share gadget',
 	'gadgetmanager-prop-default-yes' => 'This gadget is loaded by default.',

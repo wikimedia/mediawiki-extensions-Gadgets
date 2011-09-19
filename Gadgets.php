@@ -125,10 +125,10 @@ $wgAutoloadClasses['LocalGadgetRepo'] = $dir . 'backend/LocalGadgetRepo.php';
 $wgAutoloadClasses['SpecialGadgetManager'] = $dir . 'SpecialGadgetManager.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 
-#$wgSpecialPages['Gadgets'] = 'SpecialGadgets';
-#$wgSpecialPageGroups['Gadgets'] = 'wiki';
-$wgSpecialPages['GadgetManager'] = 'SpecialGadgetManager';
-$wgSpecialPageGroups['GadgetManager'] = 'wiki';
+$wgSpecialPages['Gadgets'] = 'SpecialGadgets';
+$wgSpecialPageGroups['Gadgets'] = 'wiki';
+#$wgSpecialPages['GadgetManager'] = 'SpecialGadgetManager';
+#$wgSpecialPageGroups['GadgetManager'] = 'wiki';
 
 $wgAPIListModules['gadgetcategories'] = 'ApiQueryGadgetCategories';
 $wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
@@ -140,8 +140,8 @@ $gadResourceTemplate = array(
 );
 $wgResourceModules += array(
 	// Also loaded in if javascript disabled
-	'ext.gadgets.gadgetmanager.prejs' => $gadResourceTemplate + array(
-		'styles' => 'ext.gadgets.gadgetmanager.prejs.css',
+	'ext.gadgets.prejs' => $gadResourceTemplate + array(
+		'styles' => 'ext.gadgets.prejs.css',
 		'position' => 'top',
 	),
 	// Method to interact with API
@@ -153,14 +153,11 @@ $wgResourceModules += array(
 	// jQuery plugin
 	'jquery.createPropCloud' => $gadResourceTemplate + array(
 		'scripts' => 'jquery.createPropCloud.js',
-		'messages' => array(
-			'gadgetmanager-editor-prop-remove',
-		),
 	),
 	// Event handling, UI components, initiates on document ready
-	'ext.gadgets.gadgetmanager.ui' => $gadResourceTemplate + array(
-		'scripts' => 'ext.gadgets.gadgetmanager.ui.js',
-		'styles' => 'ext.gadgets.gadgetmanager.ui.css',
+	'ext.gadgets.gadgetmanager' => $gadResourceTemplate + array(
+		'scripts' => 'ext.gadgets.gadgetmanager.js',
+		'styles' => 'ext.gadgets.gadgetmanager.css',
 		'dependencies' => array(
 			'ext.gadgets.api',
 			'jquery.localize',
@@ -172,6 +169,7 @@ $wgResourceModules += array(
 		),
 		'messages' => array(
 			'gadgetmanager-editor-title',
+			'gadgetmanager-editor-prop-remove',
 			'gadgetmanager-editor-removeprop-tooltip',
 			'gadgetmanager-editor-save',
 			'gadgetmanager-editor-cancel',
