@@ -16,7 +16,7 @@ class GadgetHooks {
 
 	/**
 	 * ArticleSaveComplete hook handler.
-	 * 
+	 *
 	 * @param $article Article
 	 * @param $user User
 	 * @param $text String: New page text
@@ -56,7 +56,7 @@ class GadgetHooks {
 	public static function getPreferences( $user, &$preferences ) {
 		$gadgets = Gadget::loadStructuredList();
 		if (!$gadgets) return true;
-		
+
 		$options = array();
 		$default = array();
 		foreach( $gadgets as $section => $thisSection ) {
@@ -79,7 +79,7 @@ class GadgetHooks {
 				$options = array_merge( $options, $available );
 			}
 		}
-		
+
 		$preferences['gadgets-intro'] =
 			array(
 				'type' => 'info',
@@ -91,8 +91,8 @@ class GadgetHooks {
 				'raw' => 1,
 				'rawrow' => 1,
 			);
-		
-		$preferences['gadgets'] = 
+
+		$preferences['gadgets'] =
 			array(
 				'type' => 'multiselect',
 				'options' => $options,
@@ -101,7 +101,7 @@ class GadgetHooks {
 				'prefix' => 'gadget-',
 				'default' => $default,
 			);
-			
+
 		return true;
 	}
 
@@ -129,7 +129,7 @@ class GadgetHooks {
 	 */
 	public static function beforePageDisplay( $out ) {
 		global $wgUser;
-		
+
 		wfProfileIn( __METHOD__ );
 
 		$gadgets = Gadget::loadList();
@@ -169,7 +169,7 @@ class GadgetHooks {
 
 	/**
 	 * Adds one legacy script to output.
-	 * 
+	 *
 	 * @param $page String: Unprefixed page title
 	 * @param $out OutputPage
 	 */
@@ -354,8 +354,8 @@ class Gadget {
 	 * @return Boolean: Whether this gadget has resources that can be loaded via ResourceLoader
 	 */
 	public function hasModule() {
-		return count( $this->styles ) 
-			+ ( $this->supportsResourceLoader() ? count( $this->scripts ) : 0 ) 
+		return count( $this->styles )
+			+ ( $this->supportsResourceLoader() ? count( $this->scripts ) : 0 )
 				> 0;
 	}
 
@@ -506,12 +506,13 @@ class Gadget {
 				return $gadgets;
 			}
 
-			$g = wfMsgForContentNoTrans( "gadgets-definition" );
-			if ( wfEmptyMsg( "gadgets-definition", $g ) ) {
+			$g = wfMessage( "gadgets-definition" )->inContentLanguage();
+			if ( !$g->exists() ) {
 				$gadgets = false;
 				wfProfileOut( __METHOD__ );
 				return $gadgets;
 			}
+			$g = $g->plain();
 		} else {
 			$g = $forceNewText;
 		}
