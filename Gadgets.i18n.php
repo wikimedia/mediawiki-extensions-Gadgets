@@ -1526,6 +1526,7 @@ Lokaal beheerders kónne de besjikbaar oetbreijinge aangaeve in [[MediaWiki:Gadg
 	'gadgets-pagetext' => 'Hiej ónger staon de speciaal oetbreijinger die gebroekers kinne insjakele via häöre [[Special:Preferences|veurkeure]] wie ingesteldj is in [[MediaWiki:Gadgets-definition]].
 Dit euverzich bi-jtj uch einvoudige toegank toet de systeemtekspazjena wo de besjrieving en de programmacode van edere oetbreijing steit.',
 	'gadgets-uses' => 'Gebroek',
+	'gadgets-required-rights' => "{{PLURAL:$2|'t Volgend rech is|De volgende rechte zeen}} vereis: $1.",
 	'gadgets-export' => 'Veur oet',
 	'gadgets-export-title' => 'Exporteer oetbreijing',
 	'gadgets-not-found' => 'Oetbreiding "$1" neet gevonje.',
