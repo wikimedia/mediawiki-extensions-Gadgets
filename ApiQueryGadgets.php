@@ -59,6 +59,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			if ( $this->categories && !isset( $this->categories[$category] ) ) {
 				continue;
 			}
+
 			foreach ( $list as $g ) {
 				if ( $this->isNeeded( $g ) ) {
 					$result[] = $g;
@@ -80,15 +81,19 @@ class ApiQueryGadgets extends ApiQueryBase {
 			if ( isset( $this->props['id'] ) ) {
 				$row['id'] = $g->getName();
 			}
+
 			if ( isset( $this->props['metadata'] ) ) {
 				$row['metadata'] = $this->fakeMetadata( $g );
 				$this->setIndexedTagNameForMetadata( $row['metadata'] );
 			}
+
 			if ( isset( $this->props['desc'] ) ) {
 				$row['desc'] = $g->getDescription();
 			}
+
 			$data[] = $row;
 		}
+
 		$result->setIndexedTagName( $data, 'gadget' );
 		$result->addValue( 'query', $this->getModuleName(), $data );
 	}
@@ -212,5 +217,4 @@ class ApiQueryGadgets extends ApiQueryBase {
 	public function getVersion() {
 		return __CLASS__ . ': $Id$';
 	}
-
 }
