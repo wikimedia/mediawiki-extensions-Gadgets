@@ -1527,9 +1527,16 @@ Lokaal beheerders kónne de besjikbaar oetbreijinge aangaeve in [[MediaWiki:Gadg
 Dit euverzich bi-jtj uch einvoudige toegank toet de systeemtekspazjena wo de besjrieving en de programmacode van edere oetbreijing steit.',
 	'gadgets-uses' => 'Gebroek',
 	'gadgets-required-rights' => "{{PLURAL:$2|'t Volgend rech is|De volgende rechte zeen}} vereis: $1.",
+	'gadgets-default' => 'Standerd aan veur edert.',
 	'gadgets-export' => 'Veur oet',
 	'gadgets-export-title' => 'Exporteer oetbreijing',
 	'gadgets-not-found' => 'Oetbreiding "$1" neet gevonje.',
+	'gadgets-export-text' => 'Klik óppe knoep "{{int:gadgets-export-download}}" óm de oetbreiding "$1" oet te veure.
+Slaon daonao \'t gedownloadj bestandj óp.
+Gank nao "Special:Import" inne doelwiki en laaj \'t oetgeveurdj bestandj óp.
+Veug daonao \'t vólgendje toe ane pagina "MediaWiki:Gadgets-definition":
+<pre>$2</pre>
+Doe mós de juuste rèchte höbben óppe doelwie, ouch óm bewirkinge aan systeemberichte te make en in te veure oet bestenj.',
 	'gadgets-export-download' => 'Haol óp',
 );
 
@@ -1843,6 +1850,7 @@ Du må ha de nødvendige tillatelsene på destinasjonswikien (inkludert retten t
 );
 
 /** Occitan (Occitan)
+ * @author Boulaur
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -1857,6 +1865,8 @@ Los administrators pòdon modificar los gadgets en passant per [[MediaWiki:Gadge
 	'gadgets-pagetext' => "Çaijós apareis una lista de gadgets que los utilizaires pòdon activar dins lor [[Special:Preferences|pagina de preferéncias]], coma definit dins ''[[MediaWiki:Gadgets-definition|las definicions]]''.
 Aqueste susvòl dona un accès rapid a las paginas de messatges del sistèma que definisson cada descripcion e cada còde dels gadgets.",
 	'gadgets-uses' => 'Utiliza',
+	'gadgets-export' => 'Exportar',
+	'gadgets-export-download' => 'Telecargar',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
