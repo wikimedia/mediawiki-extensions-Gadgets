@@ -152,7 +152,7 @@
 			 *
 			 * @param id {String|null} Gadget id, or null to get all from the repo.
 			 * @param success {Function} To be called with the gadget object or array of gadget objects as first argument.
-			 * @param error {Function} If something went wrong (inexisting gadget, api
+			 * @param error {Function} If something went wrong (inexistent gadget, api
 			 * error, request error), this is called with error code as first argument.
 			 * @param repoName {String} Name of the repository, key in mw.gadgets.conf.repos. Defaults to 'local'
 			 */
