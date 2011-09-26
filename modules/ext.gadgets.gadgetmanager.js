@@ -18,39 +18,39 @@
 		tpl = {
 			fancyForm: '<form class="mw-gadgetmanager-form">\
 					<fieldset>\
-						<legend>Module properties</legend>\
+						<legend><html:msg key="gadgetmanager-propsgroup-module" /></legend>\
 						<table>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-scripts"><html:msg key="gadgetmanager-prop-scripts"></label></td>\
+								<td><label for="mw-gadgetmanager-input-scripts"><html:msg key="gadgetmanager-prop-scripts" /></label></td>\
 								<td><input type="text" id="mw-gadgetmanager-input-scripts" /></td>\
 							</tr>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-styles"><html:msg key="gadgetmanager-prop-styles"></label></td>\
+								<td><label for="mw-gadgetmanager-input-styles"><html:msg key="gadgetmanager-prop-styles" /></label></td>\
 								<td><input type="text" id="mw-gadgetmanager-input-styles" /></td>\
 							</tr>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-dependencies"><html:msg key="gadgetmanager-prop-dependencies"></label></td>\
+								<td><label for="mw-gadgetmanager-input-dependencies"><html:msg key="gadgetmanager-prop-dependencies" /></label></td>\
 								<td><input type="text" id="mw-gadgetmanager-input-dependencies" /></td>\
 							</tr>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-messages"><html:msg key="gadgetmanager-prop-messages"></label></td>\
+								<td><label for="mw-gadgetmanager-input-messages"><html:msg key="gadgetmanager-prop-messages" /></label></td>\
 								<td><input type="text" id="mw-gadgetmanager-input-messages" /></td>\
 							</tr>\
 						</table>\
 					</fieldset>\
 					<fieldset>\
-						<legend>Gadget settings</legend>\
+						<legend><html:msg key="gadgetmanager-propsgroup-settings" /></legend>\
 						<table>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-category"><html:msg key="gadgetmanager-prop-category"></label></td>\
+								<td><label for="mw-gadgetmanager-input-category"><html:msg key="gadgetmanager-prop-category" /></label></td>\
 								<td><select id="mw-gadgetmanager-input-category"></select></td>\
 							</tr>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-rights"><html:msg key="gadgetmanager-prop-rights"></label></td>\
+								<td><label for="mw-gadgetmanager-input-rights"><html:msg key="gadgetmanager-prop-rights" /></label></td>\
 								<td><input type="text" id="mw-gadgetmanager-input-rights" /></td>\
 							</tr>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-default"><html:msg key="gadgetmanager-prop-default"></label></td>\
+								<td><label for="mw-gadgetmanager-input-default"><html:msg key="gadgetmanager-prop-default" /></label></td>\
 								<td><input type="checkbox" id="mw-gadgetmanager-input-default" /></td>\
 							</tr>\
 							<tr>\
@@ -58,7 +58,7 @@
 								<td><input type="checkbox" id="mw-gadgetmanager-input-hidden" /></td>\
 							</tr>\
 							' + ( ga.conf.enableSharing ? '<tr>\
-								<td><label for="mw-gadgetmanager-input-shared"><html:msg key="gadgetmanager-prop-shared"></label></td>\
+								<td><label for="mw-gadgetmanager-input-shared"><html:msg key="gadgetmanager-prop-shared" /></label></td>\
 								<td><input type="checkbox" id="mw-gadgetmanager-input-shared" /></td>\
 							</tr>\
 						' : '' ) + '</table>\
