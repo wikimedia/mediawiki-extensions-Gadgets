@@ -23,6 +23,13 @@
 }
 
 /**
+ * Gadget list
+ */
+.client-js .mw-gadgets-gadget:hover {
+	cursor: pointer;
+}
+
+/**
  * The PropCloud
  */
 .mw-gadgetmanager-propcloud {

@@ -142,6 +142,26 @@
 				}
 			} );
 
+			// Entire gadget list item is clickable
+			$( '.mw-gadgets-gadget' ).click( function( e ) {
+				e.preventDefault();
+				var	t,
+					id = $( this ).data( 'gadget-id' );
+
+				if ( ga.conf.userIsAllowed['gadgets-definition-edit'] ) {
+					ga.ui.startGadgetEditor( id );
+					return;
+				}
+				// Use localized page name if possible to avoid redirect
+				if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'Gadgets' ) {
+					t = new mw.Title( mw.config.get( 'wgTitle' ) + '/' + id, -1 );
+				} else {
+					t = new mw.Title( 'Gadgets/' + id, -1 );
+				}
+				window.location.href = t.getUrl();
+				return false;
+			} );
+
 			if ( ga.conf.userIsAllowed['gadgets-definition-create'] ) {
 				var createTab = mw.util.addPortletLink(
 					// Not all skins use the new separated tabs yet,
