@@ -68,7 +68,7 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 * baz [rights=embezzle] |baz.js
 ==keep-section2==
 * quux [rights=read] | quux.js' );
-		$this->assertTrue( GadgetHooks::getPreferences( $wgUser, $prefs ), 'GetPrefences hook should return true' );
+		$this->assertTrue( GadgetsHooks::getPreferences( $wgUser, $prefs ), 'GetPrefences hook should return true' );
 
 		$options = $prefs['gadgets']['options'];
 		$this->assertFalse( isset( $options['&lt;gadget-section-remove-section&gt;'] ), 'Must not show empty sections' );

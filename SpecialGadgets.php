@@ -124,7 +124,7 @@ class SpecialGadgets extends SpecialPage {
 		);
 		if ( $user->isAllowed( 'gadgets-definition-edit' ) ) {
 			$extra[] = Linker::link(
-				GadgetHooks::getDefinitionTitleFromID( $gadget->getId() ),
+				GadgetsHooks::getDefinitionTitleFromID( $gadget->getId() ),
 				wfMessage( 'gadgets-gadget-modify' )->escaped(),
 				array(
 					'title' => wfMessage( 'gadgets-gadget-modify-tooltip' )->plain(),
@@ -136,7 +136,7 @@ class SpecialGadgets extends SpecialPage {
 
 		if ( $user->isAllowed( 'gadgets-definition-delete' ) ) {
 			$extra[] = Linker::link(
-				GadgetHooks::getDefinitionTitleFromID( $gadget->getId() ),
+				GadgetsHooks::getDefinitionTitleFromID( $gadget->getId() ),
 				wfMessage( 'gadgets-gadget-delete' )->escaped(),
 				array(
 					'title' => wfMessage( 'gadgets-gadget-delete-tooltip' )->plain(),
@@ -327,7 +327,7 @@ class SpecialGadgets extends SpecialPage {
 		$exportTitles = array();
 
 		// NS_GADGET_DEFINITION page of this gadget
-			$exportTitles[] = GadgetHooks::getDefinitionTitleFromID( $gadget->getId() );
+			$exportTitles[] = GadgetsHooks::getDefinitionTitleFromID( $gadget->getId() );
 
 		// Title message in NS_MEDIAWIKI
 				$exportTitles[] = Title::makeTitleSafe( NS_MEDIAWIKI, $gadget->getTitleMessageKey() );
