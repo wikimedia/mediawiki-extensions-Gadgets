@@ -359,8 +359,10 @@ class SpecialGadgets extends SpecialPage {
 		// Translation subpages of module messages
 			// @todo
 
-		// Get prefixed strings separated by new lines
+		// Build line-break separated string of prefixed titles
 		$exportList = '';
+		// Build html for unordered list with links to the titles
+		$exportDisplayList = '<ul>';
 		foreach ( $exportTitles as $exportTitle ) {
 			// Make sure it's not null (for inexisting or invalid title)
 			// and addionally check exists() to avoid exporting messages
@@ -369,8 +371,10 @@ class SpecialGadgets extends SpecialPage {
 			// (which we don't want to export)
 			if ( is_object( $exportTitle ) && $exportTitle->exists() ) {
 				$exportList .= $exportTitle->getPrefixedDBkey() . "\n";
+				$exportDisplayList .= '<li>'. Linker::link( $exportTitle ) . '</li>';
 			}
 		}
+		$exportDisplayList .= '</ul>';
 
 		global $wgScript;
 		$form =
@@ -389,6 +393,7 @@ class SpecialGadgets extends SpecialPage {
 				)
 				->escaped()
 			. '</p>'
+			. $exportDisplayList
 			. Html::hidden( 'title', SpecialPage::getTitleFor( 'Export' )->getPrefixedDBKey() )
 			. Html::hidden( 'pages', $exportList )
 			. Html::hidden( 'wpDownload', '1' )

@@ -58,3 +58,8 @@
 .mw-gadgets-gadgetlinks a {
 	margin: 0 9px;
 }
+
+/* Export */
+.mw-gadgets-exportform fieldset {
+	max-width: 50%;
+}
