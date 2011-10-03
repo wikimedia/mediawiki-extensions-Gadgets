@@ -413,9 +413,18 @@ class SpecialGadgets extends SpecialPage {
 	public function showSingleGadget( Gadget $gadget ) {
 		$this->doSubpageMode();
 		$out = $this->getOutput();
+		$user = $this->getUser();
 
 		$this->setHeaders();
 		$out->setPagetitle( wfMsg( 'gadgets-gadget-title', $gadget->getTitleMessage() ) );
+
+		// Only load the gadget manager module if needed
+		if ( $user->isAllowed( 'gadgets-definition-delete' )
+			|| $user->isAllowed( 'gadgets-definition-edit' )
+			|| $user->isAllowed( 'gadgets-definition-create' )
+		) {
+			$out->addModules( 'ext.gadgets.gadgetmanager' );
+		}
 
 		$out->addHTML( '<div class="mw-gadgets-list">' . $this->getGadgetHtml( $gadget ) . '</div>' );
 	}
