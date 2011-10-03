@@ -308,7 +308,7 @@
 					success: function( data ) {
 						// Invalidate cache
 						cacheGadgetData( 'local', gadget.id, null );
-						if ( data && data.edit && data.edit ) {
+						if ( data && data.edit && data.edit.result ) {
 							if ( data.edit.result === 'Success' ) {
 								o.success( data.edit );
 							} else {
