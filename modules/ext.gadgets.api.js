@@ -15,12 +15,12 @@
 		gadgetCache = {},
 		/**
 		 * @var {Object} Keyed by repo, array of category objects
-		 * @example { repoName: [ {name: .., title: .., members: .. }, { .. },  { .. } ] }
+		 * @example { repoName: [ {name: .., title: .., members: .. }, { .. }, { .. } ] }
 		 */
 		gadgetCategoryCache = {};
-	
+
 	/* Local functions */
-	
+
 	/**
 	 * For most returns from api.* functions, a clone is made when data from
 	 * cache is used. This is to avoid situations where later modifications
@@ -42,32 +42,32 @@
 		 */
 		 return $.extend( true /* recursive */, {}, obj );
 	}
-	
+
 	function arrClone( arr ) {
 		return arr.slice();
 	}
-	
+
 	/**
 	 * Reformat an array of gadget objects, into an object keyed by the id.
 	 * Note: Maintains object reference
 	 * @param arr {Array}
 	 * @return {Object}
-	 */ 
+	 */
 	function gadgetArrToObj( arr ) {
-	    for( var obj = {}, i = 0, g = arr[i], len = arr.length; i < len; g = arr[++i] ) {
-		obj[g.id] = g;
-	    }
-	    return obj;
+		for( var obj = {}, i = 0, g = arr[i], len = arr.length; i < len; g = arr[++i] ) {
+			obj[g.id] = g;
+		}
+		return obj;
 	}
-	
+
 	/**
 	 * Write data to gadgetCache, taking into account that id may be null
 	 * and working around JS's annoying refusal to just let us do
 	 * var foo = {}; foo[bar][baz] = quux;
-	 * 
+	 *
 	 * This sets gadgetCache[repoName][id] = data; if id is not null,
 	 * or gadgetCache[repoName] = data; if id is null.
-	 * 
+	 *
 	 * @param repoName {String} Repository name
 	 * @param id {String|null} Gadget ID or null
 	 * @param data {Object} Data to put in the cache
@@ -82,7 +82,7 @@
 			gadgetCache[repoName][id] = data;
 		}
 	}
-	
+
 	/**
 	 * Call an asynchronous function for each repository, and merge
 	 * their return values into an object keyed by repository name.
@@ -98,7 +98,7 @@
 		for ( repo in mw.gadgets.conf.repos ) {
 			numRepos++;
 		}
-		
+
 		// Use $.each instead of a for loop so we can access repoName in the success callback
 		// without annoying issues
 		$.each( mw.gadgets.conf.repos, function( repoName, repoData ) {
@@ -114,9 +114,9 @@
 			);
 		} );
 	}
-	
+
 	/* Public functions */
-	
+
 	mw.gadgets = {
 		/**
 		 * @todo: Add something derived from $wgGadgetRepositories to gadgetsConf
@@ -126,7 +126,7 @@
 		api: {
 			/**
 			 * Get the gadget blobs for all gadgets from all repositories.
-			 * 
+			 *
 			 * @param success {Function} To be called with an object of arrays of gadget objects, keyed by repository name, as first argument.
 			 * @param error {Function} To be called with a string (error code) as first argument.
 			 */
@@ -136,17 +136,18 @@
 					success, error
 				);
 			},
-			
+
 			/**
 			 * Get the gadget categories from all repositories.
-			 * 
-			 * @param success {Function} To be called with an array 
+			 *
+			 * @param success {Function} To be called with an array
 			 * @param success {Function} To be called with an object of arrays of category objects, keyed by repository name, as first argument.
 			 * @param error {Function} To be called with a string (error code) as the first argument.
 			 */
 			getForeignGadgetCategories: function( success, error ) {
 				mergeRepositoryData( mw.gadgets.api.getGadgetCategories, success, error );
 			},
+
 			/**
 			 * Get gadget blob from the API (or from cache if available).
 			 *
@@ -212,9 +213,10 @@
 					}
 				});
 			},
+
 			/**
 			 * Get the gadget categories for a certain repository from the API.
-			 * 
+			 *
 			 * @param success {Function} To be called with an array as first argument.
 			 * @param error {Function} To be called with a string (error code) as first argument.
 			 * @param repoName {String} Name of the repository, key in mw.gadgets.conf.repos . Defaults to 'local'
@@ -264,6 +266,7 @@
 					}
 				});
 			},
+
 			/**
 			 * Creates or edits an existing gadget definition.
 			 *
@@ -319,6 +322,7 @@
 					}
 				});
 			},
+
 			/**
 			 * Deletes a gadget definition.
 			 *

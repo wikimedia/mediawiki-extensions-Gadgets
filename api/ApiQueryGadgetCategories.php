@@ -54,7 +54,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 				}
 				if ( isset( $this->props['title'] ) ) {
 					if ( $category === '' ) {
-						$row['title'] = wfMessage( 'gadgetmanager-uncategorized' )->plain();
+						$row['title'] = wfMessage( 'gadgets-uncategorized' )->plain();
 					} else {
 						$row['title'] = $repo->getCategoryTitle( $category, $this->language );
 					}

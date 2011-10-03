@@ -21,19 +21,19 @@
 						<legend><html:msg key="gadgetmanager-propsgroup-module" /></legend>\
 						<table>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-scripts"><html:msg key="gadgetmanager-prop-scripts" /></label></td>\
+								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-scripts"><html:msg key="gadgetmanager-prop-scripts" /></label></td>\
 								<td><input type="text" id="mw-gadgetmanager-input-scripts" /></td>\
 							</tr>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-styles"><html:msg key="gadgetmanager-prop-styles" /></label></td>\
+								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-styles"><html:msg key="gadgetmanager-prop-styles" /></label></td>\
 								<td><input type="text" id="mw-gadgetmanager-input-styles" /></td>\
 							</tr>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-dependencies"><html:msg key="gadgetmanager-prop-dependencies" /></label></td>\
+								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-dependencies"><html:msg key="gadgetmanager-prop-dependencies" /></label></td>\
 								<td><input type="text" id="mw-gadgetmanager-input-dependencies" /></td>\
 							</tr>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-messages"><html:msg key="gadgetmanager-prop-messages" /></label></td>\
+								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-messages"><html:msg key="gadgetmanager-prop-messages" /></label></td>\
 								<td><input type="text" id="mw-gadgetmanager-input-messages" /></td>\
 							</tr>\
 						</table>\
@@ -42,23 +42,23 @@
 						<legend><html:msg key="gadgetmanager-propsgroup-settings" /></legend>\
 						<table>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-category"><html:msg key="gadgetmanager-prop-category" /></label></td>\
+								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-category"><html:msg key="gadgetmanager-prop-category" /></label></td>\
 								<td><select id="mw-gadgetmanager-input-category"></select></td>\
 							</tr>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-rights"><html:msg key="gadgetmanager-prop-rights" /></label></td>\
+								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-rights"><html:msg key="gadgetmanager-prop-rights" /></label></td>\
 								<td><input type="text" id="mw-gadgetmanager-input-rights" /></td>\
 							</tr>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-default"><html:msg key="gadgetmanager-prop-default" /></label></td>\
+								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-default"><html:msg key="gadgetmanager-prop-default" /></label></td>\
 								<td><input type="checkbox" id="mw-gadgetmanager-input-default" /></td>\
 							</tr>\
 							<tr>\
-								<td><label for="mw-gadgetmanager-input-hidden"><html:msg key="gadgetmanager-prop-hidden"></label></td>\
+								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-hidden"><html:msg key="gadgetmanager-prop-hidden"></label></td>\
 								<td><input type="checkbox" id="mw-gadgetmanager-input-hidden" /></td>\
 							</tr>\
 							' + ( ga.conf.enableSharing ? '<tr>\
-								<td><label for="mw-gadgetmanager-input-shared"><html:msg key="gadgetmanager-prop-shared" /></label></td>\
+								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-shared"><html:msg key="gadgetmanager-prop-shared" /></label></td>\
 								<td><input type="checkbox" id="mw-gadgetmanager-input-shared" /></td>\
 							</tr>\
 						' : '' ) + '</table>\
@@ -96,14 +96,14 @@
 	 * Utility function to pad a zero
 	 * to single digit number. Used by ISODateString().
 	 * @param n {Number}
-	 * @return {String}
+	 * @return {String|Number}
 	 */
 	function pad( n ) {
 		return n < 10 ? '0' + n : n;
 	}
 	/**
 	 * Format a date in an ISO 8601 format using UTC.
-	 * https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date#Example:_ISO_8601_formatted_dates
+	 * https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date#Example:_ISO_8601
 	 *
 	 * @param d {Date}
 	 * @return {String}
@@ -125,12 +125,40 @@
 		 * to the anchor tags in the table.
 		 */
 		initUI: function() {
-			// Bind trigger to the links
-			$( '.mw-gadgetmanager-gadgets .mw-gadgetmanager-gadgets-title a' )
-				.click( function( e ) {
+			// Add ajax links
+			$( '.mw-gadgets-gadgetlinks' ).each( function( i, el ) {
+				var $el = $( el );
+				if ( ga.conf.userIsAllowed['gadgets-definition-edit'] ) {
+					$el.find( '.mw-gadgets-modify' ).click( function( e ) {
+						e.preventDefault();
+						ga.ui.startGadgetEditor( $el.data( 'gadget-id' ) );
+					});
+				}
+				if ( ga.conf.userIsAllowed['gadgets-definition-delete'] ) {
+					$el.find( '.mw-gadgets-modify' ).click( function( e ) {
+						e.preventDefault();
+						// @todo: Show delete action form
+					});
+				}
+			} );
+
+			if ( ga.conf.userIsAllowed['gadgets-definition-create'] ) {
+				var createTab = mw.util.addPortletLink(
+					// Not all skins use the new separated tabs yet,
+					// Fall back to the general 'p-cactions'.
+					$( '#p-views' ).length ? 'p-views' : 'p-cactions',
+					'#',
+					mw.msg( 'gadgets-gadget-create' ),
+					'ca-create', // Use whatever core has for pages ? Or use gadget-create ?
+					mw.msg( 'gadgets-gadget-create-tooltip' ),
+					'e' // Same as core for ca-edit
+				);
+				$( createTab ).click( function( e ) {
 					e.preventDefault();
-					ga.ui.startGadgetEditor( $( this ).data( 'gadget-id' ) );
-				});
+					// @todo: Trigger edit form with editable field for gadget id.
+				} );
+			}
+
 		},
 
 		/**
@@ -232,6 +260,7 @@
 						response( suggestCacheScripts[data.term] );
 						return;
 					}
+
 					$.getJSON( mw.util.wikiScript( 'api' ), {
 							format: 'json',
 							action: 'query',
@@ -393,7 +422,6 @@
 			$form.find( '#mw-gadgetmanager-input-shared' )
 				.prop( 'checked', metadata.settings.shared )
 				.change( function() { metadata.settings.shared = this.checked; });
-
 
 			return $form;
 		}

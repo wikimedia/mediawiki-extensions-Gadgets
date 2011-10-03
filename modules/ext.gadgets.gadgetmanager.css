@@ -13,6 +13,10 @@
 	width: 100%;
 }
 
+.mw-gadgetmanager-label {
+	width: 20%;
+}
+
 .mw-gadgetmanager-form td,
 .mw-gadgetmanager-form th {
 	vertical-align: top;
@@ -27,8 +31,6 @@
 	overflow: hidden;
 }
 
-.mw-gadgetmanager-propcontainer {}
-
 .mw-gadgetmanager-prop {
 	float: left;
 	margin: 2px 5px 5px 2px;
@@ -38,8 +40,6 @@
 	border-radius: 10px;
 	line-height: 1;
 }
-
-.mw-gadgetmanager-prop-label {}
 
 .mw-gadgetmanager-prop-delete {
 	display: inline-block;

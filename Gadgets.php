@@ -33,7 +33,7 @@ $wgExtensionCredits['other'][] = array(
 
 /**
  * Add gadget repositories here.
- * 
+ *
  * For foreign DB-based gadget repositories, use:
  * // TODO: Document better by looking at WMF ForeignFileRepo config
  * $wgGadgetRepositories[] = array(
@@ -49,7 +49,7 @@ $wgExtensionCredits['other'][] = array(
  * 	'tablePrefix' => 'mw_', // Table prefix for the foreign wiki's database, or '' if no prefix
  *	'hasSharedCache' => true, // Whether the foreign wiki's cache is accessible through $wgMemc
  * );
- * 
+ *
  * For foreign API-based gadget repositories, use:
  * $wgGadgetRepositories[] = array(
  * 	'class' => 'ForeignAPIGadgetRepo',
@@ -122,13 +122,10 @@ $wgAutoloadClasses['GadgetPageList'] = $dir . 'backend/GadgetPageList.php';
 $wgAutoloadClasses['GadgetRepo'] = $dir . 'backend/GadgetRepo.php';
 $wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'backend/GadgetResourceLoaderModule.php';
 $wgAutoloadClasses['LocalGadgetRepo'] = $dir . 'backend/LocalGadgetRepo.php';
-$wgAutoloadClasses['SpecialGadgetManager'] = $dir . 'SpecialGadgetManager.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';
-#$wgSpecialPages['GadgetManager'] = 'SpecialGadgetManager';
-#$wgSpecialPageGroups['GadgetManager'] = 'wiki';
 
 $wgAPIListModules['gadgetcategories'] = 'ApiQueryGadgetCategories';
 $wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
@@ -168,6 +165,8 @@ $wgResourceModules += array(
 			'jquery.json',
 		),
 		'messages' => array(
+			'gadgets-gadget-create',
+			'gadgets-gadget-create-tooltip',
 			'gadgetmanager-editor-title',
 			'gadgetmanager-editor-prop-remove',
 			'gadgetmanager-editor-removeprop-tooltip',

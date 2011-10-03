@@ -1,14 +1,60 @@
-.mw-gadgetmanager-gadgets.mw-datatable th {
-	padding: 2px 21px 2px 5px;
+/* Gadget list */
+.mw-gadgets-list {
+	width: 100%;
+	border-bottom: 1px solid #ccc;
 }
 
-.mw-gadgetmanager-gadgets.mw-datatable td {
-	padding: 2px 5px;
+.mw-gadgets-gadget {
+	overflow: hidden;
+	position: relative;
+	padding: 0.5em;
+	border: 1px solid #ccc;
+	border-bottom: 0;
 }
 
-.mw-gadgetmanager-gadgets-default,
-.mw-gadgetmanager-gadgets-hidden,
-.mw-gadgetmanager-gadgets-shared {
-	width: 4em;
-	text-align: center;
+.mw-gadgets-gadget:hover {
+	background: #f9f9ff;
+}
+
+.mw-gadgets-title {
+	font-weight: bold;
+	min-height: 1.6em;
+}
+
+/* Tool links */
+
+.mw-gadgets-messagelink {
+	font-size: 75%;
+	font-weight: normal;
+}
+
+.mw-gadgets-messagelink a {
+	padding-left: 18px;
+	/* @embed */
+	background-image: url(images/edit-faded.png);
+	background-position: left top;
+	background-repeat: no-repeat;
+}
+
+.mw-gadgets-messagelink a:hover {
+	/* @embed */
+	background-image: url(images/edit.png);
+}
+
+.mw-gadgets-gadgetlinks {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 1.6em;
+	padding: 9px;
+	font-size: 75%;
+	font-weight: normal;
+}
+
+.mw-gadgets-gadgetlinks {
+	float: right;
+}
+
+.mw-gadgets-gadgetlinks a {
+	margin: 0 9px;
 }

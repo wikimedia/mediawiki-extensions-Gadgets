@@ -29,8 +29,17 @@ class GadgetHooks {
 	}
 
 	/**
+	 * Get a Title object of the gadget definition page from a gadget id
+	 * @param $is String
+	 * @return Title|null
+	 */
+	public static function getDefinitionTitleFromID( $id ) {
+		return Title::makeTitleSafe( NS_GADGET_DEFINITION, $id . '.js' );
+	}
+
+	/**
 	 * ArticleDeleteComplete hook handler.
-	 * 
+	 *
 	 * @param $article Article
 	 * @param $user User
 	 * @param $reason String: Deletion summary
@@ -41,7 +50,7 @@ class GadgetHooks {
 		if ( !$id ) {
 			return true;
 		}
-		
+
 		$repo = LocalGadgetRepo::singleton();
 		$repo->deleteGadget( $id );
 		// deleteGadget() may return an error if the Gadget didn't exist, but we don't care here
@@ -50,7 +59,7 @@ class GadgetHooks {
 
 	/**
 	 * ArticleSaveComplete hook handler.
-	 * 
+	 *
 	 * @param $article Article
 	 * @param $user User
 	 * @param $text String: New page text
@@ -68,23 +77,23 @@ class GadgetHooks {
 		if ( !$id ) {
 			return true;
 		}
-		
+
 		$previousRev = $revision->getPrevious();
 		$prevTs = $previousRev instanceof Revision ? $previousRev->getTimestamp() : wfTimestampNow();
-		
+
 		// Update the database entry for this gadget
 		$repo = LocalGadgetRepo::singleton();
 		// TODO: Timestamp in the constructor is ugly
 		$gadget = new Gadget( $id, $repo, $text, $prevTs );
 		$repo->modifyGadget( $gadget, $revision->getTimestamp() );
-		
+
 		// modifyGadget() returns a Status object with an error if there was a conflict,
 		// but we don't care. If a conflict occurred, that must be because a newer edit's
 		// DB update occurred before ours, in which case the right thing to do is to occu
-		
+
 		return true;
 	}
-	
+
 	/**
 	 * Update the database entry for a gadget if the description page is
 	 * newer than the database entry.
@@ -95,24 +104,24 @@ class GadgetHooks {
 		if ( !$id ) {
 			return;
 		}
-		
+
 		// Check whether this undeletion changed the latest revision of the page, by comparing
 		// the timestamp of the latest revision with the timestamp in the DB
 		$repo = LocalGadgetRepo::singleton();
 		$gadget = $repo->getGadget( $id );
 		$gadgetTS = $gadget ? $gadget->getTimestamp() : 0;
-		
+
 		$rev = Revision::newFromTitle( $title );
 		if ( wfTimestamp( TS_MW, $rev->getTimestamp() ) ===
 				wfTimestamp( TS_MW, $gadgetTS ) ) {
 			// The latest rev didn't change. Someone must've undeleted an older revision
 			return;
 		}
-		
+
 		// Update the database entry for this gadget
 		$newGadget = new Gadget( $id, $repo, $rev->getRawText(), $gadgetTS );
 		$repo->modifyGadget( $newGadget, $rev->getTimestamp() );
-		
+
 		// modifyGadget() returns a Status object with an error if there was a conflict,
 		// but we do't care, see similar comment in articleSaveComplete()
 		return;
@@ -128,7 +137,7 @@ class GadgetHooks {
 		self::gadgetDefinitionUpdateIfChanged( $title );
 		return true;
 	}
-	
+
 	public static function gadgetDefinitionImport( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
 		self::gadgetDefinitionUpdateIfChanged( $title );
 		return true;
@@ -136,7 +145,7 @@ class GadgetHooks {
 
 	/**
 	 * ArticleDeleteComplete hook handler.
-	 * 
+	 *
 	 * @param $article Article
 	 * @param $user User
 	 * @param $reason String: Deletion summary
@@ -146,10 +155,10 @@ class GadgetHooks {
 		GadgetPageList::delete( $article->getTitle() );
 		return true;
 	}
-	
+
 	/**
 	 * ArticleSaveComplete hook handler.
-	 * 
+	 *
 	 * @param $article Article
 	 * @param $user User
 	 * @param $text String: New page text
@@ -160,7 +169,7 @@ class GadgetHooks {
 	 * @param $flags: Int: Bitmap of flags passed to WikiPage::doEdit()
 	 * @param $revision: Revision object for the new revision
 	 */
-	public static function cssOrJsPageSave(  $article, $user, $text, $summary, $isMinor,
+	public static function cssOrJsPageSave( $article, $user, $text, $summary, $isMinor,
 			$isWatch, $section, $flags, $revision )
 	{
 		$title = $article->getTitle();
@@ -183,7 +192,7 @@ class GadgetHooks {
 		// Delete the old title from the list. Even if it still exists after the move,
 		// it'll be a redirect and we don't want those in there
 		GadgetPageList::delete( $oldTitle );
-		
+
 		GadgetPageList::updatePageStatus( $newTitle );
 		return true;
 	}
@@ -220,7 +229,7 @@ class GadgetHooks {
 				continue;
 			}
 			$category = $gadget->getCategory();
-			
+
 			// Add the Gadget to the right category
 			$title = htmlspecialchars( $gadget->getTitleMessage() );
 			$description = $gadget->getDescriptionMessage(); // Is parsed, doesn't need escaping
@@ -236,7 +245,7 @@ class GadgetHooks {
 				$default[] = $id;
 			}
 		}
-		
+
 		$options = array(); // array( desc1 => gadget1, category1 => array( desc2 => gadget2 ) )
 		foreach ( $categories as $category => $gadgets ) {
 			if ( $category !== '' ) {
@@ -246,7 +255,7 @@ class GadgetHooks {
 				$options += $gadgets;
 			}
 		}
-		
+
 		$preferences['gadgets-intro'] =
 			array(
 				'type' => 'info',
@@ -258,7 +267,7 @@ class GadgetHooks {
 				'raw' => 1,
 				'rawrow' => 1,
 			);
-		$preferences['gadgets'] = 
+		$preferences['gadgets'] =
 			array(
 				'type' => 'multiselect',
 				'options' => $options,
@@ -267,7 +276,7 @@ class GadgetHooks {
 				'prefix' => 'gadget-',
 				'default' => $default,
 			);
-		
+
 		// Add tab for shared gadgets
 		$preferences['gadgets-intro-shared'] =
 			array(
@@ -318,12 +327,12 @@ class GadgetHooks {
 				$out->addModules( $gadget->getModuleName() );
 			}
 		}
-		
+
 		// Add preferences JS if we're on Special:Preferences
 		if ( $out->getTitle()->equals( SpecialPage::getTitleFor( 'Preferences' ) ) ) {
 			$out->addModules( 'ext.gadgets.preferences' );
 		}
-		
+
 		wfProfileOut( __METHOD__ );
 		return true;
 	}
@@ -335,13 +344,14 @@ class GadgetHooks {
 	 */
 	public static function makeGlobalVariablesScript( &$vars, $out ) {
 		$title = $out->getTitle();
+		$user = $out->getUser();
 		// FIXME: This is not a nice way to do it. Maybe we should check for the presence
 		// of a module instead or something.
-		if ( $title->equals( SpecialPage::getTitleFor( 'GadgetManager' ) ) ||
+		if ( $title->equals( SpecialPage::getTitleFor( 'Gadgets' ) ) ||
 				$title->equals( SpecialPage::getTitleFor( 'Preferences' ) ) )
 		{
 			global $wgGadgetEnableSharing;
-			
+
 			// Pass the source data for each source that is used by a repository
 			$repos = GadgetRepo::getAllRepos();
 			$sources = $out->getResourceLoader()->getSources();
@@ -353,7 +363,13 @@ class GadgetHooks {
 			$vars['gadgetsConf'] = array(
 				'enableSharing' => $wgGadgetEnableSharing,
 				'allRights' => User::getAllRights(),
-				'repos' => $repoData
+				'repos' => $repoData,
+				'userIsAllowed' => array(
+					'editinterface' => $user->isAllowed( 'editinterface' ),
+					'gadgets-definition-create' => $user->isAllowed( 'gadgets-definition-create' ),
+					'gadgets-definition-edit' => $user->isAllowed( 'gadgets-definition-edit' ),
+					'gadgets-definition-delete' => $user->isAllowed( 'gadgets-definition-delete' ),
+				),
 			);
 		}
 		return true;
@@ -382,7 +398,7 @@ class GadgetHooks {
 		$list[NS_GADGET_DEFINITION_TALK] = 'Gadget_definition_talk';
 		return true;
 	}
-	
+
 	public static function titleIsCssOrJsPage( $title, &$result ) {
 		if ( ( $title->getNamespace() == NS_GADGET || $title->getNamespace() == NS_GADGET_DEFINITION ) &&
 				preg_match( '!\.(css|js)$!u', $title->getText() ) )
@@ -391,14 +407,14 @@ class GadgetHooks {
 		}
 		return true;
 	}
-	
+
 	public static function titleIsMovable( $title, &$result ) {
 		if ( $title->getNamespace() == NS_GADGET_DEFINITION ) {
 			$result = false;
 		}
 		return true;
 	}
-	
+
 	public static function getUserPermissionsErrors( $title, $user, $action, &$result ) {
 		if ( $title->getNamespace() == NS_GADGET_DEFINITION ) {
 			// Enforce restrictions on the Gadget_definition namespace
