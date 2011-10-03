@@ -127,7 +127,8 @@
 			/**
 			 * Get the gadget blobs for all gadgets from all repositories.
 			 *
-			 * @param success {Function} To be called with an object of arrays of gadget objects, keyed by repository name, as first argument.
+			 * @param success {Function} To be called with an object of arrays of gadget objects,
+			 * keyed by repository name, as first argument.
 			 * @param error {Function} To be called with a string (error code) as first argument.
 			 */
 			getForeignGadgetsData: function( success, error ) {
@@ -141,7 +142,8 @@
 			 * Get the gadget categories from all repositories.
 			 *
 			 * @param success {Function} To be called with an array
-			 * @param success {Function} To be called with an object of arrays of category objects, keyed by repository name, as first argument.
+			 * @param success {Function} To be called with an object of arrays of category objects,
+			 * keyed by repository name, as first argument.
 			 * @param error {Function} To be called with a string (error code) as the first argument.
 			 */
 			getForeignGadgetCategories: function( success, error ) {
@@ -152,10 +154,12 @@
 			 * Get gadget blob from the API (or from cache if available).
 			 *
 			 * @param id {String|null} Gadget id, or null to get all from the repo.
-			 * @param success {Function} To be called with the gadget object or array of gadget objects as first argument.
+			 * @param success {Function} To be called with the gadget object or array
+			 * of gadget objects as first argument.
 			 * @param error {Function} If something went wrong (inexistent gadget, api
 			 * error, request error), this is called with error code as first argument.
-			 * @param repoName {String} Name of the repository, key in mw.gadgets.conf.repos. Defaults to 'local'
+			 * @param repoName {String} Name of the repository, key in mw.gadgets.conf.repos.
+			 * Defaults to 'local'
 			 */
 			getGadgetData: function( id, success, error, repoName ) {
 				repoName = repoName || 'local';
@@ -219,7 +223,8 @@
 			 *
 			 * @param success {Function} To be called with an array as first argument.
 			 * @param error {Function} To be called with a string (error code) as first argument.
-			 * @param repoName {String} Name of the repository, key in mw.gadgets.conf.repos . Defaults to 'local'
+			 * @param repoName {String} Name of the repository, key in mw.gadgets.conf.repos.
+			 * Defaults to 'local'
 			 * @return {jqXHR|Null}: Null if served from cache, otherwise the jqXHR.
 			 */
 			getGadgetCategories: function( success, error, repoName ) {
