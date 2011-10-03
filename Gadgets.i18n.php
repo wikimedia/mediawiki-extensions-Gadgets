@@ -104,6 +104,14 @@ go to Special:Import on destination wiki and upload it. You must have appropriat
 	'right-gadgets-definition-create' => 'Create new gadgets',
 	'right-gadgets-definition-delete' => 'Delete gadgets',
 	'right-gadgets-definition-edit' => 'Modify gadget properties',
+
+	# User groups
+	'group-gadgetartists' => 'Gadget artists',
+	'group-gadgetartists-member' => 'gadget artist',
+	'grouppage-gadgetartists' => '{{ns:project}}:Gadget artists',
+	'group-gadgetmanagers' => 'Gadget managers',
+	'group-gadgetmanagers-member' => 'gadget manager',
+	'grouppage-gadgetmanagers' => '{{ns:project}}:Gadget managers',
 );
 
 /** Message documentation (Message documentation)
@@ -168,6 +176,14 @@ $messages['qqq'] = array(
 	'right-gadgets-definition-create' => '{{doc-right}}',
 	'right-gadgets-definition-delete' => '{{doc-right}}',
 	'right-gadgets-definition-edit' => '{{doc-right}}',
+
+	# User groups
+	'group-gadgetartists' => '{{group|gadgetartists}}',
+	'group-gadgetartists-member' => '{{group|gadgetartists|member}}',
+	'grouppage-gadgetartists' => '{{group|gadgetartists|page}}',
+	'group-gadgetmanagers' => '{{group|gadgetmanagers}}',
+	'group-gadgetmanagers-member' => '{{group|gadgetmanagers|member}}',
+	'grouppage-gadgetmanagers' => '{{group|gadgetmanagers|page}}',
 );
 
 /** Afrikaans (Afrikaans)
