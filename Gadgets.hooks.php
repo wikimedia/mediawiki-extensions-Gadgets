@@ -329,7 +329,7 @@ class GadgetsHooks {
 		}
 
 		// Add preferences JS if we're on Special:Preferences
-		if ( $out->getTitle()->equals( SpecialPage::getTitleFor( 'Preferences' ) ) ) {
+		if ( $out->getTitle()->isSpecial( 'Preferences' ) ) {
 			$out->addModules( 'ext.gadgets.preferences' );
 		}
 
@@ -347,9 +347,7 @@ class GadgetsHooks {
 		$user = $out->getUser();
 		// FIXME: This is not a nice way to do it. Maybe we should check for the presence
 		// of a module instead or something.
-		if ( $title->equals( SpecialPage::getTitleFor( 'Gadgets' ) ) ||
-				$title->equals( SpecialPage::getTitleFor( 'Preferences' ) ) )
-		{
+		if ( $title->isSpecial( 'Gadgets' ) || $title->isSpecial( 'Preferences' ) ) {
 			global $wgGadgetEnableSharing;
 
 			// Pass the source data for each source that is used by a repository
