@@ -204,6 +204,14 @@ class SpecialGadgets extends SpecialPage {
 		$repo = LocalGadgetRepo::singleton();
 		$gadgetsByCategory = $repo->getGadgetsByCategory();
 
+		// Only load the gadget manager module if needed
+		if ( $user->isAllowed( 'gadgets-definition-delete' )
+			|| $user->isAllowed( 'gadgets-definition-edit' )
+			|| $user->isAllowed( 'gadgets-definition-create' )
+		) {
+			$out->addModules( 'ext.gadgets.gadgetmanager' );
+		}
+
 		// If there there are no gadgets at all, exit early.
 		if ( !count( $gadgetsByCategory ) ) {
 			$noGadgetsMsgHtml = Html::element( 'p',
@@ -219,14 +227,6 @@ class SpecialGadgets extends SpecialPage {
 		$out->addWikiMsg( 'gadgets-pagetext',
 			Title::newFromText( 'Special:Recentchanges/namespace=' . NS_GADGET_DEFINITION )->getPrefixedText()
 		);
-
-		// Only load the gadget manager module if needed
-		if ( $user->isAllowed( 'gadgets-definition-delete' )
-			|| $user->isAllowed( 'gadgets-definition-edit' )
-			|| $user->isAllowed( 'gadgets-definition-create' )
-		) {
-			$out->addModules( 'ext.gadgets.gadgetmanager' );
-		}
 
 		// Sort categories alphabetically
 		ksort( $gadgetsByCategory );
