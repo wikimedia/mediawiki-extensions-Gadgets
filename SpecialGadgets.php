@@ -122,50 +122,59 @@ class SpecialGadgets extends SpecialPage {
 			)
 
 		);
-		if ( $user->isAllowed( 'gadgets-definition-edit' ) ) {
-			$extra[] = Linker::link(
-				GadgetsHooks::getDefinitionTitleFromID( $gadget->getId() ),
-				wfMessage( 'gadgets-gadget-modify' )->escaped(),
-				array(
-					'title' => wfMessage( 'gadgets-gadget-modify-tooltip' )->plain(),
-					'class' => 'mw-gadgets-modify',
-				),
-				array( 'action' => 'edit' )
-			);
-		}
+		$gadgetDefinitionTitle = GadgetsHooks::getDefinitionTitleFromID( $gadget->getId() );
 
-		if ( $user->isAllowed( 'gadgets-definition-delete' ) ) {
-			$extra[] = Linker::link(
-				GadgetsHooks::getDefinitionTitleFromID( $gadget->getId() ),
-				wfMessage( 'gadgets-gadget-delete' )->escaped(),
-				array(
-					'title' => wfMessage( 'gadgets-gadget-delete-tooltip' )->plain(),
-					'class' => 'mw-gadgets-delete',
-				),
-				array( 'action' => 'delete' )
-			);
+		if ( $gadgetDefinitionTitle instanceof Title ) {
+
+			if ( $user->isAllowed( 'gadgets-definition-edit' ) ) {
+				$extra[] = Linker::link(
+					$gadgetDefinitionTitle,
+					wfMessage( 'gadgets-gadget-modify' )->escaped(),
+					array(
+						'title' => wfMessage( 'gadgets-gadget-modify-tooltip' )->plain(),
+						'class' => 'mw-gadgets-modify',
+					),
+					array( 'action' => 'edit' )
+				);
+			}
+	
+			if ( $user->isAllowed( 'gadgets-definition-delete' ) ) {
+				$extra[] = Linker::link(
+					$gadgetDefinitionTitle,
+					wfMessage( 'gadgets-gadget-delete' )->escaped(),
+					array(
+						'title' => wfMessage( 'gadgets-gadget-delete-tooltip' )->plain(),
+						'class' => 'mw-gadgets-delete',
+					),
+					array( 'action' => 'delete' )
+				);
+			}
 		}
 
 		// Edit interface (gadget title and description)
 		$editTitle = $editDescription = '';
 		if ( $user->isAllowed( 'editinterface' ) ) {
 			$t = Title::makeTitleSafe( NS_MEDIAWIKI, $gadget->getTitleMessageKey() . $suffix );
-			$editLink = Linker::link(
-				$t,
-				wfMessage( 'gadgets-message-edit' )->escaped(),
-				array( 'title' => wfMessage( 'gadgets-message-edit-tooltip', $t->getPrefixedText() ) ),
-				array( 'action' => 'edit' )
-			);
-			$editTitle = '<span class="mw-gadgets-messagelink">' . $editLink . '</span>';
+			if ( $t ) {
+				$editLink = Linker::link(
+					$t,
+					wfMessage( 'gadgets-message-edit' )->escaped(),
+					array( 'title' => wfMessage( 'gadgets-message-edit-tooltip', $t->getPrefixedText() ) ),
+					array( 'action' => 'edit' )
+				);
+				$editTitle = '<span class="mw-gadgets-messagelink">' . $editLink . '</span>';
+			}
 
 			$t = Title::makeTitleSafe( NS_MEDIAWIKI, $gadget->getDescriptionMessageKey() . $suffix );
-			$editLink = Linker::link(
-				$t,
-				wfMessage( $t->isKnown() ? 'gadgets-desc-edit' : 'gadgets-desc-add' )->escaped(),
-				array( 'title' => wfMessage( $t->isKnown() ? 'gadgets-desc-edit-tooltip' : 'gadgets-desc-add-tooltip', $t->getPrefixedText() ) ),
-				array( 'action' => 'edit' )
-			);
-			$editDescription = '<span class="mw-gadgets-messagelink">' . $editLink . '</span>';
+			if ( $t ) {
+				$editLink = Linker::link(
+					$t,
+					wfMessage( $t->isKnown() ? 'gadgets-desc-edit' : 'gadgets-desc-add' )->escaped(),
+					array( 'title' => wfMessage( $t->isKnown() ? 'gadgets-desc-edit-tooltip' : 'gadgets-desc-add-tooltip', $t->getPrefixedText() ) ),
+					array( 'action' => 'edit' )
+				);
+				$editDescription = '<span class="mw-gadgets-messagelink">' . $editLink . '</span>';
+			}
 		}
 
 		// Gadget heading
@@ -262,13 +271,15 @@ class SpecialGadgets extends SpecialPage {
 			$editLink = '';
 			if ( $user->isAllowed( 'editinterface' ) && $category !== '' ) {
 				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "gadgetcategory-{$category}{$suffix}" );
-				$editLink = Linker::link(
-					$t,
-					wfMessage( 'gadgets-message-edit' )->escaped(),
-					array( 'title' => wfMessage( 'gadgets-message-edit-tooltip', $t->getPrefixedText() ) ),
-					array( 'action' => 'edit' )
-				);
-				$editLink = '<span class="mw-gadgets-messagelink">' . $editLink . '</span>';
+				if ( $t ) {
+					$editLink = Linker::link(
+						$t,
+						wfMessage( 'gadgets-message-edit' )->escaped(),
+						array( 'title' => wfMessage( 'gadgets-message-edit-tooltip', $t->getPrefixedText() ) ),
+						array( 'action' => 'edit' )
+					);
+					$editLink = '<span class="mw-gadgets-messagelink">' . $editLink . '</span>';
+				}
 			}
 
 			// Category heading
@@ -369,7 +380,7 @@ class SpecialGadgets extends SpecialPage {
 			// from NS_MEDIAWIKI that don't exist but are 'isAlwaysKnown'
 			// due to their default value from PHP messages files
 			// (which we don't want to export)
-			if ( is_object( $exportTitle ) && $exportTitle->exists() ) {
+			if ( $exportTitle && $exportTitle->exists() ) {
 				$exportList .= $exportTitle->getPrefixedDBkey() . "\n";
 				$exportDisplayList .= '<li>'. Linker::link( $exportTitle ) . '</li>';
 			}
