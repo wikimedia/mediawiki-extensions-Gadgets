@@ -247,8 +247,7 @@
 					type: 'GET',
 					dataType: 'json',
 					success: function( data ) {
-						if ( data && data.query && data.query.gadgetcategories
-							&& data.query.gadgetcategories[0] )
+						if ( data && data.query && data.query.gadgetcategories )
 						{
 							data = data.query.gadgetcategories;
 							// Update cache
