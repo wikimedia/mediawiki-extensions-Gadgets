@@ -93,7 +93,9 @@
 		/**
 		 * @var {Number} Maximum number of autocomplete suggestions in the gadget editor input fields.
 		 */
-		 suggestLimit = 7;
+		 suggestLimit = 7,
+		 nsGadgetId = mw.config.get( 'wgNamespaceIds' ).gadget,
+		 nsSpecialId = mw.config.get( 'wgNamespaceIds' ).special;
 
 	/* Local functions */
 
@@ -178,11 +180,11 @@
 					ga.ui.startGadgetManager( id );
 					return;
 				}
-				// Use localized page name if possible to avoid redirect
+				// Use localized special page name if possible to avoid redirect
 				if ( mw.config.get( 'wgCanonicalSpecialPageName' ) === 'Gadgets' ) {
-					t = new mw.Title( mw.config.get( 'wgTitle' ) + '/' + id, -1 );
+					t = new mw.Title( mw.config.get( 'wgTitle' ) + '/' + id, nsSpecialId );
 				} else {
-					t = new mw.Title( 'Gadgets/' + id, -1 );
+					t = new mw.Title( 'Gadgets/' + id, nsSpecialId );
 				}
 				window.location.href = t.getUrl();
 
@@ -344,8 +346,7 @@
 		 * @return {jQuery} The form.
 		 */
 		 getFancyForm: function( gadget, categories, mode ) {
-			var	nsGadgetId = mw.config.get( 'wgNamespaceIds' ).gadget,
-				metadata = gadget.metadata,
+			var	metadata = gadget.metadata,
 				$form = $( tpl.fancyForm ).localize(),
 				$idSpan = $form.find( '.mw-gadgetmanager-id' ),
 				$idErrMsg = $form.find( '.mw-gadgetmanager-id-errorbox' );
