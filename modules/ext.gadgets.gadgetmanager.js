@@ -185,7 +185,12 @@
 					t = new mw.Title( 'Gadgets/' + id, -1 );
 				}
 				window.location.href = t.getUrl();
-			} );
+
+			} ).find( 'a' ).click( function( e ) {
+				// Avoid other links from becoming unclickable,
+				// Don't let clicks on those bubble up
+				e.stopPropagation();
+			});
 
 			if ( ga.conf.userIsAllowed['gadgets-definition-create'] ) {
 				var createTab = mw.util.addPortletLink(
