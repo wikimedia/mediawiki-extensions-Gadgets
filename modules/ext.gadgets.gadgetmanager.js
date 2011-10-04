@@ -362,7 +362,7 @@
 						return;
 					}
 
-					// Auto-correct trim if needed (leading/tailing spaces are invalid)
+					// Auto-correct trim if needed (leading/trailing spaces are invalid)
 					// No need to raise errors just for that.
 					if ( $.trim( val ) !== val ) {
 						val = $.trim( val );
