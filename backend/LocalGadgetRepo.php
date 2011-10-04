@@ -7,7 +7,7 @@ class LocalGadgetRepo extends GadgetRepo {
 	 * use $missCache instead. Values may be null, in which case only the gadget's
 	 * existence is cached and the data must still be retrieved from memc or the DB.
 	 * 
-	 * array( id => null|array( 'json' => JSON blob, 'timestamp' => timestamp ) )
+	 * array( id => null|array( 'json' => JSON string, 'timestamp' => timestamp ) )
 	 */
 	protected $data = array();
 	
