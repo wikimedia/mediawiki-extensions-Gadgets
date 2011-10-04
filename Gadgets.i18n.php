@@ -36,7 +36,7 @@ Administrators manage the [[Special:Gadgets|gadget definitions, titles and descr
 	'gadgets-not-found' => 'Gadget "$1" not found.',
 	'gadgets-nosuchaction' => 'No such action',
 
-	// Main page
+	// All gadgets overview
 	'gadgets-pagetext' => "Below is a list of gadgets available on this wiki. Users can enable or disable these through their [[Special:Preferences#mw-prefsection-gadgets|preferences page]].
 This overview provides easy access to the gadget defintions and system message pages that define each gadget's description and title.
 
@@ -58,13 +58,13 @@ This overview provides easy access to the gadget defintions and system message p
 	'gadgets-gadget-delete' => 'Delete gadget',
 	'gadgets-gadget-delete-tooltip' => 'Delete this gadget',
 
-	// Single gadget page
+	// Single gadget view
 	'gadgets-gadget-title' => 'Gadget "$1"',
 	'gadgets-prop-default-on' => 'This gadget is enabled for everyone by default.',
 	'gadgets-prop-hidden-on' => 'This is a hidden gadget.',
 	'gadgets-prop-shared-on' => 'This gadget is shared.',
 
-	// Export page
+	// Export
 	'gadgets-export-title' => 'Exporting gadget "$1"',
 	'gadgets-export-text' => 'To export this gadget, click on "{{int:gadgets-export-download}}" button, save the downloaded file,
 go to Special:Import on destination wiki and upload it. You must have appropriate permissions on the destination wiki ($3) including the right to edit in the {{ns:Gadget}} and {{ns:Gadget_definition}} namespaces.',
@@ -146,29 +146,33 @@ $messages['qqq'] = array(
 
 	# For Special:Gadgets
 	'gadgets-title' => '{{Identical|Gadgets}}',
+	'gadgets-nosuchaction' => 'Identical to core:
+* {{mw-msg|nosuchaction}}.',
+
+	// All gadgets view
+	'gadgets-message-edit' => 'Used as linktext for the link to edit the cateogory title, gadget title or gadget description.
+
+{{Identical|Edit}}',
+	'gadgets-message-edit-tooltip' => '$1 is full page name',
+	'gadgets-desc-edit-tooltip' => '$1 is full page name',
+	'gadgets-desc-add-tooltip' => '$1 is full page name',
+	'gadgets-gadget-permalink-tooltip' => '$1 is the gadget id',
+	'gadgets-gadget-export-tooltip' => '$1 is the gadget id',
+	'gadgets-gadget-modify-tooltip' => '$1 is the gadget id',
+	'gadgets-gadget-delete-tooltip' => '$1 is the gadget id',
+
+	// Export
 	'gadgets-export' => 'Used on [[Special:Gadgets]]. This is a verb, not a noun.
 
 {{Identical|Export}}',
 	'gadgets-export-download' => 'Use the verb for this message. Submit button.
 
 {{Identical|Download}}',
-	'gadgets-message-edit' => 'Used as linktext for the link to edit the cateogory title, gadget title or gadget description.
 
-{{Identical|Edit}}',
-	'gadgets-message-edit-tooltip' => 'Parameters:
-* $1: Page name in the MediaWiki namespace where this message is defined.',
-	'gadgets-desc-add' => 'Used as linktext for the link to create gadget description.
-
-{{Identical|Add}}.',
-	'gadgets-desc-add-tooltip' => 'Parameters:
-* $1: Page name in the MediaWiki namespace where this message is defined.',
-	'gadgets-nosuchaction' => 'Identical to core:
-* {{mw-msg|nosuchaction}}.',
+	# For the ext.gadgets.gadgetmanager module
 	'gadgets-gadget-create' => 'Identical to core:
 * {{mw-msg|vector-view-create}}
 * {{mw-msg|create}}',
-
-	# For the ext.gadgets.gadgetmanager module
 	'gadgetmanager-comment-modify' => 'Edit summary used when modifying gadget definition pages through AJAX on [[Special:Gadgets]].',
 	'gadgetmanager-comment-create' => 'Edit summary used when creating gadget definition pages through AJAX on [[Special:Gadgets]].',
 

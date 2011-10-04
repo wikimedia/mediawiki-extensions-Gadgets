@@ -108,7 +108,7 @@ class SpecialGadgets extends SpecialPage {
 			$this->getTitle( $gadget->getId() ),
 			wfMessage( 'gadgets-gadget-permalink' )->escaped(),
 			array(
-				'title' => wfMessage( 'gadgets-gadget-permalink-tooltip' )->plain(),
+				'title' => wfMessage( 'gadgets-gadget-permalink-tooltip', $gadget->getId() )->plain(),
 				'class' => 'mw-gadgets-permalink',
 			)
 		);
@@ -117,7 +117,7 @@ class SpecialGadgets extends SpecialPage {
 			$this->getTitle( "{$gadget->getId()}/export" ),
 			wfMessage( 'gadgets-gadget-export' )->escaped(),
 			array(
-				'title' => wfMessage( 'gadgets-gadget-export-tooltip' )->plain(),
+				'title' => wfMessage( 'gadgets-gadget-export-tooltip', $gadget->getId() )->plain(),
 				'class' => 'mw-gadgets-export',
 			)
 
@@ -131,7 +131,7 @@ class SpecialGadgets extends SpecialPage {
 					$gadgetDefinitionTitle,
 					wfMessage( 'gadgets-gadget-modify' )->escaped(),
 					array(
-						'title' => wfMessage( 'gadgets-gadget-modify-tooltip' )->plain(),
+						'title' => wfMessage( 'gadgets-gadget-modify-tooltip', $gadget->getId() )->plain(),
 						'class' => 'mw-gadgets-modify',
 					),
 					array( 'action' => 'edit' )
@@ -143,7 +143,7 @@ class SpecialGadgets extends SpecialPage {
 					$gadgetDefinitionTitle,
 					wfMessage( 'gadgets-gadget-delete' )->escaped(),
 					array(
-						'title' => wfMessage( 'gadgets-gadget-delete-tooltip' )->plain(),
+						'title' => wfMessage( 'gadgets-gadget-delete-tooltip', $gadget->getId() )->plain(),
 						'class' => 'mw-gadgets-delete',
 					),
 					array( 'action' => 'delete' )
@@ -159,7 +159,7 @@ class SpecialGadgets extends SpecialPage {
 				$editLink = Linker::link(
 					$t,
 					wfMessage( 'gadgets-message-edit' )->escaped(),
-					array( 'title' => wfMessage( 'gadgets-message-edit-tooltip', $t->getPrefixedText() ) ),
+					array( 'title' => wfMessage( 'gadgets-message-edit-tooltip', $t->getPrefixedText() )->plain() ),
 					array( 'action' => 'edit' )
 				);
 				$editTitle = '<span class="mw-gadgets-messagelink">' . $editLink . '</span>';
@@ -170,7 +170,7 @@ class SpecialGadgets extends SpecialPage {
 				$editLink = Linker::link(
 					$t,
 					wfMessage( $t->isKnown() ? 'gadgets-desc-edit' : 'gadgets-desc-add' )->escaped(),
-					array( 'title' => wfMessage( $t->isKnown() ? 'gadgets-desc-edit-tooltip' : 'gadgets-desc-add-tooltip', $t->getPrefixedText() ) ),
+					array( 'title' => wfMessage( $t->isKnown() ? 'gadgets-desc-edit-tooltip' : 'gadgets-desc-add-tooltip', $t->getPrefixedText() )->plain() ),
 					array( 'action' => 'edit' )
 				);
 				$editDescription = '<span class="mw-gadgets-messagelink">' . $editLink . '</span>';
