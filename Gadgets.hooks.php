@@ -78,8 +78,13 @@ class GadgetsHooks {
 			return true;
 		}
 
-		$previousRev = $revision->getPrevious();
-		$prevTs = $previousRev instanceof Revision ? $previousRev->getTimestamp() : wfTimestampNow();
+		$prevTs = wfTimestampNow();
+		if ( $revision ) { // $revision is null for null edits
+			$previousRev = $revision->getPrevious();
+			if ( $previousRev ) { // $previousRev is null if there is no previous revision
+				$prevTs = $previousRev->getTimestamp();
+			}
+		}
 
 		// Update the database entry for this gadget
 		$repo = LocalGadgetRepo::singleton();
