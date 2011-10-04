@@ -273,7 +273,7 @@
 			},
 
 			/**
-			 * Creates or edits an existing gadget definition.
+			 * Edits an existing gadget definition.
 			 *
 			 * @param gadget {Object}
 			 * - id {String} Id of the gadget to modify
@@ -284,26 +284,37 @@
 			 * 'edit' action)
 			 * - error {Function} Called with one argument (status from API if availabe,
 			 * otherwise, if the request failed, 'unknown' is given)
+			 * - extraquery {Object} Query parameters to add or overwrite the default.
 			 * @return {jqXHR}
 			 */
 			doModifyGadget: function( gadget, o ) {
 				var t = new mw.Title(
-					gadget.id + '.js',
-					mw.config.get( 'wgNamespaceIds' ).gadget_definition
-				);
-				return $.ajax({
-					url: mw.util.wikiScript( 'api' ),
-					type: 'POST',
-					data: {
+						gadget.id + '.js',
+						mw.config.get( 'wgNamespaceIds' ).gadget_definition
+					),
+					query = {
 						format: 'json',
 						action: 'edit',
 						title: t.getPrefixedDb(),
 						text: $.toJSON( gadget.metadata ),
 						summary: mw.msg( 'gadgetmanager-comment-modify', gadget.id ),
-						token: mw.user.tokens.get( 'editToken' ),
-						basetimestamp: gadget.definitiontimestamp,
-						starttimestamp: o.starttimestamp
-					},
+						token: mw.user.tokens.get( 'editToken' )
+					};
+					// Optional, only include if passed
+					if ( gadget.definitiontimestamp ) {
+						query.basetimestamp = gadget.definitiontimestamp;
+					}
+					if ( o.starttimestamp ) {
+						query.starttimestamp = o.starttimestamp;
+					}
+					// Allow more customization for mw.gadgets.api.doCreateGadget
+					if ( o.extraquery ) {
+						$.extend( query, o.extraquery );
+					}
+				return $.ajax({
+					url: mw.util.wikiScript( 'api' ),
+					type: 'POST',
+					data: query,
 					dataType: 'json',
 					success: function( data ) {
 						// Invalidate cache
@@ -329,6 +340,26 @@
 			},
 
 			/**
+			 * Create a gadget by creating a gadget definition page.
+			 * Like mw.gadgets.api.doModifyGadget(), but to create a new gadget.
+			 * Will fail if gadget exists already.
+			 *
+			 * @param gadget {Object}
+			 * - id {String}
+			 * - metadata {Object}
+			 * @param o {Object} Additional options
+			 * @return {jqXHR}
+			 */
+			doCreateGadget: function( gadget, o ) {
+				return mw.gadgets.api.doModifyGadget( gadget, $.extend( o, {
+					extraquery: {
+						createonly: 1,
+						summary: mw.msg( 'gadgetmanager-comment-create', gadget.id )
+					}
+				} ) );
+			},
+
+			/**
 			 * Deletes a gadget definition.
 			 *
 			 * @param id {String} Id of the gadget to delete.
@@ -341,6 +372,19 @@
 				cacheGadgetData( 'local', id, null );
 				error( '@todo' );
 				return null;
+			},
+
+			/**
+			 * Cache clearing
+			 * @return {Boolean}
+			 */
+			clearGadgetCache: function() {
+				gadgetCache = {};
+				return true;
+			},
+			clearCatgoryCache: function() {
+				gadgetCategoryCache = {};
+				return true;
 			}
 		}
 	};

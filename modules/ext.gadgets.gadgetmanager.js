@@ -18,6 +18,11 @@
 		tpl = {
 			fancyForm: '<form class="mw-gadgetmanager-form">\
 					<fieldset>\
+						<div class="mw-gadgetmanager-id-wrapper">\
+							<label for="mw-gadgetmanager-input-id"><html:msg key="gadgetmanager-prop-id" /><html:msg key="colon-separator" /></label>\
+							<span class="mw-gadgetmanager-id"><input type="text" id="mw-gadgetmanager-input-id" /></span>\
+							<span class="mw-gadgetmanager-id-error"></span>\
+						</div>\
 						<legend><html:msg key="gadgetmanager-propsgroup-module" /></legend>\
 						<table>\
 							<tr>\
@@ -116,6 +121,24 @@
 		+ pad( d.getUTCMinutes() ) + ':'
 		+ pad( d.getUTCSeconds() ) + 'Z';
 	}
+	/**
+	 * Validate a gadget id, which must be a valid
+	 * title, as well as a valid module name.
+	 * @param id {String}
+	 * @return {Boolean}
+	 */
+	function validateGadgetId( id ) {
+		return id.length
+			&& new mw.Title( id, mw.config.get( 'wgNamespaceIds' ).gadget_definition ).getMainText() === id;
+	}
+	/**
+	 * Toggle the state of the UI buttons in a dialog.
+	 * @param $dialog {jQuery.ui.widget from jquery.ui.dialog}
+	 * @param state {String} 'enable' or 'disable' (defaults to disable)
+	 */
+	function toggleDialogButtons( $form, state ) {
+		$form.dialog( 'widget' ).find( 'button' ).button( state );
+	}
 
 	/* Public functions */
 
@@ -131,12 +154,14 @@
 				if ( ga.conf.userIsAllowed['gadgets-definition-edit'] ) {
 					$el.find( '.mw-gadgets-modify' ).click( function( e ) {
 						e.preventDefault();
-						ga.ui.startGadgetEditor( $el.data( 'gadget-id' ) );
+						e.stopPropagation(); // To stop bubbling up to .mw-gadgets-gadget
+						ga.ui.startGadgetManager( 'modify', $el.data( 'gadget-id' ) );
 					});
 				}
 				if ( ga.conf.userIsAllowed['gadgets-definition-delete'] ) {
-					$el.find( '.mw-gadgets-modify' ).click( function( e ) {
-						e.preventDefault();
+					$el.find( '.mw-gadgets-delete' ).click( function( e ) {
+						//e.preventDefault();
+						//e.stopPropagation();
 						// @todo: Show delete action form
 					});
 				}
@@ -145,11 +170,12 @@
 			// Entire gadget list item is clickable
 			$( '.mw-gadgets-gadget' ).click( function( e ) {
 				e.preventDefault();
+				e.stopPropagation();
 				var	t,
 					id = $( this ).data( 'gadget-id' );
 
 				if ( ga.conf.userIsAllowed['gadgets-definition-edit'] ) {
-					ga.ui.startGadgetEditor( id );
+					ga.ui.startGadgetManager( id );
 					return;
 				}
 				// Use localized page name if possible to avoid redirect
@@ -159,7 +185,6 @@
 					t = new mw.Title( 'Gadgets/' + id, -1 );
 				}
 				window.location.href = t.getUrl();
-				return false;
 			} );
 
 			if ( ga.conf.userIsAllowed['gadgets-definition-create'] ) {
@@ -175,41 +200,68 @@
 				);
 				$( createTab ).click( function( e ) {
 					e.preventDefault();
-					// @todo: Trigger edit form with editable field for gadget id.
+					ga.ui.startGadgetManager( 'create' );
 				} );
 			}
 
 		},
 
 		/**
-		 * Initialize the gadget editor dialog.
+		 * Initialize the gadget manager dialog.
 		 *
 		 * @asynchronous
+		 * @param mode {String} (See mw.gadgets.ui.getFancyForm)
 		 * @param gadgetId {String}
 		 */
-		startGadgetEditor: function( gadgetId ) {
+		startGadgetManager: function( mode, gadgetId ) {
+
 			// Ad hoc multi-loader. We need both requests, which are asynchronous,
 			// to be complete. Which ever finishes first will set the local variable
 			// to it's return value for the other callback to use.
 			// @todo Notification: In case of an 'error'.
 			var gadget, cats;
 
+
+			if ( mode === 'create' ) {
+				// New gadget, no need to query the api
+				gadget = {
+					id: undefined,
+					metadata: {
+						settings: {
+							rights: [],
+							'default': false,
+							hidden: false,
+							shared: false,
+							category: ''
+						},
+						module: {
+							scripts: [],
+							styles: [],
+							dependencies: [],
+							messages: []
+						}
+					},
+					definitiontimestamp: undefined,
+					title: undefined
+				};
+			} else {
+				ga.api.getGadgetData( gadgetId, function( ret ) {
+					if ( cats ) {
+						// getGadgetCategories already done
+						return ga.ui.showFancyForm( ret, cats, mode );
+					}
+					// getGadgetCategories not done yet, leave gadget for it's callback to use
+					gadget = ret;
+				});
+			}
+
 			ga.api.getGadgetCategories( function( ret ) {
 				if ( gadget ) {
 					// getGadgetData already done
-					return ga.ui.showFancyForm( gadget, ret );
+					return ga.ui.showFancyForm( gadget, ret, mode );
 				}
 				// getGadgetData not done yet, leave cats for it's callback to use
 				cats = ret;
-			});
-
-			ga.api.getGadgetData( gadgetId, function( ret ) {
-				if ( cats ) {
-					// getGadgetCategories already done
-					return ga.ui.showFancyForm( ret, cats );
-				}
-				// getGadgetCategories not done yet, leave gadget for it's callback to use
-				gadget = ret;
 			});
 		},
 
@@ -218,25 +270,41 @@
 		 *
 		 * @param gadget {Object} Gadget object of the gadget to be modified.
 		 * @param categories {Array} Gadget categories.
+		 * @param mode {String} (See mw.gadgets.ui.getFancyForm)
 		 * @return {jQuery} The (dialogged) form.
 		 */
-		showFancyForm: function( gadget, categories ) {
-			var	$form = ga.ui.getFancyForm( gadget.metadata, categories ),
+		showFancyForm: function( gadget, categories, mode ) {
+			var	$form = ga.ui.getFancyForm( gadget, categories, mode ),
 				buttons = {};
 
 			// Form submit
 			buttons[mw.msg( 'gadgetmanager-editor-save' )] = function() {
-				ga.api.doModifyGadget( gadget, {
-					starttimestamp: ISODateString( new Date() ),
-					success: function( response ) {
-						$form.dialog( 'close' );
-						window.location.reload();
-					},
-					error: function( error ) {
-						mw.log( 'mw.gadgets.api.doModifyGadget: error', error );
-						// @todo Notification: $formNotif.add( .. );
-					}
-				});
+				if ( mode === 'create' ) {
+					ga.api.doCreateGadget( gadget, {
+						success: function( response ) {
+							mw.log( 'mw.gadgets.api.doModifyGadget: success', arguments );
+							$form.dialog( 'close' );
+							window.location.reload();
+						},
+						error: function( error ) {
+							mw.log( 'mw.gadgets.api.doModifyGadget: error', arguments );
+							// @todo Notification: $formNotif.add( .. );
+						}
+					});
+				} else {
+					ga.api.doModifyGadget( gadget, {
+						starttimestamp: ISODateString( new Date() ),
+						success: function( response ) {
+							mw.log( 'mw.gadgets.api.doModifyGadget: success', arguments );
+							$form.dialog( 'close' );
+							window.location.reload();
+						},
+						error: function( error ) {
+							mw.log( 'mw.gadgets.api.doModifyGadget: error', arguments );
+							// @todo Notification: $formNotif.add( .. );
+						}
+					});
+				}
 			};
 
 			return $form
@@ -246,7 +314,9 @@
 					modal: true,
 					draggable: false,
 					resizable: false,
-					title: mw.message( 'gadgetmanager-editor-title', gadget.title ).escaped(),
+					title: mode === 'create'
+						? mw.message( 'gadgetmanager-editor-title-creating' ).escaped()
+						: mw.message( 'gadgetmanager-editor-title-editing', gadget.title ).escaped(),
 					buttons: buttons,
 					open: function() {
 						// Dialog is ready for action.
@@ -262,14 +332,91 @@
 		 * Generate a <form> for the given module.
 		 * Also binds events for submission and autocompletion.
 		 *
-		 * @param metadata {Object} Object to read and write to, used when saving
-		 * the gadget metadata back through the API.
+		 * @param gadget {Object} Gadget object to read from and write to, used when saving
+		 * the gadget metadata to the API.
 		 * @param categories {Array} Gadget categories.
+		 * @param mode {String} (optional) 'create' or 'modify' (defaults to 'modify')
 		 * @return {jQuery} The form.
 		 */
-		 getFancyForm: function( metadata, categories ) {
+		 getFancyForm: function( gadget, categories, mode ) {
 			var	nsGadgetId = mw.config.get( 'wgNamespaceIds' ).gadget,
-				$form = $( tpl.fancyForm ).localize();
+				metadata = gadget.metadata,
+				$form = $( tpl.fancyForm ).localize(),
+				$idSpan = $form.find( '.mw-gadgetmanager-id' ),
+				$idErrMsg = $form.find( '.mw-gadgetmanager-id-error' );
+
+			if ( mode === 'create' ) {
+
+				// Validate
+				$form.find( '#mw-gadgetmanager-input-id' ).bind( 'keyup keypress keydown', function( e ) {
+					var	val = $(this).val();
+
+					// Reset
+					toggleDialogButtons( $form, 'enable' );
+					$idSpan.removeClass( 'mw-gadgetmanager-id-invalid mw-gadgetmanager-id-available mw-gadgetmanager-id-taken' );
+
+					// Abort if empty, don't warn when user is still typing,
+					// The onblur event handler takes care of that
+					if ( !val.length ) {
+						$idErrMsg.hide(); // Just in case
+						return;
+					}
+
+					// Auto-correct trim if needed (leading/tailing spaces are invalid)
+					// No need to raise errors just for that.
+					if ( $.trim( val ) !== val ) {
+						val = $.trim( val );
+						$el.val( val );
+					}
+
+					if ( validateGadgetId( val ) ) {
+						gadget.id = val;
+						$idErrMsg.hide();
+					} else {
+						toggleDialogButtons( $form, 'disable' );
+						$idSpan.addClass( 'mw-gadgetmanager-id-invalid' );
+						$idErrMsg.text( mw.msg( 'gadgetmanager-prop-id-error-illegal' ) ).show();
+					}
+
+				// Availability and non-empty check
+				}).blur( function( e ) {
+					var val = $(this).val();
+
+					// Reset
+					$idSpan.removeClass( 'mw-gadgetmanager-id-invalid mw-gadgetmanager-id-available mw-gadgetmanager-id-taken' );
+					toggleDialogButtons( $form, 'enable' );
+
+					if ( !val.length ) {
+						toggleDialogButtons( $form, 'disable' );
+						$idSpan.addClass( 'mw-gadgetmanager-id-invalid' );
+						$idErrMsg.text( mw.msg( 'gadgetmanager-prop-id-error-blank' ) ).show();
+						return;
+					}
+
+					ga.api.clearGadgetCache();
+
+					// asynchronous from here, show loading
+					$idSpan.addClass( 'ui-autocomplete-loading' );
+
+					ga.api.getGadgetData( null, function( data ) {
+						$idSpan.removeClass( 'ui-autocomplete-loading' );
+						if ( val in data ) {
+							toggleDialogButtons( $form, 'disable' );
+							$idSpan.addClass( 'mw-gadgetmanager-id-taken' );
+							$idErrMsg.text( mw.msg( 'gadgetmanager-prop-id-error-taken' ) ).show();
+						} else {
+							$idSpan.addClass( 'mw-gadgetmanager-id-available' );
+							$idErrMsg.hide();
+						}
+					});
+				});
+
+
+			} else {
+				$form.find( '.mw-gadgetmanager-id input' ).val( gadget.id ).prop( 'disabled', true );
+				$idSpan.addClass( 'disabled' );
+			}
+
 
 			// Module properties: scripts
 			$form.find( '#mw-gadgetmanager-input-scripts' ).createPropCloud({

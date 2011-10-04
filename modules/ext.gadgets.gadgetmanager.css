@@ -11,6 +11,8 @@
 
 .mw-gadgetmanager-form table {
 	width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
 }
 
 .mw-gadgetmanager-label {
@@ -20,6 +22,57 @@
 .mw-gadgetmanager-form td,
 .mw-gadgetmanager-form th {
 	vertical-align: top;
+	padding: 2px;
+}
+
+.mw-gadgetmanager-id-wrapper {
+	width: 100%;
+	margin-bottom: 12px;
+}
+
+.mw-gadgetmanager-id-wrapper label {
+	margin-left: 20%;
+	display: inline-block;
+}
+
+.mw-gadgetmanager-id {
+	margin: 0 5px 0 0;
+	padding: 3px;
+	border: 1px solid grey;
+	background-color: white;
+}
+
+.mw-gadgetmanager-id-available {
+	background-color: #E5F6E5;
+}
+
+.mw-gadgetmanager-id-invalid {
+	background-color: #F6E5E5;
+}
+
+.mw-gadgetmanager-id-taken {
+	background-color: #E5EFF6;
+}
+
+.mw-gadgetmanager-id.disabled {
+	background-color: #F6F6F6;
+	border-color: lightgrey;
+}
+
+.mw-gadgetmanager-id input {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	width: 30%;
+	border: 0;
+	outline: 0;
+	background: transparent;
+}
+
+.mw-gadgetmanager-id-error {
+	display: none;
+	color: #FF4040;
+	font-style: italic;
 }
 
 /**
@@ -33,9 +86,10 @@
  * The PropCloud
  */
 .mw-gadgetmanager-propcloud {
-	background: white;
-	border: 1px solid grey;
 	overflow: hidden;
+	padding: 3px;
+	border: 1px solid grey;
+	background: white;
 }
 
 .mw-gadgetmanager-prop {
@@ -68,6 +122,8 @@
 
 .mw-gadgetmanager-propinput,
 .mw-gadgetmanager-propinput:focus {
+	margin: 0;
+	padding: 0;
 	border: 0;
 	outline: 0;
 	background: transparent;

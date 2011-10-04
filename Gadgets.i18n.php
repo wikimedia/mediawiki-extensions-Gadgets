@@ -73,10 +73,15 @@ go to Special:Import on destination wiki and upload it. You must have appropriat
 	# For the ext.gadgets.gadgetmanager module
 	'gadgets-gadget-create' => 'Create',
 	'gadgets-gadget-create-tooltip' => 'Create new gadget',
-	'gadgetmanager-editor-title' => 'Editing $1:',
+	'gadgetmanager-editor-title-editing' => 'Editing $1:',
+	'gadgetmanager-editor-title-creating' => 'Creating a new gadget',
 	'gadgetmanager-editor-removeprop-tooltip' => 'Remove this item',
 	'gadgetmanager-editor-save' => 'Save gadget',
 	'gadgetmanager-editor-cancel' => 'Cancel',
+	'gadgetmanager-prop-id' => 'Gadget id',
+	'gadgetmanager-prop-id-error-blank' => 'Id cannot be empty.',
+	'gadgetmanager-prop-id-error-illegal' => 'Illegal characters detected.',
+	'gadgetmanager-prop-id-error-taken' => 'A gadget by this id already exists.',
 	'gadgetmanager-propsgroup-settings' => 'Gadget settings',
 	'gadgetmanager-propsgroup-module' => 'Module properties',
 	'gadgetmanager-prop-scripts' => 'Scripts',
@@ -89,6 +94,7 @@ go to Special:Import on destination wiki and upload it. You must have appropriat
 	'gadgetmanager-prop-hidden' => 'Hide gadget',
 	'gadgetmanager-prop-shared' => 'Share gadget',
 	'gadgetmanager-comment-modify' => 'Modified definition of gadget [[Special:Gadgets/$1|$1]]',
+	'gadgetmanager-comment-create' => 'Created definition of Gadget [[Special:Gadgets/$1|$1]]',
 
 	# Validation error messages
 	'gadget-validate-invalidjson' => 'The gadget definition page contents are not a valid JSON object.',
@@ -163,7 +169,8 @@ $messages['qqq'] = array(
 * {{mw-msg|create}}',
 
 	# For the ext.gadgets.gadgetmanager module
-	'gadgetmanager-comment-modify' => 'Edit summary used when editing definitions from [[Special:Gadgets]].',
+	'gadgetmanager-comment-modify' => 'Edit summary used when modifying gadget definition pages through AJAX on [[Special:Gadgets]].',
+	'gadgetmanager-comment-create' => 'Edit summary used when creating gadget definition pages through AJAX on [[Special:Gadgets]].',
 
 	# Validation error messages
 	'gadget-validate-notset' => '$1 is the name of the property, e.g. settings.rights .',
