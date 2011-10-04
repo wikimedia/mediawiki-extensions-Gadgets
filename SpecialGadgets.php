@@ -9,8 +9,8 @@
 class SpecialGadgets extends SpecialPage {
 
 	/**
-	 * @var $par Array: Parameters passed to the page.
-	 * - gadget String: Gadget id
+	 * @var $params Array: Parameters passed to the page.
+	 * - gadget String|null: Gadget id
 	 * - action String: Action ('view', 'export')
 	 */
 	protected $params = array(

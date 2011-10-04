@@ -30,7 +30,7 @@ class GadgetsHooks {
 
 	/**
 	 * Get a Title object of the gadget definition page from a gadget id
-	 * @param $is String
+	 * @param $id String
 	 * @return Title|null
 	 */
 	public static function getDefinitionTitleFromID( $id ) {

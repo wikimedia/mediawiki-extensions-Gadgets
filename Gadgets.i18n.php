@@ -146,7 +146,7 @@ $messages['qqq'] = array(
 
 	# For Special:Gadgets
 	'gadgets-title' => '{{Identical|Gadgets}}',
-	'gadgets-export' => 'Used on [[Special:Gadgets]]. This is a verb, not noun.
+	'gadgets-export' => 'Used on [[Special:Gadgets]]. This is a verb, not a noun.
 
 {{Identical|Export}}',
 	'gadgets-export-download' => 'Use the verb for this message. Submit button.
