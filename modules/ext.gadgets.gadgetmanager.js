@@ -269,6 +269,14 @@
 				}
 				// getGadgetData not done yet, leave cats for it's callback to use
 				cats = ret;
+			// Error callback. Fallback to empty array
+			}, function( errorCode ) {
+				if ( gadget ) {
+					// getGadgetData already done
+					return ga.ui.showFancyForm( gadget, [], mode );
+				}
+				// getGadgetData not done yet, leave cats for it's callback to use
+				cats = [];
 			});
 		},
 
