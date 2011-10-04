@@ -17,12 +17,12 @@
 		 */
 		tpl = {
 			fancyForm: '<form class="mw-gadgetmanager-form">\
+					<div class="mw-gadgetmanager-id-wrapper">\
+						<label for="mw-gadgetmanager-input-id"><html:msg key="gadgetmanager-prop-id" /><html:msg key="colon-separator" /></label>\
+						<span class="mw-gadgetmanager-id"><input type="text" id="mw-gadgetmanager-input-id" /></span>\
+						<div class="mw-gadgetmanager-id-errorbox"></div>\
+					</div>\
 					<fieldset>\
-						<div class="mw-gadgetmanager-id-wrapper">\
-							<label for="mw-gadgetmanager-input-id"><html:msg key="gadgetmanager-prop-id" /><html:msg key="colon-separator" /></label>\
-							<span class="mw-gadgetmanager-id"><input type="text" id="mw-gadgetmanager-input-id" /></span>\
-							<span class="mw-gadgetmanager-id-error"></span>\
-						</div>\
 						<legend><html:msg key="gadgetmanager-propsgroup-module" /></legend>\
 						<table>\
 							<tr>\
@@ -348,7 +348,7 @@
 				metadata = gadget.metadata,
 				$form = $( tpl.fancyForm ).localize(),
 				$idSpan = $form.find( '.mw-gadgetmanager-id' ),
-				$idErrMsg = $form.find( '.mw-gadgetmanager-id-error' );
+				$idErrMsg = $form.find( '.mw-gadgetmanager-id-errorbox' );
 
 			if ( mode === 'create' ) {
 
@@ -358,7 +358,7 @@
 
 					// Reset
 					toggleDialogButtons( $form, 'enable' );
-					$idSpan.removeClass( 'mw-gadgetmanager-id-invalid mw-gadgetmanager-id-available mw-gadgetmanager-id-taken' );
+					$idSpan.removeClass( 'mw-gadgetmanager-id-error mw-gadgetmanager-id-available' );
 
 					// Abort if empty, don't warn when user is still typing,
 					// The onblur event handler takes care of that
@@ -379,7 +379,7 @@
 						$idErrMsg.hide();
 					} else {
 						toggleDialogButtons( $form, 'disable' );
-						$idSpan.addClass( 'mw-gadgetmanager-id-invalid' );
+						$idSpan.addClass( 'mw-gadgetmanager-id-error' );
 						$idErrMsg.text( mw.msg( 'gadgetmanager-prop-id-error-illegal' ) ).show();
 					}
 
@@ -388,26 +388,35 @@
 					var val = $(this).val();
 
 					// Reset
-					$idSpan.removeClass( 'mw-gadgetmanager-id-invalid mw-gadgetmanager-id-available mw-gadgetmanager-id-taken' );
+					$idSpan.removeClass( 'mw-gadgetmanager-id-error mw-gadgetmanager-id-available' );
 					toggleDialogButtons( $form, 'enable' );
 
 					if ( !val.length ) {
 						toggleDialogButtons( $form, 'disable' );
-						$idSpan.addClass( 'mw-gadgetmanager-id-invalid' );
+						$idSpan.addClass( 'mw-gadgetmanager-id-error' );
 						$idErrMsg.text( mw.msg( 'gadgetmanager-prop-id-error-blank' ) ).show();
+						return;
+					}
+
+					// Validity check here as well to avoid
+					// saying 'available' to an invalid  id.
+					if ( !validateGadgetId( val ) ) {
+						toggleDialogButtons( $form, 'disable' );
+						$idSpan.addClass( 'mw-gadgetmanager-id-error' );
+						$idErrMsg.text( mw.msg( 'gadgetmanager-prop-id-error-illegal' ) ).show();
 						return;
 					}
 
 					ga.api.clearGadgetCache();
 
 					// asynchronous from here, show loading
-					$idSpan.addClass( 'ui-autocomplete-loading' );
+					$idSpan.addClass( 'loading' );
 
 					ga.api.getGadgetData( null, function( data ) {
-						$idSpan.removeClass( 'ui-autocomplete-loading' );
+						$idSpan.removeClass( 'loading' );
 						if ( val in data ) {
 							toggleDialogButtons( $form, 'disable' );
-							$idSpan.addClass( 'mw-gadgetmanager-id-taken' );
+							$idSpan.addClass( 'mw-gadgetmanager-id-error' );
 							$idErrMsg.text( mw.msg( 'gadgetmanager-prop-id-error-taken' ) ).show();
 						} else {
 							$idSpan.addClass( 'mw-gadgetmanager-id-available' );
