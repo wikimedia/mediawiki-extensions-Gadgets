@@ -1989,10 +1989,13 @@ A-i é da manca d'avèj ij përmess aproprià an sla wiki ëd destinassion (comp
  * @author Khalid Mahmood
  */
 $messages['pnb'] = array(
+	'gadgets-desc' => 'ورتن والیاں نوں کسٹم [[Special:Gadgets|CSS and JavaScript gadgets]] چنن دیو اپنیاں [[خاص:تانگاں|تانگاں]] چ',
 	'prefs-gadgets' => 'گیجٹ',
 	'gadgets' => 'گیجٹ',
 	'gadgets-title' => 'گیجٹ',
 	'gadgets-uses' => 'ورتن آلے',
+	'gadgets-required-rights' => '{{انیک:$2|$1 حق|تھلے دتے گۓ حق: $1}} دی لوڑ اے۔',
+	'gadgets-default' => 'ہر اک لئی ڈیفالٹ راہیں قابل کیتا گیا۔',
 	'gadgets-export' => 'برامد کرو',
 	'gadgets-export-title' => 'گیجٹ برامد کرو',
 	'gadgets-not-found' => '"$1" گیجٹ نئیں لبیا',
