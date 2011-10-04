@@ -137,7 +137,7 @@ class SpecialGadgets extends SpecialPage {
 					array( 'action' => 'edit' )
 				);
 			}
-	
+
 			if ( $user->isAllowed( 'gadgets-definition-delete' ) ) {
 				$extra[] = Linker::link(
 					$gadgetDefinitionTitle,
@@ -234,7 +234,7 @@ class SpecialGadgets extends SpecialPage {
 
 		// There is atleast one gadget, let's get started.
 		$out->addWikiMsg( 'gadgets-pagetext',
-			Title::newFromText( 'Special:Recentchanges/namespace=' . NS_GADGET_DEFINITION )->getPrefixedText()
+			SpecialPage::getTitleFor( 'Recentchanges', 'namespace=' . NS_GADGET_DEFINITION )->getPrefixedText()
 		);
 
 		// Sort categories alphabetically
@@ -338,37 +338,38 @@ class SpecialGadgets extends SpecialPage {
 		$exportTitles = array();
 
 		// NS_GADGET_DEFINITION page of this gadget
-			$exportTitles[] = GadgetsHooks::getDefinitionTitleFromID( $gadget->getId() );
+		$exportTitles[] = GadgetsHooks::getDefinitionTitleFromID( $gadget->getId() );
 
 		// Title message in NS_MEDIAWIKI
-				$exportTitles[] = Title::makeTitleSafe( NS_MEDIAWIKI, $gadget->getTitleMessageKey() );
+		$exportTitles[] = Title::makeTitleSafe( NS_MEDIAWIKI, $gadget->getTitleMessageKey() );
 
 		// Translation subpages of title message
-			// @todo
+		// @todo
 
 		// Description message in NS_MEDIAWIKI
-				$exportTitles[] = Title::makeTitleSafe( NS_MEDIAWIKI, $gadget->getDescriptionMessageKey() );
+		$exportTitles[] = Title::makeTitleSafe( NS_MEDIAWIKI, $gadget->getDescriptionMessageKey() );
 
 		// Translation subpages of description message
-			// @todo
+		// @todo
 
 		// Module script and styles in NS_GADGET
-			foreach ( $gadget->getScripts() as $script ) {
-				$exportTitles[] = Title::makeTitleSafe( NS_GADGET, $script );
-			}
-			foreach ( $gadget->getStyles() as $style ) {
-				$exportTitles[] = Title::makeTitleSafe( NS_GADGET, $style );
-			}
+		foreach ( $gadget->getScripts() as $script ) {
+			$exportTitles[] = Title::makeTitleSafe( NS_GADGET, $script );
+		}
+
+		foreach ( $gadget->getStyles() as $style ) {
+			$exportTitles[] = Title::makeTitleSafe( NS_GADGET, $style );
+		}
 
 		$gadgetModule = $gadget->getModule();
 
 		// Module messages in NS_MEDIAWIKI
-			foreach( $gadgetModule->getMessages() as $message ) {
-				$exportTitles[] = Title::makeTitleSafe( NS_MEDIAWIKI, $message );
-			}
+		foreach( $gadgetModule->getMessages() as $message ) {
+			$exportTitles[] = Title::makeTitleSafe( NS_MEDIAWIKI, $message );
+		}
 
 		// Translation subpages of module messages
-			// @todo
+		// @todo
 
 		// Build line-break separated string of prefixed titles
 		$exportList = '';
@@ -416,7 +417,7 @@ class SpecialGadgets extends SpecialPage {
 	}
 
 	/**
-	 * Exports a gadget with its dependencies in a serialized form.
+	 * Handles [[Special:Gadgets/id]].
 	 * Should not be called if the gadget does not exist. $gadget must be
 	 * an instance of Gadget, not null.
 	 * @param $gadget Gadget
