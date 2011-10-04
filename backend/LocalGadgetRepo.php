@@ -3,7 +3,22 @@
  * Gadget repository that gets its gadgets from the local database.
  */
 class LocalGadgetRepo extends GadgetRepo {
+	/** Cache for EXISTING gadgets. Nonexistent gadgets must not be cached here,
+	 * use $missCache instead. Values may be null, in which case only the gadget's
+	 * existence is cached and the data must still be retrieved from memc or the DB.
+	 * 
+	 * array( id => null|array( 'json' => JSON blob, 'timestamp' => timestamp ) )
+	 */
 	protected $data = array();
+	
+	/** Cache for gadget IDs that have been queried and found to be nonexistent.
+	 * 
+	 * array( id => ignored )
+	 */
+	protected $missCache = array();
+	
+	/** If true, $data is assumed to contain all existing gadget IDs.
+	 */
 	protected $idsLoaded = false;
 	
 	/** Memcached key of the gadget names list. Subclasses may override this in their constructor.
@@ -54,7 +69,9 @@ class LocalGadgetRepo extends GadgetRepo {
 	}
 	
 	public function clearInObjectCache() {
-		$this->data = null;
+		$this->data = array();
+		$this->missCache = array();
+		$this->idsLoaded = false;
 	}
 	
 	public function isWriteable() {
@@ -108,6 +125,8 @@ class LocalGadgetRepo extends GadgetRepo {
 		// a clone. If it returned a reference to a cached object, the caller could change
 		// that object and cause weird things to happen.
 		$this->data[$id] = array( 'json' => $json, 'timestamp' => $newTs );
+		// Remove from the missing cache if present there
+		unset( $this->missCache[$id] );
 		// Write to memc too
 		$key = $this->getMemcKey( 'gadgets', 'localrepodata', $id );
 		if ( $key !== false ) {
@@ -134,12 +153,14 @@ class LocalGadgetRepo extends GadgetRepo {
 		
 		// Remove gadget from in-object cache
 		unset( $this->data[$id] );
-		// Remove from memc too
+		// Add it to the missing cache
+		$this->missCache[$id] = true;
+		// Store nonexistence in memc too
 		$key = $this->getMemcKey( 'gadgets', 'localrepodata', $id );
 		if ( $key !== false ) {
-			$wgMemc->delete( $key );
+			$wgMemc->set( $key, array() );
 		}
-		// Clear the gadget names array in memc
+		// Clear the gadget names array in memc so it'll be regenerated later
 		if ( $this->namesKey !== false ) {
 			$wgMemc->delete( $this->namesKey );
 		}
@@ -253,13 +274,30 @@ class LocalGadgetRepo extends GadgetRepo {
 			// Already loaded, nothing to do here.
 			return $this->data[$id];
 		}
+		if ( isset( $this->missCache[$id] ) ) {
+			// Gadget is already known to be missing
+			return array();
+		}
+		// Need to use array_key_exists() here because isset() returns true for nulls. !@#$ you, PHP
+		if ( $this->idsLoaded && !array_key_exists( $id, $this->data ) ) {
+			// All IDs have been loaded into $this->data but $id isn't in there,
+			// therefore it doesn't exist.
+			$this->missCache[$id] = true;
+			return array();
+		}
 		
 		// Try cache
 		$key = $this->getMemcKey( 'gadgets', 'localrepodata', $id );
 		$cached = $key !== false ? $wgMemc->get( $key ) : false;
 		if ( is_array( $cached ) ) {
 			// Yay, data is in cache
-			$this->data[$id] = $cached;
+			if ( count( $cached ) ) {
+				// Cache entry contains data
+				$this->data[$id] = $cached;
+			} else {
+				// Cache entry signals nonexistence
+				$this->missCache[$id] = true;
+			}
 			return $cached;
 		}
 		
@@ -273,11 +311,13 @@ class LocalGadgetRepo extends GadgetRepo {
 			// Gadget doesn't exist
 			// Use empty array to prevent confusion with $wgMemc->get() return values for missing keys
 			$data = array();
+			// DO NOT store this in $this->data, because it's supposed to contain existing gadgets only
+			$this->missCache[$id] = true;
 		} else {
 			$data = array( 'json' => $row->gd_blob, 'timestamp' => $row->gd_timestamp );
+			// Save to object cache
+			$this->data[$id] = $data;
 		}
-		// Save to object cache
-		$this->data[$id] = $data;
 		// Save to memc
 		$wgMemc->set( $key, $data );
 		
