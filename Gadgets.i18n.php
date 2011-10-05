@@ -97,9 +97,9 @@ go to Special:Import on destination wiki and upload it. You must have appropriat
 	'gadgetmanager-comment-create' => 'Created definition of Gadget [[Special:Gadgets/$1|$1]]',
 
 	# Validation error messages
-	'gadget-validate-invalidjson' => 'The gadget definition page contents are not a valid JSON object.',
-	'gadget-validate-notset' => 'The property $1 is not set.',
-	'gadget-validate-wrongtype' => 'The property $1 must be of type $2 instead of $3.',
+	'gadgets-validate-invalidjson' => 'The gadget definition page contents are not a valid JSON object.',
+	'gadgets-validate-notset' => 'The property $1 is not set.',
+	'gadgets-validate-wrongtype' => 'The property $1 must be of type $2 instead of $3.',
 
 	# Permissions
 	'gadgets-cant-create' => 'You do not have the right to create new Gadgets.',
@@ -177,8 +177,8 @@ $messages['qqq'] = array(
 	'gadgetmanager-comment-create' => 'Edit summary used when creating gadget definition pages through AJAX on [[Special:Gadgets]].',
 
 	# Validation error messages
-	'gadget-validate-notset' => '$1 is the name of the property, e.g. settings.rights .',
-	'gadget-validate-wrongtype' => '* $1 is the name of the property, e.g. settings.rights or module.messages[3].
+	'gadgets-validate-notset' => '$1 is the name of the property, e.g. settings.rights .',
+	'gadgets-validate-wrongtype' => '* $1 is the name of the property, e.g. settings.rights or module.messages[3].
 * $2 is the type that this property is expected to have
 * $3 is the type it actually had',
 

@@ -545,6 +545,7 @@
 							meta: 'allmessages',
 							amprefix: data.term,
 							amnocontent: true,
+							amincludelocal: true,
 							amlang: mw.config.get( 'wgContentLanguage' )
 						}, function( json ) {
 							if ( json && json.query && json.query.allmessages ) {
