@@ -189,7 +189,7 @@
 				window.location.href = t.getUrl();
 
 			} ).find( 'a' ).click( function( e ) {
-				// Avoid other links from becoming unclickable,
+				// Avoid other links becoming unclickable,
 				// Don't let clicks on those bubble up
 				e.stopPropagation();
 			});
