@@ -117,13 +117,7 @@
 
 	/* Public functions */
 
-	mw.gadgets = {
-		/**
-		 * @todo: Add something derived from $wgGadgetRepositories to gadgetsConf
-		 * ... + repos: { local: { apiScript: .. }, awesomeRepo: { .. }, .. }
-		 */
-		conf: mw.config.get( 'gadgetsConf' ),
-		api: {
+	mw.gadgets.api = {
 			/**
 			 * Get the gadget blobs for all gadgets from all repositories.
 			 *
@@ -385,6 +379,5 @@
 				gadgetCategoryCache = {};
 				return true;
 			}
-		}
 	};
 })( jQuery );

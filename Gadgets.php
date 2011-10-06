@@ -144,16 +144,39 @@ $gadResourceTemplate = array(
 	'remoteExtPath' => 'Gadgets/modules'
 );
 $wgResourceModules += array(
-	// Also loaded in if javascript disabled
-	'ext.gadgets.prejs' => $gadResourceTemplate + array(
-		'styles' => 'ext.gadgets.prejs.css',
+	// Styling for elements outputted by PHP
+	'ext.gadgets.specialgadgets.prejs' => $gadResourceTemplate + array(
+		'styles' => 'ext.gadgets.specialgadgets.prejs.css',
+		'position' => 'top',
+	),
+	// Initializes mw.gadgets object
+	'ext.gadgets.init' => $gadResourceTemplate + array(
+		'scripts' => 'ext.gadgets.init.js',
+		'position' => 'top',
+	),
+	// Adds tabs to Special:Gadgets
+	'ext.gadgets.specialgadgets.tabs' => $gadResourceTemplate + array(
+		'scripts' => 'ext.gadgets.specialgadgets.tabs.js',
+		'messages' => array(
+			'gadgets-gadget-create',
+			'gadgets-gadget-create-tooltip',
+		),
+		'dependencies' => array(
+			'ext.gadgets.init',
+			'mediawiki.util',
+		),
 		'position' => 'top',
 	),
 	// Method to interact with API
 	'ext.gadgets.api' => $gadResourceTemplate + array(
 		'scripts' => 'ext.gadgets.api.js',
 		// Can't depend on user.tokens yet due to a bug in ResourceLoader (bug 30914)
-		'dependencies' => array( 'mediawiki.util', 'mediawiki.Title'/*, 'user.tokens'*/ ),
+		'dependencies' => array(
+			'ext.gadgets.init',
+			'mediawiki.Title',
+			'mediawiki.util',
+			#'user.tokens',
+		),
 	),
 	// jQuery plugin
 	'jquery.createPropCloud' => $gadResourceTemplate + array(
@@ -164,6 +187,7 @@ $wgResourceModules += array(
 		'scripts' => 'ext.gadgets.gadgetmanager.js',
 		'styles' => 'ext.gadgets.gadgetmanager.css',
 		'dependencies' => array(
+			'ext.gadgets.init',
 			'ext.gadgets.api',
 			'jquery.localize',
 			'jquery.ui.autocomplete',
@@ -174,8 +198,6 @@ $wgResourceModules += array(
 			'jquery.spinner',
 		),
 		'messages' => array(
-			'gadgets-gadget-create',
-			'gadgets-gadget-create-tooltip',
 			'gadgetmanager-editor-title-editing',
 			'gadgetmanager-editor-title-creating',
 			'gadgetmanager-editor-prop-remove',

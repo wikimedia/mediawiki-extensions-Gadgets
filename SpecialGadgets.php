@@ -32,7 +32,8 @@ class SpecialGadgets extends SpecialPage {
 	public function execute( $par ) {
 		$this->par = $par;
 		$out = $this->getOutput();
-		$out->addModuleStyles( 'ext.gadgets.prejs' );
+		$out->addModuleStyles( 'ext.gadgets.specialgadgets.prejs' );
+		$out->addModules( 'ext.gadgets.specialgadgets.tabs' );
 
 		// Map title parts to query string
 		if ( is_string( $par ) ) {
