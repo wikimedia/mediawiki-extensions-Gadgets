@@ -2018,6 +2018,7 @@ Special:Import تے جاؤ وکی تے ، چرھاؤ اینوں۔ فیر تھل�
  */
 $messages['ps'] = array(
 	'gadgets-uses' => 'کارونې',
+	'gadgets-export' => 'صادرول',
 	'gadgets-export-download' => 'ښکته کول',
 );
 
