@@ -192,10 +192,11 @@ $wgResourceModules += array(
 			'jquery.localize',
 			'jquery.ui.autocomplete',
 			'jquery.ui.dialog',
-			'mediawiki.Title',
 			'jquery.createPropCloud',
 			'jquery.json',
 			'jquery.spinner',
+			'mediawiki.Title',
+			'mediawiki.util',
 		),
 		'messages' => array(
 			'gadgetmanager-editor-title-editing',
