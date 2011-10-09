@@ -2375,7 +2375,7 @@ $messages['sr-ec'] = array(
 	'gadgets-title' => 'Гаџети',
 	'gadgets-pagetext' => 'Испод је списак посебних гаџета које корисници могу да омогуће на својој [[Special:Preferences|страници за подешавање]], као што је наведено у [[MediaWiki:Gadgets-definition|дефиницијама]].
 Овај преглед пружа брз приступ системским порукама које дефинишу сваки опис и кoд гаџета.',
-	'gadgets-uses' => 'Користи се',
+	'gadgets-uses' => 'Користи',
 	'gadgets-export' => 'Извези',
 	'gadgets-export-title' => 'Извоз гаџета',
 	'gadgets-not-found' => 'Гаџет „$1“ није пронађен.',
