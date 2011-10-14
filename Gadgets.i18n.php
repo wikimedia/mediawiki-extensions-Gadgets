@@ -875,16 +875,13 @@ Sinulla pitää olla tarvittavat oikeudet omassa wikissäsi, kuten järjestelmä
 $messages['fr'] = array(
 	'gadgets-desc' => 'Permet aux utilisateurs de choisir des [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences|préférences]]',
 	'prefs-gadgets' => 'Gadgets',
-	'gadgets-prefstext' => "Voici une liste de gadgets que vous pouvez activer pour votre compte.
-Ils font appel à JavaScript, lequel doit donc être activé sur votre navigateur Web pour qu'ils fonctionnent.
-Notez que ces gadgets n'ont aucun effet sur cette page des préférences.
+	'gadgets-prefstext' => 'Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel à JavaScript, lequel doit donc être activé pour votre navigateur Web.
 
-Notez aussi que ces gadgets spéciaux ne font nullement partie du logiciel MediaWiki, et qu'ils sont généralement développés et maintenus par des utilisateurs sur votre wiki local.
-Les administrateurs locaux peuvent modifier les gadgets disponibles en utilisant les [[MediaWiki:Gadgets-definition|définitions]] et les [[Special:Gadgets|descriptions]].",
+Notez aussi que ces gadgets spéciaux ne font nullement partie du logiciel MediaWiki. De plus, ils sont généralement développés et maintenus par les utilisateurs sur votre wiki local. Les administrateurs locaux peuvent modifier les gadgets disponibles en utilisant [[MediaWiki:Gadgets-definition|les définitions]] et les [[Special:Gadgets|descriptions]].',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
-	'gadgets-pagetext' => "Voici une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences|page de préférences]], tel que défini dans les [[MediaWiki:Gadgets-definition|définitions]].
-Cette vue d'ensemble donne un accès rapide aux pages de messages système qui définissent la description et le code de chaque gadget.",
+	'gadgets-pagetext' => 'Voici une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences|page de préférences]], tel que défini dans les [[MediaWiki:Gadgets-definition|définitions]].
+Cette vue d’ensemble donne un accès rapide aux pages de messages système qui définissent la description et le code de chaque gadget.',
 	'gadgets-uses' => 'Utilise',
 	'gadgets-required-rights' => 'Requiert {{PLURAL:$2|le droit $1|les droits suivants : $1}}.',
 	'gadgets-default' => 'Activé pour tout le monde par défaut.',
