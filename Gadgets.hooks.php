@@ -90,7 +90,7 @@ class GadgetsHooks {
 		$repo = LocalGadgetRepo::singleton();
 		// TODO: Timestamp in the constructor is ugly
 		$gadget = new Gadget( $id, $repo, $text, $prevTs );
-		$repo->modifyGadget( $gadget, $revision->getTimestamp() );
+		$repo->modifyGadget( $gadget, $revision ? $revision->getTimestamp() : $revision );
 
 		// modifyGadget() returns a Status object with an error if there was a conflict,
 		// but we don't care. If a conflict occurred, that must be because a newer edit's
