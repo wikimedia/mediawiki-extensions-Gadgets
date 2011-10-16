@@ -32,6 +32,7 @@ class SpecialGadgets extends SpecialPage {
 	public function execute( $par ) {
 		$this->par = $par;
 		$out = $this->getOutput();
+		$out->disallowUserJs();
 		$out->addModuleStyles( 'ext.gadgets.specialgadgets.prejs' );
 		$out->addModules( 'ext.gadgets.specialgadgets.tabs' );
 

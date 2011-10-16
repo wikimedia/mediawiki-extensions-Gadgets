@@ -37,5 +37,5 @@ See http://www.mediawiki.org/wiki/Extension:Gadgets#Usage
 * Gadget modules extend ResourceLoaderWikiModule and thus qualify as having
   origin ORIGIN_USER_SITEWIDE. This means that gadgets are never loaded on (special) pages
   that call OutputPage::disallowUserJs(). For example Special:Preferences, Special:UserLogin
-  and Special:ResetPass so users can always disable any broken gadgets they may have enabled,
-  and malicious gadgets will be unable to steal passwords.
+  Special:ResetPass and Special:Gadgets so users can always disable any broken gadgets they
+  may have enabled, and malicious gadgets will be unable to steal passwords.
