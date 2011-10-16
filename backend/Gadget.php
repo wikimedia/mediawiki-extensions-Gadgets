@@ -87,7 +87,12 @@ class Gadget {
 			// Do the actual validation of this property
 			$func = $validation[0];
 			if ( !$func( $val ) ) {
-				return Status::newFatal( 'gadgets-validate-wrongtype', $property, $validation[1], gettype( $val ) );
+				return Status::newFatal(
+					'gadgets-validate-wrongtype',
+					$property,
+					$validation[1],
+					gettype( $val )
+				);
 			}
 
 			if ( isset( $validation[2] ) ) {
@@ -95,7 +100,12 @@ class Gadget {
 				$func = $validation[2];
 				foreach ( $val as $i => $v ) {
 					if ( !$func( $v ) ){
-						return Status::newFatal( 'gadgets-validate-wrongtype', "{$property}[{$i}]", $validation[3], gettype( $v ) );
+						return Status::newFatal(
+							'gadgets-validate-wrongtype',
+							"{$property}[{$i}]",
+							$validation[3],
+							gettype( $v )
+						);
 					}
 				}
 			}
