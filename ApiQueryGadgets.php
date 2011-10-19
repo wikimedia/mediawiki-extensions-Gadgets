@@ -203,7 +203,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 		return array(
 			'Get a list of gadgets along with their descriptions:',
 			'    api.php?action=query&list=gadgets&gaprop=id|desc',
-			'Get a list of gadgets with all possble properties:',
+			'Get a list of gadgets with all possible properties:',
 			"    api.php?action=query&list=gadgets&gaprop=$allProps",
 			'Get a list of gadgets belonging to caregory "foo":',
 			'    api.php?action=query&list=gadgets&gacategories=foo',
