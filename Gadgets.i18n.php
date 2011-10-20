@@ -33,7 +33,9 @@ Local administrators can edit the [[MediaWiki:Gadgets-definition|definitions]] a
 	'gadgets-pagetext'  => "Below is a list of special gadgets users can enable on their [[Special:Preferences|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].
 This overview provides easy access to the system message pages that define each gadget's description and code.",
 	'gadgets-uses'      => 'Uses',
-	'gadgets-required-rights' => 'Requires the {{PLURAL:$2|$1 right|following rights: $1}}.',
+	'gadgets-required-rights' => 'Requires the following {{PLURAL:$2|right|rights}}:
+
+$1',
 	'gadgets-default'   => 'Enabled for everyone by default.',
 	'gadgets-export'    => 'Export',
 	'gadgets-export-title' => 'Gadget export',
@@ -68,7 +70,7 @@ $messages['qqq'] = array(
 
 See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimedia.org]",
 	'gadgets-required-rights' => 'Parameters:
-* $1 - a list.
+* $1 - a list in wikitext.
 * $2 - the number of items in list $1 for PLURAL use.',
 	'gadgets-export' => 'Used on [[Special:Gadgets]]. This is a verb, not noun.
 {{Identical|Export}}',
@@ -2775,7 +2777,9 @@ $messages['zh-hans'] = array(
 	'gadgets-pagetext' => '以下是一个按照[[MediaWiki:Gadgets-definition]]定义的特殊小工具列表，用户可以在他们的参数设置页面中激活它们。
 通过这个概览可以方便的获得系统信息页面，从而可以定义每个小工具的描述以及源码。',
 	'gadgets-uses' => '使用',
-	'gadgets-required-rights' => '需要{{PLURAL:$2|$1权限|以下权限：$1}}.',
+	'gadgets-required-rights' => '需要以下{{PLURAL:$2|权限|权限}}：
+
+$1',
 	'gadgets-default' => '默认情况下启用的每个人。',
 	'gadgets-export' => '导出',
 	'gadgets-export-title' => '小工具出口',
@@ -2807,7 +2811,9 @@ $messages['zh-hant'] = array(
 
 這個概覽提供的系統資訊頁面的簡易存取，可以定義每個小工具的描述以及原始碼。',
 	'gadgets-uses' => '使用',
-	'gadgets-required-rights' => '需要{{PLURAL:$2|$1權限|以下權限：$1}}。',
+	'gadgets-required-rights' => '需要以下{{PLURAL:$2|權限|權限}}：
+
+$1',
 	'gadgets-default' => '預設所有人啟用。',
 	'gadgets-export' => '匯出',
 	'gadgets-export-title' => '匯出小工具',

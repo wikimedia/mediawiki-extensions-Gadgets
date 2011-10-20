@@ -117,11 +117,14 @@ class SpecialGadgets extends SpecialPage {
 					$lnk[] = $skin->link( $t, htmlspecialchars( $t->getText() ) );
 				}
 				$wgOut->addHTML( $wgLang->commaList( $lnk ) );
-				$rights = $gadget->getRequiredRights();
+				$rights = array();
+				foreach ( $gadget->getRequiredRights() as $right ) {
+					$rights[] = '* ' . wfMessage( "right-$right" )->plain();
+				}
 
 				if ( count( $rights ) ) {
 					$wgOut->addHTML( '<br />' .
-						wfMessage( 'gadgets-required-rights', $wgLang->commaList( $rights ), count( $rights ) )->parse()
+						wfMessage( 'gadgets-required-rights', implode( "\n", $rights ), count( $rights ) )->parse()
 					);
 				}
 
