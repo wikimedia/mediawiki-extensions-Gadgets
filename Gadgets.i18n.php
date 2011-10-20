@@ -1029,7 +1029,9 @@ $messages['he'] = array(
 	'gadgets-pagetext' => 'זוהי רשימה של סקריפטים שמשתמשים יכולים להתקין באמצעות [[Special:Preferences|דף ההעדפות]] שלהם, כפי שהוגדרו ב[[MediaWiki:Gadgets-definition|הודעת המערכת המתאימה]].
 מכאן ניתן לגשת בקלות לדפי הודעות המערכת שמגדירים את התיאור והקוד של כל סקריפט.',
 	'gadgets-uses' => 'משתמש בדפים',
-	'gadgets-required-rights' => '{{PLURAL:$2|נדרשת ההרשאה $1|נדרשות ההרשאות $1}}.',
+	'gadgets-required-rights' => '{{PLURAL:$2|נדרשת ההרשאה הבאה|נדרשות ההרשאות הבאות}}:
+
+$1',
 	'gadgets-default' => 'מופעל לכולם לפי בררת מחדל.',
 	'gadgets-export' => 'יצוא',
 	'gadgets-export-title' => 'יצוא גאדג׳טים',
@@ -2760,6 +2762,7 @@ $messages['yue'] = array(
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Gaoxuewei
  * @author Hydra
+ * @author Liangent
  * @author Shinjiman
  * @author Xiaomingyan
  * @author 阿pp
@@ -2774,13 +2777,13 @@ $messages['zh-hans'] = array(
 亦都同时留意这些小工具的特殊页面不是MediaWiki软件的一部份，通常都是由您本地的wiki中开发以及维护。本地管理员可以在[[MediaWiki:Gadgets-definition]]以及[[Special:Gadgets]]编辑可供使用的小工具。',
 	'gadgets' => '小工具',
 	'gadgets-title' => '小工具',
-	'gadgets-pagetext' => '以下是一个按照[[MediaWiki:Gadgets-definition]]定义的特殊小工具列表，用户可以在他们的参数设置页面中激活它们。
+	'gadgets-pagetext' => '以下是一个按照[[MediaWiki:Gadgets-definition]]定义的特殊小工具列表，用户可以在他们的[[Special:Preferences|参数设置页面]]中激活它们。
 通过这个概览可以方便的获得系统信息页面，从而可以定义每个小工具的描述以及源码。',
 	'gadgets-uses' => '使用',
 	'gadgets-required-rights' => '需要以下{{PLURAL:$2|权限|权限}}：
 
 $1',
-	'gadgets-default' => '默认情况下启用的每个人。',
+	'gadgets-default' => '默认所有人启用。',
 	'gadgets-export' => '导出',
 	'gadgets-export-title' => '小工具出口',
 	'gadgets-not-found' => '找不到“$1”小工具。',
@@ -2793,6 +2796,7 @@ $1',
 
 /** Traditional Chinese (‪中文(繁體)‬)
  * @author Horacewai2
+ * @author Liangent
  * @author Mark85296341
  * @author Shinjiman
  * @author Waihorace
@@ -2808,7 +2812,6 @@ $messages['zh-hant'] = array(
 	'gadgets' => '小工具',
 	'gadgets-title' => '小工具',
 	'gadgets-pagetext' => '以下是一個按照 [[MediaWiki:Gadgets-definition]] 的定義特殊小工具清單，用戶可以在它們的[[Special:Preferences|偏好設定頁面]]中啟用它們。
-
 這個概覽提供的系統資訊頁面的簡易存取，可以定義每個小工具的描述以及原始碼。',
 	'gadgets-uses' => '使用',
 	'gadgets-required-rights' => '需要以下{{PLURAL:$2|權限|權限}}：
