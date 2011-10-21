@@ -495,7 +495,9 @@ Místní správci mohou upravovat [[MediaWiki:Gadgets-definition|definice]] a&nb
 	'gadgets-pagetext' => 'Níže je přehled speciálních udělátek, která si uživatelé mohou zapnout ve svém [[Special:Preferences|nastavení]]. Jejich seznam lze upravovat na stránce [[MediaWiki:Gadgets-definition]].
 Tento přehled poskytuje jednoduchý přístup k&nbsp;systémovým hlášením, která definují zdrojový kód a&nbsp;popis každého udělátka.',
 	'gadgets-uses' => 'používá',
-	'gadgets-required-rights' => 'Vyžaduje {{PLURAL:$2|oprávnění $1|následující oprávnění: $1}}.',
+	'gadgets-required-rights' => 'Vyžaduje následující {{PLURAL:$2|oprávnění}}:
+
+$1',
 	'gadgets-default' => 'Implicitně zapnuto všem.',
 	'gadgets-export' => 'Exportovat',
 	'gadgets-export-title' => 'Export udělátka',
@@ -523,7 +525,9 @@ Mae gweinyddwyr y wici hwn yn gallu golygu [[MediaWiki:Gadgets-definition|diffin
 	'gadgets-pagetext' => "Isod mae rhestr o declynnau arbennig y gall defnyddwyr eu galluogi ar eu [[Special:Preferences|tudalennau dewisiadau]], sef rhestr a bennir yn y dudalen [[MediaWiki:Gadgets-definition|diffiniadau]].
 Mae'r trosolwg hwn yn cynnig mynediad rhwydd at y tudalennau negeseuon sustem sy'n diffinio disgrifiad a chod pob teclyn.",
 	'gadgets-uses' => 'Yn defnyddio',
-	'gadgets-required-rights' => 'Mae gofyn cael y {{PLURAL:$2|gallu $1|galluoedd canlynol: $1}}.',
+	'gadgets-required-rights' => 'Mae gofyn cael y {{PLURAL:$2||gallu|galluoedd|galluoedd|galluoedd|galluoedd}}:
+
+$1',
 	'gadgets-default' => 'Wedi ei alluogi i bawb yn ddiofyn.',
 	'gadgets-export' => 'Allforio',
 	'gadgets-export-title' => 'Allforio teclyn',
@@ -586,7 +590,9 @@ Lokale Administratoren können die verfügbaren Helferlein bearbeiten. Dafür st
 	'gadgets-pagetext' => 'Liste besonderer, in [[MediaWiki:Gadgets-definition]] festgelegter Helferlein, die für jeden Benutzer in seinen [[Special:Preferences|persönlichen Einstellungen]] verfügbar sind.
 Diese Übersicht bietet direkten Zugang zu den MediaWiki-Systemnachrichten, welche die Beschreibung sowie den Programmcode jedes Helferlein enthalten.',
 	'gadgets-uses' => 'Benutzt',
-	'gadgets-required-rights' => 'Erfordert die {{PLURAL:$2|folgende Berechtigung:|folgenden Berechtigungen:}} $1',
+	'gadgets-required-rights' => 'Erfordert die {{PLURAL:$2|folgende Berechtigung|folgenden Berechtigungen}}:
+
+$1',
 	'gadgets-default' => 'Für alle standardmäßig aktiviert.',
 	'gadgets-export' => 'Export',
 	'gadgets-export-title' => 'Export der Helferlein',
@@ -913,7 +919,9 @@ Los administrators locals pôvont changiér los outils disponiblos en utilisent 
 	'gadgets-pagetext' => 'Vê-que una lista d’outils que los utilisators pôvont activar dens lor [[Special:Preferences|pâge de prèferences]], coment dèfeni dens les [[MediaWiki:Gadgets-definition|dèfinicions]].
 Ceti apèrçu balye un accès vito fêt a les pâges de mèssâjos sistèmo que dèfenéssont la dèscripcion et lo code de châque outil.',
 	'gadgets-uses' => 'Utilise',
-	'gadgets-required-rights' => 'At fôta {{PLURAL:$2|du drêt $1|de cetos drêts : $1}}.',
+	'gadgets-required-rights' => 'At fôta de cet{{PLURAL:$2|i drêt|os drêts}} :
+
+$1',
 	'gadgets-default' => 'Activâ por tot lo mondo per dèfôt.',
 	'gadgets-export' => 'Èxportacion',
 	'gadgets-export-title' => 'Èxportacion d’outil',
@@ -942,7 +950,9 @@ Teña tamén en conta que estes trebellos especiais non son parte do software de
 	'gadgets-pagetext' => 'Embaixo hai unha lista dos trebellos especiais que os usuarios poden habilitar na súa páxina de preferencias, tal e como se describe nas [[MediaWiki:Gadgets-definition|definicións]].
 Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que define cada descrición e código dos trebellos.',
 	'gadgets-uses' => 'Usa',
-	'gadgets-required-rights' => '{{PLURAL:$2|Cómpre dereitos de $1|Cómpren os seguintes dereitos: $1}}.',
+	'gadgets-required-rights' => '{{PLURAL:$2|Cómpre o seguinte dereito|Cómpren os seguintes dereitos}}:
+
+$1',
 	'gadgets-default' => 'Activar para todos por defecto.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportación de trebellos',
@@ -1167,7 +1177,9 @@ Le administratores local pote modificar le gadgets disponibile per medio de [[Me
 	'gadgets-pagetext' => 'Infra es un lista de gadgets special que le usatores pote activar in lor [[Special:Preferences|paginas de preferentias]], secundo le [[MediaWiki:Gadgets-definition|definitiones]].
 Iste supervista permitte le accesso commode al paginas de messages de systema que defini le description e codice de cata gadget.',
 	'gadgets-uses' => 'Usa',
-	'gadgets-required-rights' => 'Require le {{PLURAL:$2|derecto de $1|sequente derectos: $1}}.',
+	'gadgets-required-rights' => 'Require le sequente {{PLURAL:$2|derecto|derectos}}:
+
+$1',
 	'gadgets-default' => 'Activate pro omnes per predefinition.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportation de gadget',
@@ -1204,6 +1216,23 @@ tuju ke Special:Import pada wiki tujuan dan unggah berkas itu. Kemudian tambahka
 <pre>$2</pre>
 Anda harus memeroleh izin pada wiki tujuan (termasuk hak menyunting pesan sistem) dan mengimpor dari unggahan berkas yang harus diaktifkan.',
 	'gadgets-export-download' => 'Unduh',
+);
+
+/** Iloko (Ilokano)
+ * @author Lam-ang
+ */
+$messages['ilo'] = array(
+	'gadgets-desc' => 'Mabalin dagit agar-aramat nga apili iti [[Special:Gadgets|CSS ken JavaScript gadyets]] idiay [[Special:Preferences|kaykayat da]]',
+	'prefs-gadgets' => 'Gadyets',
+	'gadgets-prefstext' => 'Adda iti baba ti listaan ti naiduma nga gadyets nga usaren idiay pakabilan mo.
+Dagitoy nga gadyets ket naibasta iti JavaScript, masapul nga ti "browsermo" ket agususar ti JavaScript.
+Saan nga mabalin nga usaren dagitoy nga gadyets ditoy kaykayat mo nga panid.
+
+Dagitoy nga gadyets ket saan nga parte ti MediaWiki software, inaramid ken inayaywanan dagiti agar-aramat ti local wiki.
+Mabaliwan dagita administrador ti  [[MediaWiki:Gadgets-definition|definitions]] ken [[Special:Gadgets|descriptions]] ti gadyets.',
+	'gadgets' => 'Gadyets',
+	'gadgets-title' => 'Gadyets',
+	'gadgets-uses' => 'Usar',
 );
 
 /** Ido (Ido)
@@ -1606,7 +1635,9 @@ $messages['mk'] = array(
 	'gadgets-pagetext' => 'Ова е список на специјални алатки кои корисниците можат да ги активираат на нивната [[Special:Preferences|страница за нагодување]], наведени во [[MediaWiki:Gadgets-definition|определувањата]].
 Овој преглед дава лесен пристап до системските пораки кои го определуваат описот и кодот на секоја алатка.',
 	'gadgets-uses' => 'Користи',
-	'gadgets-required-rights' => 'Треба {{PLURAL:$2|да се има правото на $1|да се имаат следниве права: $1}}.',
+	'gadgets-required-rights' => '{{PLURAL:$2|Го бара следново право|Ги бара следниве права}}:
+
+$1',
 	'gadgets-default' => 'Достапно за сите по основно',
 	'gadgets-export' => 'Извези',
 	'gadgets-export-title' => 'Извоз на алатка',
@@ -1678,7 +1709,9 @@ Sila ambil perhatian juga bahawa gajet-gajet khas ini bukan sebahagian daripada 
 	'gadgets-title' => 'Gajet',
 	'gadgets-pagetext' => 'Yang berikut ialah senarai gajet khas yang boleh dihidupkan oleh pengguna melalui [[Special:Preferences|laman keutamaan]], sebagai mana yang telah [[MediaWiki:Gadgets-definition|ditakrifkan]]. Laman ini menyediakan capaian mudah kepada laman pesanan sistem yang mentakrifkan setiap kod dan keterangan gajet.',
 	'gadgets-uses' => 'Menggunakan',
-	'gadgets-required-rights' => 'Memerlukan {{PLURAL:$2|hak $1|hak-hak berikut: $1}}.',
+	'gadgets-required-rights' => '{{PLURAL:$2|Hak|Hak-hak}} yang berikut diperlukan:
+
+$1',
 	'gadgets-default' => 'Dihidupkan untuk semua orang secara sediaan.',
 	'gadgets-export' => 'Eksport',
 	'gadgets-export-title' => 'Eksport gajet',
@@ -1787,7 +1820,9 @@ Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-d
 	'gadgets-pagetext' => 'Hieronder staan de speciale uitbreidingen die gebruikers kunnen inschakelen via hun [[Special:Preferences|voorkeuren]], zoals ingesteld in de [[MediaWiki:Gadgets-definition|definities]].
 Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschrijving en de programmacode van iedere uitbreiding staat.',
 	'gadgets-uses' => 'Gebruikt',
-	'gadgets-required-rights' => '{{PLURAL:$2|Het volgende recht is|De volgende rechten zijn}} vereist: $1.',
+	'gadgets-required-rights' => '{{PLURAL:$2|Het volgende recht is|De volgende rechten zijn}} vereist:
+
+$1.',
 	'gadgets-default' => 'Standaard ingeschakeld voor iedereen.',
 	'gadgets-export' => 'Exporteren',
 	'gadgets-export-title' => 'Uitbreiding exporteren',
@@ -2098,6 +2133,7 @@ $messages['qu'] = array(
  * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
+ * @author Minisarm
  * @author Stelistcristi
  */
 $messages['ro'] = array(
@@ -2106,7 +2142,9 @@ $messages['ro'] = array(
 	'gadgets' => 'Gadgeturi',
 	'gadgets-title' => 'Gadgeturi',
 	'gadgets-uses' => 'Utilizări',
-	'gadgets-required-rights' => 'Necesită {{PLURAL:$2|dreptul $1|următoarele drepturi: $1}}.',
+	'gadgets-required-rights' => 'Necesită {{PLURAL:$2|următorul drept|următoarele drepturi}}:
+
+$1',
 	'gadgets-default' => 'Activat pentru toată lumea în mod implicit.',
 	'gadgets-export' => 'Exportă',
 	'gadgets-export-title' => 'Exportul de gadgeturi',
@@ -2164,7 +2202,9 @@ $messages['ru'] = array(
 	'gadgets-pagetext' => 'Ниже приведён список гаджетов, которые участники могут включить на своей странице настроек, в соответствии со списком на странице [[MediaWiki:Gadgets-definition|определений]].
 Этот список позволяет легко получить доступ к страницам системных сообщений, определяющих описания и исходные коды гаджетов.',
 	'gadgets-uses' => 'Использует',
-	'gadgets-required-rights' => '{{PLURAL:$2|Требуется право «$1»|Требуются права: $1}}.',
+	'gadgets-required-rights' => '{{PLURAL:$2|Требуется право|Требуются права}}:
+
+$1',
 	'gadgets-default' => 'Включён для всех по умолчанию.',
 	'gadgets-export' => 'Экспортировать',
 	'gadgets-export-title' => 'Экспорт гаджета',
@@ -2628,6 +2668,7 @@ $messages['tt-cyrl'] = array(
  * @author Dim Grits
  * @author Prima klasy4na
  * @author Riwnodennyk
+ * @author Тест
  */
 $messages['uk'] = array(
 	'gadgets-desc' => 'Дозволяє користувачам обирати [[Special:Gadgets|CSS- та JavaScript-додатки]] у своїх [[Special:Preferences|налаштуваннях]]',
@@ -2643,7 +2684,9 @@ $messages['uk'] = array(
 	'gadgets-pagetext' => 'Нижче наведений список додатків, які можна ввімкнути на [[Special:Preferences|сторінці налаштувань]]. Список міститься на [[MediaWiki:Gadgets-definition|сторінці визначень]].
 Цей список дозволяє легко переглядати системні повідомлення, які містять описи і коди додатків.',
 	'gadgets-uses' => 'Використовує',
-	'gadgets-required-rights' => '{{PLURAL:$2|Потрібне право $1|Потрібні права: $1}}.',
+	'gadgets-required-rights' => 'Потрібні наступні {{PLURAL:$2|права|права}}:
+
+$1',
 	'gadgets-default' => 'Увімкнено для всіх за замовчуванням.',
 	'gadgets-export' => 'Експортувати',
 	'gadgets-export-title' => 'Експорт додатка',
@@ -2706,7 +2749,9 @@ Cũng chú ý rằng những công cụ đặc biệt này không phải là m�
 	'gadgets-title' => 'Công cụ đa năng',
 	'gadgets-pagetext' => 'Dưới đây là danh sách các công cụ đa năng đặc biệt mà thành viên có thể dùng tại [[Special:Preferences|trang tùy chọn cá nhân]] của họ, theo [[MediaWiki:Gadgets-definition|định nghĩa]]. Trang tổng quan này cung cấp cách tiếp cận dễ dàng đến trang các thông báo hệ thống để định nghĩa miêu tả và mã của từng công cụ.',
 	'gadgets-uses' => 'Sử dụng',
-	'gadgets-required-rights' => 'Cần {{PLURAL:$2|quyền $1|các quyền: $1}}.',
+	'gadgets-required-rights' => 'Cần {{PLURAL:$2|quyền|các quyền}} sau:
+
+$1',
 	'gadgets-default' => 'Được kích hoạt cho tất cả mọi người theo mặc định.',
 	'gadgets-export' => 'Xuất',
 	'gadgets-export-title' => 'Xuất công cụ đa năng',
