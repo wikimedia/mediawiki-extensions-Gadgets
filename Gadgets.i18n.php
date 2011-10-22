@@ -560,7 +560,9 @@ Lokale administratorer kan redigere tilgængelige gadgets med [[MediaWiki:Gadget
 	'gadgets-pagetext' => 'Nedenstående er en liste med de specielle gadgets som brugere kan aktivere i deres [[Special:Preferences|indstillinger]], som defineret i [[MediaWiki:Gadgets-definition|definitionerne]].
 Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver gadgets beskrivelse og kode.',
 	'gadgets-uses' => 'Bruger',
-	'gadgets-required-rights' => 'Kræver {{PLURAL:$2|rettigheden $1|følgende rettigheder: $1}}.',
+	'gadgets-required-rights' => 'Kræver {{PLURAL:$2|rettigheden|følgende rettigheder}}:
+
+$1',
 	'gadgets-default' => 'Aktiveret for alle som standard.',
 	'gadgets-export' => 'Eksporter',
 	'gadgets-export-title' => 'Eksporter gadget',
@@ -861,7 +863,9 @@ Huomio myös, että nämä pienoisohjelmat eivät ole osa MediaWiki-ohjelmistoa 
 
 Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät pienoisohjelmien kuvauksen ja koodin.',
 	'gadgets-uses' => 'Käyttää',
-	'gadgets-required-rights' => 'Seuraava{{PLURAL:$2| $1 oikeus|t $1 oikeutta}} on vaadittu.',
+	'gadgets-required-rights' => 'Edellyttää {{PLURAL:$2|seuraavaa oikeutta|seuraavia oikeuksia}}:
+
+$1',
 	'gadgets-default' => 'Oletusarvoisesti käytössä kaikille.',
 	'gadgets-export' => 'Vie',
 	'gadgets-export-title' => 'Pienoisohjelmien vienti',
@@ -895,7 +899,9 @@ Notez aussi que ces gadgets spéciaux ne font nullement partie du logiciel Media
 	'gadgets-pagetext' => 'Voici une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences|page de préférences]], tel que défini dans les [[MediaWiki:Gadgets-definition|définitions]].
 Cette vue d’ensemble donne un accès rapide aux pages de messages système qui définissent la description et le code de chaque gadget.',
 	'gadgets-uses' => 'Utilise',
-	'gadgets-required-rights' => 'Requiert {{PLURAL:$2|le droit $1|les droits suivants : $1}}.',
+	'gadgets-required-rights' => 'Requiert {{PLURAL:$2|le droit suivant|les droits suivants}} : 
+
+$1.',
 	'gadgets-default' => 'Activé pour tout le monde par défaut.',
 	'gadgets-export' => 'Exporter',
 	'gadgets-export-title' => 'Export de gadget',
@@ -979,6 +985,7 @@ $messages['grc'] = array(
 );
 
 /** Swiss German (Alemannisch)
+ * @author Als-Chlämens
  * @author Als-Holder
  */
 $messages['gsw'] = array(
@@ -995,7 +1002,8 @@ Benutzer vum lokale Wikis entwicklet un gwartet wäre. Lokali Wiki-Ammanne chenn
 	'gadgets-pagetext' => 'Lischt vu spezielle Gadgets, wu fir jede Benutzer in syyne [[Special:Preferences|persenlige Yystellige]] verfiegbar sin, wie s [[MediaWiki:Gadgets-definition|definiert]] isch.
 Die Ibersicht bietet e direkte Zuegang zue dr Syschtemnochrichte, wu d Bschryybig un dr Programmcode vu jedem Gadget din sin.',
 	'gadgets-uses' => 'Bruucht',
-	'gadgets-required-rights' => 'Brucht {{PLURAL:$2|des Rächt:|die Rächt:}} $1',
+	'gadgets-required-rights' => 'Brucht {{PLURAL:$2|des folgendi Rächt|die folgende Rächt}}:
+$1',
 	'gadgets-default' => 'Fir alli standardmäßig aktiviert.',
 	'gadgets-export' => 'Exportiere',
 	'gadgets-export-title' => 'Hälferli exportiere',
@@ -1531,7 +1539,7 @@ Lokal Wiki-Administrateure kënnen d'Lëscht von den disponibele Gadgeten op de 
 	'gadgets-pagetext' => "Ënnendrënner ass eng Lëscht vun de spezielle Gadgeten déi d'Benotzer op hire [[Special:Preferences|Benotzer-Astellungen]] aschalte kënnen, esou wéi dat op [[MediaWiki:Gadgets-definition|definéiert]] ass.
 Dës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all Gadget beschreiwen an zum Programméiercode vun dem Gadget.",
 	'gadgets-uses' => 'Benotzt',
-	'gadgets-required-rights' => "Erfuerdert {{PLURAL:$2|d'Recht|d'Rechter}}: $1.",
+	'gadgets-required-rights' => "Erfuerdert {{PLURAL:$2|d'Recht|dës Rechter}}: $1.",
 	'gadgets-default' => 'Fir jiddwereen als Standard ageschalt.',
 	'gadgets-export' => 'Export',
 	'gadgets-export-title' => 'Export vu Gadgeten',
@@ -1671,7 +1679,9 @@ $messages['ml'] = array(
 	'gadgets-pagetext' => 'ഉപയോക്താക്കൾക്ക് അവരുടെ [[Special:Preferences|ക്രമീകരണങ്ങൾ താളിൽ]] നിന്നും സജ്ജമാക്കാവുന്ന ഗാഡ്ജറ്റുകളുടെ പട്ടിക [[MediaWiki:Gadgets-definition|അവ നിർവ്വചിക്കപ്പെട്ട പ്രകാരം]] താഴെ കൊടുത്തിരിക്കുന്നു.
 ഓരോ ഗാഡ്ജറ്റിന്റേയും വിവരണവും കോഡും ഉള്ള സന്ദേശ താളുകളിലേക്കു പോകാനുള്ള എളുപ്പവഴി ഈ പട്ടിക നൽകുന്നു.',
 	'gadgets-uses' => 'ഉപയോഗങ്ങൾ',
-	'gadgets-required-rights' => '{{PLURAL:$2|$1 അവകാശം|$1 എന്നീ അവകാശങ്ങൾ}} ആവശ്യമാണ്.',
+	'gadgets-required-rights' => 'താഴെപ്പറയുന്ന {{PLURAL:$2|അവകാശം|അവകാശങ്ങൾ}} ആവശ്യമാണ്:
+
+$1',
 	'gadgets-default' => 'എല്ലാവർക്കും സ്വതേ പ്രവർത്തനസജ്ജമായിരിക്കും.',
 	'gadgets-export' => 'കയറ്റുമതി ചെയ്യുക',
 	'gadgets-export-title' => 'ഗാഡ്ജറ്റ് കയറ്റുമതി ചെയ്യുക',
@@ -1984,7 +1994,10 @@ Lokalni administratorzy mogą edytować dostępne gadżety używając stron [[Me
 	'gadgets-pagetext' => 'Poniżej znajduje się lista specjalnych gadżetów, które użytkownicy mogą włączyć na swojej [[Special:Preferences|stronie preferencji]]. Lista ta jest zdefiniowana na stronie [[MediaWiki:Gadgets-definition|definicji]].
 Poniższy przegląd ułatwia dostęp do komunikatów systemu, które definiują opis i kod każdego z gadżetów.',
 	'gadgets-uses' => 'Użycie',
-	'gadgets-required-rights' => 'Wymaga {{PLURAL:$2|uprawnienia|następujących uprawnień:}} $1.',
+	'gadgets-required-rights' => 'Wymaga {{PLURAL:$2|uprawnienia|następujących uprawnień:}}
+
+$1',
+	'gadgets-required-skins' => 'Działa wyłącznie ze {{PLURAL:$2|skórką $1|skórkami: $1}}.',
 	'gadgets-default' => 'Domyślnie włączone dla wszystkich.',
 	'gadgets-export' => 'Eksportuj',
 	'gadgets-export-title' => 'Eksportowanie gadżetów',
@@ -2359,7 +2372,9 @@ Administratorji lahko uredite seznam vtičnikov z uporabo [[Special:Gadgets|pose
 	'gadgets-pagetext' => 'Spodaj je seznam posebnih vtičnikov (opredeljenih z [[MediaWiki:Gadgets-definition|definicijami]]), ki jih lahko uporabniki vključijo v svojih [[Special:Preferences|nastavitvah]].
 Ta pregled omogoča enostaven dostop do sistema za nastavljanje opisa in kode vsakega vtičnika posebej.',
 	'gadgets-uses' => 'Uporablja',
-	'gadgets-required-rights' => 'Zahteva {{PLURAL:$2|pravico $1|naslednji pravici: $1|naslednje pravice: $1}}.',
+	'gadgets-required-rights' => 'Zahteva {{PLURAL:$2|naslednjo pravico|naslednji pravici|naslednje pravice}}:
+
+$1',
 	'gadgets-default' => 'Privzeto omogočeno za vsakogar.',
 	'gadgets-export' => 'Izvozi',
 	'gadgets-export-title' => 'Izvoz vtičnika',
@@ -2809,6 +2824,7 @@ $messages['yue'] = array(
 );
 
 /** Simplified Chinese (‪中文(简体)‬)
+ * @author Bencmq
  * @author Gaoxuewei
  * @author Hydra
  * @author Liangent
