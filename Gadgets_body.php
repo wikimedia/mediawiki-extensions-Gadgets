@@ -11,7 +11,7 @@
  * @license GNU General Public Licence 2.0 or later
  */
 
-class GadgetHooks {
+class GadgetHooks extends OutputPage {
 	/**
 	 * ArticleSaveComplete hook handler.
 	 *
@@ -150,10 +150,12 @@ class GadgetHooks {
 		$lb->setCaller( __METHOD__ );
 		$pages = array();
 
+		$styles = array();
 		foreach ( $gadgets as $gadget ) {
 			if ( $gadget->isEnabled( $wgUser ) && $gadget->isAllowed( $wgUser ) ) {
 				if ( $gadget->hasModule() ) {
-					$out->addModules( $gadget->getModuleName() );
+					$styles[] = $gadget->getModuleName();
+					$out->addModuleScripts( $gadget->getModuleName() );
 				}
 
 				foreach ( $gadget->getLegacyScripts() as $page ) {
@@ -162,6 +164,9 @@ class GadgetHooks {
 				}
 			}
 		}
+		$out->addHeadItem( 'ext.gadget', $out->makeResourceLoaderLink( $styles,
+				ResourceLoaderModule::TYPE_STYLES
+		) );
 
 		$lb->execute( __METHOD__ );
 
