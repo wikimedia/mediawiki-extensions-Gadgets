@@ -119,6 +119,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 		return array(
 			'settings' => array(
 				'rights' => $g->getRequiredRights(),
+				'skins' => $g->getRequiredSkins(),
 				'default' => $g->isOnByDefault(),
 				'hidden' => false, // Only exists in RL2 branch
 				'shared' => false, // Only exists in RL2 branch
@@ -136,6 +137,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	private function setIndexedTagNameForMetadata( &$metadata ) {
 		static $tagNames = array(
 			'rights' => 'right',
+			'skins' => 'skin',
 			'scripts' => 'script',
 			'styles' => 'style',
 			'dependencies' => 'dependency',

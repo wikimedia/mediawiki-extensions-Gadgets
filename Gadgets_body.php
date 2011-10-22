@@ -239,6 +239,7 @@ class Gadget {
 			$definition,
 			$resourceLoaded = false,
 			$requiredRights = array(),
+			$requiredSkins = array(),
 			$onByDefault = false,
 			$category;
 
@@ -279,6 +280,9 @@ class Gadget {
 					break;
 				case 'rights':
 					$gadget->requiredRights = $params;
+					break;
+				case 'skins':
+					$gadget->requiredSkins = array_intersect( array_keys( Skin::getSkinNames() ), $params );
 					break;
 				case 'default':
 					$gadget->onByDefault = true;
@@ -359,7 +363,8 @@ class Gadget {
 	 * @return Boolean
 	 */
 	public function isAllowed( $user ) {
-		return count( array_intersect( $this->requiredRights, $user->getRights() ) ) == count( $this->requiredRights );
+		return count( array_intersect( $this->requiredRights, $user->getRights() ) ) == count( $this->requiredRights )
+			&& ( !count( $this->requiredSkins ) || in_array( $user->getOption( 'skin' ), $this->requiredSkins ) );
 	}
 
 	/**
@@ -463,6 +468,14 @@ class Gadget {
 	 */
 	public function getRequiredRights() {
 		return $this->requiredRights;
+	}
+
+	/**
+	 * Returns array of skins where this gadget works
+	 * @return Array
+	 */
+	public function getRequiredSkins() {
+		return $this->requiredSkins;
 	}
 
 	/**

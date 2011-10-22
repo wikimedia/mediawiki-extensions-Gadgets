@@ -36,6 +36,7 @@ This overview provides easy access to the system message pages that define each 
 	'gadgets-required-rights' => 'Requires the following {{PLURAL:$2|right|rights}}:
 
 $1',
+	'gadgets-required-skins' => 'Available on the {{PLURAL:$2|$1 skin|following skins: $1}}.',
 	'gadgets-default'   => 'Enabled for everyone by default.',
 	'gadgets-export'    => 'Export',
 	'gadgets-export-title' => 'Gadget export',
@@ -71,6 +72,9 @@ $messages['qqq'] = array(
 See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimedia.org]",
 	'gadgets-required-rights' => 'Parameters:
 * $1 - a list in wikitext.
+* $2 - the number of items in list $1 for PLURAL use.',
+	'gadgets-required-skins' => 'Parameters:
+* $1 - a comma list.
 * $2 - the number of items in list $1 for PLURAL use.',
 	'gadgets-export' => 'Used on [[Special:Gadgets]]. This is a verb, not noun.
 {{Identical|Export}}',
