@@ -165,7 +165,7 @@ class GadgetHooks extends OutputPage {
 			}
 		}
 		$out->addHeadItem( 'ext.gadget', $out->makeResourceLoaderLink( $styles,
-				ResourceLoaderModule::TYPE_STYLES
+			ResourceLoaderModule::TYPE_STYLES
 		) );
 
 		$lb->execute( __METHOD__ );
