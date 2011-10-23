@@ -380,7 +380,9 @@ Gallout a ra ar verourien lec'hel degas cheñchamantoù er bitrakoù en ur ober 
 	'gadgets-pagetext' => "A-is ez eus ur roll eus ar bitrakoù a c'hall bezañ gweredekaet gant an implijerien war o fajenn [[Special:Preferences|penndibaboù]], evel m'eo termenet en [[MediaWiki:Gadgets-definition|termenadurioù]].
 Ar sell hollek-mañ a bourchas ur moned aes d'ar pajennoù kemennadennoù reizhiad a dermen deskrivadur ha kod pep bitrak.",
 	'gadgets-uses' => 'A implij',
-	'gadgets-required-rights' => 'Rekis eo kaout an {{PLURAL:$2|aotre $1|aotreoù da-heul : $1}}.',
+	'gadgets-required-rights' => 'Rekis eo kaout an {{PLURAL:$2|aotre|aotreoù}} da-heul : 
+$1',
+	'gadgets-required-skins' => 'Hegerz gant ar {{PLURAL:$2|gwiskadur $1|gwiskadurioù da-heul : $1}}.',
 	'gadgets-default' => 'Gweredekaet dre ziouer evit an holl.',
 	'gadgets-export' => 'Ezporzh',
 	'gadgets-export-title' => 'Ezporzhiañ bitrakoù',
@@ -502,6 +504,7 @@ Tento přehled poskytuje jednoduchý přístup k&nbsp;systémovým hlášením, 
 	'gadgets-required-rights' => 'Vyžaduje následující {{PLURAL:$2|oprávnění}}:
 
 $1',
+	'gadgets-required-skins' => 'Dostupné {{PLURAL:$2|pro vzhled $1|pro následující vzhledy: $1}}.',
 	'gadgets-default' => 'Implicitně zapnuto všem.',
 	'gadgets-export' => 'Exportovat',
 	'gadgets-export-title' => 'Export udělátka',
@@ -532,6 +535,7 @@ Mae'r trosolwg hwn yn cynnig mynediad rhwydd at y tudalennau negeseuon sustem sy
 	'gadgets-required-rights' => 'Mae gofyn cael y {{PLURAL:$2||gallu|galluoedd|galluoedd|galluoedd|galluoedd}}:
 
 $1',
+	'gadgets-required-skins' => 'Ar gael ar y {{PLURAL:$2|wedd $1|gweddau hyn: $1}}.',
 	'gadgets-default' => 'Wedi ei alluogi i bawb yn ddiofyn.',
 	'gadgets-export' => 'Allforio',
 	'gadgets-export-title' => 'Allforio teclyn',
@@ -563,6 +567,7 @@ Denne oversigtsside giver simpel adgang til de beskedsider som definerer hver ga
 	'gadgets-required-rights' => 'Kræver {{PLURAL:$2|rettigheden|følgende rettigheder}}:
 
 $1',
+	'gadgets-required-skins' => 'Tilgængelig for {{PLURAL:$2|$1-udseendet|de følgende udseender: $1}}.',
 	'gadgets-default' => 'Aktiveret for alle som standard.',
 	'gadgets-export' => 'Eksporter',
 	'gadgets-export-title' => 'Eksporter gadget',
@@ -599,6 +604,7 @@ Diese Übersicht bietet direkten Zugang zu den MediaWiki-Systemnachrichten, welc
 	'gadgets-required-rights' => 'Erfordert die {{PLURAL:$2|folgende Berechtigung|folgenden Berechtigungen}}:
 
 $1',
+	'gadgets-required-skins' => 'Verfügbar bei {{PLURAL:$2|der folgenden Benutzeroberfläche|den folgenden Benutzeroberflächen}}: $1.',
 	'gadgets-default' => 'Für alle standardmäßig aktiviert.',
 	'gadgets-export' => 'Export',
 	'gadgets-export-title' => 'Export der Helferlein',
@@ -950,7 +956,7 @@ O est nècèssèro de d’avêr los drêts corrèspondents sur lo vouiqui de dè
 $messages['gl'] = array(
 	'gadgets-desc' => 'Deixa que os usuarios seleccionen [[Special:Gadgets|trebellos CSS e JavaScript]] nas súas [[Special:Preferences|preferencias]]',
 	'prefs-gadgets' => 'Trebellos',
-	'gadgets-prefstext' => 'Embaixo hai unha lista de trebellos especiais que pode activar para a súa conta.
+	'gadgets-prefstext' => 'A continuación hai unha lista de trebellos especiais que pode activar para a súa conta.
 A maioría destes trebellos baséanse no JavaScript, así que ten que ter o JavaScript activado no seu navegador para que funcionen.
 Teña en conta que estes trebellos non funcionarán nesta páxina de preferencias.
 
@@ -963,6 +969,7 @@ Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que d
 	'gadgets-required-rights' => '{{PLURAL:$2|Cómpre o seguinte dereito|Cómpren os seguintes dereitos}}:
 
 $1',
+	'gadgets-required-skins' => 'Dispoñible {{PLURAL:$2|na aparencia $1|nas seguintes aparencias: $1}}.',
 	'gadgets-default' => 'Activar para todos por defecto.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportación de trebellos',
@@ -1054,6 +1061,7 @@ $messages['he'] = array(
 	'gadgets-required-rights' => '{{PLURAL:$2|נדרשת ההרשאה הבאה|נדרשות ההרשאות הבאות}}:
 
 $1',
+	'gadgets-required-skins' => 'זמין {{PLURAL:$2|בערכות העיצוב הבאות: $1|בערכת העיצוב $1}}',
 	'gadgets-default' => 'מופעל לכולם לפי בררת מחדל.',
 	'gadgets-export' => 'יצוא',
 	'gadgets-export-title' => 'יצוא גאדג׳טים',
@@ -1650,6 +1658,7 @@ $messages['mk'] = array(
 	'gadgets-required-rights' => '{{PLURAL:$2|Го бара следново право|Ги бара следниве права}}:
 
 $1',
+	'gadgets-required-skins' => 'Достапно во {{PLURAL:$2|рувото $1|следниве рува: $1}}.',
 	'gadgets-default' => 'Достапно за сите по основно',
 	'gadgets-export' => 'Извези',
 	'gadgets-export-title' => 'Извоз на алатка',
@@ -1726,6 +1735,7 @@ Sila ambil perhatian juga bahawa gajet-gajet khas ini bukan sebahagian daripada 
 	'gadgets-required-rights' => '{{PLURAL:$2|Hak|Hak-hak}} yang berikut diperlukan:
 
 $1',
+	'gadgets-required-skins' => 'Terdapat pada {{PLURAL:$2|kulit $1|kulit-kulit berikut: $1}}.',
 	'gadgets-default' => 'Dihidupkan untuk semua orang secara sediaan.',
 	'gadgets-export' => 'Eksport',
 	'gadgets-export-title' => 'Eksport gajet',
@@ -1837,6 +1847,7 @@ Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschri
 	'gadgets-required-rights' => '{{PLURAL:$2|Het volgende recht is|De volgende rechten zijn}} vereist:
 
 $1.',
+	'gadgets-required-skins' => 'Beschikbaar op de {{PLURAL:$2|vormgeving $1|volgende vormgevingen: $1}}.',
 	'gadgets-default' => 'Standaard ingeschakeld voor iedereen.',
 	'gadgets-export' => 'Exporteren',
 	'gadgets-export-title' => 'Uitbreiding exporteren',
@@ -2771,6 +2782,7 @@ Cũng chú ý rằng những công cụ đặc biệt này không phải là m�
 	'gadgets-required-rights' => 'Cần {{PLURAL:$2|quyền|các quyền}} sau:
 
 $1',
+	'gadgets-required-skins' => 'Có sẵn trên {{PLURAL:$2|hình dạng $1|các hình dạng: $1}}.',
 	'gadgets-default' => 'Được kích hoạt cho tất cả mọi người theo mặc định.',
 	'gadgets-export' => 'Xuất',
 	'gadgets-export-title' => 'Xuất công cụ đa năng',
