@@ -1200,6 +1200,7 @@ Iste supervista permitte le accesso commode al paginas de messages de systema qu
 	'gadgets-required-rights' => 'Require le sequente {{PLURAL:$2|derecto|derectos}}:
 
 $1',
+	'gadgets-required-skins' => 'Disponibile con le {{PLURAL:$2|apparentia $1|sequente apparentias: $1}}.',
 	'gadgets-default' => 'Activate pro omnes per predefinition.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportation de gadget',
@@ -1253,6 +1254,13 @@ Mabaliwan dagita administrador ti  [[MediaWiki:Gadgets-definition|definitions]] 
 	'gadgets' => 'Gadyets',
 	'gadgets-title' => 'Gadyets',
 	'gadgets-uses' => 'Usar',
+	'gadgets-required-rights' => 'Masapul dagiti sumaganad {{PLURAL:$2|nga kaberngan|dagiti kaberngan}}:
+
+$1',
+	'gadgets-required-skins' => 'Adda nga mabalin idiay {{PLURAL:$2|$1 nga kudil|dagiti sumaganad nga kudil: $1}}.',
+	'gadgets-export' => 'Angkaten',
+	'gadgets-export-title' => 'Iangkat ti gadyet',
+	'gadgets-not-found' => 'Saan nga nabirukan ti "$1" nga gadyet.',
 );
 
 /** Ido (Ido)
@@ -1548,6 +1556,7 @@ Lokal Wiki-Administrateure kënnen d'Lëscht von den disponibele Gadgeten op de 
 Dës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all Gadget beschreiwen an zum Programméiercode vun dem Gadget.",
 	'gadgets-uses' => 'Benotzt',
 	'gadgets-required-rights' => "Erfuerdert {{PLURAL:$2|d'Recht|dës Rechter}}: $1.",
+	'gadgets-required-skins' => "Disponibel fir {{PLURAL:$2|d'Ausgesinn $1|dës $2 Ausgesinn: $1}}.",
 	'gadgets-default' => 'Fir jiddwereen als Standard ageschalt.',
 	'gadgets-export' => 'Export',
 	'gadgets-export-title' => 'Export vu Gadgeten',
@@ -1577,6 +1586,7 @@ Lokaal beheerders kónne de besjikbaar oetbreijinge aangaeve in [[MediaWiki:Gadg
 Dit euverzich bi-jtj uch einvoudige toegank toet de systeemtekspazjena wo de besjrieving en de programmacode van edere oetbreijing steit.',
 	'gadgets-uses' => 'Gebroek',
 	'gadgets-required-rights' => "{{PLURAL:$2|'t Volgend rech is|De volgende rechte zeen}} vereis: $1.",
+	'gadgets-required-skins' => 'Besjikbaar op de {{PLURAL:$2|vormgaeving $1|volgende vormgaevinge: $1}}.',
 	'gadgets-default' => 'Standerd aan veur edert.',
 	'gadgets-export' => 'Veur oet',
 	'gadgets-export-title' => 'Exporteer oetbreijing',
@@ -2197,7 +2207,10 @@ Le amministrature locale ponne cangià le gadget disponibbele ausanne le [[Media
 	'gadgets-pagetext' => "Sotte stè 'n'elenghe de gadget speciale ca l'utinde ponne abbilità sus a lore [[Special:Preferences|pàgene de le preferenze]], cumme definite da le [[MediaWiki:Gadgets-definition|definiziune]].
 Stu riepileghe prevede 'nu facile facile accesse a le pàggene de le messagge d'u sisteme ca definiscene ogne descrizione e codece de le gadget.",
 	'gadgets-uses' => 'Ause',
-	'gadgets-required-rights' => "Richiede {{PLURAL:$2|'u $1 deritte|le seguende deritte: $1}}.",
+	'gadgets-required-rights' => 'Richiede {{PLURAL:$2|deritte|deritte}}:
+
+$1',
+	'gadgets-required-skins' => "Disponibbele sus a {{PLURAL:$2|$1 'u skin|le seguende skin: $1}}.",
 	'gadgets-default' => 'Abbilete pe ogneune pe default.',
 	'gadgets-export' => 'Esporte',
 	'gadgets-export-title' => "Esporte 'u gadget",
@@ -2233,6 +2246,7 @@ $messages['ru'] = array(
 	'gadgets-required-rights' => '{{PLURAL:$2|Требуется право|Требуются права}}:
 
 $1',
+	'gadgets-required-skins' => 'Доступен при {{PLURAL:$2|теме оформления $1|следующих темах оформления: $1}}.',
 	'gadgets-default' => 'Включён для всех по умолчанию.',
 	'gadgets-export' => 'Экспортировать',
 	'gadgets-export-title' => 'Экспорт гаджета',
@@ -2386,6 +2400,7 @@ Ta pregled omogoča enostaven dostop do sistema za nastavljanje opisa in kode vs
 	'gadgets-required-rights' => 'Zahteva {{PLURAL:$2|naslednjo pravico|naslednji pravici|naslednje pravice}}:
 
 $1',
+	'gadgets-required-skins' => 'Na voljo na {{PLURAL:$2|koži $1|naslednjih kožah: $1}}.',
 	'gadgets-default' => 'Privzeto omogočeno za vsakogar.',
 	'gadgets-export' => 'Izvozi',
 	'gadgets-export-title' => 'Izvoz vtičnika',
