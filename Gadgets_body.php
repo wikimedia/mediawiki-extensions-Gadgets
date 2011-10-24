@@ -229,7 +229,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	const GADGET_CLASS_VERSION = 5;
+	const GADGET_CLASS_VERSION = 6;
 
 	private $version = self::GADGET_CLASS_VERSION,
 			$scripts = array(),
