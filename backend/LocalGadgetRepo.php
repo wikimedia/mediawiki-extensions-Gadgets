@@ -179,6 +179,10 @@ class LocalGadgetRepo extends GadgetRepo {
 		return wfGetDB( DB_SLAVE );
 	}
 	
+	public function isLocal() {
+		return true;
+	}
+	
 	/*** Public methods ***/
 	
 	/**
