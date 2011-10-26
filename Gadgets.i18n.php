@@ -892,6 +892,7 @@ Sinulla pitää olla tarvittavat oikeudet omassa wikissäsi, kuten järjestelmä
  * @author PieRRoMaN
  * @author Sherbrooke
  * @author Urhixidur
+ * @author Zcqsc06
  * @author Zetud
  */
 $messages['fr'] = array(
@@ -908,6 +909,7 @@ Cette vue d’ensemble donne un accès rapide aux pages de messages système qui
 	'gadgets-required-rights' => 'Requiert {{PLURAL:$2|le droit suivant|les droits suivants}} : 
 
 $1.',
+	'gadgets-required-skins' => 'Disponible sur le  {{PLURAL:$2|   $1  skin|following skins:  $1 }}.',
 	'gadgets-default' => 'Activé pour tout le monde par défaut.',
 	'gadgets-export' => 'Exporter',
 	'gadgets-export-title' => 'Export de gadget',
@@ -1169,10 +1171,13 @@ Az adminisztrátorok a [[MediaWiki:Gadgets-definition|definíciókat]] és a [[S
 	'gadgets-pagetext' => 'Itt látható azon segédeszközök listája, amiket a felhasználók bekapcsolhatnak a beállításaiknál. A lista a [[MediaWiki:Gadgets-definition|definíciókat]] tartalmazó lapon módosítható.
 Ez az áttekintő lap egyszerű hozzáférést nyúlt az eszközök kódját, illetve leírását tartalmazó rendszerüzenet-lapokhoz.',
 	'gadgets-uses' => 'Kód',
-	'gadgets-required-rights' => 'A következő {{PLURAL:$2|jogosultságra|jogosultságokra}} van szükség: $1.',
+	'gadgets-required-rights' => 'A következő {{PLURAL:$2|jogosultságra|jogosultságokra}} van szükség:
+
+$1',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1 felületen érhető el|Az alábbi felületeken érhető el: $1}}.',
 	'gadgets-default' => 'Mindenki számára engedélyezett alapértelmezettként.',
 	'gadgets-export' => 'Exportálás',
-	'gadgets-export-title' => 'Gadget export',
+	'gadgets-export-title' => 'Segédeszköz exportálás',
 	'gadgets-not-found' => 'A(z) „$1“ segédeszköz nem található.',
 	'gadgets-export-text' => 'A(z) $1 segédeszköz exportálásához kattints a „{{int:gadgets-export-download}}“ gombra, mentsd el a fájlt, majd a célwikiben a Special:Import lapon töltsd fel. Ezután a MediaWiki:Gadgets-definition laphoz add hozzá a következőket:
 <pre>$2</pre>
@@ -1249,8 +1254,8 @@ $messages['ilo'] = array(
 Dagitoy nga gadyets ket naibasta iti JavaScript, masapul nga ti "browsermo" ket agususar ti JavaScript.
 Saan nga mabalin nga usaren dagitoy nga gadyets ditoy kaykayat mo nga panid.
 
-Dagitoy nga gadyets ket saan nga parte ti MediaWiki software, inaramid ken inayaywanan dagiti agar-aramat ti local wiki.
-Mabaliwan dagita administrador ti  [[MediaWiki:Gadgets-definition|definitions]] ken [[Special:Gadgets|descriptions]] ti gadyets.',
+Dagitoy nga gadyets ket saan nga parte ti MediaWiki software, inaramid ken inayaywanan dagiti agar-aramat ti local nga wiki.
+Mabaliwan dagita administrador nga baliwan ti  [[MediaWiki:Gadgets-definition|definitions]] ken [[Special:Gadgets|descriptions]] ti gadyets.',
 	'gadgets' => 'Gadyets',
 	'gadgets-title' => 'Gadyets',
 	'gadgets-uses' => 'Usar',
@@ -1258,6 +1263,7 @@ Mabaliwan dagita administrador ti  [[MediaWiki:Gadgets-definition|definitions]] 
 
 $1',
 	'gadgets-required-skins' => 'Adda nga mabalin idiay {{PLURAL:$2|$1 nga kudil|dagiti sumaganad nga kudil: $1}}.',
+	'gadgets-default' => 'Ipabalin nga kinasigud iti amin nga agar-aramat.',
 	'gadgets-export' => 'Angkaten',
 	'gadgets-export-title' => 'Iangkat ti gadyet',
 	'gadgets-not-found' => 'Saan nga nabirukan ti "$1" nga gadyet.',
@@ -1519,7 +1525,9 @@ Die Övverseech hee jit enne direkte Zohjang op di Texte em Wiki,
 wo de Projramme, un de Erklierunge för de <i lang="en">Gadgets</i> dren enthallde
 sin.',
 	'gadgets-uses' => 'Bruch',
-	'gadgets-required-rights' => 'Bruch {{PLURAL:$2|dat Rääsch:|de Rääschde:|kein besönder Rääschde.}} $1',
+	'gadgets-required-rights' => 'Bruch {{PLURAL:$2|dat Rääsch:|de Rääschde:|kein besönder Rääschde.}}
+
+$1',
 	'gadgets-default' => 'Shtandattmääßesh för jeeder_ein ennjeschalldt.',
 	'gadgets-export' => 'Expotteere',
 	'gadgets-export-title' => '<i lang="en">Gadgets</i> expotteere',
