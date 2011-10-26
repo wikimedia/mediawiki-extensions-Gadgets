@@ -298,8 +298,8 @@ class GadgetsHooks {
 			array(
 				'type' => 'multiselect',
 				//'options' => array(), // TODO: Maybe fill in stuff anyway? The backend may need that
-				'options' => array_combine( explode( '|', $GLOBALS['wgRequest']->getVal( 'ryanscrewedchadover' ) ),
-					explode( '|', $GLOBALS['wgRequest']->getVal( 'ryanscrewedchadover2' ) ) ),
+				'options' => $GLOBALS['wgRequest']->getCheck( 'ryanscrewedchadover' ) ? array_combine( explode( '|', $GLOBALS['wgRequest']->getVal( 'ryanscrewedchadover' ) ),
+					explode( '|', $GLOBALS['wgRequest']->getVal( 'ryanscrewedchadover2' ) ) ) : array(),
 				'section' => 'gadgets-shared',
 				'label' => '&#160;',
 				'prefix' => 'gadget-',
