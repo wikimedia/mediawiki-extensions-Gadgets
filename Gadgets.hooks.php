@@ -297,7 +297,9 @@ class GadgetsHooks {
 		$preferences['gadgets-shared'] =
 			array(
 				'type' => 'multiselect',
-				'options' => array(), // TODO: Maybe fill in stuff anyway? The backend may need that
+				//'options' => array(), // TODO: Maybe fill in stuff anyway? The backend may need that
+				'options' => array_combine( explode( '|', $GLOBALS['wgRequest']->getVal( 'ryanscrewedchadover' ) ),
+					explode( '|', $GLOBALS['wgRequest']->getVal( 'ryanscrewedchadover2' ) ) ),
 				'section' => 'gadgets-shared',
 				'label' => '&#160;',
 				'prefix' => 'gadget-',

@@ -15,12 +15,16 @@
 				'id': 'mw-input-wpgadgets-shared-' + id,
 				'value': id
 			} );
+			if ( mw.user.options.get( 'gadget-' + id ) == "1" ) {
+				$input.prop( 'checked', true );
+			}
 			$label = $( '<label>', { for: 'mw-input-wpgadgets-shared-' + id } )
 				.text( text );
 		return $div.append( $input ).append( '&nbsp;' ).append( $label );
 	}
 
 	function buildForm( gadgetsByCategory, categoryNames ) {
+		var ryanscrewedchadover = [], ryanscrewedchadover2 = [];
 		var 	$container = $( '#mw-prefsection-gadgets-shared .mw-input' ),
 			// Detach the container from the DOM, so we can fill it without visible build-up.
 			// This is faster, too. In order to put it back where it was, we need to store its parent.
@@ -33,10 +37,14 @@
 			}
 			for ( var gadget in gadgetsByCategory[category] ) {
 				$container.append( buildPref( gadget, gadgetsByCategory[category][gadget] ) );
+				ryanscrewedchadover.push( 'wpgadgets-shared-id-' + gadget );
+				ryanscrewedchadover2.push( gadgetsByCategory[category][gadget] );
 			}
 		}
 		// Re-attach the container
 		$containerParent.append( $container );
+		$containerParent.closest( 'form' ).append( $( '<input>' ).attr( { 'type': 'hidden', 'name': 'ryanscrewedchadover' } ).val( ryanscrewedchadover.join( '|' ) ) );
+		$containerParent.closest( 'form' ).append( $( '<input>' ).attr( { 'type': 'hidden', 'name': 'ryanscrewedchadover2' } ).val( ryanscrewedchadover2.join( '|' ) ) );
 	}
 
 	// Temporary testing data
