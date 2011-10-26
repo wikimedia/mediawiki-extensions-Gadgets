@@ -290,20 +290,28 @@ class GadgetsHooks {
 				'default' => Xml::tags( 'tr', array(),
 					Xml::tags( 'td', array( 'colspan' => 2 ),
 						wfMsgExt( 'gadgets-sharedprefstext', 'parse' ) ) ),
-				'section' => 'gadgets-shared',
+				'section' => 'gadgetsshared',
 				'raw' => 1,
 				'rawrow' => 1,
 			);
-		$preferences['gadgets-shared'] =
+		
+		// Build an array with all the shared gadget preferences with dummy descriptions.
+		// These descriptions will be completed by JavaScript
+		$remoteGadgets = GadgetRepo::getAllRemoteGadgetIDs();
+		$sharedOptions = array();
+		foreach ( $remoteGadgets as $id ) {
+			// Use the gadget name as a dummy description
+			$sharedOptions[$id] = $id;
+		}
+		$preferences['gadgetsshared'] =
 			array(
 				'type' => 'multiselect',
-				//'options' => array(), // TODO: Maybe fill in stuff anyway? The backend may need that
-				'options' => $GLOBALS['wgRequest']->getCheck( 'ryanscrewedchadover' ) ? array_combine( explode( '|', $GLOBALS['wgRequest']->getVal( 'ryanscrewedchadover' ) ),
-					explode( '|', $GLOBALS['wgRequest']->getVal( 'ryanscrewedchadover2' ) ) ) : array(),
-				'section' => 'gadgets-shared',
+				'options' => $sharedOptions,
+				'section' => 'gadgetsshared',
 				'label' => '&#160;',
 				'prefix' => 'gadget-',
 				'default' => array(),
+				'cssclass' => 'mw-gadgetsshared-item-unloaded',
 			);
 		return true;
 	}
@@ -338,6 +346,7 @@ class GadgetsHooks {
 		// Add preferences JS if we're on Special:Preferences
 		if ( $out->getTitle()->isSpecial( 'Preferences' ) ) {
 			$out->addModules( 'ext.gadgets.preferences' );
+			$out->addModuleStyles( 'ext.gadgets.preferences.style' );
 		}
 
 		wfProfileOut( __METHOD__ );

@@ -19,7 +19,7 @@ $messages['en'] = array(
 
 	# For Special:Preferences
 	'prefs-gadgets' => 'Gadgets',
-	'prefs-gadgets-shared' => 'Shared gadgets',
+	'prefs-gadgetsshared' => 'Shared gadgets',
 	'gadgets-prefstext' => 'Below is a list of gadgets you can enable for your account.
 These gadgets are mostly based on JavaScript, so JavaScript has to be enabled in your browser for them to work.
 Note that these gadgets will have no effect on this preferences page.

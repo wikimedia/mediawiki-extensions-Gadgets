@@ -235,6 +235,9 @@ $wgResourceModules += array(
 	'ext.gadgets.preferences' => $gadResourceTemplate + array(
 		'scripts' => 'ext.gadgets.preferences.js',
 	),
+	'ext.gadgets.preferences.style' => $gadResourceTemplate + array(
+		'styles' => 'ext.gadgets.preferences.css',
+	),
 	'jquery.formBuilder' => $gadResourceTemplate + array(
 		'scripts' => array( 'jquery.formBuilder.js' ),
 		'styles' => array( 'jquery.formBuilder.css' ),
