@@ -15,8 +15,9 @@
 	 * @param categoryNames {Object} Map of { categoryID: categoryDescription }
 	 */
 	function fixPreferenceForm( gadgetsByCategory, categoryNames ) {
-		var 	$oldContainer = $( '#mw-prefsection-gadgetsshared .mw-input' ),
+		var 	$oldContainer = $( '#mw-prefsection-gadgetsshared' ).find( '.mw-input' ),
 			$newContainer = $( '<td>' ).addClass( 'mw-input' ),
+			$spinner = $oldContainer.closest( '.mw-gadgetsshared-item-unloaded' ),
 			category, gadget, $oldItem;
 		for ( category in gadgetsByCategory ) {
 			if ( category !== '' ) {
@@ -34,9 +35,8 @@
 			}
 		}
 		$oldContainer.replaceWith( $newContainer );
-		// Unhide the container by removing the unloaded class
-		// TODO: We need to have a spinner or something for this
-		$newContainer.closest( '.mw-gadgetsshared-item-unloaded' ).removeClass( 'mw-gadgetsshared-item-unloaded' );
+		// Unhide the container by removing the unloaded class, and remove the spinner too
+		$spinner.removeClass( 'mw-gadgetsshared-item-unloaded mw-ajax-loader' );
 	}
 
 	// Temporary testing data
@@ -57,6 +57,12 @@
 		}
 	};
 
-	$( function() { fixPreferenceForm( gadgetsByCategory, categoryNames ) } );
+	$( function() {
+		// TODO make all of this nicer once we have AJAX
+		// Add spinner
+		$( '#mw-prefsection-gadgetsshared').find( '.mw-gadgetsshared-item-unloaded' ).addClass( 'mw-ajax-loader' );
+		// Simulate AJAX delay
+		setTimeout( function() { fixPreferenceForm( gadgetsByCategory, categoryNames ) }, 2000 );
+	} );
 
 } )( jQuery );

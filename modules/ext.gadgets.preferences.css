@@ -1,3 +1,9 @@
+/* Hide checkboxes when JS is enabled and descriptions have not yet been loaded */
 .client-js .mw-gadgetsshared-item-unloaded .mw-input {
 	display: none;
+}
+
+/* When the wrapping <tr> contains a spinner, increase its height so the spinner isn't cut off */
+.client-js .mw-gadgetsshared-item-unloaded.mw-ajax-loader {
+	height: 32px;
 }
