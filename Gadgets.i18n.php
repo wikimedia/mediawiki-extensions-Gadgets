@@ -1018,6 +1018,7 @@ Die Ibersicht bietet e direkte Zuegang zue dr Syschtemnochrichte, wu d Bschryybi
 	'gadgets-uses' => 'Bruucht',
 	'gadgets-required-rights' => 'Brucht {{PLURAL:$2|des folgendi Rächt|die folgende Rächt}}:
 $1',
+	'gadgets-required-skins' => 'Verfiegbar uff {{PLURAL:$2|derre Benutzeroberflächi|dänne Benutzeroberflächene}}: $1.',
 	'gadgets-default' => 'Fir alli standardmäßig aktiviert.',
 	'gadgets-export' => 'Exportiere',
 	'gadgets-export-title' => 'Hälferli exportiere',
@@ -2742,7 +2743,7 @@ $messages['uk'] = array(
 	'gadgets-pagetext' => 'Нижче наведений список додатків, які можна ввімкнути на [[Special:Preferences|сторінці налаштувань]]. Список міститься на [[MediaWiki:Gadgets-definition|сторінці визначень]].
 Цей список дозволяє легко переглядати системні повідомлення, які містять описи і коди додатків.',
 	'gadgets-uses' => 'Використовує',
-	'gadgets-required-rights' => 'Потрібні наступні {{PLURAL:$2|права|права}}:
+	'gadgets-required-rights' => '{{PLURAL:$2|Потрібне право|Потрібні такі права}}:
 
 $1',
 	'gadgets-default' => 'Увімкнено для всіх за замовчуванням.',
