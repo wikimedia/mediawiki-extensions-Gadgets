@@ -446,7 +446,9 @@ Els administradors locals poden editar els ginys disponibles fent servir [[Media
 	'gadgets-pagetext' => 'A continuació teniu una llista de ginys especials que els usuaris poden activar a la seva [[Special:Preferences|pàgina de preferències]], segons les [[MediaWiki:Gadgets-definition|seves definicions]].
 Aquesta llista permet un fàcil accés a les pàgines del sistema que defineixen la descripció i el codi de cada giny.',
 	'gadgets-uses' => 'Usa',
-	'gadgets-required-rights' => 'Requereix el {{PLURAL:$2|dret $1|següents drets: $1}}.',
+	'gadgets-required-rights' => '{{PLURAL:$2|Es necessita el dret següent|Es necessiten els drets següents}}:
+
+$1',
 	'gadgets-export' => 'Exporta',
 	'gadgets-export-title' => 'Exportació de ginys',
 	'gadgets-not-found' => "No s'ha trobat el giny «$1».",
@@ -1482,7 +1484,9 @@ $messages['ko'] = array(
 	'gadgets-pagetext' => '[[Special:Preferences|사용자 환경 설정]]에서 설정할 수 있는 소도구 목록입니다. 해당 목록은 [[MediaWiki:Gadgets-definition|소도구 정의]]에서 편집할 수 있습니다.
 이 문서에서는 각 소도구의 각 설명 문서/코드의 시스템 메시지 링크를 제공합니다.',
 	'gadgets-uses' => '다음 코드를 이용',
-	'gadgets-required-rights' => '{{PLURAL:$2|$1 권한이 필요합니다.|다음 권한이 필요합니다: $1}}',
+	'gadgets-required-rights' => '다음 권한이 필요합니다: 
+
+$1',
 	'gadgets-default' => '기본적으로 모든 사람에게 활성화되어 있습니다.',
 	'gadgets-export' => '내보내기',
 	'gadgets-export-title' => '소도구 내보내기',
