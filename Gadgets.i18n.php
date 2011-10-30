@@ -1151,6 +1151,7 @@ Nimo toho wobkedźbuj, zo tute specialne funkcije dźěl softwary MediaWiki njej
 	'gadgets-pagetext' => 'Deleka je lisćina specialnych funkcijow, kotrež wužiwarjo móža na swojej [[Special:Preferences|stronje nastajenjow]] zmóžnić, kaž přez [[MediaWiki:Gadgets-definition|definicije]] definowane.
 Tutón přehlad skići lochki přistup k systemowym zdźělenkam, kotrež wopisanje a kod kóždeje specialneje funkcije definuja.',
 	'gadgets-uses' => 'Wužiwa',
+	'gadgets-default' => 'Za wšěch standardnje zmóžnjeny.',
 	'gadgets-export' => 'Eksportować',
 	'gadgets-export-title' => 'Specialnu funkciju eksportować',
 	'gadgets-not-found' => 'Specialna funkcija "$1" njeje so namakała.',
@@ -1262,7 +1263,7 @@ $messages['ilo'] = array(
 Dagitoy nga gadyets ket naibasta iti JavaScript, masapul nga ti "browsermo" ket agususar ti JavaScript.
 Saan nga mabalin nga usaren dagitoy nga gadyets ditoy kaykayat mo nga panid.
 
-Dagitoy nga gadyets ket saan nga parte ti MediaWiki software, inaramid ken inayaywanan dagiti agar-aramat ti local nga wiki.
+Dagitoy nga gadyets ket saan nga parte ti MediaWiki software, inaramid ken inayaywanan dagiti agar-aramat ti lokal nga wiki.
 Mabaliwan dagita administrador nga baliwan ti  [[MediaWiki:Gadgets-definition|definitions]] ken [[Special:Gadgets|descriptions]] ti gadyets.',
 	'gadgets' => 'Gadyets',
 	'gadgets-title' => 'Gadyets',
@@ -1484,9 +1485,10 @@ $messages['ko'] = array(
 	'gadgets-pagetext' => '[[Special:Preferences|사용자 환경 설정]]에서 설정할 수 있는 소도구 목록입니다. 해당 목록은 [[MediaWiki:Gadgets-definition|소도구 정의]]에서 편집할 수 있습니다.
 이 문서에서는 각 소도구의 각 설명 문서/코드의 시스템 메시지 링크를 제공합니다.',
 	'gadgets-uses' => '다음 코드를 이용',
-	'gadgets-required-rights' => '다음 권한이 필요합니다: 
+	'gadgets-required-rights' => '다음 {{PLURAL:$2|권한}}이 필요합니다: 
 
 $1',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1 스킨에서 사용 가능합니다.|다음 스킨에서 사용 가능합니다: $1}}',
 	'gadgets-default' => '기본적으로 모든 사람에게 활성화되어 있습니다.',
 	'gadgets-export' => '내보내기',
 	'gadgets-export-title' => '소도구 내보내기',
