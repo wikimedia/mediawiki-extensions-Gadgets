@@ -28,6 +28,7 @@ Also note that these gadgets are not part of the MediaWiki software, and are usu
 Administrators manage the [[Special:Gadgets|gadget definitions, titles and descriptions]] of available gadgets.',
 	'gadgets-preference-description' => '$1: $2',
 	'gadgets-sharedprefstext' => 'Below is a list of gadgets from other wikis. TODO: This needs more text',
+	'gadgets-sharedprefs-ajaxerror' => 'An error occurred while attempting to fetch category and description information for shared gadgets. The gadgets below are shown uncategorized and without descriptions or proper titles.',
 
 	# For Special:Gadgets
 	// General
