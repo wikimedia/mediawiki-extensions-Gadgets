@@ -113,28 +113,28 @@ abstract class GadgetRepo {
 	
 	/**
 	 * Helper function for getAllGadgets(), getAllGadgetIDs(), getAllRemoteGadgets() and getAllRemoteGadgetIDs()
-	 * @param $source String: one of 'local', 'remote', 'all'.
-	 * @param $retType String: Whether to return an array of IDs ('ids'), or Gadget objects ('objects').
+	 * @param $includeLocal boolean Whether gadgets from the local repo should be included
+	 * @param $getObjects boolean Whether Gadget objects should be constructed. If false, IDs (strings) will be returned
 	 * @return array of Gadget objects or strings
 	 */
-	private static function getAllGadgets_internal( $source = 'all', $retType = 'ids' ) {
-		$retVal = array();
+	private static function getAllGadgets_internal( $includeLocal, $getObjects ) {
+		$retval = array();
 		$repos = GadgetRepo::getAllRepos();
 		foreach ( $repos as $repo ) {
-			if ( $source == 'remote' && $repo->isLocal() ) {
+			if ( !$includeLocal && $repo->isLocal() ) {
 				continue;
 			}
 			
 			$gadgets = $repo->getGadgetIds();
-			if ( $retType = 'objects' ) {
+			if ( $getObjects ) {
 				foreach ( $gadgets as $id ) {
-					$retVal[] = $repo->getGadget( $id );
+					$retval[] = $repo->getGadget( $id );
 				}
 			} else {
-				$retVal = array_merge( $retVal, $gadgets );
+				$retval = array_merge( $retval, $gadgets );
 			}
 		}
-		return $retVal;
+		return $retval;
 	}
 	
 	/**
@@ -142,7 +142,7 @@ abstract class GadgetRepo {
 	 * @return array of Gadget objects
 	 */
 	public static function getAllGadgets() {
-		return self::getAllGadgets_internal( 'all', 'objects' );
+		return self::getAllGadgets_internal( true, true );
 	}
 	
 	/**
@@ -150,7 +150,7 @@ abstract class GadgetRepo {
 	 * @return array of gadget IDs (strings)
 	 */
 	public static function getAllGadgetIDs() {
-		return self::getAllGadgets_internal( 'all', 'ids' );
+		return self::getAllGadgets_internal( true, false );
 	}
 	
 	/**
@@ -158,7 +158,7 @@ abstract class GadgetRepo {
 	 * @return array of Gadget objects
 	 */
 	public static function getAllRemoteGadgets() {
-		return self::getAllGadgets_internal( 'remote', 'objects' );
+		return self::getAllGadgets_internal( false, true );
 	}
 	
 	/**
@@ -166,6 +166,6 @@ abstract class GadgetRepo {
 	 * @return array of gadget IDs (strings)
 	 */
 	public static function getAllRemoteGadgetIDs() {
-		return self::getAllGadgets_internal( 'remote', 'ids' );
+		return self::getAllGadgets_internal( false, false );
 	}
 }
