@@ -172,7 +172,7 @@
 					format: 'json',
 					action: 'query',
 					list: 'gadgets',
-					gaprop: 'id|title|metadata|definitiontimestamp',
+					gaprop: 'id|title|desc|metadata|definitiontimestamp',
 					galanguage: mw.config.get( 'wgUserLanguage' )
 				};
 				if ( id !== null ) {
