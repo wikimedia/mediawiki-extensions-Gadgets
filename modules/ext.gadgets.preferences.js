@@ -55,9 +55,6 @@
 		}
 	};
 	// TODO: Actually fetch this info using AJAX
-	// TODO: This structure allows cross-pollination of categories when multiple foreign repos are involved, do we want that?
-	// I guess probably not, because we wouldn't even know where to pull the category message from to begin with.
-	// Probably needs an extra level for the repo.
 	var gadgetsByCategory = {
 		'wiki2': {
 			'': {
