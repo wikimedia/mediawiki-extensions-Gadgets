@@ -310,7 +310,7 @@ class GadgetsHooks {
 				'section' => 'gadgetsshared',
 				'label' => '&#160;',
 				'prefix' => 'gadget-',
-				'default' => array(),
+				//'default' => array(), // TODO: should we honor 'default':true remotely or not?
 				'cssclass' => 'mw-gadgetsshared-item-unloaded',
 			);
 		return true;
