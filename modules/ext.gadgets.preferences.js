@@ -11,7 +11,7 @@
 			for ( category in gadgetsByCategory[repo] ) {
 				// FIXME HTMLForm isn't namespacing these things, we have to make it do that
 				// to prevent category naming collisions between repos
-				$( document.getElementById( 'mw-htmlform-gadgetcategory-' + category ) )
+				$( document.getElementById( 'mw-htmlform-gadgetcategory-' + repo + '-' + category ) )
 					.siblings( 'legend' )
 					.text( categoryNames[repo][category] );
 					
@@ -33,12 +33,11 @@
 	 * @param msgKey {String} Message key of the error message
 	 */
 	function showPreferenceFormError( msgKey ) {
-		var	$oldContainer = $( '#mw-prefsection-gadgetsshared' ).find( '.mw-input' ),
-			$oldContainerTR = $oldContainer.closest( '.mw-gadgetsshared-item-unloaded' ),
+		var	$table = $( '#mw-htmlform-gadgetsshared' ),
 			$errorMsg = $( '<p>' ).addClass( 'error' ).text( mw.msg( msgKey ) );
 		
-		$oldContainerTR
-			.before( $( '<tr>' ).append( $( '<td>' ).attr( 'colspan', 2 ).append( $errorMsg ) ) )
+		$table
+			.append( $( '<tr>' ).append( $( '<td>' ).attr( 'colspan', 2 ).append( $errorMsg ) ) )
 			// Unhide the container and remove the spinner
 			.removeClass( 'mw-gadgetsshared-item-unloaded mw-ajax-loader' );
 	}
@@ -86,8 +85,7 @@
 	$( function() {
 		var gadgetsByCategory = null, categoryNames = null, failed = false;
 		
-		// Add spinner
-		$( '#mw-prefsection-gadgetsshared' ).find( '.mw-gadgetsshared-item-unloaded' ).addClass( 'mw-ajax-loader' );
+		// TODO spinner
 		
 		// Do AJAX requests and call fixPreferenceForm() when done
 		mw.gadgets.api.getForeignGadgetsData(

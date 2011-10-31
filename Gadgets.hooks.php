@@ -259,7 +259,7 @@ class GadgetsHooks {
 			foreach ( $byCategory as $category => $gadgets ) {
 				foreach ( $gadgets as $gadget ) {
 					$id = $gadget->getId();
-					$sectionCat = $category === '' ? '' : "/gadgetcategory-$category";
+					$sectionCat = $category === '' ? '' : "/gadgetcategory-$repoSource-$category";
 					if ( $repo->isLocal() ) {
 						// For local gadgets we have all the information
 						$title = htmlspecialchars( $gadget->getTitleMessage() );
@@ -280,7 +280,7 @@ class GadgetsHooks {
 						$preferences["gadget-$id"] = array(
 							'type' => 'toggle',
 							'label' => htmlspecialchars( $id ), // will be changed by JS
-							// TODO the below means source and category IDs can't contain slashes, enforce this
+							// TODO the below means source and category IDs can't contain slashes or dashes, enforce this
 							'section' => "gadgetsshared/gadgetrepo-$repoSource$sectionCat",
 							'cssclass' => 'mw-gadgets-shared-pref',
 							//'default' => $gadget->isEnabledForUser( $user ), // TODO: should we honor 'default' for remote gadgets?
@@ -295,7 +295,7 @@ class GadgetsHooks {
 	
 	public static function preferencesGetLegend( $form, $key, &$legend ) {
 		$matches = null;
-		if ( preg_match( '/^(gadgetcategory|gadgetrepo)-(.*)$/', $key, $matches ) ) {
+		if ( preg_match( '/^(gadgetrepo|gadgetcategory-.*?)-(.*)$/', $key, $matches ) ) {
 			// Just display the ID itself (with ucfirst applied)
 			// This will be changed to a properly i18ned string by JS
 			$legend = $form->getLang()->ucfirst( $matches[2] );
