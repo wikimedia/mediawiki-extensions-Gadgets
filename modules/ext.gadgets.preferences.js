@@ -6,47 +6,23 @@
  * @license GNU General Public Licence 2.0 or later
  */
 ( function( $ ) {
-	/**
-	 * Fixes the description and the categorization for shared gadgets in the preferences form.
-	 * This hides the container td for shared gadgets preferences, reorders them by moving them
-	 * into a new td in the right order, updates their label texts, then replaces the old td with
-	 * the new one.
-	 * @param gadgetsByCategory {Object} Map of { repo: { categoryID: { gadgetID: gadgetObj } } }
-	 * @param categoryNames {Object} Map of { repo: { categoryID: categoryDescription } }
-	 */
 	function fixPreferenceForm( gadgetsByCategory, categoryNames ) {
-		// TODO i18n the repo names somehow
-		// TODO h1 and h2 need better styling
-		var 	$oldContainer = $( '#mw-prefsection-gadgetsshared' ).find( '.mw-input' ),
-			$newContainer = $( '<td>' ).addClass( 'mw-input' ),
-			$spinner = $oldContainer.closest( '.mw-gadgetsshared-item-unloaded' ),
-			repo, category, gadget, $oldItem;
 		for ( repo in gadgetsByCategory ) {
-			if ( repo == 'local' ) {
-				// Skip local repository
-				// FIXME: Just don't request the info in the first place then, waste of API reqs
-				continue;
-			}
-			$newContainer.append( $( '<h1>' ).text( repo ) );
 			for ( category in gadgetsByCategory[repo] ) {
-				if ( category !== '' ) {
-					$newContainer.append( $( '<h2>' ).text( categoryNames[repo][category] ) );
-				}
+				// FIXME HTMLForm isn't namespacing these things, we have to make it do that
+				// to prevent category naming collisions between repos
+				$( document.getElementById( 'mw-htmlform-gadgetcategory-' + category ) )
+					.siblings( 'legend' )
+					.text( categoryNames[repo][category] );
+					
 				for ( gadget in gadgetsByCategory[repo][category] ) {
-					// Find the item belonging to this gadget in $oldContainer
-					$oldItem = $oldContainer
-						.find( '#mw-input-wpgadgetsshared-' + gadget )
-						.closest( '.mw-htmlform-multiselect-item' );
-					// Update the label text
-					$oldItem.find( 'label' ).text( gadgetsByCategory[repo][category][gadget].title );
-					// Move the item from $oldContainer to $newContainer
-					$newContainer.append( $oldItem );
+					// Use getElementById() because we'd have to escape gadget for selector stuff otherwise
+					$( document.getElementById( 'mw-input-wpgadget-' + gadget ) )
+						.siblings( 'label' )
+						.text( gadgetsByCategory[repo][category][gadget].title );
 				}
 			}
 		}
-		$oldContainer.replaceWith( $newContainer );
-		// Unhide the container by removing the unloaded class, and remove the spinner too
-		$spinner.removeClass( 'mw-gadgetsshared-item-unloaded mw-ajax-loader' );
 	}
 	
 	/**

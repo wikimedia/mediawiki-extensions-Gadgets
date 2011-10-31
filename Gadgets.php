@@ -108,6 +108,7 @@ $wgHooks['CanonicalNamespaces'][]           = 'GadgetsHooks::canonicalNamespaces
 $wgHooks['GetPreferences'][]                = 'GadgetsHooks::getPreferences';
 $wgHooks['UserGetDefaultOptions'][]         = 'GadgetsHooks::userGetDefaultOptions';
 $wgHooks['LoadExtensionSchemaUpdates'][]    = 'GadgetsHooks::loadExtensionSchemaUpdates';
+$wgHooks['PreferencesGetLegend'][]          = 'GadgetsHooks::preferencesGetLegend';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetsHooks::registerModules';
 $wgHooks['TitleIsCssOrJsPage'][]            = 'GadgetsHooks::titleIsCssOrJsPage';
 $wgHooks['TitleIsMovable'][]                = 'GadgetsHooks::titleIsMovable';

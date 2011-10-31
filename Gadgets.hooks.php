@@ -224,43 +224,7 @@ class GadgetsHooks {
 	 * @param $preferences Array: Preference descriptions
 	 */
 	public static function getPreferences( $user, &$preferences ) {
-		$repo = LocalGadgetRepo::singleton();
-		$gadgets = $repo->getGadgetIds();
-		$categories = array(); // array( category => array( desc => title ) )
-		$default = array(); // array of Gadget ids
-		foreach ( $gadgets as $id ) {
-			$gadget = $repo->getGadget( $id );
-			if ( !$gadget->isAllowed( $user ) || $gadget->isHidden() ) {
-				continue;
-			}
-			$category = $gadget->getCategory();
-
-			// Add the Gadget to the right category
-			$title = htmlspecialchars( $gadget->getTitleMessage() );
-			$description = $gadget->getDescriptionMessage(); // Is parsed, doesn't need escaping
-			if ( $description === '' ) {
-				// Empty description, just use the title
-				$text = $title;
-			} else {
-				$text = wfMessage( 'gadgets-preference-description' )->rawParams( $title, $description )->parse();
-			}
-			$categories[$category][$text] = $id;
-			// Add the Gadget to the default list if enabled
-			if ( $gadget->isEnabledForUser( $user ) ) {
-				$default[] = $id;
-			}
-		}
-
-		$options = array(); // array( desc1 => gadget1, category1 => array( desc2 => gadget2 ) )
-		foreach ( $categories as $category => $gadgets ) {
-			if ( $category !== '' ) {
-				$categoryMsg = htmlspecialchars( $repo->getCategoryTitle( $category ) );
-				$options[$categoryMsg] = $gadgets;
-			} else {
-				$options += $gadgets;
-			}
-		}
-
+		// Add tab for local gadgets
 		$preferences['gadgets-intro'] =
 			array(
 				'type' => 'info',
@@ -271,15 +235,6 @@ class GadgetsHooks {
 				'section' => 'gadgets',
 				'raw' => 1,
 				'rawrow' => 1,
-			);
-		$preferences['gadgets'] =
-			array(
-				'type' => 'multiselect',
-				'options' => $options,
-				'section' => 'gadgets',
-				'label' => '&#160;',
-				'prefix' => 'gadget-',
-				'default' => $default,
 			);
 
 		// Add tab for shared gadgets
@@ -295,24 +250,56 @@ class GadgetsHooks {
 				'rawrow' => 1,
 			);
 		
-		// Build an array with all the shared gadget preferences with dummy descriptions.
-		// These descriptions will be completed by JavaScript
-		$remoteGadgets = GadgetRepo::getAllRemoteGadgetIDs();
-		$sharedOptions = array();
-		foreach ( $remoteGadgets as $id ) {
-			// Use the gadget name as a dummy description
-			$sharedOptions[$id] = $id;
+		// This loop adds the preferences for all gadgets, both local and remote
+		$repos = GadgetRepo::getAllRepos();
+		foreach ( $repos as $repo ) {
+			$repoSource = $repo->getSource();
+			$byCategory = $repo->getGadgetsByCategory();
+			ksort( $byCategory );
+			foreach ( $byCategory as $category => $gadgets ) {
+				foreach ( $gadgets as $gadget ) {
+					$id = $gadget->getId();
+					$sectionCat = $category === '' ? '' : "/gadgetcategory-$category";
+					if ( $repo->isLocal() ) {
+						// For local gadgets we have all the information
+						$title = htmlspecialchars( $gadget->getTitleMessage() );
+						$description = $gadget->getDescriptionMessage(); // Is parsed, doesn't need escaping
+						if ( $description === '' ) {
+							// Empty description, just use the title
+							$text = $title;
+						} else {
+							$text = wfMessage( 'gadgets-preference-description' )->rawParams( $title, $description )->parse();
+						}
+						$preferences["gadget-$id"] = array(
+							'type' => 'toggle',
+							'label' => $text,
+							'section' => "gadgets$sectionCat",
+							'default' => $gadget->isEnabledForUser( $user ),
+						);
+					} else {
+						$preferences["gadget-$id"] = array(
+							'type' => 'toggle',
+							'label' => htmlspecialchars( $id ), // will be changed by JS
+							// TODO the below means source and category IDs can't contain slashes, enforce this
+							'section' => "gadgetsshared/gadgetrepo-$repoSource$sectionCat",
+							'cssclass' => 'mw-gadgets-shared-pref',
+							//'default' => $gadget->isEnabledForUser( $user ), // TODO: should we honor 'default' for remote gadgets?
+						);
+					}
+				}
+			}
 		}
-		$preferences['gadgetsshared'] =
-			array(
-				'type' => 'multiselect',
-				'options' => $sharedOptions,
-				'section' => 'gadgetsshared',
-				'label' => '&#160;',
-				'prefix' => 'gadget-',
-				//'default' => array(), // TODO: should we honor 'default':true remotely or not?
-				'cssclass' => 'mw-gadgetsshared-item-unloaded',
-			);
+		
+		return true;
+	}
+	
+	public static function preferencesGetLegend( $form, $key, &$legend ) {
+		$matches = null;
+		if ( preg_match( '/^(gadgetcategory|gadgetrepo)-(.*)$/', $key, $matches ) ) {
+			// Just display the ID itself (with ucfirst applied)
+			// This will be changed to a properly i18ned string by JS
+			$legend = $form->getLang()->ucfirst( $matches[2] );
+		}
 		return true;
 	}
 
