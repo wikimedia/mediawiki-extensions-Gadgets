@@ -91,7 +91,7 @@
 	 * @param error function( error ), called if one of the getter calls called its error callback
 	 */
 	function mergeRepositoryData( getter, success, error ) {
-		var combined = {}, successes = 0, numRepos = 0, repo;
+		var combined = {}, successes = 0, numRepos = 0, repo, failed = false;
 		// Find out how many repos there are
 		// Needs to be in a separate loop because we have to have the final number ready
 		// before we fire the first potentially (since it could be cached) async request
@@ -109,7 +109,10 @@
 						success( combined );
 					}
 				}, function( errorCode ) {
-					error( errorCode );
+					if ( !failed ) {
+						failed = true;
+						error( errorCode );
+					}
 				}, repoName
 			);
 		} );
