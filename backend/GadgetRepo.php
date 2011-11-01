@@ -35,8 +35,8 @@ abstract class GadgetRepo {
 	
 	/**
 	 * Check whether this repository allows write actions. If this method returns false,
-	 * methods that modify the state of the repository or the gadgets in it (i.e. addGadget(),
-	 * modifyGadget() and deleteGadget()) will always fail.
+	 * methods that modify the state of the repository or the gadgets in it (i.e. modifyGadget()
+	 * and deleteGadget()) will always fail.
 	 * @return bool
 	 */
 	abstract public function isWriteable();
