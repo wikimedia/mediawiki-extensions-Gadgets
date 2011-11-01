@@ -126,6 +126,7 @@ $wgAutoloadClasses['ApiQueryGadgetPages'] = $dir . 'api/ApiQueryGadgetPages.php'
 $wgAutoloadClasses['ApiQueryGadgets'] = $dir . 'api/ApiQueryGadgets.php';
 $wgAutoloadClasses['ApiGetGadgetPrefs'] = $dir . 'api/ApiGetGadgetPrefs.php';
 $wgAutoloadClasses['ApiSetGadgetPrefs'] = $dir . 'api/ApiSetGadgetPrefs.php';
+$wgAutoloadClasses['CachedGadgetRepo'] = $dir . 'backend/CachedGadgetRepo.php';
 $wgAutoloadClasses['ForeignDBGadgetRepo'] = $dir . 'backend/ForeignDBGadgetRepo.php';
 $wgAutoloadClasses['Gadget'] = $dir . 'backend/Gadget.php';
 $wgAutoloadClasses['GadgetsHooks'] = $dir . 'Gadgets.hooks.php';

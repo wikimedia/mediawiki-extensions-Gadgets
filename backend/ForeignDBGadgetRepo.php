@@ -77,7 +77,7 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 		}
 	}
 	
-	protected function getLoadIDsQuery() {
+	protected function getLoadAllDataQuery() {
 		$query = parent::getLoadIDsQuery();
 		$query['conds']['gd_shared'] = 1;
 		return $query;

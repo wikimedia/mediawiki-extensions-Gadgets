@@ -34,14 +34,6 @@ abstract class GadgetRepo {
 	abstract public function getGadget( $id );
 	
 	/**
-	 * Clear any in-object caches this repository may have. In particular,
-	 * the return values of getGadgetIds() and getGadget() may be cached.
-	 * Callers may wish to clear this cache and reobtain a Gadget object
-	 * when they get a conflict error.
-	 */
-	abstract public function clearInObjectCache();
-	
-	/**
 	 * Check whether this repository allows write actions. If this method returns false,
 	 * methods that modify the state of the repository or the gadgets in it (i.e. addGadget(),
 	 * modifyGadget() and deleteGadget()) will always fail.

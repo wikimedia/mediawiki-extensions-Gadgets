@@ -2,29 +2,7 @@
 /**
  * Gadget repository that gets its gadgets from the local database.
  */
-class LocalGadgetRepo extends GadgetRepo {
-	/** Cache for EXISTING gadgets. Nonexistent gadgets must not be cached here,
-	 * use $missCache instead. Values may be null, in which case only the gadget's
-	 * existence is cached and the data must still be retrieved from memc or the DB.
-	 * 
-	 * array( id => null|array( 'json' => JSON string, 'timestamp' => timestamp ) )
-	 */
-	protected $data = array();
-	
-	/** Cache for gadget IDs that have been queried and found to be nonexistent.
-	 * 
-	 * array( id => ignored )
-	 */
-	protected $missCache = array();
-	
-	/** If true, $data is assumed to contain all existing gadget IDs.
-	 */
-	protected $idsLoaded = false;
-	
-	/** Memcached key of the gadget names list. Subclasses may override this in their constructor.
-	  * This could've been a static member if we had PHP 5.3's late static binding.
-	  */
-	protected $namesKey;
+class LocalGadgetRepo extends CachedGadgetRepo {
 	
 	/*** Public static methods ***/
 	
@@ -40,6 +18,35 @@ class LocalGadgetRepo extends GadgetRepo {
 		return $instance;
 	}
 	
+	/*** Protected methods inherited from CachedGadgetRepo ***/
+	
+	protected function loadAllData() {
+		$query = $this->getLoadAllDataQuery();
+		$dbr = $this->getDB();
+		$res = $dbr->select( $query['tables'], $query['fields'], $query['conds'], __METHOD__,
+			$query['options'], $query['join_conds'] );
+		
+		$data = array();
+		foreach ( $res as $row ) {
+			$data[$row->gd_id] = array( 'json' => $row->gd_blob, 'timestamp' => $row->gd_timestamp );
+		}
+		return $data;
+	}
+	
+	protected function loadDataFor( $id ) {
+		$query = $this->getLoadDataForQuery( $id );
+		$dbr = $this->getDB();
+		$row = $dbr->selectRow( $query['tables'], $query['fields'], $query['conds'], __METHOD__,
+			$query['options'], $query['join_conds']
+		);
+		if ( !$row ) {
+			// Gadget doesn't exist
+			return array();
+		} else {
+			return array( 'json' => $row->gd_blob, 'timestamp' => $row->gd_timestamp );
+		}
+	}
+	
 	/*** Public methods inherited from GadgetRepo ***/
 	
 	/**
@@ -51,27 +58,8 @@ class LocalGadgetRepo extends GadgetRepo {
 		$this->namesKey = $this->getMemcKey( 'gadgets', 'localreponames' );
 	}
 	
-	public function getGadgetIds() {
-		$this->loadIDs();
-		return array_keys( $this->data );
-	}
-	
-	public function getGadget( $id ) {
-		$data = $this->loadDataFor( $id );
-		if ( !$data ) {
-			return null;
-		}
-		return new Gadget( $id, $this, $data['json'], $data['timestamp']  );
-	}
-	
 	public function getSource() {
 		return 'local';
-	}
-	
-	public function clearInObjectCache() {
-		$this->data = array();
-		$this->missCache = array();
-		$this->idsLoaded = false;
 	}
 	
 	public function isWriteable() {
@@ -119,23 +107,7 @@ class LocalGadgetRepo extends GadgetRepo {
 			return Status::newFatal( 'gadgets-manager-modify-conflict', $id, $ts );
 		}
 		
-		// Update our in-object cache
-		// This looks stupid: we have an object that we could be caching. But I prefer
-		// to keep $this->data in a consistent format and have getGadget() always return
-		// a clone. If it returned a reference to a cached object, the caller could change
-		// that object and cause weird things to happen.
-		$this->data[$id] = array( 'json' => $json, 'timestamp' => $newTs );
-		// Remove from the missing cache if present there
-		unset( $this->missCache[$id] );
-		// Write to memc too
-		$key = $this->getMemcKey( 'gadgets', 'localrepodata', $id );
-		if ( $key !== false ) {
-			$wgMemc->set( $key, $this->data[$id] );
-		}
-		// Clear the gadget names array in memc
-		if ( $this->namesKey !== false ) {
-			$wgMemc->delete( $this->namesKey );
-		}
+		$this->updateCache( $id, array( 'json' => $json, 'timestamp' => $newTs ) );
 		
 		return Status::newGood();
 	}
@@ -151,19 +123,7 @@ class LocalGadgetRepo extends GadgetRepo {
 		$dbw->delete( 'gadgets', array( 'gd_id' => $id ), __METHOD__ );
 		$affectedRows = $dbw->affectedRows();
 		
-		// Remove gadget from in-object cache
-		unset( $this->data[$id] );
-		// Add it to the missing cache
-		$this->missCache[$id] = true;
-		// Store nonexistence in memc too
-		$key = $this->getMemcKey( 'gadgets', 'localrepodata', $id );
-		if ( $key !== false ) {
-			$wgMemc->set( $key, array() );
-		}
-		// Clear the gadget names array in memc so it'll be regenerated later
-		if ( $this->namesKey !== false ) {
-			$wgMemc->delete( $this->namesKey );
-		}
+		$this->updateCache( $id, null );
 		
 		if ( $affectedRows === 0 ) {
 			return Status::newFatal( 'gadgets-manager-nosuchgadget', $id );
@@ -229,110 +189,10 @@ class LocalGadgetRepo extends GadgetRepo {
 	}
 	
 	/**
-	 * Populate the keys in $this->data. Values are only populated when loading from the DB;
-	 * when loading from memc, all values are set to null and are lazy-loaded in loadDataFor().
-	 * @return array Array of gadget IDs
-	 */
-	protected function loadIDs() {
-		global $wgMemc;
-		if ( $this->idsLoaded ) {
-			// Already loaded
-			return array_keys( $this->data );
-		}
-		
-		// Try memc
-		$cached = $this->namesKey !== false ? $wgMemc->get( $this->namesKey ) : false;
-		if ( is_array( $cached ) ) {
-			// Yay, data is in cache
-			// Add to $this->data , but let things already in $this->data take precedence
-			$this->data += $cached;
-			$this->idsLoaded = true;
-			return array_keys( $this->data );
-		}
-		
-		// Get from DB
-		$query = $this->getLoadIDsQuery();
-		$dbr = $this->getDB();
-		$res = $dbr->select( $query['tables'], $query['fields'], $query['conds'], __METHOD__,
-			$query['options'], $query['join_conds'] );
-		
-		$toCache = array();
-		foreach ( $res as $row ) {
-			$this->data[$row->gd_id] = array( 'json' => $row->gd_blob, 'timestamp' => $row->gd_timestamp );
-			$toCache[$row->gd_id] = null;
-		}
-		// Write to memc
-		$wgMemc->set( $this->namesKey, $toCache );
-		$this->idsLoaded = true;
-		return array_keys( $this->data );
-	}
-	
-	/**
-	 * Populate a given Gadget's data in $this->data . Tries memc first, then falls back to a DB query.
-	 * @param $id string Gadget ID
-	 * @return array( 'json' => JSON string, 'timestamp' => timestamp ) or empty array if the gadget doesn't exist.
-	 */
-	protected function loadDataFor( $id ) {
-		global $wgMemc;
-		if ( isset( $this->data[$id] ) && is_array( $this->data[$id] ) ) {
-			// Already loaded, nothing to do here.
-			return $this->data[$id];
-		}
-		if ( isset( $this->missCache[$id] ) ) {
-			// Gadget is already known to be missing
-			return array();
-		}
-		// Need to use array_key_exists() here because isset() returns true for nulls. !@#$ you, PHP
-		if ( $this->idsLoaded && !array_key_exists( $id, $this->data ) ) {
-			// All IDs have been loaded into $this->data but $id isn't in there,
-			// therefore it doesn't exist.
-			$this->missCache[$id] = true;
-			return array();
-		}
-		
-		// Try cache
-		$key = $this->getMemcKey( 'gadgets', 'localrepodata', $id );
-		$cached = $key !== false ? $wgMemc->get( $key ) : false;
-		if ( is_array( $cached ) ) {
-			// Yay, data is in cache
-			if ( count( $cached ) ) {
-				// Cache entry contains data
-				$this->data[$id] = $cached;
-			} else {
-				// Cache entry signals nonexistence
-				$this->missCache[$id] = true;
-			}
-			return $cached;
-		}
-		
-		// Get from database
-		$query = $this->getLoadDataForQuery( $id );
-		$dbr = $this->getDB();
-		$row = $dbr->selectRow( $query['tables'], $query['fields'], $query['conds'], __METHOD__,
-			$query['options'], $query['join_conds']
-		);
-		if ( !$row ) {
-			// Gadget doesn't exist
-			// Use empty array to prevent confusion with $wgMemc->get() return values for missing keys
-			$data = array();
-			// DO NOT store this in $this->data, because it's supposed to contain existing gadgets only
-			$this->missCache[$id] = true;
-		} else {
-			$data = array( 'json' => $row->gd_blob, 'timestamp' => $row->gd_timestamp );
-			// Save to object cache
-			$this->data[$id] = $data;
-		}
-		// Save to memc
-		$wgMemc->set( $key, $data );
-		
-		return $data;
-	}
-	
-	/**
-	 * Get the DB query to use in getLoadIDs(). Subclasses can override this to tweak the query.
+	 * Get the DB query to use in loadAllData(). Subclasses can override this to tweak the query.
 	 * @return Array
 	 */
-	protected function getLoadIDsQuery() {
+	protected function getLoadAllDataQuery() {
 		return array(
 			'tables' => 'gadgets',
 			'fields' => array( 'gd_id', 'gd_blob', 'gd_timestamp' ),
