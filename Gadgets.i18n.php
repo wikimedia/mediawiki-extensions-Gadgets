@@ -1929,7 +1929,10 @@ Merk også at disse verktøyene ikke er del av MediaWiki-programvaren, og vanlig
 	'gadgets-title' => 'Tilleggsfunksjoner',
 	'gadgets-pagetext' => 'Nedenfor er en liste over tilleggsfunksjoner brukere kan slå på i [[Special:Preferences|innstillingene]], som definert på [[MediaWiki:Gadgets-definition]]. Denne oversikten gir lett tilgang til systembeskjedsidene som definerer hvert verktøys beskrivelse og kode.',
 	'gadgets-uses' => 'Bruk',
-	'gadgets-required-rights' => 'Krever {{PLURAL:$2|$1 rettighet|følgende rettigheter: $1}}.',
+	'gadgets-required-rights' => 'Krever følgende {{PLURAL:$2|rettighet|rettigheter}}:
+
+$1',
+	'gadgets-required-skins' => 'Tilgjengelig i {{PLURAL:$1|drakta $1|følgende drakter: $1}}.',
 	'gadgets-default' => 'Aktivert for alle som standard',
 	'gadgets-export' => 'Eksporter',
 	'gadgets-export-title' => 'Tilleggsfunksjon eksport',
