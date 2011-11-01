@@ -207,14 +207,23 @@ class GadgetsHooks {
 	 * @param $defaultOptions Array of default preference keys and values
 	 */
 	public static function userGetDefaultOptions( &$defaultOptions ) {
-		$repo = LocalGadgetRepo::singleton();
-		$gadgetIds = $repo->getGadgetIds();
-		foreach ( $gadgetIds as $gadgetId ) {
-			$gadget = $repo->getGadget( $gadgetId );
-			if ( $gadget->isEnabledByDefault() ) {
-				$defaultOptions['gadget-' . $gadget->getId()] = 1;
+		// Cache the stuff we're adding to $defaultOptions
+		// This is done because this hook function is called dozens of times during a typical request
+		// but we only want to hit the repo backend once
+		static $add = null;
+		if ( $add === null ) {
+			$add = array();
+			$repo = LocalGadgetRepo::singleton();
+			$gadgetIds = $repo->getGadgetIds();
+			foreach ( $gadgetIds as $gadgetId ) {
+				$gadget = $repo->getGadget( $gadgetId );
+				if ( $gadget->isEnabledByDefault() ) {
+					$add['gadget-' . $gadget->getId()] = 1;
+				}
 			}
 		}
+		
+		$defaultOptions = $add + $defaultOptions;
 		return true;
 	}
 
