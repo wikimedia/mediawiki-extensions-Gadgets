@@ -30,8 +30,6 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 		foreach ( $optionKeys as $optionKey ) {
 			$this->{$optionKey} = $options[$optionKey];
 		}
-		
-		$this->namesKey = $this->getMemcKey( 'gadgets', 'foreigndbreponames' );
 	}
 	
 	public function isWriteable() {
@@ -67,13 +65,27 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 		return $this->db;
 	}
 	
-	protected function getMemcKey( /* ... */ ) {
+	protected function getCacheKey( $id ) {
 		if ( $this->hasSharedCache ) {
-			$args = func_get_args();
-			array_unshift( $args, $this->dbName, $this->tablePrefix );
-			return call_user_func_array( 'wfForeignMemcKey', $args );
+			// Access the foreign wiki's memc
+			if ( $id === null ) {
+				// Use 'localrepoidsshared' instead of 'localrepoids', otherwise we
+				// will be accessing the same cache entry as the foreign wiki's LocalGadgetRepo
+				// We can't allow that to happen because the local repo's ID list includes
+				// shared gadgets but ours doesn't
+				return wfForeignMemcKey( $this->dbName, $this->tablePrefix, 'gadgets', 'localrepoidsshared' );
+			} else {
+				// We don't have to prevent collisions here because sharing gadget data
+				// caches between us and the foreign wiki's local repo is OK
+				return wfForeignMemcKey( $this->dbName, $this->tablePrefix, 'gadgets', 'localrepodata', $id );
+			}
 		} else {
-			return false;
+			// No access to the foreign wiki's memc, so cache locally
+			if ( $id === null ) {
+				return wfMemcKey( 'gadgets', 'foreignrepoids', $this->source );
+			} else {
+				return wfMemcKey( 'gadgets', 'foreignrepodata', $this->source, $id );
+			}
 		}
 	}
 	

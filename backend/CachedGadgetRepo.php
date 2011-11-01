@@ -1,5 +1,4 @@
 <?php
-// TODO: Reconsider memc key naming
 /**
  * Abstract class that enhances GadgetRepo with caching. This is useful for
  * repos that obtain gadget data from a database or a REST API. Currently, all
@@ -26,16 +25,6 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 	 */
 	protected $idsLoaded = false;
 	
-	/** 
-	 * Memcached key of the gadget names list. Subclasses must set this in their constructor.
-	 * This could've been a static member if we had PHP 5.3's late static binding.
-	 * 
-	 * Set to false if memcached is not available.
-	 * 
-	 * TODO: make this an abstract getter, and redesign the whole memc key naming scheme
-	 */
-	protected $namesKey;
-	
 	/*** Abstract methods ***/
 	
 	/**
@@ -50,6 +39,14 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 	 * @return array( 'json' => JSON string, 'timestamp' => timestamp ) or empty array if the gadget doesn't exist.
 	 */
 	abstract protected function loadDataFor( $id );
+	
+	/**
+	 * Get the memc key for caching the data for a given gadget, or for
+	 * caching the gadget IDs list.
+	 * @param $id string|null Gadget ID to get the memc key for, or null to get the memc key for the IDs list
+	 * @return string Memc key including wiki prefix, i.e. the return value of wfMemcKey() or wfForeignMemcKey()
+	 */
+	abstract protected function getCacheKey( $id );
 	
 	/*** Protected methods ***/
 	
@@ -79,14 +76,9 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 		}
 		
 		// Write to memc
-		$key = $this->getMemcKey( 'gadgets', 'localrepodata', $id );
-		if ( $key !== false ) {
-			$wgMemc->set( $key, $toCache );
-		}
+		$wgMemc->set( $this->getCacheKey( $id ), $toCache );
 		// Clear the gadget names array in memc so it'll be regenerated later
-		if ( $this->namesKey !== false ) {
-			$wgMemc->delete( $this->namesKey );
-		}
+		$wgMemc->delete( $this->getCacheKey( null ) );
 	}
 	
 	/*** Public methods inherited from GadgetRepo ***/
@@ -118,7 +110,8 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 		}
 		
 		// Try memc
-		$cached = $this->namesKey !== false ? $wgMemc->get( $this->namesKey ) : false;
+		$key = $this->getCacheKey( null );
+		$cached = $wgMemc->get( $key );
 		if ( is_array( $cached ) ) {
 			// Yay, data is in cache
 			// Add to $this->data , but let things already in $this->data take precedence
@@ -131,7 +124,7 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 		// For memc, prepare an array with the IDs as keys but with each value set to null
 		$toCache = array_combine( array_keys( $data ), array_fill( 0, count( $this->data ), null ) );
 		
-		$wgMemc->set( $this->namesKey, $toCache );
+		$wgMemc->set( $key, $toCache );
 		$this->idsLoaded = true;
 		return array_keys( $this->data );
 	}
@@ -160,9 +153,8 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 		}
 		
 		// Try cache
-		// FIXME getMemcKey is defined in LocalGadgetRepo but not abstract. Cache key naming needs redesign
-		$key = $this->getMemcKey( 'gadgets', 'localrepodata', $id );
-		$cached = $key !== false ? $wgMemc->get( $key ) : false;
+		$key = $this->getCacheKey( $id );
+		$cached = $wgMemc->get( $key );
 		if ( is_array( $cached ) ) {
 			// Yay, data is in cache
 			if ( count( $cached ) ) {

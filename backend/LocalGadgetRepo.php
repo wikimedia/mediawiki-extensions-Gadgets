@@ -20,6 +20,14 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	
 	/*** Protected methods inherited from CachedGadgetRepo ***/
 	
+	protected function getCacheKey( $id ) {
+		if ( $id === null ) {
+			return wfMemcKey( 'gadgets', 'localrepoids' );
+		} else {
+			return wfMemcKey( 'gadgets', 'localrepodata', $id );
+		}
+	}
+	
 	protected function loadAllData() {
 		$query = $this->getLoadAllDataQuery();
 		$dbr = $this->getDB();
@@ -48,15 +56,6 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	}
 	
 	/*** Public methods inherited from GadgetRepo ***/
-	
-	/**
-	 * Constructor.
-	 * @param info array of options. There are no applicable options for this class
-	 */
-	public function __construct( array $options = array() ) {
-		parent::__construct( $options );
-		$this->namesKey = $this->getMemcKey( 'gadgets', 'localreponames' );
-	}
 	
 	public function getSource() {
 		return 'local';
@@ -177,15 +176,6 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	 */
 	protected function getMasterDB() {
 		return wfGetDB( DB_MASTER );
-	}
-	
-	/**
-	 * Get a memcached key. Subclasses can override this to use a foreign memc
-	 * @return string|bool Cache key, or false if this repo has no shared memc
-	 */
-	protected function getMemcKey( /* ... */ ) {
-		$args = func_get_args();
-		return call_user_func_array( 'wfMemcKey', $args );
 	}
 	
 	/**
