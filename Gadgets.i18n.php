@@ -947,6 +947,7 @@ Ceti apèrçu balye un accès vito fêt a les pâges de mèssâjos sistèmo que 
 	'gadgets-required-rights' => 'At fôta de cet{{PLURAL:$2|i drêt|os drêts}} :
 
 $1',
+	'gadgets-required-skins' => 'Disponiblo sur {{PLURAL:$2|l’habelyâjo « $1 »|cetos habelyâjos : « $1 »}}.',
 	'gadgets-default' => 'Activâ por tot lo mondo per dèfôt.',
 	'gadgets-export' => 'Èxportacion',
 	'gadgets-export-title' => 'Èxportacion d’outil',
@@ -1257,25 +1258,32 @@ Anda harus memeroleh izin pada wiki tujuan (termasuk hak menyunting pesan sistem
  * @author Lam-ang
  */
 $messages['ilo'] = array(
-	'gadgets-desc' => 'Mabalin dagit agar-aramat nga apili iti [[Special:Gadgets|CSS ken JavaScript gadyets]] idiay [[Special:Preferences|kaykayat da]]',
+	'gadgets-desc' => 'Mabalin dagiti agar-aramat nga agpili iti [[Special:Gadgets|CSS ken JavaScript gadyets]] idiay [[Special:Preferences|kaykayat da]]',
 	'prefs-gadgets' => 'Gadyets',
 	'gadgets-prefstext' => 'Adda iti baba ti listaan ti naiduma nga gadyets nga usaren idiay pakabilan mo.
 Dagitoy nga gadyets ket naibasta iti JavaScript, masapul nga ti "browsermo" ket agususar ti JavaScript.
 Saan nga mabalin nga usaren dagitoy nga gadyets ditoy kaykayat mo nga panid.
 
 Dagitoy nga gadyets ket saan nga parte ti MediaWiki software, inaramid ken inayaywanan dagiti agar-aramat ti lokal nga wiki.
-Mabaliwan dagita administrador nga baliwan ti  [[MediaWiki:Gadgets-definition|definitions]] ken [[Special:Gadgets|descriptions]] ti gadyets.',
+Mabaliwan dagita administrador nga baliwan ti  [[MediaWiki:Gadgets-definition|pinakailawag]] ken [[Special:Gadgets|deskripsyon]] ti gadyets.',
 	'gadgets' => 'Gadyets',
 	'gadgets-title' => 'Gadyets',
+	'gadgets-pagetext' => 'Dita baba ket adda listaan dagiti naiduma a gadyets nga dagiti agar-aramat ket mapagbalin da idiay [[Special:Preferences|kaykayat da a panid]],  nga naipalawag iti [[MediaWiki:Gadgets-definition|dagiti pinakailawag]].
+Daytoy nga pinakabuklan ket mangted ti nalaka nga pinaserrek kadagit mensahe ti sistema a panid nga nagpailawag iti deskripsyon ti gadyet ken kodigo.',
 	'gadgets-uses' => 'Usar',
-	'gadgets-required-rights' => 'Masapul dagiti sumaganad {{PLURAL:$2|nga kaberngan|dagiti kaberngan}}:
+	'gadgets-required-rights' => 'Masapul dagiti sumaganad {{PLURAL:$2|nga karbengan|dagiti karbengan}}:
 
 $1',
 	'gadgets-required-skins' => 'Adda nga mabalin idiay {{PLURAL:$2|$1 nga kudil|dagiti sumaganad nga kudil: $1}}.',
 	'gadgets-default' => 'Ipabalin nga kinasigud iti amin nga agar-aramat.',
-	'gadgets-export' => 'Angkaten',
-	'gadgets-export-title' => 'Iangkat ti gadyet',
+	'gadgets-export' => 'Agipan',
+	'gadgets-export-title' => 'Agipan ti gadyet',
 	'gadgets-not-found' => 'Saan nga nabirukan ti "$1" nga gadyet.',
+	'gadgets-export-text' => 'Ti pinag-ipan ti $1 nga gadyet, ikklik idiay "{{int:gadgets-export-download}}" a buton, idulin ti inkarga nga agpababa a papeles,
+mapan idiay to Special:Import ti papanan a wiki ken ikarga nga agpangato. Ken inayon dagiti sumaganad idiay MediaWiki:Gadgets-definition page:
+<pre>$2</pre>
+Masapul nga addaan ka tiusto a pammalubos iti papanan a wiki (nairaman ti karbegnan nga pinagbaliw dagiti mensahe ti sistema) ken naipabalin ti pinagala kadagiti naggapu a papeles a naikarga nga agpangato.',
+	'gadgets-export-download' => 'Ikarga nga agpababa',
 );
 
 /** Ido (Ido)
@@ -2536,6 +2544,7 @@ $messages['su'] = array(
  * @author Ainali
  * @author Boivie
  * @author Cohan
+ * @author Diupwijk
  * @author Lejonel
  * @author M.M.S.
  */
@@ -2553,7 +2562,10 @@ Lokala administratörer kan redigera [[MediaWiki:Gadgets-definition|definitioner
 	'gadgets-pagetext' => 'Härunder finns en lista över finesser som användare kan aktivera i sina [[Special:Preferences|inställningar]], definierad av [[MediaWiki:Gadgets-definition|definieringarna]].
 Den här översikten ger enkel åtkomst till de systemmeddelanden som definierar beskrivningarna och koden för varje finess.',
 	'gadgets-uses' => 'Använder',
-	'gadgets-required-rights' => 'Kräver {{PLURAL:$2|$1 rättighet|följande rättigheter: $1}}.',
+	'gadgets-required-rights' => 'Kräver följande {{PLURAL:$2|rättighet|rättigheter}}:
+
+$1',
+	'gadgets-required-skins' => 'Tillgängligt i {{PLURAL:$2|$1-utseendet|följande utseenden: $1}}.',
 	'gadgets-default' => 'Som standard aktiverat för alla.',
 	'gadgets-export' => 'Exportera',
 	'gadgets-export-title' => 'Exportera finess',
