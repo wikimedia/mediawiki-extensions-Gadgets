@@ -53,7 +53,7 @@ $wgExtensionCredits['other'][] = array(
  * For foreign API-based gadget repositories, use:
  * $wgGadgetRepositories[] = array(
  * 	'class' => 'ForeignAPIGadgetRepo',
- *	// TODO
+ * 	'source' => 'mediawikiwiki',
  * );
  */
 $wgGadgetRepositories = array();
@@ -127,6 +127,7 @@ $wgAutoloadClasses['ApiQueryGadgets'] = $dir . 'api/ApiQueryGadgets.php';
 $wgAutoloadClasses['ApiGetGadgetPrefs'] = $dir . 'api/ApiGetGadgetPrefs.php';
 $wgAutoloadClasses['ApiSetGadgetPrefs'] = $dir . 'api/ApiSetGadgetPrefs.php';
 $wgAutoloadClasses['CachedGadgetRepo'] = $dir . 'backend/CachedGadgetRepo.php';
+$wgAutoloadClasses['ForeignAPIGadgetRepo'] = $dir . 'backend/ForeignAPIGadgetRepo.php';
 $wgAutoloadClasses['ForeignDBGadgetRepo'] = $dir . 'backend/ForeignDBGadgetRepo.php';
 $wgAutoloadClasses['Gadget'] = $dir . 'backend/Gadget.php';
 $wgAutoloadClasses['GadgetsHooks'] = $dir . 'Gadgets.hooks.php';
