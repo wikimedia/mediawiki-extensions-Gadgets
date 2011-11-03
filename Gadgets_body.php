@@ -150,12 +150,11 @@ class GadgetHooks extends OutputPage {
 		$lb->setCaller( __METHOD__ );
 		$pages = array();
 
-		$styles = array();
 		foreach ( $gadgets as $gadget ) {
 			if ( $gadget->isEnabled( $wgUser ) && $gadget->isAllowed( $wgUser ) ) {
 				if ( $gadget->hasModule() ) {
-					$styles[] = $gadget->getModuleName();
-					$out->addModuleScripts( $gadget->getModuleName() );
+					$out->addModuleStyles( $gadget->getModuleName() );
+					$out->addModules( $gadget->getModuleName() );
 				}
 
 				foreach ( $gadget->getLegacyScripts() as $page ) {
@@ -164,9 +163,6 @@ class GadgetHooks extends OutputPage {
 				}
 			}
 		}
-		$out->addHeadItem( 'ext.gadget', $out->makeResourceLoaderLink( $styles,
-			ResourceLoaderModule::TYPE_STYLES
-		) );
 
 		$lb->execute( __METHOD__ );
 
