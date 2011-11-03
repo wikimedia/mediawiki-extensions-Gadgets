@@ -724,7 +724,9 @@ Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per [[MediaWiki
 	'gadgets-pagetext' => 'Jen listo da specialaj aldonaĵoj kiujn uzuloj povas aktivigi en [[Special:Preferences|siaj preferoj]], kiel difinite en [[MediaWiki:Gadgets-definition|difinoj]].
 Ĉi tiu superrigardo provizas facilan aliron al la sistemaj mesaĝoj kiuj difinas la priskribon kaj la kodon de ĉiuj aldonaĵoj.',
 	'gadgets-uses' => 'uzas',
-	'gadgets-required-rights' => 'Bezonas la {{PLURAL:$2|$1 rajton|jenajn rajtojn: $1}}.',
+	'gadgets-required-rights' => 'Bezonas la {{PLURAL:$2|jenan rajton|jenajn rajtojn}}:
+
+$1',
 	'gadgets-default' => 'Ŝaltita por ĉiu defaŭlte.',
 	'gadgets-export' => 'Eksporti',
 	'gadgets-export-title' => 'Aldonaĵo-eksportado',
@@ -1152,6 +1154,7 @@ Nimo toho wobkedźbuj, zo tute specialne funkcije dźěl softwary MediaWiki njej
 	'gadgets-pagetext' => 'Deleka je lisćina specialnych funkcijow, kotrež wužiwarjo móža na swojej [[Special:Preferences|stronje nastajenjow]] zmóžnić, kaž přez [[MediaWiki:Gadgets-definition|definicije]] definowane.
 Tutón přehlad skići lochki přistup k systemowym zdźělenkam, kotrež wopisanje a kod kóždeje specialneje funkcije definuja.',
 	'gadgets-uses' => 'Wužiwa',
+	'gadgets-required-skins' => 'Na {{PLURAL:$2|slědowacej drasće|slědowacymaj drastomaj|slědowacych drastach|slědowacych drastach}} k dispoziciji: $1',
 	'gadgets-default' => 'Za wšěch standardnje zmóžnjeny.',
 	'gadgets-export' => 'Eksportować',
 	'gadgets-export-title' => 'Specialnu funkciju eksportować',
