@@ -11,7 +11,7 @@
  * @license GNU General Public Licence 2.0 or later
  */
 
-class GadgetHooks extends OutputPage {
+class GadgetHooks {
 	/**
 	 * ArticleSaveComplete hook handler.
 	 *
