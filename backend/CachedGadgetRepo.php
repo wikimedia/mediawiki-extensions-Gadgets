@@ -123,7 +123,12 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 		$this->data = $this->loadAllData();
 		$arrayKeys = array_keys( $this->data );
 		// For memc, prepare an array with the IDs as keys but with each value set to null
-		$toCache = array_combine( $arrayKeys, array_fill( 0, count( $arrayKeys ), null ) );
+		if ( count( $arrayKeys ) > 0 ) {
+			$toCache = array_combine( $arrayKeys, array_fill( 0, count( $arrayKeys ), null ) );
+		} else {
+			// array_fill() and array_combine() don't like empty arrays
+			$toCache = array();
+		}
 		$wgMemc->set( $key, $toCache );
 		
 		// Now that we have the data for every gadget, let's refresh those cache entries too
