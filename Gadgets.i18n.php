@@ -147,6 +147,7 @@ Ista lista premite ir facilment t'as pachinas de mensaches d'o sistema que defin
  * @author Aiman titi
  * @author Meno25
  * @author OsamaK
+ * @author روخو
  */
 $messages['ar'] = array(
 	'gadgets-desc' => 'يسمح للمستخدمين باختيار [[Special:Gadgets|إضافات سي إس إس وجافاسكريبت]] معدلة في [[Special:Preferences|تفضيلاتهم]]',
@@ -164,6 +165,7 @@ $messages['ar'] = array(
 هذا العرض يوفر دخولا سهلا لصفحات رسائل النظام التي تعرف وصف وكود كل إضافة.',
 	'gadgets-uses' => 'تستخدم',
 	'gadgets-required-rights' => 'يتطلب {{PLURAL:$2|$1 حق|الحقوق التالية: $1}}.',
+	'gadgets-required-skins' => 'متاحة على {{PLURAL:$2|$1 skin|following skins: $1}}.',
 	'gadgets-default' => 'تمكين الجميع بشكل افتراضي.',
 	'gadgets-export' => 'صدّر',
 	'gadgets-export-title' => 'أداة تصدير',
@@ -427,6 +429,7 @@ Morate imati odgovarajuća prava na odredišnoj wiki (uključujući pravo da ure
 
 /** Catalan (Català)
  * @author Aleator
+ * @author Gemmaa
  * @author Paucabot
  * @author SMP
  * @author Toniher
@@ -449,6 +452,8 @@ Aquesta llista permet un fàcil accés a les pàgines del sistema que defineixen
 	'gadgets-required-rights' => '{{PLURAL:$2|Es necessita el dret següent|Es necessiten els drets següents}}:
 
 $1',
+	'gadgets-required-skins' => 'Disponible a la  {{PLURAL:$2|   $1  skin|following skins:  $1 }}.',
+	'gadgets-default' => 'Habilitat per a tot el món per defecte.',
 	'gadgets-export' => 'Exporta',
 	'gadgets-export-title' => 'Exportació de ginys',
 	'gadgets-not-found' => "No s'ha trobat el giny «$1».",
