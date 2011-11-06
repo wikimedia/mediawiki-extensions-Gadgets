@@ -74,7 +74,7 @@ See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimed
 * $1 - a list in wikitext.
 * $2 - the number of items in list $1 for PLURAL use.',
 	'gadgets-required-skins' => 'Parameters:
-* $1 - a comma list.
+* $1 - a comma separated list.
 * $2 - the number of items in list $1 for PLURAL use.',
 	'gadgets-export' => 'Used on [[Special:Gadgets]]. This is a verb, not noun.
 {{Identical|Export}}',
@@ -1556,6 +1556,7 @@ sin.',
 	'gadgets-required-rights' => 'Bruch {{PLURAL:$2|dat Rääsch:|de Rääschde:|kein besönder Rääschde.}}
 
 $1',
+	'gadgets-required-skins' => 'Kann jebruch wääde met {{PLURAL:$2|dä Bedeenbovverfläsch:|dä Bedeenbovverfläsche:|keine vun dä Bedeenbovverfläsche.}} $1',
 	'gadgets-default' => 'Shtandattmääßesh för jeeder_ein ennjeschalldt.',
 	'gadgets-export' => 'Expotteere',
 	'gadgets-export-title' => '<i lang="en">Gadgets</i> expotteere',
