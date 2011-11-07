@@ -1998,7 +1998,10 @@ $messages['or'] = array(
 	'gadgets-pagetext' => '[[MediaWiki:Gadgets-definition|ସଜ୍ଞା]] ଅନୁସାରେ ତଳେ ସଭ୍ୟମାନଙ୍କ [[Special:Preferences|ପସନ୍ଦ ପୃଷ୍ଠା]]ରୁ ସଚଳ କରାଯାଇପାରିବା ଭଳି କେତେକ ବିଶେଷ ଗ୍ୟାଜେଟର ତାଲିକା ଦିଆଗଲା ।
 ଏହି ଅବଲୋକନ ପ୍ରତ୍ୟେକ ଗ୍ୟାଜେଟର ବିବରଣୀ ଓ କୋଡ଼ ନିର୍ଦ୍ଧାରଣ କରୁଥିବା ସିଷ୍ଟମ  ମେସେଜ ପୃଷ୍ଠା ସବୁକୁ ସହଜ ଯିବାଆସିବାର ସୁବିଧା ଦେଇଥାଏ ।',
 	'gadgets-uses' => 'ବ୍ୟବହାର',
-	'gadgets-required-rights' => '{{PLURAL:$2|$1 ଅଧିକାର|ଏହିସବୁ ଅଧିକାର: $1}} ଲୋଡ଼ା ।',
+	'gadgets-required-rights' => 'ଏହି {{PLURAL:$2|ଅଧିକାରଟି|ଅଧିକାରସମୂହ}} ଲୋଡ଼ା :
+
+$1',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1 ବହିରାବରଣ|ଏହି ସବୁ ବହିରାବରଣରେ: $1}} ମିଳୁଅଛି ।',
 	'gadgets-default' => 'ଆପେଆପେ ସଭିଙ୍କ ପାଇଁ ସଚଳ କରାଗଲା ।',
 	'gadgets-export' => 'ରପ୍ତାନୀ',
 	'gadgets-export-title' => 'ଗ୍ୟାଜେଟ ରପ୍ତାନି',
