@@ -91,6 +91,18 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 		}
 	}
 	
+	protected function getCacheExpiry( $id ) {
+		global $wgGadgetsForeignCacheTimeout;
+		if ( $this->hasSharedCache ) {
+			// We're using the other wiki's local cache, and
+			// the other wiki will be handling invalidation.
+			// So cache forever.
+			return 0;
+		} else {
+			return $wgGadgetsForeignCacheTimeout;
+		}
+	}
+	
 	protected function getLoadAllDataQuery() {
 		$query = parent::getLoadAllDataQuery();
 		$query['conds']['gd_shared'] = 1;

@@ -66,6 +66,18 @@ $wgGadgetRepositories = array();
  */
 $wgGadgetEnableSharing = true;
 
+/**
+ * For how long gadget metadata obtained from a foreign wiki should be cached locally.
+ * Defaults to 600 seconds (10 minutes). If set to zero, data will be cached FOREVER.
+ * 
+ * If you have a gadget repository (see $wgGadgetRepositories) with 'class' => 'ForeignAPIGadgetRepo',
+ * or a gadget repository with 'class' => 'ForeignDBGadgetRepo' and 'hasSharedCache' => false,
+ * this value controls how long it will take before changes to gadgets on the foreign wiki
+ * will show up on your wiki. For local gadgets and for foreign repositories with 'hasSharedCache' => true,
+ * changes will show up immediately.
+ */
+$wgGadgetsForeignCacheTimeout = 600;
+
 /*** Setup ***/
 
 define( 'NS_GADGET', 2300 );

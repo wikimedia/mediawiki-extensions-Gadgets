@@ -28,6 +28,13 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 		}
 	}
 	
+	protected function getCacheExpiry( $id ) {
+		// We're dealing with metadata for local gadgets, and we have
+		// full control over cache invalidation.
+		// So cache forever
+		return 0;
+	}
+	
 	protected function loadAllData() {
 		$query = $this->getLoadAllDataQuery();
 		$dbr = $this->getDB();

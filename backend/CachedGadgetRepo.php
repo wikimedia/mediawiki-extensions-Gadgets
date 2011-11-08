@@ -48,6 +48,13 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 	 */
 	abstract protected function getCacheKey( $id );
 	
+	/**
+	 * Get the expiry time to use for caching a certain piece of data
+	 * @param $id See getCacheKey()
+	 * @return int Expiry time for memc, in seconds. If the expiry time is zero, the data is cached forever.
+	 */
+	abstract protected function getCacheExpiry( $id );
+	
 	/*** Protected methods ***/
 	
 	/**
@@ -76,7 +83,7 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 		}
 		
 		// Write to memc
-		$wgMemc->set( $this->getCacheKey( $id ), $toCache );
+		$wgMemc->set( $this->getCacheKey( $id ), $toCache, $this->getCacheExpiry( $id ) );
 		// Clear the gadget names array in memc so it'll be regenerated later
 		$wgMemc->delete( $this->getCacheKey( null ) );
 	}
@@ -129,11 +136,11 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 			// array_fill() and array_combine() don't like empty arrays
 			$toCache = array();
 		}
-		$wgMemc->set( $key, $toCache );
+		$wgMemc->set( $key, $toCache, $this->getCacheExpiry( null ) );
 		
 		// Now that we have the data for every gadget, let's refresh those cache entries too
 		foreach ( $this->data as $id => $gadgetData ) {
-			$wgMemc->set( $this->getCacheKey( $id ), $gadgetData );
+			$wgMemc->set( $this->getCacheKey( $id ), $gadgetData, $this->getCacheExpiry( $id ) );
 		}
 		
 		$this->idsLoaded = true;
@@ -190,7 +197,7 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 			$this->data[$id] = $data;
 		}
 		// Save to memc
-		$wgMemc->set( $key, $data );
+		$wgMemc->set( $key, $data, $this->getCacheExpiry( $id ) );
 		
 		return $data;
 	}

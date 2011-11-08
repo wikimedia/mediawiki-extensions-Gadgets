@@ -61,6 +61,11 @@ class ForeignAPIGadgetRepo extends CachedGadgetRepo {
 		}
 	}
 	
+	protected function getCacheExpiry( $id ) {
+		global $wgGadgetsForeignCacheTimeout;
+		return $wgGadgetsForeignCacheTimeout;
+	}
+	
 	/*** Protected methods ***/
 	
 	/**
