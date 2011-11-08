@@ -19,7 +19,7 @@ class GadgetsHooks {
 	 * @return string Gadget id or null if not a gadget definition page
 	 */
 	public static function getIDFromTitle( Title $title ) {
-		$id = $title->getText();
+		$id = $title->getDBKey();
 		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $id ) ) {
 			// Not a gadget definition page
 			return null;
@@ -411,7 +411,7 @@ class GadgetsHooks {
 
 	public static function titleIsCssOrJsPage( $title, &$result ) {
 		if ( ( $title->getNamespace() == NS_GADGET || $title->getNamespace() == NS_GADGET_DEFINITION ) &&
-				preg_match( '!\.(css|js)$!u', $title->getText() ) )
+				preg_match( '!\.(css|js)$!u', $title->getDBKey() ) )
 		{
 			$result = true;
 		}
