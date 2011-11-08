@@ -35,6 +35,12 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 		return 0;
 	}
 	
+	protected function updateCache( $id, $data ) {
+		parent::updateCache( $id, $data );
+		// Also purge the IDs list used by foreign repos
+		$wgMemc->delete( wfMemcKey( 'gadgets', 'localrepoidsshared' ) );
+	}
+	
 	protected function loadAllData() {
 		$query = $this->getLoadAllDataQuery();
 		$dbr = $this->getDB();
