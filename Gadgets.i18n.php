@@ -886,6 +886,7 @@ Tämä lista antaa helpon pääsyn järjestelmäviesteihin, jotka sisältävät 
 	'gadgets-required-rights' => 'Edellyttää {{PLURAL:$2|seuraavaa oikeutta|seuraavia oikeuksia}}:
 
 $1',
+	'gadgets-required-skins' => 'Saatavilla {{PLURAL:$2|seuraavaan ulkoasuun|seuraaviin ulkoasuihin}}: $1.',
 	'gadgets-default' => 'Oletusarvoisesti käytössä kaikille.',
 	'gadgets-export' => 'Vie',
 	'gadgets-export-title' => 'Pienoisohjelmien vienti',
