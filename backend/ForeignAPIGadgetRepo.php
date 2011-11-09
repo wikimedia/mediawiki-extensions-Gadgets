@@ -4,6 +4,7 @@
  * 
  * Options (all of these are MANDATORY):
  * 'source': Name of the source these gadgets are loaded from, as defined in ResourceLoader
+ * 'cacheTimeout': Expiry for locally cached data, in seconds (optional; default is 600)
  */
 class ForeignAPIGadgetRepo extends CachedGadgetRepo {
 	/**
@@ -13,7 +14,7 @@ class ForeignAPIGadgetRepo extends CachedGadgetRepo {
 	 */
 	const VERSION = '1.0';
 	
-	protected $source, $apiURL;
+	protected $source, $apiURL, $cacheTimeout = 600;
 	
 	/**
 	 * Constructor.
@@ -25,6 +26,9 @@ class ForeignAPIGadgetRepo extends CachedGadgetRepo {
 		
 		$this->source = $options['source'];
 		$this->apiURL = $wgResourceLoaderSources[$this->source]['apiScript'];
+		if ( isset( $options['cacheTimeout'] ) ) {
+			$this->cacheTimeout = $options['cacheTimeout'];
+		}
 	}
 	
 	/*** Protected methods inherited from CachedGadgetRepo ***/
@@ -62,8 +66,7 @@ class ForeignAPIGadgetRepo extends CachedGadgetRepo {
 	}
 	
 	protected function getCacheExpiry( $id ) {
-		global $wgGadgetsForeignCacheTimeout;
-		return $wgGadgetsForeignCacheTimeout;
+		return $this->cacheTimeout;
 	}
 	
 	/*** Protected methods ***/

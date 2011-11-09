@@ -44,16 +44,18 @@ $wgExtensionCredits['other'][] = array(
  * 	'dbUser' => 'username', // User name for the foreign wiki's database
  * 	'dbPassword' => 'password', // Password for the foreign wiki's database
  * 	'dbName' => 'mediawikiwiki', // Name of the foreign wiki's database
- *	// TODO: Make this the default?
+ * 	// TODO: Make this the default?
  * 	'dbFlags' => ( $wgDebugDumpSql ? DBO_DEBUG : 0 ) | DBO_DEFAULT // Use this value unless you know what you're doing
  * 	'tablePrefix' => 'mw_', // Table prefix for the foreign wiki's database, or '' if no prefix
- *	'hasSharedCache' => true, // Whether the foreign wiki's cache is accessible through $wgMemc
+ * 	'hasSharedCache' => true, // Whether the foreign wiki's cache is accessible through $wgMemc
+ * 	'cacheTimeout' => 600, // Expiry for locally cached data, in seconds (optional; default is 600)
  * );
  *
  * For foreign API-based gadget repositories, use:
  * $wgGadgetRepositories[] = array(
  * 	'class' => 'ForeignAPIGadgetRepo',
  * 	'source' => 'mediawikiwiki',
+ * 	'cacheTimeout' => 600, // Expiry for locally cached data, in seconds (optional; default is 600)
  * );
  */
 $wgGadgetRepositories = array();
@@ -65,18 +67,6 @@ $wgGadgetRepositories = array();
  * and enforces the option when saving.
  */
 $wgGadgetEnableSharing = true;
-
-/**
- * For how long gadget metadata obtained from a foreign wiki should be cached locally.
- * Defaults to 600 seconds (10 minutes). If set to zero, data will be cached FOREVER.
- * 
- * If you have a gadget repository (see $wgGadgetRepositories) with 'class' => 'ForeignAPIGadgetRepo',
- * or a gadget repository with 'class' => 'ForeignDBGadgetRepo' and 'hasSharedCache' => false,
- * this value controls how long it will take before changes to gadgets on the foreign wiki
- * will show up on your wiki. For local gadgets and for foreign repositories with 'hasSharedCache' => true,
- * changes will show up immediately.
- */
-$wgGadgetsForeignCacheTimeout = 600;
 
 /*** Setup ***/
 

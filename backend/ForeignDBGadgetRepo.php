@@ -2,7 +2,7 @@
 /**
  * Gadget repository that gets its gadgets from a foreign database.
  * 
- * Options (all of these are MANDATORY):
+ * Options (all of these are MANDATORY except cacheTimeout):
  * 'source': Name of the source these gadgets are loaded from, as defined in ResourceLoader
  * 'dbType': Database type, see DatabaseBase::factory()
  * 'dbServer': Database host
@@ -12,11 +12,13 @@
  * 'dbFlags': Bitmap of the DBO_* flags. Recommended value is  ( $wgDebugDumpSql ? DBO_DEBUG : 0 ) | DBO_DEFAULT
  * 'tablePrefix': Table prefix
  * 'hasSharedCache': Whether the foreign wiki's cache is accessible through $wgMemc
+ * 'cacheTimeout': Expiry for locally cached data, in seconds (optional; default is 600)
  */
 class ForeignDBGadgetRepo extends LocalGadgetRepo {
 	protected $db = null;
 	
-	protected $source, $dbServer, $dbUser, $dbPassword, $dbName, $dbFlags, $tablePrefix, $hasSharedCache;
+	protected $source, $dbServer, $dbUser, $dbPassword, $dbName, $dbFlags, $tablePrefix, $hasSharedCache,
+		$cacheTimeout = 600;
 	
 	/**
 	 * Constructor.
@@ -29,6 +31,10 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 			'dbFlags', 'tablePrefix', 'hasSharedCache' );
 		foreach ( $optionKeys as $optionKey ) {
 			$this->{$optionKey} = $options[$optionKey];
+		}
+		
+		if ( isset( $options['cacheTimeout'] ) ) {
+			$this->cacheTimeout = $options['cacheTimeout'];
 		}
 	}
 	
@@ -92,14 +98,13 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 	}
 	
 	protected function getCacheExpiry( $id ) {
-		global $wgGadgetsForeignCacheTimeout;
 		if ( $this->hasSharedCache ) {
 			// We're using the other wiki's local cache, and
 			// the other wiki will be handling invalidation.
 			// So cache forever.
 			return 0;
 		} else {
-			return $wgGadgetsForeignCacheTimeout;
+			return $this->cacheTimeout;
 		}
 	}
 	
