@@ -288,7 +288,7 @@ class GadgetsHooks {
 							'default' => $gadget->isEnabledForUser( $user ),
 							// HTMLForm is very strict about the names/IDs it accepts
 							// So specify a custom name that we know is safe and won't change
-							'name' => 'gadgetpref-' . md5($id),
+							'name' => 'gadgetpref-' . md5( $id ),
 						);
 					} else {
 						$preferences["gadget-$id"] = array(
@@ -297,7 +297,7 @@ class GadgetsHooks {
 							// TODO the below means source and category IDs can't contain slashes or dashes, enforce this
 							'section' => "gadgetsshared/gadgetrepo-$repoSource$sectionCat",
 							'cssclass' => 'mw-gadgets-shared-pref',
-							'name' => 'gadgetpref-' . md5($id),
+							'name' => 'gadgetpref-' . md5( $id ),
 							// 'default' isn't in here by design: we don't want 
 							// enabledByDefault to be honored across wikis
 						);
