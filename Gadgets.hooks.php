@@ -79,7 +79,9 @@ class GadgetsHooks {
 		}
 
 		$prevTs = wfTimestampNow();
+		$thisTs = wfTimestampNow();
 		if ( $revision ) { // $revision is null for null edits
+			$thisTs = $revision->getTimestamp();
 			$previousRev = $revision->getPrevious();
 			if ( $previousRev ) { // $previousRev is null if there is no previous revision
 				$prevTs = $previousRev->getTimestamp();
@@ -90,7 +92,7 @@ class GadgetsHooks {
 		$repo = LocalGadgetRepo::singleton();
 		// TODO: Timestamp in the constructor is ugly
 		$gadget = new Gadget( $id, $repo, $text, $prevTs );
-		$repo->modifyGadget( $gadget, $revision ? $revision->getTimestamp() : $revision );
+		$repo->modifyGadget( $gadget, $thisTs );
 
 		// modifyGadget() returns a Status object with an error if there was a conflict,
 		// but we don't care. If a conflict occurred, that must be because a newer edit's
