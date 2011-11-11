@@ -2763,6 +2763,7 @@ $messages['tt-cyrl'] = array(
  * @author Dim Grits
  * @author Prima klasy4na
  * @author Riwnodennyk
+ * @author Sodmy
  * @author Тест
  */
 $messages['uk'] = array(
@@ -2782,6 +2783,7 @@ $messages['uk'] = array(
 	'gadgets-required-rights' => '{{PLURAL:$2|Потрібне право|Потрібні такі права}}:
 
 $1',
+	'gadgets-required-skins' => 'Доступний на {{PLURAL:$2|$1 skin|наступних темах оформлення: $1}}.',
 	'gadgets-default' => 'Увімкнено для всіх за замовчуванням.',
 	'gadgets-export' => 'Експортувати',
 	'gadgets-export-title' => 'Експорт додатка',
