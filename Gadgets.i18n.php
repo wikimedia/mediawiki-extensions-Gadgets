@@ -160,6 +160,11 @@ go to Special:Import on destination wiki and upload it. You must have appropriat
 	'gadgets-formbuilder-editor-new-section' => 'Create a new section',
 	'gadgets-formbuilder-editor-choose-title' => 'Choose the title of the new section:',
 	'gadgets-formbuilder-editor-choose-title-title' => 'Choose section title',
+	
+	# migrateGadgets.php
+	'gadgets-migrate-editsummary-gadget' => 'Migrating gadget $1',
+	'gadgets-migrate-movereason-gadget' => 'Migrating gadget $1',
+	'gadgets-migrate-movereason-category' => 'Moving category title message',
 );
 
 /** Message documentation (Message documentation)
@@ -237,6 +242,11 @@ $messages['qqq'] = array(
 	'group-gadgetmanagers' => '{{group|gadgetmanagers}}',
 	'group-gadgetmanagers-member' => '{{group|gadgetmanagers|member}}',
 	'grouppage-gadgetmanagers' => '{{group|gadgetmanagers|page}}',
+	
+	# migrateGadgets.php
+	'gadgets-migrate-editsummary-gadget' => 'Edit summary used by the migrateGadgets.php maintenance script when creating a gadget definition page. $1 is the name of the gadget.',
+	'gadgets-migrate-movereason-gadget' => 'Move reason used by the migrateGadgets.php maintenance script when moving a gadget JS or CSS page. $1 is the name of the gadget.',
+	'gadgets-migrate-movereason-category' => 'Move reason used by the migrateGadgets.php maintenance script when moving a gadget category message (MediaWiki: page).',
 );
 
 /** Afrikaans (Afrikaans)
