@@ -9,8 +9,6 @@
 	function fixPreferenceForm( gadgetsByCategory, categoryNames ) {
 		for ( repo in gadgetsByCategory ) {
 			for ( category in gadgetsByCategory[repo] ) {
-				// FIXME HTMLForm isn't namespacing these things, we have to make it do that
-				// to prevent category naming collisions between repos
 				$( document.getElementById( 'mw-htmlform-gadgetcategory-' + repo + '-' + category ) )
 					.siblings( 'legend' )
 					.text( categoryNames[repo][category] );
