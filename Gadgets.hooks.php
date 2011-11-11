@@ -203,6 +203,11 @@ class GadgetsHooks {
 		GadgetPageList::updatePageStatus( $newTitle );
 		return true;
 	}
+	
+	public static function cssOrJsPageImport( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
+		GadgetPageList::updatePageStatus( $title );
+		return true;
+	}
 
 	/**
 	 * UserGetDefaultOptions hook handler

@@ -98,6 +98,7 @@ $wgAvailableRights = array_merge( $wgAvailableRights, array(
 #$wgGroupPermissions['gadgetmanagers']['gadgets-definition-delete'] = true;
 
 $wgHooks['AfterImportPage'][]               = 'GadgetsHooks::gadgetDefinitionImport';
+$wgHooks['AfterImportPage'][]               = 'GadgetsHooks::cssOrJsPageImport';
 $wgHooks['ArticleDeleteComplete'][]         = 'GadgetsHooks::gadgetDefinitionDelete';
 $wgHooks['ArticleDeleteComplete'][]         = 'GadgetsHooks::cssJsPageDelete';
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetsHooks::gadgetDefinitionSave';
