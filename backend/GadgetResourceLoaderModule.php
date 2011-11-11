@@ -17,7 +17,7 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * @param $messages Array: Keys of the i18n messages that this module needs
 	 * @param $source String: Name of the source of this module, as defined in ResourceLoader
 	 * @param $definitiontimestamp String: Last modification timestamp of the gadget metadata
-	 * @param $db Database: Remote database object // TODO: How will this work for ForeignAPIGadgetRepo?
+	 * @param $db Database|null: Remote database object
 	 */
 	public function __construct( $pages, $dependencies, $messages, $source, $definitiontimestamp, $db ) {
 		$this->pages = $pages;
