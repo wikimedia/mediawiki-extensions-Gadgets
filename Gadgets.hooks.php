@@ -292,7 +292,8 @@ class GadgetsHooks {
 							// TODO the below means source and category IDs can't contain slashes or dashes, enforce this
 							'section' => "gadgetsshared/gadgetrepo-$repoSource$sectionCat",
 							'cssclass' => 'mw-gadgets-shared-pref',
-							//'default' => $gadget->isEnabledForUser( $user ), // TODO: should we honor 'default' for remote gadgets?
+							// 'default' isn't in here by design: we don't want 
+							// enabledByDefault to be honored across wikis
 						);
 					}
 				}
