@@ -262,15 +262,21 @@ class GadgetsHooks {
 			);
 		
 		// This loop adds the preferences for all gadgets, both local and remote
+		// We want to use gadget IDs in HTMLForm IDs and repo and category IDs
+		// in section IDs, but because certain characters are restricted
+		// (HTMLForm will barf on anything that's not a valid HTML ID, section IDs will
+		// get confused when dashes or slashes are added), we encode these things as hex
+		// so we know for sure they don't contain weird characters and are easy to decode
 		$repos = GadgetRepo::getAllRepos();
 		foreach ( $repos as $repo ) {
-			$repoSource = $repo->getSource();
+			$encRepoSource = bin2hex( $repo->getSource() );
 			$byCategory = $repo->getGadgetsByCategory();
 			ksort( $byCategory );
 			foreach ( $byCategory as $category => $gadgets ) {
+				$encCategory = bin2hex( $category );
 				foreach ( $gadgets as $gadget ) {
 					$id = $gadget->getId();
-					$sectionCat = $category === '' ? '' : "/gadgetcategory-$repoSource-$category";
+					$sectionCat = $category === '' ? '' : "/gadgetcategory-$encRepoSource-$encCategory";
 					if ( $repo->isLocal() ) {
 						// For local gadgets we have all the information
 						$title = htmlspecialchars( $gadget->getTitleMessage() );
@@ -286,18 +292,15 @@ class GadgetsHooks {
 							'label' => $text,
 							'section' => "gadgets$sectionCat",
 							'default' => $gadget->isEnabledForUser( $user ),
-							// HTMLForm is very strict about the names/IDs it accepts
-							// So specify a custom name that we know is safe and won't change
-							'name' => 'gadgetpref-' . md5( $id ),
+							'name' => 'gadgetpref-' . bin2hex( $id ),
 						);
 					} else {
 						$preferences["gadget-$id"] = array(
 							'type' => 'toggle',
 							'label' => htmlspecialchars( $id ), // will be changed by JS
-							// TODO the below means source and category IDs can't contain slashes or dashes, enforce this
-							'section' => "gadgetsshared/gadgetrepo-$repoSource$sectionCat",
+							'section' => "gadgetsshared/gadgetrepo-$encRepoSource$sectionCat",
 							'cssclass' => 'mw-gadgets-shared-pref',
-							'name' => 'gadgetpref-' . md5( $id ),
+							'name' => 'gadgetpref-' . bin2hex( $id ),
 							// 'default' isn't in here by design: we don't want 
 							// enabledByDefault to be honored across wikis
 						);
@@ -311,10 +314,12 @@ class GadgetsHooks {
 	
 	public static function preferencesGetLegend( $form, $key, &$legend ) {
 		$matches = null;
-		if ( preg_match( '/^(gadgetrepo|gadgetcategory-.*?)-(.*)$/', $key, $matches ) ) {
+		if ( preg_match( '/^(gadgetrepo|gadgetcategory-[A-Za-z0-9]*)-([A-Za-z0-9]*)$/', $key, $matches ) ) {
+			// Decode the category ID
+			$catID = pack( "H*", $matches[2] ); // PHP doesn't have hex2bin() yet
 			// Just display the ID itself (with ucfirst applied)
 			// This will be changed to a properly i18ned string by JS
-			$legend = $form->getLang()->ucfirst( $matches[2] );
+			$legend = $form->getLang()->ucfirst( $catID );
 		}
 		return true;
 	}
