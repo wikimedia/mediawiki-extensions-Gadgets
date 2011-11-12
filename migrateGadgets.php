@@ -50,7 +50,8 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 			
 			$this->output( "Converting $id ...\n" );
 			$moves = array(
-				"MediaWiki:Gadget-$id" => "MediaWiki:Gadget-$id-title"
+				"MediaWiki:Gadget-$id" => "MediaWiki:Gadget-$id-title",
+				"MediaWiki talk:Gadget-$id" => "MediaWiki talk:Gadget-$id-title"
 			);
 			foreach ( array_merge( $gadget['module']['scripts'], $gadget['module']['styles'] ) as $page ) {
 				$moves["MediaWiki:Gadget-$page"] = "Gadget:$page";
@@ -216,7 +217,28 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 	
 	protected function processMoves( $moves, $reason ) {
 		$notMoved = array();
+		
+		// Preprocessing step: add subpages
+		$movesWithSubpages = array();
 		foreach ( $moves as $from => $to ) {
+			$title = Title::newFromText( $from );
+			if ( !$title ) {
+				continue;
+			}
+			$fromNormalized = $title->getPrefixedText();
+			$movesWithSubpages[$fromNormalized] = $to;
+			$subpages = $title->getSubpages();
+			foreach ( $subpages as $subpage ) {
+				$fromSub = $subpage->getPrefixedText();
+				//var_dump($fromSub);
+				$toSub = preg_replace( '/^' . preg_quote( $fromNormalized, '/' ) . '/',
+					StringUtils::escapeRegexReplacement( $to ), $fromSub
+				);
+				$movesWithSubpages[$fromSub] = $toSub;
+			}
+		}
+		
+		foreach ( $movesWithSubpages as $from => $to ) {
 			$result = $this->moveGadgetPage( $from, $to, $reason );
 			if ( $result === true ) {
 				$this->output( "Moved [[$from]] to [[$to]]\n" );
