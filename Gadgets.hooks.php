@@ -281,7 +281,6 @@ class GadgetsHooks {
 				$encCategory = bin2hex( $category );
 				foreach ( $gadgets as $gadget ) {
 					$id = $gadget->getId();
-					$sectionCat = $category === '' ? '' : "/gadgetcategory-$encRepoSource-$encCategory";
 					if ( $repo->isLocal() ) {
 						// For local gadgets we have all the information
 						$title = htmlspecialchars( $gadget->getTitleMessage() );
@@ -292,6 +291,7 @@ class GadgetsHooks {
 						} else {
 							$text = wfMessage( 'gadgets-preference-description' )->rawParams( $title, $description )->parse();
 						}
+						$sectionCat = $category === '' ? '' : "/gadgetcategorylocal-$encRepoSource-$encCategory";
 						$preferences["gadget-$id"] = array(
 							'type' => 'toggle',
 							'label' => $text,
@@ -300,6 +300,7 @@ class GadgetsHooks {
 							'name' => 'gadgetpref-' . bin2hex( $id ),
 						);
 					} else {
+						$sectionCat = $category === '' ? '' : "/gadgetcategory-$encRepoSource-$encCategory";
 						$preferences["gadget-$id"] = array(
 							'type' => 'toggle',
 							'label' => htmlspecialchars( $id ), // will be changed by JS
@@ -319,12 +320,19 @@ class GadgetsHooks {
 	
 	public static function preferencesGetLegend( $form, $key, &$legend ) {
 		$matches = null;
-		if ( preg_match( '/^(gadgetrepo|gadgetcategory-[A-Za-z0-9]*)-([A-Za-z0-9]*)$/', $key, $matches ) ) {
-			// Decode the category ID
-			$catID = pack( "H*", $matches[2] ); // PHP doesn't have hex2bin() yet
-			// Just display the ID itself (with ucfirst applied)
-			// This will be changed to a properly i18ned string by JS
-			$legend = $form->getLang()->ucfirst( $catID );
+		if ( preg_match( '/^(?:gadgetrepo|gadgetcategory(local)?-[A-Za-z0-9]*)-([A-Za-z0-9]*)$/', $key, $matches ) ) {
+			// Decode the category or repo ID
+			$id = pack( "H*", $matches[2] ); // PHP doesn't have hex2bin() yet
+			if ( $matches[1] !== null ) {
+				// This is a local category ID
+				// We have access to the message, so display it
+				$legend = LocalGadgetRepo::singleton()->getCategoryTitle( $id, $form->getLang() );
+			} else {
+				// This is a repository ID or a foreign category ID
+				// Just display the ID itself (with ucfirst applied)
+				// This will be changed to a properly i18ned string by JS
+				$legend = $form->getLang()->ucfirst( $id );
+			}
 		}
 		return true;
 	}
