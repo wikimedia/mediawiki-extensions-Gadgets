@@ -1,20 +1,28 @@
 <?php
-
-$IP = getenv( 'MW_INSTALL_PATH' );
-if ( $IP === false ) {
-	$IP = dirname( __FILE__ ) . '/../..';
+// Prevent unnecessary path errors when run from update.php
+if ( !class_exists( 'Maintenance' ) ) {
+	$IP = getenv( 'MW_INSTALL_PATH' );
+	if ( $IP === false ) {
+		$IP = dirname( __FILE__ ) . '/../..';
+	}
+	require( "$IP/maintenance/Maintenance.php" );
 }
-require( "$IP/maintenance/Maintenance.php" );
 
-class MigrateGadgets extends Maintenance {
+class MigrateGadgets extends LoggedUpdateMaintenance {
 	public function __construct() {
 		parent::__construct();
 		$this->mDescription = "Migrates old-style Gadgets defined in MediaWiki:Gadgets-definition to the new format";
 	}
 	
-	public function execute() {
-		// TODO complain when we're being run twice, using update_log and --force
-		// TODO add this to the updaters
+	protected function getUpdateKey() {
+		return 'migrate gadgets';
+	}
+
+	protected function updateSkippedMessage() {
+		return 'Old-style Gadgets already migrated.';
+	}
+
+	protected function doDBUpdates() {
 		global $wgUser;
 		$wgUser->setName( 'Gadget migration script' );
 		$this->output( "Migrating old-style Gadgets from [[MediaWiki:Gadgets-definition]] ...\n" );
@@ -22,7 +30,7 @@ class MigrateGadgets extends Maintenance {
 		$g = wfMessage( 'gadgets-definition' )->inContentLanguage();
 		if ( !$g->exists() ) {
 			$this->output( "No Gadget definition page found.\n" );
-			return;
+			return false;
 		}
 		$wikitext = $g->plain();
 		$gadgets = $this->parseGadgets( $wikitext );
@@ -70,6 +78,7 @@ class MigrateGadgets extends Maintenance {
 			wfMessage( 'gadgets-migrate-movereason-category' )->inContentLanguage()->plain()
 		) );
 		
+		$noErrors = count( $notMoved ) == 0 && count( $notCreated ) == 0;
 		if ( count( $notMoved ) ) {
 			$this->output( "There were ERRORS moving " . count( $notMoved ) . " pages.\n" );
 			$this->output( "The following pages were NOT successfully moved:\n" );
@@ -84,6 +93,9 @@ class MigrateGadgets extends Maintenance {
 				$this->output( "[[$page]]\n" );
 			}
 		}
+		if ( $noErrors ) {
+			$this->output( "Gadgets migration finished without errors.\n" );
+		}
 		
 		if ( count( $notResourceLoaded ) ) {
 			$this->output( "WARNING: The following gadgets will now be loaded through ResourceLoader, but were not marked as supporting ResourceLoader. They may now be broken.\n" );
@@ -92,8 +104,8 @@ class MigrateGadgets extends Maintenance {
 			}
 		}
 		
-		$this->output( "All done migrating gadgets\n" );
-		
+		$this->output( "All done migrating gadgets.\n" );
+		return $noErrors;
 	}
 	
 	/**

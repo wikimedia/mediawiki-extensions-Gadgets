@@ -415,6 +415,7 @@ class GadgetsHooks {
 		$dir = dirname( __FILE__ );
 		$updater->addExtensionUpdate( array( 'addtable', 'gadgets', "$dir/sql/gadgets.sql", true ) );
 		$updater->addExtensionUpdate( array( 'addtable', 'gadgetpagelist', "$dir/sql/patch-gadgetpagelist.sql", true ) );
+		$updater->addPostDatabaseUpdateMaintenance( 'MigrateGadgets' );
 		return true;
 	}
 
