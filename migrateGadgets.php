@@ -50,8 +50,8 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 			
 			$this->output( "Converting $id ...\n" );
 			$moves = array(
-				"MediaWiki:Gadget-$id" => "MediaWiki:Gadget-$id-title",
-				"MediaWiki talk:Gadget-$id" => "MediaWiki talk:Gadget-$id-title"
+				"MediaWiki:Gadget-$id" => "MediaWiki:Gadget-$id-desc",
+				"MediaWiki talk:Gadget-$id" => "MediaWiki talk:Gadget-$id-desc"
 			);
 			foreach ( array_merge( $gadget['module']['scripts'], $gadget['module']['styles'] ) as $page ) {
 				$moves["MediaWiki:Gadget-$page"] = "Gadget:$page";
@@ -230,7 +230,6 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 			$subpages = $title->getSubpages();
 			foreach ( $subpages as $subpage ) {
 				$fromSub = $subpage->getPrefixedText();
-				//var_dump($fromSub);
 				$toSub = preg_replace( '/^' . preg_quote( $fromNormalized, '/' ) . '/',
 					StringUtils::escapeRegexReplacement( $to ), $fromSub
 				);
