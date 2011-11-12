@@ -1,12 +1,14 @@
 <?php
-
-$IP = getenv( 'MW_INSTALL_PATH' );
-if ( $IP === false ) {
-	$IP = dirname( __FILE__ ) . '/../..';
+// Prevent unnecessary path errors when run from update.php
+if ( !class_exists( 'Maintenance' ) ) {
+	$IP = getenv( 'MW_INSTALL_PATH' );
+	if ( $IP === false ) {
+		$IP = dirname( __FILE__ ) . '/../..';
+	}
+	require( "$IP/maintenance/Maintenance.php" );
 }
-require( "$IP/maintenance/Maintenance.php" );
 
-class PopulateGadgetPageList extends Maintenance {
+class PopulateGadgetPageList extends LoggedUpdateMaintenance {
 	const BATCH_SIZE = 100;
 	
 	public function __construct() {
@@ -14,7 +16,15 @@ class PopulateGadgetPageList extends Maintenance {
 		$this->mDescription = "Populates the gadgetpagelist table";
 	}
 	
-	public function execute() {
+	protected function getUpdateKey() {
+		return 'populate gadgetpagelist';
+	}
+
+	protected function updateSkippedMessage() {
+		return 'gadgetpagelist table already populated.';
+	}
+
+	protected function doDBUpdates() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$dbw = wfGetDB( DB_MASTER );
 		
@@ -55,6 +65,7 @@ class PopulateGadgetPageList extends Maintenance {
 		}
 		
 		$this->output( "Done\n" );
+		return true;
 	}
 }
 

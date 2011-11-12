@@ -141,6 +141,7 @@ $wgAutoloadClasses['GadgetOptionsResourceLoaderModule'] = $dir . 'backend/Gadget
 $wgAutoloadClasses['GadgetPrefs'] = $dir . 'backend/GadgetPrefs.php';
 $wgAutoloadClasses['LocalGadgetRepo'] = $dir . 'backend/LocalGadgetRepo.php';
 $wgAutoloadClasses['MigrateGadgets'] = $dir . 'migrateGadgets.php';
+$wgAutoloadClasses['PopulateGadgetPageList'] = $dir . 'populateGadgetPageList.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
