@@ -27,7 +27,7 @@
 					.text( categoryNames[repo][category] );
 					
 				for ( gadget in gadgetsByCategory[repo][category] ) {
-					$( '#mw-input-wpgadget-' + hexEncode( gadget ) )
+					$( '#mw-input-gadgetpref-' + hexEncode( gadget ) )
 						.siblings( 'label' )
 						.text( gadgetsByCategory[repo][category][gadget].title );
 				}
