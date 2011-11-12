@@ -165,7 +165,7 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	 * If it doesn't exist, ucfirst( $category ) is returned.
 	 * 
 	 * @param $category string Category ID
-	 * @param $lang string Language code. If null, $wgLang is used
+	 * @param $lang string\Language|null Language code or Language object. If null, $wgLang is used
 	 * @return string Localized category title
 	 */
 	public function getCategoryTitle( $category, $lang = null ) {
@@ -175,7 +175,7 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 		}
 		if ( !$msg->exists() ) {
 			global $wgLang;
-			$langObj = $lang === null ? $wgLang : Language::factory( $lang );
+			$langObj = $lang === null ? $wgLang : ( is_string( $lang ) ? Language::factory( $lang ) : $lang );
 			return $langObj->ucfirst( $category );
 		}
 		return $msg->plain();
