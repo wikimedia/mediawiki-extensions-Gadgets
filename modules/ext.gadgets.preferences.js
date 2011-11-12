@@ -6,16 +6,28 @@
  * @license GNU General Public Licence 2.0 or later
  */
 ( function( $ ) {
+	function hexEncode( s ) {
+		var retval = '', i, c;
+		for ( i = 0; i < s.length; i++ ) {
+			c = s.charCodeAt( i ).toString( 16 );
+			if ( c.length % 2 == 1 ) {
+				c = '0' + c;
+			}
+			retval += c;
+		}
+		return retval;
+	}
+	
 	function fixPreferenceForm( gadgetsByCategory, categoryNames ) {
+		var repo, gadget, category;
 		for ( repo in gadgetsByCategory ) {
 			for ( category in gadgetsByCategory[repo] ) {
-				$( document.getElementById( 'mw-htmlform-gadgetcategory-' + repo + '-' + category ) )
+				$( '#mw-htmlform-gadgetcategory-' + hexEncode( repo ) + '-' + hexEncode( category ) )
 					.siblings( 'legend' )
 					.text( categoryNames[repo][category] );
 					
 				for ( gadget in gadgetsByCategory[repo][category] ) {
-					// Use getElementById() because we'd have to escape gadget for selector stuff otherwise
-					$( document.getElementById( 'mw-input-wpgadget-' + gadget ) )
+					$( '#mw-input-wpgadget-' + hexEncode( gadget ) )
 						.siblings( 'label' )
 						.text( gadgetsByCategory[repo][category][gadget].title );
 				}
