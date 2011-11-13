@@ -177,7 +177,7 @@
 					id = $( this ).data( 'gadget-id' );
 
 				if ( ga.conf.userIsAllowed['gadgets-definition-edit'] ) {
-					ga.ui.startGadgetManager( id );
+					ga.ui.startGadgetManager( 'modify', id );
 					return;
 				}
 				// Use localized special page name if possible to avoid redirect
