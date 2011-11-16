@@ -232,6 +232,7 @@ $wgResourceModules += array(
 			'gadgetmanager-prop-dependencies',
 			'gadgetmanager-prop-messages',
 			'gadgetmanager-prop-category',
+			'gadgetmanager-prop-category-new',
 			'gadgetmanager-prop-rights',
 			'gadgetmanager-prop-default',
 			'gadgetmanager-prop-hidden',

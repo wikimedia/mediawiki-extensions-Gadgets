@@ -48,7 +48,7 @@
 						<table>\
 							<tr>\
 								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-category"><html:msg key="gadgetmanager-prop-category" /></label></td>\
-								<td><select id="mw-gadgetmanager-input-category"></select></td>\
+								<td><select id="mw-gadgetmanager-input-category"></select><input type="text" id="mw-gadgetmanager-input-category-new" /></td>\
 							</tr>\
 							<tr>\
 								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-rights"><html:msg key="gadgetmanager-prop-rights" /></label></td>\
@@ -340,7 +340,8 @@
 			var	metadata = gadget.metadata,
 				$form = $( tpl.fancyForm ).localize(),
 				$idSpan = $form.find( '.mw-gadgetmanager-id' ),
-				$idErrMsg = $form.find( '.mw-gadgetmanager-id-errorbox' );
+				$idErrMsg = $form.find( '.mw-gadgetmanager-id-errorbox' ),
+				$newCatInput = $form.find( '#mw-gadgetmanager-input-category-new' );
 
 			if ( mode === 'create' ) {
 
@@ -556,18 +557,34 @@
 				var	current = metadata.settings.category,
 					opts = '',
 					i = 0,
+					catslen = categories.length,
 					cat;
-				for ( ; i < categories.length; i++ ) {
+				for ( ; i < catslen; i++ ) {
 					cat = categories[i];
 					opts += mw.html.element( 'option', {
 						value: cat.name,
 						selected: cat.name === current
 					}, cat.title );
 				}
+				opts += '<option disabled="disabled">-------</option>'
+					+ '<option data-gadgets-new-category="true">' + mw.message( 'gadgetmanager-prop-category-new' ).escaped() + '</option>';
 				return opts;
-			}).change( function() {
-				metadata.settings.category = $(this).val();
+			}).bind( 'change', function() {
+				if ( $(this).children( ':selected' ).data( 'gadgetsNewCategory' ) === true ) {
+					metadata.settings.category = $newCatInput.val();
+					$newCatInput.show().focus();
+				} else {
+					metadata.settings.category = $(this).val();
+					$newCatInput.hide();
+				}
 			});
+
+			$newCatInput
+				.hide()
+				.prop( 'placeholder', mw.msg( 'gadgetmanager-prop-category-new' ) )
+				.bind( 'blur change', function(){
+					metadata.settings.category = $(this).val();
+				});
 
 			// Gadget settings: rights
 			$form.find( '#mw-gadgetmanager-input-rights' ).createPropCloud({

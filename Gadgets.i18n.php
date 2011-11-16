@@ -90,6 +90,7 @@ go to Special:Import on destination wiki and upload it. You must have appropriat
 	'gadgetmanager-prop-dependencies' => 'Dependencies',
 	'gadgetmanager-prop-messages' => 'Messages',
 	'gadgetmanager-prop-category' => 'Category',
+	'gadgetmanager-prop-category-new' => 'New category...',
 	'gadgetmanager-prop-rights' => 'Required user rights',
 	'gadgetmanager-prop-default' => 'Enable by default',
 	'gadgetmanager-prop-hidden' => 'Hide gadget',
@@ -219,7 +220,12 @@ $messages['qqq'] = array(
 	# For the ext.gadgets.gadgetmanager module
 	'gadgets-gadget-create' => 'Identical to core:
 * {{mw-msg|vector-view-create}}
-* {{mw-msg|create}}',
+* {{mw-msg|create}}
+
+{{Output|plain}}',
+	'gadgetmanager-prop-category-new' => 'Special option in the "Category" drop down menu. When selected an input field appears allowing the user to create a new (custom) category. Should and in ellipsis ("...") or something like it appropiate for the target language.
+
+{{Output|plain}}',
 	'gadgetmanager-comment-modify' => 'Edit summary used when modifying gadget definition pages through AJAX on [[Special:Gadgets]].',
 	'gadgetmanager-comment-create' => 'Edit summary used when creating gadget definition pages through AJAX on [[Special:Gadgets]].',
 

@@ -17,7 +17,7 @@ jQuery( document ).ready( function( $ ) {
 			mw.msg( 'gadgets-gadget-create' ),
 			'ca-create', // Use whatever core has for pages ? Or use gadget-create ?
 			mw.msg( 'gadgets-gadget-create-tooltip' ),
-			'e' // Same as core for ca-edit
+			'e' // Same as core for ca-edit/ca-create
 		);
 		$( createTab ).click( function( e ) {
 			e.preventDefault();
