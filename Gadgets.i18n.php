@@ -1160,6 +1160,9 @@ Nimo toho wobkedźbuj, zo tute specialne funkcije dźěl softwary MediaWiki njej
 	'gadgets-pagetext' => 'Deleka je lisćina specialnych funkcijow, kotrež wužiwarjo móža na swojej [[Special:Preferences|stronje nastajenjow]] zmóžnić, kaž přez [[MediaWiki:Gadgets-definition|definicije]] definowane.
 Tutón přehlad skići lochki přistup k systemowym zdźělenkam, kotrež wopisanje a kod kóždeje specialneje funkcije definuja.',
 	'gadgets-uses' => 'Wužiwa',
+	'gadgets-required-rights' => 'Wužaduje sej {{PLURAL:$2|slědowace prawo|slědowacej prawje|slědowace prawa|slědowace prawa}}:
+
+$1',
 	'gadgets-required-skins' => 'Na {{PLURAL:$2|slědowacej drasće|slědowacymaj drastomaj|slědowacych drastach|slědowacych drastach}} k dispoziciji: $1',
 	'gadgets-default' => 'Za wšěch standardnje zmóžnjeny.',
 	'gadgets-export' => 'Eksportować',
@@ -2122,7 +2125,7 @@ $messages['pnb'] = array(
 	'gadgets-pagetext' => 'تھلے خاص گیجٹاں  دی اک لسٹ جینوں ورتن والے  اپنے [[خاص:تانگاں|تانگاں والا صفہ]] ، جیویں کے [[میڈیاوکی:گیجٹ ڈیفینیشن|ڈیفینیشن]] چ دسیا گیا اے۔
 ایہ وکھالہ اسان راہ پربندھ سنیعہ دا راہ دسدا اے جیدے چ ہر گیجٹ دا کم کاج تے کوڈ دتا گیا اے۔',
 	'gadgets-uses' => 'ورتن آلے',
-	'gadgets-required-rights' => '{{انیک:$2|$1 حق|تھلے دتے گۓ حق: $1}} دی لوڑ اے۔',
+	'gadgets-required-rights' => '{{PLURAL:$2|$1 حق|تھلے دتے گۓ حق: $1}} دی لوڑ اے۔',
 	'gadgets-default' => 'ہر اک لئی ڈیفالٹ راہیں قابل کیتا گیا۔',
 	'gadgets-export' => 'برامد کرو',
 	'gadgets-export-title' => 'گیجٹ برامد کرو',
@@ -2540,11 +2543,11 @@ Do Hälpere basierje maastens ap Javascript, deeruum mout Javascript in dän Bro
 Do Hälpere funktionierje oawers nit ap disse Siede mäd persöönelke Ienstaalengen.
 
 Buutendät is tou beoachtjen, dät disse Hälpere in Algemeenen nit Paat fon MediaWiki sunt, man maast fon
-Benutsere fon lokoale Wikis äntwikkeld un fersuurged wäide. Lokoale Wiki-Administratore konnen do ferföichboare Hälpere beoarbaidje. Deerfoar stounde do [[MediaWiki:Gadgets-definition|Definitione]] un [[Special:Gadgets|Beschrieuwengen]] tou Ferföigenge.',
+Benutsere fon lokoale Wikis äntwikkeld un fersuurged wäide. Lokoale Wiki-Administratore konnen do ferföichboare Hälpere beoarbaidje. Deerfoar stounde do [[MediaWiki:Gadgets-definition|Definitione]] un [[Special:Gadgets|Beskrieuwengen]] tou Ferföigenge.',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
 	'gadgets-pagetext' => 'Lieste fon spezielle Hälpere, do der foar älken Benutser in sien [[Special:Preferences|persöönelke Ienstaalengen]] ferföichboar sunt, as [[MediaWiki:Gadgets-definition| definierd]].
-Disse Uursicht bjut direkten Tougoang tou do Systemättergjuchte, do ju Beschrieuwenge as uk dän Programkode fon älken Hälper änthoolde.',
+Disse Uursicht bjut direkten Tougoang tou do Systemättergjuchte, do ju Beskrieuwenge as uk dän Programkode fon älken Hälper änthoolde.',
 	'gadgets-uses' => 'Benutsed',
 );
 
