@@ -749,12 +749,14 @@ Vi nepras la taŭgajn rajtojn ĉe cela vikio (inkluzivante rajton redakti sistem
  * @author Muro de Aguas
  * @author Remember the dot
  * @author Sanbec
+ * @author Vivaelcelta
  */
 $messages['es'] = array(
 	'gadgets-desc' => 'Permite a los usuarios seleccionar [[Special:Gadgets|accesorios de CSS y JavaScript personailzados]]
 en sus [[Special:Preferences|preferencias]].',
 	'prefs-gadgets' => 'Accesorios',
-	'gadgets-prefstext' => 'Debajo hay una lista de accesorios que puedes activar a tu gusto. Ten en cuenta que la mayoría de ellos utilizan JavaScript para funcionar, así que debes tenerlo activado en tu explorador si quieres que los accesorios que actives funcionen.
+	'gadgets-prefstext' => 'Debajo hay una lista de accesorios que puedes activar a tu gusto.
+Ten en cuenta que la mayoría de ellos utilizan JavaScript para funcionar, así que debes tenerlo activado en tu navegador si quieres que los accesorios que actives funcionen.
 
 Ten en cuenta también que estos complementos no forman parte del software MediaWiki, y están desarrollados por usuarios de este wiki.
 
@@ -763,7 +765,10 @@ Los administradores pueden editar los accesorios que están disponibles en las p
 	'gadgets-title' => 'Accesorios',
 	'gadgets-pagetext' => 'Debajo hay una lista de accesorios especiales que los usuarios pueden activar en sus [[Special:Preferences|preferencias]], según la [[MediaWiki:Gadgets-definition|lista de definición de accesorios]]. Esta vista provee un acceso fácil a las páginas de mensajes del sistema que definen la descripción y el código de cada accesorio.',
 	'gadgets-uses' => 'Usos',
-	'gadgets-required-rights' => 'Requiere {{PLURAL:$2|el derecho $1|los siguientes derechos: $1}}.',
+	'gadgets-required-rights' => 'Requiere {{PLURAL:$2|el siguiente derecho|los siguientes derechos}}:
+
+$1',
+	'gadgets-required-skins' => 'Disponible {{PLURAL:$2|en la apariencia $1|en las siguientes apariencias: $1}}.',
 	'gadgets-default' => 'Activado para todos de manera predeterminada.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportación de gadget',
