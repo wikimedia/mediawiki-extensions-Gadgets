@@ -1352,6 +1352,7 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
 
 /** Japanese (日本語)
  * @author Aotake
+ * @author Fryed-peach
  * @author JtFuruhata
  * @author Mzm5zbC3
  * @author Whym
@@ -1367,7 +1368,10 @@ $messages['ja'] = array(
 	'gadgets-title' => 'ガジェット',
 	'gadgets-pagetext' => '以下は、[[MediaWiki:Gadgets-definition]] 上で定義された、利用者が[[Special:Preferences|{{int:preferences}}]]にて利用可能にすることができるガジェットの一覧です。この一覧はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
 	'gadgets-uses' => '利用するファイル',
-	'gadgets-required-rights' => '{{PLURAL:$2|$1の権限|$1の権限}}が必要です。',
+	'gadgets-required-rights' => '以下の{{PLURAL:$2|権限}}が必要です。
+
+$1',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1外装|外装：$1}}で利用てきます。',
 	'gadgets-default' => 'デフォルトで全員に有効です。',
 	'gadgets-export' => 'エクスポート',
 	'gadgets-export-title' => 'ガジェットのエクスポート',
@@ -1749,6 +1753,7 @@ $messages['ml'] = array(
 	'gadgets-required-rights' => 'താഴെപ്പറയുന്ന {{PLURAL:$2|അവകാശം|അവകാശങ്ങൾ}} ആവശ്യമാണ്:
 
 $1',
+	'gadgets-required-skins' => 'ലഭ്യമായ {{PLURAL:$2|ദൃശ്യരൂപം: $1|ദൃശ്യരൂപങ്ങൾ: $1}}.',
 	'gadgets-default' => 'എല്ലാവർക്കും സ്വതേ പ്രവർത്തനസജ്ജമായിരിക്കും.',
 	'gadgets-export' => 'കയറ്റുമതി ചെയ്യുക',
 	'gadgets-export-title' => 'ഗാഡ്ജറ്റ് കയറ്റുമതി ചെയ്യുക',
