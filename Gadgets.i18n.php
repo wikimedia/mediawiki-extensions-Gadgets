@@ -2059,6 +2059,7 @@ $messages['pdc'] = array(
 
 /** Polish (Polski)
  * @author Derbeth
+ * @author Marcin Łukasz Kiejzik
  * @author Sp5uhe
  */
 $messages['pl'] = array(
@@ -2082,7 +2083,7 @@ $1',
 	'gadgets-export' => 'Eksportuj',
 	'gadgets-export-title' => 'Eksportowanie gadżetów',
 	'gadgets-not-found' => 'Nie odnaleziono gadżetu „$1”.',
-	'gadgets-export-text' => 'Aby wyeksportować gadżet „$1” kliknij na przycisk „{{int:gadgets-export-download}}”, zapisz pobrany plik, wejdź na stronę Special;Import w docelowej wiki i prześlij go. Następnie dodaj poniższy kod do strony MediaWiki:Gadgets-definition:
+	'gadgets-export-text' => 'Aby wyeksportować gadżet „$1” kliknij na przycisk „{{int:gadgets-export-download}}”, zapisz pobrany plik, wejdź na stronę Special:Import w docelowej wiki i prześlij go. Następnie dodaj poniższy kod do strony MediaWiki:Gadgets-definition:
 <pre>$2</pre>
 Musisz mieć właściwe uprawnienia na wiki docelowej (w tym do edycji komunikatów systemowych) oraz musi być włączony import na serwer poprzez przesłanie pliku.',
 	'gadgets-export-download' => 'Pobierz',
