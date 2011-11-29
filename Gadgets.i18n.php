@@ -845,6 +845,7 @@ $messages['ext'] = array(
  * @author Huji
  * @author Ladsgroup
  * @author Wayiran
+ * @author ZxxZxxZ
  */
 $messages['fa'] = array(
 	'gadgets-desc' => 'به کاربرها امکان انتخاب ابزارهای شخصی CSS و JavaScript را از طریق صفحهٔ [[Special:Preferences|ترجیحات]] می‌دهد',
@@ -861,6 +862,7 @@ $messages['fa'] = array(
 این خلاصه کمک می‌کند که به صفحه‌های پیغام سیستمی که توضیحات و کد هر ابزار را شامل می‌شوند به راحتی دست پیدا کنید.',
 	'gadgets-uses' => 'برنامه',
 	'gadgets-required-rights' => 'به {{PLURAL:|حق $1|حق‌های روبرو: $2 $1}} نیاز است.',
+	'gadgets-required-skins' => 'قابل دسترس در {{PLURAL:$2|پوستهٔ $1|پوسته‌های $1}}.',
 	'gadgets-default' => 'به‌طور پیش‌فرض برای همه فعال است.',
 	'gadgets-export' => 'برون‌بری',
 	'gadgets-export-title' => 'برون‌بری ابزار',
