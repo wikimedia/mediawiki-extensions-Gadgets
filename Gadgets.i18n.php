@@ -1344,7 +1344,10 @@ Inoltre, si noti che questi accessori speciali non sono compresi nel software Me
 	'gadgets-title' => 'Accessori',
 	'gadgets-pagetext' => "Di seguito sono elencati gli accessori (''gadget'') che gli utenti possono abilitare sulla propria pagina delle [[Special:Preferences|preferenze]], seguendo le [[MediaWiki:Gadgets-definition|definizioni]]. Questa panoramica fornisce un comodo meccanismo per accedere ai messaggi di sistema nei quali sono definiti la descrizione e il codice di ciascun accessorio.",
 	'gadgets-uses' => 'Utilizza',
-	'gadgets-required-rights' => 'Richiede {{PLURAL:$2|il diritto $1|i seguenti diritti: $1}}.',
+	'gadgets-required-rights' => 'Richiede {{PLURAL:$2|il seguente diritto|i seguenti diritti}}:
+
+$1',
+	'gadgets-required-skins' => 'Disponibile {{PLURAL:$2|per la skin $1|per le seguenti skin: $1}}.',
 	'gadgets-default' => 'Attivato per tutti, per impostazione predefinita.',
 	'gadgets-export' => 'Esporta',
 	'gadgets-export-title' => 'Esporta accessorio',
