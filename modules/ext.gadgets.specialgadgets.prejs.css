@@ -42,11 +42,9 @@
 }
 
 .mw-gadgets-gadgetlinks {
-	position: absolute;
-	top: 0;
-	right: 0;
+	float: right;
 	height: 1.6em;
-	padding: 9px;
+	padding: 0 0 0.5em 0.5em;
 	font-size: 75%;
 	font-weight: normal;
 }
