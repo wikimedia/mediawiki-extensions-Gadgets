@@ -67,7 +67,9 @@ class GadgetHooks extends OutputPage {
 			foreach ( $thisSection as $gadget ) {
 				if ( $gadget->isAllowed( $user ) ) {
 					$gname = $gadget->getName();
-					$available[$gadget->getDescription()] = $gname;
+					# bug 30182: dir="auto" because it's often not translated
+					$desc = '<span dir="auto">' . $gadget->getDescription() . '</span>';
+					$available[$desc] = $gname;
 					if ( $gadget->isEnabled( $user ) ) {
 						$default[] = $gname;
 					}
