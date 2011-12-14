@@ -1279,29 +1279,29 @@ Anda harus memeroleh izin pada wiki tujuan (termasuk hak menyunting pesan sistem
 $messages['ilo'] = array(
 	'gadgets-desc' => 'Mabalin dagiti agar-aramat nga agpili iti [[Special:Gadgets|CSS ken JavaScript gadyets]] idiay [[Special:Preferences|kaykayat da]]',
 	'prefs-gadgets' => 'Gadyets',
-	'gadgets-prefstext' => 'Adda iti baba ti listaan ti naiduma nga gadyets nga usaren idiay pakabilan mo.
-Dagitoy nga gadyets ket naibasta iti JavaScript, masapul nga ti "browsermo" ket agususar ti JavaScript.
-Saan nga mabalin nga usaren dagitoy nga gadyets ditoy kaykayat mo nga panid.
+	'gadgets-prefstext' => 'Adda dita baba ti listaan ti naipangruna a gadyets nga usaren idiay pakabilangam.
+Dagitoy a gadyets ket naibasta iti JavaScript, masapula ti "pagbasabasam" ket agususar ti JavaScript.
+Saan a mabalin nga usaren dagitoy a gadyets ditoy kaykayat a panid.
 
-Dagitoy nga gadyets ket saan nga parte ti MediaWiki software, inaramid ken inayaywanan dagiti agar-aramat ti lokal nga wiki.
-Mabaliwan dagita administrador nga baliwan ti  [[MediaWiki:Gadgets-definition|pinakailawag]] ken [[Special:Gadgets|deskripsyon]] ti gadyets.',
+Dagitoy a gadyets ket saan a paset ti MediaWiki software, inaramid ken inayaywanan dagiti agar-aramat ti lokal a wiki.
+Mabaliwan dagita administrador nga urnosen ti  [[MediaWiki:Gadgets-definition|pinakailawag]] ken [[Special:Gadgets|deskripsion]] ti gadyets.',
 	'gadgets' => 'Gadyets',
 	'gadgets-title' => 'Gadyets',
-	'gadgets-pagetext' => 'Dita baba ket adda listaan dagiti naiduma a gadyets nga dagiti agar-aramat ket mapagbalin da idiay [[Special:Preferences|kaykayat da a panid]],  nga naipalawag iti [[MediaWiki:Gadgets-definition|dagiti pinakailawag]].
-Daytoy nga pinakabuklan ket mangted ti nalaka nga pinaserrek kadagit mensahe ti sistema a panid nga nagpailawag iti deskripsyon ti gadyet ken kodigo.',
+	'gadgets-pagetext' => 'Dita baba ket adda listaan dagiti naipangruna a gadyets a dagiti agar-aramat ket mapagbalin da idiay [[Special:Preferences|kaykayat da a panid]],  a naipalawag iti [[MediaWiki:Gadgets-definition|dagiti pinakailawag]].
+Daytoy a pinakabuklan ket mangted ti nalaka a pinaserrek kadagit mensahe ti sistema a panid a nagpailawag iti deskripsion ti gadyet ken kodigo.',
 	'gadgets-uses' => 'Usar',
-	'gadgets-required-rights' => 'Masapul dagiti sumaganad {{PLURAL:$2|nga karbengan|dagiti karbengan}}:
+	'gadgets-required-rights' => 'Masapul dagiti sumaganad {{PLURAL:$2|a karbengan|dagiti karbengan}}:
 
 $1',
-	'gadgets-required-skins' => 'Adda nga mabalin idiay {{PLURAL:$2|$1 nga kudil|dagiti sumaganad nga kudil: $1}}.',
-	'gadgets-default' => 'Ipabalin nga kinasigud iti amin nga agar-aramat.',
+	'gadgets-required-skins' => 'Adda mabalin idiay {{PLURAL:$2|$1 a kudil|dagiti sumaganad a kudil: $1}}.',
+	'gadgets-default' => 'Pabaelan a kinasigud iti amin nga agar-aramat.',
 	'gadgets-export' => 'Agipan',
 	'gadgets-export-title' => 'Agipan ti gadyet',
-	'gadgets-not-found' => 'Saan nga nabirukan ti "$1" nga gadyet.',
-	'gadgets-export-text' => 'Ti pinag-ipan ti $1 nga gadyet, ikklik idiay "{{int:gadgets-export-download}}" a buton, idulin ti inkarga nga agpababa a papeles,
-mapan idiay to Special:Import ti papanan a wiki ken ikarga nga agpangato. Ken inayon dagiti sumaganad idiay MediaWiki:Gadgets-definition page:
+	'gadgets-not-found' => 'Saan a nabirukan ti "$1" a gadyet.',
+	'gadgets-export-text' => 'Ti pinag-ipan ti $1 a gadyet, aglatak idiay "{{int:gadgets-export-download}}" a buton, idulin ti inkarga nga agpababa a papeles,
+mapan idiay  Special:Import ti papanan a wiki ken ikarga nga agpangato. Ken inayon dagiti sumaganad idiay MediaWiki:Gadgets-definition page:
 <pre>$2</pre>
-Masapul nga addaan ka tiusto a pammalubos iti papanan a wiki (nairaman ti karbegnan nga pinagbaliw dagiti mensahe ti sistema) ken naipabalin ti pinagala kadagiti naggapu a papeles a naikarga nga agpangato.',
+Masapul nga addaan ka ti husto a pammalubos iti papanan a wiki (nairaman ti karbegnan a pinagbaliw dagiti mensahe ti sistema) ken naipabalin ti pinagala kadagiti naggapu a papeles a naikarga nga agpangato.',
 	'gadgets-export-download' => 'Ikarga nga agpababa',
 );
 
@@ -1788,6 +1788,8 @@ $messages['mr'] = array(
 
 $1',
 	'gadgets-export' => 'निर्यात करा',
+	'gadgets-export-title' => 'उपकरण निर्यात',
+	'gadgets-not-found' => 'उपकरण "$1" सापडत नाही.',
 	'gadgets-export-download' => 'उतरवा',
 );
 
