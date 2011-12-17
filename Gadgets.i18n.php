@@ -223,7 +223,7 @@ $messages['qqq'] = array(
 * {{mw-msg|create}}
 
 {{Output|plain}}',
-	'gadgetmanager-prop-category-new' => 'Special option in the "Category" drop down menu. When selected an input field appears allowing the user to create a new (custom) category. Should and in ellipsis ("...") or something like it appropiate for the target language.
+	'gadgetmanager-prop-category-new' => 'Special option in the "Category" drop down menu. When selected, an input field appears allowing the user to create a new (custom) category. Should end in an ellipsis ("...") or something similar, as appropiate for the target language.
 
 {{Output|plain}}',
 	'gadgetmanager-comment-modify' => 'Edit summary used when modifying gadget definition pages through AJAX on [[Special:Gadgets]].',
