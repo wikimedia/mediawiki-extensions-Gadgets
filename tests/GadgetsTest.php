@@ -44,4 +44,44 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue( $g->supportsResourceLoader() );
 		$this->assertEquals( array( 'jquery.ui' ), $g->getDependencies() );
 	}
+	
+	function testPreferences() {
+		// FIXME this test is broken
+		$this->markTestIncomplete( 'Broken for now' );
+		return;
+		
+		global $wgUser;
+
+		// This test makes call to the parser which requires valid OutputPage
+		// and Title objects. Set them up here, they will be released at the
+		// end of the test.
+		global $wgOut, $wgTitle;
+		$old_wgOut = $wgOut;
+		$old_wgTitle = $wgTitle;
+		$wgTitle = Title::newFromText( 'Parser test for Gadgets extension' );
+
+		// Proceed with test setup:
+		$prefs = array();
+		$context = new RequestContext();
+		$wgOut = $context->getOutput();
+		$wgOut->setTitle( Title::newFromText( 'test' ) );
+
+		Gadget::loadStructuredList( '* foo | foo.js
+==keep-section1==
+* bar| bar.js
+==remove-section==
+* baz [rights=embezzle] |baz.js
+==keep-section2==
+* quux [rights=read] | quux.js' );
+		$this->assertTrue( GadgetsHooks::getPreferences( $wgUser, $prefs ), 'GetPrefences hook should return true' );
+
+		$options = $prefs['gadgets']['options'];
+		$this->assertFalse( isset( $options['&lt;gadget-section-remove-section&gt;'] ), 'Must not show empty sections' );
+		$this->assertTrue( isset( $options['&lt;gadget-section-keep-section1&gt;'] ) );
+		$this->assertTrue( isset( $options['&lt;gadget-section-keep-section2&gt;'] ) );
+
+		// Restore globals
+		$wgOut = $old_wgOut;
+		$wgTitle = $old_wgTitle;
+	}
 }
