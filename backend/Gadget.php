@@ -63,6 +63,31 @@ class Gadget {
 	
 	/*** Public static methods ***/
 	
+	// Would like to do const PROPERTIES_BASE = array( ... ); here, but:
+	// Fatal error: Arrays are not allowed in class constants
+	// public static final $propertiesBase also doesn't work, so:
+	/**
+	 * Get the array representation of an empty gadget.
+	 * This would have been a constant or something if PHP hadn't sucked
+	 */
+	public static function getPropertiesBase() {
+		return array(
+			'settings' => array(
+				'rights' => array(),
+				'default' => false,
+				'hidden' => false,
+				'shared' => false,
+				'category' => '',
+			),
+			'module' => array(
+				'scripts' => array(),
+				'styles' => array(),
+				'dependencies' => array(),
+				'messages' => array(),
+			),
+		);
+	}
+	
 	/**
 	 * Check the validity of the given properties array
 	 * @param $properties Return value of FormatJson::decode( $blob, true )
