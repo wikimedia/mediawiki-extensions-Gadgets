@@ -103,7 +103,7 @@ class Gadget {
 
 			// Walk down and verify that the path from the root to this property exists
 			foreach ( $path as $p ) {
-				if ( !isset( $val[$p] ) ) {
+				if ( !array_key_exists( $p, $val ) ) {
 					return Status::newFatal( 'gadgets-validate-notset', $property );
 				}
 				$val = $val[$p];
