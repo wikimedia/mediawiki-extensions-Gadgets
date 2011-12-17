@@ -117,7 +117,7 @@ $wgHooks['TitleIsCssOrJsPage'][]            = 'GadgetsHooks::titleIsCssOrJsPage'
 $wgHooks['TitleIsMovable'][]                = 'GadgetsHooks::titleIsMovable';
 $wgHooks['TitleMoveComplete'][]             = 'GadgetsHooks::cssOrJsPageMove';
 $wgHooks['getUserPermissionsErrors'][]      = 'GadgetsHooks::getUserPermissionsErrors';
-#$wgHooks['UnitTestsList'][]                 = 'GadgetsHooks::unitTestsList'; // FIXME: broken
+$wgHooks['UnitTestsList'][]                 = 'GadgetsHooks::unitTestsList';
 
 $dir = dirname(__FILE__) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
