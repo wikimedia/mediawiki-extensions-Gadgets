@@ -417,6 +417,7 @@ class GadgetsHooks {
 	public static function unitTestsList( &$files ) {
 		//$files[] = dirname( __FILE__ ) . '/tests/GadgetsTest.php'; //FIXME broken
 		$files[] = dirname( __FILE__ ) . '/tests/GadgetPrefsTest.php';
+		$files[] = dirname( __FILE__ ) . '/tests/GadgetTest.php';
 		return true;
 	}
 
