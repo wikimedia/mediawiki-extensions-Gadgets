@@ -861,7 +861,7 @@ $messages['fa'] = array(
 	'gadgets-pagetext' => 'در زیر فهرستی از ابزارهای ویژه‌ای که کاربران می‌توانند از طریق [[Special:Preferences|صفحهٔ ترجیحاتشان]] فعال کنند می‌بینید، که مطابق آن چه است که در صفحهٔ [[MediaWiki:Gadgets-definition|تعاریف]] تعریف شده‌است.
 این خلاصه کمک می‌کند که به صفحه‌های پیغام سیستمی که توضیحات و کد هر ابزار را شامل می‌شوند به راحتی دست پیدا کنید.',
 	'gadgets-uses' => 'برنامه',
-	'gadgets-required-rights' => 'به {{PLURAL:|حق $1|حق‌های روبرو: $2 $1}} نیاز است.',
+	'gadgets-required-rights' => 'به {{PLURAL:|دسترسی $1|دسترسی‌های روبرو: $2 $1}} نیاز است.',
 	'gadgets-required-skins' => 'قابل دسترس در {{PLURAL:$2|پوستهٔ $1|پوسته‌های $1}}.',
 	'gadgets-default' => 'به‌طور پیش‌فرض برای همه فعال است.',
 	'gadgets-export' => 'برون‌بری',
@@ -1978,7 +1978,7 @@ Merk også at disse verktøyene ikke er del av MediaWiki-programvaren, og vanlig
 	'gadgets-required-rights' => 'Krever følgende {{PLURAL:$2|rettighet|rettigheter}}:
 
 $1',
-	'gadgets-required-skins' => 'Tilgjengelig i {{PLURAL:$1|drakta $1|følgende drakter: $1}}.',
+	'gadgets-required-skins' => 'Tilgjengelig i {{PLURAL:$2|drakta $1|følgende drakter: $1}}.',
 	'gadgets-default' => 'Aktivert for alle som standard',
 	'gadgets-export' => 'Eksporter',
 	'gadgets-export-title' => 'Tilleggsfunksjon eksport',
