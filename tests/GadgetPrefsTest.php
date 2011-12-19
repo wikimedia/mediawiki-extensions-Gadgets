@@ -2,7 +2,7 @@
 /**
  * @group Gadgets
  */
-class GadgetPrefsTest extends PHPUnit_Framework_TestCase {
+class GadgetPrefsTest extends MediaWikiTestCase {
 	//Test preferences descriptions validator (generic)
 	function testPrefsDescriptions() {
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( null ) );
@@ -825,6 +825,13 @@ class GadgetPrefsTest extends PHPUnit_Framework_TestCase {
 			'testSelect2' => 3
 		) );
 	}
+	
+	private static function createGadgetObject() {
+		$gSettings = Gadget::getPropertiesBase();
+		$gSettings['module']['styles'] = array( 'foo.css' );
+		$gSettings['module']['scripts'] = array( 'foo.js' );
+		return new Gadget( 'GadgetsTest', LocalGadgetRepo::singleton(), $gSettings, wfTimestampNow() );
+	}
 
 	/**
 	 * Tests Gadget::setPrefsDescription, GadgetPrefs::checkPrefsAgainstDescription,
@@ -834,9 +841,9 @@ class GadgetPrefsTest extends PHPUnit_Framework_TestCase {
 	 */
 	function testSetPrefs( $prefsDescription ) {
 		// FIXME this test is broken
-		$this->markTestIncomplete( 'Broken for now' );
+		$this->markTestIncomplete( 'Gadget::setPrefs not yet implemented' );
 		return;
-		
+
 		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $prefsDescription ) );
 		
 		$prefs = array(
@@ -865,7 +872,7 @@ class GadgetPrefsTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals( $prefs2['testNumber2'], $defaults['testNumber2'] );
 		$this->assertEquals( $prefs2['testSelect2'], $defaults['testSelect2'] );
 		
-		$g = $this->create( '*foo[ResourceLoader]| foo.css|foo.js|foo.bar' ); //FIXME
+		$g = self::createGadgetObject();
 		$g->setPrefsDescription( $prefsDescription );
 		$this->assertTrue( $g->getPrefsDescription() !== null );
 		
@@ -885,10 +892,10 @@ class GadgetPrefsTest extends PHPUnit_Framework_TestCase {
 	 */
 	function testSetPrefsWithWrongParam() {
 		// FIXME this test is broken
-		$this->markTestIncomplete( 'Broken for now' );
+		$this->markTestIncomplete( 'Gadget::setPrefs not yet implemented' );
 		return;
 		
-		$g = $this->create( '*foo[ResourceLoader]| foo.css|foo.js|foo.bar' ); //FIXME
+		$g = self::createGadgetObject();
 		$g->setPrefsDescription( array(
 			'fields' => array(
 				'testBoolean' => array(
