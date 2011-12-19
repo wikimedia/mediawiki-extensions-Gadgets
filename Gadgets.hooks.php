@@ -318,6 +318,13 @@ class GadgetsHooks {
 		return true;
 	}
 	
+	public static function parserTestTables( &$tables ) {
+		// These tables are listed here because we have on-save hooks
+		// that write to these tables
+		$tables[] = 'gadgets';
+		$tables[] = 'gadgetpagelist';
+	}
+	
 	public static function preferencesGetLegend( $form, $key, &$legend ) {
 		$matches = null;
 		if ( preg_match( '/^(?:gadgetrepo|gadgetcategory(local)?-[A-Za-z0-9]*)-([A-Za-z0-9]*)$/', $key, $matches ) ) {
