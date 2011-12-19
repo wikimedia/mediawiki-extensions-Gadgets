@@ -3,13 +3,13 @@
  * @group Gadgets
  */
 class GadgetPrefsTest extends MediaWikiTestCase {
-	//Test preferences descriptions validator (generic)
+	// Test preferences descriptions validator (generic)
 	function testPrefsDescriptions() {
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( null ) );
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array() ) );
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array( 'fields' => array() ) ) );
 
-		//Test with stdClass instead if array
+		// Test with stdClass instead of array
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( (object)array(
 			'fields' => array(
 				array(
@@ -21,7 +21,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		) ) );
 
-		//Test with wrong type
+		// Test with wrong type
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array(
 			'fields' => array(
 				array(
@@ -33,7 +33,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		) ) );
 
-		//Test with missing name
+		// Test with missing name
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array(
 			'fields' => array(
 				array(
@@ -44,7 +44,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		) ) );
 
-		//Test with wrong preference name
+		// Test with wrong preference name
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array(
 			'fields' => array(
 				array(
@@ -56,7 +56,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		) ) );
 
-		//Test with two fields with the same name
+		// Test with two fields with the same name
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array(
 			'fields' => array(
 				array(
@@ -74,7 +74,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		) ) );
 
-		//Test with fields encoded as associative array instead of regular array
+		// Test with fields encoded as associative array instead of regular array
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array(
 			'fields' => array(
 				'testBoolean' => array(
@@ -86,7 +86,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		) ) );
 
-		//Test with too long preference name (41 characters)
+		// Test with too long preference name (41 characters)
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array(
 			'fields' => array(
 				array(
@@ -111,7 +111,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		) ) );
 
 
-		//Test with an unexisting field parameter
+		// Test with an unexisting field parameter
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( array(
 			'fields' => array(
 				array(
@@ -125,7 +125,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		) ) );
 	}
 
-	//Tests for 'label' type preferences
+	// Tests for 'label' type preferences
 	function testPrefsDescriptionsLabel() {
 		$correct = array(
 			'fields' => array(
@@ -136,13 +136,13 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		);
 
-		//Tests with correct values for 'label'
+		// Tests with correct values for 'label'
 		foreach ( array( '', '@', '@message', 'foo', '@@not message' ) as $def ) {
 			$correct['fields'][0]['label'] = $def;
 			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
 		}
 		
-		//Tests with wrong values for 'label'
+		// Tests with wrong values for 'label'
 		$wrong = $correct;
 		foreach ( array( 0, 1, true, false, null, array() ) as $label ) {
 			$wrong['fields'][0]['label'] = $label;
@@ -151,7 +151,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		
 	}
 
-	//Tests for 'boolean' type preferences
+	// Tests for 'boolean' type preferences
 	function testPrefsDescriptionsBoolean() {
 		$correct = array(
 			'fields' => array(
@@ -179,7 +179,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 
 		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 
-		//Tests with wrong default values
+		// Tests with wrong default values
 		$wrong = $correct;
 		foreach ( array( 0, 1, '', 'false', 'true', null, array() ) as $def ) {
 			$wrong['fields'][0]['default'] = $def;
@@ -187,7 +187,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		}
 	}
 
-	//Tests for 'string' type preferences
+	// Tests for 'string' type preferences
 	function testPrefsDescriptionsString() {
 		$correct = array(
 			'fields' => array(
@@ -204,21 +204,21 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 
 		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
 
-		//Tests with wrong default values (when 'required' is not given)
+		// Tests with wrong default values (when 'required' is not given)
 		$wrong = $correct;
 		foreach ( array( null, '', true, false, 0, 1, array(), 'short', 'veryverylongstring' ) as $def ) {
 			$wrong['fields'][0]['default'] = $def;
 			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
 		}
 
-		//Tests with correct default values (when required is not given)
+		// Tests with correct default values (when required is not given)
 		$correct2 = $correct;
 		foreach ( array( '6chars', '1234567890' ) as $def ) {
 			$correct2['fields'][0]['default'] = $def;
 			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 		}
 
-		//Tests with wrong default values (when 'required' is false)
+		// Tests with wrong default values (when 'required' is false)
 		$wrong = $correct;
 		$wrong['fields'][0]['required'] = false;
 		foreach ( array( null, true, false, 0, 1, array(), 'short', 'veryverylongstring' ) as $def ) {
@@ -226,7 +226,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
 		}
 
-		//Tests with correct default values (when required is false)
+		// Tests with correct default values (when required is false)
 		$correct2 = $correct;
 		$correct2['fields'][0]['required'] = false;
 		foreach ( array( '', '6chars', '1234567890' ) as $def ) {
@@ -245,22 +245,22 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		);
 
-		//Test with empty default when "required" is true
+		// Test with empty default when "required" is true
 		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
 
-		//Test with empty default when "required" is true
+		// Test with empty default when "required" is true
 		$wrong = $correct;
 		$wrong['fields'][0]['required'] = true;
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
 
-		//Test with empty default when "required" is false and minlength is given
+		// Test with empty default when "required" is false and minlength is given
 		$correct2 = $correct;
 		$correct2['fields'][0]['required'] = false;
 		$correct2['fields'][0]['minlength'] = 3;
 		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 	}
 
-	//Tests for 'number' type preferences
+	// Tests for 'number' type preferences
 	function testPrefsDescriptionsNumber() {
 		$correctFloat = array(
 			'fields' => array(
@@ -294,7 +294,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correctFloat ) );
 		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correctInt ) );
 
-		//Tests with wrong default values (with 'required' = true)
+		// Tests with wrong default values (with 'required' = true)
 		$wrongFloat = $correctFloat;
 		foreach ( array( '', false, true, null, array(), -100, +100 ) as $def ) {
 			$wrongFloat['fields'][0]['default'] = $def;
@@ -315,7 +315,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		}
 	}
 
-	//Tests for 'select' type preferences
+	// Tests for 'select' type preferences
 	function testPrefsDescriptionsSelect() {
 		$correct = array(
 			'fields' => array(
@@ -335,14 +335,14 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		);
 
 
-		//Tests with correct default values
+		// Tests with correct default values
 		$correct2 = $correct;
 		foreach ( array( null, true, 3, 'test' ) as $def ) {
 			$correct2['fields'][0]['default'] = $def;
 			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 		}
 
-		//Tests with wrong default values
+		// Tests with wrong default values
 		$wrong = $correct;
 		foreach ( array( '', 'true', 'null', false, array(), 0, 1, 3.0001 ) as $def ) {
 			$wrong['fields'][0]['default'] = $def;
@@ -350,7 +350,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		}
 	}
 
-	//Tests for 'range' type preferences
+	// Tests for 'range' type preferences
 	function testPrefsDescriptionsRange() {
 		$correct = array(
 			'fields' => array(
@@ -365,27 +365,27 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		);
 
-		//Tests with correct default values
+		// Tests with correct default values
 		$correct2 = $correct;
 		foreach ( array( 15, 33, 45 ) as $def ) {
 			$correct2['fields'][0]['default'] = $def;
 			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 		}
 
-		//Tests with wrong default values
+		// Tests with wrong default values
 		$wrong = $correct;
 		foreach ( array( '', true, false, null, array(), '35', 14, 46, 30.2 ) as $def ) {
 			$wrong['fields'][0]['default'] = $def;
 			$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
 		}
 		
-		//Test with max not in the set min + k*step (step not given, so it's 1)
+		// Test with max not in the set min + k*step (step not given, so it's 1)
 		$wrong = $correct;
 		$wrong['fields'][0]['max'] = 45.5;
 		$this->assertFalse( GadgetPrefs::isPrefsDescriptionValid( $wrong ) );
 		
 		
-		//Tests with floating point min, max and step
+		// Tests with floating point min, max and step
 		$correct = array(
 			'fields' => array(
 				array(
@@ -402,14 +402,14 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		
 		$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct ) );
 		
-		//Tests with correct default values
+		// Tests with correct default values
 		$correct2 = $correct;
 		foreach ( array( -2.8, -2.55, 0.20, 4.2 ) as $def ) {
 			$correct2['fields'][0]['default'] = $def;
 			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 		}
 
-		//Tests with wrong default values
+		// Tests with wrong default values
 		$wrong = $correct;
 		foreach ( array( '', true, false, null, array(), '0.20', -2.7, 0, 4.199999 ) as $def ) {
 			$wrong['fields'][0]['default'] = $def;
@@ -417,7 +417,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		}
 	}
 	
-	//Tests for 'date' type preferences
+	// Tests for 'date' type preferences
 	function testPrefsDescriptionsDate() {
 		$correct = array(
 			'fields' => array(
@@ -430,7 +430,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		);
 		
-		//Tests with correct default values
+		// Tests with correct default values
 		$correct2 = $correct;
 		foreach ( array(
 				null,
@@ -443,7 +443,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 		}
 
-		//Tests with wrong default values
+		// Tests with wrong default values
 		$wrong = $correct;
 		foreach ( array(
 				'', true, false, array(), 0,
@@ -467,7 +467,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		}
 	}
 
-	//Tests for 'color' type preferences
+	// Tests for 'color' type preferences
 	function testPrefsDescriptionsColor() {
 		$correct = array(
 			'fields' => array(
@@ -480,7 +480,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		);
 		
-		//Tests with correct default values
+		// Tests with correct default values
 		$correct2 = $correct;
 		foreach ( array(
 				'#000000',
@@ -492,7 +492,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			$this->assertTrue( GadgetPrefs::isPrefsDescriptionValid( $correct2 ) );
 		}
 
-		//Tests with wrong default values
+		// Tests with wrong default values
 		$wrong = $correct;
 		foreach ( array(
 				'', true, false, null, 0, array(),
@@ -510,7 +510,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		}
 	}
 
-	//Tests for 'composite' type fields
+	// Tests for 'composite' type fields
 	function testPrefsDescriptionsComposite() {
 		$correct = array(
 			'fields' => array(
@@ -574,7 +574,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		$this->assertEquals( $prefs, array( 'foo' => array( 'bar' => false, 'car' => '#123456' ) ) );
 	}
 
-	//Tests for 'list' type fields
+	// Tests for 'list' type fields
 	function testPrefsDescriptionsList() {
 		$correct = array(
 			'fields' => array(
@@ -618,7 +618,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		
 		$this->assertEquals( GadgetPrefs::getMessages( $correct ), array( 'msg1', 'msg2' ) );
 
-		//Tests with correct pref values
+		// Tests with correct pref values
 		$this->assertTrue( GadgetPrefs::checkPrefsAgainstDescription(
 			$correct,
 			array( 'foo' => array() )
@@ -643,7 +643,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		) );
 
-		//Tests with wrong pref values
+		// Tests with wrong pref values
 		$this->assertFalse( GadgetPrefs::checkPrefsAgainstDescription(
 			$correct,
 			array( 'foo' => array(
@@ -665,7 +665,7 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 		) );
 
 
-		//Tests with 'minlength' and 'maxlength' options
+		// Tests with 'minlength' and 'maxlength' options
 		$wrong = $correct;
 		$wrong['fields'][0]['minlength'] = 4;
 		$wrong['fields'][0]['maxlength'] = 3; //maxlength < minlength, wrong
@@ -704,14 +704,14 @@ class GadgetPrefsTest extends MediaWikiTestCase {
 			)
 		) );
 
-		//Test with 'required'
+		// Test with 'required'
 		$correct2['fields'][0]['required'] = false;
 		$this->assertTrue( GadgetPrefs::checkPrefsAgainstDescription(
 			$correct2,
 			array( 'foo' => array() ) //empty array, must be accepted because "required" is false
 		) );
 		
-		//Tests matchPrefsWithDescription
+		// Tests matchPrefsWithDescription
 		$prefs = array( 'foo' => array(
 				array(
 					'bar' => null,
