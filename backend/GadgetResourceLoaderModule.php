@@ -33,10 +33,12 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	}
 
 	/**
-	 * Overrides the abstract function from ResourceLoaderWikiModule class
+	 * Overrides the abstract function from ResourceLoaderWikiModule class.
+	 * 
+	 * This method is public because it's used by GadgetTest.php
 	 * @return Array: $pages passed to __construct()
 	 */
-	protected function getPages( ResourceLoaderContext $context ) {
+	public function getPages( ResourceLoaderContext $context ) {
 		return $this->pages;
 	}
 
