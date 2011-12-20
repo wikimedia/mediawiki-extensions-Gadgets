@@ -2440,7 +2440,9 @@ Lokálni správcovia môžu upraviť zoznam dostupných nástrojov pomocou [[Med
 	'gadgets-title' => 'Nástroje',
 	'gadgets-pagetext' => 'Dolu je zoznam špeciálych nástrojov, ktoré môžu používatelia zapnúť v rámci svojho účtu na svojej stránke [[Special:Preferences|nastavení]]. Tento zoznam definuje stránka [[MediaWiki:Gadgets-definition]]. Tento prehľad poskytuje jednoduchý prístup k systémovým stránkam, ktoré definujú popis a kód každého z nástrojov.',
 	'gadgets-uses' => 'Použitia',
-	'gadgets-required-rights' => 'Vyžaduje {{PLURAL:$2|právo $1|nasledovné práva: $1}}.',
+	'gadgets-required-rights' => 'Vyžaduje nasledovné {{PLURAL:$2|právo|práva}}:
+
+$1',
 	'gadgets-default' => 'Povolené pre každého v predvolenom nastavení.',
 	'gadgets-export' => 'Exportovať',
 	'gadgets-export-title' => 'Export nástroja',
