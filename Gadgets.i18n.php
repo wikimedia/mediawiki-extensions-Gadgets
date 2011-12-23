@@ -2256,6 +2256,7 @@ $messages['ro'] = array(
 	'gadgets-required-rights' => 'Necesită {{PLURAL:$2|următorul drept|următoarele drepturi}}:
 
 $1',
+	'gadgets-required-skins' => 'Disponibil pe {{PLURAL:$2|tema $1|următoarele teme: $1}}.',
 	'gadgets-default' => 'Activat pentru toată lumea în mod implicit.',
 	'gadgets-export' => 'Exportă',
 	'gadgets-export-title' => 'Exportul de gadgeturi',
@@ -2557,10 +2558,31 @@ $1',
  * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(
+	'gadgets-desc' => 'Omogućava korisnicima da izaberu prilagođene [[Special:Gadgets|CSS i javaskript gadžete]] u svojim [[Special:Preferences|podešavanjima]]',
 	'prefs-gadgets' => 'Gedžeti',
+	'gadgets-prefstext' => 'Ispod se nalazi spisak posebnih gadžeta koje možete da omogućite na svom nalogu.
+Ove spravice su uglavnom zasnovane na javaskripti, tako da ona mora biti omogućena.
+Gadžeti neće uticati na stranicu za podešavanje.
+
+Oni nisu deo softvera Medijaviki, već se razvijaju i održavaju od strane korisnika vaše vikije.
+Administratori mogu da izmene [[MediaWiki:Gadgets-definition|značenja]] i [[Special:Gadgets|opise]] dostupnih gadžeta.',
 	'gadgets' => 'gedžeti',
 	'gadgets-title' => 'gedžeti',
+	'gadgets-pagetext' => 'Ispod je spisak posebnih gadžeta koje korisnici mogu da omoguće na svojoj [[Special:Preferences|stranici za podešavanje]], kao što je navedeno u [[MediaWiki:Gadgets-definition|definicijama]].
+Ovaj pregled pruža brz pristup sistemskim porukama koje definišu svaki opis i kod gadžeta.',
 	'gadgets-uses' => 'koristi se',
+	'gadgets-required-rights' => 'Zahteva {{PLURAL:$2|sledeće pravo|sledeća prava}}:
+
+$1',
+	'gadgets-default' => 'Podrazumevano uključen za svakog.',
+	'gadgets-export' => 'Izvezi',
+	'gadgets-export-title' => 'Izvoz gadžeta',
+	'gadgets-not-found' => 'Gadžet „$1“ nije pronađen.',
+	'gadgets-export-text' => "Da biste izvezli $1 gadžet, kliknite na dugme „{{int:gadgets-export-download}}“, sačuvajte preuzetu datoteku,
+pređite na ''Special:Import'' na željenoj vikiji i pošaljite gadžet. Nakon toga, dodajte sledeće na ''MediaWiki:Gadgets-definition'' stranicu:
+<pre>$2</pre>
+Morate imati određene dozvole na navedenoj vikiji (uključujući i pravo za uređivanje sistemskih poruka), dok uvoz preko datoteka mora biti omogućen.",
+	'gadgets-export-download' => 'Preuzmi',
 );
 
 /** Seeltersk (Seeltersk)
