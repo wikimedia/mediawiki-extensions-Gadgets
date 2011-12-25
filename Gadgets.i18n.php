@@ -1963,7 +1963,7 @@ Dette oversynet gjev enkel tilgang til systemmeldingssidene som inneheld skildri
  * @author Nghtwlkr
  * @author Sjurhamre
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'gadgets-desc' => 'Lar brukere velge egendefinerte [[Special:Gadgets|CSS- og JavaScript-verktøy]] i [[Special:Preferences|innstillingene sine]]',
 	'prefs-gadgets' => 'Tilleggsfunksjoner',
 	'gadgets-prefstext' => 'Nedenfor er en liste over tilleggsfunksjoner du kan slå på for kontoen din.
