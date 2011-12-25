@@ -198,6 +198,11 @@ $specialPageAliases['mt'] = array(
 	'Gadgets' => array( 'Aġġeġġi', 'Aċċessorji' ),
 );
 
+/** Norwegian Bokmål (‪Norsk (bokmål)‬) */
+$specialPageAliases['nb'] = array(
+	'Gadgets' => array( 'Tilleggsfunksjoner' ),
+);
+
 /** Nedersaksisch (Nedersaksisch) */
 $specialPageAliases['nds-nl'] = array(
 	'Gadgets' => array( 'Technies_spul' ),
@@ -211,11 +216,6 @@ $specialPageAliases['nl'] = array(
 /** Norwegian Nynorsk (‪Norsk (nynorsk)‬) */
 $specialPageAliases['nn'] = array(
 	'Gadgets' => array( 'Tilleggsfunksjonar' ),
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬) */
-$specialPageAliases['nb'] = array(
-	'Gadgets' => array( 'Tilleggsfunksjoner' ),
 );
 
 /** Occitan (Occitan) */
@@ -233,7 +233,7 @@ $specialPageAliases['ro'] = array(
 	'Gadgets' => array( 'Gadgeturi' ),
 );
 
-/** Sanskrit (संस्कृत) */
+/** Sanskrit (संस्कृतम्) */
 $specialPageAliases['sa'] = array(
 	'Gadgets' => array( 'सुविधा_(गॅजेट)' ),
 );
@@ -302,8 +302,3 @@ $specialPageAliases['zh-hans'] = array(
 $specialPageAliases['zh-hant'] = array(
 	'Gadgets' => array( '小工具' ),
 );
-
-/**
- * For backwards compatibility with MediaWiki 1.15 and earlier.
- */
-$aliases =& $specialPageAliases;
