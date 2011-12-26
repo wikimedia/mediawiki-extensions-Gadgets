@@ -1104,6 +1104,7 @@ $1',
 );
 
 /** Hindi (हिन्दी)
+ * @author Ansumang
  * @author Kaustubh
  * @author Mayur
  * @author Shyam
@@ -1123,6 +1124,8 @@ $messages['hi'] = array(
 यह समीक्षा तंत्र संदेश पृष्ठों तक पहुँचने का आसान मार्ग प्रदान करती है, जो की प्रत्येक जुगत के वर्णन एवं कूट भाषा को परिभाषित करते हैं।',
 	'gadgets-uses' => 'उपयोग',
 	'gadgets-default' => 'डिफ़ॉल्ट रूप से सभी के लिए सक्षम है।',
+	'gadgets-export' => 'निर्यात',
+	'gadgets-export-download' => 'डाउनलोड',
 );
 
 /** Croatian (Hrvatski)
@@ -2131,7 +2134,7 @@ Sta lista complessiva a smon na stra còmoda për rivé a le pàgine ëd messagi
 	'gadgets-required-rights' => 'A ciama {{PLURAL:$1|ël drit|ij drit}} sì-dapress:
 
 $2',
-	'gadgets-required-skins' => 'Disponìbil an {{PLURAL:$2|$1 slë skin|sjë skin seguent: $1}}.',
+	'gadgets-required-skins' => 'Disponìbil an {{PLURAL:$2|$1 sla pel|sle pej sì-dapress: $1}}.',
 	'gadgets-default' => 'Abilità për tuti coma stàndard',
 	'gadgets-export' => 'Esporté',
 	'gadgets-export-title' => "Esportassion d'acessòri",
@@ -2408,6 +2411,7 @@ $messages['sgs'] = array(
 /** Sinhala (සිංහල)
  * @author Budhajeewa
  * @author නන්දිමිතුරු
+ * @author පසිඳු කාවින්ද
  * @author බිඟුවා
  */
 $messages['si'] = array(
@@ -2424,6 +2428,10 @@ $messages['si'] = array(
 	'gadgets-pagetext' => 'පහත දැක්වෙන්නේ [[MediaWiki:Gadgets-definition|අර්ථදැක්වීම්]] කරන ලද ආකාරය අනුව පරිශීලකයන්ට ඔවුන්ගේ [[Special:Preferences|රිසිකෙරුම් පිටුව]] මතදී සක්‍රීය කළ හැකි විශේෂ ගැජටයන් ලයිස්තුවකි.
 මෙම දළ විශ්ලේෂණය සියළු ගැජටයන්ගේ විස්තර කෙරුම් හා කේතයන් අර්ථ දක්වන පද්ධති පණිවුඩ පිටු වෙත පහසු ළඟාවීම් ලබාදේ.',
 	'gadgets-uses' => 'පරිශීලනය කරයි',
+	'gadgets-required-rights' => 'මෙම {{PLURAL:$2|හිමිකම|හිමිකම්}} අවශ්‍ය වේ:
+
+$1',
+	'gadgets-default' => 'සාමාන්‍යයෙන් සෑම දෙනාටම සක්‍රීය කර ඇත.',
 	'gadgets-export' => 'අපනයනය කරන්න',
 	'gadgets-export-title' => 'ගැජටය අපනයනය කරන්න',
 	'gadgets-not-found' => '"$1" ගැජටය හමුවුනේ නැත.',
