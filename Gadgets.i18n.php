@@ -362,6 +362,7 @@ $messages['bn'] = array(
 	'gadgets-pagetext' => 'নিচে বিশেষ গ্যাজেটের একটি তালিকা রয়েছে, যা ব্যবহারকারী তাদের [[Special:Preferences|প্রছন্দের পাতা]] থেকে সক্রিয় করে নিতে পারবেন এবং যা [[MediaWiki:Gadgets-definition|definitions]] পাতায় সংজ্ঞায়িত রয়েছে। পর্যালোচনা সিস্টেম বার্তা পাতায় সহজ প্রবেশাধিকার দিবে, যেখানে গ্যাজেটের বর্ণনা এবং কোড রয়েছে।',
 	'gadgets-uses' => 'ব্যবহারসমূহ',
 	'gadgets-export' => 'রপ্তানি',
+	'gadgets-export-title' => 'গ্যাজেট রফতানী',
 	'gadgets-not-found' => 'গ্যাজেট "$1" খুজে পাওয়া যায়নি।',
 	'gadgets-export-download' => 'ডাউনলোড',
 );
@@ -735,6 +736,7 @@ Lokaj administrantoj povas redakti liston de haveblaj aldonaĵoj per [[MediaWiki
 	'gadgets-required-rights' => 'Bezonas la {{PLURAL:$2|jenan rajton|jenajn rajtojn}}:
 
 $1',
+	'gadgets-required-skins' => 'Dispona kun la {{PLURAL:$2|$1 etoso|jenaj etosoj:$1}}.',
 	'gadgets-default' => 'Ŝaltita por ĉiu defaŭlte.',
 	'gadgets-export' => 'Eksporti',
 	'gadgets-export-title' => 'Aldonaĵo-eksportado',
@@ -2177,8 +2179,12 @@ Special:Import تے جاؤ وکی تے ، چرھاؤ اینوں۔ فیر تھل�
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
+	'prefs-gadgets' => 'ګاډجېټ',
+	'gadgets' => 'ګاډجېټ',
+	'gadgets-title' => 'ګاډجېټ',
 	'gadgets-uses' => 'کارونې',
 	'gadgets-export' => 'صادرول',
+	'gadgets-not-found' => 'د "$1" ګاډجېټ و نه موندل شو.',
 	'gadgets-export-download' => 'ښکته کول',
 );
 
@@ -2217,6 +2223,7 @@ Na wiki de destino, tem de ter as permissões necessárias (incluindo o privilé
  * @author Eduardo.mps
  * @author Giro720
  * @author GoEThe
+ * @author Rafael Vargas
  */
 $messages['pt-br'] = array(
 	'gadgets-desc' => 'Permite aos utilizadores selecionarem [[Special:Gadgets|"gadgets" JavaScript e CSS]] personalizados nas suas [[Special:Preferences|preferências]]',
@@ -2232,7 +2239,8 @@ Administradores locais podem editar os gadgets disponíveis através de [[MediaW
 	'gadgets-pagetext' => 'Segue-se uma lista de "gadgets" que podem ser ativados por utilizadores através de [[Special:Preferences|suas páginas de preferências]], definidos em [[MediaWiki:Gadgets-definition|definições]].
 Esta visão geral proporciona um acesso fácil para as mensagens de sistema que definem as descrições e códigos de cada um dos gadgets.',
 	'gadgets-uses' => 'Utiliza',
-	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o privilégio $1|os seguintes privilégios: $1}}.',
+	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o seguinte privilégio $1|os seguintes privilégios: $1}}.',
+	'gadgets-required-skins' => 'Disponível {{PLURAL:$2|no skin $1|nos seguintes skins: $1}}.',
 	'gadgets-default' => 'Ativar para todos por padrão.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportação de gadget',
