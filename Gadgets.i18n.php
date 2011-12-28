@@ -1289,7 +1289,7 @@ $messages['ilo'] = array(
 	'gadgets-desc' => 'Mabalin dagiti agar-aramat nga agpili iti [[Special:Gadgets|CSS ken JavaScript gadyets]] idiay [[Special:Preferences|kaykayat da]]',
 	'prefs-gadgets' => 'Gadyets',
 	'gadgets-prefstext' => 'Adda dita baba ti listaan ti naipangruna a gadyets nga usaren idiay pakabilangam.
-Dagitoy a gadyets ket naibasta iti JavaScript, masapula ti "pagbasabasam" ket agususar ti JavaScript.
+Dagitoy a gadyets ket naibasta iti JavaScript, masapul a pakabaelan ti  JavaScript idiay  "pagbasabasam" tapno agbalin da.
 Saan a mabalin nga usaren dagitoy a gadyets ditoy kaykayat a panid.
 
 Dagitoy a gadyets ket saan a paset ti MediaWiki software, inaramid ken inayaywanan dagiti agar-aramat ti lokal a wiki.
@@ -1297,7 +1297,7 @@ Mabaliwan dagita administrador nga urnosen ti  [[MediaWiki:Gadgets-definition|pi
 	'gadgets' => 'Gadyets',
 	'gadgets-title' => 'Gadyets',
 	'gadgets-pagetext' => 'Dita baba ket adda listaan dagiti naipangruna a gadyets a dagiti agar-aramat ket mapagbalin da idiay [[Special:Preferences|kaykayat da a panid]],  a naipalawag iti [[MediaWiki:Gadgets-definition|dagiti pinakailawag]].
-Daytoy a pinakabuklan ket mangted ti nalaka a pinaserrek kadagit mensahe ti sistema a panid a nagpailawag iti deskripsion ti gadyet ken kodigo.',
+Daytoy a pinakabuklan ket mangted ti nalaka a pinagserrek kadagit mensahe ti sistema a panid a nagpailawag iti deskripsion ti gadyet ken kodigo.',
 	'gadgets-uses' => 'Usar',
 	'gadgets-required-rights' => 'Masapul dagiti sumaganad {{PLURAL:$2|a karbengan|dagiti karbengan}}:
 
