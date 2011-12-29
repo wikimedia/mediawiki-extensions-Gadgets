@@ -1127,6 +1127,8 @@ $messages['hi'] = array(
 	'gadgets-uses' => 'उपयोग',
 	'gadgets-default' => 'डिफ़ॉल्ट रूप से सभी के लिए सक्षम है।',
 	'gadgets-export' => 'निर्यात',
+	'gadgets-export-title' => 'गैजेट निर्यात',
+	'gadgets-not-found' => 'गैजेट "$1" मिला नहीं ।',
 	'gadgets-export-download' => 'डाउनलोड',
 );
 
@@ -2439,6 +2441,7 @@ $messages['si'] = array(
 	'gadgets-required-rights' => 'මෙම {{PLURAL:$2|හිමිකම|හිමිකම්}} අවශ්‍ය වේ:
 
 $1',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1 චර්මයෙන්|චර්මයන්ගෙන් ලබා ගත හැක: $1}}.',
 	'gadgets-default' => 'සාමාන්‍යයෙන් සෑම දෙනාටම සක්‍රීය කර ඇත.',
 	'gadgets-export' => 'අපනයනය කරන්න',
 	'gadgets-export-title' => 'ගැජටය අපනයනය කරන්න',
@@ -2904,7 +2907,7 @@ Te serve i parmessi su la wiki de destinassion (compreso quelo de modificar i me
 	'gadgets-export-download' => 'Descarga',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel')
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
@@ -2912,6 +2915,7 @@ $messages['vep'] = array(
 	'gadgets' => 'Gadžetad:',
 	'gadgets-title' => 'Gadžetad',
 	'gadgets-uses' => 'Kävutab',
+	'gadgets-export' => 'Eksportiruida',
 );
 
 /** Vietnamese (Tiếng Việt)
