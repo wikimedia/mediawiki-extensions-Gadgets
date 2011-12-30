@@ -2574,6 +2574,7 @@ $messages['sr-ec'] = array(
 	'gadgets-required-rights' => 'Захтева {{PLURAL:$2|следеће право|следећа права}}:
 
 $1',
+	'gadgets-required-skins' => 'Доступно у {{PLURAL:$2|теми $1|следећим темама: $1}}.',
 	'gadgets-default' => 'Подразумевано укључен за сваког.',
 	'gadgets-export' => 'Извези',
 	'gadgets-export-title' => 'Извоз гаџета',
