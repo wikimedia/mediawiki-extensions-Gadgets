@@ -910,6 +910,19 @@ Sinulla pitää olla tarvittavat oikeudet omassa wikissäsi, kuten järjestelmä
 	'gadgets-export-download' => 'Lataa',
 );
 
+/** Faroese (Føroyskt)
+ * @author EileenSanda
+ */
+$messages['fo'] = array(
+	'gadgets-uses' => 'Brúkar',
+	'gadgets-required-rights' => 'Krevur fylgjandi {{PLURAL:$2|rættindi|rættindi}}:
+
+$1',
+	'gadgets-required-skins' => 'Tøk á {{PLURAL:$2|$1 útsjónd|fylgjandi útsjóndum: $1}}.',
+	'gadgets-default' => 'Gjørt virkið fyri øllum sum standard',
+	'gadgets-export' => 'Útflyt',
+);
+
 /** French (Français)
  * @author Delhovlyn
  * @author Dr Brains
@@ -1125,6 +1138,10 @@ $messages['hi'] = array(
 	'gadgets-pagetext' => 'नीचे विशेष जुगतों कि सूची दी गई है, जिन्हें सदस्य [[MediaWiki:Gadgets-definition]] की परिभाषा के अनुसार, अपने वरीयता पृष्ठ में सक्षम कर सकते हैं।
 यह समीक्षा तंत्र संदेश पृष्ठों तक पहुँचने का आसान मार्ग प्रदान करती है, जो की प्रत्येक जुगत के वर्णन एवं कूट भाषा को परिभाषित करते हैं।',
 	'gadgets-uses' => 'उपयोग',
+	'gadgets-required-rights' => 'निम्नलिखित की आबश्यकता है {{PLURAL:$2|अधिकार|अधिकार}}:
+
+$1',
+	'gadgets-required-skins' => 'उपलब्ध है {{PLURAL:$2|$1 स्किन|निम्नलिखित स्किन: $1}}.',
 	'gadgets-default' => 'डिफ़ॉल्ट रूप से सभी के लिए सक्षम है।',
 	'gadgets-export' => 'निर्यात',
 	'gadgets-export-title' => 'गैजेट निर्यात',
