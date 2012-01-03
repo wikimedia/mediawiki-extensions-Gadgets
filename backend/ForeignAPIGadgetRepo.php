@@ -38,7 +38,7 @@ class ForeignAPIGadgetRepo extends CachedGadgetRepo {
 		if ( is_array( $apiResult ) ) {
 			return $this->reformatAPIResult( $apiResult );
 		} else {
-			// TODO what do we do with the error mesage? loadAllData() doesn't have a facility for this
+			// TODO what do we do with the error message? loadAllData() doesn't have a facility for this
 			return array();
 		}
 	}
@@ -49,7 +49,7 @@ class ForeignAPIGadgetRepo extends CachedGadgetRepo {
 			$formatted = $this->reformatAPIResult( $apiResult );
 			return $formatted[0];
 		} else {
-			// TODO what do we do with the error mesage? loadAllData() doesn't have a facility for this
+			// TODO what do we do with the error message? loadAllData() doesn't have a facility for this
 			return array();
 		}
 	}
