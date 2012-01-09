@@ -141,6 +141,19 @@ Os almenistradors locals pueden editar os trastes disponibles en as pachinas de 
 	'gadgets-pagetext' => "Contino ye una lista de trastes especials que os usuarios pueden activar en a suya [[Special:Preferences|pachina de preferencias]], como se define en a pachina de [[MediaWiki:Gadgets-definition|definicions]].
 Ista lista premite ir facilment t'as pachinas de mensaches d'o sistema que definen a descripción y o codigo de cada traste.",
 	'gadgets-uses' => 'Fa servir',
+	'gadgets-required-rights' => 'Requiere {{PLURAL:$2|o siguient dreito|os siguients dreitos}}:
+
+$1',
+	'gadgets-required-skins' => "Disponible {{PLURAL:$2|en l'apariencia $1|en as siguients apariencias: $1}}.",
+	'gadgets-default' => 'Activau ta totz de traza predeterminada.',
+	'gadgets-export' => 'Exportar',
+	'gadgets-export-title' => 'Exportación de gadget',
+	'gadgets-not-found' => 'No s\'ha trobau o gadget "$1".',
+	'gadgets-export-text' => 'Ta exportar o gadget $1, faiga click en o botón "{{int:gadgets-export-download}}", alce o fichero descargau,
+vaiga ta Special:Importar un wiki de destín y puye-lo. Dimpués adhiba lo siguient a MediaWiki:Gadgets-definition page:
+<pre>$2</pre>
+Has de tener permisos apropiaus en o wiki de destín (incluindo o dreito a editar mensaches de sistema) y importación dende fichers puyaus debe estar habilitau.',
+	'gadgets-export-download' => 'Descargar',
 );
 
 /** Arabic (العربية)
@@ -1343,6 +1356,7 @@ $messages['io'] = array(
 
 /** Icelandic (Íslenska)
  * @author Jóna Þórunn
+ * @author Maxí
  */
 $messages['is'] = array(
 	'gadgets-desc' => 'Gerir notendum kleift að velja [[Special:Gadgets|CSS og JavaScript-forrit]] í [[Special:Preferences|stillingum sínum]]',
@@ -1353,6 +1367,7 @@ Forritin eru ekki hluti af MediaWiki-hugbúnaðinum heldur eru skrifuð og viðh
 	'gadgets' => 'Smáforrit',
 	'gadgets-title' => 'Smáforrit',
 	'gadgets-uses' => 'Notar',
+	'gadgets-export-download' => 'Hlaða niður',
 );
 
 /** Italian (Italiano)
