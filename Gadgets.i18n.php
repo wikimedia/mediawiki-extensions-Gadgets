@@ -690,6 +690,11 @@ Lokalne administratory mógu k dispoziciji stojece gadgety z pomocu [[MediaWiki:
 	'gadgets-pagetext' => 'Dołojce jo lisćina specialnych gadgetow, kótarež wužywarje mógu w [[Special:Preferences|swójich nastajenjach]] zmóžniś, kaž w [[MediaWiki:Gadgets-definition]] definiěrowane.
 Toś ten pśeglěd bitujo lažki pśistup k bokam systemowych powěsćow, kótarež wopisanje a kod gadgeta definěruju.',
 	'gadgets-uses' => 'Wužywa',
+	'gadgets-required-rights' => 'Pomina se {{PLURAL:$2|slědujuce pšawo|slědujucej pšawje|slědujuce pšawa|slědujuce pšawa}}:
+
+$1',
+	'gadgets-required-skins' => 'Na {{PLURAL:$2|slědujucej drastwje|slědujucyma drastwoma|slědujucych drastwach|slědujucych drastwach}} k dispoziciji: $1',
+	'gadgets-default' => 'Za wšych standardnje zmóžnjony.',
 	'gadgets-export' => 'Eksportěrowaś',
 	'gadgets-export-title' => 'Eksport specialneje funkcije',
 	'gadgets-not-found' => 'Specialna funkcija "$1" njejo se namakała.',
@@ -1840,6 +1845,8 @@ $messages['mr'] = array(
 	'gadgets-required-rights' => 'खलील गोष्ठी साठी विनंती     {{PLURAL:$2|right|rights}}:
 
 $1',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1 skin|खालील देखाव्यांवर  : $1}} उपलब्ध आहेत',
+	'gadgets-default' => 'सर्वांसाठी डिफॉल्ट उपलब्ध केले आहे',
 	'gadgets-export' => 'निर्यात करा',
 	'gadgets-export-title' => 'उपकरण निर्यात',
 	'gadgets-not-found' => 'उपकरण "$1" सापडत नाही.',
