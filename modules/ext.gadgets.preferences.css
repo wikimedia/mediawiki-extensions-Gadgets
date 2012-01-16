@@ -1,1 +1,5 @@
-/* TODO: spinner CSS */
+/* @todo: spinner CSS */
+
+#mw-prefsection-gadgets table.mw-htmlform-nolabel td.mw-label {
+	width: 1px !important;
+}
