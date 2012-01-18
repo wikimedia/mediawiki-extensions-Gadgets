@@ -307,7 +307,7 @@ class Gadget {
 					$gadget->requiredRights = $params;
 					break;
 				case 'skins':
-					$gadget->requiredSkins = array_intersect( array_keys( Skin::getSkinNames() ), $params );
+					$gadget->requiredSkins = $params;
 					break;
 				case 'default':
 					$gadget->onByDefault = true;

@@ -129,8 +129,13 @@ class SpecialGadgets extends SpecialPage {
 				}
 
 				$skins = array();
+				$validskins = Skin::getSkinNames();
 				foreach ( $gadget->getRequiredSkins() as $skinid ) {
-					$skins[] = wfMessage( "skinname-$skinid" )->plain();
+					if ( isset( $validskins[$skinid] ) ) {
+						$skins[] = wfMessage( "skinname-$skinid" )->plain();
+					} else {
+						$skins[] = $skinid;
+					}
 				}
 				if ( count( $skins ) ) {
 					$wgOut->addHTML( '<br />' .
