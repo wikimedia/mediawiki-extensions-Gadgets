@@ -3064,7 +3064,7 @@ $messages['zh-hans'] = array(
 	'gadgets-required-rights' => '需要以下{{PLURAL:$2|权限|权限}}：
 
 $1',
-	'gadgets-required-skins' => '可用在 {{PLURAL:$2|$1外观|以下外观：$1}}。',
+	'gadgets-required-skins' => '可用在{{PLURAL:$2|$1外观|以下外观：$1}}。',
 	'gadgets-default' => '默认所有人启用。',
 	'gadgets-export' => '导出',
 	'gadgets-export-title' => '小工具出口',
@@ -3100,7 +3100,7 @@ $messages['zh-hant'] = array(
 	'gadgets-required-rights' => '需要以下{{PLURAL:$2|權限|權限}}：
 
 $1',
-	'gadgets-required-skins' => '可用在 {{PLURAL:$2|$1面板|以下面板：$1}}。',
+	'gadgets-required-skins' => '可用在{{PLURAL:$2|$1面板|以下面板：$1}}。',
 	'gadgets-default' => '預設所有人啟用。',
 	'gadgets-export' => '匯出',
 	'gadgets-export-title' => '匯出小工具',
