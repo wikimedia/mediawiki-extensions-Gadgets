@@ -245,6 +245,12 @@ $1',
 	'gadgets-required-skins' => 'Disponible {{PLURAL:$2|nel aspeutu $1|nos siguientes aspeutos: $1}}.',
 	'gadgets-default' => 'Activáu para toos de mou predetermináu.',
 	'gadgets-export' => 'Esportar',
+	'gadgets-export-title' => "Esportación d'accesorios",
+	'gadgets-not-found' => 'Nun s\'alcontró l\'accesoriu "$1".',
+	'gadgets-export-text' => 'Pa esportar l\'accesoriu $1, calca nel botón "{{int:gadgets-export-download}}", guarda\'l ficheru descargáu,
+vete a Special:Import na wiki de destín y xúbilu. Darréu amiesta lo siguiente na páxina MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Has de tener los permisos afayadizos na wiki de destín (incluyendo permisu pa editar los mensaxes del sistema) y tien de tar activada la importación dende los ficheros xubíos.',
 	'gadgets-export-download' => 'Descargar',
 );
 
