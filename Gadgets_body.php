@@ -11,7 +11,7 @@
  * @license GNU General Public Licence 2.0 or later
  */
 
-class GadgetHooks extends OutputPage {
+class GadgetHooks {
 	/**
 	 * ArticleSaveComplete hook handler.
 	 *
@@ -125,19 +125,8 @@ class GadgetHooks extends OutputPage {
 
 		foreach ( $gadgets as $g ) {
 			$module = $g->getModule();
-			$scriptsModule = $g->getScriptsModule();
-			$stylesModule = $g->getStylesModule();
-
 			if ( $module ) {
 				$resourceLoader->register( $g->getModuleName(), $module );
-			}
-
-			if ( $scriptsModule ) {
-				$resourceLoader->register( $g->getScriptsModuleName(), $scriptsModule );
-			}
-
-			if ( $stylesModule ) {
-				$resourceLoader->register( $g->getStylesModuleName(), $stylesModule );
 			}
 		}
 		return true;
@@ -163,15 +152,11 @@ class GadgetHooks extends OutputPage {
 		$lb->setCaller( __METHOD__ );
 		$pages = array();
 
-		$stylesModules = array();
 		foreach ( $gadgets as $gadget ) {
 			if ( $gadget->isEnabled( $wgUser ) && $gadget->isAllowed( $wgUser ) ) {
 				if ( $gadget->hasModule() ) {
+					$out->addModuleStyles( $gadget->getModuleName() );
 					$out->addModules( $gadget->getModuleName() );
-				}
-
-				if ( $gadget->hasStylesModule() ) {
-					$stylesModules[] = $gadget->getStylesModuleName();
 				}
 
 				foreach ( $gadget->getLegacyScripts() as $page ) {
@@ -179,18 +164,6 @@ class GadgetHooks extends OutputPage {
 					$pages[] = $page;
 				}
 			}
-		}
-
-		if ( count( $stylesModules ) ) {
-			$out->addHeadItem( 'ext.gadget', $out->makeResourceLoaderLink( 
-				$stylesModules, ResourceLoaderModule::TYPE_STYLES
-			) . Html::inlineScript(
-				ResourceLoader::makeLoaderConditionalScript(
-					ResourceLoader::makeLoaderStateScript(
-						array_fill_keys( $stylesModules, 'ready' )
-					)
-				)
-			) );
 		}
 
 		$lb->execute( __METHOD__ );
@@ -357,24 +330,10 @@ class Gadget {
 	}
 
 	/**
-	 * @return String: Name of meta ResourceLoader module for this gadget
+	 * @return String: Name of ResourceLoader module for this gadget
 	 */
 	public function getModuleName() {
 		return "ext.gadget.{$this->name}";
-	}
-
-	/**
-	 * @return String: Name of scripts ResourceLoader module for this gadget
-	 */
-	public function getScriptsModuleName() {
-		return "ext.gadget.{$this->name}.scripts";
-	}
-
-	/**
-	 * @return String: Name of styles ResourceLoader module for this gadget
-	 */
-	public function getStylesModuleName() {
-		return "ext.gadget.{$this->name}.styles";
 	}
 
 	/**
@@ -424,21 +383,9 @@ class Gadget {
 	 * @return Boolean: Whether this gadget has resources that can be loaded via ResourceLoader
 	 */
 	public function hasModule() {
-		return $this->hasScriptsModule() || $this->hasStylesModule() || count( $this->dependencies );
-	}
-
-	/**
-	 * @return Boolean: Whether this gadget has scripts module to be loaded via ResourceLoader
-	 */
-	public function hasScriptsModule() {
-		return $this->supportsResourceLoader() && ( count( $this->scripts ) > 0 );
-	}
-
-	/**
-	 * @return Boolean: Whether this gadget has styles module to be loaded via ResourceLoader
-	 */
-	public function hasStylesModule() {
-		return count( $this->styles ) > 0;
+		return count( $this->styles )
+			+ ( $this->supportsResourceLoader() ? count( $this->scripts ) : 0 )
+				> 0;
 	}
 
 	/**
@@ -470,42 +417,16 @@ class Gadget {
 	}
 
 	/**
-	 * Returns meta module for ResourceLoader, see getModuleName() for its name.
-	 * Meta module contains no real data to be loaded but has dependencies of
-	 * this gadget's scripts and styles module as well as other dependencies.
-	 * If our gadget has no scripts or styles or dependencies suitable for RL,
-	 * false will be returned.
+	 * Returns module for ResourceLoader, see getModuleName() for its name.
+	 * If our gadget has no scripts or styles suitable for RL, false will be returned.
 	 * @return Mixed: GadgetResourceLoaderModule or false
 	 */
 	public function getModule() {
-		// Don't omit this. Styles module may be marked as ready with
-		// mw.loader.state() without dependencies fully resolved.
-		$dependencies = $this->dependencies;
-
-		if ( $this->hasScriptsModule() ) {
-			$dependencies[] = $this->getScriptsModuleName();
-		}
-
-		if ( $this->hasStylesModule() ) {
-			$dependencies[] = $this->getStylesModuleName();
-		}
-
-		if ( !count( $dependencies ) ) {
-			return false;
-		}
-
-		return new GadgetResourceLoaderModule( array(), $dependencies );
-	}
-
-	/**
-	 * Returns scripts module for ResourceLoader, see getScriptsModuleName()
-	 * for its name. This module contains all scripts in the gadget if this
-	 * gadget support ResourceLoader, or false if it doesn't, or there's no
-	 * script at all.
-	 * @return Mixed: GadgetResourceLoaderModule or false
-	 */
-	public function getScriptsModule() {
 		$pages = array();
+
+		foreach ( $this->styles as $style ) {
+			$pages['MediaWiki:' . $style] = array( 'type' => 'style' );
+		}
 
 		if ( $this->supportsResourceLoader() ) {
 			foreach ( $this->scripts as $script ) {
@@ -514,27 +435,7 @@ class Gadget {
 		}
 
 		if ( !count( $pages ) ) {
-			return false;
-		}
-
-		return new GadgetResourceLoaderModule( $pages, $this->dependencies );
-	}
-
-	/**
-	 * Returns styles module for ResourceLoader, see getStylesModuleName()
-	 * for its name. This module contains all styles in the gadget, or
-	 * false if there's no style.
-	 * @return Mixed: GadgetResourceLoaderModule or false
-	 */
-	public function getStylesModule() {
-		$pages = array();
-
-		foreach ( $this->styles as $style ) {
-			$pages['MediaWiki:' . $style] = array( 'type' => 'style' );
-		}
-
-		if ( !count( $pages ) ) {
-			return false;
+			return null;
 		}
 
 		return new GadgetResourceLoaderModule( $pages, $this->dependencies );
