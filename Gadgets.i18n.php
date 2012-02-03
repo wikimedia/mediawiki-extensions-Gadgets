@@ -1099,6 +1099,7 @@ Du muesch iber di notwändige Rächt uf em Wiki verfiege, wu fir dr Import vorgs
 
 /** Gujarati (ગુજરાતી)
  * @author Dsvyas
+ * @author KartikMistry
  */
 $messages['gu'] = array(
 	'prefs-gadgets' => 'યંત્રો/સાધનો',
@@ -1113,6 +1114,8 @@ $messages['gu'] = array(
 
 આ નિરિક્ષણથી સહેલાઇથી સિસ્ટમ સંદેશા વાળા પાના ખોલી શકશો જ્યાં દરેક સાધનનું વર્ણન અને તેનો કોડ આપેલો છે.',
 	'gadgets-uses' => 'ઉપયોગો',
+	'gadgets-export' => 'નિકાસ',
+	'gadgets-export-download' => 'ડાઉનલોડ',
 );
 
 /** Hebrew (עברית)
