@@ -1862,6 +1862,10 @@ $1',
 	'gadgets-export' => 'निर्यात करा',
 	'gadgets-export-title' => 'उपकरण निर्यात',
 	'gadgets-not-found' => 'उपकरण "$1" सापडत नाही.',
+	'gadgets-export-text' => '$1 उपकरण-सुविधा निर्यातकरण्या करिता, "{{int:gadgets-export-download}}" कलीवर टिचकी मारा, उतरवलेली संचिका-फाईल जतन करा
+डेस्टिनेशन विकिच्या विशेष:आयात पानावर जाऊन संचिका-फाईल चढवावी.नंतर खालील MediaWiki:Gadgets-definition पान चढवावे :
+<pre>$2</pre>
+तुमच्याकडे डेस्टिनेशन विकिवर (सिस्टीम मेसेजेस सुद्धा संपादीत करण्यासहीत )  सुयोग्य परवानग्या उपलब्ध असणे अत्यावश्यक आहे आणि  चढवलेल्या संचिकाकरिता आयात सुविधा सक्षम असणे आवश्यक आहे.',
 	'gadgets-export-download' => 'उतरवा',
 );
 
@@ -2140,6 +2144,7 @@ $messages['pdc'] = array(
 	'prefs-gadgets' => 'Gadgets',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
+	'gadgets-export-download' => 'Runnerdraage',
 );
 
 /** Polish (Polski)
