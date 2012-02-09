@@ -1105,6 +1105,7 @@ Du muesch iber di notwändige Rächt uf em Wiki verfiege, wu fir dr Import vorgs
  * @author Sushant savla
  */
 $messages['gu'] = array(
+	'gadgets-desc' => 'સભ્યોને પોતાના [[Special:Gadgets|CSS અને JavaScript ગેજેટ્સ]] તેમની [[Special:Preferences|પ્રાથમિકતાઓ]] માં વાપરવા દો',
 	'prefs-gadgets' => 'યંત્રો/સાધનો',
 	'gadgets-prefstext' => "નીચે એવા વિશેષ સાધનોની યાદી નીચે આપી છે જે તમે તમારા ખાતામાં સક્રિય કરી શકો છો.
 આ સાધનો મહદ્ અંશે જાવા સ્ક્રિપ્ટ આધારિત છે માટે તે યોગ્ય રીતે કામ કરે તે માટે આપના બ્રાઉઝરમાં જાવા સ્ક્રિપ્ટ સક્રિય (ઍનેબલ) કરેલી હોવી જરૂરી છે.
