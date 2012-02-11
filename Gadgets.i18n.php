@@ -2224,7 +2224,7 @@ A-i é da manca d'avèj ij përmess aproprià an sla wiki ëd destinassion (comp
  * @author Khalid Mahmood
  */
 $messages['pnb'] = array(
-	'gadgets-desc' => 'ورتن والیاں نوں کسٹم [[Special:Gadgets|CSS and JavaScript gadgets]] چنن دیو اپنیاں [[خاص:تانگاں|تانگاں]] چ',
+	'gadgets-desc' => 'ورتن والیاں نوں کسٹم [[Special:Gadgets|CSS and JavaScript gadgets]] چنن دیو اپنیاں [[Special:Preferences|تانگاں]] چ',
 	'prefs-gadgets' => 'گیجٹ',
 	'gadgets-prefstext' => 'تھلے خاص گیجٹ دی لسٹ اے  جینون تسیں اپنے کھاتے ج چلاسکدے او۔
 ایہ گیجٹ جاواسکرپٹ تے چلدے نیں، ایس لئی جاواسکرپٹ تواڈے چ چلنا چائیدا اے اوناں نوں چلان لئی۔
@@ -2234,7 +2234,7 @@ $messages['pnb'] = array(
 مکھۓ تبدیل کرسکدے نیں [[MediaWiki:Gadgets-definition|definitions]] تے [[Special:Gadgets|descriptions]]  اپنے کول ہیگے گیجٹاں چ۔',
 	'gadgets' => 'گیجٹ',
 	'gadgets-title' => 'گیجٹ',
-	'gadgets-pagetext' => 'تھلے خاص گیجٹاں  دی اک لسٹ جینوں ورتن والے  اپنے [[خاص:تانگاں|تانگاں والا صفہ]] ، جیویں کے [[میڈیاوکی:گیجٹ ڈیفینیشن|ڈیفینیشن]] چ دسیا گیا اے۔
+	'gadgets-pagetext' => 'تھلے خاص گیجٹاں  دی اک لسٹ جینوں ورتن والے  اپنے [[Special:Preferences|تانگاں والا صفہ]] ، جیویں کے [[MediaWiki:Gadgets-definition|ڈیفینیشن]] چ دسیا گیا اے۔
 ایہ وکھالہ اسان راہ پربندھ سنیعہ دا راہ دسدا اے جیدے چ ہر گیجٹ دا کم کاج تے کوڈ دتا گیا اے۔',
 	'gadgets-uses' => 'ورتن آلے',
 	'gadgets-required-rights' => '{{PLURAL:$2|$1 حق|تھلے دتے گۓ حق: $1}} دی لوڑ اے۔',
