@@ -415,7 +415,7 @@ Ar sell hollek-mañ a bourchas ur moned aes d'ar pajennoù kemennadennoù reizhi
 $1',
 	'gadgets-required-skins' => 'Hegerz gant ar {{PLURAL:$2|gwiskadur $1|gwiskadurioù da-heul : $1}}.',
 	'gadgets-default' => 'Gweredekaet dre ziouer evit an holl.',
-	'gadgets-export' => 'Ezporzh',
+	'gadgets-export' => 'Ezporzhiañ',
 	'gadgets-export-title' => 'Ezporzhiañ bitrakoù',
 	'gadgets-not-found' => 'N\'eo ket bet kavet ar bitrak "$1".',
 	'gadgets-export-text' => 'Evit ezporzhiañ ar bitrak $1, klikañ war ar bouton "{{int:gadgets-export-download}}", enrollañ ar restr pellgarget,
@@ -1126,6 +1126,10 @@ $1',
 	'gadgets-export' => 'નિકાસ',
 	'gadgets-export-title' => 'સાધન નિકાસ',
 	'gadgets-not-found' => 'સાધન જૂથ "$1" ન મળ્યું.',
+	'gadgets-export-text' => '$1 યંત્રને નિકાસિત કરવા, "{{int:gadgets-export-download}}" બટન પર ક્લિક કરો, અને કાઉનલોડ કરેલી ફાઈલ સાચવો,
+Special:Import નિયોજીત વિકિ પર Special:Import પર જાવ અને અપલોડ કરો. અને પછી નીચેનાને MediaWiki:Gadgets-definition page પર ઉમેરો:
+<pre>$2</pre>
+નોયોજિત વિકિ પર તમને યોગ્ય પરવાનગીઓ હોવી જોઈએ (સિસ્ટમ સંદેશામાં ફેરફાર કરવા સહિતની) અને ફાઈલ અપલોડ માં આયત વિકલ્પ સક્રીય હોવો જોઇએ',
 	'gadgets-export-download' => 'ડાઉનલોડ',
 );
 
