@@ -76,6 +76,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 		$data = array();
 		$result = $this->getResult();
 
+		/**
+		 * @var $g Gadget
+		 */
 		foreach ( $gadgets as $g ) {
 			$row = array();
 			if ( isset( $this->props['id'] ) ) {
