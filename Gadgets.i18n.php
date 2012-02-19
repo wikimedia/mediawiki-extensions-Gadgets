@@ -29,6 +29,7 @@ Local administrators can edit the [[MediaWiki:Gadgets-definition|definitions]] a
 
 	# for Special:Gadgets
 	'gadgets'           => 'Gadgets',
+	'gadgets-definition' => '', # do not translate or duplicate this message to other languages
 	'gadgets-title'     => 'Gadgets',
 	'gadgets-pagetext'  => "Below is a list of special gadgets users can enable on their [[Special:Preferences|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].
 This overview provides easy access to the system message pages that define each gadget's description and code.",
