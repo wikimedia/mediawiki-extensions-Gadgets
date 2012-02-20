@@ -3037,7 +3037,21 @@ $messages['vo'] = array(
  * @author פוילישער
  */
 $messages['yi'] = array(
+	'gadgets-desc' => 'דערמעגלעט באניצער אויסקלייבן [[Special:Gadgets|CSS און JavaScript דזשימדזשיקעס]] אין זייערע [[Special:Preferences|פרעפֿערענצן]]',
+	'prefs-gadgets' => 'דזשימדזשיקעס',
+	'gadgets' => 'דזשימדזשיקעס',
+	'gadgets-title' => 'דזשימדזשיקעס',
+	'gadgets-pagetext' => 'אונטן איז א רשימה פון דזשימדזשיקעס וואס באניצער קענען אקטיוויזירן דורך זיין [[Special:Preferences|פרעפֿערענצן בלאט]], לויט ווי זיי זענען באשטימט אין די  [[MediaWiki:Gadgets-definition|דעפֿיניציעס]].
+דער איבערבליק גיט א גרינגן צוטריט צו די סיסטעם בלעטער וואס דעפֿינירן די שילדערונג און קאד פון יעדן דזשימדזשיק.',
+	'gadgets-uses' => 'באניצט',
+	'gadgets-required-rights' => 'פֿאדערט {{PLURAL:$2|דאס פֿאלגנדע רעכט|די פֿאלגנדע רעכטן}}:
+
+$1',
+	'gadgets-required-skins' => 'פֿאראן ביי {{PLURAL:$2|$1 דער באניצער אייבערפֿלאך|פֿאלגנדע באניצער אייבערפֿלאכן: $1}}.',
+	'gadgets-default' => 'אקטיווירט פֿאר אלעמען סטאנדארדמעסיק.',
 	'gadgets-export' => 'עקספארטירן',
+	'gadgets-export-title' => 'דזשימדזשיק עקספארט',
+	'gadgets-not-found' => 'דזשימדזשיק "$1" נישט געטראפֿן.',
 	'gadgets-export-download' => 'אַראָפלאָדן',
 );
 
