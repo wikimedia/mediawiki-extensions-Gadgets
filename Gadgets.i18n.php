@@ -3037,7 +3037,7 @@ $messages['vo'] = array(
  * @author פוילישער
  */
 $messages['yi'] = array(
-	'gadgets-desc' => 'דערמעגלעט באניצער אויסקלייבן [[Special:Gadgets|CSS און JavaScript דזשימדזשיקעס]] אין זייערע [[Special:Preferences|פרעפֿערענצן]]',
+	'gadgets-desc' => 'דערמעגלעכט באניצער אויסקלייבן [[Special:Gadgets|CSS און JavaScript דזשימדזשיקעס]] אין זייערע [[Special:Preferences|פרעפֿערענצן]]',
 	'prefs-gadgets' => 'דזשימדזשיקעס',
 	'gadgets' => 'דזשימדזשיקעס',
 	'gadgets-title' => 'דזשימדזשיקעס',
