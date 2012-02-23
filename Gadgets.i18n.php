@@ -2993,6 +2993,7 @@ $messages['vep'] = array(
 	'gadgets-title' => 'Gadžetad',
 	'gadgets-uses' => 'Kävutab',
 	'gadgets-export' => 'Eksportiruida',
+	'gadgets-export-title' => 'Gadžetan eksportiruind',
 );
 
 /** Vietnamese (Tiếng Việt)
