@@ -1355,28 +1355,28 @@ Anda harus memeroleh izin pada wiki tujuan (termasuk hak menyunting pesan sistem
  * @author Lam-ang
  */
 $messages['ilo'] = array(
-	'gadgets-desc' => 'Mabalin dagiti agar-aramat nga agpili iti [[Special:Gadgets|CSS ken JavaScript gadyets]] idiay [[Special:Preferences|kaykayat da]]',
-	'prefs-gadgets' => 'Gadyets',
-	'gadgets-prefstext' => 'Adda dita baba ti listaan ti naipangruna a gadyets nga usaren idiay pakabilangam.
-Dagitoy a gadyets ket naibasta iti JavaScript, masapul a pakabaelan ti  JavaScript idiay  "pagbasabasam" tapno agbalin da.
-Saan a mabalin nga usaren dagitoy a gadyets ditoy kaykayat a panid.
+	'gadgets-desc' => 'Mabalin dagiti agar-aramat nga agpili iti [[Special:Gadgets|CSS ken JavaScript gadgets]] idiay [[Special:Preferences|kaykayat da]]',
+	'prefs-gadgets' => 'Gadgets',
+	'gadgets-prefstext' => 'Adda dita baba ti listaan ti naipangruna a gadgets nga usaren idiay pakabilangam.
+Dagitoy a gadgets ket naibasta iti JavaScript, masapul a pakabaelan ti  JavaScript idiay  "pagbasabasam" tapno agbalin da.
+Saan a mabalin nga usaren dagitoy a gadgets ditoy kaykayat a panid.
 
-Dagitoy a gadyets ket saan a paset ti MediaWiki software, inaramid ken inayaywanan dagiti agar-aramat ti lokal a wiki.
-Mabaliwan dagita administrador nga urnosen ti  [[MediaWiki:Gadgets-definition|pinakailawag]] ken [[Special:Gadgets|deskripsion]] ti gadyets.',
-	'gadgets' => 'Gadyets',
-	'gadgets-title' => 'Gadyets',
-	'gadgets-pagetext' => 'Dita baba ket adda listaan dagiti naipangruna a gadyets a dagiti agar-aramat ket mapagbalin da idiay [[Special:Preferences|kaykayat da a panid]],  a naipalawag iti [[MediaWiki:Gadgets-definition|dagiti pinakailawag]].
-Daytoy a pinakabuklan ket mangted ti nalaka a pinagserrek kadagit mensahe ti sistema a panid a nagpailawag iti deskripsion ti gadyet ken kodigo.',
+Dagitoy a gadgets ket saan a paset ti MediaWiki software, inaramid ken inayaywanan dagiti agar-aramat ti lokal a wiki.
+Mabaliwan dagita administrador nga urnosen ti  [[MediaWiki:Gadgets-definition|pinakailawag]] ken [[Special:Gadgets|deskripsion]] ti gadgets.',
+	'gadgets' => 'Gadgets',
+	'gadgets-title' => 'Gadgets',
+	'gadgets-pagetext' => 'Dita baba ket adda listaan dagiti naipangruna a gadgets a dagiti agar-aramat ket mapagbalin da idiay [[Special:Preferences|kaykayat da a panid]],  a naipalawag iti [[MediaWiki:Gadgets-definition|dagiti pinakailawag]].
+Daytoy a pinakabuklan ket mangted ti nalaka a pinagserrek kadagit mensahe ti sistema a panid a nagpailawag iti deskripsion ti gadget ken kodigo.',
 	'gadgets-uses' => 'Usar',
 	'gadgets-required-rights' => 'Masapul dagiti sumaganad {{PLURAL:$2|a karbengan|dagiti karbengan}}:
 
 $1',
 	'gadgets-required-skins' => 'Adda mabalin idiay {{PLURAL:$2|$1 a kudil|dagiti sumaganad a kudil: $1}}.',
-	'gadgets-default' => 'Pabaelan a kinasigud iti amin nga agar-aramat.',
+	'gadgets-default' => 'Pakabaelan a kinasigud iti amin nga agar-aramat.',
 	'gadgets-export' => 'Agipan',
-	'gadgets-export-title' => 'Agipan ti gadyet',
-	'gadgets-not-found' => 'Saan a nabirukan ti "$1" a gadyet.',
-	'gadgets-export-text' => 'Ti pinag-ipan ti $1 a gadyet, aglatak idiay "{{int:gadgets-export-download}}" a buton, idulin ti inkarga nga agpababa a papeles,
+	'gadgets-export-title' => 'Agipan ti gadget',
+	'gadgets-not-found' => 'Saan a nabirukan ti "$1" a gadget.',
+	'gadgets-export-text' => 'Ti pinag-ipan ti $1 a gadget, agtakla idiay "{{int:gadgets-export-download}}" a buton, idulin ti inkarga nga agpababa a papeles,
 mapan idiay  Special:Import ti papanan a wiki ken ikarga nga agpangato. Ken inayon dagiti sumaganad idiay MediaWiki:Gadgets-definition page:
 <pre>$2</pre>
 Masapul nga addaan ka ti husto a pammalubos iti papanan a wiki (nairaman ti karbegnan a pinagbaliw dagiti mensahe ti sistema) ken naipabalin ti pinagala kadagiti naggapu a papeles a naikarga nga agpangato.',
