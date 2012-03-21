@@ -1393,6 +1393,7 @@ $messages['io'] = array(
 /** Icelandic (Íslenska)
  * @author Jóna Þórunn
  * @author Maxí
+ * @author Snævar
  */
 $messages['is'] = array(
 	'gadgets-desc' => 'Gerir notendum kleift að velja [[Special:Gadgets|CSS og JavaScript-forrit]] í [[Special:Preferences|stillingum sínum]]',
@@ -1402,7 +1403,21 @@ $messages['is'] = array(
 Forritin eru ekki hluti af MediaWiki-hugbúnaðinum heldur eru skrifuð og viðhaldin af notendum á þessu wiki-verkefni. Möppudýr geta breytt forritunum á [[MediaWiki:Gadgets-definition]] og [[Special:Gadgets]].',
 	'gadgets' => 'Smáforrit',
 	'gadgets-title' => 'Smáforrit',
+	'gadgets-pagetext' => 'Eftirfarandi er listi yfir smáforrit sem notendur geta virkjað í [[Special:Preferences|stillingunum sínum]] og eru tilgreind á [[MediaWiki:Gadgets-definition]].
+Þessi listi veitir auðveldan aðgang að lýsingum á smáforritunum og kóðanum þeirra.',
 	'gadgets-uses' => 'Notar',
+	'gadgets-required-rights' => 'Þarfnast eftifarandi {{PLURAL:$2|réttinda}}:
+
+$1',
+	'gadgets-required-skins' => 'Aðgengileg með eftirfarandi {{PLURAL:$2|þema|$2 þemum}}: $1',
+	'gadgets-default' => 'Virkt fyrir alla notendur.',
+	'gadgets-export' => 'Flytja út',
+	'gadgets-export-title' => 'Flytja út smától',
+	'gadgets-not-found' => 'Smátólið "$1" fannst ekki.',
+	'gadgets-export-text' => 'Til þess að flytja út smátólið $1, smelltu á "{{int:gadgets-export-download}}", vistaðu skránna,
+farðu á þann wiki sem á að flytja smátólið á, farðu á kerfisíðuna Special:Import og hladdu því inn. Síðan bættu eftirfarandi við meldinguna MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Þú verður af hafa tilskilin réttindi á þeim wiki sem á að færa smátólið á (þar með talið réttindi til að breyta meldingum) og möguleikinn að flytja inn skrár þarf að vera virkur.',
 	'gadgets-export-download' => 'Hlaða niður',
 );
 
