@@ -1639,11 +1639,12 @@ $messages['krc'] = array(
 );
 
 /** Colognian (Ripoarisch)
+ * @author Hoo
  * @author Purodha
  */
 $messages['ksh'] = array(
 	'gadgets-desc' => 'En iere [[Special:Preferences|Enstellunge]] künne Metmaacher [[Special:Gadgets|CSS- un JavaScrip-Gadgets]] en- un ußschallde.',
-	'prefs-gadgets' => '<i lang="en">Gadgets</i>',
+	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => 'Hee is en Liss met bestemmpte <i lang="en">Gadgets</i>,
 di för jede Metmaacher enjeschalldt wäde könne.
 Di boue miets op Javascrip op, drom moß mer\'t em Brauser
