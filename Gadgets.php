@@ -2,7 +2,6 @@
 /**
  * Gadgets extension - lets users select custom javascript gadgets
  *
- *
  * For more info see http://mediawiki.org/wiki/Extension:Gadgets
  *
  * @file
@@ -12,7 +11,7 @@
  * @license GNU General Public Licence 2.0 or later
  */
 
-if( !defined( 'MEDIAWIKI' ) ) {
+if ( !defined( 'MEDIAWIKI' ) ) {
 	echo( "This file is an extension to the MediaWiki software and cannot be used standalone.\n" );
 	die( 1 );
 }
@@ -120,10 +119,10 @@ $wgHooks['TitleMoveComplete'][]             = 'GadgetsHooks::cssOrJsPageMove';
 $wgHooks['getUserPermissionsErrors'][]      = 'GadgetsHooks::getUserPermissionsErrors';
 $wgHooks['UnitTestsList'][]                 = 'GadgetsHooks::unitTestsList';
 
-$dir = dirname(__FILE__) . '/';
+$dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
 $wgExtensionMessagesFiles['GadgetsNamespaces'] = $dir . 'Gadgets.namespaces.php';
-$wgExtensionAliasesFiles['Gadgets'] = $dir . 'Gadgets.alias.php';
+$wgExtensionMessagesFiles['GadgetsAlias'] = $dir . 'Gadgets.alias.php';
 
 $wgAutoloadClasses['ApiQueryGadgetCategories'] = $dir . 'api/ApiQueryGadgetCategories.php';
 $wgAutoloadClasses['ApiQueryGadgetPages'] = $dir . 'api/ApiQueryGadgetPages.php';

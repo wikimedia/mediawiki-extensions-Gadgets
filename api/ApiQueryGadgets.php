@@ -21,7 +21,7 @@
 
 class ApiQueryGadgets extends ApiQueryBase {
 	private $props,
-		$category,
+		$categories,
 		$neededIds,
 		$listAllowed,
 		$listEnabled;
@@ -50,6 +50,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 		$this->applyList( $this->getList() );
 	}
 
+	/**
+	 * @return array
+	 */
 	private function getList() {
 		$repo = LocalGadgetRepo::singleton();
 		$result = array();
@@ -72,6 +75,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 		return $result;
 	}
 
+	/**
+	 * @param $gadgets array
+	 */
 	private function applyList( $gadgets ) {
 		$data = array();
 		$result = $this->getResult();
@@ -111,7 +117,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 	}
 
 	/**
-	 * 
+	 * @param $gadget Gadget
+	 *
+	 * @return bool
 	 */
 	private function isNeeded( Gadget $gadget ) {
 		global $wgUser;
@@ -121,7 +129,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			&& ( !$this->listShared || $gadget->isShared() )
 			&& ( !$this->categories || isset( $this->categories[$g->getCategory()] ) );
 	}
-	
+
 	private function setIndexedTagNameForMetadata( &$metadata ) {
 		static $tagNames = array(
 			'rights' => 'right',
@@ -130,9 +138,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'dependencies' => 'dependency',
 			'messages' => 'message',
 		);
-		
+
 		$result = $this->getResult();
-		foreach ( $metadata as $type => &$data ) {
+		foreach ( $metadata as &$data ) {
 			foreach ( $data as $key => &$value ) {
 				if ( is_array( $value ) ) {
 					$tag = isset( $tagNames[$key] ) ? $tagNames[$key] : $key;
@@ -206,7 +214,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 		return array(
 			'Get a list of gadgets along with their descriptions:',
 			'    api.php?action=query&list=gadgets&gaprop=id|desc',
-			'Get a list of gadgets with all possble properties:',
+			'Get a list of gadgets with all possible properties:',
 			"    api.php?action=query&list=gadgets&gaprop=$allProps",
 			'Get a list of gadgets belonging to caregory "foo":',
 			'    api.php?action=query&list=gadgets&gacategories=foo',

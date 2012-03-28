@@ -59,9 +59,11 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 						$row['title'] = $repo->getCategoryTitle( $category, $this->language );
 					}
 				}
+
 				if ( isset( $this->props['members'] ) ) {
 					$row['members'] = count( $gadgets );
 				}
+
 				$data[] = $row;
 			}
 		}
@@ -109,6 +111,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 	public function getExamples() {
 		$params = $this->getAllowedParams();
 		$allProps = implode( '|', $params['prop'][ApiBase::PARAM_TYPE] );
+
 		return array(
 			'Get a list of existing gadget categories:',
 			'    api.php?action=query&list=gadgetcategories',
@@ -120,5 +123,4 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 	public function getVersion() {
 		return __CLASS__ . ': $Id$';
 	}
-
 }
