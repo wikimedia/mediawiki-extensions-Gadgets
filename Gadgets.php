@@ -127,8 +127,6 @@ $wgExtensionMessagesFiles['GadgetsAlias'] = $dir . 'Gadgets.alias.php';
 $wgAutoloadClasses['ApiQueryGadgetCategories'] = $dir . 'api/ApiQueryGadgetCategories.php';
 $wgAutoloadClasses['ApiQueryGadgetPages'] = $dir . 'api/ApiQueryGadgetPages.php';
 $wgAutoloadClasses['ApiQueryGadgets'] = $dir . 'api/ApiQueryGadgets.php';
-$wgAutoloadClasses['ApiGetGadgetPrefs'] = $dir . 'api/ApiGetGadgetPrefs.php';
-$wgAutoloadClasses['ApiSetGadgetPrefs'] = $dir . 'api/ApiSetGadgetPrefs.php';
 $wgAutoloadClasses['CachedGadgetRepo'] = $dir . 'backend/CachedGadgetRepo.php';
 $wgAutoloadClasses['ForeignAPIGadgetRepo'] = $dir . 'backend/ForeignAPIGadgetRepo.php';
 $wgAutoloadClasses['ForeignDBGadgetRepo'] = $dir . 'backend/ForeignDBGadgetRepo.php';
@@ -137,8 +135,6 @@ $wgAutoloadClasses['GadgetsHooks'] = $dir . 'Gadgets.hooks.php';
 $wgAutoloadClasses['GadgetPageList'] = $dir . 'backend/GadgetPageList.php';
 $wgAutoloadClasses['GadgetRepo'] = $dir . 'backend/GadgetRepo.php';
 $wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'backend/GadgetResourceLoaderModule.php';
-$wgAutoloadClasses['GadgetOptionsResourceLoaderModule'] = $dir . 'backend/GadgetOptionsResourceLoaderModule.php';
-$wgAutoloadClasses['GadgetPrefs'] = $dir . 'backend/GadgetPrefs.php';
 $wgAutoloadClasses['LocalGadgetRepo'] = $dir . 'backend/LocalGadgetRepo.php';
 $wgAutoloadClasses['MigrateGadgets'] = $dir . 'migrateGadgets.php';
 $wgAutoloadClasses['PopulateGadgetPageList'] = $dir . 'populateGadgetPageList.php';
@@ -150,9 +146,6 @@ $wgSpecialPageGroups['Gadgets'] = 'wiki';
 $wgAPIListModules['gadgetcategories'] = 'ApiQueryGadgetCategories';
 $wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
 $wgAPIListModules['gadgetpages'] = 'ApiQueryGadgetPages';
-
-$wgAPIModules['setgadgetprefs'] = 'ApiSetGadgetPrefs';
-$wgAPIModules['getgadgetprefs'] = 'ApiGetGadgetPrefs';
 
 $gadResourceTemplate = array(
 	'localBasePath' => $dir . 'modules',
@@ -250,26 +243,5 @@ $wgResourceModules += array(
 	),
 	'ext.gadgets.preferences.style' => $gadResourceTemplate + array(
 		'styles' => 'ext.gadgets.preferences.css',
-	),
-	'jquery.formBuilder' => $gadResourceTemplate + array(
-		'scripts' => array( 'jquery.formBuilder.js' ),
-		'styles' => array( 'jquery.formBuilder.css' ),
-		'dependencies' => array(
-			// TODO load some of this stuff on-demand
-			'jquery.ui.slider', 'jquery.ui.datepicker', 'jquery.ui.position',
-			'jquery.ui.draggable', 'jquery.ui.droppable', 'jquery.ui.sortable', 'jquery.ui.dialog',
-			'jquery.ui.tabs', 'jquery.farbtastic', 'jquery.colorUtil', 'jquery.validate'
-		),
-		'messages' => array(
-			'gadgets-formbuilder-required', 'gadgets-formbuilder-minlength', 'gadgets-formbuilder-maxlength',
-			'gadgets-formbuilder-min', 'gadgets-formbuilder-max', 'gadgets-formbuilder-integer', 'gadgets-formbuilder-date',
-			'gadgets-formbuilder-color', 'gadgets-formbuilder-list-required', 'gadgets-formbuilder-list-minlength',
-			'gadgets-formbuilder-list-maxlength', 'gadgets-formbuilder-scalar',
-			'gadgets-formbuilder-editor-ok', 'gadgets-formbuilder-editor-cancel', 'gadgets-formbuilder-editor-move-field',
-			'gadgets-formbuilder-editor-delete-field', 'gadgets-formbuilder-editor-edit-field', 'gadgets-formbuilder-editor-edit-field-title', 'gadgets-formbuilder-editor-insert-field',
-			'gadgets-formbuilder-editor-choose-field', 'gadgets-formbuilder-editor-choose-field-title', 'gadgets-formbuilder-editor-create-field-title',
-			'gadgets-formbuilder-editor-duplicate-name', 'gadgets-formbuilder-editor-delete-section', 'gadgets-formbuilder-editor-new-section',
-			'gadgets-formbuilder-editor-edit-section', 'gadgets-formbuilder-editor-choose-title', 'gadgets-formbuilder-editor-choose-title-title'
-		),
 	),
 );
