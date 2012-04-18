@@ -13,6 +13,9 @@
  *     "hidden": false,
  *     // Whether this gadget is shared
  *     "shared": true,
+ *     // Array of skins supported by this gadget, or true if all skins are supported (default)
+ *     // The gadget will not be enabled on any unsupported skins
+ *     "skins": true,
  *     // The key of the category this gadget belongs to
  *     // Interface message is "gadgetcategory-{category}"
  *     // If this is an empty string, the gadget is uncategorized
@@ -23,26 +26,29 @@
  *     "scripts": ["foobar.js"],
  *     "styles": ["foobar.css"],
  *     "dependencies": ["jquery.ui.tabs", "gadget.awesome"],
- *     "messages": ["foobar-welcome", "foo-bye", "recentchanges"]
+ *     "messages": ["foobar-welcome", "foo-bye", "recentchanges"],
+ *     // Whether this module should be loaded asynchronously after the page loads ('bottom', default)
+ *     // or synchronously before the page is rendered ('top')
+ *     "position": "bottom"
  *   }
  * }
  */
 class Gadget {
 	/** Gadget id (string) */
 	protected $id;
-	
+
 	/** Gadget repository this gadget came from (GadgetRepo object) */
 	protected $repo;
-	
+
 	/** Last modification timestamp of the gadget metadata (TS_MW timestamp) **/
 	protected $timestamp;
-	
+
 	/** array of gadget settings, see "settings" key in the JSON blob */
 	protected $settings;
-	
+
 	/** array of module settings, see "module" key in the JSON blob */
 	protected $moduleData;
-	
+
 	/**
 	 * Validation metadata.
 	 * 'foo.bar.baz' => array( 'type check callback', 'type name' [, 'member type check callback', 'member type name'] )
@@ -53,16 +59,22 @@ class Gadget {
 		'settings.default' => array( 'is_bool', 'boolean' ),
 		'settings.hidden' => array( 'is_bool', 'boolean' ),
 		'settings.shared' => array( 'is_bool', 'boolean' ),
+		'settings.skins' => array( array( __CLASS__, 'isArrayOrTrue' ), 'array or true', 'is_string', 'string' ),
 		'settings.category' => array( 'is_string', 'string' ),
 		'module' => array( 'is_array', 'array' ),
 		'module.scripts' => array( 'is_array', 'array', 'is_string', 'string' ),
 		'module.styles' => array( 'is_array', 'array', 'is_string', 'string' ),
 		'module.dependencies' => array( 'is_array', 'array', 'is_string', 'string' ),
 		'module.messages' => array( 'is_array', 'array', 'is_string', 'string' ),
+		'module.position' => array( 'is_string', 'string' ),
 	);
-	
+
 	/*** Public static methods ***/
-	
+
+	public static function isArrayOrTrue( $value ) {
+		return is_array( $value ) || $value === true;
+	}
+
 	// Would like to do const PROPERTIES_BASE = array( ... ); here, but:
 	// Fatal error: Arrays are not allowed in class constants
 	// public static final $propertiesBase also doesn't work, so:
@@ -77,6 +89,7 @@ class Gadget {
 				'default' => false,
 				'hidden' => false,
 				'shared' => false,
+				'skins' => true,
 				'category' => '',
 			),
 			'module' => array(
@@ -84,10 +97,11 @@ class Gadget {
 				'styles' => array(),
 				'dependencies' => array(),
 				'messages' => array(),
+				'position' => 'bottom',
 			),
 		);
 	}
-	
+
 	/**
 	 * Check the validity of the given properties array
 	 * @param $properties Return value of FormatJson::decode( $blob, true )
@@ -111,7 +125,7 @@ class Gadget {
 
 			// Do the actual validation of this property
 			$func = $validation[0];
-			if ( !$func( $val ) ) {
+			if ( !call_user_func( $func, $val ) ) {
 				return Status::newFatal(
 					'gadgets-validate-wrongtype',
 					$property,
@@ -120,11 +134,11 @@ class Gadget {
 				);
 			}
 
-			if ( isset( $validation[2] ) ) {
+			if ( isset( $validation[2] ) && is_array( $val ) ) {
 				// Descend into the array and check the type of each element
 				$func = $validation[2];
 				foreach ( $val as $i => $v ) {
-					if ( !$func( $v ) ){
+					if ( !call_user_func( $func, $v ) ) {
 						return Status::newFatal(
 							'gadgets-validate-wrongtype',
 							"{$property}[{$i}]",
@@ -138,9 +152,9 @@ class Gadget {
 
 		return Status::newGood();
 	}
-	
+
 	/*** Public methods ***/
-	
+
 	/**
 	 * Constructor
 	 * @param $id string Unique id of the gadget
@@ -153,12 +167,12 @@ class Gadget {
 		if ( is_string( $properties ) ) {
 			$properties = FormatJson::decode( $properties, true );
 		}
-		
+
 		// Do a quick sanity check rather than full validation
 		if ( !is_array( $properties ) || !isset( $properties['settings'] ) || !isset( $properties['module'] ) ) {
 			throw new MWException( 'Invalid property array passed to ' . __METHOD__ );
 		}
-		
+
 		$this->id = $id;
 		$this->repo = $repo;
 		$this->timestamp = $timestamp;
@@ -168,7 +182,7 @@ class Gadget {
 		$this->settings = $properties['settings'] + $base['settings'];
 		$this->moduleData = $properties['module'] + $base['module'];
 	}
-	
+
 	/**
 	 * Retrieve the metadata of this gadget, in the same format as $properties in __construct()
 	 * @return array
@@ -176,7 +190,7 @@ class Gadget {
 	public function getMetadata() {
 		return array( 'settings' => $this->settings, 'module' => $this->moduleData );
 	}
-	
+
 	/**
 	 * Retrieve the JSON representation of this gadget, in the same format as $properties in __construct().
 	 * @return string JSON
@@ -184,7 +198,7 @@ class Gadget {
 	public function getJSON() {
 		return FormatJson::encode( $this->getMetadata() );
 	}
-	
+
 	/**
 	 * Get the id of the gadget. This id must be unique within its repository and must never change.
 	 * It is only used internally; the title displayed to the user is controlled by
@@ -194,7 +208,7 @@ class Gadget {
 	public function getId() {
 		return $this->id;
 	}
-	
+
 	/**
 	 * Get the name of the ResourceLoader source for this gadget's module
 	 * @return string
@@ -210,7 +224,7 @@ class Gadget {
 	public function getTimestamp() {
 		return $this->timestamp;
 	}
-	
+
 	/**
 	 * Get the key of the title message for this gadget. This is the interface message that
 	 * controls the title of the gadget as shown to the user.
@@ -219,7 +233,7 @@ class Gadget {
 	public function getTitleMessageKey() {
 		return "gadget-{$this->id}-title";
 	}
-	
+
 	/**
 	 * Get the title message for this gadget
 	 * @param $langcode string Language code. If null, user language is used
@@ -237,9 +251,9 @@ class Gadget {
 			return $lang->ucfirst( $this->id );
 		}
 		return $msg->plain();
-		
+
 	}
-	
+
 	/**
 	 * Get the key of the description message for this gadget.
 	 * @return string Message key
@@ -247,7 +261,7 @@ class Gadget {
 	public function getDescriptionMessageKey() {
 		return "gadget-{$this->id}-desc";
 	}
-	
+
 	/**
 	 * Get the description message for this gadget
 	 * @param $langcode string Language code. If null, user language is used
@@ -264,7 +278,7 @@ class Gadget {
 		}
 		return $msg->parse();
 	}
-	
+
 	/**
 	 * Get the name of the category this gadget is in.
 	 * @return string Category key or empty string if not in any category
@@ -272,7 +286,28 @@ class Gadget {
 	public function getCategory() {
 		return $this->settings['category'];
 	}
-	
+
+	/**
+	 * Get the skins this Gadget supports
+	 * @return array|bool Array of supported skins, or true if all skins are supported
+	 */
+	public function getSkins() {
+		return $this->settings['skins'];
+	}
+
+	/**
+	 * Check whether this Gadget supports a given skin
+	 * @param $skin string Skin name
+	 * @return bool Whether this Gadget supports $skin
+	 */
+	public function supportsSkin( $skin ) {
+		if ( $this->settings['skins'] === true ) {
+			return true;
+		} else {
+			return in_array( $skin, $this->settings['skins'] );
+		}
+	}
+
 	/**
 	 * Check whether this gadget is enabled by default. Even these gadgets can be disabled in the user's
 	 * preferences, the preference just defaults to being on.
@@ -281,7 +316,7 @@ class Gadget {
 	public function isEnabledByDefault() {
 		return (bool)$this->settings['default'];
 	}
-	
+
 	/**
 	 * Get the rights a user needs to be allowed to enable this gadget.
 	 * @return array of rights (strings), empty if no restrictions
@@ -289,7 +324,7 @@ class Gadget {
 	public function getRequiredRights() {
 		return (array)$this->settings['rights'];
 	}
-	
+
 	/**
 	 * Check whether this module is public. Modules that are not public cannot be enabled by users in
 	 * their preferences and are only visible in the gadget manager.
@@ -298,7 +333,7 @@ class Gadget {
 	public function isHidden() {
 		return (bool)$this->settings['hidden'];
 	}
-	
+
 	/**
 	 * Check whether this module is shared. Modules that are not shared cannot be loaded through
 	 * a foreign repository.
@@ -307,7 +342,7 @@ class Gadget {
 	public function isShared() {
 		return (bool)$this->settings['shared'];
 	}
-	
+
 	/**
 	 * Get the ResourceLoader module for this gadget, if available.
 	 * @return ResourceLoaderModule object
@@ -321,17 +356,18 @@ class Gadget {
 		foreach ( $this->moduleData['styles'] as $style ) {
 			$pages["Gadget:$style"] = array( 'type' => 'style' );
 		}
-		
+
 		return new GadgetResourceLoaderModule(
 			$pages,
 			(array)$this->moduleData['dependencies'],
 			(array)$this->moduleData['messages'],
 			$this->repo->getSource(),
+			$this->moduleData['position'],
 			$this->timestamp,
 			$this->repo->getDB()
 		);
 	}
-	
+
 	/**
 	 * Get the name of the ResourceLoader module for this gadget.
 	 * @return string Module name
@@ -339,21 +375,21 @@ class Gadget {
 	public function getModuleName() {
 		return "gadget.{$this->id}";
 	}
-	
+
 	public function getScripts() {
 		return $this->moduleData['scripts'];
 	}
-	
+
 	public function getStyles() {
 		return $this->moduleData['styles'];
 	}
-	
+
 	public function getDependencies() {
 		return $this->moduleData['dependencies'];
 	}
-	
+
 	/*** Public methods ***/
-	
+
 	/**
 	 * Check whether this gadget is enabled for a given user.
 	 * @param $user User object
@@ -363,7 +399,7 @@ class Gadget {
 		$id = $this->getId();
 		return (bool)$user->getOption( "gadget-$id", $this->isEnabledByDefault() );
 	}
-	
+
 	/**
 	 * Checks whether a given user has the required rights to use this gadget
 	 *

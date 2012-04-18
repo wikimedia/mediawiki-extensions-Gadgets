@@ -366,7 +366,10 @@ class GadgetsHooks {
 		$user = $out->getUser();
 		$gadgets = GadgetRepo::getAllGadgets();
 		foreach ( $gadgets as $gadget ) {
-			if ( $gadget->isEnabledForUser( $user ) && $gadget->isAllowed( $user ) ) {
+			if ( $gadget->isEnabledForUser( $user ) &&
+				$gadget->isAllowed( $user ) &&
+				$gadget->supportsSkin( $out->getSkin()->getSkinName() )
+			) {
 				$out->addModules( $gadget->getModuleName() );
 			}
 		}

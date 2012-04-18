@@ -16,18 +16,21 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * @param $dependencies Array: Names of resources this module depends on
 	 * @param $messages Array: Keys of the i18n messages that this module needs
 	 * @param $source String: Name of the source of this module, as defined in ResourceLoader
+	 * @param $position String: Module position ('top' or 'bottom')
 	 * @param $definitiontimestamp String: Last modification timestamp of the gadget metadata
 	 * @param $db Database|null: Remote database object
 	 */
-	public function __construct( $pages, $dependencies, $messages, $source, $definitiontimestamp, $db ) {
+	public function __construct( $pages, $dependencies, $messages, $source, $position, $definitiontimestamp, $db ) {
+		// TODO refactor this to take a Gadget object instead
 		$this->pages = $pages;
 		$this->dependencies = $dependencies;
 		$this->messages = $messages;
 		$this->source = $source;
+		$this->position = $position == 'top' ? 'top' : 'bottom';
 		$this->definitiontimestamp = $definitiontimestamp;
 		$this->db = $db;
 	}
-	
+
 	protected function getDB() {
 		return $this->db;
 	}
@@ -49,7 +52,7 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	public function getDependencies() {
 		return $this->dependencies;
 	}
-	
+
 	/**
 	 * Overrides ResourceLoaderModule::getMessages()
 	 * @return Array: Keys of messages this module needs
@@ -57,7 +60,7 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	public function getMessages() {
 		return $this->messages;
 	}
-	
+
 	/**
 	 * Overrides ResourceLoaderModule::getSource()
 	 * @return String: Name of the source of this module as defined in ResourceLoader
@@ -65,7 +68,15 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	public function getSource() {
 		return $this->source;
 	}
-	
+
+	/**
+	 * Overrides ResourceLoaderModule::getPosition()
+	 * @return String: Module position, either 'top' or 'bottom'
+	 */
+	public function getPosition() {
+		return $this->position;
+	}
+
 	/**
 	 * Overrides ResourceLoaderWikiModule::getModifiedTime() to take $definitiontimestamp
 	 * into account.

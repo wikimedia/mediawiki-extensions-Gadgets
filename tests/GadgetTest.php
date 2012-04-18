@@ -57,13 +57,15 @@ class GadgetTest extends MediaWikiTestCase {
 				'default' => true,
 				'hidden' => false,
 				'shared' => true,
+				'skins' => array( 'vector', 'monobook' ),
 				'category' => 'foobar',
 			),
 			'module' => array(
 				'scripts' => array( 'Foo.js', 'Bar.js' ),
 				'styles' => array( 'Foo.css' ),
 				'messages' => array( 'january', 'february' ),
-				'dependencies' => array( 'jquery.ui.button' ) 
+				'dependencies' => array( 'jquery.ui.button' ),
+				'position' => 'top',
 			)
 		);
 	}
@@ -82,6 +84,7 @@ class GadgetTest extends MediaWikiTestCase {
 		$this->assertEquals( $data['settings']['rights'], $g->getRequiredRights(), 'getRequiredRights' );
 		$this->assertEquals( $data['settings']['hidden'], $g->isHidden(), 'isHidden' );
 		$this->assertEquals( $data['settings']['shared'], $g->isShared(), 'isShared' );
+		$this->assertEquals( $data['settings']['skins'], $g->getSkins(), 'getSkins' );
 		$this->assertEquals( $data['module']['scripts'], $g->getScripts(), 'getScripts' );
 		$this->assertEquals( $data['module']['styles'], $g->getStyles(), 'getStyles' );
 		$this->assertEquals( $data['module']['dependencies'], $g->getDependencies(), 'getDependencies' );
@@ -142,6 +145,7 @@ class GadgetTest extends MediaWikiTestCase {
 		$this->assertEquals( 'gadget.GadgetTest', $g->getModuleName(), 'getModuleName' );
 		$this->assertEquals( $g->getDependencies(), $m->getDependencies(), 'getDependencies' );
 		$this->assertEquals( $data['module']['messages'], $m->getMessages(), 'getMessages' );
+		$this->assertEquals( $data['module']['position'], $m->getPosition(), 'getPosition' );
 		$this->assertEquals( LocalGadgetRepo::singleton()->getSource(), $m->getSource(), 'getSource' );
 		$this->assertEquals( $pages, $m->getPages( ResourceLoaderContext::newDummyContext() ), 'getPages' );
 	}
@@ -183,5 +187,29 @@ class GadgetTest extends MediaWikiTestCase {
 		$this->assertFalse( $g->isAllowed( $user ), 'user has bar right only' );
 		$user->mRights = array( 'foo', 'bar' );
 		$this->assertTrue( $g->isAllowed( $user ), 'user has both foo and bar rights' );
+	}
+	
+	public function testSupportsSkin() {
+		$data = self::buildPropertiesArray( array( 'settings' => array( 'skins' => array( 'monobook', 'modern' ) ) ) );
+		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data, wfTimestampNow() );
+		
+		$this->assertTrue( $g->supportsSkin( 'monobook' ), 'supportsSkin() returns true for skins enumerated in skins list (1)' );
+		$this->assertTrue( $g->supportsSkin( 'modern' ), 'supportsSkin() returns true for skins enumerated in skins list (2)' );
+		$this->assertFalse( $g->supportsSkin( 'vector' ), 'supportsSkin() returns false for skin not listed in skins list' );
+		$this->assertFalse( $g->supportsSkin( 'viosrtubulviurbhujvwkctuljvilubhyjvca' ), 'supportsSkin() returns false for nonexistent skin' );
+		
+		$data2 = self::buildPropertiesArray( array( 'settings' => array( 'skins' => true ) ) );
+		$g2 = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data2, wfTimestampNow() );
+		$this->assertTrue( $g2->supportsSkin( 'monobook' ), 'supportsSkin() returns true for all skins if skins=true (1)' );
+		$this->assertTrue( $g2->supportsSkin( 'modern' ), 'supportsSkin() returns true for all skins if skins=true (2)' );
+		$this->assertTrue( $g2->supportsSkin( 'vector' ), 'supportsSkin() returns true for all skins if skins=true (3)' );
+		$this->assertTrue( $g2->supportsSkin( 'viosrtubulviurbhujvwkctuljvilubhyjvca' ), 'supportsSkin() returns true for nonexistent skin if skins=true' );
+		
+		$data3 = self::buildPropertiesArray( array( 'settings' => array( 'skins' => array() ) ) );
+		$g3 = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data3, wfTimestampNow() );
+		$this->assertFalse( $g3->supportsSkin( 'monobook' ), 'supportsSkin() returns false for all skins if skins list is empty (1)' );
+		$this->assertFalse( $g3->supportsSkin( 'modern' ), 'supportsSkin() returns false for all skins if skins list is empty (2)' );
+		$this->assertFalse( $g3->supportsSkin( 'vector' ), 'supportsSkin() returns false for all skins if skins list is empty (3)' );
+		$this->assertFalse( $g3->supportsSkin( 'viosrtubulviurbhujvwkctuljvilubhyjvca' ), 'supportsSkin() returns false for nonexistent skin if skins list is empty' );
 	}
 }
