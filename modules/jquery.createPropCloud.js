@@ -2,7 +2,7 @@
  * jQuery PropCloud plugin
  * @author Timo Tijhof, 2011
  */
-( function( $ ) {
+( function ( $ ) {
 
 	/**
 	 * Remove all occurences of a value from an array.
@@ -37,7 +37,7 @@
 				$( '<span>' )
 					.addClass( o.prefix + 'prop-delete' )
 					.attr( 'title', o.removeTooltip )
-					.click( function() {
+					.click( function () {
 						// Update UI
 						$(this).parent().remove();
 						// Update props
@@ -82,25 +82,26 @@
 	 *
 	 * @return {jQuery} prop cloud (input field inside)
 	 */
-	$.fn.createPropCloud = function( o ) {
+	$.fn.createPropCloud = function ( o ) {
 		// Some defaults
 		o = $.extend({
 			prefix: 'editor-',
 			props: [],
 			autocompleteSource: [],
-			onAdd: function( prop ) {},
-			onRemove: function( prop ) {},
+			onAdd: function ( prop ) {},
+			onRemove: function ( prop ) {},
 			removeTooltip: 'Remove this item'
 		}, o );
 
-		var	$el = this.eq(0),
+		var $el = this.eq(0),
 			$input = $el.addClass( o.prefix + 'propinput' ),
 			$cloud = $input.wrap( '<div>' ).parent().addClass( o.prefix + 'propcloud' ),
-			$container = $( '<div>' ).addClass( o.prefix + 'propcontainer' );
+			$container = $( '<div>' ).addClass( o.prefix + 'propcontainer' ),
+			i;
 
 		// Append while container is still off the DOM
 		// This is faster and prevents visible build-up
-		for ( var i = 0, props = o.props, len = props.length; i < len; i++ ) {
+		for ( i = 0, props = o.props, len = props.length; i < len; i++ ) {
 			$container.append( newPropHtml( '' + props[i], o ) );
 		}
 
@@ -110,7 +111,7 @@
 
 			// A value is choosen
 			// (e.g. by pressing return/tab, clicking on suggestion, etc.)
-			select: function( e, data ){
+			select: function ( e, data ){
 				var val = data.item.value;
 
 				// Prevent duplicate values

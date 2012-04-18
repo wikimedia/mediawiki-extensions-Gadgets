@@ -5,9 +5,10 @@
  * @copyright © 2011 Roan Kattouw
  * @license GNU General Public Licence 2.0 or later
  */
-( function( $ ) {
+( function ( $, mw, undefined ) {
 	function hexEncode( s ) {
-		var retval = '', i, c;
+		var i, c,
+			retval = '';
 		for ( i = 0; i < s.length; i++ ) {
 			c = s.charCodeAt( i ).toString( 16 );
 			if ( c.length % 2 == 1 ) {
@@ -43,7 +44,7 @@
 	 * @param msgKey {String} Message key of the error message
 	 */
 	function showPreferenceFormError( msgKey ) {
-		var	$table = $( '#mw-htmlform-gadgetsshared' ),
+		var $table = $( '#mw-htmlform-gadgetsshared' ),
 			$errorMsg = $( '<p>' ).addClass( 'error' ).text( mw.msg( msgKey ) );
 		
 		$table
@@ -82,7 +83,8 @@
 	 * @return { repo: { categoryID: categoryTitle } }
 	 */
 	function reformatCategoryMap( data ) {
-		var retval = {}, repo, i;
+		var repo, i,
+			retval = {};
 		for ( repo in data ) {
 			retval[repo] = {};
 			for ( i = 0; i < data[repo].length; i++ ) {
@@ -92,20 +94,20 @@
 		return retval;
 	} 
 
-	$( function() {
+	$( function () {
 		var gadgetsByCategory = null, categoryNames = null, failed = false;
 		
 		// TODO spinner
 		
 		// Do AJAX requests and call fixPreferenceForm() when done
 		mw.gadgets.api.getForeignGadgetsData(
-			function( data ) {
+			function ( data ) {
 				gadgetsByCategory = reformatGadgetData( data );
 				if ( categoryNames !== null ) {
 					fixPreferenceForm( gadgetsByCategory, categoryNames );
 				}
 			},
-			function( error ) {
+			function ( error ) {
 				if ( !failed ) {
 					failed = true;
 					showPreferenceFormError( 'gadgets-sharedprefs-ajaxerror' );
@@ -113,13 +115,13 @@
 			}
 		);
 		mw.gadgets.api.getForeignGadgetCategories(
-			function( data ) {
+			function ( data ) {
 				categoryNames = reformatCategoryMap( data );
 				if ( gadgetsByCategory !== null ) {
 					fixPreferenceForm( gadgetsByCategory, categoryNames );
 				}
 			},
-			function( error ) {
+			function ( error ) {
 				if ( !failed ) {
 					failed = true;
 					showPreferenceFormError( 'gadgets-sharedprefs-ajaxerror' );
@@ -128,4 +130,4 @@
 		);
 	} );
 
-} )( jQuery );
+} )( jQuery, mediaWiki );

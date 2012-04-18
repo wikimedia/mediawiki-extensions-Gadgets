@@ -4,7 +4,7 @@
  * @author Timo Tijhof
  */
 
-jQuery( document ).ready( function( $ ) {
+jQuery( document ).ready( function ( $ ) {
 
 	var ga = mw.gadgets;
 
@@ -19,7 +19,7 @@ jQuery( document ).ready( function( $ ) {
 			mw.msg( 'gadgets-gadget-create-tooltip' ),
 			'e' // Same as core for ca-edit/ca-create
 		);
-		$( createTab ).click( function( e ) {
+		$( createTab ).click( function ( e ) {
 			e.preventDefault();
 			ga.ui.startGadgetManager( 'create' );
 		} );

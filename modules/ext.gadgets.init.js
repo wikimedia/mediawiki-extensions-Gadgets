@@ -1,10 +1,10 @@
 /**
  * Initialize the mw.gadgets object
  */
-(function() {
+( function ( mw ) {
 
 	mw.gadgets = {
 		conf: mw.config.get( 'gadgetsConf' )
 	};
 
-})();
+}( mediaWiki ) );

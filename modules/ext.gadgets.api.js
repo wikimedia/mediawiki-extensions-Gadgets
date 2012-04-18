@@ -6,7 +6,7 @@
  * @license GNU General Public Licence 2.0 or later
  */
 
-( function( $ ) {
+( function ( $ ) {
 	var
 		/**
 		 * @var {Object} Keyed by repo, object of gadget objects by id
@@ -101,14 +101,14 @@
 
 		// Use $.each instead of a for loop so we can access repoName in the success callback
 		// without annoying issues
-		$.each( mw.gadgets.conf.repos, function( repoName, repoData ) {
+		$.each( mw.gadgets.conf.repos, function ( repoName, repoData ) {
 			getter(
-				function( data ) {
+				function ( data ) {
 					combined[repoName] = data;
 					if ( ++successes === numRepos ) {
 						success( combined );
 					}
-				}, function( errorCode ) {
+				}, function ( errorCode ) {
 					if ( !failed ) {
 						failed = true;
 						error( errorCode );
@@ -128,9 +128,9 @@
 			 * keyed by repository name, as first argument.
 			 * @param error {Function} To be called with a string (error code) as first argument.
 			 */
-			getForeignGadgetsData: function( success, error ) {
+			getForeignGadgetsData: function ( success, error ) {
 				mergeRepositoryData(
-					function( s, e, repoName ) { mw.gadgets.api.getGadgetData( null, s, e, repoName ); },
+					function ( s, e, repoName ) { mw.gadgets.api.getGadgetData( null, s, e, repoName ); },
 					success, error
 				);
 			},
@@ -143,7 +143,7 @@
 			 * keyed by repository name, as first argument.
 			 * @param error {Function} To be called with a string (error code) as the first argument.
 			 */
-			getForeignGadgetCategories: function( success, error ) {
+			getForeignGadgetCategories: function ( success, error ) {
 				mergeRepositoryData( mw.gadgets.api.getGadgetCategories, success, error );
 			},
 
@@ -158,7 +158,7 @@
 			 * @param repoName {String} Name of the repository, key in mw.gadgets.conf.repos.
 			 * Defaults to 'local'
 			 */
-			getGadgetData: function( id, success, error, repoName ) {
+			getGadgetData: function ( id, success, error, repoName ) {
 				repoName = repoName || 'local';
 				// Check cache
 				if ( repoName in gadgetCache && gadgetCache[repoName] !== null ) {
@@ -186,7 +186,7 @@
 					data: queryData,
 					type: 'GET',
 					dataType: 'json',
-					success: function( data ) {
+					success: function ( data ) {
 						if ( data && data.query && data.query.gadgets ) {
 							data = data.query.gadgets;
 							if ( id !== null ) {
@@ -207,7 +207,7 @@
 							}
 						}
 					},
-					error: function() {
+					error: function () {
 						// Invalidate cache
 						cacheGadgetData( repoName, id, null );
 						error( 'unknown' );
@@ -224,7 +224,7 @@
 			 * Defaults to 'local'
 			 * @return {jqXHR|Null}: Null if served from cache, otherwise the jqXHR.
 			 */
-			getGadgetCategories: function( success, error, repoName ) {
+			getGadgetCategories: function ( success, error, repoName ) {
 				repoName = repoName || 'local';
 				// Check cache
 				if ( repoName in gadgetCategoryCache && gadgetCategoryCache[repoName] !== null ) {
@@ -243,7 +243,7 @@
 					},
 					type: 'GET',
 					dataType: 'json',
-					success: function( data ) {
+					success: function ( data ) {
 						if ( data && data.query && data.query.gadgetcategories )
 						{
 							data = data.query.gadgetcategories;
@@ -260,7 +260,7 @@
 							}
 						}
 					},
-					error: function() {
+					error: function () {
 						// Invalidate cache
 						gadgetCategoryCache[repoName] = null;
 						error( 'unknown' );
@@ -283,7 +283,7 @@
 			 * - extraquery {Object} Query parameters to add or overwrite the default.
 			 * @return {jqXHR}
 			 */
-			doModifyGadget: function( gadget, o ) {
+			doModifyGadget: function ( gadget, o ) {
 				var t = new mw.Title(
 						gadget.id + '.js',
 						mw.config.get( 'wgNamespaceIds' ).gadget_definition
@@ -312,7 +312,7 @@
 					type: 'POST',
 					data: query,
 					dataType: 'json',
-					success: function( data ) {
+					success: function ( data ) {
 						// Invalidate cache
 						cacheGadgetData( 'local', gadget.id, null );
 						if ( data && data.edit && data.edit.result ) {
@@ -327,7 +327,7 @@
 							o.error( 'unknown' );
 						}
 					},
-					error: function(){
+					error: function (){
 						// Invalidate cache
 						cacheGadgetData( 'local', gadget.id, null );
 						o.error( 'unknown' );
@@ -346,7 +346,7 @@
 			 * @param o {Object} Additional options
 			 * @return {jqXHR}
 			 */
-			doCreateGadget: function( gadget, o ) {
+			doCreateGadget: function ( gadget, o ) {
 				return mw.gadgets.api.doModifyGadget( gadget, $.extend( o, {
 					extraquery: {
 						createonly: 1,
@@ -362,7 +362,7 @@
 			 * @param callback {Function} Called with one argument (ok', 'error' or 'conflict').
 			 * @return {jqXHR}
 			 */
-			doDeleteGadget: function( id, success, error ) {
+			doDeleteGadget: function ( id, success, error ) {
 				// @todo ApiDelete
 				// Invalidate cache
 				cacheGadgetData( 'local', id, null );
@@ -374,11 +374,11 @@
 			 * Cache clearing
 			 * @return {Boolean}
 			 */
-			clearGadgetCache: function() {
+			clearGadgetCache: function () {
 				gadgetCache = {};
 				return true;
 			},
-			clearCatgoryCache: function() {
+			clearCatgoryCache: function () {
 				gadgetCategoryCache = {};
 				return true;
 			}
