@@ -1461,6 +1461,7 @@ $1',
  * @author Fryed-peach
  * @author JtFuruhata
  * @author Mzm5zbC3
+ * @author Shirayuki
  * @author Whym
  * @author 青子守歌
  */
@@ -1478,7 +1479,7 @@ $messages['ja'] = array(
 
 $1',
 	'gadgets-required-skins' => '{{PLURAL:$2|$1外装|外装：$1}}で利用てきます。',
-	'gadgets-default' => 'デフォルトで全員に有効です。',
+	'gadgets-default' => '既定では全員に有効です。',
 	'gadgets-export' => 'エクスポート',
 	'gadgets-export-title' => 'ガジェットのエクスポート',
 	'gadgets-not-found' => 'ガジェット「$1」が見つかりません。',
