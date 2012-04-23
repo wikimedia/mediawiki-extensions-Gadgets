@@ -1475,7 +1475,7 @@ $messages['ja'] = array(
 	'gadgets-title' => 'ガジェット',
 	'gadgets-pagetext' => '以下は、[[MediaWiki:Gadgets-definition]] 上で定義された、利用者が[[Special:Preferences|{{int:preferences}}]]にて利用可能にすることができるガジェットの一覧です。この一覧はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
 	'gadgets-uses' => '利用するファイル',
-	'gadgets-required-rights' => '以下の{{PLURAL:$2|権限}}が必要です。
+	'gadgets-required-rights' => '以下の{{PLURAL:$2|権限}}が必要です：
 
 $1',
 	'gadgets-required-skins' => '{{PLURAL:$2|$1外装|外装：$1}}で利用てきます。',
@@ -2085,7 +2085,7 @@ Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschri
 	'gadgets-required-rights' => '{{PLURAL:$2|Het volgende recht is|De volgende rechten zijn}} vereist:
 
 $1.',
-	'gadgets-required-skins' => 'Beschikbaar op de {{PLURAL:$2|vormgeving $1|volgende vormgevingen: $1}}.',
+	'gadgets-required-skins' => 'Beschikbaar in de {{PLURAL:$2|vormgeving $1|volgende vormgevingen: $1}}.',
 	'gadgets-default' => 'Standaard ingeschakeld voor iedereen.',
 	'gadgets-export' => 'Exporteren',
 	'gadgets-export-title' => 'Uitbreiding exporteren',
