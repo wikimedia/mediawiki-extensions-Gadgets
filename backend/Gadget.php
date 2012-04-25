@@ -162,8 +162,11 @@ class Gadget {
 		$this->id = $id;
 		$this->repo = $repo;
 		$this->timestamp = $timestamp;
-		$this->settings = $properties['settings'];
-		$this->moduleData = $properties['module'];
+
+		// Set any missing fields to their default values
+		$base = self::getPropertiesBase();
+		$this->settings = $properties['settings'] + $base['settings'];
+		$this->moduleData = $properties['module'] + $base['module'];
 	}
 	
 	/**
