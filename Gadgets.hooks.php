@@ -70,7 +70,7 @@ class GadgetsHooks {
 	 * @param $flags: Int: Bitmap of flags passed to WikiPage::doEdit()
 	 * @param $revision: Revision object for the new revision
 	 */
-	public static function gadgetDefinitionSave( $article, $user, $text, $summary, $isMinor,
+	public static function gadgetDefinitionSaveComplete( $article, $user, $text, $summary, $isMinor,
 			$isWatch, $section, $flags, $revision )
 	{
 		$id = self::getIDFromTitle( $article->getTitle() );
@@ -176,7 +176,7 @@ class GadgetsHooks {
 	 * @param $flags: Int: Bitmap of flags passed to WikiPage::doEdit()
 	 * @param $revision: Revision object for the new revision
 	 */
-	public static function cssOrJsPageSave( $article, $user, $text, $summary, $isMinor,
+	public static function cssOrJsPageSaveComplete( $article, $user, $text, $summary, $isMinor,
 			$isWatch, $section, $flags, $revision )
 	{
 		$title = $article->getTitle();
