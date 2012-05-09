@@ -159,6 +159,31 @@ class Gadget {
 		return Status::newGood();
 	}
 
+	/**
+	 * Check a gadget ID for validity
+	 *
+	 * A valid gadget ID must have a valid gadget definition title (Gadget definition:$id.js)
+	 * and a valid module name (gadget.$id) associated with it, and be at most 255 bytes
+	 *
+	 * @param $id string Gadget ID to check
+	 * @return bool Whether $id is a valid gadget ID
+	 */
+	public static function isValidGadgetID( $id ) {
+		// Try to construct a title for the gadget definition page
+		$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, "$id.js" );
+
+		return
+			// Must be a valid title
+			$title &&
+			// Must be a valid module name
+			ResourceLoader::isValidModuleName( "gadget.$id" ) &&
+			// Must fit in gd_id (255 bytes)
+			// This SHOULD already be covered by the title and the module name checks,
+			// but we're double-checking it here for paranoia since gadgets has its own
+			// database table.
+			strlen( $id ) <= 255;
+	}
+
 	/*** Public methods ***/
 
 	/**
@@ -167,9 +192,13 @@ class Gadget {
 	 * @param $repo GadgetRepo that this gadget came from
 	 * @param $properties mixed Array or JSON blob (string) with settings and module info
 	 * @param $timestamp string Timestamp (TS_MW) this gadget's metadata was last touched
-	 * @throws MWException if $properties is invalid
+	 * @throws MWException if $id or $properties is invalid
 	 */
 	public function __construct( $id, $repo, $properties, $timestamp ) {
+		if ( !self::isValidGadgetID( $id ) ) {
+			throw new MWException( 'Invalid gadget ID: ' . $id );
+		}
+
 		if ( is_string( $properties ) ) {
 			// TODO: Allowing both means one can potentially nest JSON
 			$properties = FormatJson::decode( $properties, true );

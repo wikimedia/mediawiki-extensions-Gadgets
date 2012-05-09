@@ -6,6 +6,27 @@
  */
 class GadgetTest extends MediaWikiTestCase {
 	/**
+	 * @dataProvider provideIsValidGadgetID
+	 */
+	public function testIsValidGadgetID( $input, $expectedToBeValid, $desc ) {
+		$this->assertEquals( $expectedToBeValid, Gadget::isValidGadgetID( $input ), $desc );
+	}
+
+	public function provideIsValidGadgetID() {
+		return array(
+			array( 'Foo', true, 'normal gadget ID' ),
+			array( 'foo', true, 'gadget ID starting with lowercase letter' ),
+			array( 'foo|bar', false, 'gadget ID containing a pipe' ),
+			array( 'foo,bar', false, 'gadget ID containing a comma' ),
+			array( 'foo!bar', false, 'gadget ID containing an exclamation mark' ),
+			array( 'foo[bar', false, 'gadget ID containing a bracket' ),
+			array( 'foo/../', false, 'gadget ID containing ../' ),
+			array( str_repeat( 'f', 249 ), false, '249-byte gadget ID' ),
+			array( str_repeat( 'f', 248 ), true, '248-byte gadget ID' ),
+		);
+	}
+
+	/**
 	 * @dataProvider provideValidatePropertiesArray
 	 */
 	public function testValidatePropertiesArray( $input, $expectSuccess, $expectedErrors, $desc ) {
