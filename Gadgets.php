@@ -100,6 +100,7 @@ $wgHooks['AfterImportPage'][]               = 'GadgetsHooks::gadgetDefinitionImp
 $wgHooks['AfterImportPage'][]               = 'GadgetsHooks::cssOrJsPageImport';
 $wgHooks['ArticleDeleteComplete'][]         = 'GadgetsHooks::gadgetDefinitionDelete';
 $wgHooks['ArticleDeleteComplete'][]         = 'GadgetsHooks::cssJsPageDelete';
+$wgHooks['ArticleSave'][]                   = 'GadgetsHooks::gadgetDefinitionSave';
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetsHooks::gadgetDefinitionSaveComplete';
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetsHooks::cssOrJsPageSaveComplete';
 $wgHooks['ArticleUndelete'][]               = 'GadgetsHooks::gadgetDefinitionUndelete';
@@ -118,6 +119,7 @@ $wgHooks['TitleIsMovable'][]                = 'GadgetsHooks::titleIsMovable';
 $wgHooks['TitleMoveComplete'][]             = 'GadgetsHooks::cssOrJsPageMove';
 $wgHooks['getUserPermissionsErrors'][]      = 'GadgetsHooks::getUserPermissionsErrors';
 $wgHooks['UnitTestsList'][]                 = 'GadgetsHooks::unitTestsList';
+$wgExtensionFunctions[]                     = 'GadgetsHooks::addAPIMessageMapEntries';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';

@@ -58,6 +58,43 @@ class GadgetsHooks {
 	}
 
 	/**
+	 * ArticleSave hook handler.
+	 *
+	 * @param $article Article
+	 * @param $user User
+	 * @param &$text String: New page text
+	 * @param $summary String: Edit summary
+	 * @param $isMinor Bool: Whether this was a minor edit
+	 * @param $watchthis unused
+	 * @param $sectionanchor unused
+	 * @param $flags Int: Bitmap of flags passed to WikiPage::doEdit()
+	 * @param $status Status object
+	 */
+	public static function gadgetDefinitionSave( $article, $user, &$text, $summary, $isMinor,
+		$watchthis, $sectionanchor, $flags, $status )
+	{
+		$id = self::getIDFromTitle( $article->getTitle() );
+		if ( !$id ) {
+			return true;
+		}
+
+		// Validate $text as a gadget JSON blob
+		$properties = FormatJson::decode( $text, true );
+		$validation = Gadget::validatePropertiesArray( $properties );
+		if ( !$validation->isOK() ) {
+			$status->merge( $validation );
+			return false;
+		}
+
+		// Normalize $text by round-tripping it through the Gadget class
+		$gadget = new Gadget( $id, LocalGadgetRepo::singleton(), $properties,
+			wfTimestampNow() );
+		$text = $gadget->getPrettyJSON();
+
+		return true;
+	}
+
+	/**
 	 * ArticleSaveComplete hook handler.
 	 *
 	 * @param $article Article
@@ -203,7 +240,7 @@ class GadgetsHooks {
 		GadgetPageList::updatePageStatus( $newTitle );
 		return true;
 	}
-	
+
 	public static function cssOrJsPageImport( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
 		GadgetPageList::updatePageStatus( $title );
 		return true;
@@ -229,7 +266,7 @@ class GadgetsHooks {
 				}
 			}
 		}
-		
+
 		$defaultOptions = $add + $defaultOptions;
 		return true;
 	}
@@ -265,7 +302,7 @@ class GadgetsHooks {
 				'raw' => 1,
 				'rawrow' => 1,
 			);
-		
+
 		// This loop adds the preferences for all gadgets, both local and remote
 		// We want to use gadget IDs in HTMLForm IDs and repo and category IDs
 		// in section IDs, but because certain characters are restricted
@@ -307,24 +344,24 @@ class GadgetsHooks {
 							'section' => "gadgetsshared/gadgetrepo-$encRepoSource$sectionCat",
 							'cssclass' => 'mw-gadgets-shared-pref',
 							'name' => 'gadgetpref-' . bin2hex( $id ),
-							// 'default' isn't in here by design: we don't want 
+							// 'default' isn't in here by design: we don't want
 							// enabledByDefault to be honored across wikis
 						);
 					}
 				}
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	public static function parserTestTables( &$tables ) {
 		// These tables are listed here because we have on-save hooks
 		// that write to these tables
 		$tables[] = 'gadgets';
 		$tables[] = 'gadgetpagelist';
 	}
-	
+
 	public static function preferencesGetLegend( $form, $key, &$legend ) {
 		$matches = null;
 		if ( preg_match( '/^(?:gadgetrepo|gadgetcategory(local)?-[A-Za-z0-9]*)-([A-Za-z0-9]*)$/', $key, $matches ) ) {
@@ -475,5 +512,22 @@ class GadgetsHooks {
 			}
 		}
 		return true;
+	}
+
+	public static function addAPIMessageMapEntries() {
+		ApiBase::$messageMap += array(
+			'gadgets-validate-invalidjson' => array(
+				'code' => 'gadgets-validate-invalidjson',
+				'info' => 'The gadget definition page contents are not a valid JSON object.'
+			),
+			'gadgets-validate-notset' => array(
+				'code' => 'gadgets-validate-notset',
+				'info' => 'The property $1 is not set.'
+			),
+			'gadgets-validate-wrongtype' => array(
+				'code' => 'gadgets-validate-wrongtype',
+				'info' => 'The property $1 must be of type $2 instead of $3.'
+			),
+		);
 	}
 }

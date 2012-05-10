@@ -1,7 +1,7 @@
 <?php
 /**
  * Class for gadgets based on properties obtained from a JSON blob.
- * 
+ *
  * The format of the JSON blob is as follows:
  * {
  *   "settings": {
@@ -200,6 +200,15 @@ class Gadget {
 	}
 
 	/**
+	 * Retrieve the JSON representation of this gadget with pretty indentation
+	 * @see getJSON
+	 * @return string JSON with indentation
+	 */
+	public function getPrettyJSON() {
+		return FormatJson::encode( $this->getMetadata(), true );
+	}
+
+	/**
 	 * Get the id of the gadget. This id must be unique within its repository and must never change.
 	 * It is only used internally; the title displayed to the user is controlled by
 	 * getTitleMessage() and getTitleMessageKey().
@@ -213,10 +222,10 @@ class Gadget {
 	 * Get the name of the ResourceLoader source for this gadget's module
 	 * @return string
 	 */
-	public function getRepo() { 
+	public function getRepo() {
 		return $this->repo;
 	}
-	 
+
 	/**
 	 * Get the last modification timestamp of the gadget metadata
 	 * @return string TS_MW timestamp
