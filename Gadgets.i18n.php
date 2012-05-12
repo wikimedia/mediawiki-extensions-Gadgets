@@ -224,6 +224,14 @@ $messages['arz'] = array(
 	'gadgets-uses' => 'إستخدامات',
 );
 
+/** Assamese (অসমীয়া)
+ * @author Bishnu Saikia
+ */
+$messages['as'] = array(
+	'gadgets-uses' => 'ব্যৱহাৰ',
+	'gadgets-export-download' => 'ডাউনল’ড',
+);
+
 /** Asturian (Asturianu)
  * @author Esbardu
  * @author Xuacu
@@ -1008,17 +1016,17 @@ Il est nécessaire de disposer des droits correspondants sur le wiki de destinat
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'gadgets-desc' => 'Pèrmèt ux utilisators de chouèsir des [[Special:Gadgets|outils CSS et JavaScript]] pèrsonalisâs dens lors [[Special:Preferences|prèferences]].',
+	'gadgets-desc' => 'Pèrmèt ux usanciérs de chouèsir des [[Special:Gadgets|outils CSS et JavaScript]] pèrsonalisâs dens lors [[Special:Preferences|prèferences]].',
 	'prefs-gadgets' => 'Outils',
 	'gadgets-prefstext' => 'Vê-que una lista d’outils que vos pouede activar por voutron compto.
 Font apèl a JavaScript, que dêt vêr étre activâ sur voutron navigator por que fonccionont.
 Notâd que celos outils ont gins de rèsultat sur ceta pâge de prèferences.
 
-Notâd asse-ben que celos outils spèciâls sont pas du tot avouéc la programeria MediaWiki, et pués que sont en g·ènèral dèvelopâs et mantegnus per des utilisators sur voutron vouiqui local.
+Notâd asse-ben que celos outils spèciâls sont pas du tot avouéc la programeria MediaWiki, et pués que sont en g·ènèral dèvelopâs et mantegnus per des usanciérs sur voutron vouiqui local.
 Los administrators locals pôvont changiér los outils disponiblos en utilisent les [[MediaWiki:Gadgets-definition|dèfinicions]] et les [[Special:Gadgets|dèscripcions]].',
 	'gadgets' => 'Outils',
 	'gadgets-title' => 'Outils',
-	'gadgets-pagetext' => 'Vê-que una lista d’outils que los utilisators pôvont activar dens lor [[Special:Preferences|pâge de prèferences]], coment dèfeni dens les [[MediaWiki:Gadgets-definition|dèfinicions]].
+	'gadgets-pagetext' => 'Vê-que una lista d’outils que los usanciérs pôvont activar dens lor [[Special:Preferences|pâge de prèferences]], coment dèfeni dens les [[MediaWiki:Gadgets-definition|dèfinicions]].
 Ceti apèrçu balye un accès vito fêt a les pâges de mèssâjos sistèmo que dèfenéssont la dèscripcion et lo code de châque outil.',
 	'gadgets-uses' => 'Utilise',
 	'gadgets-required-rights' => 'At fôta de cet{{PLURAL:$2|i drêt|os drêts}} :
@@ -2106,6 +2114,7 @@ U moet de juiste rechten hebben op de doelwiki, inclusief het recht om bewerking
  * @author Eirik
  * @author Harald Khan
  * @author Nghtwlkr
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'gadgets-desc' => 'Lèt brukarane velje eigendefinerte [[Special:Gadgets|CSS- og JavaScript-verktøy]]  i [[Special:Preferences|innstillingane sine]].',
@@ -2855,7 +2864,7 @@ $messages['tg-cyrl'] = array(
 	'gadgets-uses' => 'Корбурдҳо',
 );
 
-/** Tajik (Latin script) (tojikī)
+/** Tajik (Latin script) (Tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -3030,7 +3039,7 @@ Te serve i parmessi su la wiki de destinassion (compreso quelo de modificar i me
 	'gadgets-export-download' => 'Descarga',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
@@ -3162,12 +3171,11 @@ $1',
 	'gadgets-required-skins' => '可用在{{PLURAL:$2|$1外观|以下外观：$1}}。',
 	'gadgets-default' => '默认所有人启用。',
 	'gadgets-export' => '导出',
-	'gadgets-export-title' => '小工具出口',
+	'gadgets-export-title' => '导出小工具',
 	'gadgets-not-found' => '找不到“$1”小工具。',
-	'gadgets-export-text' => '要导出 $1 小工具，请单击"{{int:gadgets-export-download}}"按钮，保存下载的文件
-转到特别： 导入目标 wiki 上并将其上传。然后将以下添加到 MediaWiki:Gadgets-definition：
+	'gadgets-export-text' => '要导出 $1 小工具，请单击“{{int:gadgets-export-download}}”按钮，保存下载的文件，前往目标wiki的Special:Import并将文件上传。随后将以下内容加入MediaWiki:Gadgets-definition：
 <pre>$2</pre>
-您必须具有适当的权限 （包括编辑系统消息的权利） 的目标维基上，必须启用导入的文件上传。',
+您必须在目标wiki上具有适当的权限（包括编辑系统消息的权利），且站点必须启用由上传文件导入的功能。',
 	'gadgets-export-download' => '下载',
 );
 
