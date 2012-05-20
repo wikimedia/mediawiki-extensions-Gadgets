@@ -694,6 +694,8 @@ Ena descripisyon kerberanê îmkan dano ke aye meajanê sistemî ra asani cikewt
 
 $1',
 	'gadgets-export' => 'Teber de',
+	'gadgets-export-title' => 'Teberdayışê gadgeti',
+	'gadgets-not-found' => 'Gadget "$1" nêvineya.',
 	'gadgets-export-download' => 'Ron',
 );
 
@@ -1464,6 +1466,10 @@ $1',
 	'gadgets-export' => 'Esporta',
 	'gadgets-export-title' => 'Esporta accessorio',
 	'gadgets-not-found' => 'Accessorio "$1" non trovato.',
+	'gadgets-export-text' => 'Per esportare l\'accessorio $1, fai clic sul pulsante "{{int:gadgets-export-download}}", salva il file scaricato,
+vai alla pagina Special:Import nella wiki di destinazione e carica il file. Poi aggiungi quanto segue alla pagina MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Devi disporre dei permessi appropriati nella wiki di destinazione (incluso il diritto di modificare i messaggi di sistema) e l\'importazione da file deve essere abilitata.',
 	'gadgets-export-download' => 'Scarica',
 );
 
