@@ -1761,6 +1761,13 @@ Dir musst déi erfuerdert Rechter(inklusiv d\'Recht fir System-Messagen z\'änne
 	'gadgets-export-download' => 'Eroflueden',
 );
 
+/** Lezghian (Лезги)
+ * @author Soul Train
+ */
+$messages['lez'] = array(
+	'gadgets' => 'Гаджетар',
+);
+
 /** Limburgish (Limburgs)
  * @author Matthias
  * @author Ooswesthoesbes
