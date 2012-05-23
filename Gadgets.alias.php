@@ -33,6 +33,11 @@ $specialPageAliases['bg'] = array(
 	'Gadgets' => array( 'Джаджи' ),
 );
 
+/** Banjar (Bahasa Banjar) */
+$specialPageAliases['bjn'] = array(
+	'Gadgets' => array( 'Pakakas' ),
+);
+
 /** Breton (Brezhoneg) */
 $specialPageAliases['br'] = array(
 	'Gadgets' => array( 'Bitrakoù' ),
@@ -116,6 +121,11 @@ $specialPageAliases['haw'] = array(
 /** Hebrew (עברית) */
 $specialPageAliases['he'] = array(
 	'Gadgets' => array( 'סקריפטים' ),
+);
+
+/** Hindi (हिन्दी) */
+$specialPageAliases['hi'] = array(
+	'Gadgets' => array( 'उपकरण', 'गैजेट' ),
 );
 
 /** Croatian (Hrvatski) */
@@ -231,6 +241,11 @@ $specialPageAliases['pl'] = array(
 /** Romanian (Română) */
 $specialPageAliases['ro'] = array(
 	'Gadgets' => array( 'Gadgeturi' ),
+);
+
+/** Russian (Русский) */
+$specialPageAliases['ru'] = array(
+	'Gadgets' => array( 'Гаджеты' ),
 );
 
 /** Sanskrit (संस्कृतम्) */
