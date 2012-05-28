@@ -1990,6 +1990,20 @@ L-amministraturi lokali jistgħu jimmodifikaw id-[[MediaWiki:Gadgets-definition|
 Din il-ħarsa tipprovdi aċċess faċli għall-messaġġi tas-sistema li fihom hemm deskrizzjoni u s-sors ta' kull aġġeġġ.",
 );
 
+/** Mazanderani (مازِرونی)
+ * @author Mehdi
+ */
+$messages['mzn'] = array(
+	'gadgets-prefstext' => 'پائین فهرست دله اته سری ابزارون درنه که شما بتوننی از شه کاروری خواستنی‌ئون، یان ره شه وسه فعال هاکنین.
+این ابزارون ویشترشون جاوااسکریپت رو کار کننه، اگه خواننی یانه جا استفاده هاکنین ونه حتماً شه اینترنت مرورگر رو جاواسکریپت ره فعال هاکنین.
+البته ونه توجه دارین که این ابزارون نتوننه شمه خواستنی‌ئون صفحه ره تغییر هادن.
+
+توجه دارین که این ابزارون مدیاویکی نرم‌افزار جمع نینه، و معمولاً شمه ویکی کارورون دست (مدیرون) بسات بینه و نگهداری بوننه.
+هرویکی مدیرون بتوننه از [[MediaWiki:Gadgets-definition|تعاریف]] و [[Special:Gadgets|توضیحات]] صفحات جا استفاده هاکنن و ابزارون ره تغییر هادن.',
+	'gadgets' => 'ابزارون',
+	'gadgets-title' => 'ابزارون',
+);
+
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Jon Harald Søby
  * @author Laaknor
