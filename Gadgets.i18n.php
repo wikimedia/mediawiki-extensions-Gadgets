@@ -1825,6 +1825,15 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
 	'gadgets-export-download' => 'Parsisiųsti',
 );
 
+/** Lushai (Mizo ţawng)
+ * @author RMizo
+ */
+$messages['lus'] = array(
+	'prefs-gadgets' => 'Hmanrelhte',
+	'gadgets' => 'Hmanrelhte',
+	'gadgets-title' => 'Hmanrelhte',
+);
+
 /** Latvian (Latviešu)
  * @author Marozols
  * @author Papuass
