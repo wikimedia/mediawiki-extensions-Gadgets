@@ -105,9 +105,10 @@ class Gadget {
 	/**
 	 * Check the validity of the given properties array
 	 * @param $properties Return value of FormatJson::decode( $blob, true )
+	 * @param $tolerateMissing bool If true, don't complain about missing keys
 	 * @return Status object with error message if applicable
 	 */
-	public static function validatePropertiesArray( $properties ) {
+	public static function validatePropertiesArray( $properties, $tolerateMissing = false ) {
 		if ( !is_array( $properties ) ) {
 			return Status::newFatal( 'gadgets-validate-invalidjson' );
 		}
@@ -118,7 +119,12 @@ class Gadget {
 			// Walk down and verify that the path from the root to this property exists
 			foreach ( $path as $p ) {
 				if ( !array_key_exists( $p, $val ) ) {
-					return Status::newFatal( 'gadgets-validate-notset', $property );
+					if ( $tolerateMissing ) {
+						// Skip validation of this property altogether
+						continue 2;
+					} else {
+						return Status::newFatal( 'gadgets-validate-notset', $property );
+					}
 				}
 				$val = $val[$p];
 			}
@@ -165,12 +171,12 @@ class Gadget {
 	 */
 	public function __construct( $id, $repo, $properties, $timestamp ) {
 		if ( is_string( $properties ) ) {
+			// TODO: Allowing both means one can potentially nest JSON
 			$properties = FormatJson::decode( $properties, true );
 		}
 
-		// Do a quick sanity check rather than full validation
-		if ( !is_array( $properties ) || !isset( $properties['settings'] ) || !isset( $properties['module'] ) ) {
-			throw new MWException( 'Invalid property array passed to ' . __METHOD__ );
+		if ( !is_array( $properties ) ) {
+			throw new MWException( '$properties must be an array or a valid JSON string' );
 		}
 
 		$this->id = $id;
@@ -178,6 +184,12 @@ class Gadget {
 		$this->timestamp = $timestamp;
 
 		// Set any missing fields to their default values
+		if ( !isset( $properties['settings'] ) ) {
+			$properties['settings'] = array();
+		}
+		if ( !isset( $properties['module'] ) ) {
+			$properties['module'] = array();
+		}
 		$base = self::getPropertiesBase();
 		$this->settings = $properties['settings'] + $base['settings'];
 		$this->moduleData = $properties['module'] + $base['module'];

@@ -80,7 +80,7 @@ class GadgetsHooks {
 
 		// Validate $text as a gadget JSON blob
 		$properties = FormatJson::decode( $text, true );
-		$validation = Gadget::validatePropertiesArray( $properties );
+		$validation = Gadget::validatePropertiesArray( $properties, 'tolerateMissing' );
 		if ( !$validation->isOK() ) {
 			$status->merge( $validation );
 			return false;
