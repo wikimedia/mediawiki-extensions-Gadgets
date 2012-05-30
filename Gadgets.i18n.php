@@ -102,6 +102,7 @@ go to Special:Import on destination wiki and upload it. You must have appropriat
 	'gadgets-validate-invalidjson' => 'The gadget definition page contents are not a valid JSON object.',
 	'gadgets-validate-notset' => 'The property $1 is not set.',
 	'gadgets-validate-wrongtype' => 'The property $1 must be of type $2 instead of $3.',
+	'gadgets-invalidid-definitionpage' => 'You cannot create this gadget definition page because $1 is not a valid gadget ID.',
 
 	# Permissions
 	'gadgets-cant-create' => 'You do not have the right to create new Gadgets.',

@@ -503,8 +503,12 @@ class GadgetsHooks {
 	public static function getUserPermissionsErrors( $title, $user, $action, &$result ) {
 		if ( $title->getNamespace() == NS_GADGET_DEFINITION ) {
 			// Enforce restrictions on the Gadget_definition namespace
+			$id = self::getIDFromTitle( $title );
 			if ( $action == 'create' && !$user->isAllowed( 'gadgets-definition-create' ) ) {
 				$result[] = array( 'gadgets-cant-create' );
+				return false;
+			} elseif ( ( $action == 'create' || $action == 'edit' ) && !Gadget::isValidGadgetID( $id ) ) {
+				$result[] = array( 'gadgets-invalidid-definitionpage', $id );
 				return false;
 			} elseif ( $action == 'delete' && !$user->isAllowed( 'gadgets-definition-delete' ) ) {
 				$result[] = array( 'gadgets-cant-delete' );
