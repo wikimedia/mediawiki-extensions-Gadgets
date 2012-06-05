@@ -1514,7 +1514,8 @@ $messages['ja'] = array(
 また、これらのガジェットは MediaWiki ソフトウェアの一部ではなく、通常はローカル ウィキの利用者が開発とメンテナンスをしていることにも注意してください。管理者は[[MediaWiki:Gadgets-definition|ガジェットの定義]]や[[Special:Gadgets|ガジェットの説明]]から利用できるガジェットを編集できます。',
 	'gadgets' => 'ガジェット',
 	'gadgets-title' => 'ガジェット',
-	'gadgets-pagetext' => '以下は、[[MediaWiki:Gadgets-definition]] 上で定義された、利用者が[[Special:Preferences|{{int:preferences}}]]にて利用可能にすることができるガジェットの一覧です。この一覧はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
+	'gadgets-pagetext' => '以下は、利用者が[[Special:Preferences|{{int:preferences}}]]で有効化できるガジェットの一覧です。これらは[[MediaWiki:Gadgets-definition|定義ページ]]で定義されています。
+この一覧はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
 	'gadgets-uses' => '利用するファイル',
 	'gadgets-required-rights' => '以下の{{PLURAL:$2|権限}}が必要です：
 
