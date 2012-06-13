@@ -309,12 +309,16 @@ $messages['az'] = array(
 
 /** Bashkir (Башҡортса)
  * @author Рустам Нурыев
+ * @author ҒатаУлла
  */
 $messages['ba'] = array(
 	'prefs-gadgets' => 'Гаджеттар',
 	'gadgets' => 'Гаджеттар',
 	'gadgets-title' => 'Гаджеттар',
 	'gadgets-uses' => 'Ҡулланыла',
+	'gadgets-required-rights' => '{{PLURAL:$2|Хоҡуҡ талап ителә|Хоҡутар талап ителә}}:
+
+$1',
 	'gadgets-export' => 'Сығарырға',
 	'gadgets-not-found' => '"$1" гаджеты табылманы.',
 	'gadgets-export-download' => 'Күсереп алырға',
