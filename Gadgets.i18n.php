@@ -256,7 +256,7 @@ $1',
 	'gadgets-export-download' => 'ডাউনল’ড',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -290,7 +290,7 @@ Has de tener los permisos afayadizos na wiki de destín (incluyendo permisu pa e
 	'gadgets-export-download' => 'Descargar',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  * @author PPerviz
  * @author Vago
@@ -380,7 +380,7 @@ $1',
 	'gadgets-export-download' => 'Загрузіць',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author Borislav
  * @author DCLXVI
  * @author Spiritia
@@ -432,7 +432,7 @@ $messages['bn'] = array(
 	'gadgets-export-download' => 'ডাউনলোড',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Gwendal
  * @author Y-M D
@@ -465,7 +465,7 @@ Rankout a rit kaout ar gwirioù a zere war ar wiki tal (en o zouez ar gwir da ze
 	'gadgets-export-download' => 'Pellgargañ',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -493,7 +493,7 @@ Morate imati odgovarajuća prava na odredišnoj wiki (uključujući pravo da ure
 	'gadgets-export-download' => 'Skidanje',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Aleator
  * @author Gemmaa
  * @author Paucabot
@@ -549,7 +549,7 @@ $messages['ce'] = array(
 	'gadgets-uses' => 'Лелош йу',
 );
 
-/** Sorani (کوردی)
+/** Sorani Kurdish (کوردی)
  * @author Asoxor
  */
 $messages['ckb'] = array(
@@ -558,7 +558,7 @@ $messages['ckb'] = array(
 	'gadgets-title' => 'ئامرازەکان',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Danny B.
  * @author Li-sung
  * @author Mormegil
@@ -622,7 +622,7 @@ Mae'n rhaid bod y galluoedd pwrpasol gennych ar wici'r pendraw (gan gynnwys y ga
 	'gadgets-export-download' => 'Islwyther',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Byrial
  * @author Peter Alberti
  */
@@ -826,7 +826,7 @@ Vi nepras la taŭgajn rajtojn ĉe cela vikio (inkluzivante rajton redakti sistem
 	'gadgets-export-download' => 'Elŝuti',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  * @author Fitoschido
  * @author Muro de Aguas
@@ -863,7 +863,7 @@ Debes tener permisos apropiados en el wiki de destino (incluyendo el derecho a e
 	'gadgets-export-download' => 'Descargar',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author Pikne
  */
@@ -895,7 +895,7 @@ Sul peavad olema sihtvikis vajalikud õigused (kaasa arvatud õigus redigeerida 
 	'gadgets-export-download' => 'Laadi alla',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Inorbez
  * @author Unai Fdz. de Betoño
@@ -917,7 +917,7 @@ Ikuspegi orokor honek gadget bakoitza definitzen duen deskribapen eta kode orrie
 	'gadgets-export' => 'Esportatu',
 );
 
-/** Extremaduran (Estremeñu)
+/** Extremaduran (estremeñu)
  * @author Better
  */
 $messages['ext'] = array(
@@ -960,7 +960,7 @@ $1',
 	'gadgets-export-download' => 'بارگیری',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Crt
  * @author Nike
  * @author Olli
@@ -991,7 +991,7 @@ Sinulla pitää olla tarvittavat oikeudet omassa wikissäsi, kuten järjestelmä
 	'gadgets-export-download' => 'Lataa',
 );
 
-/** Faroese (Føroyskt)
+/** Faroese (føroyskt)
  * @author EileenSanda
  */
 $messages['fo'] = array(
@@ -1004,7 +1004,7 @@ $1',
 	'gadgets-export' => 'Útflyt',
 );
 
-/** French (Français)
+/** French (français)
  * @author Delhovlyn
  * @author Dr Brains
  * @author Grondin
@@ -1042,7 +1042,7 @@ Il est nécessaire de disposer des droits correspondants sur le wiki de destinat
 	'gadgets-export-download' => 'Télécharger',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -1246,7 +1246,7 @@ $1',
 	'gadgets-export-download' => 'डाउनलोड',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Anton008
  * @author Dalibor Bosits
  * @author Ex13
@@ -1306,7 +1306,7 @@ Dyrbiš trěbne prawa na cilowym wikiju měć (inkluziwnje prawo systemowe powě
 	'gadgets-export-download' => 'Sćahnyć',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author BáthoryPéter
  * @author Dani
  * @author Tgr
@@ -1339,7 +1339,7 @@ A célwikiben rendelkezned kell a megfelelő jogokkal (beleértve a rendszerüze
 	'gadgets-export-download' => 'Letöltés',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -1437,7 +1437,7 @@ $messages['io'] = array(
 	'gadgets-uses' => 'Ol uzas',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author Jóna Þórunn
  * @author Maxí
  * @author Snævar
@@ -1468,7 +1468,7 @@ farðu á þann wiki sem á að flytja smátólið á, farðu á kerfisíðuna S
 	'gadgets-export-download' => 'Hlaða niður',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author BrokenArrow
  * @author Darth Kule
@@ -1536,7 +1536,7 @@ $1',
 	'gadgets-export-download' => 'ダウンロード',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Huslåke
  */
 $messages['jut'] = array(
@@ -1831,7 +1831,7 @@ Doe mós de juuste rèchte höbben óppe doelwie, ouch óm bewirkinge aan systee
 	'gadgets-export-download' => 'Haol óp',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Homo
  * @author Vpovilaitis
@@ -1863,7 +1863,7 @@ $messages['lus'] = array(
 	'gadgets-title' => 'Hmanrelhte',
 );
 
-/** Latvian (Latviešu)
+/** Latvian (latviešu)
  * @author Marozols
  * @author Papuass
  */
@@ -1887,7 +1887,7 @@ $messages['mg'] = array(
 	'gadgets-export-download' => 'Hampidina',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  */
@@ -2175,7 +2175,7 @@ U moet de juiste rechten hebben op de doelwiki, inclusief het recht om bewerking
 	'gadgets-export-download' => 'Downloaden',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Eirik
  * @author Harald Khan
  * @author Nghtwlkr
@@ -2196,7 +2196,7 @@ Dette oversynet gjev enkel tilgang til systemmeldingssidene som inneheld skildri
 	'gadgets-export-download' => 'Last ned',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Boulaur
  * @author Cedric31
  */
@@ -2278,7 +2278,7 @@ $messages['pdc'] = array(
 	'gadgets-export-download' => 'Runnerdraage',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Derbeth
  * @author Marcin Łukasz Kiejzik
  * @author Sp5uhe
@@ -2384,7 +2384,7 @@ $messages['ps'] = array(
 	'gadgets-export-download' => 'ښکته کول',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Hamilton Abreu
  * @author Malafaya
@@ -2415,7 +2415,7 @@ Na wiki de destino, tem de ter as permissões necessárias (incluindo o privilé
 	'gadgets-export-download' => 'Download',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  * @author GoEThe
@@ -2457,7 +2457,7 @@ $messages['qu'] = array(
 	'gadgets-title' => 'Yanapaqchakuna',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
@@ -2481,7 +2481,7 @@ $1',
 	'gadgets-export-download' => 'Descarcă',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -2512,7 +2512,7 @@ Tu a ave le permesse appropriate sus 'a Uicchi de destinazione (ingludenne le de
 	'gadgets-export-download' => 'Scareche',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ahonc
  * @author Eleferen
  * @author Illusion
@@ -2577,7 +2577,7 @@ $messages['rue'] = array(
 	'gadgets-export-download' => 'Скачати',
 );
 
-/** Sakha (Саха тыла)
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -2648,7 +2648,7 @@ $1',
 	'gadgets-export-download' => 'බාගන්න',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  * @author Teslaton
  */
@@ -2680,7 +2680,7 @@ Musíte mať príslušné oprávnenia na cieľovej wiki (vrátane práva na úpr
 	'gadgets-export-download' => 'Stiahnuť',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  * @author Smihael
  */
@@ -2713,7 +2713,7 @@ Na ciljnem wikiju morate imeti ustrezna dovoljenja (vključno s pravico urejanja
 	'gadgets-export-download' => 'Prenesi',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Mikullovci11
  * @author Olsi
  * @author Vinie007
@@ -2747,7 +2747,7 @@ Ju duhet të keni leje të përshtatshme në wiki-n e destinuar (duke përfshir�
 	'gadgets-export-download' => 'Shkarko',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Millosh
  * @author Nikola Smolenski
  * @author Rancher
@@ -2782,7 +2782,7 @@ $1',
 	'gadgets-export-download' => 'Преузми',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  * @author Жељко Тодоровић
  */
@@ -2840,7 +2840,7 @@ $messages['su'] = array(
 	'gadgets-desc' => 'Matak bisa pamaké milih [[Special:Gadgets|Gajet CSS sarta Javascript]] ngaliwatan [[Special:Preferences|Préferénsi]] maranéhanana',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Ainali
  * @author Boivie
  * @author Cohan
@@ -2916,7 +2916,7 @@ $messages['te'] = array(
 	'gadgets-export-download' => 'దింపుకోండి',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -2931,7 +2931,7 @@ $messages['tg-cyrl'] = array(
 	'gadgets-uses' => 'Корбурдҳо',
 );
 
-/** Tajik (Latin script) (Tojikī)
+/** Tajik (Latin script) (tojikī)
  * @author Liangent
  */
 $messages['tg-latn'] = array(
@@ -3035,7 +3035,7 @@ Hedef vikide uygun izinlerinizin olması (sistem mesajlarını değiştirmek yet
 	'gadgets-export-download' => 'İndir',
 );
 
-/** Tatar (Cyrillic script) (Татарча)
+/** Tatar (Cyrillic script) (татарча)
  * @author Ильнар
  */
 $messages['tt-cyrl'] = array(
@@ -3044,7 +3044,7 @@ $messages['tt-cyrl'] = array(
 	'gadgets-title' => 'Гаджетлар',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author AS
  * @author Ahonc
  * @author Dim Grits
@@ -3082,7 +3082,7 @@ $1',
 	'gadgets-export-download' => 'Завантажити',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -3209,7 +3209,7 @@ $messages['yue'] = array(
 	'gadgets-uses' => '用',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Anakmalaysia
  * @author Bencmq
  * @author Gaoxuewei
@@ -3246,7 +3246,7 @@ $1',
 	'gadgets-export-download' => '下载',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Anakmalaysia
  * @author Horacewai2
  * @author Liangent
