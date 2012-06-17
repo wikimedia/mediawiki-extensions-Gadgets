@@ -721,6 +721,8 @@ Ena descripisyon kerberanê îmkan dano ke aye meajanê sistemî ra asani cikewt
 	'gadgets-required-rights' => 'Cêrêni icab kenê {{PLURAL:$2|raşti|raşteya}}:
 
 $1',
+	'gadgets-required-skins' => 'Zerrey {{PLURAL:$2|$1 skin|skino ke pawêno: $1}} dı esto.',
+	'gadgets-default' => 'Merduman pêron rê aktiv ke.',
 	'gadgets-export' => 'Teber de',
 	'gadgets-export-title' => 'Teberdayışê gadgeti',
 	'gadgets-not-found' => 'Gadget "$1" nêvineya.',
@@ -1858,9 +1860,26 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
  * @author RMizo
  */
 $messages['lus'] = array(
+	'gadgets-desc' => 'Hmangtute [[Special:Gadgets|CSS leh JavaScript hmanrelhte]] an [[Special:Preferences|duhthlanna phêk]]a duhthlantir theihna.',
 	'prefs-gadgets' => 'Hmanrelhte',
+	'gadgets-prefstext' => 'A hnuaiah hian i siangchana hmanrelh i tihnun theihho kan rawn chhawp chhuak a.
+Hêng hmanrelhte hi JavaScript-a innghat a ni deuh ber a, chuvang tak chuan hengte hman theihna tùrin i rangpuifannaah JavaScript i tihnun a ngai a ni.
+Hë duhthlanna phêkah erawh hi chuan hêng hmanrelhte hian nghawng a nei lo vang tih hria ang che.
+
+Hëng hmanrelh bîkte hi MediaWiki khawlthluak zinga mi a ni lo va, a tlangpuiin i khawsakna hmun wiki-a hmangtute duan leh enkawl a ni hlawm.
+Chü wiki-a roreltute chuan hmanrelh hman theiha awmte [[MediaWiki:Gadgets-definition|hrilhfiahna]] leh [[Special:Gadgets|sawifiahna]] an siamṭha thei a ni.',
 	'gadgets' => 'Hmanrelhte',
 	'gadgets-title' => 'Hmanrelhte',
+	'gadgets-uses' => 'Hmante',
+	'gadgets-required-rights' => 'A hnuaia {{PLURAL:$2|dikna-chanvo|dikna-chanvote}} hi neih a ngái:
+
+$1',
+	'gadgets-required-skins' => 'A hnuaia {{PLURAL:$2|vunah hian a hman theih: $1 |vunahte hian a hman theih: $1}}.',
+	'gadgets-default' => 'Mi zawng zawng tana tihnun sa vek a ni.',
+	'gadgets-export' => 'Thawnchhuahna',
+	'gadgets-export-title' => 'Hmanrelh thawnchhuah',
+	'gadgets-not-found' => 'Hmanrelh "$1" hmuh a ni lo.',
+	'gadgets-export-download' => 'Hnuhthlâkna',
 );
 
 /** Latvian (latviešu)
