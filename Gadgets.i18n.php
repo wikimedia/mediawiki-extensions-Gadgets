@@ -3013,7 +3013,9 @@ Maaaring baguhin ng pampook/lokal na mga tagapangasiwa ang makukuhang mga gadyet
 	'gadgets-pagetext' => 'Nasa ibaba ang isang talaan ng natatanging mga kasangkapan (gadyet) na mapapagana ng mga tagagamit sa kanilang [[Special:Preferences|pahina ng mga kagustuhan]], ayon sa nilalarawan ng [[MediaWiki:Gadgets-definition|mga kahulugan]].
 Nagbibigay ang pagtalakay na ito ng magaang na daan/akseso patungo sa mga pahina ng sistemang pangmensahe na nagbibigay kahulugan sa paglalarawan at kodigo ng bawat gadyet.',
 	'gadgets-uses' => 'Mga mapaggagamitan',
-	'gadgets-required-rights' => 'Nangangailangan ng {{PLURAL:$2|$1 na karapatan|sumusunod na mga karapatan: $1}}.',
+	'gadgets-required-rights' => 'Nangangailangan ng sumusunod na {{PLURAL:$2|karapatan|mga karapatan:}}:
+
+$1',
 	'gadgets-default' => 'Likas ang pagkakatakda na pinapagana para sa lahat.',
 	'gadgets-export' => 'Iluwas',
 	'gadgets-export-title' => 'Pagluluwas ng gadyet',
