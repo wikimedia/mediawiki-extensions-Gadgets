@@ -2406,6 +2406,7 @@ $messages['ps'] = array(
 /** Portuguese (português)
  * @author 555
  * @author Hamilton Abreu
+ * @author Helder.wiki
  * @author Malafaya
  */
 $messages['pt'] = array(
@@ -2422,7 +2423,9 @@ Administradores locais podem editar os ''gadgets'' disponíveis usando as [[Medi
 	'gadgets-pagetext' => "Segue-se uma lista de ''\"gadgets\"'' que podem ser activados pelos utilizadores nas suas [[Special:Preferences|preferências]], como estabelecido pelas [[MediaWiki:Gadgets-definition|definições]].
 Este resumo proporciona acesso fácil às páginas das mensagens de sistema que definem a descrição e o código de cada ''gadget''.",
 	'gadgets-uses' => 'Utiliza',
-	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o privilégio $1|os seguintes privilégios: $1}}.',
+	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o seguinte privilégio|os seguintes privilégios}}:
+
+$1',
 	'gadgets-default' => 'Activado para todos por padrão.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportação de gadget',
@@ -2438,6 +2441,7 @@ Na wiki de destino, tem de ter as permissões necessárias (incluindo o privilé
  * @author Eduardo.mps
  * @author Giro720
  * @author GoEThe
+ * @author Helder.wiki
  * @author Rafael Vargas
  */
 $messages['pt-br'] = array(
@@ -2454,7 +2458,9 @@ Administradores locais podem editar os gadgets disponíveis através de [[MediaW
 	'gadgets-pagetext' => 'Segue-se uma lista de "gadgets" que podem ser ativados por utilizadores através de [[Special:Preferences|suas páginas de preferências]], definidos em [[MediaWiki:Gadgets-definition|definições]].
 Esta visão geral proporciona um acesso fácil para as mensagens de sistema que definem as descrições e códigos de cada um dos gadgets.',
 	'gadgets-uses' => 'Utiliza',
-	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o seguinte privilégio $1|os seguintes privilégios: $1}}.',
+	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o seguinte privilégio|os seguintes privilégios}}:
+
+$1',
 	'gadgets-required-skins' => 'Disponível {{PLURAL:$2|no skin $1|nos seguintes skins: $1}}.',
 	'gadgets-default' => 'Ativar para todos por padrão.',
 	'gadgets-export' => 'Exportar',
