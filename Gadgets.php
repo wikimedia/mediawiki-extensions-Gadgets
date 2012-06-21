@@ -238,7 +238,8 @@ $wgResourceModules += array(
 		'scripts' => 'ext.gadgets.preferences.js',
 		'dependencies' => 'ext.gadgets.api',
 		'messages' => array(
-			'gadgets-sharedprefs-ajaxerror'
+			'gadgets-sharedprefs-ajaxerror',
+			'gadgets-preference-description'
 		),
 	),
 	'ext.gadgets.preferences.style' => $gadResourceTemplate + array(
