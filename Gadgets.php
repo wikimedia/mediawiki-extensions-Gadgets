@@ -24,7 +24,7 @@ $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
 	'name' => 'Gadgets',
 	'author' => array( 'Daniel Kinzler', 'Max Semenik' ),
-	'url' => 'http://mediawiki.org/wiki/Extension:Gadgets',
+	'url' => 'https://mediawiki.org/wiki/Extension:Gadgets',
 	'descriptionmsg' => 'gadgets-desc',
 );
 
