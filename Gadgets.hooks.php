@@ -341,7 +341,7 @@ class GadgetsHooks {
 						$preferences["gadget-$id"] = array(
 							'type' => 'toggle',
 							'label' => htmlspecialchars( $id ), // will be changed by JS
-							'section' => "gadgetsshared/gadgetrepo-$encRepoSource$sectionCat",
+							'section' => "gadgetsshared$sectionCat",
 							'cssclass' => 'mw-gadgets-shared-pref',
 							'name' => 'gadgetpref-' . bin2hex( $id ),
 							// 'default' isn't in here by design: we don't want
