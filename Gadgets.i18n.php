@@ -126,7 +126,7 @@ $messages['am'] = array(
 	'gadgets-uses' => 'የተጠቀመው ጃቫ-ስክሪፕት',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -344,7 +344,7 @@ $messages['bcc'] = array(
 	'gadgets-uses' => 'استفاده بیت',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author Cesco
  * @author EugeneZelenko
  * @author Jim-by
@@ -729,7 +729,7 @@ $1',
 	'gadgets-export-download' => 'Ron',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -1076,7 +1076,7 @@ O est nècèssèro de d’avêr los drêts corrèspondents sur lo vouiqui de dè
 	'gadgets-export-download' => 'Tèlèchargiér',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Alma
  * @author Toliño
  */
@@ -1279,7 +1279,7 @@ Morate imati odgovarajuća prava na odredišnoj wiki (uključujući i pravo na u
 	'gadgets-export-download' => 'Preuzmi',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -2574,7 +2574,7 @@ $1',
 	'gadgets-export-download' => 'Загрузить',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
@@ -2630,7 +2630,7 @@ $messages['sah'] = array(
 	'gadgets-export-download' => 'Хачайдааһын',
 );
 
-/** Samogitian (Žemaitėška)
+/** Samogitian (žemaitėška)
  * @author Hugo.arg
  */
 $messages['sgs'] = array(
