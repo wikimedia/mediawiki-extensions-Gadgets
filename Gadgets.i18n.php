@@ -3022,6 +3022,7 @@ Nagbibigay ang pagtalakay na ito ng magaang na daan/akseso patungo sa mga pahina
 	'gadgets-required-rights' => 'Nangangailangan ng sumusunod na {{PLURAL:$2|karapatan|mga karapatan:}}:
 
 $1',
+	'gadgets-required-skins' => 'Makukuha sa ibabaw ng  {{PLURAL:$2|$1 na pabalat|sumusunod na mga pabalat: $1}}.',
 	'gadgets-default' => 'Likas ang pagkakatakda na pinapagana para sa lahat.',
 	'gadgets-export' => 'Iluwas',
 	'gadgets-export-title' => 'Pagluluwas ng gadyet',
