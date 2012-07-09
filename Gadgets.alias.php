@@ -295,7 +295,7 @@ $specialPageAliases['th'] = array(
 
 /** Tagalog (Tagalog) */
 $specialPageAliases['tl'] = array(
-	'Gadgets' => array( 'Mga gadyet' ),
+	'Gadgets' => array( 'Mga_gadyet' ),
 );
 
 /** Turkish (Türkçe) */
