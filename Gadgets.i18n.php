@@ -1674,9 +1674,10 @@ $messages['km'] = array(
  * @author IRTC1015
  * @author Klutzy
  * @author Kwj2772
+ * @author 아라
  */
 $messages['ko'] = array(
-	'gadgets-desc' => '각 사용자가 [[Special:Gadgets|CSS/자바스크립트 소도구]]를 [[Special:Preferences|사용자 환경 설정]]을 통해 사용할 수 있도록 허용',
+	'gadgets-desc' => '각 사용자가 [[Special:Gadgets|CSS와 자바스크립트 소도구]]를 [[Special:Preferences|사용자 환경 설정]]을 통해 사용할 수 있도록 허용',
 	'prefs-gadgets' => '소도구',
 	'gadgets-prefstext' => '아래 목록은 현재 사용 가능한 소도구의 목록입니다.
 대부분의 소도구는 자바스크립트로 동작하며, 웹 브라우저에서 자바스크립트를 사용할 수 있어야 동작합니다.
@@ -1687,7 +1688,7 @@ $messages['ko'] = array(
 	'gadgets' => '소도구 목록',
 	'gadgets-title' => '소도구',
 	'gadgets-pagetext' => '[[Special:Preferences|사용자 환경 설정]]에서 설정할 수 있는 소도구 목록입니다. 해당 목록은 [[MediaWiki:Gadgets-definition|소도구 정의]]에서 편집할 수 있습니다.
-이 문서에서는 각 소도구의 각 설명 문서/코드의 시스템 메시지 링크를 제공합니다.',
+이 문서에서는 각 소도구의 각 설명 문서와 코드의 시스템 메시지 링크를 제공합니다.',
 	'gadgets-uses' => '다음 코드를 이용',
 	'gadgets-required-rights' => '다음 {{PLURAL:$2|권한}}이 필요합니다: 
 
@@ -1696,9 +1697,9 @@ $1',
 	'gadgets-default' => '기본적으로 모든 사람에게 활성화되어 있습니다.',
 	'gadgets-export' => '내보내기',
 	'gadgets-export-title' => '소도구 내보내기',
-	'gadgets-not-found' => '소도구 "$1"을 찾을 수 없습니다.',
+	'gadgets-not-found' => '"$1" 소도구를 찾을 수 없습니다.',
 	'gadgets-export-text' => '$1 소도구를 내보내려면 "{{int:gadgets-export-download}}" 버튼을 클릭하여 다운로드된 파일을 저장한 후,
-내보내려는 위키에서 Special:Import로 가서 올리십시오. 그 다음 MediaWiki:Gadgets-definition 문서에 다음을 추가하십시오:
+내보내려는 위키에서 Special:Import로 가서 올리십시오. 그 다음 MediaWiki:Gadgets-definition 문서에 다음을 추가하세요:
 <pre>$2</pre>
 해당 위키에서 시스템 메시지 편집 등 특정 권한을 갖고 있어야 합니다. 또한 파일 올리기를 통한 가져오기 기능이 활성화되어 있어야 합니다.',
 	'gadgets-export-download' => '다운로드',
