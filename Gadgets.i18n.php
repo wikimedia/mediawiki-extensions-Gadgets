@@ -307,7 +307,7 @@ $messages['az'] = array(
 	'gadgets-export-download' => 'Yüklə',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Рустам Нурыев
  * @author ҒатаУлла
  */
@@ -530,7 +530,7 @@ Heu de tenir els permisos adequats en el wiki de destinació (incloent-hi els pe
 	'gadgets-export-download' => 'Baixa',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -1620,7 +1620,7 @@ $messages['kk-arab'] = array(
 	'gadgets-uses' => 'قولدانۋداعىلار',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'prefs-gadgets' => 'Қажет құралдар',
 	'gadgets-prefstext' => 'Төменде өз тіркелгіңізде қоса алатын арнаулы қажет құралдар тізімі беріледі.
@@ -1637,7 +1637,7 @@ $messages['kk-cyrl'] = array(
 	'gadgets-uses' => 'Қолданудағылар',
 );
 
-/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'prefs-gadgets' => 'Qajet quraldar',
 	'gadgets-prefstext' => 'Tömende öz tirkelgiñizde qosa alatın arnawlı qajet quraldar tizimi beriledi.
@@ -1705,7 +1705,7 @@ $1',
 	'gadgets-export-download' => '다운로드',
 );
 
-/** Karachay-Balkar (Къарачай-Малкъар)
+/** Karachay-Balkar (къарачай-малкъар)
  * @author Iltever
  */
 $messages['krc'] = array(
@@ -1793,7 +1793,7 @@ Dir musst déi erfuerdert Rechter(inklusiv d\'Recht fir System-Messagen z\'änne
 	'gadgets-export-download' => 'Eroflueden',
 );
 
-/** Lezghian (Лезги)
+/** Lezghian (лезги)
  * @author Soul Train
  */
 $messages['lez'] = array(
@@ -2062,8 +2062,7 @@ $messages['mzn'] = array(
 	'gadgets-title' => 'ابزارون',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Laaknor
  * @author Nghtwlkr
  * @author Sjurhamre
@@ -3135,7 +3134,7 @@ Te serve i parmessi su la wiki de destinassion (compreso quelo de modificar i me
 	'gadgets-export-download' => 'Descarga',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
