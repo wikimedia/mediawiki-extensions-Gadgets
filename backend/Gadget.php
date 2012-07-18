@@ -177,6 +177,8 @@ class Gadget {
 			$title &&
 			// Must be a valid module name
 			ResourceLoader::isValidModuleName( "gadget.$id" ) &&
+			// Must not be the empty string
+			strlen( $id )> 0 &&
 			// Must fit in gd_id (255 bytes)
 			// This SHOULD already be covered by the title and the module name checks,
 			// but we're double-checking it here for paranoia since gadgets has its own
