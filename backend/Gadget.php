@@ -25,7 +25,7 @@
  *     // Scripts and styles are pages in NS_GADGET
  *     "scripts": ["foobar.js"],
  *     "styles": ["foobar.css"],
- *     "dependencies": ["jquery.ui.tabs", "gadget.awesome"],
+ *     "dependencies": ["jquery.ui.tabs", "ext.gadget.awesome"],
  *     "messages": ["foobar-welcome", "foo-bye", "recentchanges"],
  *     // Whether this module should be loaded asynchronously after the page loads ('bottom', default)
  *     // or synchronously before the page is rendered ('top')
@@ -163,7 +163,7 @@ class Gadget {
 	 * Check a gadget ID for validity
 	 *
 	 * A valid gadget ID must have a valid gadget definition title (Gadget definition:$id.js)
-	 * and a valid module name (gadget.$id) associated with it, and be at most 255 bytes
+	 * and a valid module name (ext.gadget.$id) associated with it, and be at most 255 bytes
 	 *
 	 * @param $id string Gadget ID to check
 	 * @return bool Whether $id is a valid gadget ID
@@ -176,7 +176,7 @@ class Gadget {
 			// Must be a valid title
 			$title &&
 			// Must be a valid module name
-			ResourceLoader::isValidModuleName( "gadget.$id" ) &&
+			ResourceLoader::isValidModuleName( "ext.gadget.$id" ) &&
 			// Must not be the empty string
 			strlen( $id )> 0 &&
 			// Must fit in gd_id (255 bytes)
@@ -444,7 +444,7 @@ class Gadget {
 	 * @return string Module name
 	 */
 	public function getModuleName() {
-		return "gadget.{$this->id}";
+		return "ext.gadget.{$this->id}";
 	}
 
 	public function getScripts() {

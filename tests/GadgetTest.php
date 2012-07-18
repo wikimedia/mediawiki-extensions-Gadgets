@@ -163,7 +163,7 @@ class GadgetTest extends MediaWikiTestCase {
 			'Gadget:Foo.css' => array( 'type' => 'style' ),
 		);
 		
-		$this->assertEquals( 'gadget.GadgetTest', $g->getModuleName(), 'getModuleName' );
+		$this->assertEquals( 'ext.gadget.GadgetTest', $g->getModuleName(), 'getModuleName' );
 		$this->assertEquals( $g->getDependencies(), $m->getDependencies(), 'getDependencies' );
 		$this->assertEquals( $data['module']['messages'], $m->getMessages(), 'getMessages' );
 		$this->assertEquals( $data['module']['position'], $m->getPosition(), 'getPosition' );
