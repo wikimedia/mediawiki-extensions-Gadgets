@@ -162,7 +162,7 @@ class Gadget {
 	/**
 	 * Check a gadget ID for validity
 	 *
-	 * A valid gadget ID must have a valid gadget definition title (Gadget definition:$id.js)
+	 * A valid gadget ID must have a valid gadget definition title (Gadget definition:$id)
 	 * and a valid module name (ext.gadget.$id) associated with it, and be at most 255 bytes
 	 *
 	 * @param $id string Gadget ID to check
@@ -170,7 +170,7 @@ class Gadget {
 	 */
 	public static function isValidGadgetID( $id ) {
 		// Try to construct a title for the gadget definition page
-		$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, "$id.js" );
+		$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $id );
 
 		return
 			// Must be a valid title

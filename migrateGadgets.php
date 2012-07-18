@@ -63,9 +63,9 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 			
 			$result = $this->createGadgetPage( $id, $gadget );
 			if ( $result === true ) {
-				$this->output( "Created [[Gadget definition:$id.js]]\n" );
+				$this->output( "Created [[Gadget definition:$id]]\n" );
 			} else {
-				$this->output( "ERROR when creating [[Gadget definition:$id.js]]: $result\n" );
+				$this->output( "ERROR when creating [[Gadget definition:$id]]: $result\n" );
 				$notCreated[] = $id;
 			}
 		}
@@ -284,9 +284,9 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 	}
 	
 	protected function createGadgetPage( $id, $gadget ) {
-		$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $id . '.js' );
+		$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $id );
 		if ( !$title ) {
-			return "Invalid title `Gadget definition:$id.js'";
+			return "Invalid title `Gadget definition:$id'";
 		}
 		$page = WikiPage::factory( $title );
 		$status = $page->doEdit(

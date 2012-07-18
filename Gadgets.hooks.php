@@ -20,12 +20,11 @@ class GadgetsHooks {
 	 */
 	public static function getIDFromTitle( Title $title ) {
 		$id = $title->getText();
-		if ( $title->getNamespace() !== NS_GADGET_DEFINITION || !preg_match( '!\.js$!u', $id ) ) {
+		if ( $title->getNamespace() !== NS_GADGET_DEFINITION ) {
 			// Not a gadget definition page
 			return null;
 		}
-		// Trim .js from the page name to obtain the gadget ID
-		return substr( $id, 0, -3 );
+		return $id;
 	}
 
 	/**
@@ -34,7 +33,7 @@ class GadgetsHooks {
 	 * @return Title|null
 	 */
 	public static function getDefinitionTitleFromID( $id ) {
-		return Title::makeTitleSafe( NS_GADGET_DEFINITION, $id . '.js' );
+		return Title::makeTitleSafe( NS_GADGET_DEFINITION, $id );
 	}
 
 	/**
@@ -488,9 +487,9 @@ class GadgetsHooks {
 	}
 
 	public static function titleIsCssOrJsPage( $title, &$result ) {
-		if ( ( $title->getNamespace() == NS_GADGET || $title->getNamespace() == NS_GADGET_DEFINITION ) &&
-				preg_match( '!\.(css|js)$!u', $title->getText() ) )
-		{
+		if ( ( $title->getNamespace() == NS_GADGET && preg_match( '!\.(css|js)$!u', $title->getText() ) ) ||
+				$title->getNamespace() == NS_GADGET_DEFINITION
+		) {
 			$result = true;
 		}
 		return true;

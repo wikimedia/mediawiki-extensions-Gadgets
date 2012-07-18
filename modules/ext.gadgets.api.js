@@ -285,7 +285,7 @@
 			 */
 			doModifyGadget: function ( gadget, o ) {
 				var t = new mw.Title(
-						gadget.id + '.js',
+						gadget.id,
 						mw.config.get( 'wgNamespaceIds' ).gadget_definition
 					),
 					query = {
