@@ -186,6 +186,18 @@ class Gadget {
 			strlen( $id ) <= 255;
 	}
 
+	/*** Protected static methods ***/
+
+	/**
+	 * Normalize a settings array. Removes duplicates and sorts the array.
+	 * @param $array Array of strings
+	 * @return Sorted array with duplicates removed
+	 */
+	protected static function normalizeArray( &$array ) {
+		$array = array_unique( $array );
+		natsort( $array );
+	}
+
 	/*** Public methods ***/
 
 	/**
@@ -224,6 +236,13 @@ class Gadget {
 		$base = self::getPropertiesBase();
 		$this->settings = $properties['settings'] + $base['settings'];
 		$this->moduleData = $properties['module'] + $base['module'];
+
+		self::normalizeArray( $this->settings['rights'] );
+		if ( is_array( $this->settings['skins'] ) ) {
+			self::normalizeArray( $this->settings['skins'] );
+		}
+		self::normalizeArray( $this->moduleData['dependencies'] );
+		self::normalizeArray( $this->moduleData['messages'] );
 	}
 
 	/**
