@@ -337,16 +337,19 @@ class GadgetsHooks {
 							'name' => 'gadgetpref-' . bin2hex( $id ),
 						);
 					} else {
-						$sectionCat = $category === '' ? '' : "/gadgetcategory-$encRepoSource-$encCategory";
-						$preferences["gadget-$id"] = array(
-							'type' => 'toggle',
-							'label' => htmlspecialchars( $id ), // will be changed by JS
-							'section' => "gadgetsshared$sectionCat",
-							'cssclass' => 'mw-gadgets-shared-pref',
-							'name' => 'gadgetpref-' . bin2hex( $id ),
-							// 'default' isn't in here by design: we don't want
-							// enabledByDefault to be honored across wikis
-						);
+						// Avoid overwriting existing gadgets from the local or a previous repo
+						if ( !isset( $preferences["gadget-$id"] ) ) {
+							$sectionCat = $category === '' ? '' : "/gadgetcategory-$encRepoSource-$encCategory";
+							$preferences["gadget-$id"] = array(
+								'type' => 'toggle',
+								'label' => htmlspecialchars( $id ), // will be changed by JS
+								'section' => "gadgetsshared$sectionCat",
+								'cssclass' => 'mw-gadgets-shared-pref',
+								'name' => 'gadgetpref-' . bin2hex( $id ),
+								// 'default' isn't in here by design: we don't want
+								// enabledByDefault to be honored across wikis
+							);
+						}
 					}
 				}
 			}

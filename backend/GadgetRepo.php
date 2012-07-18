@@ -89,7 +89,7 @@ abstract class GadgetRepo {
 	
 	/**
 	 * Get all gadget repositories. Returns the LocalGadgetRepo singleton and any
-	 * repositories configured in $wgGadgetRepositories
+	 * repositories configured in $wgGadgetRepositories, in that order.
 	 * @return array of GadgetRepo objects
 	 */
 	public static function getAllRepos() {
@@ -107,7 +107,7 @@ abstract class GadgetRepo {
 	 * Helper function for getAllGadgets(), getAllGadgetIDs(), getAllRemoteGadgets() and getAllRemoteGadgetIDs()
 	 * @param $includeLocal boolean Whether gadgets from the local repo should be included
 	 * @param $getObjects boolean Whether Gadget objects should be constructed. If false, IDs (strings) will be returned
-	 * @return array of Gadget objects or strings
+	 * @return array of Gadget objects keyed by string, or array of strings
 	 */
 	private static function getAllGadgets_internal( $includeLocal, $getObjects ) {
 		$retval = array();
@@ -120,10 +120,13 @@ abstract class GadgetRepo {
 			$gadgets = $repo->getGadgetIds();
 			if ( $getObjects ) {
 				foreach ( $gadgets as $id ) {
-					$retval[] = $repo->getGadget( $id );
+					// If there is a naming collision, let the first one win
+					if ( !isset( $retval[$id] ) ) {
+						$retval[$id] = $repo->getGadget( $id );
+					}
 				}
 			} else {
-				$retval = array_merge( $retval, $gadgets );
+				$retval = array_unique( array_merge( $retval, $gadgets ) );
 			}
 		}
 		return $retval;
