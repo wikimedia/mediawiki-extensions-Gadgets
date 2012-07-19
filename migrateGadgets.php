@@ -195,8 +195,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 					$gadget['settings']['rights'] = $params;
 					break;
 				case 'skins':
-					// TODO we'll need to implement skins support in RL2 too
-					//$gadget['settings']['skins'] = array_intersect( array_keys( Skin::getSkinNames() ), $params );
+					$gadget['settings']['skins'] = array_values( array_intersect( array_keys( Skin::getSkinNames() ), $params ) );
 					break;
 				case 'default':
 					$gadget['settings']['default'] = true;
