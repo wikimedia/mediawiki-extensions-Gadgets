@@ -104,63 +104,21 @@ abstract class GadgetRepo {
 	}
 	
 	/**
-	 * Helper function for getAllGadgets(), getAllGadgetIDs(), getAllRemoteGadgets() and getAllRemoteGadgetIDs()
-	 * @param $includeLocal boolean Whether gadgets from the local repo should be included
-	 * @param $getObjects boolean Whether Gadget objects should be constructed. If false, IDs (strings) will be returned
-	 * @return array of Gadget objects keyed by string, or array of strings
-	 */
-	private static function getAllGadgets_internal( $includeLocal, $getObjects ) {
-		$retval = array();
-		$repos = GadgetRepo::getAllRepos();
-		foreach ( $repos as $repo ) {
-			if ( !$includeLocal && $repo->isLocal() ) {
-				continue;
-			}
-			
-			$gadgets = $repo->getGadgetIds();
-			if ( $getObjects ) {
-				foreach ( $gadgets as $id ) {
-					// If there is a naming collision, let the first one win
-					if ( !isset( $retval[$id] ) ) {
-						$retval[$id] = $repo->getGadget( $id );
-					}
-				}
-			} else {
-				$retval = array_unique( array_merge( $retval, $gadgets ) );
-			}
-		}
-		return $retval;
-	}
-	
-	/**
 	 * Get all gadgets from all repositories
 	 * @return array of Gadget objects
 	 */
 	public static function getAllGadgets() {
-		return self::getAllGadgets_internal( true, true );
-	}
-	
-	/**
-	 * Get all gadget IDs from all repositories
-	 * @return array of gadget IDs (strings)
-	 */
-	public static function getAllGadgetIDs() {
-		return self::getAllGadgets_internal( true, false );
-	}
-	
-	/**
-	 * Get all gadgets from all remote repositories (i.e. all repositories except the local repository)
-	 * @return array of Gadget objects
-	 */
-	public static function getAllRemoteGadgets() {
-		return self::getAllGadgets_internal( false, true );
-	}
-	
-	/**
-	 * Get all gadget IDs from all remote repositories (i.e. all repositories except the local repository)
-	 * @return array of gadget IDs (strings)
-	 */
-	public static function getAllRemoteGadgetIDs() {
-		return self::getAllGadgets_internal( false, false );
+		$retval = array();
+		$repos = GadgetRepo::getAllRepos();
+		foreach ( $repos as $repo ) {
+			$gadgets = $repo->getGadgetIds();
+			foreach ( $gadgets as $id ) {
+				// If there is a naming collision, let the first one win
+				if ( !isset( $retval[$id] ) ) {
+					$retval[$id] = $repo->getGadget( $id );
+				}
+			}
+		}
+		return $retval;
 	}
 }
