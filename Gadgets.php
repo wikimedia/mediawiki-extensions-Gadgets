@@ -65,7 +65,7 @@ $wgGadgetRepositories = array();
  * from this wiki, it just removes the option from the interface for gadget managers,
  * and enforces the option when saving.
  */
-$wgGadgetEnableSharing = true;
+$wgGadgetEnableSharing = false;
 
 /*** Setup ***/
 
