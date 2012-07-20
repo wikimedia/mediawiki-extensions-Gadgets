@@ -15,7 +15,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 	}
 	
 	protected function getUpdateKey() {
-		return 'migrate gadgets';
+		return '2.0 migration to gadgets table';
 	}
 
 	protected function updateSkippedMessage() {
@@ -24,7 +24,11 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 
 	protected function doDBUpdates() {
 		global $wgUser;
-		$wgUser->setName( 'Gadget migration script' );
+
+		// Username to use for page creations and moves performed by this script
+		// (should be in wgReservedUsernames).
+		$wgUser->setName( 'Maintenance script' );
+
 		$this->output( "Migrating old-style Gadgets from [[MediaWiki:Gadgets-definition]] ...\n" );
 		
 		$g = wfMessage( 'gadgets-definition' )->inContentLanguage();
@@ -101,7 +105,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 		if ( count( $notResourceLoaded ) ) {
 			$this->output( "WARNING: The following gadgets will now be loaded through ResourceLoader, but were not marked as supporting ResourceLoader. They may now be broken.\n" );
 			foreach ( $notResourceLoaded as $id ) {
-				$this->output( "$id\n" );
+				$this->output( "* $id\n" );
 			}
 		}
 		
