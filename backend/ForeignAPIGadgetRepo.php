@@ -104,15 +104,15 @@ class ForeignAPIGadgetRepo extends CachedGadgetRepo {
 	 * Reformat a response from the API into the format that loadAllData()
 	 * is supposed to return.
 	 * @param $apiResponse array
-	 * @return array|false
+	 * @return array of gadgets keyed by ID.
 	 */
 	protected function reformatAPIResult( $apiResult ) {
 		if ( !isset( $apiResult['query']['gadgets'] ) ) {
-			return false;
+			return array();
 		}
 		$gadgets = $apiResult['query']['gadgets'];
 		if ( !is_array( $gadgets ) ) {
-			return false;
+			return array();
 		}
 		
 		$retval = array();
