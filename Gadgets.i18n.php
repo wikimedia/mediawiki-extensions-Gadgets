@@ -2236,6 +2236,7 @@ Aqueste susvòl dona un accès rapid a las paginas de messatges del sistèma que
 );
 
 /** Oriya (ଓଡ଼ିଆ)
+ * @author Ansumang
  * @author Odisha1
  * @author Psubhashish
  */
@@ -2247,7 +2248,7 @@ $messages['or'] = array(
 ଜାଣିରଖନ୍ତୁ ଯେ ଏହିସବୁ ଗ୍ୟାଜେଟ ଆପଣଙ୍କର ପସନ୍ଦ ପୃଷ୍ଠା ଉପରେ କିଛି ପ୍ରଭାବ ପକାଇବେ ନାହିଁ ।
 
 ଆହୁରି ଜାଣିରଖନ୍ତୁ ଯେ ଏହି ବିଶେଷ ଗ୍ୟାଜେଟସବୁ ମିଡ଼ିଆଉଇକି ସଫ୍ଟଵେର ଅନ୍ତଭୁକ୍ତ ନୁହଁନ୍ତି । ଏହିସବୁ ସାଧାରଣତ ଆପଣଙ୍କ ଆଞ୍ଚଳିକ ଉଇକିର ସଭ୍ୟ ମାନଙ୍କ ଦେଇ ତିଆରି ଓ ପରିଚାଳିତ ହୋଇଥାଏ ।
-ଆଞ୍ଚଳିକ ପରିଛାଗଣ ଗ୍ୟାଜେଟର [[MediaWiki:Gadgets-definition|ସଜ୍ଞା]] ଓ [[Special:Gadgets|ବିବରଣୀ]]ସବୁ ବଦଳାଇପାରିବେ ।',
+ଆଞ୍ଚଳିକ ପରିଚାଳକଗଣ ଗ୍ୟାଜେଟର [[MediaWiki:Gadgets-definition|ସଜ୍ଞା]] ଓ [[Special:Gadgets|ବିବରଣୀ]]ସବୁ ବଦଳାଇପାରିବେ ।',
 	'gadgets' => 'ଗ୍ୟାଜେଟ',
 	'gadgets-title' => 'ଗ୍ୟାଜେଟ',
 	'gadgets-pagetext' => '[[MediaWiki:Gadgets-definition|ସଜ୍ଞା]] ଅନୁସାରେ ତଳେ ସଭ୍ୟମାନଙ୍କ [[Special:Preferences|ପସନ୍ଦ ପୃଷ୍ଠା]]ରୁ ସଚଳ କରାଯାଇପାରିବା ଭଳି କେତେକ ବିଶେଷ ଗ୍ୟାଜେଟର ତାଲିକା ଦିଆଗଲା ।
@@ -2462,7 +2463,7 @@ Esta visão geral proporciona um acesso fácil para as mensagens de sistema que 
 
 $1',
 	'gadgets-required-skins' => 'Disponível {{PLURAL:$2|no skin $1|nos seguintes skins: $1}}.',
-	'gadgets-default' => 'Ativar para todos por padrão.',
+	'gadgets-default' => 'Ativado para todos por padrão.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportação de gadget',
 	'gadgets-not-found' => '*Gadget "$1" não encontrado.',
@@ -3076,6 +3077,7 @@ $messages['tt-cyrl'] = array(
  * @author AS
  * @author Ahonc
  * @author Dim Grits
+ * @author Olvin
  * @author Prima klasy4na
  * @author Riwnodennyk
  * @author Sodmy
@@ -3084,16 +3086,16 @@ $messages['tt-cyrl'] = array(
 $messages['uk'] = array(
 	'gadgets-desc' => 'Дозволяє користувачам обирати [[Special:Gadgets|CSS- та JavaScript-додатки]] у своїх [[Special:Preferences|налаштуваннях]]',
 	'prefs-gadgets' => 'Додатки',
-	'gadgets-prefstext' => 'Нижче наведений список спеціальних додатків, які ви можете ввімкнути для свого облікового запису.
-Ці додатки переважно базуються на JavaScript, тому ви повинні ввімкнути JavaScript для того, щоб вони працювали.
-Зауважте, що ці додатки не працюють на сторінці налаштувань.
+	'gadgets-prefstext' => 'Нижче наведено перелік особливих додатків, які ви можете ввімкнути для свого облікового запису.
+Ці додатки переважно засновані на JavaScript, тому ви маєте ввімкнути JavaScript для того, щоб вони працювали.
+Зауважте, що на цій сторінці налаштувань такі додатки не працюватимуть.
 
-Також зауважте, що ці додатки не є частиною MediaWiki і зазвичай розробляються і обслуговуються користувачами локальної вікі.
-Адміністратори можуть змінювати список додатків за допомогою сторінок їх [[MediaWiki:Gadgets-definition|визначення]] та [[Special:Gadgets|опису]].',
+Також зауважте, що ці додатки не є частиною MediaWiki й зазвичай розробляються та обслуговуються дописувачами цієї локальної вікі.
+Адміністратори можуть змінювати перелік додатків за допомогою сторінок їх [[MediaWiki:Gadgets-definition|визначення]] та [[Special:Gadgets|опису]].',
 	'gadgets' => 'Додатки',
 	'gadgets-title' => 'Додатки',
-	'gadgets-pagetext' => 'Нижче наведений список додатків, які можна ввімкнути на [[Special:Preferences|сторінці налаштувань]]. Список міститься на [[MediaWiki:Gadgets-definition|сторінці визначень]].
-Цей список дозволяє легко переглядати системні повідомлення, які містять описи і коди додатків.',
+	'gadgets-pagetext' => 'Нижче наведено перелік додатків, які можна ввімкнути на [[Special:Preferences|сторінці налаштувань]]. Цей перелік задано на [[MediaWiki:Gadgets-definition|сторінці визначень]].
+Таким чином, можна отримати простий доступ до системних сторінок, де задається опис кожного додатку та його код.',
 	'gadgets-uses' => 'Використовує',
 	'gadgets-required-rights' => '{{PLURAL:$2|Потрібне право|Потрібні такі права}}:
 
