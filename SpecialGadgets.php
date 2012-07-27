@@ -343,16 +343,16 @@ class SpecialGadgets extends SpecialPage {
 		$exportTitles[] = GadgetsHooks::getDefinitionTitleFromID( $gadget->getId() );
 
 		// Title message in NS_MEDIAWIKI
-		$exportTitles[] = Title::makeTitleSafe( NS_MEDIAWIKI, $gadget->getTitleMessageKey() );
-
-		// Translation subpages of title message
-		// @todo
-
+		$titleMessage = Title::makeTitleSafe( NS_MEDIAWIKI, $gadget->getTitleMessageKey() );
 		// Description message in NS_MEDIAWIKI
-		$exportTitles[] = Title::makeTitleSafe( NS_MEDIAWIKI, $gadget->getDescriptionMessageKey() );
-
-		// Translation subpages of description message
-		// @todo
+		$descriptionMessage = Title::makeTitleSafe( NS_MEDIAWIKI, $gadget->getDescriptionMessageKey() );
+		// Add these pages and their subpages (for translations)
+		$exportTitles = array_merge( $exportTitles,
+			$titleMessage,
+			$titleMessage->getSubpages(),
+			$descriptionMessage,
+			$desciptionMessage->getSubpages()
+		);
 
 		// Module script and styles in NS_GADGET
 		foreach ( $gadget->getScripts() as $script ) {
@@ -367,7 +367,12 @@ class SpecialGadgets extends SpecialPage {
 
 		// Module messages in NS_MEDIAWIKI
 		foreach( $gadgetModule->getMessages() as $message ) {
-			$exportTitles[] = Title::makeTitleSafe( NS_MEDIAWIKI, $message );
+			$message = Title::makeTitleSafe( NS_MEDIAWIKI, $message );
+			// Add this page and its subpages (for translations)
+			$exportTitles = array_merge( $exportTitles,
+				$message,
+				$message->getSubpages()
+			);
 		}
 
 		// Translation subpages of module messages
