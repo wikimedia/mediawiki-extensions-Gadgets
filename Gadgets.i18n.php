@@ -591,6 +591,13 @@ Na cílové wiki musíte mít příslušná oprávnění (včetně práva editov
 	'gadgets-export-download' => 'Stáhnout',
 );
 
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+ * @author ОйЛ
+ */
+$messages['cu'] = array(
+	'gadgets-title' => 'доплънитєл҄ьнꙑ орѫдиꙗ',
+);
+
 /** Welsh (Cymraeg)
  * @author Lloffiwr
  */
@@ -1190,14 +1197,14 @@ Special:Import નિયોજીત વિકિ પર Special:Import પર �
  */
 $messages['he'] = array(
 	'gadgets-desc' => 'אפשרות למשתמשים לבחור [[Special:Gadgets|סקריפטים בקוד JavaScript וסגנונות בקוד CSS]] ב[[Special:Preferences|העדפות]] שלהם',
-	'prefs-gadgets' => 'סקריפטים',
+	'prefs-gadgets' => "גאדג'טים",
 	'gadgets-prefstext' => 'להלן רשימה של סקריפטים שתוכלו להתקין בחשבון שלכם.
 הסקריפטים מבוססים ברובם על שפת JavaScript, ולכן יש לאפשר את הפעלתה בדפדפן כדי שהם יעבדו.
 שימו לב שלא תהיה לסקריפטים כל השפעה על דף ההעדפות הזה.
 
 כמו כן, הסקריפטים אינם חלק מתוכנת מדיה־ויקי, והם בדרך כלל מפותחים ומתוחזקים על ידי משתמשים בוויקי המקומי.
 מפעילי המערכת יכולים לערוך את ב[[MediaWiki:Gadgets-definition|דף ההגדרות]] ו[[Special:Gadgets|התיאורים]] של הסקריפטים.',
-	'gadgets' => 'סקריפטים',
+	'gadgets' => "גאדג'טים",
 	'gadgets-title' => 'סקריפטים',
 	'gadgets-pagetext' => 'זוהי רשימה של סקריפטים שמשתמשים יכולים להתקין באמצעות [[Special:Preferences|דף ההעדפות]] שלהם, כפי שהוגדרו ב[[MediaWiki:Gadgets-definition|הודעת המערכת המתאימה]].
 מכאן ניתן לגשת בקלות לדפי הודעות המערכת שמגדירים את התיאור והקוד של כל סקריפט.',
@@ -2127,7 +2134,7 @@ Beheerders kunnen t beschikbaore techniese spul angeven in [[MediaWiki:Gadgets-d
 	'gadgets' => 'Technies spul',
 	'gadgets-title' => 'Technies spul',
 	'gadgets-pagetext' => 'Hieronder steet spesiaal technies spul die gebrukers in kunnen schakelen bie [[Special:Preferences|mien veurkeuren]], zo as in-esteld in de [[MediaWiki:Gadgets-definition|defenisies]].
-Dit overzichte biejt eenvoudige toegang tot de systeemtekstpagina waor de beschrieving en de programmakode van elke technies snufjen steet.',
+Dit overzichte biejt eenvoudige toegang tot de systeemtekstzied waor de beschrieving en de programmakode van elke technies snufjen steet.',
 	'gadgets-uses' => 'Gebruuk',
 );
 
@@ -2411,7 +2418,7 @@ $messages['ps'] = array(
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'gadgets-desc' => "Permite que os utilizadores seleccionem [[Special:Gadgets|''\"gadgets\"'' JavaScript e CSS]] personalizados nas suas [[Special:Preferences|preferências]]",
+	'gadgets-desc' => "Permite que os utilizadores seleccionem [[Special:Gadgets|''\"gadgets\"'' em JavaScript e CSS]] personalizados nas suas [[Special:Preferences|preferências]]",
 	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => "Segue-se uma lista de ''\"gadgets\"'' especiais que pode activar na sua conta.
 Estes ''gadgets'' são baseados principalmente em JavaScript, sendo necessário activar o suporte a JavaScript no seu browser para que funcionem.
@@ -2427,6 +2434,7 @@ Este resumo proporciona acesso fácil às páginas das mensagens de sistema que 
 	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o seguinte privilégio|os seguintes privilégios}}:
 
 $1',
+	'gadgets-required-skins' => 'Disponível {{PLURAL:$2|no tema $1|nos seguintes temas: $1}}',
 	'gadgets-default' => 'Activado para todos por padrão.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportação de gadget',
@@ -2601,6 +2609,25 @@ $messages['rue'] = array(
 <pre>$2</pre>
 На цілёвій вікі мусите мати одповідны права (шпеціално права едітовати сістемны повідомлїня) і мусить быти поволеный імпорт з файлу.',
 	'gadgets-export-download' => 'Скачати',
+);
+
+/** Sanskrit (संस्कृतम्)
+ * @author Shubha
+ */
+$messages['sa'] = array(
+	'prefs-gadgets' => 'उपकरणानि',
+	'gadgets' => 'उपकरणानि',
+	'gadgets-title' => 'उपकरणानि',
+	'gadgets-uses' => 'उपयोगः',
+	'gadgets-required-rights' => 'अधोनिर्दिष्टम् अपेक्षते {{PLURAL:$2|अधिकारः|अधिकारः}}:
+
+$1',
+	'gadgets-required-skins' => 'उपलभ्यते {{PLURAL:$2|$1 विन्यासः|अधोनिर्दिष्टः विन्यासः: $1}}.',
+	'gadgets-default' => 'पूर्वनिर्दिष्टरूपेण सर्वेषां कृते सक्रियं विद्यते।',
+	'gadgets-export' => 'निर्यातः',
+	'gadgets-export-title' => 'उपकरणनिर्यातः',
+	'gadgets-not-found' => '"$1" उपकरणं न प्राप्तम् ।',
+	'gadgets-export-download' => 'अवतार्यताम्',
 );
 
 /** Sakha (саха тыла)
