@@ -2615,6 +2615,7 @@ $messages['rue'] = array(
  * @author Shubha
  */
 $messages['sa'] = array(
+	'gadgets-desc' => 'योजकाः स्वस्य [[Special:Preferences|इष्टतमानि]] इत्यत्र [[Special:Gadgets|CSS जावालिपि-उपकरणं च]] चीयताम् ।',
 	'prefs-gadgets' => 'उपकरणानि',
 	'gadgets' => 'उपकरणानि',
 	'gadgets-title' => 'उपकरणानि',
