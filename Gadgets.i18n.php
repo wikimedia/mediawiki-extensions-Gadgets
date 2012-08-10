@@ -1384,6 +1384,7 @@ Tu debe haber le permissiones appropriate in le wiki de destination (includente 
  * @author Bennylin
  * @author Farras
  * @author IvanLanin
+ * @author Kenrick95
  */
 $messages['id'] = array(
 	'gadgets-desc' => 'Memungkinkan pengguna memilih [[Special:Gadgets|perkakas CSS dan JavaScript]] melalui [[Special:Preferences|preferensi]] mereka',
@@ -1395,7 +1396,9 @@ Juga perhatikan bahwa perkakas istimewa ini bukanlah bagian dari perangkat lunak
 	'gadgets-title' => 'Perkakas',
 	'gadgets-pagetext' => 'Berikut adalah daftar perkakas istimewa yang dapat diaktifkan pengguna melalui [[Special:Preferences|halaman preferensi]] mereka sebagaimana didefinisikan oleh [[MediaWiki:Gadgets-definition]]. Tinjauan berikut memberikan kemudahan akses ke dalam halaman pesan sistem yang mendefinisikan deskripsi dan kode masing-masing perkakas.',
 	'gadgets-uses' => 'Penggunaan',
-	'gadgets-required-rights' => 'Memerlukan {{PLURAL:$2|hak $1|hak-hak berikut: $1}}.',
+	'gadgets-required-rights' => 'Memerlukan {{PLURAL:$2|hak|hak-hak}} berikut:
+
+$1',
 	'gadgets-required-skins' => 'Tersedia dalam {{PLURAL:$2|$1 kulit|kulit berikut: $1}}.',
 	'gadgets-default' => 'Diaktifkan untuk semua orang secara bawaan.',
 	'gadgets-export' => 'Ekspor',
