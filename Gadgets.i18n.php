@@ -2941,8 +2941,11 @@ Du måste ha tillräckliga behörigheter på destinationswikin (inklusive möjli
 	'gadgets-export-download' => 'Ladda ner',
 );
 
-/** Swahili (Kiswahili) */
+/** Swahili (Kiswahili)
+ * @author Stephenwanjau
+ */
 $messages['sw'] = array(
+	'gadgets-uses' => 'Inatumia',
 	'gadgets-export-download' => 'Pakua',
 );
 
@@ -2977,7 +2980,11 @@ $messages['te'] = array(
 	'gadgets-title' => 'ఉపకరణాలు',
 	'gadgets-pagetext' => 'ఈ దిగువన ఉన్న ప్రత్యేక ఉపకరణాల నుండి సభ్యులు తమకు కావలసినవి తమ [[Special:Preferences|అభిరుచులు పేజీ]]లోని ఉపకరణాల టాబులో టిక్కు పెట్టి ఎనేబుల్ చేసుకొనే అవకాశం ఉన్నది. వీటిని [[MediaWiki:Gadgets-definition|ఉపకరణాల నిర్వచన]] పేజీలో నిర్వచించడం జరిగింది. ఈ చిన్న పరిచయం ఆయా ఉపకరణాల నిర్వచన మరియు కోడుకు సంబంధించిన మీడియావికీ సందేశాలకు సులువుగా చేరుకునేందుకు లింకులను సమకూర్చుతుంది.',
 	'gadgets-uses' => 'ఉపయోగించే ఫైళ్ళు',
+	'gadgets-required-rights' => 'ఈ క్రింది {{PLURAL:$2|హక్కు|హక్కులు}} కావాలి:
+
+$1',
 	'gadgets-export' => 'ఎగుమతించు',
+	'gadgets-not-found' => '"$1" ఉపకరణం కనబడలేదు.',
 	'gadgets-export-download' => 'దింపుకోండి',
 );
 
