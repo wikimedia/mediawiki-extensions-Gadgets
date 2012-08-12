@@ -2053,14 +2053,21 @@ Anda hendaklah mempunyai keizinan yang bersesuaian di wiki sasaran (termasuklah 
  * @author Chrisportelli
  */
 $messages['mt'] = array(
+	'prefs-gadgets' => 'Aċċessorji',
 	'gadgets-prefstext' => "Hawn taħt hawn lista ta' aġġeġġi speċjali li inti tista' tippermetti għall-kont tiegħek.
 Dawn l-aġġeġġi huma l-aktar ibbażati fuq JavaScript, u għalhekk il-JavaScript trid tkun awtorizzata fil-browżer tiegħek sabiex ikunu jistgħu jaħdmu.
 Kun af li dawn l-aġġeġġi mhu se jħallu ebda effett fuq din il-paġna tal-preferenzi.
 
 Għandek tkun taf ukoll li dawn l-aġġeġġi spe1jali mhumiex parti mis-softwer tal-MediaWiki, u huma ħafna drabi żviluppati u mantenuti minn utenti fuq il-wiki lokali tiegħek.
 L-amministraturi lokali jistgħu jimmodifikaw id-[[MediaWiki:Gadgets-definition|definizzjonijiet]] u d-[[Special:Gadgets|deskrizzjonijiet]] tal-aġġeġġi disponibbli.",
+	'gadgets' => 'Aċċessorji',
+	'gadgets-title' => 'Aċċessorji',
 	'gadgets-pagetext' => "Hawn taħt hawn lista ta' aġġeġġi speċjali li l-utenti jistgħu jippermettu fil-[[Special:Preferences|paġna tal-preferenzi]], kif definit fid-[[MediaWiki:Gadgets-definition|definizzjonijiet]].
 Din il-ħarsa tipprovdi aċċess faċli għall-messaġġi tas-sistema li fihom hemm deskrizzjoni u s-sors ta' kull aġġeġġ.",
+	'gadgets-export' => 'Esporta',
+	'gadgets-export-title' => 'Esporta aċċessorju',
+	'gadgets-not-found' => 'L-aċċessorju "$1" ma nstabx.',
+	'gadgets-export-download' => 'Niżżel',
 );
 
 /** Mazanderani (مازِرونی)
@@ -2951,12 +2958,18 @@ $messages['sw'] = array(
 
 /** Tamil (தமிழ்)
  * @author TRYPPN
+ * @author மதனாஹரன்
  */
 $messages['ta'] = array(
 	'prefs-gadgets' => 'கருவிகள்',
 	'gadgets' => 'கருவிகள்',
 	'gadgets-title' => 'கருவிகள்',
 	'gadgets-uses' => 'பயன்பாடுகள்',
+	'gadgets-required-rights' => 'பின்வரும் {{PLURAL:$2|உரிமை|உரிமைகள்}} வேண்டப்படுகின்றன:
+
+$1',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1 தோலில்|பின்வரும் தோல்களில்: $1} கிடைக்கும்.',
+	'gadgets-default' => 'இயல்பாக அனைவருக்கும் செயற்பட வைக்கப்பட்டது.',
 	'gadgets-export' => 'ஏற்றுமதி செய்',
 	'gadgets-export-title' => 'கருவியை ஏற்றுமதி செய்',
 	'gadgets-not-found' => "''$1'' என்ற கருவி காணப்படவில்லை.",
