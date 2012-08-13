@@ -1569,6 +1569,7 @@ Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren o
 
 /** Javanese (Basa Jawa)
  * @author Meursault2004
+ * @author NoiX180
  * @author Pras
  */
 $messages['jv'] = array(
@@ -1583,6 +1584,15 @@ Uga mangga diwigatèkaké yèn gadget astaméwa iki dudu bagéyan saka piranti e
 	'gadgets-pagetext' => 'Ing ngisor iki daftar gadget astaméwa sing bisa diaktifaké ing [[Special:Preferences|kaca prèferènsi]] panganggo, kayadéné didéfinisi déning [[MediaWiki:Gadgets-definition|dhéfinisi]].
 Tinjoan iki mènèhi aksès sing gampang menyang kaca-kaca pesen sistem sing ngawedhar saben gadget lan kodhe.',
 	'gadgets-uses' => 'Kagunan',
+	'gadgets-required-rights' => 'Mbutuhaké {{PLURAL:$2|hak|hak-hak}}:
+
+$1',
+	'gadgets-required-skins' => 'Sumadhiya nèng {{PLURAL:$2|$1 kulit|kulit-kulit iki: $1}}.',
+	'gadgets-default' => 'Diurubaké kanggo kabèh wong sacara gawan.',
+	'gadgets-export' => 'Èkspor',
+	'gadgets-export-title' => 'Èkspor perkakas',
+	'gadgets-not-found' => 'Perkasas "$1" ora ditemokaké.',
+	'gadgets-export-download' => 'Undhuh',
 );
 
 /** Georgian (ქართული)
@@ -2064,6 +2074,11 @@ L-amministraturi lokali jistgħu jimmodifikaw id-[[MediaWiki:Gadgets-definition|
 	'gadgets-title' => 'Aċċessorji',
 	'gadgets-pagetext' => "Hawn taħt hawn lista ta' aġġeġġi speċjali li l-utenti jistgħu jippermettu fil-[[Special:Preferences|paġna tal-preferenzi]], kif definit fid-[[MediaWiki:Gadgets-definition|definizzjonijiet]].
 Din il-ħarsa tipprovdi aċċess faċli għall-messaġġi tas-sistema li fihom hemm deskrizzjoni u s-sors ta' kull aġġeġġ.",
+	'gadgets-uses' => 'Juża',
+	'gadgets-required-rights' => 'Għandu bżonn id-{{PLURAL:$2|dritt|drittijiet}} segwenti:
+
+$1',
+	'gadgets-required-skins' => 'Disponibbli fuq {{PLURAL:$2|l-iskema $1|l-iskemi segwenti: $1}}.',
 	'gadgets-export' => 'Esporta',
 	'gadgets-export-title' => 'Esporta aċċessorju',
 	'gadgets-not-found' => 'L-aċċessorju "$1" ma nstabx.',
