@@ -411,6 +411,7 @@ $messages['bg'] = array(
 
 /** Bengali (বাংলা)
  * @author Bellayet
+ * @author Nasir8891
  * @author Wikitanvir
  * @author Zaheen
  */
@@ -426,6 +427,10 @@ $messages['bn'] = array(
 	'gadgets-title' => 'গ্যাজেট',
 	'gadgets-pagetext' => 'নিচে বিশেষ গ্যাজেটের একটি তালিকা রয়েছে, যা ব্যবহারকারী তাদের [[Special:Preferences|প্রছন্দের পাতা]] থেকে সক্রিয় করে নিতে পারবেন এবং যা [[MediaWiki:Gadgets-definition|definitions]] পাতায় সংজ্ঞায়িত রয়েছে। পর্যালোচনা সিস্টেম বার্তা পাতায় সহজ প্রবেশাধিকার দিবে, যেখানে গ্যাজেটের বর্ণনা এবং কোড রয়েছে।',
 	'gadgets-uses' => 'ব্যবহারসমূহ',
+	'gadgets-required-rights' => 'নিচের {{PLURAL:$2|অধিকার|অধিকারগুলো}} প্রয়োজন:
+$1',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1 স্কিন|স্কিনগুলো: $1}} থেকে ব্যবহার করা যাবে।',
+	'gadgets-default' => 'সকলের জন্য সয়ংক্রিয়ভাবে সক্রিয়।',
 	'gadgets-export' => 'রপ্তানি',
 	'gadgets-export-title' => 'গ্যাজেট রফতানী',
 	'gadgets-not-found' => 'গ্যাজেট "$1" খুজে পাওয়া যায়নি।',
@@ -2063,6 +2068,7 @@ Anda hendaklah mempunyai keizinan yang bersesuaian di wiki sasaran (termasuklah 
  * @author Chrisportelli
  */
 $messages['mt'] = array(
+	'gadgets-desc' => 'Tħalli lill-utenti jagħżlu [[Special:Gadgets|aċċessorji CSS u JavaScript]] fil-[[Special:Preferences|preferenzi]] tagħhom',
 	'prefs-gadgets' => 'Aċċessorji',
 	'gadgets-prefstext' => "Hawn taħt hawn lista ta' aġġeġġi speċjali li inti tista' tippermetti għall-kont tiegħek.
 Dawn l-aġġeġġi huma l-aktar ibbażati fuq JavaScript, u għalhekk il-JavaScript trid tkun awtorizzata fil-browżer tiegħek sabiex ikunu jistgħu jaħdmu.
@@ -2964,9 +2970,12 @@ Du måste ha tillräckliga behörigheter på destinationswikin (inklusive möjli
 );
 
 /** Swahili (Kiswahili)
+ * @author Kwisha
  * @author Stephenwanjau
  */
 $messages['sw'] = array(
+	'gadgets' => 'Vifaa',
+	'gadgets-title' => 'Vifaa',
 	'gadgets-uses' => 'Inatumia',
 	'gadgets-export-download' => 'Pakua',
 );
