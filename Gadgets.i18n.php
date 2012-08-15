@@ -1088,6 +1088,13 @@ O est nècèssèro de d’avêr los drêts corrèspondents sur lo vouiqui de dè
 	'gadgets-export-download' => 'Tèlèchargiér',
 );
 
+/** Irish (Gaeilge)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ga'] = array(
+	'gadgets-export' => 'Easportáil',
+);
+
 /** Galician (galego)
  * @author Alma
  * @author Toliño
@@ -2235,6 +2242,24 @@ Voeg daarna het volgende toe aan de pagina "MediaWiki:Gadgets-definition":
 <pre>$2</pre>
 U moet de juiste rechten hebben op de doelwiki, inclusief het recht om bewerkingen te maken aan de systeemberichten, en importeren uit bestanden moet ingeschakeld zijn.',
 	'gadgets-export-download' => 'Downloaden',
+);
+
+/** ‪Nederlands (informeel)‬ (‪Nederlands (informeel)‬)
+ * @author Siebrand
+ */
+$messages['nl-informal'] = array(
+	'gadgets-prefstext' => 'Hieronder staan de speciale uitbreidingen die je kunt inschakelen.
+De uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet voor je browser ingeschakeld zijn om ze te laten werken.
+De uitbreidingen hebben geen invloed op deze pagina met voorkeuren.
+
+Deze speciale uitbreidingen zijn geen onderdeel van de MediaWiki-software en worden meestal ontwikkeld en onderhouden door gebruikers van jouw wiki.
+Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition|definities]] en [[Special:Gadgets|beschrijvingen]].',
+	'gadgets-export-text' => 'Klik op de knop "{{int:gadgets-export-download}}" om de uitbreiding "$1" te exporteren.
+Sla daarna het gedownloade bestand op.
+Ga naar "Special:Import" in de doelwiki en upload het geëxporteerde bestand.
+Voeg daarna het volgende toe aan de pagina "MediaWiki:Gadgets-definition":
+<pre>$2</pre>
+Je moet de juiste rechten hebben op de doelwiki, inclusief het recht om bewerkingen te maken aan de systeemberichten, en importeren uit bestanden moet ingeschakeld zijn.',
 );
 
 /** Norwegian Nynorsk (‪norsk (nynorsk)‬)
