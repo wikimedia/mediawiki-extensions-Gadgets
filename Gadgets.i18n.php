@@ -913,6 +913,7 @@ Sul peavad olema sihtvikis vajalikud õigused (kaasa arvatud õigus redigeerida 
  * @author An13sa
  * @author Inorbez
  * @author Unai Fdz. de Betoño
+ * @author පසිඳු කාවින්ද
  */
 $messages['eu'] = array(
 	'gadgets-desc' => 'Lankideek [[Special:Gadgets|CSS eta JavaScript gadgetak]] aukeratu ditzazkete beraien [[Special:Preferences|hobespenetan]]',
@@ -929,6 +930,7 @@ Administratzaileek [[MediaWiki:Gadgets-definition|definizioak]] eta [[Special:Ga
 Ikuspegi orokor honek gadget bakoitza definitzen duen deskribapen eta kode orrietarako lotura errazak eskaintzen ditu.',
 	'gadgets-uses' => 'Erabilerak',
 	'gadgets-export' => 'Esportatu',
+	'gadgets-export-download' => 'Jaitsi',
 );
 
 /** Extremaduran (estremeñu)
@@ -2681,8 +2683,16 @@ $1',
 $messages['sa'] = array(
 	'gadgets-desc' => 'योजकाः स्वस्य [[Special:Preferences|इष्टतमानि]] इत्यत्र [[Special:Gadgets|CSS जावालिपि-उपकरणं च]] चीयताम् ।',
 	'prefs-gadgets' => 'उपकरणानि',
+	'gadgets-prefstext' => 'अधः विशेषोपकरणानां सूची प्रदत्ता अस्ति याः भवान् भवतः लेखायां सक्रियाः कर्तुम् अर्हति ।
+एतानि जावालिप्याधारितानि विद्यन्ते, अतः कार्यकरणाय भवतः जालगवेषके जावालिपिः सक्रिया करणीया ।
+ज्ञायतां यत् एतानि उपकरणानि भवतः इष्टतमानि इत्येतस्मिन् पृष्ठे कार्यं न कुर्वन्ति ।
+
+इदमपि जानातु यत् एतानि विशेषोपकरणानि विकिमाध्यमतन्त्रांशस्य भागभूताः न, भवतः स्थानीयविक्यामेव योजकैः निर्मितं निरूह्यमानञ्च वर्तते ।
+विद्यमानानाम् उपकरणानां  [[MediaWiki:Gadgets-definition|definitions]]  [[Special:Gadgets|descriptions]] च स्थानीयप्रबन्धकैः सम्पादयितुं शक्यते ।',
 	'gadgets' => 'उपकरणानि',
 	'gadgets-title' => 'उपकरणानि',
+	'gadgets-pagetext' => '[[MediaWiki:Gadgets-definition|निर्वचन]]स्य अनुगुणम् अधः विशेषोपकरणानाम् अवली निर्दिष्टा अस्ति यानि भवतः [[Special:Preferences|इष्टतमानि]] इत्यस्मिन् पृष्ठे सक्रियाणि कर्तुम् अर्हति ।
+इयं समीक्षा सर्वेषाम् उपकरणानां विवरणं कूटसङ्ख्यां च तन्त्रसन्देशे सुलभतया प्राप्तुं सहकरोति ।',
 	'gadgets-uses' => 'उपयोगः',
 	'gadgets-required-rights' => 'अधोनिर्दिष्टम् अपेक्षते {{PLURAL:$2|अधिकारः|अधिकारः}}:
 
@@ -2692,6 +2702,8 @@ $1',
 	'gadgets-export' => 'निर्यातः',
 	'gadgets-export-title' => 'उपकरणनिर्यातः',
 	'gadgets-not-found' => '"$1" उपकरणं न प्राप्तम् ।',
+	'gadgets-export-text' => '$1 उपकरणस्य निर्याताय "{{int:gadgets-export-download}}" पिञ्जः नोदनीयः, अवारोपिता सञ्चिका रक्ष्यताम्, लक्ष्यविक्यां Special:Import प्रति गम्यताम् उपारोप्यताञ्च । तत्पश्चात् MediaWiki:Gadgets-definition इत्यस्मिन् अधोनिर्दिष्टं योज्यताम् : <pre>$2</pre>
+लक्ष्यविक्यां भवतः उप्युक्ताधिकारः स्यात् (तन्त्रसन्देशसम्पादनस्य अधिकारः अन्तर्भूतः) सञ्चिकोपरोपणात् आयातः सक्षमः करणीयः',
 	'gadgets-export-download' => 'अवतार्यताम्',
 );
 
@@ -3218,6 +3230,18 @@ $1',
 <pre>$2</pre>
 Ви повинні мати відповідні права на цільовій віці (зокрема на редагування системних повідомлень), окрім того має бути ввімкнена можливість імпорту з файлу.',
 	'gadgets-export-download' => 'Завантажити',
+);
+
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'prefs-gadgets' => 'گیجٹ',
+	'gadgets' => 'گیجٹ',
+	'gadgets-title' => 'گیجٹ',
+	'gadgets-uses' => 'استعمال کرتا ہے',
+	'gadgets-export' => 'برآمد',
+	'gadgets-export-title' => 'گیجٹ برآمد',
 );
 
 /** vèneto (vèneto)
