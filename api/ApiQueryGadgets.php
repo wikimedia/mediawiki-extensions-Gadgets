@@ -122,10 +122,10 @@ class ApiQueryGadgets extends ApiQueryBase {
 	 * @return bool
 	 */
 	private function isNeeded( Gadget $gadget ) {
-		global $wgUser;
+		$user = $this->getUser();
 
-		return ( !$this->listAllowed || $gadget->isAllowed( $wgUser ) )
-			&& ( !$this->listEnabled || $gadget->isEnabled( $wgUser ) )
+		return ( !$this->listAllowed || $gadget->isAllowed( $user ) )
+			&& ( !$this->listEnabled || $gadget->isEnabled( $user ) )
 			&& ( !$this->listShared || $gadget->isShared() )
 			&& ( !$this->categories || isset( $this->categories[$g->getCategory()] ) );
 	}

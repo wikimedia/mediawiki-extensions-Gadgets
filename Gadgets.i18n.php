@@ -258,7 +258,7 @@ $messages['am'] = array(
 	'gadgets-uses' => 'የተጠቀመው ጃቫ-ስክሪፕት',
 );
 
-/** Aragonese (Aragonés)
+/** Aragonese (aragonés)
  * @author Juanpabl
  */
 $messages['an'] = array(
@@ -291,6 +291,7 @@ Has de tener permisos apropiaus en o wiki de destín (incluindo o dreito a edita
 
 /** Arabic (العربية)
  * @author Aiman titi
+ * @author DRIHEM
  * @author Meno25
  * @author OsamaK
  * @author روخو
@@ -310,7 +311,9 @@ $messages['ar'] = array(
 	'gadgets-pagetext' => 'بالأسفل قائمة بالإضافات الخاصة التي يمكن أن يقوم المستخدمون بتفعيلها على [[Special:Preferences|صفحة تفضيلاتهم]]، معرفة بواسطة [[MediaWiki:Gadgets-definition|التعريفات]].
 هذا العرض يوفر دخولا سهلا لصفحات رسائل النظام التي تعرف وصف وكود كل إضافة.',
 	'gadgets-uses' => 'تستخدم',
-	'gadgets-required-rights' => 'يتطلب {{PLURAL:$2|$1 حق|الحقوق التالية: $1}}.',
+	'gadgets-required-rights' => 'يتطلب {{PLURAL:$2|الحق|الحقوق}} التالية:
+
+$1',
 	'gadgets-required-skins' => 'متاحة على {{PLURAL:$2|$1 skin|following skins: $1}}.',
 	'gadgets-default' => 'تمكين الجميع بشكل افتراضي.',
 	'gadgets-export' => 'صدّر',
@@ -353,7 +356,39 @@ $messages['arz'] = array(
 	'gadgets-uses' => 'إستخدامات',
 );
 
-/** Asturian (Asturianu)
+/** Assamese (অসমীয়া)
+ * @author Bishnu Saikia
+ * @author Gitartha.bordoloi
+ */
+$messages['as'] = array(
+	'gadgets-desc' => "সদস্যসকলক তেওঁলোকৰ [[Special:Preferences|পছন্দসমূহত]] কাষ্ট'ম [[Special:Gadgets|CSS আৰু JavaScript গেজেট]] বাছনি কৰাৰ সুযোগ দিয়ে",
+	'prefs-gadgets' => 'গেজেট',
+	'gadgets-prefstext' => "আপুনি এই একাউণ্টত সক্ৰিয় কৰিব পৰা বিশেষ গেজেটসমূহৰ তালিকা তলত দিয়া হ'ল।
+এই গেজেটসমূহৰ বেছিভাগ জাভাস্ক্ৰিপ্ট ভিত্তিক, গতিকে সেইবোৰে কাম কৰিবলৈ আপোনাৰ ব্ৰাউজাৰৰ জাভাস্ক্ৰিপ্ট সক্ৰিয় হৈ থাকিব লাগিব।
+মন কৰক যে এই পছন্দ পৃষ্ঠাত গেজেটসমূহে কোনো প্ৰভাৱ নেপেলায়।
+
+লগতে মন কৰক যে এই বিশেষ গেজেটসমূহ মিডিয়াৱিকি ছফ্টৱেৰৰ অংশ নহয়, আৰু সাধাৰণতে এইবোৰ আপোনাৰ স্থানীয় ৱিকিত সদস্যসকলে বিকাশ আৰু চোৱাচিতা কৰে।
+স্থানীয় প্ৰশাসকসকলে উপলব্ধ গেজেটসমূহৰ [[MediaWiki:Gadgets-definition|সংজ্ঞা]] আৰু [[Special:Gadgets|বিৱৰণ]] সম্পাদনা কৰিব পাৰে।",
+	'gadgets' => 'গেজেটসমূহ',
+	'gadgets-title' => 'গেজেটসমূহ',
+	'gadgets-pagetext' => 'সদস্যসকলে তেওঁলোকৰ [[Special:Preferences|পছন্দ পৃষ্ঠাত]] সক্ৰিয় কৰিব পৰা আৰু [[MediaWiki:Gadgets-definition|সংজ্ঞা থকা]] বিশেষ গেজেটসমূহৰ তালিকা তলত দিয়া হৈছে।
+এই সাৰাংশই প্ৰতিটো গেজেটৰ বিৱৰণ আৰু সংকেত থকা প্ৰণালী বাৰ্তাসমূহলৈ প্ৰৱেশাধিকাৰ দিয়ে।',
+	'gadgets-uses' => 'ব্যৱহাৰ',
+	'gadgets-required-rights' => 'তলৰ {{PLURAL:$2|অধিকাৰৰ|অধিকাৰসমূহৰ}} প্ৰয়োজন:
+$1',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1 আৱৰণত|এই আৱৰণসমূহত: $1}} উপলব্ধ।',
+	'gadgets-default' => 'ডিফল্ট অনুযায়ী সকলোৰে বাবে সক্ৰিয়।',
+	'gadgets-export' => 'ৰপ্তানি কৰক',
+	'gadgets-export-title' => 'গেজেট ৰপ্তানি',
+	'gadgets-not-found' => '"$1" গেজেট পোৱা নগ\'ল।',
+	'gadgets-export-text' => '$1 গেজেটটো ৰপ্তানি কৰিবলৈ "{{int:gadgets-export-download}}" বুটামটোত ক্লিক কৰক, ডাউনল\'ড ফাইলটো সাঁচি ৰাখক,
+গন্তব্য ৱিকিৰ Special:Importলৈ যাওক আৰু ইয়াক আপল\'ড কৰক। তাৰপিছত তলৰ কথাখিনি MediaWiki:Gadgets-definition পৃষ্ঠাত যোগ দিয়ক:
+<pre>$2</pre>
+গন্তব্য ৱিকিত আপোনাৰ যথাযথ অনুমতি থাকিব লাগিব (প্ৰণালী বাৰ্তা সম্পাদনা কৰাৰ অনুমতিসহ) আৰু ফাইলা আপল\'ডৰ পৰা আমদানি সক্ৰিয় থাকিব লাগিব।',
+	'gadgets-export-download' => 'ডাউনল’ড',
+);
+
+/** Asturian (asturianu)
  * @author Esbardu
  * @author Xuacu
  */
@@ -387,7 +422,7 @@ Has de tener los permisos afayadizos na wiki de destín (incluyendo permisu pa e
 	'gadgets-export-download' => 'Descargar',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  * @author PPerviz
  * @author Vago
@@ -404,14 +439,18 @@ $messages['az'] = array(
 	'gadgets-export-download' => 'Yüklə',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Рустам Нурыев
+ * @author ҒатаУлла
  */
 $messages['ba'] = array(
 	'prefs-gadgets' => 'Гаджеттар',
 	'gadgets' => 'Гаджеттар',
 	'gadgets-title' => 'Гаджеттар',
 	'gadgets-uses' => 'Ҡулланыла',
+	'gadgets-required-rights' => '{{PLURAL:$2|Хоҡуҡ талап ителә|Хоҡутар талап ителә}}:
+
+$1',
 	'gadgets-export' => 'Сығарырға',
 	'gadgets-not-found' => '"$1" гаджеты табылманы.',
 	'gadgets-export-download' => 'Күсереп алырға',
@@ -437,7 +476,7 @@ $messages['bcc'] = array(
 	'gadgets-uses' => 'استفاده بیت',
 );
 
-/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author Cesco
  * @author EugeneZelenko
  * @author Jim-by
@@ -473,7 +512,7 @@ $1',
 	'gadgets-export-download' => 'Загрузіць',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author Borislav
  * @author DCLXVI
  * @author Spiritia
@@ -504,6 +543,7 @@ $messages['bg'] = array(
 
 /** Bengali (বাংলা)
  * @author Bellayet
+ * @author Nasir8891
  * @author Wikitanvir
  * @author Zaheen
  */
@@ -519,13 +559,17 @@ $messages['bn'] = array(
 	'gadgets-title' => 'গ্যাজেট',
 	'gadgets-pagetext' => 'নিচে বিশেষ গ্যাজেটের একটি তালিকা রয়েছে, যা ব্যবহারকারী তাদের [[Special:Preferences|প্রছন্দের পাতা]] থেকে সক্রিয় করে নিতে পারবেন এবং যা [[MediaWiki:Gadgets-definition|definitions]] পাতায় সংজ্ঞায়িত রয়েছে। পর্যালোচনা সিস্টেম বার্তা পাতায় সহজ প্রবেশাধিকার দিবে, যেখানে গ্যাজেটের বর্ণনা এবং কোড রয়েছে।',
 	'gadgets-uses' => 'ব্যবহারসমূহ',
+	'gadgets-required-rights' => 'নিচের {{PLURAL:$2|অধিকার|অধিকারগুলো}} প্রয়োজন:
+$1',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1 স্কিন|স্কিনগুলো: $1}} থেকে ব্যবহার করা যাবে।',
+	'gadgets-default' => 'সকলের জন্য সয়ংক্রিয়ভাবে সক্রিয়।',
 	'gadgets-export' => 'রপ্তানি',
 	'gadgets-export-title' => 'গ্যাজেট রফতানী',
 	'gadgets-not-found' => 'গ্যাজেট "$1" খুজে পাওয়া যায়নি।',
 	'gadgets-export-download' => 'ডাউনলোড',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Gwendal
  * @author Y-M D
@@ -558,7 +602,7 @@ Rankout a rit kaout ar gwirioù a zere war ar wiki tal (en o zouez ar gwir da ze
 	'gadgets-export-download' => 'Pellgargañ',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -586,7 +630,7 @@ Morate imati odgovarajuća prava na odredišnoj wiki (uključujući pravo da ure
 	'gadgets-export-download' => 'Skidanje',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Aleator
  * @author Gemmaa
  * @author Paucabot
@@ -623,7 +667,7 @@ Heu de tenir els permisos adequats en el wiki de destinació (incloent-hi els pe
 	'gadgets-export-download' => 'Baixa',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -642,7 +686,7 @@ $messages['ce'] = array(
 	'gadgets-uses' => 'Лелош йу',
 );
 
-/** Sorani (کوردی)
+/** Sorani Kurdish (کوردی)
  * @author Asoxor
  */
 $messages['ckb'] = array(
@@ -651,7 +695,7 @@ $messages['ckb'] = array(
 	'gadgets-title' => 'ئامرازەکان',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Danny B.
  * @author Li-sung
  * @author Mormegil
@@ -682,6 +726,13 @@ $1',
 <pre>$2</pre>
 Na cílové wiki musíte mít příslušná oprávnění (včetně práva editovat systémová hlášení) a musí tam být povolen import načtením souboru.',
 	'gadgets-export-download' => 'Stáhnout',
+);
+
+/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+ * @author ОйЛ
+ */
+$messages['cu'] = array(
+	'gadgets-title' => 'доплънитєл҄ьнꙑ орѫдиꙗ',
 );
 
 /** Welsh (Cymraeg)
@@ -715,7 +766,7 @@ Mae'n rhaid bod y galluoedd pwrpasol gennych ar wici'r pendraw (gan gynnwys y ga
 	'gadgets-export-download' => 'Islwyther',
 );
 
-/** Danish (Dansk)
+/** Danish (dansk)
  * @author Byrial
  * @author Peter Alberti
  */
@@ -794,6 +845,7 @@ Sie müssen über die notwendigen Berechtigungen auf dem für den Import vorgese
 );
 
 /** Zazaki (Zazaki)
+ * @author Erdemaslancan
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -810,9 +862,18 @@ Adminstorê localî eşkenê xacetî  [[MediaWiki:Gadgets-definition|definitions
 	'gadgets-pagetext' => 'Cor de yew listeyê xacetanê xasî estê ke ti eşkenî [[Special:Preferences|xesabê xo]] de a bike, descripsiyon [[MediaWiki:Gadgets-definition|definitions]] de esto.
 Ena descripisyon kerberanê îmkan dano ke aye meajanê sistemî ra asani cikewtê.',
 	'gadgets-uses' => 'Karber',
+	'gadgets-required-rights' => 'Cêrêni icab kenê {{PLURAL:$2|raşti|raşteya}}:
+
+$1',
+	'gadgets-required-skins' => 'Zerrey {{PLURAL:$2|$1 skin|skino ke pawêno: $1}} dı esto.',
+	'gadgets-default' => 'Merduman pêron rê aktiv ke.',
+	'gadgets-export' => 'Teber de',
+	'gadgets-export-title' => 'Teberdayışê gadgeti',
+	'gadgets-not-found' => 'Gadget "$1" nêvineya.',
+	'gadgets-export-download' => 'Ron',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -911,7 +972,7 @@ Vi nepras la taŭgajn rajtojn ĉe cela vikio (inkluzivante rajton redakti sistem
 	'gadgets-export-download' => 'Elŝuti',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  * @author Fitoschido
  * @author Muro de Aguas
@@ -948,7 +1009,7 @@ Debes tener permisos apropiados en el wiki de destino (incluyendo el derecho a e
 	'gadgets-export-download' => 'Descargar',
 );
 
-/** Estonian (Eesti)
+/** Estonian (eesti)
  * @author Avjoska
  * @author Pikne
  */
@@ -980,10 +1041,11 @@ Sul peavad olema sihtvikis vajalikud õigused (kaasa arvatud õigus redigeerida 
 	'gadgets-export-download' => 'Laadi alla',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author An13sa
  * @author Inorbez
  * @author Unai Fdz. de Betoño
+ * @author පසිඳු කාවින්ද
  */
 $messages['eu'] = array(
 	'gadgets-desc' => 'Lankideek [[Special:Gadgets|CSS eta JavaScript gadgetak]] aukeratu ditzazkete beraien [[Special:Preferences|hobespenetan]]',
@@ -1000,9 +1062,10 @@ Administratzaileek [[MediaWiki:Gadgets-definition|definizioak]] eta [[Special:Ga
 Ikuspegi orokor honek gadget bakoitza definitzen duen deskribapen eta kode orrietarako lotura errazak eskaintzen ditu.',
 	'gadgets-uses' => 'Erabilerak',
 	'gadgets-export' => 'Esportatu',
+	'gadgets-export-download' => 'Jaitsi',
 );
 
-/** Extremaduran (Estremeñu)
+/** Extremaduran (estremeñu)
  * @author Better
  */
 $messages['ext'] = array(
@@ -1045,7 +1108,7 @@ $1',
 	'gadgets-export-download' => 'بارگیری',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Crt
  * @author Nike
  * @author Olli
@@ -1076,7 +1139,7 @@ Sinulla pitää olla tarvittavat oikeudet omassa wikissäsi, kuten järjestelmä
 	'gadgets-export-download' => 'Lataa',
 );
 
-/** Faroese (Føroyskt)
+/** Faroese (føroyskt)
  * @author EileenSanda
  */
 $messages['fo'] = array(
@@ -1089,7 +1152,7 @@ $1',
 	'gadgets-export' => 'Útflyt',
 );
 
-/** French (Français)
+/** French (français)
  * @author Delhovlyn
  * @author Dr Brains
  * @author Grondin
@@ -1127,21 +1190,21 @@ Il est nécessaire de disposer des droits correspondants sur le wiki de destinat
 	'gadgets-export-download' => 'Télécharger',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
-	'gadgets-desc' => 'Pèrmèt ux utilisators de chouèsir des [[Special:Gadgets|outils CSS et JavaScript]] pèrsonalisâs dens lors [[Special:Preferences|prèferences]].',
+	'gadgets-desc' => 'Pèrmèt ux usanciérs de chouèsir des [[Special:Gadgets|outils CSS et JavaScript]] pèrsonalisâs dens lors [[Special:Preferences|prèferences]].',
 	'prefs-gadgets' => 'Outils',
 	'gadgets-prefstext' => 'Vê-que una lista d’outils que vos pouede activar por voutron compto.
 Font apèl a JavaScript, que dêt vêr étre activâ sur voutron navigator por que fonccionont.
 Notâd que celos outils ont gins de rèsultat sur ceta pâge de prèferences.
 
-Notâd asse-ben que celos outils spèciâls sont pas du tot avouéc la programeria MediaWiki, et pués que sont en g·ènèral dèvelopâs et mantegnus per des utilisators sur voutron vouiqui local.
+Notâd asse-ben que celos outils spèciâls sont pas du tot avouéc la programeria MediaWiki, et pués que sont en g·ènèral dèvelopâs et mantegnus per des usanciérs sur voutron vouiqui local.
 Los administrators locals pôvont changiér los outils disponiblos en utilisent les [[MediaWiki:Gadgets-definition|dèfinicions]] et les [[Special:Gadgets|dèscripcions]].',
 	'gadgets' => 'Outils',
 	'gadgets-title' => 'Outils',
-	'gadgets-pagetext' => 'Vê-que una lista d’outils que los utilisators pôvont activar dens lor [[Special:Preferences|pâge de prèferences]], coment dèfeni dens les [[MediaWiki:Gadgets-definition|dèfinicions]].
+	'gadgets-pagetext' => 'Vê-que una lista d’outils que los usanciérs pôvont activar dens lor [[Special:Preferences|pâge de prèferences]], coment dèfeni dens les [[MediaWiki:Gadgets-definition|dèfinicions]].
 Ceti apèrçu balye un accès vito fêt a les pâges de mèssâjos sistèmo que dèfenéssont la dèscripcion et lo code de châque outil.',
 	'gadgets-uses' => 'Utilise',
 	'gadgets-required-rights' => 'At fôta de cet{{PLURAL:$2|i drêt|os drêts}} :
@@ -1159,7 +1222,14 @@ O est nècèssèro de d’avêr los drêts corrèspondents sur lo vouiqui de dè
 	'gadgets-export-download' => 'Tèlèchargiér',
 );
 
-/** Galician (Galego)
+/** Irish (Gaeilge)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ga'] = array(
+	'gadgets-export' => 'Easportáil',
+);
+
+/** Galician (galego)
  * @author Alma
  * @author Toliño
  */
@@ -1273,14 +1343,14 @@ Special:Import નિયોજીત વિકિ પર Special:Import પર �
  */
 $messages['he'] = array(
 	'gadgets-desc' => 'אפשרות למשתמשים לבחור [[Special:Gadgets|סקריפטים בקוד JavaScript וסגנונות בקוד CSS]] ב[[Special:Preferences|העדפות]] שלהם',
-	'prefs-gadgets' => 'סקריפטים',
+	'prefs-gadgets' => "גאדג'טים",
 	'gadgets-prefstext' => 'להלן רשימה של סקריפטים שתוכלו להתקין בחשבון שלכם.
 הסקריפטים מבוססים ברובם על שפת JavaScript, ולכן יש לאפשר את הפעלתה בדפדפן כדי שהם יעבדו.
 שימו לב שלא תהיה לסקריפטים כל השפעה על דף ההעדפות הזה.
 
 כמו כן, הסקריפטים אינם חלק מתוכנת מדיה־ויקי, והם בדרך כלל מפותחים ומתוחזקים על ידי משתמשים בוויקי המקומי.
 מפעילי המערכת יכולים לערוך את ב[[MediaWiki:Gadgets-definition|דף ההגדרות]] ו[[Special:Gadgets|התיאורים]] של הסקריפטים.',
-	'gadgets' => 'סקריפטים',
+	'gadgets' => "גאדג'טים",
 	'gadgets-title' => 'סקריפטים',
 	'gadgets-pagetext' => 'זוהי רשימה של סקריפטים שמשתמשים יכולים להתקין באמצעות [[Special:Preferences|דף ההעדפות]] שלהם, כפי שהוגדרו ב[[MediaWiki:Gadgets-definition|הודעת המערכת המתאימה]].
 מכאן ניתן לגשת בקלות לדפי הודעות המערכת שמגדירים את התיאור והקוד של כל סקריפט.',
@@ -1305,20 +1375,21 @@ $1',
  * @author Kaustubh
  * @author Mayur
  * @author Shyam
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
 	'gadgets-desc' => 'सदस्यों को उनकी [[Special:Preferences|वरीयताओं]] में से चुनिंदा [[Special:Gadgets|CSS और जावालिपि जुगत]] चुनने दो।',
 	'prefs-gadgets' => 'उपकरण (गैज़ेट)',
-	'gadgets-prefstext' => 'नीचे विशेष जुगतों की सूची दी गई है, जो कि आप अपने खाते में सक्षम कर सकते हैं।
-ये जुगत अधिकांशत: जावालिपि पर आधारित है, इसलिए इन्हें कार्यशील कराने के लिए आप अपने ब्राउजर में जावालिपि को सक्षम कर लें।
-ध्यान दें कि इन जुगतों से आपके वरीयता पृष्ठ पर कोई असर नहीं होगा।
+	'gadgets-prefstext' => 'नीचे विशेष उपकरणों की सूची दी गई है, जिन्हें आप अपने खाते के लिये सक्षम कर सकते हैं।
+ये उपकरण अधिकांशतः जावास्क्रिप्ट पर आधारित है, इसलिए इनके कार्यशील होने के लिए आपके ब्राउज़र में जावास्क्रिप्ट सक्षम होनी चाहिये।
+ध्यान दें कि इन उपकरणों से आपके वरीयता पृष्ठ पर कोई असर नहीं होगा।
 
-यह भी ध्यान दें कि ये विशेष जुगत मीडियाविकी सॉफ्टवेयर का भाग नहीं हैं, और प्राय: सदस्यों द्वारा उनकी स्थानीय विकी पर विकसित एवं अनुरक्षित किए जाते हैं।
-स्थानीय प्रशासक [[MediaWiki:Gadgets-definition]] एवं [[Special:Gadgets]] प्रयोग करके उपलब्ध जुगतों को संपादित कर सकते हैं।',
+यह भी ध्यान दें कि ये विशेष उपकरण मीडियाविकी सॉफ़्टवेयर का भाग नहीं हैं, और प्रायः सदस्यों द्वारा उनकी स्थानीय विकी पर विकसित एवं अनुरक्षित किए जाते हैं।
+स्थानीय प्रबंधक उपकरणों की [[MediaWiki:Gadgets-definition|परिभाषाएँ]] एवं [[Special:Gadgets|विवरण]] संपादित कर सकते हैं।',
 	'gadgets' => 'उपकरण',
 	'gadgets-title' => 'उपकरण',
-	'gadgets-pagetext' => 'नीचे विशेष जुगतों कि सूची दी गई है, जिन्हें सदस्य [[MediaWiki:Gadgets-definition]] की परिभाषा के अनुसार, अपने वरीयता पृष्ठ में सक्षम कर सकते हैं।
-यह समीक्षा तंत्र संदेश पृष्ठों तक पहुँचने का आसान मार्ग प्रदान करती है, जो की प्रत्येक जुगत के वर्णन एवं कूट भाषा को परिभाषित करते हैं।',
+	'gadgets-pagetext' => 'नीचे सभी [[MediaWiki:Gadgets-definition|परिभाषित]] विशेष उपकरणों की सूची दी गई है, जिन्हें सदस्य [[Special:Preferences|अपनी वरीयताओं]] से सक्षम कर सकते हैं।
+यह समीक्षा सभी उपकरणों के विवरण और कोड वाले अंतरफल संदेश पृष्ठों की कड़ियाँ प्रदान करती है।',
 	'gadgets-uses' => 'उपयोग',
 	'gadgets-required-rights' => 'निम्नलिखित की आबश्यकता है {{PLURAL:$2|अधिकार|अधिकार}}:
 
@@ -1328,10 +1399,13 @@ $1',
 	'gadgets-export' => 'निर्यात',
 	'gadgets-export-title' => 'गैजेट निर्यात',
 	'gadgets-not-found' => 'गैजेट "$1" मिला नहीं ।',
+	'gadgets-export-text' => '$1 उपकरण निर्यात करने के लिये "{{int:gadgets-export-download}}" बटन पर क्लिक करें, डाउनलोड की गई फ़ाइल सहेजें, लक्ष्य विकि पर Special:Import पर जाएँ और फ़ाइल अपलोड करें। तत्पश्चात MediaWiki:Gadgets-definition में निम्न पाठ जोड़ें:
+<pre>$2</pre>
+आपके पास लक्ष्य विकि पर उपयुक्त अधिकार होने चाहिये (जिसमें अंतरफल संदेशों को सम्पादित करने का अधिकार शामिल है) और विकि पर फ़ाइल द्वारा आयात सक्षम होना चाहिये।',
 	'gadgets-export-download' => 'डाउनलोड',
 );
 
-/** Croatian (Hrvatski)
+/** Croatian (hrvatski)
  * @author Anton008
  * @author Dalibor Bosits
  * @author Ex13
@@ -1362,7 +1436,7 @@ Morate imati odgovarajuća prava na odredišnoj wiki (uključujući i pravo na u
 	'gadgets-export-download' => 'Preuzmi',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -1391,7 +1465,7 @@ Dyrbiš trěbne prawa na cilowym wikiju měć (inkluziwnje prawo systemowe powě
 	'gadgets-export-download' => 'Sćahnyć',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author BáthoryPéter
  * @author Dani
  * @author Tgr
@@ -1424,7 +1498,7 @@ A célwikiben rendelkezned kell a megfelelő jogokkal (beleértve a rendszerüze
 	'gadgets-export-download' => 'Letöltés',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -1460,6 +1534,7 @@ Tu debe haber le permissiones appropriate in le wiki de destination (includente 
  * @author Bennylin
  * @author Farras
  * @author IvanLanin
+ * @author Kenrick95
  */
 $messages['id'] = array(
 	'gadgets-desc' => 'Memungkinkan pengguna memilih [[Special:Gadgets|perkakas CSS dan JavaScript]] melalui [[Special:Preferences|preferensi]] mereka',
@@ -1471,7 +1546,10 @@ Juga perhatikan bahwa perkakas istimewa ini bukanlah bagian dari perangkat lunak
 	'gadgets-title' => 'Perkakas',
 	'gadgets-pagetext' => 'Berikut adalah daftar perkakas istimewa yang dapat diaktifkan pengguna melalui [[Special:Preferences|halaman preferensi]] mereka sebagaimana didefinisikan oleh [[MediaWiki:Gadgets-definition]]. Tinjauan berikut memberikan kemudahan akses ke dalam halaman pesan sistem yang mendefinisikan deskripsi dan kode masing-masing perkakas.',
 	'gadgets-uses' => 'Penggunaan',
-	'gadgets-required-rights' => 'Memerlukan {{PLURAL:$2|hak $1|hak-hak berikut: $1}}.',
+	'gadgets-required-rights' => 'Memerlukan {{PLURAL:$2|hak|hak-hak}} berikut:
+
+$1',
+	'gadgets-required-skins' => 'Tersedia dalam {{PLURAL:$2|$1 kulit|kulit berikut: $1}}.',
 	'gadgets-default' => 'Diaktifkan untuk semua orang secara bawaan.',
 	'gadgets-export' => 'Ekspor',
 	'gadgets-export-title' => 'Ekspor perkakas',
@@ -1522,7 +1600,7 @@ $messages['io'] = array(
 	'gadgets-uses' => 'Ol uzas',
 );
 
-/** Icelandic (Íslenska)
+/** Icelandic (íslenska)
  * @author Jóna Þórunn
  * @author Maxí
  * @author Snævar
@@ -1553,7 +1631,7 @@ farðu á þann wiki sem á að flytja smátólið á, farðu á kerfisíðuna S
 	'gadgets-export-download' => 'Hlaða niður',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author BrokenArrow
  * @author Darth Kule
@@ -1579,6 +1657,10 @@ $1',
 	'gadgets-export' => 'Esporta',
 	'gadgets-export-title' => 'Esporta accessorio',
 	'gadgets-not-found' => 'Accessorio "$1" non trovato.',
+	'gadgets-export-text' => 'Per esportare l\'accessorio $1, fai clic sul pulsante "{{int:gadgets-export-download}}", salva il file scaricato,
+vai alla pagina Special:Import nella wiki di destinazione e carica il file. Poi aggiungi quanto segue alla pagina MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Devi disporre dei permessi appropriati nella wiki di destinazione (incluso il diritto di modificare i messaggi di sistema) e l\'importazione da file deve essere abilitata.',
 	'gadgets-export-download' => 'Scarica',
 );
 
@@ -1587,24 +1669,26 @@ $1',
  * @author Fryed-peach
  * @author JtFuruhata
  * @author Mzm5zbC3
+ * @author Shirayuki
  * @author Whym
  * @author 青子守歌
  */
 $messages['ja'] = array(
 	'gadgets-desc' => '利用者が[[Special:Gadgets|CSSやJavaScriptのカスタムガジェット]]を[[Special:Preferences|{{int:preferences}}]]で選択できるようにする',
 	'prefs-gadgets' => 'ガジェット',
-	'gadgets-prefstext' => '下記はあなたのアカウントで利用できるガジェットの一覧です。これらのガジェットはほとんどがJavaScriptベースのため、動作させるにはブラウザ設定でJavaScriptを有効にする必要があります。なお、{{int:preferences}}ページ上では動作しません。
+	'gadgets-prefstext' => '以下はあなたのアカウントで利用できるガジェットの一覧です。これらのガジェットはほとんどがJavaScriptベースのため、動作させるにはブラウザーのJavaScriptを有効にする必要があります。なお、{{int:preferences}}ページ上では動作しません。
 
-また、これらのガジェットは MediaWiki ソフトウェアの一部ではなく、開発とメンテナンスは通常ウィキ毎の利用者によって行われていることにも注意してください。管理者は[[MediaWiki:Gadgets-definition|ガジェットの定義]]や[[Special:Gadgets|ガジェットの説明]]から利用可能なガジェットを編集できます。',
+また、これらのガジェットは MediaWiki ソフトウェアの一部ではなく、通常はローカル ウィキの利用者が開発とメンテナンスをしていることにも注意してください。管理者は[[MediaWiki:Gadgets-definition|ガジェットの定義]]や[[Special:Gadgets|ガジェットの説明]]から利用できるガジェットを編集できます。',
 	'gadgets' => 'ガジェット',
 	'gadgets-title' => 'ガジェット',
-	'gadgets-pagetext' => '以下は、[[MediaWiki:Gadgets-definition]] 上で定義された、利用者が[[Special:Preferences|{{int:preferences}}]]にて利用可能にすることができるガジェットの一覧です。この一覧はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
+	'gadgets-pagetext' => '以下は、利用者が[[Special:Preferences|{{int:preferences}}]]で有効化できるガジェットの一覧です。これらは[[MediaWiki:Gadgets-definition|定義ページ]]で定義されています。
+この一覧はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
 	'gadgets-uses' => '利用するファイル',
-	'gadgets-required-rights' => '以下の{{PLURAL:$2|権限}}が必要です。
+	'gadgets-required-rights' => '以下の{{PLURAL:$2|権限}}が必要です：
 
 $1',
 	'gadgets-required-skins' => '{{PLURAL:$2|$1外装|外装：$1}}で利用てきます。',
-	'gadgets-default' => 'デフォルトで全員に有効です。',
+	'gadgets-default' => '既定では全員に有効です。',
 	'gadgets-export' => 'エクスポート',
 	'gadgets-export-title' => 'ガジェットのエクスポート',
 	'gadgets-not-found' => 'ガジェット「$1」が見つかりません。',
@@ -1615,7 +1699,7 @@ $1',
 	'gadgets-export-download' => 'ダウンロード',
 );
 
-/** Jutish (Jysk)
+/** Jutish (jysk)
  * @author Huslåke
  */
 $messages['jut'] = array(
@@ -1631,6 +1715,7 @@ Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren o
 
 /** Javanese (Basa Jawa)
  * @author Meursault2004
+ * @author NoiX180
  * @author Pras
  */
 $messages['jv'] = array(
@@ -1645,6 +1730,15 @@ Uga mangga diwigatèkaké yèn gadget astaméwa iki dudu bagéyan saka piranti e
 	'gadgets-pagetext' => 'Ing ngisor iki daftar gadget astaméwa sing bisa diaktifaké ing [[Special:Preferences|kaca prèferènsi]] panganggo, kayadéné didéfinisi déning [[MediaWiki:Gadgets-definition|dhéfinisi]].
 Tinjoan iki mènèhi aksès sing gampang menyang kaca-kaca pesen sistem sing ngawedhar saben gadget lan kodhe.',
 	'gadgets-uses' => 'Kagunan',
+	'gadgets-required-rights' => 'Mbutuhaké {{PLURAL:$2|hak|hak-hak}}:
+
+$1',
+	'gadgets-required-skins' => 'Sumadhiya nèng {{PLURAL:$2|$1 kulit|kulit-kulit iki: $1}}.',
+	'gadgets-default' => 'Diurubaké kanggo kabèh wong sacara gawan.',
+	'gadgets-export' => 'Èkspor',
+	'gadgets-export-title' => 'Èkspor perkakas',
+	'gadgets-not-found' => 'Perkasas "$1" ora ditemokaké.',
+	'gadgets-export-download' => 'Undhuh',
 );
 
 /** Georgian (ქართული)
@@ -1652,13 +1746,31 @@ Tinjoan iki mènèhi aksès sing gampang menyang kaca-kaca pesen sistem sing nga
  * @author David1010
  */
 $messages['ka'] = array(
+	'gadgets-desc' => 'მოხმარებლებს საშუალებას აძლევთ [[Special:Preferences|კონფიგურაციაში]] აირჩიონ [[Special:Gadgets|CSS და JavaScript გაჯეტები]], რომელთა ჩართვაც სურთ',
 	'prefs-gadgets' => 'გაჯეტები',
+	'gadgets-prefstext' => 'ქვემოთ მოცემულია სპეციალური გაჯეტების სია, რომელთა ჩართვაც თქვენ შეგიძლიათ თქვენი ანგარიშისათვის.
+ეს გაჯეტები უპირატესად დაფუძნებულია JavaScript-ზე, ამიტომ თქვენ უნდა ჩართოთ JavaScript თქვენ ბრაუზერში, რათა მათ იმუშაონ.
+გაითვალისწინეთ, რომ ეს გაჯეტები არ მუშაობენ კონფიგურაციის გვერდზე.
+
+აგრეთვე გაითვალისწინეთ, რომ ეს გაჯეტები არ წარმოადგენს MediaWiki-ს ნაწილს და ჩვეულებრივ მუშავდება და ნარჩუნდება თქვენი ლოკალური ვიკის მომხმარებლების მიერ.
+ადმინისტრატორებს შეუძლიათ შეცვალონ გაჯეტების სია [[MediaWiki:Gadgets-definition|განმარტებებისა]] და [[Special:Gadgets|აღწერების]] გვერდების დახმარებით.',
 	'gadgets' => 'გაჯეტები',
 	'gadgets-title' => 'გაჯეტები',
+	'gadgets-pagetext' => 'ქვემოთ მოცემულია სპეციალური გაჯეტების სია, რომლების ჩართვაც შეუძლიათ მომხმარებლებს თავიანთი [[Special:Preferences|კონფიგურაციის გვერდზე]], სიის შესაბამისად [[MediaWiki:Gadgets-definition|განმარტებების]] გვერდზე.
+ეს სია საშუალებას იძლევა მარტივად მივიღოთ სისტემური შეტყობინებების გვერდებთან წვდომა, რომლებიც განსაზღვრავენ გაჯეტების აღწერასა და გამავალ კოდებს.',
 	'gadgets-uses' => 'გამოიყენება',
+	'gadgets-required-rights' => '{{PLURAL:$2|საჭიროა უფლება|საჭიროა უფლება}}:
+
+$1',
+	'gadgets-required-skins' => 'ხელმისაწვდომია {{PLURAL:$2|გაფორმების თემისათვის $1|შემდეგი გაფორმების თემებისათვის: $1}}.',
+	'gadgets-default' => 'ჩართულია ყველასათვის ნაგულისხმევად.',
 	'gadgets-export' => 'ექსპორტი',
 	'gadgets-export-title' => 'გაჯეტის ექსპორტი',
 	'gadgets-not-found' => 'გაჯეტი "$1" ვერ მოიძებნა.',
+	'gadgets-export-text' => 'გაჯეტი $1 ექსპორტისათვის, დააჭირეთ ღილაკს „{{int:gadgets-export-download}}“, შეინახეთ ჩამოტვირთული ფაილი,
+გადადით გვერდზე Special:Import სამიზნო ვიკიში და ატვირთეთ ფაილი. შემდეგ დაამატეთ შემდეგი ხაზები MediaWiki:Gadgets-definition-ის გვერდზე:
+<pre>$2</pre>
+თქვენ უნდა გქონდეთ შესაბამისი უფლება სამიზნო ვიკიში (მათ შორის სისტემური შეტყობინებების თარგმნის უფლება), აგრეთვე სერვერზე ჩართული უნდა იყოს ფაილების იმპორტის პარამეტრები.',
 	'gadgets-export-download' => 'ჩამოტვირთვა',
 );
 
@@ -1679,7 +1791,7 @@ $messages['kk-arab'] = array(
 	'gadgets-uses' => 'قولدانۋداعىلار',
 );
 
-/** Kazakh (Cyrillic script) (‪Қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
 $messages['kk-cyrl'] = array(
 	'prefs-gadgets' => 'Қажет құралдар',
 	'gadgets-prefstext' => 'Төменде өз тіркелгіңізде қоса алатын арнаулы қажет құралдар тізімі беріледі.
@@ -1696,7 +1808,7 @@ $messages['kk-cyrl'] = array(
 	'gadgets-uses' => 'Қолданудағылар',
 );
 
-/** Kazakh (Latin script) (‪Qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
 $messages['kk-latn'] = array(
 	'prefs-gadgets' => 'Qajet quraldar',
 	'gadgets-prefstext' => 'Tömende öz tirkelgiñizde qosa alatın arnawlı qajet quraldar tizimi beriledi.
@@ -1733,20 +1845,21 @@ $messages['km'] = array(
  * @author IRTC1015
  * @author Klutzy
  * @author Kwj2772
+ * @author 아라
  */
 $messages['ko'] = array(
-	'gadgets-desc' => '각 사용자가 [[Special:Gadgets|CSS/자바스크립트 소도구]]를 [[Special:Preferences|사용자 환경 설정]]을 통해 사용할 수 있도록 허용',
+	'gadgets-desc' => '각 사용자가 [[Special:Gadgets|CSS와 자바스크립트 소도구]]를 [[Special:Preferences|사용자 환경 설정]]을 통해 사용할 수 있도록 허용',
 	'prefs-gadgets' => '소도구',
 	'gadgets-prefstext' => '아래 목록은 현재 사용 가능한 소도구의 목록입니다.
 대부분의 소도구는 자바스크립트로 동작하며, 웹 브라우저에서 자바스크립트를 사용할 수 있어야 동작합니다.
 소도구는 이 환경 설정 페이지에는 영향을 주지 않습니다.
 
-이 소도구들은 미디어위키의 기능이 아니며, 일반적으로 각 위키의 사용자가 개발·관리하고 있습니다.
-각 위키의 관리자는 [[MediaWiki:Gadgets-definition|소도구 정의 문서]]와 [[Special:Gadgets|소도구 설명 문서]]를 통해 소도구들을 관리할 수 있습니다.',
+이 소도구는 미디어위키의 기능이 아니며, 일반적으로 각 위키의 사용자가 개발 및 관리하고 있습니다.
+각 위키의 관리자는 [[MediaWiki:Gadgets-definition|소도구 정의 문서]]와 [[Special:Gadgets|소도구 설명 문서]]를 통해 소도구를 관리할 수 있습니다.',
 	'gadgets' => '소도구 목록',
 	'gadgets-title' => '소도구',
 	'gadgets-pagetext' => '[[Special:Preferences|사용자 환경 설정]]에서 설정할 수 있는 소도구 목록입니다. 해당 목록은 [[MediaWiki:Gadgets-definition|소도구 정의]]에서 편집할 수 있습니다.
-이 문서에서는 각 소도구의 각 설명 문서/코드의 시스템 메시지 링크를 제공합니다.',
+이 문서에서는 각 소도구의 각 설명 문서와 코드의 시스템 메시지 링크를 제공합니다.',
 	'gadgets-uses' => '다음 코드를 이용',
 	'gadgets-required-rights' => '다음 {{PLURAL:$2|권한}}이 필요합니다: 
 
@@ -1755,15 +1868,15 @@ $1',
 	'gadgets-default' => '기본적으로 모든 사람에게 활성화되어 있습니다.',
 	'gadgets-export' => '내보내기',
 	'gadgets-export-title' => '소도구 내보내기',
-	'gadgets-not-found' => '소도구 "$1"을 찾을 수 없습니다.',
+	'gadgets-not-found' => '"$1" 소도구를 찾을 수 없습니다.',
 	'gadgets-export-text' => '$1 소도구를 내보내려면 "{{int:gadgets-export-download}}" 버튼을 클릭하여 다운로드된 파일을 저장한 후,
-내보내려는 위키에서 Special:Import로 가서 올리십시오. 그 다음 MediaWiki:Gadgets-definition 문서에 다음을 추가하십시오:
+내보내려는 위키에서 Special:Import로 가서 올리십시오. 그 다음 MediaWiki:Gadgets-definition 문서에 다음을 추가하세요:
 <pre>$2</pre>
 해당 위키에서 시스템 메시지 편집 등 특정 권한을 갖고 있어야 합니다. 또한 파일 올리기를 통한 가져오기 기능이 활성화되어 있어야 합니다.',
 	'gadgets-export-download' => '다운로드',
 );
 
-/** Karachay-Balkar (Къарачай-Малкъар)
+/** Karachay-Balkar (къарачай-малкъар)
  * @author Iltever
  */
 $messages['krc'] = array(
@@ -1851,6 +1964,13 @@ Dir musst déi erfuerdert Rechter(inklusiv d\'Recht fir System-Messagen z\'änne
 	'gadgets-export-download' => 'Eroflueden',
 );
 
+/** Lezghian (лезги)
+ * @author Soul Train
+ */
+$messages['lez'] = array(
+	'gadgets' => 'Гаджетар',
+);
+
 /** Limburgish (Limburgs)
  * @author Matthias
  * @author Ooswesthoesbes
@@ -1885,7 +2005,7 @@ Doe mós de juuste rèchte höbben óppe doelwie, ouch óm bewirkinge aan systee
 	'gadgets-export-download' => 'Haol óp',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Homo
  * @author Vpovilaitis
@@ -1908,7 +2028,33 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
 	'gadgets-export-download' => 'Parsisiųsti',
 );
 
-/** Latvian (Latviešu)
+/** Lushai (Mizo ţawng)
+ * @author RMizo
+ */
+$messages['lus'] = array(
+	'gadgets-desc' => 'Hmangtute [[Special:Gadgets|CSS leh JavaScript hmanrelhte]] an [[Special:Preferences|duhthlanna phêk]]a duhthlantir theihna.',
+	'prefs-gadgets' => 'Hmanrelhte',
+	'gadgets-prefstext' => 'A hnuaiah hian i siangchana hmanrelh i tihnun theihho kan rawn chhawp chhuak a.
+Hêng hmanrelhte hi JavaScript-a innghat a ni deuh ber a, chuvang tak chuan hengte hman theihna tùrin i rangpuifannaah JavaScript i tihnun a ngai a ni.
+Hë duhthlanna phêkah erawh hi chuan hêng hmanrelhte hian nghawng a nei lo vang tih hria ang che.
+
+Hëng hmanrelh bîkte hi MediaWiki khawlthluak zinga mi a ni lo va, a tlangpuiin i khawsakna hmun wiki-a hmangtute duan leh enkawl a ni hlawm.
+Chü wiki-a roreltute chuan hmanrelh hman theiha awmte [[MediaWiki:Gadgets-definition|hrilhfiahna]] leh [[Special:Gadgets|sawifiahna]] an siamṭha thei a ni.',
+	'gadgets' => 'Hmanrelhte',
+	'gadgets-title' => 'Hmanrelhte',
+	'gadgets-uses' => 'Hmante',
+	'gadgets-required-rights' => 'A hnuaia {{PLURAL:$2|dikna-chanvo|dikna-chanvote}} hi neih a ngái:
+
+$1',
+	'gadgets-required-skins' => 'A hnuaia {{PLURAL:$2|vunah hian a hman theih: $1 |vunahte hian a hman theih: $1}}.',
+	'gadgets-default' => 'Mi zawng zawng tana tihnun sa vek a ni.',
+	'gadgets-export' => 'Thawnchhuahna',
+	'gadgets-export-title' => 'Hmanrelh thawnchhuah',
+	'gadgets-not-found' => 'Hmanrelh "$1" hmuh a ni lo.',
+	'gadgets-export-download' => 'Hnuhthlâkna',
+);
+
+/** Latvian (latviešu)
  * @author Marozols
  * @author Papuass
  */
@@ -1932,7 +2078,7 @@ $messages['mg'] = array(
 	'gadgets-export-download' => 'Hampidina',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  * @author Brest
  */
@@ -2063,18 +2209,44 @@ Anda hendaklah mempunyai keizinan yang bersesuaian di wiki sasaran (termasuklah 
  * @author Chrisportelli
  */
 $messages['mt'] = array(
+	'gadgets-desc' => 'Tħalli lill-utenti jagħżlu [[Special:Gadgets|aċċessorji CSS u JavaScript]] fil-[[Special:Preferences|preferenzi]] tagħhom',
+	'prefs-gadgets' => 'Aċċessorji',
 	'gadgets-prefstext' => "Hawn taħt hawn lista ta' aġġeġġi speċjali li inti tista' tippermetti għall-kont tiegħek.
 Dawn l-aġġeġġi huma l-aktar ibbażati fuq JavaScript, u għalhekk il-JavaScript trid tkun awtorizzata fil-browżer tiegħek sabiex ikunu jistgħu jaħdmu.
 Kun af li dawn l-aġġeġġi mhu se jħallu ebda effett fuq din il-paġna tal-preferenzi.
 
 Għandek tkun taf ukoll li dawn l-aġġeġġi spe1jali mhumiex parti mis-softwer tal-MediaWiki, u huma ħafna drabi żviluppati u mantenuti minn utenti fuq il-wiki lokali tiegħek.
 L-amministraturi lokali jistgħu jimmodifikaw id-[[MediaWiki:Gadgets-definition|definizzjonijiet]] u d-[[Special:Gadgets|deskrizzjonijiet]] tal-aġġeġġi disponibbli.",
+	'gadgets' => 'Aċċessorji',
+	'gadgets-title' => 'Aċċessorji',
 	'gadgets-pagetext' => "Hawn taħt hawn lista ta' aġġeġġi speċjali li l-utenti jistgħu jippermettu fil-[[Special:Preferences|paġna tal-preferenzi]], kif definit fid-[[MediaWiki:Gadgets-definition|definizzjonijiet]].
 Din il-ħarsa tipprovdi aċċess faċli għall-messaġġi tas-sistema li fihom hemm deskrizzjoni u s-sors ta' kull aġġeġġ.",
+	'gadgets-uses' => 'Juża',
+	'gadgets-required-rights' => 'Għandu bżonn id-{{PLURAL:$2|dritt|drittijiet}} segwenti:
+
+$1',
+	'gadgets-required-skins' => 'Disponibbli fuq {{PLURAL:$2|l-iskema $1|l-iskemi segwenti: $1}}.',
+	'gadgets-export' => 'Esporta',
+	'gadgets-export-title' => 'Esporta aċċessorju',
+	'gadgets-not-found' => 'L-aċċessorju "$1" ma nstabx.',
+	'gadgets-export-download' => 'Niżżel',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
+/** Mazanderani (مازِرونی)
+ * @author Mehdi
+ */
+$messages['mzn'] = array(
+	'gadgets-prefstext' => 'پائین فهرست دله اته سری ابزارون درنه که شما بتوننی از شه کاروری خواستنی‌ئون، یان ره شه وسه فعال هاکنین.
+این ابزارون ویشترشون جاوااسکریپت رو کار کننه، اگه خواننی یانه جا استفاده هاکنین ونه حتماً شه اینترنت مرورگر رو جاواسکریپت ره فعال هاکنین.
+البته ونه توجه دارین که این ابزارون نتوننه شمه خواستنی‌ئون صفحه ره تغییر هادن.
+
+توجه دارین که این ابزارون مدیاویکی نرم‌افزار جمع نینه، و معمولاً شمه ویکی کارورون دست (مدیرون) بسات بینه و نگهداری بوننه.
+هرویکی مدیرون بتوننه از [[MediaWiki:Gadgets-definition|تعاریف]] و [[Special:Gadgets|توضیحات]] صفحات جا استفاده هاکنن و ابزارون ره تغییر هادن.',
+	'gadgets' => 'ابزارون',
+	'gadgets-title' => 'ابزارون',
+);
+
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Laaknor
  * @author Nghtwlkr
  * @author Sjurhamre
@@ -2139,7 +2311,7 @@ Beheerders kunnen t beschikbaore techniese spul angeven in [[MediaWiki:Gadgets-d
 	'gadgets' => 'Technies spul',
 	'gadgets-title' => 'Technies spul',
 	'gadgets-pagetext' => 'Hieronder steet spesiaal technies spul die gebrukers in kunnen schakelen bie [[Special:Preferences|mien veurkeuren]], zo as in-esteld in de [[MediaWiki:Gadgets-definition|defenisies]].
-Dit overzichte biejt eenvoudige toegang tot de systeemtekstpagina waor de beschrieving en de programmakode van elke technies snufjen steet.',
+Dit overzichte biejt eenvoudige toegang tot de systeemtekstzied waor de beschrieving en de programmakode van elke technies snufjen steet.',
 	'gadgets-uses' => 'Gebruuk',
 );
 
@@ -2192,7 +2364,7 @@ Dit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschri
 	'gadgets-required-rights' => '{{PLURAL:$2|Het volgende recht is|De volgende rechten zijn}} vereist:
 
 $1.',
-	'gadgets-required-skins' => 'Beschikbaar op de {{PLURAL:$2|vormgeving $1|volgende vormgevingen: $1}}.',
+	'gadgets-required-skins' => 'Beschikbaar in de {{PLURAL:$2|vormgeving $1|volgende vormgevingen: $1}}.',
 	'gadgets-default' => 'Standaard ingeschakeld voor iedereen.',
 	'gadgets-export' => 'Exporteren',
 	'gadgets-export-title' => 'Uitbreiding exporteren',
@@ -2206,10 +2378,29 @@ U moet de juiste rechten hebben op de doelwiki, inclusief het recht om bewerking
 	'gadgets-export-download' => 'Downloaden',
 );
 
-/** Norwegian Nynorsk (Norsk (nynorsk))
+/** ‪Nederlands (informeel)‬ (‪Nederlands (informeel)‬)
+ * @author Siebrand
+ */
+$messages['nl-informal'] = array(
+	'gadgets-prefstext' => 'Hieronder staan de speciale uitbreidingen die je kunt inschakelen.
+De uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet voor je browser ingeschakeld zijn om ze te laten werken.
+De uitbreidingen hebben geen invloed op deze pagina met voorkeuren.
+
+Deze speciale uitbreidingen zijn geen onderdeel van de MediaWiki-software en worden meestal ontwikkeld en onderhouden door gebruikers van jouw wiki.
+Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition|definities]] en [[Special:Gadgets|beschrijvingen]].',
+	'gadgets-export-text' => 'Klik op de knop "{{int:gadgets-export-download}}" om de uitbreiding "$1" te exporteren.
+Sla daarna het gedownloade bestand op.
+Ga naar "Special:Import" in de doelwiki en upload het geëxporteerde bestand.
+Voeg daarna het volgende toe aan de pagina "MediaWiki:Gadgets-definition":
+<pre>$2</pre>
+Je moet de juiste rechten hebben op de doelwiki, inclusief het recht om bewerkingen te maken aan de systeemberichten, en importeren uit bestanden moet ingeschakeld zijn.',
+);
+
+/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
  * @author Eirik
  * @author Harald Khan
  * @author Nghtwlkr
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'gadgets-desc' => 'Lèt brukarane velje eigendefinerte [[Special:Gadgets|CSS- og JavaScript-verktøy]]  i [[Special:Preferences|innstillingane sine]].',
@@ -2226,7 +2417,7 @@ Dette oversynet gjev enkel tilgang til systemmeldingssidene som inneheld skildri
 	'gadgets-export-download' => 'Last ned',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Boulaur
  * @author Cedric31
  */
@@ -2247,6 +2438,7 @@ Aqueste susvòl dona un accès rapid a las paginas de messatges del sistèma que
 );
 
 /** Oriya (ଓଡ଼ିଆ)
+ * @author Ansumang
  * @author Odisha1
  * @author Psubhashish
  */
@@ -2258,7 +2450,7 @@ $messages['or'] = array(
 ଜାଣିରଖନ୍ତୁ ଯେ ଏହିସବୁ ଗ୍ୟାଜେଟ ଆପଣଙ୍କର ପସନ୍ଦ ପୃଷ୍ଠା ଉପରେ କିଛି ପ୍ରଭାବ ପକାଇବେ ନାହିଁ ।
 
 ଆହୁରି ଜାଣିରଖନ୍ତୁ ଯେ ଏହି ବିଶେଷ ଗ୍ୟାଜେଟସବୁ ମିଡ଼ିଆଉଇକି ସଫ୍ଟଵେର ଅନ୍ତଭୁକ୍ତ ନୁହଁନ୍ତି । ଏହିସବୁ ସାଧାରଣତ ଆପଣଙ୍କ ଆଞ୍ଚଳିକ ଉଇକିର ସଭ୍ୟ ମାନଙ୍କ ଦେଇ ତିଆରି ଓ ପରିଚାଳିତ ହୋଇଥାଏ ।
-ଆଞ୍ଚଳିକ ପରିଛାଗଣ ଗ୍ୟାଜେଟର [[MediaWiki:Gadgets-definition|ସଜ୍ଞା]] ଓ [[Special:Gadgets|ବିବରଣୀ]]ସବୁ ବଦଳାଇପାରିବେ ।',
+ଆଞ୍ଚଳିକ ପରିଚାଳକଗଣ ଗ୍ୟାଜେଟର [[MediaWiki:Gadgets-definition|ସଜ୍ଞା]] ଓ [[Special:Gadgets|ବିବରଣୀ]]ସବୁ ବଦଳାଇପାରିବେ ।',
 	'gadgets' => 'ଗ୍ୟାଜେଟ',
 	'gadgets-title' => 'ଗ୍ୟାଜେଟ',
 	'gadgets-pagetext' => '[[MediaWiki:Gadgets-definition|ସଜ୍ଞା]] ଅନୁସାରେ ତଳେ ସଭ୍ୟମାନଙ୍କ [[Special:Preferences|ପସନ୍ଦ ପୃଷ୍ଠା]]ରୁ ସଚଳ କରାଯାଇପାରିବା ଭଳି କେତେକ ବିଶେଷ ଗ୍ୟାଜେଟର ତାଲିକା ଦିଆଗଲା ।
@@ -2308,7 +2500,7 @@ $messages['pdc'] = array(
 	'gadgets-export-download' => 'Runnerdraage',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Derbeth
  * @author Marcin Łukasz Kiejzik
  * @author Sp5uhe
@@ -2414,13 +2606,14 @@ $messages['ps'] = array(
 	'gadgets-export-download' => 'ښکته کول',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author 555
  * @author Hamilton Abreu
+ * @author Helder.wiki
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'gadgets-desc' => "Permite que os utilizadores seleccionem [[Special:Gadgets|''\"gadgets\"'' JavaScript e CSS]] personalizados nas suas [[Special:Preferences|preferências]]",
+	'gadgets-desc' => "Permite que os utilizadores seleccionem [[Special:Gadgets|''\"gadgets\"'' em JavaScript e CSS]] personalizados nas suas [[Special:Preferences|preferências]]",
 	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => "Segue-se uma lista de ''\"gadgets\"'' especiais que pode activar na sua conta.
 Estes ''gadgets'' são baseados principalmente em JavaScript, sendo necessário activar o suporte a JavaScript no seu browser para que funcionem.
@@ -2433,7 +2626,10 @@ Administradores locais podem editar os ''gadgets'' disponíveis usando as [[Medi
 	'gadgets-pagetext' => "Segue-se uma lista de ''\"gadgets\"'' que podem ser activados pelos utilizadores nas suas [[Special:Preferences|preferências]], como estabelecido pelas [[MediaWiki:Gadgets-definition|definições]].
 Este resumo proporciona acesso fácil às páginas das mensagens de sistema que definem a descrição e o código de cada ''gadget''.",
 	'gadgets-uses' => 'Utiliza',
-	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o privilégio $1|os seguintes privilégios: $1}}.',
+	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o seguinte privilégio|os seguintes privilégios}}:
+
+$1',
+	'gadgets-required-skins' => 'Disponível {{PLURAL:$2|no tema $1|nos seguintes temas: $1}}',
 	'gadgets-default' => 'Activado para todos por padrão.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportação de gadget',
@@ -2445,10 +2641,11 @@ Na wiki de destino, tem de ter as permissões necessárias (incluindo o privilé
 	'gadgets-export-download' => 'Download',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
  * @author Giro720
  * @author GoEThe
+ * @author Helder.wiki
  * @author Rafael Vargas
  */
 $messages['pt-br'] = array(
@@ -2465,9 +2662,11 @@ Administradores locais podem editar os gadgets disponíveis através de [[MediaW
 	'gadgets-pagetext' => 'Segue-se uma lista de "gadgets" que podem ser ativados por utilizadores através de [[Special:Preferences|suas páginas de preferências]], definidos em [[MediaWiki:Gadgets-definition|definições]].
 Esta visão geral proporciona um acesso fácil para as mensagens de sistema que definem as descrições e códigos de cada um dos gadgets.',
 	'gadgets-uses' => 'Utiliza',
-	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o seguinte privilégio $1|os seguintes privilégios: $1}}.',
+	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o seguinte privilégio|os seguintes privilégios}}:
+
+$1',
 	'gadgets-required-skins' => 'Disponível {{PLURAL:$2|no skin $1|nos seguintes skins: $1}}.',
-	'gadgets-default' => 'Ativar para todos por padrão.',
+	'gadgets-default' => 'Ativado para todos por padrão.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportação de gadget',
 	'gadgets-not-found' => '*Gadget "$1" não encontrado.',
@@ -2487,7 +2686,7 @@ $messages['qu'] = array(
 	'gadgets-title' => 'Yanapaqchakuna',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Cin
  * @author Firilacroco
  * @author KlaudiuMihaila
@@ -2511,7 +2710,7 @@ $1',
 	'gadgets-export-download' => 'Descarcă',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -2542,7 +2741,7 @@ Tu a ave le permesse appropriate sus 'a Uicchi de destinazione (ingludenne le de
 	'gadgets-export-download' => 'Scareche',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Ahonc
  * @author Eleferen
  * @author Illusion
@@ -2579,7 +2778,7 @@ $1',
 	'gadgets-export-download' => 'Загрузить',
 );
 
-/** Rusyn (Русиньскый)
+/** Rusyn (русиньскый)
  * @author Gazeb
  */
 $messages['rue'] = array(
@@ -2596,7 +2795,10 @@ $messages['rue'] = array(
 	'gadgets-pagetext' => 'Ниже є перегляд шпеціалных додатків, котры собі хоснователї можуть запнути у своїм [[Special:Preferences|наставлїню]]. Їх список ся дасть управляти на сторінцї [[MediaWiki:Gadgets-definition]].
 Тот перегляд додавать простый приступ к&nbsp;сістемным повідомлїням, котры дефінують код і&nbsp;попис каждого додатку.',
 	'gadgets-uses' => 'Хоснує',
-	'gadgets-required-rights' => 'Потребує {{PLURAL:$2|права $1|наступны права: $1}}.',
+	'gadgets-required-rights' => 'Потребує слїдуючі {{PLURAL:$2|права}}:
+
+$1',
+	'gadgets-required-skins' => 'Доступне {{PLURAL:$2|про взгляд $1|про слїдуючі взгляды: $1}}.',
 	'gadgets-default' => 'Імпліцітно запнуте вшыткым.',
 	'gadgets-export' => 'Експортовати',
 	'gadgets-export-title' => 'Експорт додатку',
@@ -2607,7 +2809,37 @@ $messages['rue'] = array(
 	'gadgets-export-download' => 'Скачати',
 );
 
-/** Sakha (Саха тыла)
+/** Sanskrit (संस्कृतम्)
+ * @author Shubha
+ */
+$messages['sa'] = array(
+	'gadgets-desc' => 'योजकाः स्वस्य [[Special:Preferences|इष्टतमानि]] इत्यत्र [[Special:Gadgets|CSS जावालिपि-उपकरणं च]] चीयताम् ।',
+	'prefs-gadgets' => 'उपकरणानि',
+	'gadgets-prefstext' => 'अधः विशेषोपकरणानां सूची प्रदत्ता अस्ति याः भवान् भवतः लेखायां सक्रियाः कर्तुम् अर्हति ।
+एतानि जावालिप्याधारितानि विद्यन्ते, अतः कार्यकरणाय भवतः जालगवेषके जावालिपिः सक्रिया करणीया ।
+ज्ञायतां यत् एतानि उपकरणानि भवतः इष्टतमानि इत्येतस्मिन् पृष्ठे कार्यं न कुर्वन्ति ।
+
+इदमपि जानातु यत् एतानि विशेषोपकरणानि विकिमाध्यमतन्त्रांशस्य भागभूताः न, भवतः स्थानीयविक्यामेव योजकैः निर्मितं निरूह्यमानञ्च वर्तते ।
+विद्यमानानाम् उपकरणानां  [[MediaWiki:Gadgets-definition|definitions]]  [[Special:Gadgets|descriptions]] च स्थानीयप्रबन्धकैः सम्पादयितुं शक्यते ।',
+	'gadgets' => 'उपकरणानि',
+	'gadgets-title' => 'उपकरणानि',
+	'gadgets-pagetext' => '[[MediaWiki:Gadgets-definition|निर्वचन]]स्य अनुगुणम् अधः विशेषोपकरणानाम् अवली निर्दिष्टा अस्ति यानि भवतः [[Special:Preferences|इष्टतमानि]] इत्यस्मिन् पृष्ठे सक्रियाणि कर्तुम् अर्हति ।
+इयं समीक्षा सर्वेषाम् उपकरणानां विवरणं कूटसङ्ख्यां च तन्त्रसन्देशे सुलभतया प्राप्तुं सहकरोति ।',
+	'gadgets-uses' => 'उपयोगः',
+	'gadgets-required-rights' => 'अधोनिर्दिष्टम् अपेक्षते {{PLURAL:$2|अधिकारः|अधिकारः}}:
+
+$1',
+	'gadgets-required-skins' => 'उपलभ्यते {{PLURAL:$2|$1 विन्यासः|अधोनिर्दिष्टः विन्यासः: $1}}.',
+	'gadgets-default' => 'पूर्वनिर्दिष्टरूपेण सर्वेषां कृते सक्रियं विद्यते।',
+	'gadgets-export' => 'निर्यातः',
+	'gadgets-export-title' => 'उपकरणनिर्यातः',
+	'gadgets-not-found' => '"$1" उपकरणं न प्राप्तम् ।',
+	'gadgets-export-text' => '$1 उपकरणस्य निर्याताय "{{int:gadgets-export-download}}" पिञ्जः नोदनीयः, अवारोपिता सञ्चिका रक्ष्यताम्, लक्ष्यविक्यां Special:Import प्रति गम्यताम् उपारोप्यताञ्च । तत्पश्चात् MediaWiki:Gadgets-definition इत्यस्मिन् अधोनिर्दिष्टं योज्यताम् : <pre>$2</pre>
+लक्ष्यविक्यां भवतः उप्युक्ताधिकारः स्यात् (तन्त्रसन्देशसम्पादनस्य अधिकारः अन्तर्भूतः) सञ्चिकोपरोपणात् आयातः सक्षमः करणीयः',
+	'gadgets-export-download' => 'अवतार्यताम्',
+);
+
+/** Sakha (саха тыла)
  * @author HalanTul
  */
 $messages['sah'] = array(
@@ -2635,7 +2867,7 @@ $messages['sah'] = array(
 	'gadgets-export-download' => 'Хачайдааһын',
 );
 
-/** Samogitian (Žemaitėška)
+/** Samogitian (žemaitėška)
  * @author Hugo.arg
  */
 $messages['sgs'] = array(
@@ -2678,7 +2910,7 @@ $1',
 	'gadgets-export-download' => 'බාගන්න',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  * @author Teslaton
  */
@@ -2710,19 +2942,19 @@ Musíte mať príslušné oprávnenia na cieľovej wiki (vrátane práva na úpr
 	'gadgets-export-download' => 'Stiahnuť',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  * @author Smihael
  */
 $messages['sl'] = array(
 	'gadgets-desc' => 'Omogoča uporabnikom, da vključijo [[Special:Gadgets|vtičnike CSS in JavaScript]] v [[Special:Preferences|nastavitvah]]',
 	'prefs-gadgets' => 'Vtičniki',
-	'gadgets-prefstext' => 'Prikazan je seznam posebnih vtičnikov, ki si jih lahko omogočite za vaš račun.
-Večinoma temeljijo na JavaScript, zato mora biti za njihovo delovanje omogočen v vašem brskalniku.
+	'gadgets-prefstext' => 'Prikazan je seznam posebnih vtičnikov, ki jih lahko omogočite za vaš račun.
+Večinoma temeljijo na JavaScriptu, zato mora biti za njihovo delovanje omogočen v vašem brskalniku.
 Ti vtičniki nimajo nobenega vpliva na to nastavitveno stran.
 
-Prav tako pomnite, da ti vtičniki niso del programja MediaWiki, in jih običajno razvijajo ter vzdržujejo uporabniki na vašem lokalnem wikiju.
-Administratorji lahko uredite seznam vtičnikov z uporabo [[Special:Gadgets|posebne strani]] in [[MediaWiki:Gadgets-definition|opisov]].',
+Prav tako pomnite, da ti vtičniki niso del programja MediaWiki in jih običajno razvijajo ter vzdržujejo uporabniki na vašem lokalnem wikiju.
+Administratorji lahko uredite seznam vtičnikov z uporabo [[MediaWiki:Gadgets-definition|opredelitev]] in [[Special:Gadgets|posebne strani]].',
 	'gadgets' => 'Vtičniki',
 	'gadgets-title' => 'Vtičniki',
 	'gadgets-pagetext' => 'Spodaj je seznam posebnih vtičnikov (opredeljenih z [[MediaWiki:Gadgets-definition|definicijami]]), ki jih lahko uporabniki vključijo v svojih [[Special:Preferences|nastavitvah]].
@@ -2743,7 +2975,7 @@ Na ciljnem wikiju morate imeti ustrezna dovoljenja (vključno s pravico urejanja
 	'gadgets-export-download' => 'Prenesi',
 );
 
-/** Albanian (Shqip)
+/** Albanian (shqip)
  * @author Mikullovci11
  * @author Olsi
  * @author Vinie007
@@ -2777,7 +3009,7 @@ Ju duhet të keni leje të përshtatshme në wiki-n e destinuar (duke përfshir�
 	'gadgets-export-download' => 'Shkarko',
 );
 
-/** Serbian (Cyrillic script) (‪Српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
  * @author Millosh
  * @author Nikola Smolenski
  * @author Rancher
@@ -2812,7 +3044,7 @@ $1',
 	'gadgets-export-download' => 'Преузми',
 );
 
-/** Serbian (Latin script) (‪Srpski (latinica)‬)
+/** Serbian (Latin script) (‪srpski (latinica)‬)
  * @author Michaello
  * @author Жељко Тодоровић
  */
@@ -2870,7 +3102,7 @@ $messages['su'] = array(
 	'gadgets-desc' => 'Matak bisa pamaké milih [[Special:Gadgets|Gajet CSS sarta Javascript]] ngaliwatan [[Special:Preferences|Préferénsi]] maranéhanana',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Ainali
  * @author Boivie
  * @author Cohan
@@ -2906,19 +3138,31 @@ Du måste ha tillräckliga behörigheter på destinationswikin (inklusive möjli
 	'gadgets-export-download' => 'Ladda ner',
 );
 
-/** Swahili (Kiswahili) */
+/** Swahili (Kiswahili)
+ * @author Kwisha
+ * @author Stephenwanjau
+ */
 $messages['sw'] = array(
+	'gadgets' => 'Vifaa',
+	'gadgets-title' => 'Vifaa',
+	'gadgets-uses' => 'Inatumia',
 	'gadgets-export-download' => 'Pakua',
 );
 
 /** Tamil (தமிழ்)
  * @author TRYPPN
+ * @author மதனாஹரன்
  */
 $messages['ta'] = array(
 	'prefs-gadgets' => 'கருவிகள்',
 	'gadgets' => 'கருவிகள்',
 	'gadgets-title' => 'கருவிகள்',
 	'gadgets-uses' => 'பயன்பாடுகள்',
+	'gadgets-required-rights' => 'பின்வரும் {{PLURAL:$2|உரிமை|உரிமைகள்}} வேண்டப்படுகின்றன:
+
+$1',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1 தோலில்|பின்வரும் தோல்களில்: $1} கிடைக்கும்.',
+	'gadgets-default' => 'இயல்பாக அனைவருக்கும் செயற்பட வைக்கப்பட்டது.',
 	'gadgets-export' => 'ஏற்றுமதி செய்',
 	'gadgets-export-title' => 'கருவியை ஏற்றுமதி செய்',
 	'gadgets-not-found' => "''$1'' என்ற கருவி காணப்படவில்லை.",
@@ -2933,18 +3177,24 @@ $messages['ta'] = array(
 $messages['te'] = array(
 	'gadgets-desc' => 'వాడుకర్లను వారి [[Special:Preferences|అభిరుచుల]]లో  ప్రత్యేక [[Special:Gadgets|CSS మరియు జావాస్క్రిప్ట్ గాడ్జెట్లను]] ఎంచుకోనిస్తుంది',
 	'prefs-gadgets' => 'ఉపకరణాలు',
-	'gadgets-prefstext' => 'ఈ దిగువ ఉన్న ప్రత్యేక ఉపకరణాల నుండి సభ్యులు తమకు కావలసినవి టిక్కు పెట్టి మీ ఖాతాకు వీటిని ఎనేబుల్ చేసుకొవచ్చు. ఈ ఉపకరణాలు జావాస్క్రిప్టుపై ఆధారపడి పనిచేస్తాయి కాబట్టి ఇవి సరిగా పనిచెయ్యాలంటే మీ బ్రౌజరులో జావాస్క్రిప్టును ఎనేబుల్ చేసి ఉండాలి. ఈ ఉపకరణాలు అభిరుచుల పేజీపై ఎటువంటి ప్రభావాన్ని కలుగజేయవని గమనించాలి.
+	'gadgets-prefstext' => 'ఈ దిగువ ఉన్న ప్రత్యేక ఉపకరణాల నుండి మీకు కావలసిన వాటికి టిక్కు పెట్టి మీ ఖాతాకు వీటిని చేతనం చేసుకొవచ్చు.
+ఈ ఉపకరణాలు జావాస్క్రిప్టుపై ఆధారపడి పనిచేస్తాయి కాబట్టి ఇవి సరిగా పనిచెయ్యాలంటే మీ విహారిణిలో జావాస్క్రిప్టు చేతనం చేసి ఉండాలి.
+ఈ ఉపకరణాలు అభిరుచుల పేజీపై ఎటువంటి ప్రభావాన్ని కలుగజేయవని గమనించాలి.
 
-అలాగే ఈ ప్రత్యేక ఉపకరణాలు మీడియావికీ సాఫ్టువేరులో భాగము కాదని గమనించాలి. వీటిని సాధారణంగా మీ స్థానిక వికీలోని సభ్యులే తయారుచేసి నిర్వహిస్తూ ఉంటారు. స్థానిక వికీ నిర్వాహకులు లభ్యమయ్యే ఉపకరణాలను [[MediaWiki:Gadgets-definition|ఉపకరణాల నిర్వచన]] మరియు [[Special:Gadgets|ఉపకరణాల వివరణ]] పేజీలను ఉపయోగించి మార్పులుచేర్పులు చేయవచ్చు.',
+అలాగే ఈ ప్రత్యేక ఉపకరణాలు మీడియావికీ సాఫ్టువేరులో భాగము కాదని గమనించాలి. వీటిని సాధారణంగా మీ స్థానిక వికీలోని వాడుకరులే తయారుచేసి నిర్వహిస్తూ ఉంటారు. అందుబాటులో ఉన్న ఉపకరణాలకు [[MediaWiki:Gadgets-definition|ఉపకరణాల నిర్వచన]] మరియు [[Special:Gadgets|ఉపకరణాల వివరణ]] పేజీలను ఉపయోగించి స్థానిక వికీ నిర్వాహకులు మార్పులు చేయవచ్చు.',
 	'gadgets' => 'ఉపకరణాలు',
 	'gadgets-title' => 'ఉపకరణాలు',
 	'gadgets-pagetext' => 'ఈ దిగువన ఉన్న ప్రత్యేక ఉపకరణాల నుండి సభ్యులు తమకు కావలసినవి తమ [[Special:Preferences|అభిరుచులు పేజీ]]లోని ఉపకరణాల టాబులో టిక్కు పెట్టి ఎనేబుల్ చేసుకొనే అవకాశం ఉన్నది. వీటిని [[MediaWiki:Gadgets-definition|ఉపకరణాల నిర్వచన]] పేజీలో నిర్వచించడం జరిగింది. ఈ చిన్న పరిచయం ఆయా ఉపకరణాల నిర్వచన మరియు కోడుకు సంబంధించిన మీడియావికీ సందేశాలకు సులువుగా చేరుకునేందుకు లింకులను సమకూర్చుతుంది.',
 	'gadgets-uses' => 'ఉపయోగించే ఫైళ్ళు',
+	'gadgets-required-rights' => 'ఈ క్రింది {{PLURAL:$2|హక్కు|హక్కులు}} కావాలి:
+
+$1',
 	'gadgets-export' => 'ఎగుమతించు',
+	'gadgets-not-found' => '"$1" ఉపకరణం కనబడలేదు.',
 	'gadgets-export-download' => 'దింపుకోండి',
 );
 
-/** Tajik (Cyrillic script) (Тоҷикӣ)
+/** Tajik (Cyrillic script) (тоҷикӣ)
  * @author Ibrahim
  */
 $messages['tg-cyrl'] = array(
@@ -3022,7 +3272,10 @@ Maaaring baguhin ng pampook/lokal na mga tagapangasiwa ang makukuhang mga gadyet
 	'gadgets-pagetext' => 'Nasa ibaba ang isang talaan ng natatanging mga kasangkapan (gadyet) na mapapagana ng mga tagagamit sa kanilang [[Special:Preferences|pahina ng mga kagustuhan]], ayon sa nilalarawan ng [[MediaWiki:Gadgets-definition|mga kahulugan]].
 Nagbibigay ang pagtalakay na ito ng magaang na daan/akseso patungo sa mga pahina ng sistemang pangmensahe na nagbibigay kahulugan sa paglalarawan at kodigo ng bawat gadyet.',
 	'gadgets-uses' => 'Mga mapaggagamitan',
-	'gadgets-required-rights' => 'Nangangailangan ng {{PLURAL:$2|$1 na karapatan|sumusunod na mga karapatan: $1}}.',
+	'gadgets-required-rights' => 'Nangangailangan ng sumusunod na {{PLURAL:$2|karapatan|mga karapatan:}}:
+
+$1',
+	'gadgets-required-skins' => 'Makukuha sa ibabaw ng  {{PLURAL:$2|$1 na pabalat|sumusunod na mga pabalat: $1}}.',
 	'gadgets-default' => 'Likas ang pagkakatakda na pinapagana para sa lahat.',
 	'gadgets-export' => 'Iluwas',
 	'gadgets-export-title' => 'Pagluluwas ng gadyet',
@@ -3035,6 +3288,7 @@ Dapat kang mayroong nararapat na mga pahintulot sa kapupuntahang wiki (kasama an
 );
 
 /** Turkish (Türkçe)
+ * @author Emperyan
  * @author Erkan Yilmaz
  * @author Joseph
  * @author Karduelis
@@ -3042,15 +3296,14 @@ Dapat kang mayroong nararapat na mga pahintulot sa kapupuntahang wiki (kasama an
  */
 $messages['tr'] = array(
 	'gadgets-desc' => 'Kullanıcıların [[Special:Preferences|tercihlerinde]] özel [[Special:Gadgets|CSS ve JavaScript gadgetlerini]] seçmelerine izin verir',
-	'prefs-gadgets' => 'Gadgetler',
-	'gadgets-prefstext' => 'Aşağıdaki, hesabınız için etkinleştirebileceğiniz özel gadgetlerin listesidir.
-Bu gadgetler çoğunlukla JavaScript temellidir, bu yüzden çalışmaları için tarayıcınızda JavaScript etkinleştirilmelidir.
-Bu gadgetlerin bu tercihler sayfasına bir etkisinin olmayacağını unutmayın.
+	'prefs-gadgets' => 'Küçük araçlar',
+	'gadgets-prefstext' => 'Aşağıdaki, hesabınız için etkinleştirebileceğiniz özel araçların listesidir. 
+Bu küçük araçlar çoğunlukla JavaScript temellidir, bu yüzden çalışmaları için tarayıcınızda JavaScript etkinleştirilmelidir. Bu küçük araçların tercihler sayfasına bir etkisinin olmayacağını unutmayın.
 
-Ayrıca unutmayın ki, bu özel gadgetler MedyaViki yazılımının bir parçası değildir, ve genellikle yerel vikinizdeki kullanıcılar tarafından geliştirilip, idame ettirilirler.
-Yerel yöneticiler [[MediaWiki:Gadgets-definition|tanımları]] ve [[Special:Gadgets|açıklamaları]] kullanarak uygun gadgetleri değiştirebilirler.',
+Ayrıca unutmayın ki, bu özel araçlar MedyaViki yazılımının bir parçası değildir ve genellikle yerel vikinizdeki kullanıcılar tarafından geliştirilip, devam ettirilirler.
+Yerel yöneticiler [[MediaWiki:Gadgets-definition|tanımları]] ve [[Special:Gadgets|açıklamaları]] kullanarak uygun araçları değiştirebilirler.',
 	'gadgets' => 'Küçük araçlar',
-	'gadgets-title' => 'Gadgetler',
+	'gadgets-title' => 'Küçük araçlar',
 	'gadgets-pagetext' => "Aşağıdaki, kullanıcıların [[Special:Preferences|tercihler sayfasında]] etkin hale getirebileceği, [[MediaWiki:Gadgets-definition|tanımlarla]] belirtildiği gibi, özel gadgetlerin bir listesidir.
 Bu genel bakış, her gadget'in tanımını ve kodunu belirten sistem mesaj sayfalarına kolay erişim sağlar.",
 	'gadgets-uses' => 'Kullanıyor',
@@ -3063,7 +3316,7 @@ Hedef vikide uygun izinlerinizin olması (sistem mesajlarını değiştirmek yet
 	'gadgets-export-download' => 'İndir',
 );
 
-/** Tatar (Cyrillic script) (Татарча)
+/** Tatar (Cyrillic script) (татарча)
  * @author Ильнар
  */
 $messages['tt-cyrl'] = array(
@@ -3072,10 +3325,11 @@ $messages['tt-cyrl'] = array(
 	'gadgets-title' => 'Гаджетлар',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author AS
  * @author Ahonc
  * @author Dim Grits
+ * @author Olvin
  * @author Prima klasy4na
  * @author Riwnodennyk
  * @author Sodmy
@@ -3084,16 +3338,16 @@ $messages['tt-cyrl'] = array(
 $messages['uk'] = array(
 	'gadgets-desc' => 'Дозволяє користувачам обирати [[Special:Gadgets|CSS- та JavaScript-додатки]] у своїх [[Special:Preferences|налаштуваннях]]',
 	'prefs-gadgets' => 'Додатки',
-	'gadgets-prefstext' => 'Нижче наведений список спеціальних додатків, які ви можете ввімкнути для свого облікового запису.
-Ці додатки переважно базуються на JavaScript, тому ви повинні ввімкнути JavaScript для того, щоб вони працювали.
-Зауважте, що ці додатки не працюють на сторінці налаштувань.
+	'gadgets-prefstext' => 'Нижче наведено перелік особливих додатків, які ви можете ввімкнути для свого облікового запису.
+Ці додатки переважно засновані на JavaScript, тому ви маєте ввімкнути JavaScript для того, щоб вони працювали.
+Зауважте, що на цій сторінці налаштувань такі додатки не працюватимуть.
 
-Також зауважте, що ці додатки не є частиною MediaWiki і зазвичай розробляються і обслуговуються користувачами локальної вікі.
-Адміністратори можуть змінювати список додатків за допомогою сторінок їх [[MediaWiki:Gadgets-definition|визначення]] та [[Special:Gadgets|опису]].',
+Також зауважте, що ці додатки не є частиною MediaWiki й зазвичай розробляються та обслуговуються дописувачами цієї локальної вікі.
+Адміністратори можуть змінювати перелік додатків за допомогою сторінок їх [[MediaWiki:Gadgets-definition|визначення]] та [[Special:Gadgets|опису]].',
 	'gadgets' => 'Додатки',
 	'gadgets-title' => 'Додатки',
-	'gadgets-pagetext' => 'Нижче наведений список додатків, які можна ввімкнути на [[Special:Preferences|сторінці налаштувань]]. Список міститься на [[MediaWiki:Gadgets-definition|сторінці визначень]].
-Цей список дозволяє легко переглядати системні повідомлення, які містять описи і коди додатків.',
+	'gadgets-pagetext' => 'Нижче наведено перелік додатків, які можна ввімкнути на [[Special:Preferences|сторінці налаштувань]]. Цей перелік задано на [[MediaWiki:Gadgets-definition|сторінці визначень]].
+Таким чином, можна отримати простий доступ до системних сторінок, де задається опис кожного додатку та його код.',
 	'gadgets-uses' => 'Використовує',
 	'gadgets-required-rights' => '{{PLURAL:$2|Потрібне право|Потрібні такі права}}:
 
@@ -3110,7 +3364,19 @@ $1',
 	'gadgets-export-download' => 'Завантажити',
 );
 
-/** Vèneto (Vèneto)
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'prefs-gadgets' => 'گیجٹ',
+	'gadgets' => 'گیجٹ',
+	'gadgets-title' => 'گیجٹ',
+	'gadgets-uses' => 'استعمال کرتا ہے',
+	'gadgets-export' => 'برآمد',
+	'gadgets-export-title' => 'گیجٹ برآمد',
+);
+
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -3134,7 +3400,7 @@ Te serve i parmessi su la wiki de destinassion (compreso quelo de modificar i me
 	'gadgets-export-download' => 'Descarga',
 );
 
-/** Veps (Vepsän kel')
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
@@ -3203,6 +3469,10 @@ $1',
 	'gadgets-export' => 'עקספארטירן',
 	'gadgets-export-title' => 'דזשימדזשיק עקספארט',
 	'gadgets-not-found' => 'דזשימדזשיק "$1" נישט געטראפֿן.',
+	'gadgets-export-text' => 'כדי צו עקספארטירן דעם $1 דזשימדזשיק, קליקט אויפן "{{int:gadgets-export-download}}" קנעפל, שפייכלערט איין די אראפגעלאדענע טעקע,
+גייט צו Special:Import אין דער ציל וויקי און טוט זי ארויפלאדן. דערנאך לייגט צו דעם פאלגנד צום בלאט MediaWiki:Gadgets-definition page:
+<pre>$2</pre>
+איר דארפט האבן פאסיגע ערלויבנישן אויף דער ציל וויקי (כולל די רעכט צו רעדאקטירן סיסטעם מעלדונגען) און אימפארט פון טעקע ארויפלאדן מוז זיין אקטיווירט.',
 	'gadgets-export-download' => 'אַראָפלאָדן',
 );
 
@@ -3233,7 +3503,7 @@ $messages['yue'] = array(
 	'gadgets-uses' => '用',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Anakmalaysia
  * @author Bencmq
  * @author Gaoxuewei
@@ -3262,16 +3532,15 @@ $1',
 	'gadgets-required-skins' => '可用在{{PLURAL:$2|$1外观|以下外观：$1}}。',
 	'gadgets-default' => '默认所有人启用。',
 	'gadgets-export' => '导出',
-	'gadgets-export-title' => '小工具出口',
+	'gadgets-export-title' => '导出小工具',
 	'gadgets-not-found' => '找不到“$1”小工具。',
-	'gadgets-export-text' => '要导出 $1 小工具，请单击"{{int:gadgets-export-download}}"按钮，保存下载的文件
-转到特别： 导入目标 wiki 上并将其上传。然后将以下添加到 MediaWiki:Gadgets-definition：
+	'gadgets-export-text' => '要导出 $1 小工具，请单击“{{int:gadgets-export-download}}”按钮，保存下载的文件，前往目标wiki的Special:Import并将文件上传。随后将以下内容加入MediaWiki:Gadgets-definition：
 <pre>$2</pre>
-您必须具有适当的权限 （包括编辑系统消息的权利） 的目标维基上，必须启用导入的文件上传。',
+您必须在目标wiki上具有适当的权限（包括编辑系统消息的权利），且站点必须启用由上传文件导入的功能。',
 	'gadgets-export-download' => '下载',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Anakmalaysia
  * @author Horacewai2
  * @author Liangent
