@@ -1277,6 +1277,7 @@ $1',
  * @author Anton008
  * @author Dalibor Bosits
  * @author Ex13
+ * @author Roberta F.
  * @author SpeedyGonsales
  */
 $messages['hr'] = array(
@@ -1289,10 +1290,10 @@ Nijedan dodatak nema učinka na ovu stranicu s postavkama.
 Ovi posebni dodaci nisu dio MediaWiki softvera, najčešće su razvijane i održavane od suradnika na lokalnom wikiju.
 Lokalni administratori mogu uređivati dostupne dodatke putem [[MediaWiki:Gadgets-definition|definicija]] i [[Special:Gadgets|opisa]].',
 	'gadgets' => 'Dodaci',
-	'gadgets-title' => 'Dodaci',
+	'gadgets-title' => 'Dodatci',
 	'gadgets-pagetext' => 'Slijedi popis posebnih JavaScript dodataka koje suradnici mogu omogućiti u svojim [[Special:Preferences|postavkama]], kako je definirano stranicom [[MediaWiki:Gadgets-definition|definicija]].
 Ovaj pregled omogućava lak pristup porukama sustava koje opisuju dodatke i njihov kod.',
-	'gadgets-uses' => 'Koristi',
+	'gadgets-uses' => 'Rabi',
 	'gadgets-required-rights' => 'Zahtijeva {{PLURAL:$2|$1 pravo|sljedeća prava: $1}}.',
 	'gadgets-export' => 'Izvezi',
 	'gadgets-export-title' => "Izvoz JS skripti (''gadgets'')",
