@@ -16,7 +16,7 @@ $messages = array();
  */
 $messages['en'] = array(
 	# for Special:Version
-	'gadgets-desc'      => 'Lets users select custom [[Special:Gadgets|CSS and JavaScript gadgets]] in their [[Special:Preferences|preferences]]',
+	'gadgets-desc'      => 'Lets users select custom [[Special:Gadgets|CSS and JavaScript gadgets]] in their [[Special:Preferences#mw-prefsection-gadgets|preferences]]',
 
 	# for Special:Preferences
 	'prefs-gadgets'     => 'Gadgets',
@@ -31,7 +31,7 @@ Local administrators can edit the [[MediaWiki:Gadgets-definition|definitions]] a
 	'gadgets'           => 'Gadgets',
 	'gadgets-definition' => '', # do not translate or duplicate this message to other languages
 	'gadgets-title'     => 'Gadgets',
-	'gadgets-pagetext'  => "Below is a list of special gadgets users can enable on their [[Special:Preferences|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].
+	'gadgets-pagetext'  => "Below is a list of special gadgets users can enable on their [[Special:Preferences#mw-prefsection-gadgets|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].
 This overview provides easy access to the system message pages that define each gadget's description and code.",
 	'gadgets-uses'      => 'Uses',
 	'gadgets-required-rights' => 'Requires the following {{PLURAL:$2|right|rights}}:
@@ -62,10 +62,10 @@ You must have appropriate permissions on destination wiki (including the right t
  */
 $messages['qqq'] = array(
 	'gadgets-desc' => '{{desc}}',
-	'prefs-gadgets' => 'In Gadgets extension. The name of a tab in [[Special:Preferences]] where user set their preferences for the extension.
+	'prefs-gadgets' => 'In Gadgets extension. The name of a tab in [[Special:Preferences#mw-prefsection-gadgets|Special:Preferences]] where user set their preferences for the extension.
 
 {{Identical|Gadgets}}',
-	'gadgets-prefstext' => 'In Gadgets extension. This is the explanation text displayed under the Gadgets tab in [[Special:Preferences]].',
+	'gadgets-prefstext' => 'In Gadgets extension. This is the explanation text displayed under the Gadgets tab in [[Special:Preferences#mw-prefsection-gadgets|Special:Preferences]].',
 	'gadgets' => '{{Identical|Gadgets}}',
 	'gadgets-title' => '{{Identical|Gadgets}}',
 	'gadgets-uses' => "This is used as a verb in third-person singular. It appears in front of a script name. Example: \"''Uses: Gadget-UTCLiveClock.js''\"
