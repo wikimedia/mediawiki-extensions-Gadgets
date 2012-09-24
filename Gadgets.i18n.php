@@ -2407,7 +2407,7 @@ Musisz mieć właściwe uprawnienia na wiki docelowej (w tym do edycji komunikat
  * @author Dragonòt
  */
 $messages['pms'] = array(
-	'gadgets-desc' => "A lassa che j'utent a selession-o [[Special:Gadgets|CSS e gadget JavaScript]]  ant ij [[Special:Preferences#mw-prefsection-gadgets|sò gust]]",
+	'gadgets-desc' => "A lassa che j'utent a selession-o dij [[Special:Gadgets|component CSS e JavaScript]]  ant ij [[Special:Preferences#mw-prefsection-gadgets|sò gust]]",
 	'prefs-gadgets' => 'Component',
 	'gadgets-prefstext' => "Ambelessì sota a-i é na lista ëd component ch'a peul vischesse ant sò cont personal.
 Sti component-sì a son dzortut basà ansima a JavaScript, donca a venta anans tut che JavaScript a sia avisch ant sò navigator, s'a veul che ij component a travajo.
@@ -2417,8 +2417,8 @@ Ch'a nòta ëdcò che a son nen part dël programa MediaWiki e che për sòlit a
 J'aministrator locaj a peulo regolé ij component disponibij ën dovrand le pàgine [[MediaWiki:Gadgets-definition|definission dij component]] e [[Special:Gadgets|component]].",
 	'gadgets' => 'Component',
 	'gadgets-title' => 'Component',
-	'gadgets-pagetext' => "Ambelessì sota a-i é na lista ëd component spessiaj che j'utent a peulo butesse avisch ant ij [[Special:Preferences#mw-prefsection-gadgets|sò gust]], conforma a la [[MediaWiki:Gadgets-definition|definission dij component]].
-Sta lista complessiva a smon na stra còmoda për rivé a le pàgine ëd messagi ëd sistema ch'a definisso descrission e còdes ëd vira component.",
+	'gadgets-pagetext' => "Ambelessì-sota a-i é na lista ëd component speciaj che j'utent a peulo butesse avisch ant ij [[Special:Preferences#mw-prefsection-gadgets|sò gust]], conforma a la [[MediaWiki:Gadgets-definition|definission dij component]].
+Sta lista complessiva a smon na stra còmoda për rivé a le pàgine ëd messagi ëd sistema ch'a definisso descrission e còdes ëd minca component.",
 	'gadgets-uses' => 'a dòvra',
 	'gadgets-required-rights' => 'A ciama {{PLURAL:$1|ël drit|ij drit}} sì-dapress:
 
@@ -3243,6 +3243,15 @@ $messages['ur'] = array(
 	'gadgets-uses' => 'استعمال کرتا ہے',
 	'gadgets-export' => 'برآمد',
 	'gadgets-export-title' => 'گیجٹ برآمد',
+);
+
+/** Uzbek (oʻzbekcha)
+ * @author CoderSI
+ */
+$messages['uz'] = array(
+	'prefs-gadgets' => 'Gadjetlar',
+	'gadgets' => 'Gadjetlar',
+	'gadgets-title' => 'Gadjetlar',
 );
 
 /** vèneto (vèneto)
