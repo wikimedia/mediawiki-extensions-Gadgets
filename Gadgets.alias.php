@@ -218,7 +218,7 @@ $specialPageAliases['mt'] = array(
 	'Gadgets' => array( 'Aġġeġġi', 'Aċċessorji' ),
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬) */
+/** Norwegian Bokmål (norsk (bokmål)‎) */
 $specialPageAliases['nb'] = array(
 	'Gadgets' => array( 'Tilleggsfunksjoner' ),
 );
@@ -233,7 +233,7 @@ $specialPageAliases['nl'] = array(
 	'Gadgets' => array( 'Extensies' ),
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬) */
+/** Norwegian Nynorsk (norsk (nynorsk)‎) */
 $specialPageAliases['nn'] = array(
 	'Gadgets' => array( 'Tilleggsfunksjonar' ),
 );
@@ -278,7 +278,7 @@ $specialPageAliases['sl'] = array(
 	'Gadgets' => array( 'Vtičniki', 'Vticniki' ),
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬) */
+/** Serbian (Cyrillic script) (српски (ћирилица)‎) */
 $specialPageAliases['sr-ec'] = array(
 	'Gadgets' => array( 'Гаџети' ),
 );
@@ -323,12 +323,12 @@ $specialPageAliases['vi'] = array(
 	'Gadgets' => array( 'Công_cụ_đa_năng' ),
 );
 
-/** Simplified Chinese (‪中文（简体）‬) */
+/** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'Gadgets' => array( '小工具' ),
 );
 
-/** Traditional Chinese (‪中文（繁體）‬) */
+/** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
 	'Gadgets' => array( '小工具' ),
 );

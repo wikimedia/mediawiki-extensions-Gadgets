@@ -57,6 +57,7 @@ You must have appropriate permissions on destination wiki (including the right t
  * @author Mormegil
  * @author Purodha
  * @author SPQRobin
+ * @author Shirayuki
  * @author Siebrand
  * @author The Evil IP address
  */
@@ -79,6 +80,8 @@ See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimed
 * $2 - the number of items in list $1 for PLURAL use.',
 	'gadgets-export' => 'Used on [[Special:Gadgets]]. This is a verb, not noun.
 {{Identical|Export}}',
+	'gadgets-export-title' => 'Used as page title. Example: [[Special:Gadgets/export/editbuttons]]',
+	'gadgets-export-text' => 'Used as page description. See example: [[Special:Gadgets/export/editbuttons]]',
 	'gadgets-export-download' => 'Use the verb for this message. Submit button.
 {{Identical|Download}}',
 );
@@ -344,7 +347,7 @@ $messages['bcc'] = array(
 	'gadgets-uses' => 'استفاده بیت',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author Cesco
  * @author EugeneZelenko
  * @author Jim-by
@@ -1543,7 +1546,7 @@ Devi disporre dei permessi appropriati nella wiki di destinazione (incluso il di
  * @author 青子守歌
  */
 $messages['ja'] = array(
-	'gadgets-desc' => '利用者が[[Special:Gadgets|CSSやJavaScriptのカスタムガジェット]]を[[Special:Preferences#mw-prefsection-gadgets|{{int:preferences}}]]で選択できるようにする',
+	'gadgets-desc' => '利用者が [[Special:Gadgets|CSS や JavaScript のカスタム ガジェット]]を[[Special:Preferences#mw-prefsection-gadgets|{{int:preferences}}]]で選択できるようにする',
 	'prefs-gadgets' => 'ガジェット',
 	'gadgets-prefstext' => '以下はあなたのアカウントで利用できるガジェットの一覧です。これらのガジェットはほとんどがJavaScriptベースのため、動作させるにはブラウザーのJavaScriptを有効にする必要があります。なお、{{int:preferences}}ページ上では動作しません。
 
@@ -1551,20 +1554,20 @@ $messages['ja'] = array(
 	'gadgets' => 'ガジェット',
 	'gadgets-title' => 'ガジェット',
 	'gadgets-pagetext' => '以下は、利用者が[[Special:Preferences#mw-prefsection-gadgets|{{int:preferences}}]]で有効化できるガジェットの一覧です。これらは[[MediaWiki:Gadgets-definition|定義ページ]]で定義されています。
-この一覧はガジェットの説明やプログラムコードを定義しているシステムメッセージページへの簡単なアクセスも提供します。',
-	'gadgets-uses' => '利用するファイル',
-	'gadgets-required-rights' => '以下の{{PLURAL:$2|権限}}が必要です：
+この概要ページでは、各ガジェットの説明やプログラム コードを定義しているシステム メッセージ ページへの簡単なアクセスを提供します。',
+	'gadgets-uses' => '使用するファイル',
+	'gadgets-required-rights' => '以下の{{PLURAL:$2|権限}}が必要です:
 
 $1',
-	'gadgets-required-skins' => '{{PLURAL:$2|$1外装|外装：$1}}で利用てきます。',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1外装で利用できます|以下の外装で利用できます: $1}}。',
 	'gadgets-default' => '既定では全員に有効です。',
-	'gadgets-export' => 'エクスポート',
-	'gadgets-export-title' => 'ガジェットのエクスポート',
+	'gadgets-export' => '書き出し',
+	'gadgets-export-title' => 'ガジェットの書き出し',
 	'gadgets-not-found' => 'ガジェット「$1」が見つかりません。',
-	'gadgets-export-text' => '$1ガジェットをエクスポートするには、「{{int:gadgets-export-download}}」ボタンをクリックし、ダウンロードしたファイルを保存し、
-配布先のウィキのSpecial:Importへ行ってアップロードしてください。そして、以下をMediaWiki:Gadgets-definitionページに追加してください：
+	'gadgets-export-text' => '$1 ガジェットを書き出すには、「{{int:gadgets-export-download}}」ボタンをクリックし、ダウンロードしたファイルを保存し、
+配布先ウィキの Special:Import に行ってアップロードしてください。そして、以下を MediaWiki:Gadgets-definition ページに追加してください:
 <pre>$2</pre>
-エクスポートには、配布先のウィキで適切な許可（システムメッセージの編集権限を含む）が必要で、さらにファイルからのインポートが有効化されている必要があります。',
+この操作には、配布先のウィキで適切な権限 (システムメッセージの編集権限を含む) が必要で、さらにファイル アップロードによる取り込みが有効になっている必要があります。',
 	'gadgets-export-download' => 'ダウンロード',
 );
 
@@ -2115,7 +2118,7 @@ $messages['mzn'] = array(
 	'gadgets-title' => 'ابزارون',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Laaknor
  * @author Nghtwlkr
  * @author Sjurhamre
@@ -2265,7 +2268,7 @@ Voeg daarna het volgende toe aan de pagina "MediaWiki:Gadgets-definition":
 Je moet de juiste rechten hebben op de doelwiki, inclusief het recht om bewerkingen te maken aan de systeemberichten, en importeren uit bestanden moet ingeschakeld zijn.',
 );
 
-/** Norwegian Nynorsk (‪norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk (nynorsk)‎)
  * @author Eirik
  * @author Harald Khan
  * @author Nghtwlkr
@@ -2878,7 +2881,7 @@ Ju duhet të keni leje të përshtatshme në wiki-n e destinuar (duke përfshir�
 	'gadgets-export-download' => 'Shkarko',
 );
 
-/** Serbian (Cyrillic script) (‪српски (ћирилица)‬)
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
  * @author Millosh
  * @author Nikola Smolenski
  * @author Rancher
@@ -2913,7 +2916,7 @@ $1',
 	'gadgets-export-download' => 'Преузми',
 );
 
-/** Serbian (Latin script) (‪srpski (latinica)‬)
+/** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
  * @author Жељко Тодоровић
  */
@@ -3381,7 +3384,7 @@ $messages['yue'] = array(
 	'gadgets-uses' => '用',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Anakmalaysia
  * @author Bencmq
  * @author Gaoxuewei
@@ -3418,7 +3421,7 @@ $1',
 	'gadgets-export-download' => '下载',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Anakmalaysia
  * @author Horacewai2
  * @author Liangent
