@@ -2937,6 +2937,7 @@ Ovaj pregled pruža brz pristup sistemskim porukama koje definišu svaki opis i 
 	'gadgets-required-rights' => 'Zahteva {{PLURAL:$2|sledeće pravo|sledeća prava}}:
 
 $1',
+	'gadgets-required-skins' => 'Dostupno u {{PLURAL:$2|temi $1|sledećim temama: $1}}.',
 	'gadgets-default' => 'Podrazumevano uključen za svakog.',
 	'gadgets-export' => 'Izvezi',
 	'gadgets-export-title' => 'Izvoz gadžeta',
