@@ -527,7 +527,7 @@ Aquesta llista permet un fàcil accés a les pàgines del sistema que defineixen
 
 $1',
 	'gadgets-required-skins' => 'Disponible a la  {{PLURAL:$2|   $1  skin|following skins:  $1 }}.',
-	'gadgets-default' => 'Habilitat per a tot el món per defecte.',
+	'gadgets-default' => 'Habilitat per a tothom per defecte.',
 	'gadgets-export' => 'Exporta',
 	'gadgets-export-title' => 'Exportació de ginys',
 	'gadgets-not-found' => "No s'ha trobat el giny «$1».",
