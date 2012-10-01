@@ -2616,13 +2616,14 @@ Tu a ave le permesse appropriate sus 'a Uicchi de destinazione (ingludenne le de
 /** Russian (русский)
  * @author Ahonc
  * @author Eleferen
+ * @author Ignatus
  * @author Illusion
  * @author MaxSem
  * @author VasilievVV
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
-	'gadgets-desc' => 'Позволяет участникам выбирать в [[Special:Preferences#mw-prefsection-gadgets|настройках]] CSS- и JavaScript-гаджеты, которые они хотят подключить',
+	'gadgets-desc' => 'Позволяет участникам выбирать в своих [[Special:Preferences#mw-prefsection-gadgets|настройках]] те или иные [[Special:Gadgets|CSS- и JavaScript-гаджеты]]',
 	'prefs-gadgets' => 'Гаджеты',
 	'gadgets-prefstext' => 'Ниже приведён список специальных гаджетов, которые вы можете включить для своей учётной записи.
 Эти гаджеты преимущественно основаны на JavaScript, поэтому вы должны включить JavaScript в своём браузере для того, чтобы они работали.
