@@ -706,7 +706,23 @@ Du musst über die notwendigen Berechtigungen auf dem für den Import vorgesehen
 	'gadgets-export-download' => 'Herunterladen',
 );
 
-/** German (formal address) (‪Deutsch (Sie-Form)‬)
+/** Swiss High German (Schweizer Hochdeutsch)
+ * @author Geitost
+ */
+$messages['de-ch'] = array(
+	'gadgets-prefstext' => 'Dies ist eine Liste spezieller Helferlein, die jeder Benutzer aktivieren kann.
+Die Helferlein basieren zumeist auf JavaScript. Daher muss JavaScript im Browser aktiviert sein, damit sie funktionieren können.
+Sie funktionieren allerdings nicht auf dieser Spezialseite mit den persönlichen Einstellungen.
+
+Ausserdem ist zu beachten, dass diese Helferlein im Allgemeinen nicht Teil von MediaWiki sind, sondern meist von Benutzern lokaler Wikis entwickelt und gewartet werden.
+Lokale Administratoren können die verfügbaren Helferlein bearbeiten. Dafür stehen die [[MediaWiki:Gadgets-definition|Definitionen]] und [[Special:Gadgets|Beschreibungen]] zur Verfügung.',
+	'gadgets-default' => 'Für alle standardmässig aktiviert.',
+	'gadgets-export-text' => 'Um das Helferlein $1 zu exportieren, klicke auf die Schaltfläche „{{int:gadgets-export-download}}“ und speichere die heruntergeladene Datei. Gehe sodann zur Spezialseite Spezial:Import auf dem für den Import vorgesehenen Wiki und lade die Datei hoch. Danach füge den folgenden Text der Seite MediaWiki:Gadgets-definition hinzu:
+<pre>$2</pre>
+Du musst über die notwendigen Berechtigungen auf dem für den Import vorgesehenen Wiki verfügen (einschliesslich der Berechtigung MediaWiki-Systemnachrichten zu bearbeiten). Zudem muss der Import von Datei-Uploads aktiviert sein.',
+);
+
+/** German (formal address) (Deutsch (Sie-Form)‎)
  * @author Kghbln
  */
 $messages['de-formal'] = array(
@@ -1646,7 +1662,7 @@ $1',
 	'gadgets-export-download' => 'ჩამოტვირთვა',
 );
 
-/** Kazakh (Arabic script) (‫قازاقشا (تٴوتە)‬) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
 $messages['kk-arab'] = array(
 	'prefs-gadgets' => 'قاجەت قۇرالدار',
 	'gadgets-prefstext' => 'تومەندە ٴوز تىركەلگىڭىزدە قوسا الاتىن ارناۋلى قاجەت قۇرالدار ٴتىزىمى بەرىلەدى.
@@ -1663,7 +1679,7 @@ $messages['kk-arab'] = array(
 	'gadgets-uses' => 'قولدانۋداعىلار',
 );
 
-/** Kazakh (Cyrillic script) (‪қазақша (кирил)‬) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
 $messages['kk-cyrl'] = array(
 	'prefs-gadgets' => 'Қажет құралдар',
 	'gadgets-prefstext' => 'Төменде өз тіркелгіңізде қоса алатын арнаулы қажет құралдар тізімі беріледі.
@@ -1680,7 +1696,7 @@ $messages['kk-cyrl'] = array(
 	'gadgets-uses' => 'Қолданудағылар',
 );
 
-/** Kazakh (Latin script) (‪qazaqşa (latın)‬) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎) */
 $messages['kk-latn'] = array(
 	'prefs-gadgets' => 'Qajet quraldar',
 	'gadgets-prefstext' => 'Tömende öz tirkelgiñizde qosa alatın arnawlı qajet quraldar tizimi beriledi.
@@ -1800,7 +1816,7 @@ Do moß en däm Wiki de nüüdijje Rääschde han, och dat Rääsch, aan Täxte 
 	'gadgets-export-download' => 'Eronger laade',
 );
 
-/** Kurdish (Latin script) (‪Kurdî (latînî)‬)
+/** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
  */
 $messages['ku-latn'] = array(
@@ -2250,7 +2266,7 @@ U moet de juiste rechten hebben op de doelwiki, inclusief het recht om bewerking
 	'gadgets-export-download' => 'Downloaden',
 );
 
-/** ‪Nederlands (informeel)‬ (‪Nederlands (informeel)‬)
+/** Nederlands (informeel)‎ (Nederlands (informeel)‎)
  * @author Siebrand
  */
 $messages['nl-informal'] = array(
