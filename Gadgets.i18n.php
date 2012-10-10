@@ -733,6 +733,7 @@ Sie müssen über die notwendigen Berechtigungen auf dem für den Import vorgese
 
 /** Zazaki (Zazaki)
  * @author Erdemaslancan
+ * @author Olvörg
  * @author Xoser
  */
 $messages['diq'] = array(
@@ -757,6 +758,9 @@ $1',
 	'gadgets-export' => 'Teber de',
 	'gadgets-export-title' => 'Teberdayışê gadgeti',
 	'gadgets-not-found' => 'Gadget "$1" nêvineya.',
+	'gadgets-export-text' => 'Qande gadgeto $1 teber rê rusnayış ,"{{int:gadgets-export-download}}" rê hengnayış kerên,u dosya ke download biyo,star kerên.Wikiyê hedef de şo pela Special:Import rê and download kerên.Bahdo nuşteyê ke cerên de dero pela MediaWiki:Gadgets-definition rê bınuse:
+<pre>$2</pre>
+Wikiyê ke hedefo de desturê lazımo (vurnayışê mesacanê sistemi daxilo) u dosya ra zerê rê rusnayışi enabled lazımo.',
 	'gadgets-export-download' => 'Ron',
 );
 
