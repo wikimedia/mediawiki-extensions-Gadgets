@@ -968,11 +968,12 @@ $messages['ext'] = array(
  * @author Ebraminio
  * @author Huji
  * @author Ladsgroup
+ * @author Reza1615
  * @author Wayiran
  * @author ZxxZxxZ
  */
 $messages['fa'] = array(
-	'gadgets-desc' => 'به کاربرها امکان انتخاب ابزارهای شخصی CSS و JavaScript را از طریق صفحهٔ [[Special:Preferences#mw-prefsection-gadgets|ترجیحات]] می‌دهد',
+	'gadgets-desc' => 'به کاربرها امکان انتخاب [[Special:Gadgets|ابزارهای شخصی CSS و JavaScript]] را از طریق صفحهٔ [[Special:Preferences#mw-prefsection-gadgets|ترجیحات]] می‌دهد',
 	'prefs-gadgets' => 'ابزارها',
 	'gadgets-prefstext' => 'در زیر فهرستی از ابزارهای ویژه‌ای که می‌توانید برای حساب کاربری‌تان فعال کنید را می‌بینید.
 این ابزارها در بیشتر موارد مبتنی بر جاوااسکریپت هستند، پس برای استفاده از آن‌ها باید جاوااسکرپیت را در مرورگر خودتان فعال کنید.
