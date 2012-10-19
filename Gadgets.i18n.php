@@ -1142,7 +1142,7 @@ Este panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que d
 
 $1',
 	'gadgets-required-skins' => 'Dispoñible {{PLURAL:$2|na aparencia $1|nas seguintes aparencias: $1}}.',
-	'gadgets-default' => 'Activar para todos por defecto.',
+	'gadgets-default' => 'Activado para todos por defecto.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportación de trebellos',
 	'gadgets-not-found' => 'Non se atopou o trebello "$1".',
