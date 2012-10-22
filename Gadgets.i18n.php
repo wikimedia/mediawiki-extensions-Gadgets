@@ -60,6 +60,7 @@ You must have appropriate permissions on destination wiki (including the right t
  * @author Shirayuki
  * @author Siebrand
  * @author The Evil IP address
+ * @author Umherirrender
  */
 $messages['qqq'] = array(
 	'gadgets-desc' => '{{desc}}',
@@ -68,6 +69,7 @@ $messages['qqq'] = array(
 {{Identical|Gadgets}}',
 	'gadgets-prefstext' => 'In Gadgets extension. This is the explanation text displayed under the Gadgets tab in [[Special:Preferences#mw-prefsection-gadgets|Special:Preferences]].',
 	'gadgets' => '{{Identical|Gadgets}}',
+	'gadgets-definition' => '{{notranslate}}',
 	'gadgets-title' => '{{Identical|Gadgets}}',
 	'gadgets-uses' => "This is used as a verb in third-person singular. It appears in front of a script name. Example: \"''Uses: Gadget-UTCLiveClock.js''\"
 
@@ -116,7 +118,7 @@ $messages['am'] = array(
 	'gadgets-prefstext' => 'ከዚህ ታች አንዳንድ ተጨማሪ መሣርያ ወይም መኪናነት በዝርዝር ሊገኝ ይችላል። እነዚህ በደንብ እንዲሠሩ በኮምፒውተርዎ ላይ ጃቫ-ስክሪፕት እንዲኖር አስፈላጊነት ነው።
 
 የዚህ ዊኪ መጋቢዎች [[MediaWiki:Gadgets-definition]]
-እና [[Special:Gadgets]] በመጠቀም አዲስ መሣርያ ሊጨምሩ ይቻላል።',
+እና [[Special:Gadgets]] በመጠቀም አዲስ መሣርያ ሊጨምሩ ይቻላል።', # Fuzzy
 	'gadgets' => 'ተጨማሪ መሣርያዎች',
 	'gadgets-title' => 'ተጨማሪ መሣርያዎች',
 	'gadgets-pagetext' => 'ተጨማሪ መሣርያዎች ወይም መኪናዎች በየዊኪ ፕሮዤ የለያያሉ።
@@ -125,7 +127,7 @@ $messages['am'] = array(
 
 የዚህ ገጽ መራጃ በተለይ ለመጋቢዎችና አስተዳዳሪዎች ይጠቅማል።
 
-በዚህ {{SITENAME}} የሚገኙት ተቸማሪ መሣርያዎች እነኚህ ናቸው፦',
+በዚህ {{SITENAME}} የሚገኙት ተቸማሪ መሣርያዎች እነኚህ ናቸው፦', # Fuzzy
 	'gadgets-uses' => 'የተጠቀመው ጃቫ-ስክሪፕት',
 );
 
@@ -178,6 +180,7 @@ $messages['ar'] = array(
 الإداريون المحليون يمكنهم تعديل الإضافات المتوفرة باستخدام [[MediaWiki:Gadgets-definition|التعريفات]]
 و [[Special:Gadgets|الوصوفات]].',
 	'gadgets' => 'إضافات',
+	'gadgets-definition' => '<!-- انظر http://www.mediawiki.org/wiki/Extension:Gadgets للاستخدام -->',
 	'gadgets-title' => 'إضافات',
 	'gadgets-pagetext' => 'بالأسفل قائمة بالإضافات الخاصة التي يمكن أن يقوم المستخدمون بتفعيلها على [[Special:Preferences#mw-prefsection-gadgets|صفحة تفضيلاتهم]]، معرفة بواسطة [[MediaWiki:Gadgets-definition|التعريفات]].
 هذا العرض يوفر دخولا سهلا لصفحات رسائل النظام التي تعرف وصف وكود كل إضافة.',
@@ -489,7 +492,7 @@ Administratori mogu mijenjati dostupne gadgetse koristeći [[MediaWiki:Gadgets-d
 	'gadgets-pagetext' => 'Ispod je spisak posebnih dodataka koje korisnici mogu omogućiti na svojim [[Special:Preferences#mw-prefsection-gadgets|postavkama]], kako je to definisano u [[MediaWiki:Gadgets-definition|definicijama dodataka]].
 Ovaj pregled daje jednostavan pristup sistemu stranica poruka koje definišu svaki dodatak i njihov opis i kod.',
 	'gadgets-uses' => 'Upotrebe',
-	'gadgets-required-rights' => 'Zahtijeva {{PLURAL:$2|$1 pravo|slijedeća prava: $1}}.',
+	'gadgets-required-rights' => 'Zahtijeva {{PLURAL:$2|$1 pravo|slijedeća prava: $1}}.', # Fuzzy
 	'gadgets-default' => 'Omogućeno za svakog po postavkama.',
 	'gadgets-export' => 'Izvoz',
 	'gadgets-export-title' => 'Izvoz dodatka',
@@ -542,7 +545,7 @@ Heu de tenir els permisos adequats en el wiki de destinació (incloent-hi els pe
  * @author Sasan700
  */
 $messages['ce'] = array(
-	'gadgets-desc' => 'Атто бо декъашхошна харжам ба [[Special:Preferences#mw-prefsection-gadgets|гIирс нисбарца]] CSS- а JavaScript-хIоттончаш, лато лууш йерш',
+	'gadgets-desc' => 'Атто бо декъашхошна харжам ба [[Special:Preferences#mw-prefsection-gadgets|гIирс нисбарца]] CSS- а JavaScript-хIоттончаш, лато лууш йерш', # Fuzzy
 	'prefs-gadgets' => 'Хlоттончаш',
 	'gadgets-prefstext' => 'Лаххьа балийна леррина хlоттончаш могlам, шуьга шайга латалур йолуш хьай долахь долучу дакъан.
 Хlара хlоттончаш дукхачу хьоляхь болх беш ю оцу JavaScript тlяхь, цундела аша латоеза JavaScript шай дуьнена машан гlирса чохь, цаьрга болх байта.
@@ -553,7 +556,7 @@ $messages['ce'] = array(
 	'gadgets' => 'Хlоттончаш',
 	'gadgets-title' => 'Хlоттончаш',
 	'gadgets-pagetext' => 'Гlирса хааман могlамаш, къастош йолу хlоттончи цlераш, хуьлаш йолу хIокху [[MediaWiki:Gadgets-definition|къастамца]]]].
-ХIокху могIамо атто бо гIирсан хаамаш атта тIе кхочуш барца, цуьнах лаьцна хIоттош а йолш йолучу хIоттончи ишарца.',
+ХIокху могIамо атто бо гIирсан хаамаш атта тIе кхочуш барца, цуьнах лаьцна хIоттош а йолш йолучу хIоттончи ишарца.', # Fuzzy
 	'gadgets-uses' => 'Лелош йу',
 );
 
@@ -1318,7 +1321,7 @@ Lokalni administratori mogu uređivati dostupne dodatke putem [[MediaWiki:Gadget
 	'gadgets-pagetext' => 'Slijedi popis posebnih JavaScript dodataka koje suradnici mogu omogućiti u svojim [[Special:Preferences#mw-prefsection-gadgets|postavkama]], kako je definirano stranicom [[MediaWiki:Gadgets-definition|definicija]].
 Ovaj pregled omogućava lak pristup porukama sustava koje opisuju dodatke i njihov kod.',
 	'gadgets-uses' => 'Rabi',
-	'gadgets-required-rights' => 'Zahtijeva {{PLURAL:$2|$1 pravo|sljedeća prava: $1}}.',
+	'gadgets-required-rights' => 'Zahtijeva {{PLURAL:$2|$1 pravo|sljedeća prava: $1}}.', # Fuzzy
 	'gadgets-export' => 'Izvezi',
 	'gadgets-export-title' => "Izvoz JS skripti (''gadgets'')",
 	'gadgets-not-found' => "''Gadget'' \"\$1\" nije pronađen.",
@@ -1602,10 +1605,10 @@ $messages['jut'] = array(
 	'prefs-gadgets' => 'Gøreter',
 	'gadgets-prefstext' => 'Nedenstående er en liste over de gadgets som du kan aktivere for din brugerkonto. Da disse gadgets hovedsageligt er baseret på JavaScript skal du slå JavaScript til i din browser for at få dem til at virke. Bemærk at disse gadgets ikke vil have nogen effekt på denne side (indstillinger).
 
-Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren og at de typisk bliver vedligeholdt af brugere på din lokale wiki. Lokale administratorer kan redigere tilgængelige gadgets med [[MediaWiki:Gadgets-definition]] og [[Special:Gadgets]].',
+Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren og at de typisk bliver vedligeholdt af brugere på din lokale wiki. Lokale administratorer kan redigere tilgængelige gadgets med [[MediaWiki:Gadgets-definition]] og [[Special:Gadgets]].', # Fuzzy
 	'gadgets' => 'Gøreter',
 	'gadgets-title' => 'Gøreter',
-	'gadgets-pagetext' => 'Nedenstående er en liste med de specielle gadgets som brugere kan aktivere i deres indstillinger som defineret i [[MediaWiki:Gadgets-definition]]. Denne oversigtsside giver simpel adgang til de systembeskeder som definerer hver gadgets beskrivelse og kode.',
+	'gadgets-pagetext' => 'Nedenstående er en liste med de specielle gadgets som brugere kan aktivere i deres indstillinger som defineret i [[MediaWiki:Gadgets-definition]]. Denne oversigtsside giver simpel adgang til de systembeskeder som definerer hver gadgets beskrivelse og kode.', # Fuzzy
 	'gadgets-uses' => 'Brugere',
 );
 
@@ -1670,7 +1673,8 @@ $1',
 	'gadgets-export-download' => 'ჩამოტვირთვა',
 );
 
-/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏) */
+/** Kazakh (Arabic script) (قازاقشا (تٴوتە)‏)
+ */
 $messages['kk-arab'] = array(
 	'prefs-gadgets' => 'قاجەت قۇرالدار',
 	'gadgets-prefstext' => 'تومەندە ٴوز تىركەلگىڭىزدە قوسا الاتىن ارناۋلى قاجەت قۇرالدار ٴتىزىمى بەرىلەدى.
@@ -1679,15 +1683,16 @@ $messages['kk-arab'] = array(
 
 تاعى دا ەسكەرىڭىز: وسى قاجەت قۇرالدار MediaWiki باعدارلاماسىنىڭ بولىگى ەمەس, جانە دە بۇلاردى جايشىلىقتا جەرگىلىكتى ۋىيكىيدىڭ قاتىسۋشىلارى دامىتادى جانە قوشتايدى.
 جەرگىلىكتى اكىمشىلەر جەتىمدى قاجەت نارسە ٴتىزىمىن [[{{ns:mediawiki}}:Gadgets-definition]] جانە [[{{ns:special}}:Gadgets]] بەتتەرى ارقىلى
-وڭدەي الادى.',
+وڭدەي الادى.', # Fuzzy
 	'gadgets' => 'قاجەت قۇرالدار',
 	'gadgets-title' => 'قاجەت قۇرالدار',
 	'gadgets-pagetext' => 'تومەندە ارناۋلى قاجەت قۇرالدار ٴتىزىمى بەرىلەدى. [[{{ns:mediawiki}}:Gadgets-definition]] بەتىندە انىقتالعان قاجەت قۇرالداردى قاتىسۋشىلار ٴوزىنىڭ باپتاۋىندا قوسا الادى.
-بۇل شولۋ بەتى ارقىلى ٴاربىر قاجەت قۇرالدىڭ سىيپاتتاماسى مەن ٴامىرىن انىقتايتىن جۇيە حابار بەتتەرىنە جەڭىل قاتىناي الاسىز.',
+بۇل شولۋ بەتى ارقىلى ٴاربىر قاجەت قۇرالدىڭ سىيپاتتاماسى مەن ٴامىرىن انىقتايتىن جۇيە حابار بەتتەرىنە جەڭىل قاتىناي الاسىز.', # Fuzzy
 	'gadgets-uses' => 'قولدانۋداعىلار',
 );
 
-/** Kazakh (Cyrillic script) (қазақша (кирил)‎) */
+/** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ */
 $messages['kk-cyrl'] = array(
 	'prefs-gadgets' => 'Қажет құралдар',
 	'gadgets-prefstext' => 'Төменде өз тіркелгіңізде қоса алатын арнаулы қажет құралдар тізімі беріледі.
@@ -1696,15 +1701,16 @@ $messages['kk-cyrl'] = array(
 
 Тағы да ескеріңіз: осы қажет құралдар MediaWiki бағдарламасының бөлігі емес, және де бұларды жайшылықта жергілікті уикидің қатысушылары дамытады және қоштайды.
 Жергілікті әкімшілер жетімді қажет нәрсе тізімін [[{{ns:mediawiki}}:Gadgets-definition]] және [[{{ns:special}}:Gadgets]] беттері арқылы
-өңдей алады.',
+өңдей алады.', # Fuzzy
 	'gadgets' => 'Қажет құралдар',
 	'gadgets-title' => 'Қажет құралдар',
 	'gadgets-pagetext' => 'Төменде арнаулы қажет құралдар тізімі беріледі. [[{{ns:mediawiki}}:Gadgets-definition]] бетінде анықталған қажет құралдарды қатысушылар өзінің баптауында қоса алады.
-Бұл шолу беті арқылы әрбір қажет құралдың сипаттамасы мен әмірін анықтайтын жүйе хабар беттеріне жеңіл қатынай аласыз.',
+Бұл шолу беті арқылы әрбір қажет құралдың сипаттамасы мен әмірін анықтайтын жүйе хабар беттеріне жеңіл қатынай аласыз.', # Fuzzy
 	'gadgets-uses' => 'Қолданудағылар',
 );
 
-/** Kazakh (Latin script) (qazaqşa (latın)‎) */
+/** Kazakh (Latin script) (qazaqşa (latın)‎)
+ */
 $messages['kk-latn'] = array(
 	'prefs-gadgets' => 'Qajet quraldar',
 	'gadgets-prefstext' => 'Tömende öz tirkelgiñizde qosa alatın arnawlı qajet quraldar tizimi beriledi.
@@ -1713,11 +1719,11 @@ Bul baptaw betine osı qajet quraldar äser etpeýtiniñ eskeriñiz.
 
 Tağı da eskeriñiz: osı qajet quraldar MediaWiki bağdarlamasınıñ böligi emes, jäne de bulardı jaýşılıqta jergilikti wïkïdiñ qatıswşıları damıtadı jäne qoştaýdı.
 Jergilikti äkimşiler jetimdi qajet närse tizimin [[{{ns:mediawiki}}:Gadgets-definition]] jäne [[{{ns:special}}:Gadgets]] betteri arqılı
-öñdeý aladı.',
+öñdeý aladı.', # Fuzzy
 	'gadgets' => 'Qajet quraldar',
 	'gadgets-title' => 'Qajet quraldar',
 	'gadgets-pagetext' => 'Tömende arnawlı qajet quraldar tizimi beriledi. [[{{ns:mediawiki}}:Gadgets-definition]] betinde anıqtalğan qajet quraldardı qatıswşılar öziniñ baptawında qosa aladı.
-Bul şolw beti arqılı ärbir qajet quraldıñ sïpattaması men ämirin anıqtaýtın jüýe xabar betterine jeñil qatınaý alasız.',
+Bul şolw beti arqılı ärbir qajet quraldıñ sïpattaması men ämirin anıqtaýtın jüýe xabar betterine jeñil qatınaý alasız.', # Fuzzy
 	'gadgets-uses' => 'Qoldanwdağılar',
 );
 
@@ -1801,6 +1807,19 @@ Wä et Rääsch doför hät, kann se övver de Sigge
 un [[Special:Gadgets|<i lang="en">Gadgets</i> beschriewe]]
 enreschte un ändere.',
 	'gadgets' => '<i lang="en">Gadgets</i>',
+	'gadgets-definition' => '== För et Fungxeneere ==
+* bidibuttons|bidibuttons.js
+* prota|prota.js
+* rtl|rtl.css
+* dynamic-menus|dynamic-menus.css
+* setuserrights|setuserrights.js
+* google-translate|google-translate.js
+
+== För et Ußsinn ==
+* symbols|symbols.css
+* background|background.css
+* translucent-category-box|translucent-category-box.css
+* hide-search|hide-search.css',
 	'gadgets-title' => '<i lang="en">Gadgets</i>',
 	'gadgets-pagetext' => 'He kütt en Liss met spezielle <i lang="en">Gadgets</i>,
 di jede Metmaacher övver sing
@@ -2054,6 +2073,7 @@ $messages['mr'] = array(
 
 स्थानिक प्रचालक उपलब्ध गॅजेट्स [[MediaWiki:Gadgets-definition|व्याख्या]] व [[Special:Gadgets|वर्णने]] वापरून बदलू शकतात.',
 	'gadgets' => 'सुविधा (गॅजेट)',
+	'gadgets-definition' => '<!-- पहा http://www.mediawiki.org/wiki/Extension:Gadgets for usage -->',
 	'gadgets-title' => 'गॅजेट',
 	'gadgets-pagetext' => 'खाली तुम्ही तुमच्या सदस्यत्वासाठी [[Special:Preferences#mw-prefsection-gadgets|माझ्या पसंती]] पानावर वापरू शकत असलेल्या [[MediaWiki:Gadgets-definition|व्याख्या]]ने सांगितलेल्या गॅजेट्सची यादी दिलेली आहे. हे पान तुम्हाला प्रत्येक गॅजेट्सचा कोड व व्याख्या देणार्‍या पानासाठी सोपी संपर्क सुविधा पुरविते.',
 	'gadgets-uses' => 'उपयोग',
@@ -2226,7 +2246,7 @@ $messages['ne'] = array(
 	'gadgets-pagetext' => 'विशेष उपकरणहरुको सूची तल दिइएकोछ प्रयोगकर्ताहरुले  [[MediaWiki:Gadgets-definition|परिभाषाहरु]]मा जनाए अनुसार आफ्नो [[Special:Preferences#mw-prefsection-gadgets|अभिरुचि पृष्ठमा]],   सक्रिय पार्न सक्नेछन्।।
 यस सिंहावलोकनले प्रणाली सन्देश पृष्ठ सजिलै प्राप्त गर्न  सकिनेछ जसले प्रत्येक उपकरणको विवरण र कोडलाई परिभाषित गरेको छ।',
 	'gadgets-uses' => 'प्रयोगहरु',
-	'gadgets-required-rights' => 'आवश्यकता छ {{PLURAL:$2|$1 अधिकारको|निम्न अधिकारहरुको: $1}}.',
+	'gadgets-required-rights' => 'आवश्यकता छ {{PLURAL:$2|$1 अधिकारको|निम्न अधिकारहरुको: $1}}.', # Fuzzy
 	'gadgets-default' => 'सबैको निम्ति सुरुदेखि नैं सक्रिय छ।',
 	'gadgets-export' => 'निर्यात गर्ने',
 	'gadgets-export-title' => 'उपकरण निर्यात',
@@ -2378,11 +2398,11 @@ Uling makabasi la king JavaScript deng keraklan kareting gadget, kailangan yang 
 Tandanan mung ala lang epektu king bulung da ring pinili (preferences page) deng gadget a reti.
 
 Tandanan mu muring e la kayabe king MediaWiki software deting gadget, at keraklan, gagawan da la ampong mamantinian deng talagamit ketang kekayung lokal a wiki.
-Maliari lang makapag-edit deng talapanibala (administrator) kareng gadget a atiu nung gamitan de ing [[MediaWiki:Gadgets-definition]] ampo ing [[Special:Gadgets]].',
+Maliari lang makapag-edit deng talapanibala (administrator) kareng gadget a atiu nung gamitan de ing [[MediaWiki:Gadgets-definition]] ampo ing [[Special:Gadgets]].', # Fuzzy
 	'gadgets' => 'Deng gadget',
 	'gadgets-title' => 'Deng gadget',
 	'gadgets-pagetext' => 'Makabili ya king lalam ing tala (listaan) da reng espesial a gadget a apaliari (enable) da reng talagamit ketang karelang bulung da ring pinili (preferences page), agpang king kabaldugan king [[MediaWiki:Gadgets-definition]].
-Gawa nang malagua niting piyakitan (overview) ing pamanintun kareng bulung a maki system message a milalarawan king balang gadget at babie king kayang code.',
+Gawa nang malagua niting piyakitan (overview) ing pamanintun kareng bulung a maki system message a milalarawan king balang gadget at babie king kayang code.', # Fuzzy
 	'gadgets-uses' => 'Gamit',
 );
 
@@ -2503,10 +2523,10 @@ $messages['ps'] = array(
 );
 
 /** Portuguese (português)
- * @author 555
  * @author Hamilton Abreu
  * @author Helder.wiki
  * @author Malafaya
+ * @author 555
  */
 $messages['pt'] = array(
 	'gadgets-desc' => "Permite que os utilizadores seleccionem [[Special:Gadgets|''\"gadgets\"'' em JavaScript e CSS]] personalizados nas suas [[Special:Preferences#mw-prefsection-gadgets|preferências]]",
@@ -2752,7 +2772,7 @@ $messages['sah'] = array(
 	'gadgets-pagetext' => 'Манна [[MediaWiki:Gadgets-definition|быһаарыы сирэйигэр]] суруллубутун курдук [[Special:Preferences#mw-prefsection-gadgets|туруоруу сирэйин]] көмөтүнэн холбонуон сөптөөх гаджеттар тиһиктэрэ көрдөрүлүннэ.
 Этот список позволяет легко получить доступ к страницам системных сообщений, определяющих описания и исходные коды гаджетов.',
 	'gadgets-uses' => 'Туһанар',
-	'gadgets-required-rights' => '$2 бэйэбил (быраап) ирдэнэр: «$1»',
+	'gadgets-required-rights' => '$2 бэйэбил (быраап) ирдэнэр: «$1»', # Fuzzy
 	'gadgets-default' => 'Барыларыгар холбоно сылдьар.',
 	'gadgets-export' => 'Экспортаа',
 	'gadgets-export-title' => 'Ҕааддьыты таһаарыы (экспорт)',
@@ -3059,7 +3079,7 @@ $messages['ta'] = array(
 	'gadgets-required-rights' => 'பின்வரும் {{PLURAL:$2|உரிமை|உரிமைகள்}} வேண்டப்படுகின்றன:
 
 $1',
-	'gadgets-required-skins' => '{{PLURAL:$2|$1 தோலில்|பின்வரும் தோல்களில்: $1} கிடைக்கும்.',
+	'gadgets-required-skins' => '{{PLURAL:$2|$1 தோலில்|பின்வரும் தோல்களில்: $1} கிடைக்கும்.', # Fuzzy
 	'gadgets-default' => 'இயல்பாக அனைவருக்கும் செயற்பட வைக்கப்பட்டது.',
 	'gadgets-export' => 'ஏற்றுமதி செய்',
 	'gadgets-export-title' => 'கருவியை ஏற்றுமதி செய்',
@@ -3081,6 +3101,7 @@ $messages['te'] = array(
 
 అలాగే ఈ ప్రత్యేక ఉపకరణాలు మీడియావికీ సాఫ్టువేరులో భాగము కాదని గమనించాలి. వీటిని సాధారణంగా మీ స్థానిక వికీలోని వాడుకరులే తయారుచేసి నిర్వహిస్తూ ఉంటారు. అందుబాటులో ఉన్న ఉపకరణాలకు [[MediaWiki:Gadgets-definition|ఉపకరణాల నిర్వచన]] మరియు [[Special:Gadgets|ఉపకరణాల వివరణ]] పేజీలను ఉపయోగించి స్థానిక వికీ నిర్వాహకులు మార్పులు చేయవచ్చు.',
 	'gadgets' => 'ఉపకరణాలు',
+	'gadgets-definition' => 'వివరాల కోసం [http://www.mediawiki.org/wiki/Extension:Gadgets మీడియావికీలో] చూడండి',
 	'gadgets-title' => 'ఉపకరణాలు',
 	'gadgets-pagetext' => 'ఈ దిగువన ఉన్న ప్రత్యేక ఉపకరణాల నుండి సభ్యులు తమకు కావలసినవి తమ [[Special:Preferences#mw-prefsection-gadgets|అభిరుచులు పేజీ]]లోని ఉపకరణాల టాబులో టిక్కు పెట్టి ఎనేబుల్ చేసుకొనే అవకాశం ఉన్నది. వీటిని [[MediaWiki:Gadgets-definition|ఉపకరణాల నిర్వచన]] పేజీలో నిర్వచించడం జరిగింది. ఈ చిన్న పరిచయం ఆయా ఉపకరణాల నిర్వచన మరియు కోడుకు సంబంధించిన మీడియావికీ సందేశాలకు సులువుగా చేరుకునేందుకు లింకులను సమకూర్చుతుంది.',
 	'gadgets-uses' => 'ఉపయోగించే ఫైళ్ళు',
@@ -3100,10 +3121,10 @@ $messages['tg-cyrl'] = array(
 	'prefs-gadgets' => 'Абзорҳо',
 	'gadgets-prefstext' => 'Дар зер феҳристи аз абзорҳои вижаеро мебинед, ки барои ҳисобатон метавонед фаъол кунед. Ин абзорҳо бештар дар асоси ҶаваСкрипт ҳастанд, пас барои истфода аз онҳо бояд ҶаваСкриптро дар мурургаратон фаъол кунед. Таваҷҷӯҳ кунед, ки ин абзорҳо наметавонанд саҳифаи тарҷиҳотро тағйир диҳанд.
 
-Диққат дошта бошед, ки ин абзорҳои ҷузъӣ аз нармафзори МедиаВики нестанд ва ҳамчун яке аз қисмҳои он ба ҳисоб намераванд, ва одатан аз тарафи корбарони ҳар вики сохта ва нигаҳдорӣ мешаванд. Мудирони ҳар вики метавонанд бо истифода аз саҳифаҳои [[MediaWiki:Gadgets-definition]] ва [[Special:Gadgets]] ба вироиши абзорҳо бипардозанд.',
+Диққат дошта бошед, ки ин абзорҳои ҷузъӣ аз нармафзори МедиаВики нестанд ва ҳамчун яке аз қисмҳои он ба ҳисоб намераванд, ва одатан аз тарафи корбарони ҳар вики сохта ва нигаҳдорӣ мешаванд. Мудирони ҳар вики метавонанд бо истифода аз саҳифаҳои [[MediaWiki:Gadgets-definition]] ва [[Special:Gadgets]] ба вироиши абзорҳо бипардозанд.', # Fuzzy
 	'gadgets' => 'Абзорҳо',
 	'gadgets-title' => 'Абзорҳо',
-	'gadgets-pagetext' => 'Дар зер феҳристи абзорҳои вижаро мебинед, ки корбарон метавонанд дар саҳифаи тарҷиҳоти худ мутобиқи [[MediaWiki:Gadgets-definition]] фаъол кунанд. Ин хулоса дастрасии осонро ба саҳифаи пайғомҳои системавӣ, ки шомили тавзеҳот ва коди ҳар абзор аст, пешкаш мекунад.',
+	'gadgets-pagetext' => 'Дар зер феҳристи абзорҳои вижаро мебинед, ки корбарон метавонанд дар саҳифаи тарҷиҳоти худ мутобиқи [[MediaWiki:Gadgets-definition]] фаъол кунанд. Ин хулоса дастрасии осонро ба саҳифаи пайғомҳои системавӣ, ки шомили тавзеҳот ва коди ҳар абзор аст, пешкаш мекунад.', # Fuzzy
 	'gadgets-uses' => 'Корбурдҳо',
 );
 
@@ -3482,4 +3503,3 @@ $1',
 您必須具有適當的權限 （包括編輯系統訊息的權利） 的目標維基上，必須啟用匯入的檔案上傳。',
 	'gadgets-export-download' => '下載',
 );
-
