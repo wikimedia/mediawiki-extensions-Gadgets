@@ -575,7 +575,7 @@ $messages['ckb'] = array(
  * @author Mormegil
  */
 $messages['cs'] = array(
-	'gadgets-desc' => 'Umožňuje uživatelům vybrat si [[Special:Gadgets|CSS a JavaScriptové udělátko]] ve svém [[Special:Preferences#mw-prefsection-gadgets|nastavení]].',
+	'gadgets-desc' => 'Umožňuje uživatelům vybrat si v [[Special:Preferences#mw-prefsection-gadgets|nastavení]] [[Special:Gadgets|CSSová a JavaScriptová udělátka]].',
 	'prefs-gadgets' => 'Udělátka',
 	'gadgets-prefstext' => 'Níže je přehled speciálních udělátek, která si můžete ve svém účtu zapnout.
 Tato udělátka jsou založena převážně na JavaScriptu, takže je pro jejich funkčnost nutné mít v prohlížeči JavaScript zapnutý.
