@@ -180,7 +180,6 @@ $messages['ar'] = array(
 الإداريون المحليون يمكنهم تعديل الإضافات المتوفرة باستخدام [[MediaWiki:Gadgets-definition|التعريفات]]
 و [[Special:Gadgets|الوصوفات]].',
 	'gadgets' => 'إضافات',
-	'gadgets-definition' => '<!-- انظر http://www.mediawiki.org/wiki/Extension:Gadgets للاستخدام -->',
 	'gadgets-title' => 'إضافات',
 	'gadgets-pagetext' => 'بالأسفل قائمة بالإضافات الخاصة التي يمكن أن يقوم المستخدمون بتفعيلها على [[Special:Preferences#mw-prefsection-gadgets|صفحة تفضيلاتهم]]، معرفة بواسطة [[MediaWiki:Gadgets-definition|التعريفات]].
 هذا العرض يوفر دخولا سهلا لصفحات رسائل النظام التي تعرف وصف وكود كل إضافة.',
@@ -1807,19 +1806,6 @@ Wä et Rääsch doför hät, kann se övver de Sigge
 un [[Special:Gadgets|<i lang="en">Gadgets</i> beschriewe]]
 enreschte un ändere.',
 	'gadgets' => '<i lang="en">Gadgets</i>',
-	'gadgets-definition' => '== För et Fungxeneere ==
-* bidibuttons|bidibuttons.js
-* prota|prota.js
-* rtl|rtl.css
-* dynamic-menus|dynamic-menus.css
-* setuserrights|setuserrights.js
-* google-translate|google-translate.js
-
-== För et Ußsinn ==
-* symbols|symbols.css
-* background|background.css
-* translucent-category-box|translucent-category-box.css
-* hide-search|hide-search.css',
 	'gadgets-title' => '<i lang="en">Gadgets</i>',
 	'gadgets-pagetext' => 'He kütt en Liss met spezielle <i lang="en">Gadgets</i>,
 di jede Metmaacher övver sing
@@ -1943,7 +1929,7 @@ Taip pat žinokite, kad šios specialios priemonės nėra MediaWiki programinės
 	'gadgets-export-download' => 'Parsisiųsti',
 );
 
-/** Lushai (Mizo ţawng)
+/** Mizo (Mizo ţawng)
  * @author RMizo
  */
 $messages['lus'] = array(
@@ -2073,7 +2059,6 @@ $messages['mr'] = array(
 
 स्थानिक प्रचालक उपलब्ध गॅजेट्स [[MediaWiki:Gadgets-definition|व्याख्या]] व [[Special:Gadgets|वर्णने]] वापरून बदलू शकतात.',
 	'gadgets' => 'सुविधा (गॅजेट)',
-	'gadgets-definition' => '<!-- पहा http://www.mediawiki.org/wiki/Extension:Gadgets for usage -->',
 	'gadgets-title' => 'गॅजेट',
 	'gadgets-pagetext' => 'खाली तुम्ही तुमच्या सदस्यत्वासाठी [[Special:Preferences#mw-prefsection-gadgets|माझ्या पसंती]] पानावर वापरू शकत असलेल्या [[MediaWiki:Gadgets-definition|व्याख्या]]ने सांगितलेल्या गॅजेट्सची यादी दिलेली आहे. हे पान तुम्हाला प्रत्येक गॅजेट्सचा कोड व व्याख्या देणार्‍या पानासाठी सोपी संपर्क सुविधा पुरविते.',
 	'gadgets-uses' => 'उपयोग',
@@ -3101,7 +3086,6 @@ $messages['te'] = array(
 
 అలాగే ఈ ప్రత్యేక ఉపకరణాలు మీడియావికీ సాఫ్టువేరులో భాగము కాదని గమనించాలి. వీటిని సాధారణంగా మీ స్థానిక వికీలోని వాడుకరులే తయారుచేసి నిర్వహిస్తూ ఉంటారు. అందుబాటులో ఉన్న ఉపకరణాలకు [[MediaWiki:Gadgets-definition|ఉపకరణాల నిర్వచన]] మరియు [[Special:Gadgets|ఉపకరణాల వివరణ]] పేజీలను ఉపయోగించి స్థానిక వికీ నిర్వాహకులు మార్పులు చేయవచ్చు.',
 	'gadgets' => 'ఉపకరణాలు',
-	'gadgets-definition' => 'వివరాల కోసం [http://www.mediawiki.org/wiki/Extension:Gadgets మీడియావికీలో] చూడండి',
 	'gadgets-title' => 'ఉపకరణాలు',
 	'gadgets-pagetext' => 'ఈ దిగువన ఉన్న ప్రత్యేక ఉపకరణాల నుండి సభ్యులు తమకు కావలసినవి తమ [[Special:Preferences#mw-prefsection-gadgets|అభిరుచులు పేజీ]]లోని ఉపకరణాల టాబులో టిక్కు పెట్టి ఎనేబుల్ చేసుకొనే అవకాశం ఉన్నది. వీటిని [[MediaWiki:Gadgets-definition|ఉపకరణాల నిర్వచన]] పేజీలో నిర్వచించడం జరిగింది. ఈ చిన్న పరిచయం ఆయా ఉపకరణాల నిర్వచన మరియు కోడుకు సంబంధించిన మీడియావికీ సందేశాలకు సులువుగా చేరుకునేందుకు లింకులను సమకూర్చుతుంది.',
 	'gadgets-uses' => 'ఉపయోగించే ఫైళ్ళు',
@@ -3284,15 +3268,16 @@ $1',
 );
 
 /** Urdu (اردو)
+ * @author Muhammad Shuaib
  * @author පසිඳු කාවින්ද
  */
 $messages['ur'] = array(
-	'prefs-gadgets' => 'گیجٹ',
-	'gadgets' => 'گیجٹ',
-	'gadgets-title' => 'گیجٹ',
+	'prefs-gadgets' => 'آلات',
+	'gadgets' => 'آلات',
+	'gadgets-title' => 'آلات',
 	'gadgets-uses' => 'استعمال کرتا ہے',
 	'gadgets-export' => 'برآمد',
-	'gadgets-export-title' => 'گیجٹ برآمد',
+	'gadgets-export-title' => 'برآمد آلہ',
 );
 
 /** Uzbek (oʻzbekcha)
