@@ -243,6 +243,11 @@ $specialPageAliases['oc'] = array(
 	'Gadgets' => array( 'Gadgèts' ),
 );
 
+/** Punjabi (ਪੰਜਾਬੀ) */
+$specialPageAliases['pa'] = array(
+	'Gadgets' => array( 'ਛੋਟੇ_ਸੰਦ' ),
+);
+
 /** Polish (polski) */
 $specialPageAliases['pl'] = array(
 	'Gadgets' => array( 'Gadżety' ),
