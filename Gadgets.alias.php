@@ -223,7 +223,7 @@ $specialPageAliases['nb'] = array(
 	'Gadgets' => array( 'Tilleggsfunksjoner' ),
 );
 
-/** Nedersaksisch (Nedersaksisch) */
+/** Nedersaksies (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'Gadgets' => array( 'Technies_spul' ),
 );
