@@ -314,13 +314,14 @@ $messages['az'] = array(
 
 /** South Azerbaijani (تورکجه)
  * @author Amir a57
+ * @author Mousa
  */
 $messages['azb'] = array(
 	'prefs-gadgets' => 'آلت‌لر',
 	'gadgets' => 'آلت لر',
 	'gadgets-title' => 'آلت‌لر',
 	'gadgets-uses' => 'برنامه',
-	'gadgets-export' => 'ائشیکه آپارما',
+	'gadgets-export' => 'ائشیگه آپارماق',
 	'gadgets-export-title' => 'آبزارلاری ائشیکه آپارما',
 	'gadgets-not-found' => 'آلت "$1" تاپیلمادی.',
 	'gadgets-export-download' => 'یوکله',
