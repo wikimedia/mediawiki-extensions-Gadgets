@@ -1872,6 +1872,15 @@ $messages['ku-latn'] = array(
 	'gadgets-not-found' => ' Gadget "$1" nehate dîtin.',
 );
 
+/** Kirghiz (Кыргызча)
+ * @author Growingup
+ */
+$messages['ky'] = array(
+	'gadgets-export' => 'Экспорттоо',
+	'gadgets-not-found' => '«$1» гаджети табылган жок.',
+	'gadgets-export-download' => 'Жүктөп алуу',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby
