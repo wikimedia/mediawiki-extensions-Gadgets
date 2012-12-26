@@ -83,6 +83,8 @@ See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimed
 	'gadgets-export' => 'Used on [[Special:Gadgets]]. This is a verb, not noun.
 {{Identical|Export}}',
 	'gadgets-export-title' => 'Used as page title. Example: [[Special:Gadgets/export/editbuttons]]',
+	'gadgets-not-found' => 'Used as error message. Parameters:
+* $1 - gadget name',
 	'gadgets-export-text' => 'Used as page description. See example: [[Special:Gadgets/export/editbuttons]]',
 	'gadgets-export-download' => 'Use the verb for this message. Submit button.
 {{Identical|Download}}',
@@ -324,7 +326,7 @@ $messages['azb'] = array(
 	'gadgets-export' => 'ائشیگه آپارماق',
 	'gadgets-export-title' => 'آبزارلاری ائشیکه آپارما',
 	'gadgets-not-found' => 'آلت "$1" تاپیلمادی.',
-	'gadgets-export-download' => 'یوکله',
+	'gadgets-export-download' => 'اندیر',
 );
 
 /** Bashkir (башҡортса)
