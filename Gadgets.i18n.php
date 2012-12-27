@@ -2451,6 +2451,7 @@ $messages['pdc'] = array(
 /** Polish (polski)
  * @author Derbeth
  * @author Marcin Łukasz Kiejzik
+ * @author Matma Rex
  * @author Sp5uhe
  */
 $messages['pl'] = array(
@@ -2465,7 +2466,7 @@ Lokalni administratorzy mogą edytować dostępne gadżety używając stron [[Me
 	'gadgets-title' => 'Gadżety',
 	'gadgets-pagetext' => 'Poniżej znajduje się lista specjalnych gadżetów, które użytkownicy mogą włączyć na swojej [[Special:Preferences#mw-prefsection-gadgets|stronie preferencji]]. Lista ta jest zdefiniowana na stronie [[MediaWiki:Gadgets-definition|definicji]].
 Poniższy przegląd ułatwia dostęp do komunikatów systemu, które definiują opis i kod każdego z gadżetów.',
-	'gadgets-uses' => 'Użycie',
+	'gadgets-uses' => 'Używa',
 	'gadgets-required-rights' => 'Wymaga {{PLURAL:$2|uprawnienia|następujących uprawnień:}}
 
 $1',
