@@ -3276,6 +3276,15 @@ $messages['tt-cyrl'] = array(
 	'gadgets-title' => 'Гаджетлар',
 );
 
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Sahran
+ */
+$messages['ug-arab'] = array(
+	'gadgets-uses' => 'ئىشلىتىش',
+	'gadgets-export' => 'چىقار',
+	'gadgets-export-download' => 'چۈشۈر',
+);
+
 /** Ukrainian (українська)
  * @author AS
  * @author Ahonc
