@@ -1438,6 +1438,32 @@ A célwikiben rendelkezned kell a megfelelő jogokkal (beleértve a rendszerüze
 	'gadgets-export-download' => 'Letöltés',
 );
 
+/** Armenian (Հայերեն)
+ * @author Xelgen
+ */
+$messages['hy'] = array(
+	'gadgets-desc' => 'Թույլ է տալիս օգտագործողներին ընտրել հատուկ [[Special:Gadgets|ՍիԷսԷս և ՋավաՍկիրպտ (CSS and JavaScript) գադջեթներ]] իրանց [[Special:Preferences#mw-prefsection-gadgets|նախընտրությունների]] էջում։',
+	'prefs-gadgets' => 'Գադջեթներ',
+	'gadgets-prefstext' => 'Այստեղ բերված են հատուկ հավելումներ՝ գաջեթներ, որոնք դուք կարող եք միացնել ըստ ձեր ցանկության։
+Հավելումները հիմնված են ՋավաՍկրիպտի վրա, ուստի հավելումների աշխատանքի համար անհրաժեշտ է, որ ձեր դիտարկչում ՋավաՍկրիպտը միացված լինի։
+Հաշվի առեք, որ գադջեթների աշխատանքը այս էջում չի նկատվի։
+
+Նկատի ունեցեք, որ ստորև բերված հավելումները ՄեդիաՎիքի ծրագրի մաս չեն հանդիսանում, և որպես կանոն իրանք ստեղծվում և սպասարկվում են ձեր վիքիի մասնակիցների կողմից։
+Վիքիի ադմինիստրատորները կարող են խմբագրել հասանելի գադջեթների [[MediaWiki:Gadgets-definition|ցանկը]] և [[Special:Gadgets|նկարագրությունը]]։',
+	'gadgets' => 'Գադջեթներ',
+	'gadgets-title' => 'Գադջեթներ',
+	'gadgets-uses' => 'Օգտագործում է',
+	'gadgets-required-rights' => 'Անհրաժեշտ են հետևյալ {{PLURAL:$2|իրավունքը|իրավունքները}}:
+
+$1',
+	'gadgets-required-skins' => 'Հասանելի է {{PLURAL:$2|$1 արտաքին տեսքով|$1 արտաքին տեսքերով}}։',
+	'gadgets-default' => 'Ի լռելյայն միացված է բոլորի համար։',
+	'gadgets-export' => 'Արտահանել',
+	'gadgets-export-title' => 'Գադջեթի արտահանում',
+	'gadgets-not-found' => '$1 գադջեթը չի գտնվել',
+	'gadgets-export-download' => 'Բեռնել',
+);
+
 /** Interlingua (interlingua)
  * @author McDutchie
  */
@@ -3356,6 +3382,7 @@ $messages['uz'] = array(
 
 /** vèneto (vèneto)
  * @author Candalua
+ * @author GatoSelvadego
  */
 $messages['vec'] = array(
 	'gadgets-desc' => 'Consente ai utenti de selezionar [[Special:Gadgets|acessori CSS e JavaScript]] ne le proprie [[Special:Preferences#mw-prefsection-gadgets|preferense]]',
@@ -3369,6 +3396,11 @@ Nota anca che sti acessori speciali no i fa parte del software MediaWiki e i vie
 	'gadgets-pagetext' => "De seguito vien presentà n'elenco de acessori (''gadget'') che i utenti i pol abilitar su la so [[Special:Preferences#mw-prefsection-gadgets|pagina de le preferenze]], seguendo le definizion riportà in [[MediaWiki:Gadgets-definition]].
 Sta panoramica la fornisse un comodo mecanismo par accédar ai messagi de sistema nei quali xe definìo la descrizion e el codice de ciascun acessorio.",
 	'gadgets-uses' => 'Dopara',
+	'gadgets-required-rights' => 'Dimanda {{PLURAL:$2|el seguente dirito|i seguenti diriti}}:
+
+$1',
+	'gadgets-required-skins' => "Disponibiłe {{PLURAL:$2|pa' ła skin $1|pa' łe seguenti skin: $1}}.",
+	'gadgets-default' => 'Ativà par tuti, par inpostasion predefinia.',
 	'gadgets-export' => 'Esporta',
 	'gadgets-export-title' => 'Esporta acessorio',
 	'gadgets-not-found' => 'Acessorio "$1" mia catà.',
