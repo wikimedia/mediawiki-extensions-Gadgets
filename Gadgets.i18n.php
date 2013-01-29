@@ -982,6 +982,7 @@ Sul peavad olema sihtvikis vajalikud õigused (kaasa arvatud õigus redigeerida 
 /** Basque (euskara)
  * @author An13sa
  * @author Inorbez
+ * @author Joxemai
  * @author Unai Fdz. de Betoño
  * @author පසිඳු කාවින්ද
  */
@@ -1000,6 +1001,7 @@ Administratzaileek [[MediaWiki:Gadgets-definition|definizioak]] eta [[Special:Ga
 Ikuspegi orokor honek gadget bakoitza definitzen duen deskribapen eta kode orrietarako lotura errazak eskaintzen ditu.',
 	'gadgets-uses' => 'Erabilerak',
 	'gadgets-export' => 'Esportatu',
+	'gadgets-export-title' => 'Gadgeten esportazioa',
 	'gadgets-export-download' => 'Jaitsi',
 );
 
@@ -1809,6 +1811,7 @@ $messages['km'] = array(
 	'gadgets' => 'គ្រឿងបន្ទាប់បន្សំ',
 	'gadgets-title' => 'គ្រឿងបន្ទាប់បន្សំ',
 	'gadgets-uses' => 'ប្រើ',
+	'gadgets-export' => 'នាំចេញ​',
 	'gadgets-export-download' => 'ទាញយក',
 );
 
