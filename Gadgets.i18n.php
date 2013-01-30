@@ -1953,6 +1953,7 @@ Dir musst déi erfuerdert Rechter(inklusiv d\'Recht fir System-Messagen z\'änne
  */
 $messages['lez'] = array(
 	'gadgets' => 'Гаджетар',
+	'gadgets-title' => 'Гаджетар',
 );
 
 /** Limburgish (Limburgs)
