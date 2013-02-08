@@ -1949,11 +1949,12 @@ Dir musst déi erfuerdert Rechter(inklusiv d\'Recht fir System-Messagen z\'änne
 );
 
 /** Lezghian (лезги)
+ * @author Namik
  * @author Soul Train
  */
 $messages['lez'] = array(
 	'gadgets' => 'Гаджетар',
-	'gadgets-title' => 'Гаджетар',
+	'gadgets-title' => 'Гажетар',
 );
 
 /** Limburgish (Limburgs)
