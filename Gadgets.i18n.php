@@ -3330,6 +3330,7 @@ $messages['ug-arab'] = array(
  * @author Dim Grits
  * @author Olvin
  * @author Prima klasy4na
+ * @author RLuts
  * @author Riwnodennyk
  * @author Sodmy
  * @author Тест
@@ -3356,7 +3357,7 @@ $1',
 	'gadgets-export' => 'Експортувати',
 	'gadgets-export-title' => 'Експорт додатка',
 	'gadgets-not-found' => 'Додаток "$1" не знайдено.',
-	'gadgets-export-text' => 'Аби експортувати додаток $1, натисніть на ґудзик "{{int:gadgets-export-download}}", збережіть завантажений файл,
+	'gadgets-export-text' => 'Аби експортувати додаток $1, натисніть «{{int:gadgets-export-download}}», збережіть завантажений файл,
 перейдіть до Special:Import на потібній віці і відвантажте його там. Тоді додайте наступний текст на сторінку MediaWiki:Gadgets-definition:
 <pre>$2</pre>
 Ви повинні мати відповідні права на цільовій віці (зокрема на редагування системних повідомлень), окрім того має бути ввімкнена можливість імпорту з файлу.',
