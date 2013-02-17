@@ -73,7 +73,7 @@ $messages['qqq'] = array(
 	'gadgets-title' => '{{Identical|Gadgets}}',
 	'gadgets-uses' => "This is used as a verb in third-person singular. It appears in front of a script name. Example: \"''Uses: Gadget-UTCLiveClock.js''\"
 
-See [http://meta.wikimedia.org/wiki/Special:Gadgets Gadgets page in meta.wikimedia.org]",
+See [[meta:Special:Gadgets|Gadgets page in meta.wikimedia.org]]",
 	'gadgets-required-rights' => 'Parameters:
 * $1 - a list in wikitext.
 * $2 - the number of items in list $1 for PLURAL use.',
@@ -1408,6 +1408,7 @@ Dyrbiš trěbne prawa na cilowym wikiju měć (inkluziwnje prawo systemowe powě
 );
 
 /** Hungarian (magyar)
+ * @author Bináris
  * @author BáthoryPéter
  * @author Dani
  * @author Tgr
@@ -1423,8 +1424,8 @@ Ezek az eszközök nem részei a [[MediaWiki]] szoftvernek, általában a wiki f
 Az adminisztrátorok a [[MediaWiki:Gadgets-definition|definíciókat]] és a [[Special:Gadgets|leírásokat]] tartalmazó lapok segítségével tudják módosítani az elérhető eszközök listáját.',
 	'gadgets' => 'Segédeszközök',
 	'gadgets-title' => 'Segédeszközök',
-	'gadgets-pagetext' => 'Itt látható azon segédeszközök listája, amiket a felhasználók bekapcsolhatnak a beállításaiknál. A lista a [[MediaWiki:Gadgets-definition|definíciókat]] tartalmazó lapon módosítható.
-Ez az áttekintő lap egyszerű hozzáférést nyúlt az eszközök kódját, illetve leírását tartalmazó rendszerüzenet-lapokhoz.',
+	'gadgets-pagetext' => 'Itt látható azon segédeszközök listája, amiket a felhasználók bekapcsolhatnak a [[Special:Preferences#mw-prefsection-gadgets|beállításaiknál]]. A lista a [[MediaWiki:Gadgets-definition|definíciókat]] tartalmazó lapon módosítható.
+Ez az áttekintő lap egyszerű hozzáférést nyújt az eszközök kódját, illetve leírását tartalmazó rendszerüzenet-lapokhoz.',
 	'gadgets-uses' => 'Kód',
 	'gadgets-required-rights' => 'A következő {{PLURAL:$2|jogosultságra|jogosultságokra}} van szükség:
 
@@ -2062,6 +2063,26 @@ $messages['mg'] = array(
 	'gadgets-export-title' => 'Famoahana gadget',
 	'gadgets-not-found' => 'Tsy hita ny gadget « $1 ».',
 	'gadgets-export-download' => 'Hampidina',
+);
+
+/** Minangkabau (Baso Minangkabau)
+ * @author Iwan Novirion
+ */
+$messages['min'] = array(
+	'gadgets-desc' => 'Mamungkinkan pangguno mamiliah [[Special:Gadgets|pakakeh CSS jo JavaScript]] malalui [[Special:Preferences#mw-prefsection-gadgets|pangaturan]]-nyo',
+	'prefs-gadgets' => 'Pakakeh',
+	'gadgets-prefstext' => 'Di bawah ko dafta pakakeh istimewa nan dapek Sanak aktifkan untuak akun Sanak. Kasado pakakeh ko sabahagian babasis JavaScript dek itu Sanak musti mangaktifkan JavaScript pado paramban untuak dapek manjalankannyo. Paratikan kalau babagai pakakek ko indak ado pangaruahnyo pado laman pangaturan ko.
+
+Salain tu paratikan juo kalau pakakeh ko bukanlah bagian dari parangkaik lunak MediaWiki dan biasonyo dikambangkan dan dijago dek pangguno di Wikipedia. Panguruih lokal dapek manyuntiang pakakeh nan ado malalui [[MediaWiki:Gadgets-definition]] jo [[Special:Gadgets]].',
+	'gadgets' => 'Pakakeh',
+	'gadgets-title' => 'Pakakeh',
+	'gadgets-pagetext' => 'Di bawah ko dafta pakakeh istimewa nan dapek diaktifkan pangguno malalui [[Special:Preferences#mw-prefsection-gadgets|laman pangaturan]] bantuak nan didefinisikan dek [[MediaWiki:Gadgets-definition]]. Tinjauan nan ko mangagiah akses ka dalam laman pasan sistem nan mandefinisikan deskripsi jo kode masiang-masiang pakakeh.',
+	'gadgets-export-title' => 'Ekspor pakakeh',
+	'gadgets-not-found' => 'Pakakeh "$1" indak basobok.',
+	'gadgets-export-text' => 'Untuak mangekspor pakakeh $1, klik tombol "{{int:gadgets-export-download}}", simpan berkas nan didownload tu,
+pai ka Special:Import pado wiki nan di tuju dan muek berkas tu. Sudah tu tambahkan berkas tasabuik ka laman MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Sanak musti punyo izin pado wiki nan di tuju (tamasuak hak manyuntiang pasan sistem) dan impor berkas haruslah aktif.',
 );
 
 /** Macedonian (македонски)
