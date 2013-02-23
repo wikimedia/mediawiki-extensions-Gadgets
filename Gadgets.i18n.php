@@ -2077,12 +2077,20 @@ Salain tu paratikan juo kalau pakakeh ko bukanlah bagian dari parangkaik lunak M
 	'gadgets' => 'Pakakeh',
 	'gadgets-title' => 'Pakakeh',
 	'gadgets-pagetext' => 'Di bawah ko dafta pakakeh istimewa nan dapek diaktifkan pangguno malalui [[Special:Preferences#mw-prefsection-gadgets|laman pangaturan]] bantuak nan didefinisikan dek [[MediaWiki:Gadgets-definition]]. Tinjauan nan ko mangagiah akses ka dalam laman pasan sistem nan mandefinisikan deskripsi jo kode masiang-masiang pakakeh.',
+	'gadgets-uses' => 'Panggunoan',
+	'gadgets-required-rights' => 'Mambutuahkan {{PLURAL:$2|hak-hak}} barikuik:
+
+$1',
+	'gadgets-required-skins' => 'Tasadio pado {{PLURAL:$2|kulik barikuik: $1}}.',
+	'gadgets-default' => 'Diaktifkan untuak kasado urang sacaro bawaan.',
+	'gadgets-export' => 'Ekspor',
 	'gadgets-export-title' => 'Ekspor pakakeh',
 	'gadgets-not-found' => 'Pakakeh "$1" indak basobok.',
 	'gadgets-export-text' => 'Untuak mangekspor pakakeh $1, klik tombol "{{int:gadgets-export-download}}", simpan berkas nan didownload tu,
 pai ka Special:Import pado wiki nan di tuju dan muek berkas tu. Sudah tu tambahkan berkas tasabuik ka laman MediaWiki:Gadgets-definition:
 <pre>$2</pre>
 Sanak musti punyo izin pado wiki nan di tuju (tamasuak hak manyuntiang pasan sistem) dan impor berkas haruslah aktif.',
+	'gadgets-export-download' => 'Unduah',
 );
 
 /** Macedonian (македонски)
