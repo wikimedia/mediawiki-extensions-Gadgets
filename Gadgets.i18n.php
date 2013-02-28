@@ -63,7 +63,7 @@ You must have appropriate permissions on destination wiki (including the right t
  * @author Umherirrender
  */
 $messages['qqq'] = array(
-	'gadgets-desc' => '{{desc}}',
+	'gadgets-desc' => '{{desc|name=Gadgets|url=http://www.mediawiki.org/wiki/Extension:Gadgets}}',
 	'prefs-gadgets' => 'In Gadgets extension. The name of a tab in [[Special:Preferences#mw-prefsection-gadgets|Special:Preferences]] where user set their preferences for the extension.
 
 {{Identical|Gadgets}}',
