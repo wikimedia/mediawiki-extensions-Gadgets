@@ -2073,10 +2073,10 @@ $messages['min'] = array(
 	'prefs-gadgets' => 'Pakakeh',
 	'gadgets-prefstext' => 'Di bawah ko dafta pakakeh istimewa nan dapek Sanak aktifkan untuak akun Sanak. Kasado pakakeh ko sabahagian babasis JavaScript dek itu Sanak musti mangaktifkan JavaScript pado paramban untuak dapek manjalankannyo. Paratikan kalau babagai pakakek ko indak ado pangaruahnyo pado laman pangaturan ko.
 
-Salain tu paratikan juo kalau pakakeh ko bukanlah bagian dari parangkaik lunak MediaWiki dan biasonyo dikambangkan dan dijago dek pangguno di Wikipedia. Panguruih lokal dapek manyuntiang pakakeh nan ado malalui [[MediaWiki:Gadgets-definition]] jo [[Special:Gadgets]].',
+Salain tu paratikan juo kalau pakakeh ko bukanlah bagian dari parangkaik lunak MediaWiki dan biasonyo dikambangkan dan dijago dek pangguno di Wikipedia. Panguruih lokal dapek manyuntiang pakakeh nan ado malalui [[MediaWiki:Gadgets-definition|laman definisinyo]] ataupun pado [[Special:Gadgets|laman katarangannyo]].',
 	'gadgets' => 'Pakakeh',
 	'gadgets-title' => 'Pakakeh',
-	'gadgets-pagetext' => 'Di bawah ko dafta pakakeh istimewa nan dapek diaktifkan pangguno malalui [[Special:Preferences#mw-prefsection-gadgets|laman pangaturan]] bantuak nan didefinisikan dek [[MediaWiki:Gadgets-definition]]. Tinjauan nan ko mangagiah akses ka dalam laman pasan sistem nan mandefinisikan deskripsi jo kode masiang-masiang pakakeh.',
+	'gadgets-pagetext' => 'Di bawah ko dafta pakakeh istimewa nan dapek diaktifkan pangguno malalui [[Special:Preferences#mw-prefsection-gadgets|laman pangaturan]] bantuak nan didefinisikan dek [[MediaWiki:Gadgets-definition|laman definisinyo]]. Tinjauan nan ko mangagiah akses ka dalam laman pasan sistem nan mandefinisikan deskripsi jo kode masiang-masiang pakakeh.',
 	'gadgets-uses' => 'Panggunoan',
 	'gadgets-required-rights' => 'Mambutuahkan {{PLURAL:$2|hak-hak}} barikuik:
 
