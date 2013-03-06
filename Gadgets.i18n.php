@@ -90,6 +90,27 @@ See [[meta:Special:Gadgets|Gadgets page in meta.wikimedia.org]]",
 {{Identical|Download}}',
 );
 
+/** Achinese (Acèh)
+ * @author Si Gam Acèh
+ */
+$messages['ace'] = array(
+	'gadgets-desc' => 'Peujeuet ureueng nguy geupileh [[Special:Gadgets|peukakaih CSS ngon JavaScript]] rot [[Special:Preferences#mw-prefsection-gadgets|neuato]]geuh',
+	'prefs-gadgets' => 'Alat',
+	'gadgets-prefstext' => 'Di yup nyoe nakeuh dapeuta alat kusuih nyang jeuet neupeuudep keu akun droeneuh. Ban dum alat nyan ladom jinguy meubasis JavaScript nyankeuh jeuet Droeneuh suwah neupeuudep JavaScript bak alat buka web droeneuh mangat jeuet neupeujak. Neupeurati meunyo ban dum alat nyan hana peungaroh bak on neuato nyoe.
+
+Neupeyrati cit meunyo alat kusuih nyoe bukonkeuh beunagi nibak alat leumiek MediaWiki ngon kayem geupeukeumang ngon geupeulahra le ureueng nguy bak wiki droeneuh mantong. Ureueng uroh sinan jeuet geuandam alat nyang na rot [[MediaWiki:Gadgets-definition]] ngon [[Special:Gadgets]].',
+	'gadgets' => 'Alat',
+	'gadgets-title' => 'Alat',
+	'gadgets-uses' => 'Neunguy',
+	'gadgets-required-rights' => 'Peureulee {{PLURAL:$2|hak|hak-hak}} nyoe:
+$1',
+	'gadgets-default' => 'Peujeuet keu ban dum ureueng meunurot neume',
+	'gadgets-export' => 'Ekspor',
+	'gadgets-export-title' => 'Ekspor alat',
+	'gadgets-not-found' => 'Alat "$1" hana geuteumeung.',
+	'gadgets-export-download' => 'Pasoe',
+);
+
 /** Afrikaans (Afrikaans)
  * @author Anrie
  * @author Naudefj
@@ -1412,6 +1433,7 @@ Dyrbiš trěbne prawa na cilowym wikiju měć (inkluziwnje prawo systemowe powě
  * @author BáthoryPéter
  * @author Dani
  * @author Tgr
+ * @author Vogone
  */
 $messages['hu'] = array(
 	'gadgets-desc' => 'A felhasználók saját [[Special:Gadgets|CSS és JavaScript eszközöket]] választhatnak ki a [[Special:Preferences#mw-prefsection-gadgets|beállításaiknál]]',
@@ -1420,7 +1442,7 @@ $messages['hu'] = array(
 Legtöbbjük JavaScriptet használ, így ezt engedélyezned kell a böngésződben, hogy működjenek.
 A segédeszközök nem működnek ezen a beállításoldalon, így probléma esetén ki tudod őket kapcsolni.
 
-Ezek az eszközök nem részei a [[MediaWiki]] szoftvernek, általában a wiki felhasználói tartják karban őket.
+Ezek az eszközök nem részei a MediaWiki szoftvernek, általában a wiki felhasználói tartják karban őket.
 Az adminisztrátorok a [[MediaWiki:Gadgets-definition|definíciókat]] és a [[Special:Gadgets|leírásokat]] tartalmazó lapok segítségével tudják módosítani az elérhető eszközök listáját.',
 	'gadgets' => 'Segédeszközök',
 	'gadgets-title' => 'Segédeszközök',
@@ -3472,7 +3494,7 @@ Chú ý rằng những công cụ đa năng này sẽ không có tác dụng tro
 Cũng chú ý rằng những công cụ đặc biệt này không phải là một phần của phần mềm MediaWiki, mà thường được phát triển và bảo trì bởi những thành viên ở wiki của họ. Những quản lý ở từng ngôn ngữ có thể sửa đổi các công cụ đa năng có sẵn từ các danh sách [[MediaWiki:Gadgets-definition|định nghĩa]] và [[Special:Gadgets|miêu tả]].',
 	'gadgets' => 'Công cụ đa năng',
 	'gadgets-title' => 'Công cụ đa năng',
-	'gadgets-pagetext' => 'Dưới đây là danh sách các công cụ đa năng đặc biệt mà thành viên có thể dùng tại [[Special:Preferences#mw-prefsection-gadgets|trang tùy chọn cá nhân]] của họ, theo [[MediaWiki:Gadgets-definition|định nghĩa]]. Trang tổng quan này cung cấp cách tiếp cận dễ dàng đến trang các thông báo hệ thống để định nghĩa miêu tả và mã của từng công cụ.',
+	'gadgets-pagetext' => 'Dưới đây là danh sách các công cụ đa năng đặc biệt mà thành viên có thể dùng tại [[Special:Preferences#mw-prefsection-gadgets|trang tùy chọn cá nhân]] của họ, theo [[MediaWiki:Gadgets-definition|định nghĩa]]. Trang tổng quan này cung cấp cách tiếp cận dễ dàng đến trang các thông điệp hệ thống để định nghĩa miêu tả và mã của từng công cụ.',
 	'gadgets-uses' => 'Sử dụng',
 	'gadgets-required-rights' => 'Cần {{PLURAL:$2|quyền|các quyền}} sau:
 
