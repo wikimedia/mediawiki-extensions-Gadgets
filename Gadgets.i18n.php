@@ -71,6 +71,7 @@ $messages['qqq'] = array(
 	'gadgets' => '{{Identical|Gadgets}}',
 	'gadgets-definition' => '{{notranslate}}',
 	'gadgets-title' => '{{Identical|Gadgets}}',
+	'gadgets-pagetext' => 'Used as intro text in [[Special:Gadgets]].',
 	'gadgets-uses' => "This is used as a verb in third-person singular. It appears in front of a script name. Example: \"''Uses: Gadget-UTCLiveClock.js''\"
 
 See [[meta:Special:Gadgets|Gadgets page in meta.wikimedia.org]]",
@@ -80,6 +81,7 @@ See [[meta:Special:Gadgets|Gadgets page in meta.wikimedia.org]]",
 	'gadgets-required-skins' => 'Parameters:
 * $1 - a comma separated list.
 * $2 - the number of items in list $1 for PLURAL use.',
+	'gadgets-default' => "Used in [[Special:Gadgets]], if the extension is enabled for everyone by the Wiki's default settings.",
 	'gadgets-export' => 'Used on [[Special:Gadgets]]. This is a verb, not noun.
 {{Identical|Export}}',
 	'gadgets-export-title' => 'Used as page title. Example: [[Special:Gadgets/export/editbuttons]]',
