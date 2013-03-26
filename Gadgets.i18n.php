@@ -68,7 +68,8 @@ $messages['qqq'] = array(
 
 {{Identical|Gadgets}}',
 	'gadgets-prefstext' => 'In Gadgets extension. This is the explanation text displayed under the Gadgets tab in [[Special:Preferences#mw-prefsection-gadgets|Special:Preferences]].',
-	'gadgets' => '{{Identical|Gadgets}}',
+	'gadgets' => '{{doc-special|Gadgets}}
+{{Identical|Gadgets}}',
 	'gadgets-definition' => '{{notranslate}}',
 	'gadgets-title' => '{{Identical|Gadgets}}',
 	'gadgets-pagetext' => 'Used as intro text in [[Special:Gadgets]].',
