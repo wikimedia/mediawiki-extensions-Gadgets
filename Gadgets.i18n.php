@@ -3581,16 +3581,18 @@ $messages['yue'] = array(
  * @author Liangent
  * @author Shinjiman
  * @author Xiaomingyan
+ * @author Yfdyh000
  * @author 阿pp
  */
 $messages['zh-hans'] = array(
 	'gadgets-desc' => '允许用户在其[[Special:Preferences#mw-prefsection-gadgets|系统设置]]中选择自定义[[Special:Gadgets|CSS和JavaScript工具]]',
 	'prefs-gadgets' => '小工具',
-	'gadgets-prefstext' => '以下是一个特殊小工具，您可以在您的账户中激活。
-这些小工具多数都是基于JavaScript建造，如果要激活它们，那么浏览器的JavaScript就需要激活后方可使用。
-要留意的是这些小工具在这个参数设置页面中是没有效果的。
+	'gadgets-prefstext' => '以下是您可以为您的帐户启用的特别小工具的名单。
+这些小工具大多都是基于JavaScript技术制作，所以您的浏览器的JavaScript功能必须可用才可使用它们。
+要稍作留意的是，这些小工具在这个参数设置页面中不会有任何效果。
 
-亦都同时留意这些小工具的特殊页面不是MediaWiki软件的一部份，通常都是由您本地的wiki中开发以及维护。本地管理员可以编辑可供使用的小工具的[[MediaWiki:Gadgets-definition|定义]]以及[[Special:Gadgets|描述]]。',
+亦请您了解这些特别的小工具不是MediaWiki软件的一部份，大多是由您本地wiki中的用户开发和维护。
+本地的管理员可以编辑可用小工具的[[MediaWiki:Gadgets-definition|定义]]及[[Special:Gadgets|描述]]。',
 	'gadgets' => '小工具',
 	'gadgets-title' => '小工具',
 	'gadgets-pagetext' => '以下是一个按照[[MediaWiki:Gadgets-definition]]定义的特殊小工具列表，用户可以在他们的[[Special:Preferences#mw-prefsection-gadgets|参数设置页面]]中激活它们。
