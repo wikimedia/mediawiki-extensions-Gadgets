@@ -180,7 +180,7 @@ $specialPageAliases['ja'] = array(
 
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
-	'Gadgets' => array( '소도구' ),
+	'Gadgets' => array( '소도구', '가젯' ),
 );
 
 /** Ladino (Ladino) */
