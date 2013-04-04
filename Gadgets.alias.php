@@ -85,7 +85,7 @@ $specialPageAliases['eo'] = array(
 
 /** Spanish (español) */
 $specialPageAliases['es'] = array(
-	'Gadgets' => array( 'Artilugios', 'Accesorios' ),
+	'Gadgets' => array( 'Accesorios', 'Artilugios' ),
 );
 
 /** Estonian (eesti) */
