@@ -2395,7 +2395,7 @@ De uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet 
 De uitbreidingen hebben geen invloed op deze pagina met voorkeuren.
 
 Deze speciale uitbreidingen zijn geen onderdeel van de MediaWiki-software en worden meestal ontwikkeld en onderhouden door gebruikers van uw wiki.
-Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition|definities]] en [[Special:Gadgets|beschrijvingen]].',
+Beheerders kunnen de beschikbare uitbreidingen opgeven in [[MediaWiki:Gadgets-definition|definities]] en [[Special:Gadgets|beschrijvingen]].',
 	'gadgets' => 'Uitbreidingen',
 	'gadgets-title' => 'Uitbreidingen',
 	'gadgets-pagetext' => 'Hieronder staan de speciale uitbreidingen die gebruikers kunnen inschakelen via hun [[Special:Preferences#mw-prefsection-gadgets|voorkeuren]], zoals ingesteld in de [[MediaWiki:Gadgets-definition|definities]].
@@ -2427,7 +2427,7 @@ De uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet 
 De uitbreidingen hebben geen invloed op deze pagina met voorkeuren.
 
 Deze speciale uitbreidingen zijn geen onderdeel van de MediaWiki-software en worden meestal ontwikkeld en onderhouden door gebruikers van jouw wiki.
-Beheerders kunnen de beschikbare uitbreidingen aangeven in [[MediaWiki:Gadgets-definition|definities]] en [[Special:Gadgets|beschrijvingen]].',
+Beheerders kunnen de beschikbare uitbreidingen opgeven in [[MediaWiki:Gadgets-definition|definities]] en [[Special:Gadgets|beschrijvingen]].',
 	'gadgets-export-text' => 'Klik op de knop "{{int:gadgets-export-download}}" om de uitbreiding "$1" te exporteren.
 Sla daarna het gedownloade bestand op.
 Ga naar "Special:Import" in de doelwiki en upload het geëxporteerde bestand.
