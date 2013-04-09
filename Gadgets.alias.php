@@ -28,7 +28,7 @@ $specialPageAliases['arz'] = array(
 	'Gadgets' => array( 'ادوات' ),
 );
 
-/** Assamese (অসমীয়া) */
+/** Assamese (অসমীয়া) */
 $specialPageAliases['as'] = array(
 	'Gadgets' => array( 'গেজেটসমূহ' ),
 );
