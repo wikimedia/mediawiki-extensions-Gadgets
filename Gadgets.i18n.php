@@ -1146,12 +1146,12 @@ Cette vue d’ensemble donne un accès rapide aux pages de messages système qui
 	'gadgets-required-rights' => 'Requiert {{PLURAL:$2|le droit suivant|les droits suivants}} : 
 
 $1.',
-	'gadgets-required-skins' => 'Disponible sur le  {{PLURAL:$2|   $1  skin|following skins:  $1 }}.',
+	'gadgets-required-skins' => 'Disponible sur {{PLURAL:$2|l’habillage suivant|les habillages suivants}} : $1.',
 	'gadgets-default' => 'Activé pour tout le monde par défaut.',
 	'gadgets-export' => 'Exporter',
 	'gadgets-export-title' => 'Export de gadget',
 	'gadgets-not-found' => 'Gadget « $1 » non trouvé.',
-	'gadgets-export-text' => 'Pour exporter le gadget $1, cliquer sur le bouton « {{int:gadgets-export-download}} », enregistrer le fichier téléchargé puis aller sur la page Special:Import du wiki de destination et l’importer. Ajouter ensuite le texte suivant dans la page MediaWiki:Gadgets-definition:
+	'gadgets-export-text' => 'Pour exporter le gadget $1, cliquez sur le bouton « {{int:gadgets-export-download}} », enregistrez le fichier téléchargé puis allez sur la page Special:Import du wiki de destination et importez-la. Ajoutez ensuite le texte suivant dans la page MediaWiki:Gadgets-definition :
 <pre>$2</pre>
 Il est nécessaire de disposer des droits correspondants sur le wiki de destination (y compris celui de modifier les messages système) et l’import depuis des fichiers doit être activé.',
 	'gadgets-export-download' => 'Télécharger',
