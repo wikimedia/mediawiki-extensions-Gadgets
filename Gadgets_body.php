@@ -182,17 +182,21 @@ class GadgetHooks {
 			}
 		}
 
-		$lb->execute( __METHOD__ );
 
-		$done = array();
+		// Allow other extensions, e.g. MobileFrontend, to disallow legacy gadgets
+		if ( wfRunHooks( 'Gadgets::allowLegacy', array( $out->getContext() ) ) ) {
+			$lb->execute( __METHOD__ );
 
-		foreach ( $pages as $page ) {
-			if ( isset( $done[$page] ) ) {
-				continue;
+			$done = array();
+
+			foreach ( $pages as $page ) {
+				if ( isset( $done[$page] ) ) {
+					continue;
+				}
+
+				$done[$page] = true;
+				self::applyScript( $page, $out );
 			}
-
-			$done[$page] = true;
-			self::applyScript( $page, $out );
 		}
 		wfProfileOut( __METHOD__ );
 
@@ -255,6 +259,7 @@ class Gadget {
 			$resourceLoaded = false,
 			$requiredRights = array(),
 			$requiredSkins = array(),
+			$targets = array( 'desktop' ),
 			$onByDefault = false,
 			$category;
 
@@ -301,6 +306,9 @@ class Gadget {
 					break;
 				case 'default':
 					$gadget->onByDefault = true;
+					break;
+				case 'targets':
+					$gadget->targets = $params;
 					break;
 			}
 		}
@@ -455,7 +463,7 @@ class Gadget {
 			return null;
 		}
 
-		return new GadgetResourceLoaderModule( $pages, $this->dependencies );
+		return new GadgetResourceLoaderModule( $pages, $this->dependencies, $this->targets );
 	}
 
 	/**
@@ -624,17 +632,20 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 
 	/**
 	 * Creates an instance of this class
+	 *
 	 * @param $pages Array: Associative array of pages in ResourceLoaderWikiModule-compatible
 	 * format, for example:
 	 * array(
-	 * 		'MediaWiki:Gadget-foo.js'  => array( 'type' => 'script' ),
-	 * 		'MediaWiki:Gadget-foo.css' => array( 'type' => 'style' ),
+	 *        'MediaWiki:Gadget-foo.js'  => array( 'type' => 'script' ),
+	 *        'MediaWiki:Gadget-foo.css' => array( 'type' => 'style' ),
 	 * )
 	 * @param $dependencies Array: Names of resources this module depends on
+	 * @param $targets Array: List of targets this module support
 	 */
-	public function __construct( $pages, $dependencies ) {
+	public function __construct( $pages, $dependencies, $targets ) {
 		$this->pages = $pages;
 		$this->dependencies = $dependencies;
+		$this->targets = $targets;
 	}
 
 	/**
