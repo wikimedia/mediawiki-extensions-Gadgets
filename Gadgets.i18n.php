@@ -2098,12 +2098,12 @@ $messages['mg'] = array(
 $messages['min'] = array(
 	'gadgets-desc' => 'Mamungkinkan pangguno mamiliah [[Special:Gadgets|pakakeh CSS jo JavaScript]] malalui [[Special:Preferences#mw-prefsection-gadgets|pangaturan]]-nyo',
 	'prefs-gadgets' => 'Pakakeh',
-	'gadgets-prefstext' => 'Di bawah ko dafta pakakeh istimewa nan dapek Sanak aktifkan untuak akun Sanak. Kasado pakakeh ko sabahagian babasis JavaScript dek itu Sanak musti mangaktifkan JavaScript pado paramban untuak dapek manjalankannyo. Paratikan kalau babagai pakakek ko indak ado pangaruahnyo pado laman pangaturan ko.
+	'gadgets-prefstext' => 'Di bawah ko daftar pakakeh istimewa nan dapek Sanak aktifkan untuak akun Sanak. Kasado pakakeh ko sabahagian babasis JavaScript dek itu Sanak musti mangaktifkan JavaScript pado paramban Sanak untuak dapek manjalankannyo. Paratikan kalau babagai pakakek ko indak ado pangaruahnyo pado laman pangaturan ko.
 
 Salain tu paratikan juo kalau pakakeh ko bukanlah bagian dari parangkaik lunak MediaWiki dan biasonyo dikambangkan dan dijago dek pangguno di Wikipedia. Panguruih lokal dapek manyuntiang pakakeh nan ado malalui [[MediaWiki:Gadgets-definition|laman definisinyo]] ataupun pado [[Special:Gadgets|laman katarangannyo]].',
 	'gadgets' => 'Pakakeh',
 	'gadgets-title' => 'Pakakeh',
-	'gadgets-pagetext' => 'Di bawah ko dafta pakakeh istimewa nan dapek diaktifkan pangguno malalui [[Special:Preferences#mw-prefsection-gadgets|laman pangaturan]] bantuak nan didefinisikan dek [[MediaWiki:Gadgets-definition|laman definisinyo]]. Tinjauan nan ko mangagiah akses ka dalam laman pasan sistem nan mandefinisikan deskripsi jo kode masiang-masiang pakakeh.',
+	'gadgets-pagetext' => 'Di bawah ko daftar pakakeh istimewa nan dapek diaktifkan pangguno malalui [[Special:Preferences#mw-prefsection-gadgets|laman pangaturan]] bantuak nan didefinisikan dek [[MediaWiki:Gadgets-definition|laman definisinyo]]. Tinjauan nan ko mangagiah akses ka dalam laman pasan sistem nan mandefinisikan deskripsi jo kode masiang-masiang pakakeh.',
 	'gadgets-uses' => 'Panggunoan',
 	'gadgets-required-rights' => 'Mambutuahkan {{PLURAL:$2|hak-hak}} barikuik:
 
@@ -2132,7 +2132,7 @@ $messages['mk'] = array(
 Имајте предвид дека алатките нема да имаат никаков ефект врз оваа страница за нагодување.
 
 Исто така имајте на ум дека овие специјални алатки не се дел од програмската опрема на МедијаВики и истите се создаваат и одржуваат од корисници на вашето локално вики.
-Локалните администратори можат да ги уредуваат и прилагодуваат алатките користејќи се со [[MediaWiki:Gadgets-definition|определувања]] и [[Special:Gadgets|описи]].',
+Локалните администратори можат да ги уредуваат и прилагодуваат алатките користејќи се со [[MediaWiki:Gadgets-definition|определби]] и [[Special:Gadgets|описи]].',
 	'gadgets' => 'Алатки',
 	'gadgets-title' => 'Алатки',
 	'gadgets-pagetext' => 'Ова е список на специјални алатки кои корисниците можат да ги активираат на нивната [[Special:Preferences#mw-prefsection-gadgets|страница за нагодување]], наведени во [[MediaWiki:Gadgets-definition|определувањата]].
