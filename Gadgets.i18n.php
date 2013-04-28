@@ -2098,12 +2098,12 @@ $messages['mg'] = array(
 $messages['min'] = array(
 	'gadgets-desc' => 'Mamungkinkan pangguno mamiliah [[Special:Gadgets|pakakeh CSS jo JavaScript]] malalui [[Special:Preferences#mw-prefsection-gadgets|pangaturan]]-nyo',
 	'prefs-gadgets' => 'Pakakeh',
-	'gadgets-prefstext' => 'Di bawah ko daftar pakakeh istimewa nan dapek Sanak aktifkan untuak akun Sanak. Kasado pakakeh ko sabahagian babasis JavaScript dek itu Sanak musti mangaktifkan JavaScript pado paramban Sanak untuak dapek manjalankannyo. Paratikan kalau babagai pakakek ko indak ado pangaruahnyo pado laman pangaturan ko.
+	'gadgets-prefstext' => 'Di bawah ko daftar pakakeh istimewa nan dapek Sanak aktipan untuak akun Sanak. Kasado pakakeh ko sabagian babasis JavaScript dek itu Sanak musti mangaktipan JavaScript pado paramban Sanak untuak dapek manjalankannyo. Paratikan kalau babagai pakakek ko indak ado pangaruahnyo pado laman pangaturan ko.
 
 Salain tu paratikan juo kalau pakakeh ko bukanlah bagian dari parangkaik lunak MediaWiki dan biasonyo dikambangkan dan dijago dek pangguno di Wikipedia. Panguruih lokal dapek manyuntiang pakakeh nan ado malalui [[MediaWiki:Gadgets-definition|laman definisinyo]] ataupun pado [[Special:Gadgets|laman katarangannyo]].',
 	'gadgets' => 'Pakakeh',
 	'gadgets-title' => 'Pakakeh',
-	'gadgets-pagetext' => 'Di bawah ko daftar pakakeh istimewa nan dapek diaktifkan pangguno malalui [[Special:Preferences#mw-prefsection-gadgets|laman pangaturan]] bantuak nan didefinisikan dek [[MediaWiki:Gadgets-definition|laman definisinyo]]. Tinjauan nan ko mangagiah akses ka dalam laman pasan sistem nan mandefinisikan deskripsi jo kode masiang-masiang pakakeh.',
+	'gadgets-pagetext' => 'Di bawah ko daftar pakakeh istimewa nan dapek diaktipan pangguno malalui [[Special:Preferences#mw-prefsection-gadgets|laman pangaturan]] saroman nan didefinisikan dek [[MediaWiki:Gadgets-definition|laman definisinyo]]. Tinjauan nan ko mangagiah akses ka laman pasan sistem nan mandefinisikan deskripsi jo kode masiang-masiang pakakeh.',
 	'gadgets-uses' => 'Panggunoan',
 	'gadgets-required-rights' => 'Mambutuahkan {{PLURAL:$2|hak-hak}} barikuik:
 
