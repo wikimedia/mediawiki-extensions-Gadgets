@@ -3,7 +3,7 @@
  * @group Gadgets
  */
 
-class GadgetsTest extends PHPUnit_Framework_TestCase {
+class GadgetsTest extends MediaWikiTestCase {
 	private function create( $line ) {
 		$g = Gadget::newFromDefinition( $line );
 		// assertInstanceOf() is available since PHPUnit 3.5

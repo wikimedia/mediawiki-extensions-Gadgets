@@ -202,8 +202,8 @@ class GadgetHooks {
 	/**
 	 * Adds one legacy script to output.
 	 *
-	 * @param $page String: Unprefixed page title
-	 * @param $out OutputPage
+	 * @param string $page Unprefixed page title
+	 * @param OutputPage $out
 	 */
 	private static function applyScript( $page, $out ) {
 		global $wgJsMimeType;
@@ -227,12 +227,12 @@ class GadgetHooks {
 
 	/**
 	 * UnitTestsList hook handler
-	 * @param $files Array: List of extension test files
+	 * @param array $files
 	 * @return bool
 	 */
-	public static function unitTestsList( $files ) {
-		$files[] = dirname( __FILE__ ) . '/Gadgets_tests.php';
-
+	public static function onUnitTestsList( array &$files ) {
+		$testDir = __DIR__ . '/tests/';
+		$files = array_merge( $files, glob( "$testDir/*Test.php" ) );
 		return true;
 	}
 }
