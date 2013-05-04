@@ -3616,6 +3616,7 @@ $1',
 
 /** Traditional Chinese (中文（繁體）‎)
  * @author Anakmalaysia
+ * @author Danny0838
  * @author Gakmo
  * @author Horacewai2
  * @author Liangent
@@ -3626,11 +3627,9 @@ $1',
 $messages['zh-hant'] = array(
 	'gadgets-desc' => '讓使用者可以在[[Special:Preferences#mw-prefsection-gadgets|偏好設定]]中自訂 [[Special:Gadgets|CSS與JavaScript工具]]',
 	'prefs-gadgets' => '小工具',
-	'gadgets-prefstext' => '以下是特殊小工具，您可以在您的帳戶中啟用。
-這些小工具多數都是基於JavaScript建造，所以需要瀏覽器的JavaScript啟用後方可使用。
-這些小工具對這個偏好設定頁面是沒有效用的。
+	'gadgets-prefstext' => '以下列出各種特殊小工具，可在您的帳戶中啟用之。小工具多使用了JavaScript，瀏覽器必須啟用JavaScript才能正常運作。請注意小工具的效果不會作用在這個偏好設定頁。
 
-請同時留意，這些特殊小工具不是MediaWiki軟體的一部份，通常都是由您本地的wiki中開發以及維護。本地管理員可以編輯可供使用的小工具的[[MediaWiki:Gadgets-definition|定義]]以及[[Special:Gadgets|描述]]。',
+同時也請注意，這些特殊小工具並非MediaWiki軟體的一部份，通常是由本地wiki的使用者開發與維護。本地管理員可以編輯小工具的[[MediaWiki:Gadgets-definition|定義]]與[[Special:Gadgets|描述]]。',
 	'gadgets' => '小工具',
 	'gadgets-title' => '小工具',
 	'gadgets-pagetext' => '以下是一個按照 [[MediaWiki:Gadgets-definition]] 的定義特殊小工具清單，用戶可以在它們的[[Special:Preferences#mw-prefsection-gadgets|偏好設定頁面]]中啟用它們。
