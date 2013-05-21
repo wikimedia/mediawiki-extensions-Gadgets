@@ -1912,7 +1912,7 @@ enreschte un ändere.',
 	'gadgets-pagetext' => 'He kütt en Liss met spezielle <i lang="en">Gadgets</i>,
 di jede Metmaacher övver sing
 [[Special:Preferences#mw-prefsection-gadgets|päsönlije Enstellunge]] enschallte kann.
-Se wääde üvver [[MediaWiki:Gadgets-definition]] enjerecht.
+Se wääde övver [[MediaWiki:Gadgets-definition]] enjerecht.
 Die Övverseech hee jit enne direkte Zohjang op di Texte em Wiki,
 wo de Projramme, un de Erklierunge för de <i lang="en">Gadgets</i> dren enthallde
 sin.',
