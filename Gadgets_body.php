@@ -595,7 +595,7 @@ class Gadget {
 			$g = $forceNewText;
 		}
 
-		$g = preg_replace( '/<!--.*-->/s', '', $g );
+		$g = preg_replace( '/<!--.*?-->/s', '', $g );
 		$g = preg_split( '/(\r\n|\r|\n)+/', $g );
 
 		$gadgets = array();
