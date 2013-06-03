@@ -255,7 +255,7 @@ $messages['arz'] = array(
 	'gadgets-uses' => 'إستخدامات',
 );
 
-/** Assamese (অসমীয়া)
+/** Assamese (অসমীয়া)
  * @author Bishnu Saikia
  * @author Gitartha.bordoloi
  */
@@ -2288,7 +2288,7 @@ $messages['mzn'] = array(
 	'gadgets-title' => 'ابزارون',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Laaknor
  * @author Nghtwlkr
  * @author Sjurhamre
@@ -2337,7 +2337,7 @@ Disse Översicht gifft direkten Togang to de Systemnarichten, in de de Text to d
 	'gadgets-uses' => 'Bruukt',
 );
 
-/** Nedersaksies (Nedersaksies)
+/** Low Saxon (Netherlands) (Nedersaksies)
  * @author Servien
  */
 $messages['nds-nl'] = array(
@@ -2438,7 +2438,7 @@ Voeg daarna het volgende toe aan de pagina "MediaWiki:Gadgets-definition":
 Je moet de juiste rechten hebben op de doelwiki, inclusief het recht om bewerkingen te maken aan de systeemberichten, en importeren uit bestanden moet ingeschakeld zijn.',
 );
 
-/** Norwegian Nynorsk (norsk (nynorsk)‎)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Eirik
  * @author Harald Khan
  * @author Nghtwlkr
@@ -2479,7 +2479,7 @@ Aqueste susvòl dona un accès rapid a las paginas de messatges del sistèma que
 	'gadgets-export-download' => 'Telecargar',
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Ansumang
  * @author Odisha1
  * @author Psubhashish
