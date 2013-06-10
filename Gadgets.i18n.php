@@ -806,22 +806,23 @@ Sie müssen über die notwendigen Berechtigungen auf dem für den Import vorgese
 
 /** Zazaki (Zazaki)
  * @author Erdemaslancan
+ * @author Neribij
  * @author Olvörg
  * @author Xoser
  */
 $messages['diq'] = array(
-	'gadgets-desc' => 'Karberan rê destur bide ke pê [[Special:Preferences#mw-prefsection-gadgets|opsiyonan]] ra [[Special:Gadgets|Xacetanê CSS u JavaScriptî]] biweçî',
-	'prefs-gadgets' => 'Xacetî',
-	'gadgets-prefstext' => 'Cor de yew listeyê xacetanê xasî estê ke ti eşkenî xesabê xo de a bike.
-Enê xecatan ser JavaScript gure kenê, aya ra ti gani browser xo de JavaScript a bike.
-Ena pela opsiyonî de xacetan etki nikenê.
+	'gadgets-desc' => 'Karberan rê destur bide ke pê [[Special:Preferences#mw-prefsection-gadgets|opsiyonan]] ra [[Special:Gadgets|Hacetanê CSS u JavaScriptî]] biweçînê',
+	'prefs-gadgets' => 'Hacetî',
+	'gadgets-prefstext' => 'Cor de yew listeya hacetanê xasî esta ke ti eşkenî xesabê xo de a bikî.
+Enê hacatî JavaScript ser o gurêyenê, aya ra ti ganî browserê xo de JavaScript a bikî.
+Ena pela opsiyonî de hacetî tesîr nêkenê.
 
-Enê xecatanê xasî parçê sofwarê Mediyawîkî niyo, aye ra karberanê localî enê xecetî virazeno.
-Adminstorê localî eşkenê xacetî  [[MediaWiki:Gadgets-definition|definitions]] u [[Special:Gadgets|descriptions]] ra bivurne.',
-	'gadgets' => 'Xacetî',
-	'gadgets-title' => 'Xacetî',
-	'gadgets-pagetext' => 'Cor de yew listeyê xacetanê xasî estê ke ti eşkenî [[Special:Preferences#mw-prefsection-gadgets|xesabê xo]] de a bike, descripsiyon [[MediaWiki:Gadgets-definition|definitions]] de esto.
-Ena descripisyon kerberanê îmkan dano ke aye meajanê sistemî ra asani cikewtê.',
+Enê hacatanê xasî parçê sofwarê Mediyawîkî nîyê, aye ra karberê localî enê hacetî virazenê.
+Îdarekarê mehelî eşkenê hacetan  [[MediaWiki:Gadgets-definition|definitions]] û [[Special:Gadgets|descriptions]] ra bivurnê.',
+	'gadgets' => 'Hacetî',
+	'gadgets-title' => 'Hacetî',
+	'gadgets-pagetext' => 'Cêr de yew listeya hacetanê xasan esta ke ti eşkenî [[Special:Preferences#mw-prefsection-gadgets|xesabê xo]] de a bikî, seke [[MediaWiki:Gadgets-definition|definitions]] nîşan dîyayo.
+No ewnîyayîşo pêroyî îmkan dano ke merdim bi asanî bireso pelanê mesajanê sistemî ke descripisyon û kodê her hacetî nawneno.',
 	'gadgets-uses' => 'Karber',
 	'gadgets-required-rights' => 'Cêrêni icab kenê {{PLURAL:$2|raşti|raşteya}}:
 
@@ -834,7 +835,7 @@ $1',
 	'gadgets-export-text' => 'Qande gadgeto $1 teber rê rusnayış ,"{{int:gadgets-export-download}}" rê hengnayış kerên,u dosya ke download biyo,star kerên.Wikiyê hedef de şo pela Special:Import rê and download kerên.Bahdo nuşteyê ke cerên de dero pela MediaWiki:Gadgets-definition rê bınuse:
 <pre>$2</pre>
 Wikiyê ke hedefo de desturê lazımo (vurnayışê mesacanê sistemi daxilo) u dosya ra zerê rê rusnayışi enabled lazımo.',
-	'gadgets-export-download' => 'Ron',
+	'gadgets-export-download' => 'Rone',
 );
 
 /** Lower Sorbian (dolnoserbski)
@@ -1187,6 +1188,35 @@ pués alar sur la pâge « Spèciâl:Importacion du vouiqui de dèstinacion » e
 <pre>$2</pre>
 O est nècèssèro de d’avêr los drêts corrèspondents sur lo vouiqui de dèstinacion (celi de changiér los mèssâjos sistèmo avouéc) et pués l’importacion dês des fichiérs dêt étre activâ.',
 	'gadgets-export-download' => 'Tèlèchargiér',
+);
+
+/** Northern Frisian (Nordfriisk)
+ * @author Murma174
+ */
+$messages['frr'] = array(
+	'gadgets-desc' => 'Brükern kön uun hör [[Special:Preferences#mw-prefsection-gadgets|iinstelangen]] enkelt [[Special:Gadgets|CSS- an JavaScript-halpers]] aktiwiare',
+	'prefs-gadgets' => 'Letj halpers',
+	'gadgets-prefstext' => 'Diar stun enkelt letj halpers, diar arke brüke aktiwiare koon. Jo san miast uun JavaScript skrewen, an diaram kön jo bluas werke, wan JavaScript uun a browser aktiif as. Üüb detheer spezial-sidj werke jo oober ei.
+
+Jodiar letj halpers san nään dial faan MediaWiki an wurd miast faan enkelt brükern ütjspekeliaret. Administratooren kön jo letj halpers bewerke. Diarför jaft at [[MediaWiki:Gadgets-definition|definitjuunen]] an [[Special:Gadgets|beskriiwangen]].',
+	'gadgets' => 'Letj halpers',
+	'gadgets-title' => 'Letj halpers',
+	'gadgets-pagetext' => 'Diar stun letj halpers, diar uun det [[MediaWiki:Gadgets-definition|definitjuun]] fäästlaanj san an diar arke brüker uun sin [[Special:Preferences#mw-prefsection-gadgets|iinstelangen]] iinracht koon.
+
+Auer detheer sidj komst dü tu a MediaWiki-süsteemnoorachten mä en beskriiwang an di program-code.',
+	'gadgets-uses' => 'Tu brüken',
+	'gadgets-required-rights' => 'Diarför brükst dü {{PLURAL:$2|detdiar brükerrocht|jodiar brükerrochten}}:
+
+$1',
+	'gadgets-required-skins' => 'Koon mä {{PLURAL:$2|didiar skak|jodiar skaker}} brükt wurd: $1.',
+	'gadgets-default' => 'Det as faan began för arken aktiif.',
+	'gadgets-export' => 'Eksport',
+	'gadgets-export-title' => 'Eksport faan letj halpers',
+	'gadgets-not-found' => 'Letj halper "$1" ei fünjen.',
+	'gadgets-export-text' => 'Am di letj halper $1 tu eksportiarin, trak üüb „{{int:gadgets-export-download}}“ an seekre det datei üüb dan reegner. Do gung tu "Spezial:Import" üüb det wiki, huar di letj halper importiaret wurd skal an schüür det datei huuch. Skriiw do noch didiar tekst üüb det sidj MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Huar dü det importiare wel, brükst dü jo nuadag brükerrochten tu importiarin an uk det brükerrocht, am MediaWiki-süsteemnoorachten tu bewerkin. An do skal natüürelk det importiarin uun detdiar wiki aktiwiaret wees.',
+	'gadgets-export-download' => 'Deelloose',
 );
 
 /** Irish (Gaeilge)
@@ -1933,9 +1963,12 @@ Do moß en däm Wiki de nüüdijje Rääschde han, och dat Rääsch, aan Täxte 
 
 /** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
+ * @author Gomada
  */
 $messages['ku-latn'] = array(
+	'gadgets-title' => 'Amûr',
 	'gadgets-not-found' => ' Gadget "$1" nehate dîtin.',
+	'gadgets-export-download' => 'Daxe',
 );
 
 /** Kirghiz (Кыргызча)
@@ -3619,13 +3652,14 @@ $1',
  * @author Danny0838
  * @author Gakmo
  * @author Horacewai2
+ * @author Justincheng12345
  * @author Liangent
  * @author Mark85296341
  * @author Shinjiman
  * @author Waihorace
  */
 $messages['zh-hant'] = array(
-	'gadgets-desc' => '讓使用者可以在[[Special:Preferences#mw-prefsection-gadgets|偏好設定]]中自訂 [[Special:Gadgets|CSS與JavaScript工具]]',
+	'gadgets-desc' => '讓使用者可以於[[Special:Preferences#mw-prefsection-gadgets|偏好設定]]中自訂[[Special:Gadgets|CSS與JavaScript工具]]',
 	'prefs-gadgets' => '小工具',
 	'gadgets-prefstext' => '以下列出各種特殊小工具，可在您的帳戶中啟用之。小工具多使用了JavaScript，瀏覽器必須啟用JavaScript才能正常運作。請注意小工具的效果不會作用在這個偏好設定頁。
 
