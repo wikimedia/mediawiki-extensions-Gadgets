@@ -1967,6 +1967,11 @@ Do moß en däm Wiki de nüüdijje Rääschde han, och dat Rääsch, aan Täxte 
  */
 $messages['ku-latn'] = array(
 	'gadgets-title' => 'Amûr',
+	'gadgets-uses' => 'Bikaranîn',
+	'gadgets-required-rights' => '{{PLURAL:$2|Mafa|Mafên}} di dorê de pêwîst in:
+
+$1',
+	'gadgets-export' => 'Derxe',
 	'gadgets-not-found' => ' Gadget "$1" nehate dîtin.',
 	'gadgets-export-download' => 'Daxe',
 );
