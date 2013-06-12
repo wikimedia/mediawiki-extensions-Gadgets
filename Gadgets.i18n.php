@@ -1963,9 +1963,12 @@ Do moß en däm Wiki de nüüdijje Rääschde han, och dat Rääsch, aan Täxte 
 
 /** Kurdish (Latin script) (Kurdî (latînî)‎)
  * @author George Animal
+ * @author Ghybu
  * @author Gomada
  */
 $messages['ku-latn'] = array(
+	'prefs-gadgets' => 'Amûr',
+	'gadgets' => 'Amûr',
 	'gadgets-title' => 'Amûr',
 	'gadgets-uses' => 'Bikaranîn',
 	'gadgets-required-rights' => '{{PLURAL:$2|Mafa|Mafên}} di dorê de pêwîst in:
