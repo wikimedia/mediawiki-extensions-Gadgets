@@ -397,6 +397,14 @@ $messages['bcc'] = array(
 	'gadgets-uses' => 'استفاده بیت',
 );
 
+/** Bikol Central (Bikol Central)
+ * @author Geopoet
+ */
+$messages['bcl'] = array(
+	'gadgets-desc' => 'Minatugot sa mga paragamit na pumili nin kustombre [[Special:Gadgets|CSS and JavaScript gadgets]] sa saindang [[Special:Preferences#mw-prefsection-gadgets|preferences]]',
+	'prefs-gadgets' => 'Mga gadyet',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author Cesco
  * @author EugeneZelenko
