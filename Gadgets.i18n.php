@@ -1924,7 +1924,7 @@ $messages['ko'] = array(
 	'gadgets-title' => '소도구',
 	'gadgets-pagetext' => '[[Special:Preferences#mw-prefsection-gadgets|사용자 환경 설정]]에서 설정할 수 있는 소도구 목록입니다. 해당 목록은 [[MediaWiki:Gadgets-definition|소도구 정의]]에서 편집할 수 있습니다.
 이 문서에서는 각 소도구의 각 설명 문서와 코드의 시스템 메시지 링크를 제공합니다.',
-	'gadgets-uses' => '다음 코드를 이용',
+	'gadgets-uses' => '다음 코드를 사용',
 	'gadgets-required-rights' => '다음 {{PLURAL:$2|권한}}이 필요합니다: 
 
 $1',
