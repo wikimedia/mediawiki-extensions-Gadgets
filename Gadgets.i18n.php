@@ -2585,6 +2585,21 @@ $1',
 	'gadgets-export-download' => 'ଡାଉନଲୋଡ଼',
 );
 
+/** Punjabi (ਪੰਜਾਬੀ)
+ * @author Babanwalia
+ */
+$messages['pa'] = array(
+	'prefs-gadgets' => 'ਗੈਜਟ',
+	'gadgets' => 'ਗੈਜਟ',
+	'gadgets-title' => 'ਗੈਜਟ',
+	'gadgets-uses' => 'ਵਰਤਦਾ ਹੈ',
+	'gadgets-default' => "ਮੂਲ ਤੌਰ 'ਤੇ ਸਾਰਿਆਂ ਲਈ ਚਾਲੂ ਹੈ।",
+	'gadgets-export' => 'ਨਿਰਯਾਤ',
+	'gadgets-export-title' => 'ਗੈਜਟ ਨਿਰਯਾਤ',
+	'gadgets-not-found' => 'ਗੈਜਟ "$1" ਨਹੀਂ ਲੱਭਾ।',
+	'gadgets-export-download' => 'ਡਾਊਨਲੋਡ ਕਰੋ',
+);
+
 /** Pampanga (Kapampangan)
  * @author Katimawan2005
  */
