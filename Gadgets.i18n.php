@@ -229,8 +229,8 @@ $1',
  * @author Basharh
  */
 $messages['arc'] = array(
-	'gadgets' => 'ܬܘܣܦܝܬ̈ܐ',
-	'gadgets-title' => 'ܬܘܣܦܝܬ̈ܐ',
+	'gadgets' => 'ܬܘܣܦܬ̈ܐ',
+	'gadgets-title' => 'ܬܘܣܦܬ̈ܐ',
 	'gadgets-export-download' => 'ܐܚܬ:',
 );
 
