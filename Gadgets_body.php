@@ -614,6 +614,13 @@ class Gadget {
 			}
 		}
 
+		if ( !count( $gadgets ) ) {
+			// Don't cache in case we couldn't find any gadgets. Bug 37228
+			$gadgets = false;
+			wfProfileOut( __METHOD__ );
+			return $gadgets;
+		}
+
 		// cache for a while. gets purged automatically when MediaWiki:Gadgets-definition is edited
 		$wgMemc->set( $key, $gadgets, 60 * 60 * 24 );
 		$source = $forceNewText !== null ? 'input text' : 'MediaWiki:Gadgets-definition';
