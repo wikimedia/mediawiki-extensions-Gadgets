@@ -2740,14 +2740,15 @@ $messages['ps'] = array(
 /** Portuguese (português)
  * @author Hamilton Abreu
  * @author Helder.wiki
+ * @author Luckas
  * @author Malafaya
  * @author 555
  */
 $messages['pt'] = array(
 	'gadgets-desc' => "Permite que os utilizadores seleccionem [[Special:Gadgets|''\"gadgets\"'' em JavaScript e CSS]] personalizados nas suas [[Special:Preferences#mw-prefsection-gadgets|preferências]]",
 	'prefs-gadgets' => 'Gadgets',
-	'gadgets-prefstext' => "Segue-se uma lista de ''\"gadgets\"'' especiais que pode activar na sua conta.
-Estes ''gadgets'' são baseados principalmente em JavaScript, sendo necessário activar o suporte a JavaScript no seu browser para que funcionem.
+	'gadgets-prefstext' => "Segue-se uma lista de ''\"gadgets\"'' especiais que pode ativar na sua conta.
+Estes ''gadgets'' são baseados principalmente em JavaScript, sendo necessário ativar o suporte a JavaScript no seu browser para que funcionem.
 Note que não terão efeito nesta página de preferências.
 
 Note também que estes ''gadgets'' especiais não fazem parte do programa MediaWiki, sendo geralmente desenvolvidos e mantidos por utilizadores na sua wiki local.
