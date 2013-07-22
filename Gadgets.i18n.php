@@ -2762,7 +2762,7 @@ Este resumo proporciona acesso fácil às páginas das mensagens de sistema que 
 
 $1',
 	'gadgets-required-skins' => 'Disponível {{PLURAL:$2|no tema $1|nos seguintes temas: $1}}',
-	'gadgets-default' => 'Activado para todos por padrão.',
+	'gadgets-default' => 'Ativado para todos por padrão.',
 	'gadgets-export' => 'Exportar',
 	'gadgets-export-title' => 'Exportação de gadget',
 	'gadgets-not-found' => 'O gadget "$1" não foi encontrado.',
