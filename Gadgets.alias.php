@@ -53,6 +53,11 @@ $specialPageAliases['bs'] = array(
 	'Gadgets' => array( 'Dodaci' ),
 );
 
+/** Chechen (нохчийн) */
+$specialPageAliases['ce'] = array(
+	'Gadgets' => array( 'Гаджеташ' ),
+);
+
 /** Czech (česky) */
 $specialPageAliases['cs'] = array(
 	'Gadgets' => array( 'Udělátka' ),
