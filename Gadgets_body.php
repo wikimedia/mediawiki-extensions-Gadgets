@@ -248,7 +248,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	const GADGET_CLASS_VERSION = 6;
+	const GADGET_CLASS_VERSION = 7;
 
 	private $version = self::GADGET_CLASS_VERSION,
 			$scripts = array(),
@@ -261,6 +261,7 @@ class Gadget {
 			$requiredSkins = array(),
 			$targets = array( 'desktop' ),
 			$onByDefault = false,
+			$position = 'bottom',
 			$category;
 
 	/**
@@ -309,6 +310,9 @@ class Gadget {
 					break;
 				case 'targets':
 					$gadget->targets = $params;
+					break;
+				case 'top':
+					$gadget->position = 'top';
 					break;
 			}
 		}
@@ -463,7 +467,7 @@ class Gadget {
 			return null;
 		}
 
-		return new GadgetResourceLoaderModule( $pages, $this->dependencies, $this->targets );
+		return new GadgetResourceLoaderModule( $pages, $this->dependencies, $this->targets, $this->position );
 	}
 
 	/**
@@ -499,6 +503,14 @@ class Gadget {
 	 */
 	public function getRequiredSkins() {
 		return $this->requiredSkins;
+	}
+
+	/**
+	 * Returns the position of this Gadget's ResourceLoader module
+	 * @return String: 'bottom' or 'top'
+	 */
+	public function getPosition() {
+		return $this->position;
 	}
 
 	/**
@@ -648,11 +660,13 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * )
 	 * @param $dependencies Array: Names of resources this module depends on
 	 * @param $targets Array: List of targets this module support
+	 * @param $position String: 'bottom' or 'top'
 	 */
-	public function __construct( $pages, $dependencies, $targets ) {
+	public function __construct( $pages, $dependencies, $targets, $position ) {
 		$this->pages = $pages;
 		$this->dependencies = $dependencies;
 		$this->targets = $targets;
+		$this->position = $position;
 	}
 
 	/**
@@ -670,5 +684,13 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 */
 	public function getDependencies() {
 		return $this->dependencies;
+	}
+
+	/**
+	 * Overrides ResourceLoaderModule::getPosition()
+	 * @return String: 'bottom' or 'top'
+	 */
+	public function getPosition() {
+		return $this->position;
 	}
 }
