@@ -620,6 +620,7 @@ Heu de tenir els permisos adequats en el wiki de destinació (incloent-hi els pe
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
 	'gadgets-desc' => 'Атто бо декъашхошна харжам ба [[Special:Preferences#mw-prefsection-gadgets|гIирс нисбарца]] CSS- а JavaScript-хIоттончаш, лато лууш йерш', # Fuzzy
@@ -635,6 +636,7 @@ $messages['ce'] = array(
 	'gadgets-pagetext' => 'Гlирса хааман могlамаш, къастош йолу хlоттончи цlераш, хуьлаш йолу хIокху [[MediaWiki:Gadgets-definition|къастамца]]]].
 ХIокху могIамо атто бо гIирсан хаамаш атта тIе кхочуш барца, цуьнах лаьцна хIоттош а йолш йолучу хIоттончи ишарца.', # Fuzzy
 	'gadgets-uses' => 'Лелош йу',
+	'gadgets-export' => 'Экспорт ян',
 );
 
 /** Sorani Kurdish (کوردی)
