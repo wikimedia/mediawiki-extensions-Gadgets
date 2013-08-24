@@ -88,7 +88,15 @@ See [[meta:Special:Gadgets|Gadgets page in meta.wikimedia.org]]",
 	'gadgets-export-title' => 'Used as page title. Example: [[Special:Gadgets/export/editbuttons]]',
 	'gadgets-not-found' => 'Used as error message. Parameters:
 * $1 - gadget name',
-	'gadgets-export-text' => 'Used as page description. See example: [[Special:Gadgets/export/editbuttons]]',
+	'gadgets-export-text' => 'Used as page description in [[Special:Gadgets]].
+
+See example: [[Special:Gadgets/export/editbuttons]]
+
+Followed by the "Export" form.
+
+Parameters:
+* $1 - gadget name
+* $2 - gadget definition (code)',
 	'gadgets-export-download' => 'Use the verb for this message. Submit button.
 {{Identical|Download}}',
 );
