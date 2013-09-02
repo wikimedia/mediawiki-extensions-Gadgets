@@ -2640,6 +2640,7 @@ $messages['pdc'] = array(
 );
 
 /** Polish (polski)
+ * @author Chrumps
  * @author Derbeth
  * @author Marcin Łukasz Kiejzik
  * @author Matma Rex
@@ -2650,7 +2651,7 @@ $messages['pl'] = array(
 	'gadgets-desc' => 'Pozwala użytkownikom wybrać [[Special:Gadgets|gadżety CSS i JavaScript]] na [[Special:Preferences#mw-prefsection-gadgets|stronie preferencji]]',
 	'prefs-gadgets' => 'Gadżety',
 	'gadgets-prefstext' => 'Poniżej znajduje się lista specjalnych gadżetów, które możesz włączyć dla swojego konta użytkownika.
-Gadżety najczęściej wykorzystują JavaScript, więc by działały musisz mieć w swojej przeglądarce włączoną obsługę JavaScriptu. Gadżety nie mają wpływu na tę stronę preferencji.
+Gadżety najczęściej wykorzystują JavaScript, więc by działały, musisz mieć w swojej przeglądarce włączoną obsługę JavaScriptu. Gadżety nie mają wpływu na tę stronę preferencji.
 
 Gadżety nie są częścią oprogramowania MediaWiki i najprawdopodobniej zostały stworzone przez użytkowników tej wiki.
 Lokalni administratorzy mogą edytować dostępne gadżety używając stron [[MediaWiki:Gadgets-definition|Definicje gadżetów]] oraz [[Special:Gadgets|Gadżety]].',
