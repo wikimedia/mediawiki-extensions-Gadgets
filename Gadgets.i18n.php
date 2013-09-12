@@ -90,6 +90,8 @@ See [[meta:Special:Gadgets|Gadgets page in meta.wikimedia.org]]",
 * $1 - gadget name',
 	'gadgets-export-text' => 'Used as page description in [[Special:Gadgets]].
 
+Refers to {{msg-mw|Gadgets-export-download}}.
+
 See example: [[Special:Gadgets/export/editbuttons]]
 
 Followed by the "Export" form.
