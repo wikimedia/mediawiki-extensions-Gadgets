@@ -1378,6 +1378,7 @@ Special:Import નિયોજીત વિકિ પર Special:Import પર �
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author Guycn1
  * @author Rotem Liss
  * @author YaronSh
  */
@@ -1401,7 +1402,7 @@ $1',
 	'gadgets-required-skins' => 'זמין {{PLURAL:$2|בערכות העיצוב הבאות: $1|בערכת העיצוב $1}}',
 	'gadgets-default' => 'מופעל לכולם לפי בררת מחדל.',
 	'gadgets-export' => 'יצוא',
-	'gadgets-export-title' => 'יצוא גאדג׳טים',
+	'gadgets-export-title' => "יצוא גאדג'טים",
 	'gadgets-not-found' => 'הגאדג׳ט "$1" לא נמצא.',
 	'gadgets-export-text' => 'כדי לייצא את הגאדג׳ט $1, יש ללחוץ על הלחצן "{{int:gadgets-export-download}}", לשמור את הקובץ שהתקבל,
 לגשת אל Special:Import באתר הוויקי המיועד ולהעלות אותו. ואז להוסיף את הדברים הבאים לדף MediaWiki:Gadgets-definition:
