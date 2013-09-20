@@ -3438,6 +3438,7 @@ Dapat kang mayroong nararapat na mga pahintulot sa kapupuntahang wiki (kasama an
 /** Turkish (Türkçe)
  * @author Emperyan
  * @author Erkan Yilmaz
+ * @author Incelemeelemani
  * @author Joseph
  * @author Karduelis
  * @author Koc61
@@ -3455,6 +3456,11 @@ Yerel yöneticiler [[MediaWiki:Gadgets-definition|tanımları]] ve [[Special:Gad
 	'gadgets-pagetext' => "Aşağıdaki, kullanıcıların [[Special:Preferences#mw-prefsection-gadgets|tercihler sayfasında]] etkin hale getirebileceği, [[MediaWiki:Gadgets-definition|tanımlarla]] belirtildiği gibi, özel gadgetlerin bir listesidir.
 Bu genel bakış, her gadget'in tanımını ve kodunu belirten sistem mesaj sayfalarına kolay erişim sağlar.",
 	'gadgets-uses' => 'Kullanıyor',
+	'gadgets-required-rights' => 'Aşağıda gösterilen {{PLURAL:$2|hak|haklar}} gereklidir:
+
+$1',
+	'gadgets-required-skins' => 'Kullanılabilecek {{PLURAL:$2|$1 tema|temalar: $1}}.',
+	'gadgets-default' => 'Herkes için varsayılan olarak etkindir.',
 	'gadgets-export' => 'Dışa aktar',
 	'gadgets-export-title' => 'Gadget dışa aktarımı',
 	'gadgets-not-found' => 'Gadget "$1" bulunamadı.',
