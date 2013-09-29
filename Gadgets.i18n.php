@@ -848,21 +848,22 @@ Sie müssen über die notwendigen Berechtigungen auf dem für den Import vorgese
 
 /** Zazaki (Zazaki)
  * @author Erdemaslancan
+ * @author Gorizon
  * @author Neribij
  * @author Olvörg
  * @author Xoser
  */
 $messages['diq'] = array(
-	'gadgets-desc' => 'Karberan rê destur bide ke pê [[Special:Preferences#mw-prefsection-gadgets|opsiyonan]] ra [[Special:Gadgets|Hacetanê CSS u JavaScriptî]] biweçînê',
-	'prefs-gadgets' => 'Hacetî',
+	'gadgets-desc' => "Karberan ré destur bidek [[Special:Preferences#mw-prefsection-gadgets|hesıbyayan]]'ra [[Special:Gadgets|Hacetanê CSS u JavaScriptî]] bışé weçiné",
+	'prefs-gadgets' => 'Haleti',
 	'gadgets-prefstext' => 'Cor de yew listeya hacetanê xasî esta ke ti eşkenî xesabê xo de a bikî.
 Enê hacatî JavaScript ser o gurêyenê, aya ra ti ganî browserê xo de JavaScript a bikî.
 Ena pela opsiyonî de hacetî tesîr nêkenê.
 
 Enê hacatanê xasî parçê sofwarê Mediyawîkî nîyê, aye ra karberê localî enê hacetî virazenê.
 Îdarekarê mehelî eşkenê hacetan  [[MediaWiki:Gadgets-definition|definitions]] û [[Special:Gadgets|descriptions]] ra bivurnê.',
-	'gadgets' => 'Hacetî',
-	'gadgets-title' => 'Hacetî',
+	'gadgets' => 'Haleti',
+	'gadgets-title' => 'Haleti',
 	'gadgets-pagetext' => 'Cêr de yew listeya hacetanê xasan esta ke ti eşkenî [[Special:Preferences#mw-prefsection-gadgets|xesabê xo]] de a bikî, seke [[MediaWiki:Gadgets-definition|definitions]] nîşan dîyayo.
 No ewnîyayîşo pêroyî îmkan dano ke merdim bi asanî bireso pelanê mesajanê sistemî ke descripisyon û kodê her hacetî nawneno.',
 	'gadgets-uses' => 'Karber',
@@ -877,7 +878,7 @@ $1',
 	'gadgets-export-text' => 'Qande gadgeto $1 teber rê rusnayış ,"{{int:gadgets-export-download}}" rê hengnayış kerên,u dosya ke download biyo,star kerên.Wikiyê hedef de şo pela Special:Import rê and download kerên.Bahdo nuşteyê ke cerên de dero pela MediaWiki:Gadgets-definition rê bınuse:
 <pre>$2</pre>
 Wikiyê ke hedefo de desturê lazımo (vurnayışê mesacanê sistemi daxilo) u dosya ra zerê rê rusnayışi enabled lazımo.',
-	'gadgets-export-download' => 'Rone',
+	'gadgets-export-download' => 'Ron',
 );
 
 /** Lower Sorbian (dolnoserbski)
