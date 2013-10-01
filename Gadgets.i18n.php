@@ -2036,13 +2036,14 @@ $messages['ky'] = array(
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
 	'gadgets-desc' => 'Erméiglecht de Benotzer et perséinlech [[Special:Gadgets|CSS a JavaScript Gadgeten]] an hiren [[Special:Preferences#mw-prefsection-gadgets|Astellunge]] festzeleeën.',
 	'prefs-gadgets' => 'Gadgeten',
 	'gadgets-prefstext' => "Lëscht vu spezielle Gadgeten déi fir Äre Benotzerkont aktivéiert kënne ginn.
-D'Gadgete baséiere meeschtens op engem JavaScript, dofir muss JavaScript an Ärem Browser aktivéiert sinn, fir datt se fonctionéieren.
-D'Gadgete fonctionéieren awer net op dëser Säit mat de perséinlechen Astellungen.
+D'Gadgete baséiere meeschtens op engem JavaScript, dofir muss JavaScript an Ärem Browser aktivéiert sinn, fir datt se funktionéieren.
+D'Gadgete funktionéieren awer net op dëser Säit mat de perséinlechen Astellungen.
 
 Ausserdeem sollt Dir wëssen, datt dës Gadgete generell net Deel vu MediaWiki sinn, a meeschtens vu Benotzer vu lokale Wikien entwéckelt an ënnerhale ginn.
 Lokal Wiki-Administrateure kënnen d'Lëscht von den disponibele Gadgeten op de Säiten [[MediaWiki:Gadgets-definition|Definitioune vun Gadgeten]] a [[Special:Gadgets|Beschreiwunge vu Gadgeten]] änneren.",
@@ -2743,12 +2744,12 @@ Special:Import تے جاؤ وکی تے ، چرھاؤ اینوں۔ فیر تھل�
  * @author Ahmed-Najib-Biabani-Ibrahimkhel
  */
 $messages['ps'] = array(
-	'prefs-gadgets' => 'ګاډجېټ',
-	'gadgets' => 'ګاډجېټ',
-	'gadgets-title' => 'ګاډجېټ',
+	'prefs-gadgets' => 'گاډجېټ',
+	'gadgets' => 'گاډجېټ',
+	'gadgets-title' => 'گاډجېټ',
 	'gadgets-uses' => 'کارونې',
 	'gadgets-export' => 'صادرول',
-	'gadgets-not-found' => 'د "$1" ګاډجېټ و نه موندل شو.',
+	'gadgets-not-found' => 'د "$1" گاډجېټ و نه موندل شو.',
 	'gadgets-export-download' => 'ښکته کول',
 );
 
