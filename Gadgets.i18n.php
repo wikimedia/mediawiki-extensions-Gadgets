@@ -2795,34 +2795,35 @@ Na wiki de destino, tem de ter as permissões necessárias (incluindo o privilé
  * @author GoEThe
  * @author Helder.wiki
  * @author Rafael Vargas
+ * @author 555
  */
 $messages['pt-br'] = array(
-	'gadgets-desc' => 'Permite aos utilizadores selecionarem [[Special:Gadgets|"gadgets" JavaScript e CSS]] personalizados nas suas [[Special:Preferences#mw-prefsection-gadgets|preferências]]',
+	'gadgets-desc' => 'Permite que os usuários selecionem [[Special:Gadgets|"gadgets" JavaScript e CSS]] personalizados nas suas [[Special:Preferences#mw-prefsection-gadgets|preferências]]',
 	'prefs-gadgets' => 'Gadgets',
 	'gadgets-prefstext' => 'Segue-se uma lista de "gadgets" que podem ser ativados em sua conta.
 Tais gadgets normalmente são baseados em JavaScript, o que faz com que seja necessário que o suporte a JavaScript esteja ativado em seu navegador para que os mesmos funcionem.
 Note que os gadgets não possuem efeito nesta página (a página de preferências).
 
-Note também que tais gadgets não são parte do software MediaWiki, geralmente sendo desenvolvidos e mantidos por usuários de sua wiki local.
+Repare também que tais gadgets não são parte do software MediaWiki, geralmente sendo desenvolvidos e mantidos por usuários de seu wiki local.
 Administradores locais podem editar os gadgets disponíveis através de [[MediaWiki:Gadgets-definition|definições]] e [[Special:Gadgets|descrições]].',
 	'gadgets' => 'Gadgets',
 	'gadgets-title' => 'Gadgets',
-	'gadgets-pagetext' => 'Segue-se uma lista de "gadgets" que podem ser ativados por utilizadores através de [[Special:Preferences#mw-prefsection-gadgets|suas páginas de preferências]], definidos em [[MediaWiki:Gadgets-definition|definições]].
-Esta visão geral proporciona um acesso fácil para as mensagens de sistema que definem as descrições e códigos de cada um dos gadgets.',
-	'gadgets-uses' => 'Utiliza',
+	'gadgets-pagetext' => 'Segue-se uma lista de "gadgets" que podem ser ativados pelos usuários através de [[Special:Preferences#mw-prefsection-gadgets|suas páginas de preferências]], definidos em [[MediaWiki:Gadgets-definition|suas definições]].
+Esta lista possibilita um acesso fácil para as mensagens de sistema que definem as descrições e códigos de cada um dos gadgets.',
+	'gadgets-uses' => 'Usa',
 	'gadgets-required-rights' => 'Requer {{PLURAL:$2|o seguinte privilégio|os seguintes privilégios}}:
 
 $1',
 	'gadgets-required-skins' => 'Disponível {{PLURAL:$2|no skin $1|nos seguintes skins: $1}}.',
 	'gadgets-default' => 'Ativado para todos por padrão.',
 	'gadgets-export' => 'Exportar',
-	'gadgets-export-title' => 'Exportação de gadget',
-	'gadgets-not-found' => '*Gadget "$1" não encontrado.',
+	'gadgets-export-title' => 'Exportar gadgets',
+	'gadgets-not-found' => 'O gadget "$1" não encontrado.',
 	'gadgets-export-text' => 'Para exportar o gadget $1, clique no botão "{{int:gadgets-export-download}}", salve o arquivo transferido,
-vá à página Special:Import na wiki de destino e faça o upload do arquivo. Depois adicione o seguinte à página MediaWiki:Gadgets-definition:
+vá à página Special:Import no wiki de destino e faça o upload do arquivo. Depois, adicione o seguinte à página MediaWiki:Gadgets-definition:
 <pre>$2</pre>
-Na wiki de destino, você deve ter as permissões necessárias (incluindo o privilégio de editar mensagens de sistema) e a importação por upload de arquivos deve estar habilitada na wiki.',
-	'gadgets-export-download' => 'Baixar',
+É necessário que você tenha, no wiki de destino, as permissões necessárias (incluindo o privilégio de editar mensagens de sistema) e a importação por upload de arquivos deve estar ativada.',
+	'gadgets-export-download' => 'Fazer download',
 );
 
 /** Quechua (Runa Simi)
@@ -3093,6 +3094,7 @@ Musíte mať príslušné oprávnenia na cieľovej wiki (vrátane práva na úpr
 
 /** Slovenian (slovenščina)
  * @author Dbc334
+ * @author Eleassar
  * @author Smihael
  */
 $messages['sl'] = array(
@@ -3102,7 +3104,7 @@ $messages['sl'] = array(
 Večinoma temeljijo na JavaScriptu, zato mora biti za njihovo delovanje omogočen v vašem brskalniku.
 Ti vtičniki nimajo nobenega vpliva na to nastavitveno stran.
 
-Prav tako pomnite, da ti vtičniki niso del programja MediaWiki in jih običajno razvijajo ter vzdržujejo uporabniki na vašem lokalnem wikiju.
+Prav tako upoštevajte, da ti vtičniki niso del programja MediaWiki in jih običajno razvijajo ter vzdržujejo uporabniki na vašem lokalnem wikiju.
 Administratorji lahko uredite seznam vtičnikov z uporabo [[MediaWiki:Gadgets-definition|opredelitev]] in [[Special:Gadgets|posebne strani]].',
 	'gadgets' => 'Vtičniki',
 	'gadgets-title' => 'Vtičniki',
