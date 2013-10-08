@@ -2024,7 +2024,7 @@ $1',
 	'gadgets-export-download' => 'Daxe',
 );
 
-/** Kirghiz (Кыргызча)
+/** Kyrgyz (Кыргызча)
  * @author Growingup
  */
 $messages['ky'] = array(
