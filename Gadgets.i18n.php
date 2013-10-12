@@ -1451,6 +1451,7 @@ $1',
  * @author Anton008
  * @author Dalibor Bosits
  * @author Ex13
+ * @author MaGa
  * @author Roberta F.
  * @author SpeedyGonsales
  */
@@ -1458,10 +1459,10 @@ $messages['hr'] = array(
 	'gadgets-desc' => 'Omogućava suradnicama biranje osobnih [[Special:Gadgets|CSS i JavaScript dodataka]] u svojim [[Special:Preferences#mw-prefsection-gadgets|postavkama]]',
 	'prefs-gadgets' => 'Dodaci',
 	'gadgets-prefstext' => 'Slijedi popis posebnih dodataka koje možete omogućiti.
-One su većinom napisane u JavaScriptu, stoga JavaScript mora biti omogućen u vašem web pregledniku da bi dodaci radili.
+Većinom su napisani u JavaScriptu, stoga JavaScript mora biti omogućen u vašem web pregledniku da bi radili.
 Nijedan dodatak nema učinka na ovu stranicu s postavkama.
 
-Ovi posebni dodaci nisu dio MediaWiki softvera, najčešće su razvijane i održavane od suradnika na lokalnom wikiju.
+Ovi posebni dodaci nisu dio MediaWiki softvera, najčešće ih razvijaju i održavaju suradnici na lokalnom wikiju.
 Lokalni administratori mogu uređivati dostupne dodatke putem [[MediaWiki:Gadgets-definition|definicija]] i [[Special:Gadgets|opisa]].',
 	'gadgets' => 'Dodaci',
 	'gadgets-title' => 'Dodatci',
