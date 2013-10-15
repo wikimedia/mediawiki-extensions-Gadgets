@@ -2107,6 +2107,15 @@ Doe mós de juuste rèchte höbben óppe doelwie, ouch óm bewirkinge aan systee
 	'gadgets-export-download' => 'Haol óp',
 );
 
+/** لوری (لوری)
+ * @author Mogoeilor
+ */
+$messages['lrc'] = array(
+	'prefs-gadgets' => 'چيا هنی',
+	'gadgets-export' => 'وه صحرا ديئن',
+	'gadgets-export-download' => 'گرتن',
+);
+
 /** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Homo
