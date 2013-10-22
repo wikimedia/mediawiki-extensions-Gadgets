@@ -1868,6 +1868,7 @@ $messages['kk-arab'] = array(
 );
 
 /** Kazakh (Cyrillic script) (қазақша (кирил)‎)
+ * @author Arystanbek
  */
 $messages['kk-cyrl'] = array(
 	'prefs-gadgets' => 'Қажет құралдар',
@@ -1882,7 +1883,7 @@ $messages['kk-cyrl'] = array(
 	'gadgets-title' => 'Қажет құралдар',
 	'gadgets-pagetext' => 'Төменде арнаулы қажет құралдар тізімі беріледі. [[{{ns:mediawiki}}:Gadgets-definition]] бетінде анықталған қажет құралдарды қатысушылар өзінің баптауында қоса алады.
 Бұл шолу беті арқылы әрбір қажет құралдың сипаттамасы мен әмірін анықтайтын жүйе хабар беттеріне жеңіл қатынай аласыз.', # Fuzzy
-	'gadgets-uses' => 'Қолданудағылар',
+	'gadgets-uses' => 'Қолданыстағылар',
 );
 
 /** Kazakh (Latin script) (qazaqşa (latın)‎)
@@ -3718,16 +3719,12 @@ $messages['yue'] = array(
 $messages['zh-hans'] = array(
 	'gadgets-desc' => '允许用户在其[[Special:Preferences#mw-prefsection-gadgets|系统设置]]中选择自定义[[Special:Gadgets|CSS和JavaScript工具]]',
 	'prefs-gadgets' => '小工具',
-	'gadgets-prefstext' => '以下是您可以为您的帐户启用的特别小工具的名单。
-这些小工具大多都是基于JavaScript技术制作，所以您的浏览器的JavaScript功能必须可用才可使用它们。
-要稍作留意的是，这些小工具在这个参数设置页面中不会有任何效果。
+	'gadgets-prefstext' => '下面是你可以为你的账户启用的特殊小工具的列表。这些小工具大多数基于JavaScript，所以你必需使你的浏览器启用JavaScript以使它们工作。请注意这些小工具不会在这个设置页面上产生效果。
 
-亦请您了解这些特别的小工具不是MediaWiki软件的一部份，大多是由您本地wiki中的用户开发和维护。
-本地的管理员可以编辑可用小工具的[[MediaWiki:Gadgets-definition|定义]]及[[Special:Gadgets|描述]]。',
+同时请注意，这些特殊小工具不是MediaWiki软件的组成部分，他们通常是由你的本地wiki的用户开发并维护的。本地管理员可以编辑可用小工具的[[MediaWiki:Gadgets-definition|定义]]和[[Special:Gadgets|说明]]。',
 	'gadgets' => '小工具',
 	'gadgets-title' => '小工具',
-	'gadgets-pagetext' => '以下是一个按照[[MediaWiki:Gadgets-definition]]定义的特殊小工具列表，用户可以在他们的[[Special:Preferences#mw-prefsection-gadgets|参数设置页面]]中激活它们。
-通过这个概览可以方便的获得系统信息页面，从而可以定义每个小工具的描述以及源码。',
+	'gadgets-pagetext' => '下面是用户可以在他们的[[Special:Preferences#mw-prefsection-gadgets|设置页面]]启用的特殊小工具的列表，由[[MediaWiki:Gadgets-definition|定义]]确定。这个概览提供便捷访问确定每个小工具的说明和代码的系统信息页面的途径。',
 	'gadgets-uses' => '使用',
 	'gadgets-required-rights' => '需要以下{{PLURAL:$2|权限|权限}}：
 
