@@ -2301,7 +2301,7 @@ $messages['mr'] = array(
 	'gadgets-title' => 'गॅजेट',
 	'gadgets-pagetext' => 'खाली तुम्ही तुमच्या सदस्यत्वासाठी [[Special:Preferences#mw-prefsection-gadgets|माझ्या पसंती]] पानावर वापरू शकत असलेल्या [[MediaWiki:Gadgets-definition|व्याख्या]]ने सांगितलेल्या गॅजेट्सची यादी दिलेली आहे. हे पान तुम्हाला प्रत्येक गॅजेट्सचा कोड व व्याख्या देणार्‍या पानासाठी सोपी संपर्क सुविधा पुरविते.',
 	'gadgets-uses' => 'उपयोग',
-	'gadgets-required-rights' => 'खलील गोष्ठी साठी विनंती     {{PLURAL:$2|right|rights}}:
+	'gadgets-required-rights' => 'खालील {{PLURAL:$2|अधिकार}} हवेच :
 
 $1',
 	'gadgets-required-skins' => '{{PLURAL:$2|$1 skin|खालील देखाव्यांवर  : $1}} उपलब्ध आहेत',
@@ -2309,11 +2309,11 @@ $1',
 	'gadgets-export' => 'निर्यात करा',
 	'gadgets-export-title' => 'उपकरण निर्यात',
 	'gadgets-not-found' => 'उपकरण "$1" सापडत नाही.',
-	'gadgets-export-text' => '$1 उपकरण-सुविधा निर्यातकरण्या करिता, "{{int:gadgets-export-download}}" कलीवर टिचकी मारा, उतरवलेली संचिका-फाईल जतन करा
+	'gadgets-export-text' => '$1 उपकरण-सुविधा निर्यात करण्याकरिता, "{{int:gadgets-export-download}}" कळीवर टिचकी मारा, उतरवलेली संचिका-फाईल जतन करा
 डेस्टिनेशन विकिच्या विशेष:आयात पानावर जाऊन संचिका-फाईल चढवावी.नंतर खालील MediaWiki:Gadgets-definition पान चढवावे :
 <pre>$2</pre>
 तुमच्याकडे डेस्टिनेशन विकिवर (सिस्टीम मेसेजेस सुद्धा संपादीत करण्यासहीत )  सुयोग्य परवानग्या उपलब्ध असणे अत्यावश्यक आहे आणि  चढवलेल्या संचिकाकरिता आयात सुविधा सक्षम असणे आवश्यक आहे.',
-	'gadgets-export-download' => 'उतरवा',
+	'gadgets-export-download' => 'अधिभारण करा',
 );
 
 /** Malay (Bahasa Melayu)
