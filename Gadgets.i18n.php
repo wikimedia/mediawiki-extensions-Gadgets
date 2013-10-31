@@ -3179,6 +3179,7 @@ Ju duhet të keni leje të përshtatshme në wiki-n e destinuar (duke përfshir�
 );
 
 /** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Milicevic01
  * @author Millosh
  * @author Nikola Smolenski
  * @author Rancher
@@ -3186,12 +3187,12 @@ Ju duhet të keni leje të përshtatshme në wiki-n e destinuar (duke përfshir�
  */
 $messages['sr-ec'] = array(
 	'gadgets-desc' => 'Омогућава корисницима да изаберу прилагођене [[Special:Gadgets|CSS и јаваскрипт гаџете]] у својим [[Special:Preferences#mw-prefsection-gadgets|подешавањима]]',
-	'prefs-gadgets' => 'Гаџети',
+	'prefs-gadgets' => 'Геџети',
 	'gadgets-prefstext' => 'Испод се налази списак посебних гаџета које можете да омогућите на свом налогу.
 Ове справице су углавном засноване на јаваскрипти, тако да она мора бити омогућена.
 Гаџети неће утицати на страницу за подешавање.
 
-Они нису део софтвера Медијавики, већ се развијају и одржавају од стране корисника ваше викије.
+Они нису део софтвера Медијавики, већ се развијају и одржавају од стране корисника на вашем локалном викију.
 Администратори могу да измене [[MediaWiki:Gadgets-definition|значења]] и [[Special:Gadgets|описе]] доступних гаџета.',
 	'gadgets' => 'Гаџети',
 	'gadgets-title' => 'Гаџети',
@@ -3215,6 +3216,7 @@ $1',
 
 /** Serbian (Latin script) (srpski (latinica)‎)
  * @author Michaello
+ * @author Milicevic01
  * @author Жељко Тодоровић
  */
 $messages['sr-el'] = array(
@@ -3224,7 +3226,7 @@ $messages['sr-el'] = array(
 Ove spravice su uglavnom zasnovane na javaskripti, tako da ona mora biti omogućena.
 Gadžeti neće uticati na stranicu za podešavanje.
 
-Oni nisu deo softvera Medijaviki, već se razvijaju i održavaju od strane korisnika vaše vikije.
+Oni nisu deo softvera Medijaviki, već se razvijaju i održavaju od strane korisnika na vašem lokalnom vikiju.
 Administratori mogu da izmene [[MediaWiki:Gadgets-definition|značenja]] i [[Special:Gadgets|opise]] dostupnih gadžeta.',
 	'gadgets' => 'gedžeti',
 	'gadgets-title' => 'gedžeti',
