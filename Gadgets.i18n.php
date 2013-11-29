@@ -2119,6 +2119,8 @@ Doe mós de juuste rèchte höbben óppe doelwie, ouch óm bewirkinge aan systee
 $messages['lrc'] = array(
 	'prefs-gadgets' => 'چيا هنی',
 	'gadgets' => 'گجت یا',
+	'gadgets-title' => 'گجت یا',
+	'gadgets-uses' => 'کاروردیا',
 	'gadgets-export' => 'وه صحرا ديئن',
 	'gadgets-export-download' => 'گرتن',
 );
