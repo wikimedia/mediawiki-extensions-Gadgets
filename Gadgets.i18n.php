@@ -1380,6 +1380,7 @@ Special:Import નિયોજીત વિકિ પર Special:Import પર �
 /** Hebrew (עברית)
  * @author Amire80
  * @author Guycn1
+ * @author Guycn2
  * @author Rotem Liss
  * @author YaronSh
  */
@@ -1401,7 +1402,7 @@ $messages['he'] = array(
 
 $1',
 	'gadgets-required-skins' => 'זמין {{PLURAL:$2|בערכות העיצוב הבאות: $1|בערכת העיצוב $1}}',
-	'gadgets-default' => 'מופעל לכולם לפי בררת מחדל.',
+	'gadgets-default' => 'מופעל לכולם כברירת מחדל.',
 	'gadgets-export' => 'יצוא',
 	'gadgets-export-title' => "יצוא גאדג'טים",
 	'gadgets-not-found' => 'הגאדג׳ט "$1" לא נמצא.',
