@@ -679,7 +679,7 @@ $1',
 	'gadgets-export-download' => 'دایبگرە',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Danny B.
  * @author Li-sung
  * @author Mormegil
@@ -712,7 +712,7 @@ Na cílové wiki musíte mít příslušná oprávnění (včetně práva editov
 	'gadgets-export-download' => 'Stáhnout',
 );
 
-/** Church Slavic (словѣ́ньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
+/** Church Slavic (словѣньскъ / ⰔⰎⰑⰂⰡⰐⰠⰔⰍⰟ)
  * @author ОйЛ
  */
 $messages['cu'] = array(
