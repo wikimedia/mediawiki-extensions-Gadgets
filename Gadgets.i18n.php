@@ -647,6 +647,12 @@ $messages['ce'] = array(
 ХIокху могIамо атто бо гIирсан хаамаш атта тIе кхочуш барца, цуьнах лаьцна хIоттош а йолш йолучу хIоттончи ишарца.', # Fuzzy
 	'gadgets-uses' => 'Лелош йу',
 	'gadgets-export' => 'Экспорт ян',
+	'gadgets-export-title' => 'Гаджет экспорт яр',
+	'gadgets-export-text' => 'Гаджет $1 экспорт ян тӀетаӀае кнопка «{{int:gadgets-export-download}}», тӀакха чуяьккхина файл Ӏалаше,
+Special:Import агӀона дехьа гӀой чуяккха файл. ТӀакха MediaWiki:Gadgets-definition агӀона чу билла лахара могӀа:
+<pre>$2</pre>
+И болх бан хьан бакъо хила еза (кхин системин хаамаш та ян бакъо а хила еза), кхи серверан чохь файлаш импорт йо гӀирс латина хила беза.',
+	'gadgets-export-download' => 'Чуяккха',
 );
 
 /** Sorani Kurdish (کوردی)
@@ -3290,6 +3296,7 @@ $messages['su'] = array(
  * @author Diupwijk
  * @author Lejonel
  * @author M.M.S.
+ * @author Skalman
  */
 $messages['sv'] = array(
 	'gadgets-desc' => 'Låter användare aktivera personliga [[Special:Gadgets|CSS- och JavaScript-finesser]] genom sina [[Special:Preferences#mw-prefsection-gadgets|inställningar]]',
@@ -3302,7 +3309,7 @@ Notera också att dessa finesser inte är en del av MediaWiki-programvaran, och 
 Lokala administratörer kan redigera [[MediaWiki:Gadgets-definition|definitionerna]] och [[Special:Gadgets|beskrivningarna]] av de tillgängliga finesserna.',
 	'gadgets' => 'Finesser',
 	'gadgets-title' => 'Finesser',
-	'gadgets-pagetext' => 'Härunder finns en lista över finesser som användare kan aktivera i sina [[Special:Preferences#mw-prefsection-gadgets|inställningar]], definierad av [[MediaWiki:Gadgets-definition|definieringarna]].
+	'gadgets-pagetext' => 'Härunder finns en lista över finesser som användare kan aktivera i sina [[Special:Preferences#mw-prefsection-gadgets|inställningar]], definierad av [[MediaWiki:Gadgets-definition|definitionerna]].
 Den här översikten ger enkel åtkomst till de systemmeddelanden som definierar beskrivningarna och koden för varje finess.',
 	'gadgets-uses' => 'Använder',
 	'gadgets-required-rights' => 'Kräver följande {{PLURAL:$2|rättighet|rättigheter}}:
