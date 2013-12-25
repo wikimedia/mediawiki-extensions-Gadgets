@@ -2082,6 +2082,7 @@ Dir musst déi erfuerdert Rechter(inklusiv d\'Recht fir Systemmessagen z\'änner
  * @author Soul Train
  */
 $messages['lez'] = array(
+	'prefs-gadgets' => 'Гажетар',
 	'gadgets' => 'Гаджетар',
 	'gadgets-title' => 'Гажетар',
 );
