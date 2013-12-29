@@ -645,7 +645,11 @@ $messages['ce'] = array(
 	'gadgets-title' => 'Гаджеташ',
 	'gadgets-pagetext' => 'Гlирса хааман могlамаш, къастош йолу хlоттончи цlераш, хуьлаш йолу хIокху [[MediaWiki:Gadgets-definition|къастамца]]]].
 ХIокху могIамо атто бо гIирсан хаамаш атта тIе кхочуш барца, цуьнах лаьцна хIоттош а йолш йолучу хIоттончи ишарца.', # Fuzzy
-	'gadgets-uses' => 'Лелош йу',
+	'gadgets-uses' => 'Лелош ю',
+	'gadgets-required-rights' => '{{PLURAL:$2|Оьшуш ю бакъо|Оьшуш ю бакъонаш}}:
+
+$1',
+	'gadgets-default' => 'Латае массарна Iад йитарца.',
 	'gadgets-export' => 'Экспорт ян',
 	'gadgets-export-title' => 'Гаджет экспорт яр',
 	'gadgets-export-text' => 'Гаджет $1 экспорт ян тӀетаӀае кнопка «{{int:gadgets-export-download}}», тӀакха чуяьккхина файл Ӏалаше,
