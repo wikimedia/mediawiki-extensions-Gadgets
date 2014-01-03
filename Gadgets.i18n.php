@@ -379,9 +379,9 @@ $messages['ba'] = array(
 	'gadgets' => 'Гаджеттар',
 	'gadgets-title' => 'Гаджеттар',
 	'gadgets-uses' => 'Ҡулланыла',
-	'gadgets-required-rights' => '{{PLURAL:$2|Хоҡуҡ талап ителә|Хоҡутар талап ителә}}:
+	'gadgets-required-rights' => '{{PLURAL:$2|1=Хоҡуҡ талап ителә|Хоҡутар талап ителә}}:
 
-$1',
+$1', # Fuzzy
 	'gadgets-export' => 'Сығарырға',
 	'gadgets-not-found' => '"$1" гаджеты табылманы.',
 	'gadgets-export-download' => 'Күсереп алырға',
@@ -459,10 +459,10 @@ $messages['be-tarask'] = array(
 	'gadgets-pagetext' => 'Ніжэй знаходзіцца сьпіс гаджэтаў, якія ўдзельнікі могуць уключыць у [[Special:Preferences#mw-prefsection-gadgets|сваіх наладах]], у адпаведнасьці са сьпісам на старонцы [[MediaWiki:Gadgets-definition|вызначэньняў]].
 Гэты сьпіс дазваляе лёгка атрымаць доступ да старонак сыстэмных паведамленьняў, якія вызначаюць апісаньні і крынічныя коды гаджэтаў.',
 	'gadgets-uses' => 'Выкарыстоўвае',
-	'gadgets-required-rights' => '{{PLURAL:$2|Патрабуецца права|Патрабуюцца наступныя правы}}:
+	'gadgets-required-rights' => '{{PLURAL:$2|1=Патрабуецца права|Патрабуюцца наступныя правы}}:
 
-$1',
-	'gadgets-required-skins' => 'Даступны ў {{PLURAL:$2|тэме $1|наступных тэмах: $1}}.',
+$1', # Fuzzy
+	'gadgets-required-skins' => 'Даступны ў {{PLURAL:$2|1=тэме $1|наступных тэмах: $1}}.', # Fuzzy
 	'gadgets-default' => 'Дазволеныя для ўсіх па змоўчваньні.',
 	'gadgets-export' => 'Экспартаваць',
 	'gadgets-export-title' => 'Экспарт гаджэта',
@@ -646,9 +646,9 @@ $messages['ce'] = array(
 	'gadgets-pagetext' => 'Гlирса хааман могlамаш, къастош йолу хlоттончи цlераш, хуьлаш йолу хIокху [[MediaWiki:Gadgets-definition|къастамца]]]].
 ХIокху могIамо атто бо гIирсан хаамаш атта тIе кхочуш барца, цуьнах лаьцна хIоттош а йолш йолучу хIоттончи ишарца.', # Fuzzy
 	'gadgets-uses' => 'Лелош ю',
-	'gadgets-required-rights' => '{{PLURAL:$2|Оьшуш ю бакъо|Оьшуш ю бакъонаш}}:
+	'gadgets-required-rights' => '{{PLURAL:$2|1=Оьшуш ю бакъо|Оьшуш ю бакъонаш}}:
 
-$1',
+$1', # Fuzzy
 	'gadgets-default' => 'Латае массарна Iад йитарца.',
 	'gadgets-export' => 'Экспорт ян',
 	'gadgets-export-title' => 'Гаджет экспорт яр',
@@ -2951,10 +2951,10 @@ $messages['ru'] = array(
 	'gadgets-pagetext' => 'Ниже приведён список гаджетов, которые участники могут включить на своей странице настроек, в соответствии со списком на странице [[MediaWiki:Gadgets-definition|определений]].
 Этот список позволяет легко получить доступ к страницам системных сообщений, определяющих описания и исходные коды гаджетов.',
 	'gadgets-uses' => 'Использует',
-	'gadgets-required-rights' => '{{PLURAL:$2|Требуется право|Требуются права}}:
+	'gadgets-required-rights' => '{{PLURAL:$2|1=Требуется право|Требуются права}}:
 
-$1',
-	'gadgets-required-skins' => 'Доступен при {{PLURAL:$2|теме оформления $1|следующих темах оформления: $1}}.',
+$1', # Fuzzy
+	'gadgets-required-skins' => 'Доступен при {{PLURAL:$2|1=теме оформления $1|следующих темах оформления: $1}}.', # Fuzzy
 	'gadgets-default' => 'Включён для всех по умолчанию.',
 	'gadgets-export' => 'Экспортировать',
 	'gadgets-export-title' => 'Экспорт гаджета',
@@ -3219,10 +3219,10 @@ $messages['sr-ec'] = array(
 	'gadgets-pagetext' => 'Испод је списак посебних гаџета које корисници могу да омогуће на својој [[Special:Preferences#mw-prefsection-gadgets|страници за подешавање]], као што је наведено у [[MediaWiki:Gadgets-definition|дефиницијама]].
 Овај преглед пружа брз приступ системским порукама које дефинишу сваки опис и кoд гаџета.',
 	'gadgets-uses' => 'Користи',
-	'gadgets-required-rights' => 'Захтева {{PLURAL:$2|следеће право|следећа права}}:
+	'gadgets-required-rights' => 'Захтева {{PLURAL:$2|1=следеће право|следећа права}}:
 
-$1',
-	'gadgets-required-skins' => 'Доступно у {{PLURAL:$2|теми $1|следећим темама: $1}}.',
+$1', # Fuzzy
+	'gadgets-required-skins' => 'Доступно у {{PLURAL:$2|1=теми $1|следећим темама: $1}}.', # Fuzzy
 	'gadgets-default' => 'Подразумевано укључен за сваког.',
 	'gadgets-export' => 'Извези',
 	'gadgets-export-title' => 'Извоз гаџета',
@@ -3253,10 +3253,10 @@ Administratori mogu da izmene [[MediaWiki:Gadgets-definition|značenja]] i [[Spe
 	'gadgets-pagetext' => 'Ispod je spisak posebnih gadžeta koje korisnici mogu da omoguće na svojoj [[Special:Preferences#mw-prefsection-gadgets|stranici za podešavanje]], kao što je navedeno u [[MediaWiki:Gadgets-definition|definicijama]].
 Ovaj pregled pruža brz pristup sistemskim porukama koje definišu svaki opis i kod gadžeta.',
 	'gadgets-uses' => 'koristi se',
-	'gadgets-required-rights' => 'Zahteva {{PLURAL:$2|sledeće pravo|sledeća prava}}:
+	'gadgets-required-rights' => 'Zahteva {{PLURAL:$2|1=sledeće pravo|sledeća prava}}:
 
-$1',
-	'gadgets-required-skins' => 'Dostupno u {{PLURAL:$2|temi $1|sledećim temama: $1}}.',
+$1', # Fuzzy
+	'gadgets-required-skins' => 'Dostupno u {{PLURAL:$2|1=temi $1|sledećim temama: $1}}.', # Fuzzy
 	'gadgets-default' => 'Podrazumevano uključen za svakog.',
 	'gadgets-export' => 'Izvezi',
 	'gadgets-export-title' => 'Izvoz gadžeta',
@@ -3536,6 +3536,7 @@ $messages['ug-arab'] = array(
 /** Ukrainian (українська)
  * @author AS
  * @author Ahonc
+ * @author Andriykopanytsia
  * @author Dim Grits
  * @author Olvin
  * @author Prima klasy4na
@@ -3558,10 +3559,10 @@ $messages['uk'] = array(
 	'gadgets-pagetext' => 'Нижче наведено перелік додатків, які можна ввімкнути на [[Special:Preferences#mw-prefsection-gadgets|сторінці налаштувань]]. Цей перелік задано на [[MediaWiki:Gadgets-definition|сторінці визначень]].
 Таким чином, можна отримати простий доступ до системних сторінок, де задається опис кожного додатку та його код.',
 	'gadgets-uses' => 'Використовує',
-	'gadgets-required-rights' => '{{PLURAL:$2|Потрібне право|Потрібні такі права}}:
+	'gadgets-required-rights' => '{{PLURAL:$2|1=Потрібне право|Потрібні такі права}}:
 
 $1',
-	'gadgets-required-skins' => 'Доступний на {{PLURAL:$2|$1 skin|наступних темах оформлення: $1}}.',
+	'gadgets-required-skins' => 'Доступний на {{PLURAL:$2|1=$1 skin|наступних темах оформлення: $1}}.',
 	'gadgets-default' => 'Увімкнено для всіх за замовчуванням.',
 	'gadgets-export' => 'Експортувати',
 	'gadgets-export-title' => 'Експорт додатка',
