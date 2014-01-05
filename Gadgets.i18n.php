@@ -1800,6 +1800,7 @@ Bemærk også at disse specielle gadgets ikke er en del af MediaWiki-softwaren o
 );
 
 /** Javanese (Basa Jawa)
+ * @author Bennylin
  * @author Meursault2004
  * @author NoiX180
  * @author Pras
@@ -1824,6 +1825,10 @@ $1',
 	'gadgets-export' => 'Èkspor',
 	'gadgets-export-title' => 'Èkspor perkakas',
 	'gadgets-not-found' => 'Perkasas "$1" ora ditemokaké.',
+	'gadgets-export-text' => 'Untuk mengekspor perkakas $1, klik tombol "{{int:gadgets-export-download}}", simpan berkas yang diunduh,
+tuju ke Special:Import pada wiki tujuan dan unggah berkas itu. Kemudian tambahkan berkas tersebut ke halaman MediaWiki:Gadgets-definition:
+<pre>$2</pre>
+Anda harus memeroleh izin pada wiki tujuan (termasuk hak menyunting pesan sistem) dan mengimpor dari unggahan berkas yang harus diaktifkan.',
 	'gadgets-export-download' => 'Undhuh',
 );
 
