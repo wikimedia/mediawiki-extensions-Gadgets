@@ -2938,6 +2938,7 @@ Tu a ave le permesse appropriate sus 'a Uicchi de destinazione (ingludenne le de
  * @author Eleferen
  * @author Ignatus
  * @author Illusion
+ * @author Kaganer
  * @author MaxSem
  * @author VasilievVV
  * @author Александр Сигачёв
@@ -2958,8 +2959,8 @@ $messages['ru'] = array(
 	'gadgets-uses' => 'Использует',
 	'gadgets-required-rights' => '{{PLURAL:$2|1=Требуется право|Требуются права}}:
 
-$1', # Fuzzy
-	'gadgets-required-skins' => 'Доступен при {{PLURAL:$2|1=теме оформления $1|следующих темах оформления: $1}}.', # Fuzzy
+$1',
+	'gadgets-required-skins' => 'Доступен в {{PLURAL:$2|1=теме оформления «$1»|следующих темах оформления: $1}}.',
 	'gadgets-default' => 'Включён для всех по умолчанию.',
 	'gadgets-export' => 'Экспортировать',
 	'gadgets-export-title' => 'Экспорт гаджета',
