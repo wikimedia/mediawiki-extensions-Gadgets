@@ -2131,6 +2131,7 @@ Doe mós de juuste rèchte höbben óppe doelwie, ouch óm bewirkinge aan systee
 );
 
 /** لوری (لوری)
+ * @author Bonevarluri
  * @author Mogoeilor
  */
 $messages['lrc'] = array(
@@ -2139,6 +2140,7 @@ $messages['lrc'] = array(
 	'gadgets-title' => 'گجت یا',
 	'gadgets-uses' => 'کاروردیا',
 	'gadgets-export' => 'وه صحرا ديئن',
+	'gadgets-not-found' => 'گجت  "$1" پیدا نبی.',
 	'gadgets-export-download' => 'گرتن',
 );
 
