@@ -3070,6 +3070,13 @@ $messages['sgs'] = array(
 	'gadgets' => 'Rakondā',
 );
 
+/** Serbo-Croatian (srpskohrvatski / српскохрватски)
+ * @author Kolega2357
+ */
+$messages['sh'] = array(
+	'gadgets' => 'Alatke - Алатке',
+);
+
 /** Sinhala (සිංහල)
  * @author Budhajeewa
  * @author නන්දිමිතුරු
@@ -3227,10 +3234,10 @@ $messages['sr-ec'] = array(
 	'gadgets-pagetext' => 'Испод је списак посебних гаџета које корисници могу да омогуће на својој [[Special:Preferences#mw-prefsection-gadgets|страници за подешавање]], као што је наведено у [[MediaWiki:Gadgets-definition|дефиницијама]].
 Овај преглед пружа брз приступ системским порукама које дефинишу сваки опис и кoд гаџета.',
 	'gadgets-uses' => 'Користи',
-	'gadgets-required-rights' => 'Захтева {{PLURAL:$2|1=следеће право|следећа права}}:
+	'gadgets-required-rights' => 'Захтева {{PLURAL:$2|следеће право|следећа права}}:
 
-$1', # Fuzzy
-	'gadgets-required-skins' => 'Доступно у {{PLURAL:$2|1=теми $1|следећим темама: $1}}.', # Fuzzy
+$1',
+	'gadgets-required-skins' => 'Доступно у {{PLURAL:$2|теми $1|следећим темама: $1}}.',
 	'gadgets-default' => 'Подразумевано укључен за сваког.',
 	'gadgets-export' => 'Извези',
 	'gadgets-export-title' => 'Извоз гаџета',
@@ -3261,10 +3268,10 @@ Administratori mogu da izmene [[MediaWiki:Gadgets-definition|značenja]] i [[Spe
 	'gadgets-pagetext' => 'Ispod je spisak posebnih gadžeta koje korisnici mogu da omoguće na svojoj [[Special:Preferences#mw-prefsection-gadgets|stranici za podešavanje]], kao što je navedeno u [[MediaWiki:Gadgets-definition|definicijama]].
 Ovaj pregled pruža brz pristup sistemskim porukama koje definišu svaki opis i kod gadžeta.',
 	'gadgets-uses' => 'koristi se',
-	'gadgets-required-rights' => 'Zahteva {{PLURAL:$2|1=sledeće pravo|sledeća prava}}:
+	'gadgets-required-rights' => 'Zahteva {{PLURAL:$2|sledeće pravo|sledeća prava}}:
 
-$1', # Fuzzy
-	'gadgets-required-skins' => 'Dostupno u {{PLURAL:$2|1=temi $1|sledećim temama: $1}}.', # Fuzzy
+$1',
+	'gadgets-required-skins' => 'Dostupno u {{PLURAL:$2|temi $1|sledećim temama: $1}}.',
 	'gadgets-default' => 'Podrazumevano uključen za svakog.',
 	'gadgets-export' => 'Izvezi',
 	'gadgets-export-title' => 'Izvoz gadžeta',
