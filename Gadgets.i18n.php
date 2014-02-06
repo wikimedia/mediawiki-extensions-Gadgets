@@ -859,6 +859,7 @@ Sie müssen über die notwendigen Berechtigungen auf dem für den Import vorgese
 /** Zazaki (Zazaki)
  * @author Erdemaslancan
  * @author Gorizon
+ * @author Mirzali
  * @author Neribij
  * @author Olvörg
  * @author Xoser
@@ -866,12 +867,12 @@ Sie müssen über die notwendigen Berechtigungen auf dem für den Import vorgese
 $messages['diq'] = array(
 	'gadgets-desc' => "Karberan ré destur bidek [[Special:Preferences#mw-prefsection-gadgets|hesıbyayan]]'ra [[Special:Gadgets|Hacetanê CSS u JavaScriptî]] bışé weçiné",
 	'prefs-gadgets' => 'Haleti',
-	'gadgets-prefstext' => 'Cor de yew listeya hacetanê xasî esta ke ti eşkenî xesabê xo de a bikî.
-Enê hacatî JavaScript ser o gurêyenê, aya ra ti ganî browserê xo de JavaScript a bikî.
-Ena pela opsiyonî de hacetî tesîr nêkenê.
+	'gadgets-prefstext' => 'Cêr de yew lista hacetanê xasan esta ke tı şenay xesabê xo de a kerê.
+Enê haceti JavaScript sero gureyenê, aye ra tı gani ageyrayoğê xo de JavaScript a kerê.
+Ena pela opsiyoni de haceti tesir nêkenê.
 
-Enê hacatanê xasî parçê sofwarê Mediyawîkî nîyê, aye ra karberê localî enê hacetî virazenê.
-Îdarekarê mehelî eşkenê hacetan  [[MediaWiki:Gadgets-definition|definitions]] û [[Special:Gadgets|descriptions]] ra bivurnê.',
+Enê hacetê xasi parçê sofwarê Mediyawiki niyê, aye ra karberê locali enê haceti vırazenê.
+İdarekarê meheli şenê be [[MediaWiki:Gadgets-definition|kıfşkerdeyan]] û [[Special:Gadgets|arezekerdışan]] ra hacetanê mınasıban bıvurnê.',
 	'gadgets' => 'Haleti',
 	'gadgets-title' => 'Haleti',
 	'gadgets-pagetext' => 'Cêr de yew listeya hacetanê xasan esta ke ti eşkenî [[Special:Preferences#mw-prefsection-gadgets|xesabê xo]] de a bikî, seke [[MediaWiki:Gadgets-definition|definitions]] nîşan dîyayo.
