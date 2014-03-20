@@ -3300,7 +3300,7 @@ Gadžeti neće uticati na stranicu za podešavanje.
 
 Oni nisu deo softvera Medijaviki, već se razvijaju i održavaju od strane korisnika na vašem lokalnom vikiju.
 Administratori mogu da izmene [[MediaWiki:Gadgets-definition|značenja]] i [[Special:Gadgets|opise]] dostupnih gadžeta.',
-	'gadgets' => 'gedžeti',
+	'gadgets' => 'Gedžeti',
 	'gadgets-title' => 'gedžeti',
 	'gadgets-pagetext' => 'Ispod je spisak posebnih gadžeta koje korisnici mogu da omoguće na svojoj [[Special:Preferences#mw-prefsection-gadgets|stranici za podešavanje]], kao što je navedeno u [[MediaWiki:Gadgets-definition|definicijama]].
 Ovaj pregled pruža brz pristup sistemskim porukama koje definišu svaki opis i kod gadžeta.',
