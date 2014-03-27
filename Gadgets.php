@@ -36,6 +36,7 @@ $wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetHooks::registerModules';
 $wgHooks['UnitTestsList'][]                 = 'GadgetHooks::onUnitTestsList';
 
 $dir = dirname( __FILE__ ) . '/';
+$wgMessagesDirs['Gadgets'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
 $wgExtensionMessagesFiles['GadgetsAlias'] = $dir . 'Gadgets.alias.php';
 
