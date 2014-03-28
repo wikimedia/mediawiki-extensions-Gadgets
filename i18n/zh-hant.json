@@ -25,6 +25,6 @@
     "gadgets-export": "匯出",
     "gadgets-export-title": "匯出小工具",
     "gadgets-not-found": "找不到「$1」小工具。",
-    "gadgets-export-text": "要匯出 $1 小工具，請點擊「{{int:gadgets-export-download}}」按鈕，儲存下載的檔案\n轉到 Special:Import 目標 wiki 上並將其上傳。然後將以下新增到 MediaWiki:Gadgets-definition：\n<pre>$2</pre>\n您必須具有適當的權限 （包括編輯系統訊息的權利） 的目標維基上，必須啟用匯入的檔案上傳。",
+    "gadgets-export-text": "要匯出 $1 小工具，請點擊「{{int:gadgets-export-download}}」按鈕，儲存下載的檔案\n轉到 Special:Import 目標 wiki 上並將其上傳。然後將以下新增到 MediaWiki:Gadgets-definition：\n\u003Cpre\u003E$2\u003C/pre\u003E\n您必須具有適當的權限 （包括編輯系統訊息的權利） 的目標維基上，必須啟用匯入的檔案上傳。",
     "gadgets-export-download": "下載"
 }

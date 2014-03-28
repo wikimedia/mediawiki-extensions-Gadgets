@@ -17,6 +17,6 @@
     "gadgets-export": "Ka soo baxay",
     "gadgets-export-title": "Qalab soo saaris",
     "gadgets-not-found": "Qalabka \"$1\" aan la helin.",
-    "gadgets-export-text": "Si aad u dhoofiso $1 qalabka, guji \"{{int:gadgets-export-download}}\" batoonka, waxaad soo rogtay fayl gali,\nkadib aad Special:Import on destination wiki and upload it. kadib halkaan ku shub MediaWiki:Gadgets-definition bogga:\n<pre>$2</pre>\nWaa inaad leedahay qalab munaasab ku ah wiki (ay ka mid tahay inaad xaq uleedahay bedelida farrimaha sistemka) sidoo kale inaad awood uleedahay soo dhoofsashada faylasha.",
+    "gadgets-export-text": "Si aad u dhoofiso $1 qalabka, guji \"{{int:gadgets-export-download}}\" batoonka, waxaad soo rogtay fayl gali,\nkadib aad Special:Import on destination wiki and upload it. kadib halkaan ku shub MediaWiki:Gadgets-definition bogga:\n\u003Cpre\u003E$2\u003C/pre\u003E\nWaa inaad leedahay qalab munaasab ku ah wiki (ay ka mid tahay inaad xaq uleedahay bedelida farrimaha sistemka) sidoo kale inaad awood uleedahay soo dhoofsashada faylasha.",
     "gadgets-export-download": "Soo rog"
 }
