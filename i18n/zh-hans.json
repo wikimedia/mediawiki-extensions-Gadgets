@@ -25,6 +25,6 @@
     "gadgets-export": "导出",
     "gadgets-export-title": "导出小工具",
     "gadgets-not-found": "找不到“$1”小工具。",
-    "gadgets-export-text": "要导出 $1 小工具，请单击“{{int:gadgets-export-download}}”按钮，保存下载的文件，前往目标wiki的Special:Import并将文件上传。随后将以下内容加入MediaWiki:Gadgets-definition：\n\u003Cpre\u003E$2\u003C/pre\u003E\n您必须在目标wiki上具有适当的权限（包括编辑系统消息的权利），且站点必须启用由上传文件导入的功能。",
+    "gadgets-export-text": "要导出 $1 小工具，请单击“{{int:gadgets-export-download}}”按钮，保存下载的文件，前往目标wiki的Special:Import并将文件上传。随后将以下内容加入MediaWiki:Gadgets-definition：\n<pre>$2</pre>\n您必须在目标wiki上具有适当的权限（包括编辑系统消息的权利），且站点必须启用由上传文件导入的功能。",
     "gadgets-export-download": "下载"
 }
