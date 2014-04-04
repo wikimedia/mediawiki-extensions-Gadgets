@@ -15,7 +15,7 @@
     "gadgets-title": "उपकरण",
     "gadgets-pagetext": "नीचे सभी [[MediaWiki:Gadgets-definition|परिभाषित]] विशेष उपकरणों की सूची दी गई है, जिन्हें सदस्य [[Special:Preferences#mw-prefsection-gadgets|अपनी वरीयताओं]] से सक्षम कर सकते हैं।\nयह समीक्षा सभी उपकरणों के विवरण और कोड वाले अंतरफल संदेश पृष्ठों की कड़ियाँ प्रदान करती है।",
     "gadgets-uses": "उपयोग",
-    "gadgets-required-rights": "निम्नलिखित की आबश्यकता है {{PLURAL:$2|अधिकार|अधिकार}}:\n\n$1",
+    "gadgets-required-rights": "निम्नलिखित {{PLURAL:$2|अधिकार|अधिकारों}} की आवश्यकता है:\n\n$1",
     "gadgets-required-skins": "उपलब्ध है {{PLURAL:$2|$1 स्किन|निम्नलिखित स्किन: $1}}.",
     "gadgets-default": "डिफ़ॉल्ट रूप से सभी के लिए सक्षम है।",
     "gadgets-export": "निर्यात",
