@@ -59,6 +59,11 @@ $specialPageAliases['ce'] = array(
 	'Gadgets' => array( 'Гаджеташ' ),
 );
 
+/** Sorani Kurdish (کوردی) */
+$specialPageAliases['ckb'] = array(
+	'Gadgets' => array( 'ئامرازەکان' ),
+);
+
 /** Czech (čeština) */
 $specialPageAliases['cs'] = array(
 	'Gadgets' => array( 'Udělátka' ),
