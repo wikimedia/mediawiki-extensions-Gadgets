@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Smeira"
-        ]
-    },
-    "gadgets-uses": "Gebs"
+	"@metadata": {
+		"authors": [
+			"Smeira"
+		]
+	},
+	"gadgets-uses": "Gebs"
 }

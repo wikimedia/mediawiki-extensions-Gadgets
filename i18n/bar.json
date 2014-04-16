@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Mucalexx"
-        ]
-    },
-    "gadgets": "Gadgets (Helferlein)",
-    "gadgets-title": "Gadgets (Helferlein)",
-    "gadgets-export-download": "Owerloon"
+	"@metadata": {
+		"authors": [
+			"Mucalexx"
+		]
+	},
+	"gadgets": "Gadgets (Helferlein)",
+	"gadgets-title": "Gadgets (Helferlein)",
+	"gadgets-export-download": "Owerloon"
 }
