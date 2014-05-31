@@ -9,7 +9,8 @@
 			"Shinjiman",
 			"Xiaomingyan",
 			"Yfdyh000",
-			"阿pp"
+			"阿pp",
+			"Mywood"
 		]
 	},
 	"gadgets-desc": "允许用户在其[[Special:Preferences#mw-prefsection-gadgets|系统设置]]中选择自定义[[Special:Gadgets|CSS和JavaScript工具]]",
@@ -25,6 +26,6 @@
 	"gadgets-export": "导出",
 	"gadgets-export-title": "导出小工具",
 	"gadgets-not-found": "找不到“$1”小工具。",
-	"gadgets-export-text": "要导出 $1 小工具，请单击“{{int:gadgets-export-download}}”按钮，保存下载的文件，前往目标wiki的Special:Import并将文件上传。随后将以下内容加入MediaWiki:Gadgets-definition：\n<pre>$2</pre>\n您必须在目标wiki上具有适当的权限（包括编辑系统消息的权利），且站点必须启用由上传文件导入的功能。",
+	"gadgets-export-text": "要导出$1小工具，请单击“{{int:gadgets-export-download}}”按钮，保存下载的文件，前往目标wiki的Special:Import并将文件上传。然后添加下内容至MediaWiki:Gadgets-definition页面：\n<pre>$2</pre>\n您必须在目标wiki上拥有适当的权限（包括编辑系统信息的权限），并且启用从文件上传导入。",
 	"gadgets-export-download": "下载"
 }
