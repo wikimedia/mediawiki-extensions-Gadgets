@@ -44,24 +44,26 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 		$result = $this->getResult();
 		$gadgets = Gadget::loadStructuredList();
 
-		foreach ( $gadgets as $category => $list ) {
-			if ( !$this->neededNames || isset( $this->neededNames[$category] ) ) {
-				$row = array();
-				if ( isset( $this->props['name'] ) ) {
-					$row['name'] = $category;
-				}
-
-				if ( $category !== "" ) {
-					if ( isset( $this->props['title'] ) ) {
-						$row['desc'] = $this->msg( "gadget-section-$category" )->parse();
+		if ( $gadgets ) {
+			foreach ( $gadgets as $category => $list ) {
+				if ( !$this->neededNames || isset( $this->neededNames[$category] ) ) {
+					$row = array();
+					if ( isset( $this->props['name'] ) ) {
+						$row['name'] = $category;
 					}
-				}
 
-				if ( isset( $this->props['members'] ) ) {
-					$row['members'] = count( $list );
-				}
+					if ( $category !== "" ) {
+						if ( isset( $this->props['title'] ) ) {
+							$row['desc'] = $this->msg( "gadget-section-$category" )->parse();
+						}
+					}
 
-				$data[] = $row;
+					if ( isset( $this->props['members'] ) ) {
+						$row['members'] = count( $list );
+					}
+
+					$data[] = $row;
+				}
 			}
 		}
 		$result->setIndexedTagName( $data, 'category' );
