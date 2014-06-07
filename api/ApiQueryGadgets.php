@@ -173,7 +173,6 @@ class ApiQueryGadgets extends ApiQueryBase {
 					'desc',
 				),
 			),
-			'language' => null,
 			'categories' => array(
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => 'string',
