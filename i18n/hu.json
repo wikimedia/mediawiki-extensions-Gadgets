@@ -5,7 +5,8 @@
 			"BáthoryPéter",
 			"Dani",
 			"Tgr",
-			"Vogone"
+			"Vogone",
+			"Tacsipacsi"
 		]
 	},
 	"gadgets-desc": "A felhasználók saját [[Special:Gadgets|CSS és JavaScript eszközöket]] választhatnak ki a [[Special:Preferences#mw-prefsection-gadgets|beállításaiknál]]",
@@ -19,7 +20,7 @@
 	"gadgets-required-skins": "{{PLURAL:$2|$1 felületen érhető el|Az alábbi felületeken érhető el: $1}}.",
 	"gadgets-default": "Mindenki számára engedélyezett alapértelmezettként.",
 	"gadgets-export": "Exportálás",
-	"gadgets-export-title": "Segédeszköz exportálás",
+	"gadgets-export-title": "Segédeszköz-exportálás",
 	"gadgets-not-found": "A(z) „$1“ segédeszköz nem található.",
 	"gadgets-export-text": "A(z) $1 segédeszköz exportálásához kattints a „{{int:gadgets-export-download}}“ gombra, mentsd el a fájlt, majd a célwikiben a Special:Import lapon töltsd fel. Ezután a MediaWiki:Gadgets-definition laphoz add hozzá a következőket:\n<pre>$2</pre>\nA célwikiben rendelkezned kell a megfelelő jogokkal (beleértve a rendszerüzenetek szerkesztését) és engedélyezve kell lennie a fájlimportálásnak.",
 	"gadgets-export-download": "Letöltés"
