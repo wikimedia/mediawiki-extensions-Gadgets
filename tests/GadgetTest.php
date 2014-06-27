@@ -6,8 +6,7 @@
 class GadgetsTest extends MediaWikiTestCase {
 	private function create( $line ) {
 		$g = Gadget::newFromDefinition( $line );
-		// assertInstanceOf() is available since PHPUnit 3.5
-		$this->assertEquals( 'Gadget', get_class( $g ) );
+		$this->assertInstanceOf( 'Gadget', $g );
 
 		return $g;
 	}
@@ -45,20 +44,7 @@ class GadgetsTest extends MediaWikiTestCase {
 	}
 
 	function testPreferences() {
-		global $wgUser, $wgOut, $wgTitle;
-
-		// This test makes call to the parser which requires valids Outputpage
-		// and Title objects. Set them up there, they will be released at the
-		// end of the test.
-		$old_wgOut = $wgOut;
-		$old_wgTitle = $wgTitle;
-		$wgTitle = Title::newFromText( 'Parser test for Gadgets extension' );
-
-		// Proceed with test setup:
 		$prefs = array();
-		$context = new RequestContext();
-		$wgOut = $context->getOutput();
-		$wgOut->setTitle( Title::newFromText( 'test' ) );
 
 		Gadget::loadStructuredList( '* foo | foo.js
 ==keep-section1==
@@ -67,15 +53,11 @@ class GadgetsTest extends MediaWikiTestCase {
 * baz [rights=embezzle] |baz.js
 ==keep-section2==
 * quux [rights=read] | quux.js' );
-		$this->assertTrue( GadgetHooks::getPreferences( $wgUser, $prefs ), 'GetPrefences hook should return true' );
+		$this->assertTrue( GadgetHooks::getPreferences( new User, $prefs ), 'GetPrefences hook should return true' );
 
 		$options = $prefs['gadgets']['options'];
 		$this->assertFalse( isset( $options['&lt;gadget-section-remove-section&gt;'] ), 'Must not show empty sections' );
 		$this->assertTrue( isset( $options['&lt;gadget-section-keep-section1&gt;'] ) );
 		$this->assertTrue( isset( $options['&lt;gadget-section-keep-section2&gt;'] ) );
-
-		// Restore globals
-		$wgOut = $old_wgOut;
-		$wgTitle = $old_wgTitle;
 	}
 }
