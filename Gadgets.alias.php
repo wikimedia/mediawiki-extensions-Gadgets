@@ -346,7 +346,7 @@ $specialPageAliases['vec'] = array(
 
 /** Vietnamese (Tiếng Việt) */
 $specialPageAliases['vi'] = array(
-	'Gadgets' => array( 'Công_cụ_đa_năng' ),
+	'Gadgets' => array( 'Tiện_ích', 'Công_cụ_đa_năng' ),
 );
 
 /** Simplified Chinese (中文（简体）‎) */
