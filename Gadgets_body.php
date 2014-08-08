@@ -342,7 +342,7 @@ class Gadget {
 
 	/**
 	 * Loads list of gadgets and returns it as associative array of sections with gadgets
-	 * e.g. array( 'sectionnname1' => array( $gadget1, $gadget2),
+	 * e.g. array( 'sectionnname1' => array( $gadget1, $gadget2 ),
 	 *             'sectionnname2' => array( $gadget3 ) );
 	 * @param $forceNewText String: New text of MediaWiki:gadgets-definition. If specified, will
 	 * 	      force a purge of cache and recreation of the gadget list.
