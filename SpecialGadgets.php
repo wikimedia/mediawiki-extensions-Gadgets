@@ -88,7 +88,7 @@ class SpecialGadgets extends SpecialPage {
 	protected function getGadgetHtml( Gadget $gadget ) {
 		global $wgContLang;
 		$user = $this->getUser();
-		$userlang = $this->getLang();
+		$userlang = $this->getLanguage();
 
 		// Suffix needed after page names in links to NS_MEDIAWIKI,
 		// e.g. to link to [[MediaWiki:Foo/nl]] instead of [[MediaWiki:Foo]]
@@ -206,10 +206,10 @@ class SpecialGadgets extends SpecialPage {
 		global $wgContLang;
 		$out = $this->getOutput();
 		$user = $this->getUser();
-		$userlang = $this->getLang();
+		$userlang = $this->getLanguage();
 
 		$this->setHeaders();
-		$out->setPagetitle( wfMsg( 'gadgets-title' ) );
+		$out->setPagetitle( wfMessage( 'gadgets-title' ) );
 
 		$repo = LocalGadgetRepo::singleton();
 		$gadgetsByCategory = $repo->getGadgetsByCategory();
@@ -327,13 +327,13 @@ class SpecialGadgets extends SpecialPage {
 		foreach( $rights as $right ) {
 			$msg[] = Html::element( 'code', array(
 					'style' => 'white-space:nowrap',
-					'title' => wfMsg( "right-{$right}" )
+					'title' => wfMessage( "right-{$right}" )->text()
 				), $right
 			);
 		}
 
 		$this->setHeaders();
-		$out->setPagetitle( wfMsg( 'gadgets-export-title', $gadget->getTitleMessage() ) );
+		$out->setPagetitle( wfMessage( 'gadgets-export-title', $gadget->getTitleMessage() ) );
 
 		// Make a list of all pagenames to be exported:
 		$exportTitles = array();
@@ -416,7 +416,7 @@ class SpecialGadgets extends SpecialPage {
 			. Html::hidden( 'pages', $exportList )
 			. Html::hidden( 'wpDownload', '1' )
 			. Html::hidden( 'templates', '1' )
-			. Xml::submitButton( wfMsg( 'gadgets-export-download' ) )
+			. Xml::submitButton( wfMessage( 'gadgets-export-download' )->text() )
 			. '</fieldset></form>';
 
 		$out->addHTML( $form );
@@ -434,7 +434,7 @@ class SpecialGadgets extends SpecialPage {
 		$user = $this->getUser();
 
 		$this->setHeaders();
-		$out->setPagetitle( wfMsg( 'gadgets-gadget-title', $gadget->getTitleMessage() ) );
+		$out->setPagetitle( wfMessage( 'gadgets-gadget-title', $gadget->getTitleMessage() ) );
 
 		// Only load the gadget manager module if needed
 		if ( $user->isAllowed( 'gadgets-definition-delete' )
