@@ -46,25 +46,26 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 		$repo = LocalGadgetRepo::singleton();
 		
 		$gadgetsByCategory = $repo->getGadgetsByCategory();
-		foreach ( $gadgetsByCategory as $category => $gadgets ) {
-			if ( !$this->neededNames || isset( $this->neededNames[$category] ) ) {
-				$row = array();
-				if ( isset( $this->props['name'] ) ) {
-					$row['name'] = $category;
-				}
-				if ( isset( $this->props['title'] ) ) {
-					if ( $category === '' ) {
-						$row['title'] = wfMessage( 'gadgets-uncategorized' )->plain();
-					} else {
-						$row['title'] = $repo->getCategoryTitle( $category, $this->language );
+		if ( $gadgetsByCategory ) {
+			foreach ( $gadgetsByCategory as $category => $gadgets ) {
+				if ( !$this->neededNames || isset( $this->neededNames[$category] ) ) {
+					$row = array();
+					if ( isset( $this->props['name'] ) ) {
+						$row['name'] = $category;
+					}
+					if ( isset( $this->props['title'] ) ) {
+						if ( $category === '' ) {
+							$row['title'] = wfMessage( 'gadgets-uncategorized' )->plain();
+						} else {
+							$row['title'] = $repo->getCategoryTitle( $category, $this->language );
+						}
+
+						if ( isset( $this->props['members'] ) ) {
+							$row['members'] = count( $gadgets );
+						}
+						$data[] = $row;
 					}
 				}
-
-				if ( isset( $this->props['members'] ) ) {
-					$row['members'] = count( $gadgets );
-				}
-
-				$data[] = $row;
 			}
 		}
 		$result->setIndexedTagName( $data, 'category' );

@@ -166,7 +166,6 @@ class ApiQueryGadgets extends ApiQueryBase {
 					'title-msgkey',
 				),
 			),
-			'language' => null,
 			'categories' => array(
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => 'string',
@@ -216,7 +215,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'    api.php?action=query&list=gadgets&gaprop=id|desc',
 			'Get a list of gadgets with all possible properties:',
 			"    api.php?action=query&list=gadgets&gaprop=$allProps",
-			'Get a list of gadgets belonging to caregory "foo":',
+			'Get a list of gadgets belonging to category "foo":',
 			'    api.php?action=query&list=gadgets&gacategories=foo',
 			'Get information about gadgets "foo" and "bar":',
 			'    api.php?action=query&list=gadgets&gaids=foo|bar&gaprop=id|desc|metadata',

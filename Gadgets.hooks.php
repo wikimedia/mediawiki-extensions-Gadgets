@@ -461,11 +461,12 @@ class GadgetsHooks {
 
 	/**
 	 * UnitTestsList hook handler
-	 * @param $files Array: List of extension test files
+	 * @param array $files
+	 * @return bool
 	 */
-	public static function unitTestsList( &$files ) {
-		//$files[] = dirname( __FILE__ ) . '/tests/GadgetsTest.php'; //FIXME broken
-		$files[] = dirname( __FILE__ ) . '/tests/GadgetTest.php';
+	public static function onUnitTestsList( array &$files ) {
+		$testDir = __DIR__ . '/tests/';
+		$files = array_merge( $files, glob( "$testDir/*Test.php" ) );
 		return true;
 	}
 

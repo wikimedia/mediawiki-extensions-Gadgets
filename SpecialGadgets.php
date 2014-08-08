@@ -7,7 +7,6 @@
  */
 
 class SpecialGadgets extends SpecialPage {
-
 	/**
 	 * @var $params Array: Parameters passed to the page.
 	 * - gadget String|null: Gadget id
@@ -107,7 +106,7 @@ class SpecialGadgets extends SpecialPage {
 		$extra = array();
 
 		$extra[] = Linker::link(
-			$this->getTitle( $gadget->getId() ),
+			$this->getPageTitle( $gadget->getId() ),
 			wfMessage( 'gadgets-gadget-permalink' )->escaped(),
 			array(
 				'title' => wfMessage( 'gadgets-gadget-permalink-tooltip', $gadget->getId() )->plain(),
