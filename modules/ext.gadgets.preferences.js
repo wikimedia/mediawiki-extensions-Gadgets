@@ -5,13 +5,13 @@
  * @copyright © 2011 Roan Kattouw
  * @license GNU General Public Licence 2.0 or later
  */
-( function ( $, mw, undefined ) {
+( function ( $, mw ) {
 	function hexEncode( s ) {
 		var i, c,
 			retval = '';
 		for ( i = 0; i < s.length; i++ ) {
 			c = s.charCodeAt( i ).toString( 16 );
-			if ( c.length % 2 == 1 ) {
+			if ( c.length % 2 === 1 ) {
 				c = '0' + c;
 			}
 			retval += c;
@@ -24,7 +24,7 @@
 	 * repositories in the shared gadgets preference form
 	 */
 	function fixPreferenceForm( gadgetsByCategory, categoryNames ) {
-		var repo, category, gadget, g, escTitle, labelHtml,
+		var repo, category, gadget, g, labelHtml,
 			catName, $category,
 			$categories = {};
 
@@ -144,7 +144,7 @@
 					fixPreferenceForm( gadgetsByCategory, categoryNames );
 				}
 			},
-			function ( error ) {
+			function () {
 				if ( !failed ) {
 					failed = true;
 					showPreferenceFormError( 'gadgets-sharedprefs-ajaxerror' );
@@ -158,7 +158,7 @@
 					fixPreferenceForm( gadgetsByCategory, categoryNames );
 				}
 			},
-			function ( error ) {
+			function () {
 				if ( !failed ) {
 					failed = true;
 					showPreferenceFormError( 'gadgets-sharedprefs-ajaxerror' );

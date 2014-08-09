@@ -88,8 +88,8 @@
 			prefix: 'editor-',
 			props: [],
 			autocompleteSource: [],
-			onAdd: function ( prop ) {},
-			onRemove: function ( prop ) {},
+			onAdd: function () {},
+			onRemove: function () {},
 			removeTooltip: 'Remove this item'
 		}, o );
 
@@ -97,7 +97,7 @@
 			$input = $el.addClass( o.prefix + 'propinput' ),
 			$cloud = $input.wrap( '<div>' ).parent().addClass( o.prefix + 'propcloud' ),
 			$container = $( '<div>' ).addClass( o.prefix + 'propcontainer' ),
-			i;
+			i, props, len;
 
 		// Append while container is still off the DOM
 		// This is faster and prevents visible build-up

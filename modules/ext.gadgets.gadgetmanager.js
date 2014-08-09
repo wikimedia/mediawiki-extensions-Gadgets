@@ -4,7 +4,7 @@
  * @author Timo Tijhof, 2011 - 2012
  * @license GNU General Public Licence 2.0 or later
  */
-( function ( $ ) {
+( function ( $, mw ) {
 
 	var
 		/**
@@ -72,29 +72,29 @@
 		/**
 		 * @var {Object} Static cache for suggestions by script prefix.
 		 */
-		 suggestCacheScripts = {},
+		suggestCacheScripts = {},
 		/**
 		 * @var {Object} Static cache for suggestions by style prefix.
 		 */
-		 suggestCacheStyles = {},
+		suggestCacheStyles = {},
 		/**
 		 * @var {Object} Static cache for suggestions by messages prefix.
 		 */
-		 suggestCacheMsgs = {},
+		suggestCacheMsgs = {},
 		/**
 		 * @var {Object} Complete static cache for module names. Lazy loaded from null.
 		 */
-		 suggestCacheDependencies = null,
+		suggestCacheDependencies = null,
 		/**
 		 * @var {Object} Complete static cache for all rights.
 		 */
-		 suggestCacheRights = ga.conf.allRights,
+		suggestCacheRights = ga.conf.allRights,
 		/**
 		 * @var {Number} Maximum number of autocomplete suggestions in the gadget editor input fields.
 		 */
-		 suggestLimit = 7,
-		 nsGadgetId = mw.config.get( 'wgNamespaceIds' ).gadget,
-		 nsSpecialId = mw.config.get( 'wgNamespaceIds' ).special;
+		suggestLimit = 7,
+		nsGadgetId = mw.config.get( 'wgNamespaceIds' ).gadget,
+		nsSpecialId = mw.config.get( 'wgNamespaceIds' ).special;
 
 	/* Local functions */
 
@@ -130,7 +130,10 @@
 	 */
 	function validateGadgetId( id ) {
 		return id.length
-			&& new mw.Title( id, mw.config.get( 'wgNamespaceIds' ).gadget_definition ).getMainText() === id;
+			&& new mw.Title(
+				id,
+				/*jshint camelcase: false*/ mw.config.get( 'wgNamespaceIds' ).gadget_definition
+			).getMainText() === id;
 	}
 	/**
 	 * Toggle the state of the UI buttons in a dialog.
@@ -157,14 +160,14 @@
 						e.preventDefault();
 						e.stopPropagation(); // To stop bubbling up to .mw-gadgets-gadget
 						ga.ui.startGadgetManager( 'modify', $el.data( 'gadget-id' ) );
-					});
+					} );
 				}
 				if ( ga.conf.userIsAllowed['gadgets-definition-delete'] ) {
-					$el.find( '.mw-gadgets-delete' ).click( function ( e ) {
+					$el.find( '.mw-gadgets-delete' ).click( function ( /*e*/ ) {
 						//e.preventDefault();
 						//e.stopPropagation();
 						// @todo: Show delete action form
-					});
+					} );
 				}
 			} );
 
@@ -191,7 +194,7 @@
 				// Avoid other links becoming unclickable,
 				// Don't let clicks on those bubble up
 				e.stopPropagation();
-			});
+			} );
 
 		},
 
@@ -241,7 +244,7 @@
 					}
 					// getGadgetCategories not done yet, leave gadget for it's callback to use
 					gadget = ret;
-				});
+				} );
 			}
 
 			ga.api.getGadgetCategories( function ( ret ) {
@@ -252,14 +255,14 @@
 				// getGadgetData not done yet, leave cats for it's callback to use
 				cats = ret;
 			// Error callback. Fallback to empty array
-			}, function ( errorCode ) {
+			}, function () {
 				if ( gadget ) {
 					// getGadgetData already done
 					return ga.ui.showFancyForm( gadget, [], mode );
 				}
 				// getGadgetData not done yet, leave cats for it's callback to use
 				cats = [];
-			});
+			} );
 		},
 
 		/**
@@ -278,29 +281,29 @@
 			buttons[mw.msg( 'gadgetmanager-editor-save' )] = function () {
 				if ( mode === 'create' ) {
 					ga.api.doCreateGadget( gadget, {
-						success: function ( response ) {
+						success: function () {
 							mw.log( 'mw.gadgets.api.doModifyGadget: success', arguments );
 							$form.dialog( 'close' );
 							window.location.reload();
 						},
-						error: function ( error ) {
+						error: function () {
 							mw.log( 'mw.gadgets.api.doModifyGadget: error', arguments );
 							// @todo Notification: $formNotif.add( .. );
 						}
-					});
+					} );
 				} else {
 					ga.api.doModifyGadget( gadget, {
 						starttimestamp: ISODateString( new Date() ),
-						success: function ( response ) {
+						success: function () {
 							mw.log( 'mw.gadgets.api.doModifyGadget: success', arguments );
 							$form.dialog( 'close' );
 							window.location.reload();
 						},
-						error: function ( error ) {
+						error: function () {
 							mw.log( 'mw.gadgets.api.doModifyGadget: error', arguments );
 							// @todo Notification: $formNotif.add( .. );
 						}
-					});
+					} );
 				}
 			};
 
@@ -322,7 +325,7 @@
 
 						// @todo Notification: $formNotif.add( .. );
 					}
-				});
+				} );
 		},
 
 		/**
@@ -335,7 +338,7 @@
 		 * @param mode {String} (optional) 'create' or 'modify' (defaults to 'modify')
 		 * @return {jQuery} The form.
 		 */
-		 getFancyForm: function ( gadget, categories, mode ) {
+		getFancyForm: function ( gadget, categories, mode ) {
 			var metadata = gadget.metadata,
 				$form = $( tpl.fancyForm ).localize(),
 				$idSpan = $form.find( '.mw-gadgetmanager-id' ),
@@ -345,8 +348,8 @@
 			if ( mode === 'create' ) {
 
 				// Validate
-				$form.find( '#mw-gadgetmanager-input-id' ).bind( 'keyup keypress keydown', function ( e ) {
-					var val = $(this).val();
+				$form.find( '#mw-gadgetmanager-input-id' ).bind( 'keyup keypress keydown', function () {
+					var val = $( this ).val();
 
 					// Reset
 					toggleDialogButtons( $form, 'enable' );
@@ -376,8 +379,8 @@
 					}
 
 				// Availability and non-empty check
-				}).blur( function ( e ) {
-					var val = $(this).val();
+				} ).blur( function () {
+					var val = $( this ).val();
 
 					// Reset
 					$idSpan.removeClass( 'mw-gadgetmanager-id-error mw-gadgetmanager-id-available' );
@@ -414,8 +417,8 @@
 							$idSpan.addClass( 'mw-gadgetmanager-id-available' );
 							$idErrMsg.hide();
 						}
-					});
-				});
+					} );
+				} );
 
 
 			} else {
@@ -444,9 +447,9 @@
 						}, function ( json ) {
 							if ( json && json.query && json.query.gadgetpages ) {
 								var suggestions = json.query.gadgetpages.splice( 0, suggestLimit );
-								suggestions = $.map( suggestions, function ( val, i ) {
+								suggestions = $.map( suggestions, function ( val ) {
 									return val.pagename;
-								});
+								} );
 
 								// Update cache
 								suggestCacheScripts[data.term] = suggestions;
@@ -460,7 +463,7 @@
 				},
 				prefix: 'mw-gadgetmanager-',
 				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )
-			});
+			} );
 
 			// Module properties: styles
 			$form.find( '#mw-gadgetmanager-input-styles' ).createPropCloud({
@@ -480,9 +483,9 @@
 							gpprefix: data.term
 						}, function ( json ) {
 							if ( json && json.query && json.query.gadgetpages ) {
-								var suggestions = $.map( json.query.gadgetpages, function ( val, i ) {
+								var suggestions = $.map( json.query.gadgetpages, function ( val ) {
 									return val.pagename;
-								});
+								} );
 								suggestions = suggestions.splice( 0, suggestLimit );
 
 								// Update cache
@@ -497,7 +500,7 @@
 				},
 				prefix: 'mw-gadgetmanager-',
 				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )
-			});
+			} );
 
 			// Module properties: dependencies
 			$form.find( '#mw-gadgetmanager-input-dependencies' ).createPropCloud({
@@ -511,7 +514,7 @@
 				},
 				prefix: 'mw-gadgetmanager-',
 				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )
-			});
+			} );
 
 			// Module properties: messages
 			$form.find( '#mw-gadgetmanager-input-messages' ).createPropCloud({
@@ -532,9 +535,9 @@
 							amlang: mw.config.get( 'wgContentLanguage' )
 						}, function ( json ) {
 							if ( json && json.query && json.query.allmessages ) {
-								var suggestions = $.map( json.query.allmessages, function ( val, i ) {
+								var suggestions = $.map( json.query.allmessages, function ( val ) {
 									return val.name;
-								});
+								} );
 								suggestions = suggestions.splice( 0, suggestLimit );
 
 								// Update cache
@@ -549,7 +552,7 @@
 				},
 				prefix: 'mw-gadgetmanager-',
 				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )
-			});
+			} );
 
 			// Gadget settings: category
 			$form.find( '#mw-gadgetmanager-input-category' ).append( function () {
@@ -568,22 +571,22 @@
 				opts += '<option disabled="disabled">-------</option>'
 					+ '<option data-gadgets-new-category="true">' + mw.message( 'gadgetmanager-prop-category-new' ).escaped() + '</option>';
 				return opts;
-			}).bind( 'change', function () {
-				if ( $(this).children( ':selected' ).data( 'gadgetsNewCategory' ) === true ) {
+			} ).bind( 'change', function () {
+				if ( $( this ).children( ':selected' ).data( 'gadgetsNewCategory' ) === true ) {
 					metadata.settings.category = $newCatInput.val();
 					$newCatInput.show().focus();
 				} else {
-					metadata.settings.category = $(this).val();
+					metadata.settings.category = $( this ).val();
 					$newCatInput.hide();
 				}
-			});
+			} );
 
 			$newCatInput
 				.hide()
 				.prop( 'placeholder', mw.msg( 'gadgetmanager-prop-category-new' ) )
-				.bind( 'blur change', function (){
-					metadata.settings.category = $(this).val();
-				});
+				.bind( 'blur change', function () {
+					metadata.settings.category = $( this ).val();
+				} );
 
 			// Gadget settings: rights
 			$form.find( '#mw-gadgetmanager-input-rights' ).createPropCloud({
@@ -594,24 +597,24 @@
 				},
 				prefix: 'mw-gadgetmanager-',
 				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )
-			});
+			} );
 
 			// Gadget settings: Default
 			$form.find( '#mw-gadgetmanager-input-default' )
 				.prop( 'checked', metadata.settings['default'] )
 				.change( function () {
 					metadata.settings['default'] = this.checked;
-				});
+				} );
 
 			// Gadget settings: Hidden
 			$form.find( '#mw-gadgetmanager-input-hidden' )
 				.prop( 'checked', metadata.settings.hidden )
-				.change( function () { metadata.settings.hidden = this.checked; });
+				.change( function () { metadata.settings.hidden = this.checked; } );
 
 			// Gadget settings: Shared
 			$form.find( '#mw-gadgetmanager-input-shared' )
 				.prop( 'checked', metadata.settings.shared )
-				.change( function () { metadata.settings.shared = this.checked; });
+				.change( function () { metadata.settings.shared = this.checked; } );
 
 			return $form;
 		}
@@ -620,4 +623,4 @@
 	// Launch on document ready
 	$( document ).ready( ga.ui.initUI );
 
-})( jQuery );
+} )( jQuery, mediaWiki );

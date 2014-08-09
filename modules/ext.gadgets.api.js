@@ -6,7 +6,7 @@
  * @license GNU General Public Licence 2.0 or later
  */
 
-( function ( $ ) {
+( function ( $, mw ) {
 	var
 		/**
 		 * @var {Object} Keyed by repo, object of gadget objects by id
@@ -40,7 +40,7 @@
 		 *     a.words[3]; // quux !
 		 * </code>
 		 */
-		 return $.extend( true /* recursive */, {}, obj );
+		return $.extend( true /* recursive */, {}, obj );
 	}
 
 	function arrClone( arr ) {
@@ -101,7 +101,7 @@
 
 		// Use $.each instead of a for loop so we can access repoName in the success callback
 		// without annoying issues
-		$.each( mw.gadgets.conf.repos, function ( repoName, repoData ) {
+		$.each( mw.gadgets.conf.repos, function ( repoName ) {
 			getter(
 				function ( data ) {
 					combined[repoName] = data;
@@ -212,7 +212,7 @@
 						cacheGadgetData( repoName, id, null );
 						error( 'unknown' );
 					}
-				});
+				} );
 			},
 
 			/**
@@ -265,7 +265,7 @@
 						gadgetCategoryCache[repoName] = null;
 						error( 'unknown' );
 					}
-				});
+				} );
 			},
 
 			/**
@@ -286,7 +286,7 @@
 			doModifyGadget: function ( gadget, o ) {
 				var t = new mw.Title(
 						gadget.id,
-						mw.config.get( 'wgNamespaceIds' ).gadget_definition
+						/*jshint camelcase: false*/ mw.config.get( 'wgNamespaceIds' ).gadget_definition
 					),
 					query = {
 						format: 'json',
@@ -327,12 +327,12 @@
 							o.error( 'unknown' );
 						}
 					},
-					error: function (){
+					error: function () {
 						// Invalidate cache
 						cacheGadgetData( 'local', gadget.id, null );
 						o.error( 'unknown' );
 					}
-				});
+				} );
 			},
 
 			/**
@@ -383,4 +383,4 @@
 				return true;
 			}
 	};
-})( jQuery );
+} )( jQuery, mediaWiki );
