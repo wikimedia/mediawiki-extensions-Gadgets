@@ -372,12 +372,12 @@ class GadgetsHooks {
 			if ( $matches[1] !== null ) {
 				// This is a local category ID
 				// We have access to the message, so display it
-				$legend = LocalGadgetRepo::singleton()->getCategoryTitle( $id, $form->getLang() );
+				$legend = LocalGadgetRepo::singleton()->getCategoryTitle( $id, $form->getLanguage() );
 			} else {
 				// This is a repository ID or a foreign category ID
 				// Just display the ID itself (with ucfirst applied)
 				// This will be changed to a properly i18ned string by JS
-				$legend = $form->getLang()->ucfirst( $id );
+				$legend = $form->getLanguage()->ucfirst( $id );
 			}
 		}
 		return true;

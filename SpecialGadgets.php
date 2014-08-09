@@ -407,7 +407,7 @@ class SpecialGadgets extends SpecialPage {
 					htmlspecialchars( $gadget->getId() ),
 					'', // $2 is no longer used. To avoid breaking backwards compatibility, skipped here and
 					// $3 is used for the new message part
-					$this->getLang()->listToText( $msg )
+					$this->getLanguage()->listToText( $msg )
 				)
 				->escaped()
 			. '</p>'
