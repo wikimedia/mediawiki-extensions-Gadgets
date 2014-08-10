@@ -16,8 +16,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( 1 );
 }
 
-if ( version_compare( $wgVersion, '1.19c', '<' ) ) { // Needs to be 1.19c because version_compare() works in confusing ways
-	die( "This version of Extension:Gadgets requires MediaWiki 1.19+\n" );
+if ( version_compare( $wgVersion, '1.24c', '<' ) ) { // Needs to be 1.24c because version_compare() works in confusing ways
+	die( "This version of Extension:Gadgets requires MediaWiki 1.24+\n" );
 }
 
 $wgExtensionCredits['other'][] = array(
@@ -98,10 +98,7 @@ $wgAvailableRights = array_merge( $wgAvailableRights, array(
 
 $wgHooks['AfterImportPage'][]               = 'GadgetsHooks::gadgetDefinitionImport';
 $wgHooks['AfterImportPage'][]               = 'GadgetsHooks::cssOrJsPageImport';
-$wgHooks['ArticleDeleteComplete'][]         = 'GadgetsHooks::gadgetDefinitionDelete';
 $wgHooks['ArticleDeleteComplete'][]         = 'GadgetsHooks::cssJsPageDelete';
-$wgHooks['ArticleSave'][]                   = 'GadgetsHooks::gadgetDefinitionSave';
-$wgHooks['ArticleSaveComplete'][]           = 'GadgetsHooks::gadgetDefinitionSaveComplete';
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetsHooks::cssOrJsPageSaveComplete';
 $wgHooks['ArticleUndelete'][]               = 'GadgetsHooks::gadgetDefinitionUndelete';
 $wgHooks['ArticleUndelete'][]               = 'GadgetsHooks::cssOrJsPageUndelete';
@@ -142,6 +139,15 @@ $wgAutoloadClasses['LocalGadgetRepo'] = $dir . 'backend/LocalGadgetRepo.php';
 $wgAutoloadClasses['MigrateGadgets'] = $dir . 'migrateGadgets.php';
 $wgAutoloadClasses['PopulateGadgetPageList'] = $dir . 'populateGadgetPageList.php';
 $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
+
+# content/
+$wgAutoloadClasses['GadgetDefinitionContent'] = __DIR__ . '/content/GadgetDefinitionContent.php';
+$wgAutoloadClasses['GadgetDefinitionContentHandler'] = __DIR__ . '/content/GadgetDefinitionContentHandler.php';
+$wgAutoloadClasses['GadgetDefinitionDeletionUpdate'] = __DIR__ . '/content/GadgetDefinitionDeletionUpdate.php';
+$wgAutoloadClasses['GadgetDefinitionSecondaryDataUpdate'] = __DIR__ . '/content/GadgetDefinitionSecondaryDataUpdate.php';
+
+$wgContentHandlers['GadgetDefinition'] = 'GadgetDefinitionContentHandler';
+$wgNamespaceContentModels[NS_GADGET_DEFINITION] = 'GadgetDefinition';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';
 $wgSpecialPageGroups['Gadgets'] = 'wiki';

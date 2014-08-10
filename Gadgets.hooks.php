@@ -37,107 +37,6 @@ class GadgetsHooks {
 	}
 
 	/**
-	 * ArticleDeleteComplete hook handler.
-	 *
-	 * @param $article Article
-	 * @param $user User
-	 * @param $reason String: Deletion summary
-	 * @param $id Int: Page ID
-	 */
-	public static function gadgetDefinitionDelete( $article, $user, $reason, $id ) {
-		$id = self::getIDFromTitle( $article->getTitle() );
-		if ( !$id ) {
-			return true;
-		}
-
-		$repo = LocalGadgetRepo::singleton();
-		$repo->deleteGadget( $id );
-		// deleteGadget() may return an error if the Gadget didn't exist, but we don't care here
-		return true;
-	}
-
-	/**
-	 * ArticleSave hook handler.
-	 *
-	 * @param $article Article
-	 * @param $user User
-	 * @param &$text String: New page text
-	 * @param $summary String: Edit summary
-	 * @param $isMinor Bool: Whether this was a minor edit
-	 * @param $watchthis unused
-	 * @param $sectionanchor unused
-	 * @param $flags Int: Bitmap of flags passed to WikiPage::doEdit()
-	 * @param $status Status object
-	 */
-	public static function gadgetDefinitionSave( $article, $user, &$text, $summary, $isMinor,
-		$watchthis, $sectionanchor, $flags, $status )
-	{
-		$id = self::getIDFromTitle( $article->getTitle() );
-		if ( !$id ) {
-			return true;
-		}
-
-		// Validate $text as a gadget JSON blob
-		$properties = FormatJson::decode( $text, true );
-		$validation = Gadget::validatePropertiesArray( $properties, 'tolerateMissing' );
-		if ( !$validation->isOK() ) {
-			$status->merge( $validation );
-			return false;
-		}
-
-		// Normalize $text by round-tripping it through the Gadget class
-		$gadget = new Gadget( $id, LocalGadgetRepo::singleton(), $properties,
-			wfTimestampNow() );
-		$text = $gadget->getPrettyJSON();
-
-		return true;
-	}
-
-	/**
-	 * ArticleSaveComplete hook handler.
-	 *
-	 * @param $article Article
-	 * @param $user User
-	 * @param $text String: New page text
-	 * @param $summary String: Edit summary
-	 * @param $isMinor Bool: Whether this was a minor edit
-	 * @param $isWatch unused
-	 * @param $section unused
-	 * @param $flags: Int: Bitmap of flags passed to WikiPage::doEdit()
-	 * @param $revision: Revision object for the new revision
-	 */
-	public static function gadgetDefinitionSaveComplete( $article, $user, $text, $summary, $isMinor,
-			$isWatch, $section, $flags, $revision )
-	{
-		$id = self::getIDFromTitle( $article->getTitle() );
-		if ( !$id ) {
-			return true;
-		}
-
-		$prevTs = wfTimestampNow();
-		$thisTs = wfTimestampNow();
-		if ( $revision ) { // $revision is null for null edits
-			$thisTs = $revision->getTimestamp();
-			$previousRev = $revision->getPrevious();
-			if ( $previousRev ) { // $previousRev is null if there is no previous revision
-				$prevTs = $previousRev->getTimestamp();
-			}
-		}
-
-		// Update the database entry for this gadget
-		$repo = LocalGadgetRepo::singleton();
-		// TODO: Timestamp in the constructor is ugly
-		$gadget = new Gadget( $id, $repo, $text, $prevTs );
-		$repo->modifyGadget( $gadget, $thisTs );
-
-		// modifyGadget() returns a Status object with an error if there was a conflict,
-		// but we don't care. If a conflict occurred, that must be because a newer edit's
-		// DB update occurred before ours, in which case the right thing to do is to occu
-
-		return true;
-	}
-
-	/**
 	 * Update the database entry for a gadget if the description page is
 	 * newer than the database entry.
 	 * @param $title Title object
@@ -161,8 +60,10 @@ class GadgetsHooks {
 			return;
 		}
 
+		/** @var GadgetDefinitionContent $content */
+		$content = $rev->getContent();
 		// Update the database entry for this gadget
-		$newGadget = new Gadget( $id, $repo, $rev->getRawText(), $gadgetTS );
+		$newGadget = new Gadget( $id, $repo, $content->getJsonData(), $gadgetTS );
 		$repo->modifyGadget( $newGadget, $rev->getTimestamp() );
 
 		// modifyGadget() returns a Status object with an error if there was a conflict,
@@ -488,8 +389,8 @@ class GadgetsHooks {
 	}
 
 	public static function titleIsCssOrJsPage( $title, &$result ) {
-		if ( ( $title->getNamespace() == NS_GADGET && preg_match( '!\.(css|js)$!u', $title->getText() ) ) ||
-				$title->getNamespace() == NS_GADGET_DEFINITION
+		if ( $title->getNamespace() == NS_GADGET
+			&& preg_match( '!\.(css|js)$!u', $title->getText() )
 		) {
 			$result = true;
 		}
