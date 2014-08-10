@@ -132,7 +132,7 @@ class GadgetsHooks {
 		return true;
 	}
 
-	public static function cssOrJsPageMove( $oldTitle, $newTitle, $user, $pageid, $redirid ) {
+	public static function onTitleMoveComplete( $oldTitle, $newTitle, $user, $pageid, $redirid ) {
 		// Delete the old title from the list. Even if it still exists after the move,
 		// it'll be a redirect and we don't want those in there
 		GadgetPageList::delete( $oldTitle );
@@ -148,9 +148,10 @@ class GadgetsHooks {
 
 	/**
 	 * UserGetDefaultOptions hook handler
-	 * @param $defaultOptions Array of default preference keys and values
+	 * @param array $defaultOptions Array of default preference keys and values
+	 * @return bool
 	 */
-	public static function userGetDefaultOptions( &$defaultOptions ) {
+	public static function onUserGetDefaultOptions( array &$defaultOptions ) {
 		// Cache the stuff we're adding to $defaultOptions
 		// This is done because this hook function is called dozens of times during a typical request
 		// but we only want to hit the repo backend once
@@ -173,10 +174,11 @@ class GadgetsHooks {
 
 	/**
 	 * GetPreferences hook handler.
-	 * @param $user User
-	 * @param $preferences Array: Preference descriptions
+	 * @param User $user
+	 * @param array $preferences Preference descriptions
+	 * @return bool
 	 */
-	public static function getPreferences( $user, &$preferences ) {
+	public static function onGetPreferences( User $user, array &$preferences ) {
 		// Add tab for local gadgets
 		$preferences['gadgets-intro'] =
 			array(
@@ -258,14 +260,26 @@ class GadgetsHooks {
 		return true;
 	}
 
-	public static function parserTestTables( &$tables ) {
+	/**
+	 * @param array $tables
+	 * @return bool
+	 */
+	public static function onParserTestTables( array &$tables ) {
 		// These tables are listed here because we have on-save hooks
 		// that write to these tables
 		$tables[] = 'gadgets';
 		$tables[] = 'gadgetpagelist';
+
+		return true;
 	}
 
-	public static function preferencesGetLegend( $form, $key, &$legend ) {
+	/**
+	 * @param PreferencesForm $form
+	 * @param string $key
+	 * @param string $legend
+	 * @return bool
+	 */
+	public static function onPreferencesGetLegend( PreferencesForm $form, $key, &$legend ) {
 		$matches = null;
 		if ( preg_match( '/^(?:gadgetrepo|gadgetcategory(local)?-[A-Za-z0-9]*)-([A-Za-z0-9]*)$/', $key, $matches ) ) {
 			// Decode the category or repo ID
@@ -286,9 +300,10 @@ class GadgetsHooks {
 
 	/**
 	 * ResourceLoaderRegisterModules hook handler.
-	 * @param $resourceLoader ResourceLoader
+	 * @param ResourceLoader $resourceLoader
+	 * @return bool
 	 */
-	public static function registerModules( &$resourceLoader ) {
+	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
 		$gadgets = GadgetRepo::getAllGadgets();
 		foreach ( $gadgets as $gadget ) {
 			$resourceLoader->register(
@@ -301,9 +316,10 @@ class GadgetsHooks {
 
 	/**
 	 * BeforePageDisplay hook handler.
-	 * @param $out OutputPage
+	 * @param OutputPage $out
+	 * @return bool
 	 */
-	public static function beforePageDisplay( $out ) {
+	public static function onBeforePageDisplay( OutputPage $out ) {
 		wfProfileIn( __METHOD__ );
 
 		$user = $out->getUser();
@@ -329,10 +345,11 @@ class GadgetsHooks {
 
 	/**
 	 * MakeGlobalVariablesScript hook handler
-	 * @param $vars Array: Key/value pars for mw.config.set on this page.
-	 * @param $out OutputPage
+	 * @param array $vars Key/value pairs for mw.config.set on this page.
+	 * @param OutputPage $out
+	 * @return bool
 	 */
-	public static function makeGlobalVariablesScript( &$vars, $out ) {
+	public static function onMakeGlobalVariablesScript( array &$vars, OutputPage $out ) {
 		$title = $out->getTitle();
 		$user = $out->getUser();
 		// FIXME: This is not a nice way to do it. Maybe we should check for the presence
@@ -374,7 +391,11 @@ class GadgetsHooks {
 		return true;
 	}
 
-	public static function loadExtensionSchemaUpdates( $updater ) {
+	/**
+	 * @param DatabaseUpdater $updater
+	 * @return bool
+	 */
+	public static function onLoadExtensionSchemaUpdates( DatabaseUpdater $updater ) {
 		$dir = dirname( __FILE__ );
 		$updater->addExtensionUpdate( array( 'addtable', 'gadgets', "$dir/sql/gadgets.sql", true ) );
 		$updater->addExtensionUpdate( array( 'addtable', 'gadgetpagelist', "$dir/sql/patch-gadgetpagelist.sql", true ) );
@@ -383,7 +404,11 @@ class GadgetsHooks {
 		return true;
 	}
 
-	public static function canonicalNamespaces( &$list ) {
+	/**
+	 * @param array $list
+	 * @return bool
+	 */
+	public static function onCanonicalNamespaces( array &$list ) {
 		$list[NS_GADGET] = 'Gadget';
 		$list[NS_GADGET_TALK] = 'Gadget_talk';
 		$list[NS_GADGET_DEFINITION] = 'Gadget_definition';
@@ -391,8 +416,13 @@ class GadgetsHooks {
 		return true;
 	}
 
-	public static function titleIsCssOrJsPage( $title, &$result ) {
-		if ( $title->getNamespace() == NS_GADGET
+	/**
+	 * @param Title $title
+	 * @param bool $result
+	 * @return bool
+	 */
+	public static function onTitleIsCssOrJsPage( Title $title, &$result ) {
+		if ( $title->inNamespace( NS_GADGET )
 			&& preg_match( '!\.(css|js)$!u', $title->getText() )
 		) {
 			$result = true;
@@ -400,8 +430,13 @@ class GadgetsHooks {
 		return true;
 	}
 
-	public static function titleIsMovable( $title, &$result ) {
-		if ( $title->getNamespace() == NS_GADGET_DEFINITION ) {
+	/**
+	 * @param Title $title
+	 * @param $result
+	 * @return bool
+	 */
+	public static function onTitleIsMovable( Title $title, &$result ) {
+		if ( $title->inNamespace( NS_GADGET_DEFINITION ) ) {
 			$result = false;
 		}
 		return true;

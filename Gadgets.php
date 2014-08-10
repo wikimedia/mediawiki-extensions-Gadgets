@@ -102,24 +102,24 @@ $wgHooks['ArticleDeleteComplete'][]         = 'GadgetsHooks::cssJsPageDelete';
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetsHooks::cssOrJsPageSaveComplete';
 $wgHooks['ArticleUndelete'][]               = 'GadgetsHooks::gadgetDefinitionUndelete';
 $wgHooks['ArticleUndelete'][]               = 'GadgetsHooks::cssOrJsPageUndelete';
-$wgHooks['BeforePageDisplay'][]             = 'GadgetsHooks::beforePageDisplay';
-$wgHooks['MakeGlobalVariablesScript'][]     = 'GadgetsHooks::makeGlobalVariablesScript';
-$wgHooks['CanonicalNamespaces'][]           = 'GadgetsHooks::canonicalNamespaces';
-$wgHooks['GetPreferences'][]                = 'GadgetsHooks::getPreferences';
-$wgHooks['UserGetDefaultOptions'][]         = 'GadgetsHooks::userGetDefaultOptions';
-$wgHooks['LoadExtensionSchemaUpdates'][]    = 'GadgetsHooks::loadExtensionSchemaUpdates';
-$wgHooks['ParserTestTables'][]              = 'GadgetsHooks::parserTestTables';
-$wgHooks['PreferencesGetLegend'][]          = 'GadgetsHooks::preferencesGetLegend';
-$wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetsHooks::registerModules';
-$wgHooks['TitleIsCssOrJsPage'][]            = 'GadgetsHooks::titleIsCssOrJsPage';
-$wgHooks['TitleIsMovable'][]                = 'GadgetsHooks::titleIsMovable';
-$wgHooks['TitleMoveComplete'][]             = 'GadgetsHooks::cssOrJsPageMove';
+$wgHooks['BeforePageDisplay'][]             = 'GadgetsHooks::onBeforePageDisplay';
+$wgHooks['MakeGlobalVariablesScript'][]     = 'GadgetsHooks::onMakeGlobalVariablesScript';
+$wgHooks['CanonicalNamespaces'][]           = 'GadgetsHooks::onCanonicalNamespaces';
+$wgHooks['GetPreferences'][]                = 'GadgetsHooks::onGetPreferences';
+$wgHooks['UserGetDefaultOptions'][]         = 'GadgetsHooks::onUserGetDefaultOptions';
+$wgHooks['LoadExtensionSchemaUpdates'][]    = 'GadgetsHooks::onLoadExtensionSchemaUpdates';
+$wgHooks['ParserTestTables'][]              = 'GadgetsHooks::onParserTestTables';
+$wgHooks['PreferencesGetLegend'][]          = 'GadgetsHooks::onPreferencesGetLegend';
+$wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetsHooks::onResourceLoaderRegisterModules';
+$wgHooks['TitleIsCssOrJsPage'][]            = 'GadgetsHooks::onTitleIsCssOrJsPage';
+$wgHooks['TitleIsMovable'][]                = 'GadgetsHooks::onTitleIsMovable';
+$wgHooks['TitleMoveComplete'][]             = 'GadgetsHooks::onTitleMoveComplete';
 $wgHooks['getUserPermissionsErrors'][]      = 'GadgetsHooks::getUserPermissionsErrors';
 $wgHooks['UnitTestsList'][]                 = 'GadgetsHooks::onUnitTestsList';
 $wgExtensionFunctions[]                     = 'GadgetsHooks::addAPIMessageMapEntries';
 
 # Extension:CodeEditor
-$wgHooks['CodeEditorGetPageLanguage'][] = 'GadgetsHooks::onCodeEditorGetPageLanguage';
+$wgHooks['CodeEditorGetPageLanguage'][]     = 'GadgetsHooks::onCodeEditorGetPageLanguage';
 
 $dir = dirname( __FILE__ ) . '/';
 $wgMessagesDirs['Gadgets'] = __DIR__ . '/i18n';
