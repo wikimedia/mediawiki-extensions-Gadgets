@@ -441,4 +441,21 @@ class GadgetsHooks {
 			),
 		);
 	}
+
+	/**
+	 * If E:CodeEditor is installed, use it for Gadget definition pages
+	 * JavaScript/CSS pages in the Gadget namespace are automatically
+	 * taken care of
+	 *
+	 * @param Title $title
+	 * @param string $lang
+	 * @return bool
+	 */
+	public static function onCodeEditorGetPageLanguage( Title $title, &$lang ) {
+		if ( $title->inNamespace( NS_GADGET_DEFINITION ) ) {
+			$lang = 'javascript';
+		}
+
+		return true;
+	}
 }

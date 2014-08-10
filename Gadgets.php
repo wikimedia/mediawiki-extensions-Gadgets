@@ -118,6 +118,9 @@ $wgHooks['getUserPermissionsErrors'][]      = 'GadgetsHooks::getUserPermissionsE
 $wgHooks['UnitTestsList'][]                 = 'GadgetsHooks::onUnitTestsList';
 $wgExtensionFunctions[]                     = 'GadgetsHooks::addAPIMessageMapEntries';
 
+# Extension:CodeEditor
+$wgHooks['CodeEditorGetPageLanguage'][] = 'GadgetsHooks::onCodeEditorGetPageLanguage';
+
 $dir = dirname( __FILE__ ) . '/';
 $wgMessagesDirs['Gadgets'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Gadgets'] = $dir . 'Gadgets.i18n.php';
