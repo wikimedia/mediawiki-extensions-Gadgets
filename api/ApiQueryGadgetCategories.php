@@ -21,7 +21,8 @@
 
 class ApiQueryGadgetCategories extends ApiQueryBase {
 	private $props,
-		$neededNames;
+		$neededNames,
+		$language;
 
 	public function __construct( $query, $moduleName ) {
 		parent::__construct( $query, $moduleName, 'gc' );
@@ -55,7 +56,8 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 					}
 					if ( isset( $this->props['title'] ) ) {
 						if ( $category === '' ) {
-							$row['title'] = wfMessage( 'gadgets-uncategorized' )->plain();
+							$row['title'] = wfMessage( 'gadgets-uncategorized' )
+								->inLanguage( $this->language )->plain();
 						} else {
 							$row['title'] = $repo->getCategoryTitle( $category, $this->language );
 						}
@@ -73,6 +75,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 	}
 
 	public function getAllowedParams() {
+		global $wgLanguageCode;
 		return array(
 			'prop' => array(
 				ApiBase::PARAM_DFLT => 'name',
@@ -87,7 +90,10 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 				ApiBase::PARAM_TYPE => 'string',
 				ApiBase::PARAM_ISMULTI => true,
 			),
-			'language' => null,
+			'language' => array(
+				ApiBase::PARAM_TYPE => array_keys( Language::fetchLanguageNames() ),
+				ApiBase::PARAM_DFLT => $wgLanguageCode,
+			),
 		);
 	}
 
