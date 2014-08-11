@@ -148,9 +148,4 @@ class ApiQueryGadgetPages extends ApiQueryGeneratorBase {
 			'    api.php?action=query&list=gadgetpages&gpextension=css&gpnamespace=2&gpprefix=Catrope/',
 		);
 	}
-
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
-	}
-
 }
