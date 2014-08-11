@@ -44,7 +44,7 @@ abstract class GadgetRepo {
 	/**
 	 * Get the Database object for the database this repository is based on, or null if this
 	 * repository is not based on a database (but e.g. on a remote API)
-	 * @return Database object (slave connection) or null
+	 * @return DatabaseBase object (slave connection) or null
 	 */
 	abstract public function getDB();
 	
@@ -54,7 +54,7 @@ abstract class GadgetRepo {
 	 * from the Gadget object as well. If no Gadget exists by that id,
 	 * it will be created.
 	 * @param $gadget Gadget object
-	 * @param $timestamp Timestamp to record for this action, or current timestamp if null
+	 * @param string $timestamp Timestamp to record for this action, or current timestamp if null
 	 * @return Status
 	 */
 	abstract public function modifyGadget( Gadget $gadget, $timestamp = null );
@@ -90,7 +90,7 @@ abstract class GadgetRepo {
 	/**
 	 * Get all gadget repositories. Returns the LocalGadgetRepo singleton and any
 	 * repositories configured in $wgGadgetRepositories, in that order.
-	 * @return array of GadgetRepo objects
+	 * @return GadgetRepo[]
 	 */
 	public static function getAllRepos() {
 		global $wgGadgetRepositories;
@@ -105,7 +105,7 @@ abstract class GadgetRepo {
 	
 	/**
 	 * Get all gadgets from all repositories
-	 * @return array of Gadget objects
+	 * @return Gadget[]
 	 */
 	public static function getAllGadgets() {
 		$retval = array();

@@ -146,7 +146,7 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	
 	/**
 	 * Get the slave DB connection. Subclasses can override this to use a different DB
-	 * @return Database
+	 * @return DatabaseBase
 	 */
 	public function getDB() {
 		return wfGetDB( DB_SLAVE );
@@ -165,7 +165,7 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	 * If it doesn't exist, ucfirst( $category ) is returned.
 	 * 
 	 * @param $category string Category ID
-	 * @param $lang string\Language|null Language code or Language object. If null, $wgLang is used
+	 * @param $lang string|Language|null Language code or Language object. If null, $wgLang is used
 	 * @return string Localized category title
 	 */
 	public function getCategoryTitle( $category, $lang = null ) {
@@ -186,7 +186,7 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	
 	/**
 	 * Get the master DB connection. Subclasses can override this to use a different DB
-	 * @return Database
+	 * @return DatabaseBase
 	 */
 	protected function getMasterDB() {
 		return wfGetDB( DB_MASTER );
