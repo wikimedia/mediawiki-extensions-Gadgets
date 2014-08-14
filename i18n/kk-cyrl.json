@@ -10,7 +10,7 @@
 	"gadgets-title": "Гаджеттер",
 	"gadgets-pagetext": "Төменде қатысушылар өзінің [[Special:Preferences#mw-prefsection-gadgets|баптауларынан]] қоса алатын арнаулы гаджеттер тізімі берілген. [[MediaWiki:Gadgets-definition]] шолу беті арқылы әрбір гаджеттердің сипаттамасы мен әмірін анықтайтын жүйе хабар беттеріне жеңіл қатынай аласыз.",
 	"gadgets-uses": "Қолданыстағылар",
-	"gadgets-required-rights": "Келесі {{PLURAL:$2|құқықты|құқықтарды}} қажет етеді: $1",
+	"gadgets-required-rights": "Келесі {{PLURAL:$2|құқықты|құқықтарды}} қажет етеді: \n\n$1",
 	"gadgets-default": "Әркімге автоматты түрде қосылады.",
 	"gadgets-export": "Экспорттау",
 	"gadgets-export-title": "Гаджетті экспорттау",
