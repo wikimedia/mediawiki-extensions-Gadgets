@@ -24,7 +24,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 		$categories,
 		$neededIds,
 		$listAllowed,
-		$listEnabled;
+		$listEnabled,
+		$listShared,
+		$language;
 
 	public function __construct( $query, $moduleName ) {
 		parent::__construct( $query, $moduleName, 'ga' );
@@ -76,7 +78,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	}
 
 	/**
-	 * @param $gadgets array
+	 * @param Gadget[] $gadgets
 	 */
 	private function applyList( $gadgets ) {
 		$data = array();
@@ -125,9 +127,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 		$user = $this->getUser();
 
 		return ( !$this->listAllowed || $gadget->isAllowed( $user ) )
-			&& ( !$this->listEnabled || $gadget->isEnabled( $user ) )
+			&& ( !$this->listEnabled || $gadget->isEnabled( $user ) ) // @fixme Gadget::isEnabled is undefined
 			&& ( !$this->listShared || $gadget->isShared() )
-			&& ( !$this->categories || isset( $this->categories[$g->getCategory()] ) );
+			&& ( !$this->categories || isset( $this->categories[$gadget->getCategory()] ) );
 	}
 
 	private function setIndexedTagNameForMetadata( &$metadata ) {
@@ -223,9 +225,4 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'    api.php?action=query&list=gadgets&gaenabledonly',
 		);
 	}
-
-	public function getVersion() {
-		return __CLASS__ . ': $Id$';
-	}
-
 }
