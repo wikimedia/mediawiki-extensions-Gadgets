@@ -104,7 +104,7 @@ class Gadget {
 
 	/**
 	 * Check the validity of the given properties array
-	 * @param $properties Return value of FormatJson::decode( $blob, true )
+	 * @param $properties array Return value of FormatJson::decode( $blob, true )
 	 * @param $tolerateMissing bool If true, don't complain about missing keys
 	 * @return Status object with error message if applicable
 	 */
