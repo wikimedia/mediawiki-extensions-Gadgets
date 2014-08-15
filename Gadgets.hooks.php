@@ -390,7 +390,10 @@ class GadgetsHooks {
 	public static function registerModules( &$resourceLoader ) {
 		$gadgets = GadgetRepo::getAllGadgets();
 		foreach ( $gadgets as $gadget ) {
-			$resourceLoader->register( $gadget->getModuleName(), $gadget->getModule() );
+			$resourceLoader->register(
+				$gadget->getModuleName(),
+				array( 'object' => $gadget->getModule() )
+			);
 		}
 		return true;
 	}
