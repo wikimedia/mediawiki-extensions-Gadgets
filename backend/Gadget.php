@@ -196,6 +196,7 @@ class Gadget {
 	protected static function normalizeArray( &$array ) {
 		$array = array_unique( $array );
 		natsort( $array );
+		$array = array_values( $array );
 	}
 
 	/*** Public methods ***/
