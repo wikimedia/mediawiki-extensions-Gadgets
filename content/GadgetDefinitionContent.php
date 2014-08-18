@@ -36,13 +36,24 @@ class GadgetDefinitionContent extends JSONContent {
 		return $status->isOK();
 	}
 
+	public function getSettings() {
+		$json = $this->getJsonData();
+		return isset( $json['settings'] ) ? $json['settings'] : array();
+	}
+
+	public function getModuleData() {
+		$json = $this->getJsonData();
+		return isset( $json['module'] ) ? $json['module'] : array();
+	}
+
 	public function preSaveTransform( Title $title, User $user, ParserOptions $popts ) {
 		$gadget = new Gadget(
 			$title->getText(),
-			LocalGadgetRepo::singleton(),
-			$this->getJsonData(),
-			wfTimestampNow()
+			LocalGadgetRepo::singleton()
 		);
+		$gadget->setSettings( $this->getSettings() );
+		$gadget->setModuleData( $this->getModuleData() );
+
 		return new GadgetDefinitionContent( $gadget->getPrettyJSON() );
 	}
 

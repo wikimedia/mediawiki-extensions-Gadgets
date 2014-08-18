@@ -107,7 +107,11 @@ string' ),
 	public function testGetters() {
 		$data = self::getBoilerplateData();
 		$now = wfTimestampNow();
-		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data, $now );
+		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
+		$g->setSettings( $data['settings'] );
+		$g->setModuleData( $data['module'] );
+		$g->setTimestamp( $now );
+
 		$this->assertEquals( $data, $g->getMetadata(), 'getMetadata' );
 		$this->assertEquals( 'GadgetTest', $g->getId(), 'getId' );
 		$this->assertEquals( LocalGadgetRepo::singleton(), $g->getRepo(), 'getRepo' );
@@ -125,27 +129,33 @@ string' ),
 
 	public function testGetJSON() {
 		$data = self::getBoilerplateData();
-		$now = wfTimestampNow();
-		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data, $now );
+		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
+		$g->setSettings( $data['settings'] );
+		$g->setModuleData( $data['module'] );
 		$this->assertEquals( FormatJson::encode( $data ), $g->getJSON(), 'JSON round-trips cleanly' );
 
 		$oldData = $data;
 		$data['settings']['skins'] = array_reverse( $data['settings']['skins'] );
 		$data['module']['messages'] = array_reverse( $data['module']['messages'] );
-		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data, $now );
+		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
+		$g->setSettings( $data['settings'] );
+		$g->setModuleData( $data['module'] );
 		$this->assertEquals( FormatJson::encode( $oldData ), $g->getJSON(), 'getJSON returns sorted arrays' );
 
 		$data['module']['messages'][] = 'january';
 		$data['settings']['skins'][] = 'vector';
 		$data['settings']['skins'][] = 'vector';
-		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data, $now );
+		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
+		$g->setSettings( $data['settings'] );
+		$g->setModuleData( $data['module'] );
 		$this->assertEquals( FormatJson::encode( $oldData ), $g->getJSON(), 'getJSON removes duplicates from arrays' );
 	}
 
 	public function testMessageFunctions() {
 		global $wgLang;
 
-		$g = new Gadget( 'gadgettest1', LocalGadgetRepo::singleton(), Gadget::getPropertiesBase(), wfTimestampNow() );
+		$g = new Gadget( 'gadgettest1', LocalGadgetRepo::singleton() );
+
 		$this->assertEquals( 'gadget-gadgettest1-title', $g->getTitleMessageKey(), 'getTitleMessageKey' );
 		$this->assertEquals( 'gadget-gadgettest1-desc', $g->getDescriptionMessageKey(), 'getDescriptionMessageKey' );
 
@@ -166,7 +176,7 @@ string' ),
 		$this->assertEquals( wfMessage( 'gadget-gadgettest1-title' )->plain(), $g->getTitleMessage(), 'getTitleMessage for existing message' );
 		$this->assertEquals( wfMessage( 'gadget-gadgettest1-desc' )->plain(), $g->getDescriptionMessage(), 'getDescriptionMessage for existing message' );
 
-		$g = new Gadget( 'gadgettest2', LocalGadgetRepo::singleton(), Gadget::getPropertiesBase(), wfTimestampNow() );
+		$g = new Gadget( 'gadgettest2', LocalGadgetRepo::singleton() );
 		$titleMsgTitle = Title::newFromText( 'MediaWiki:gadget-gadgettest2-title' );
 		$descMsgTitle = Title::newFromText( 'MediaWiki:gadget-gadgettest2-desc' );
 		if ( !$titleMsgTitle->exists() ) {
@@ -186,7 +196,10 @@ string' ),
 
 	public function testGetModule() {
 		$data = self::getBoilerplateData();
-		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data, wfTimestampNow() );
+		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
+		$g->setSettings( $data['settings'] );
+		$g->setModuleData( $data['module'] );
+
 		$m = $g->getModule();
 		$pages = array(
 			'Gadget:Foo.js' => array( 'type' => 'script' ),
@@ -205,8 +218,14 @@ string' ),
 	public function testIsEnabledForUser() {
 		$defaultOff = self::buildPropertiesArray( array( 'settings' => array( 'default' => false ) ) );
 		$defaultOn = self::buildPropertiesArray( array( 'settings' => array( 'default' => true ) ) );
-		$gOff = new Gadget( 'GadgetTestOffByDefault', LocalGadgetRepo::singleton(), $defaultOff, wfTimestampNow() );
-		$gOn = new Gadget( 'GadgetTestOnByDefault', LocalGadgetRepo::singleton(), $defaultOn, wfTimestampNow() );
+		$gOff = new Gadget( 'GadgetTestOffByDefault', LocalGadgetRepo::singleton() );
+		$gOff->setSettings( $defaultOff['settings'] );
+		$gOff->setModuleData( $defaultOff['module'] );
+
+		$gOn = new Gadget( 'GadgetTestOnByDefault', LocalGadgetRepo::singleton() );
+		$gOn->setSettings( $defaultOn['settings'] );
+		$gOn->setModuleData( $defaultOn['module'] );
+
 		$user = new User;
 
 		$this->assertFalse( $gOff->isEnabledByDefault(), 'isEnabledByDefault for gOff' );
@@ -227,7 +246,10 @@ string' ),
 
 	public function testIsAllowed() {
 		$data = self::buildPropertiesArray( array( 'settings' => array( 'rights' => array( 'foo', 'bar' ) ) ) );
-		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data, wfTimestampNow() );
+		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
+		$g->setSettings( $data['settings'] );
+		$g->setModuleData( $data['module'] );
+
 		$user = new User;
 
 		// This is dirty, but I don't know how I would otherwise test this
@@ -243,7 +265,9 @@ string' ),
 
 	public function testSupportsSkin() {
 		$data = self::buildPropertiesArray( array( 'settings' => array( 'skins' => array( 'monobook', 'modern' ) ) ) );
-		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data, wfTimestampNow() );
+		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
+		$g->setSettings( $data['settings'] );
+		$g->setModuleData( $data['module'] );
 
 		$this->assertTrue( $g->supportsSkin( 'monobook' ), 'supportsSkin() returns true for skins enumerated in skins list (1)' );
 		$this->assertTrue( $g->supportsSkin( 'modern' ), 'supportsSkin() returns true for skins enumerated in skins list (2)' );
@@ -251,14 +275,20 @@ string' ),
 		$this->assertFalse( $g->supportsSkin( 'viosrtubulviurbhujvwkctuljvilubhyjvca' ), 'supportsSkin() returns false for nonexistent skin' );
 
 		$data2 = self::buildPropertiesArray( array( 'settings' => array( 'skins' => true ) ) );
-		$g2 = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data2, wfTimestampNow() );
+		$g2 = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
+		$g2->setSettings( $data2['settings'] );
+		$g2->setModuleData( $data2['module'] );
+
 		$this->assertTrue( $g2->supportsSkin( 'monobook' ), 'supportsSkin() returns true for all skins if skins=true (1)' );
 		$this->assertTrue( $g2->supportsSkin( 'modern' ), 'supportsSkin() returns true for all skins if skins=true (2)' );
 		$this->assertTrue( $g2->supportsSkin( 'vector' ), 'supportsSkin() returns true for all skins if skins=true (3)' );
 		$this->assertTrue( $g2->supportsSkin( 'viosrtubulviurbhujvwkctuljvilubhyjvca' ), 'supportsSkin() returns true for nonexistent skin if skins=true' );
 
 		$data3 = self::buildPropertiesArray( array( 'settings' => array( 'skins' => array() ) ) );
-		$g3 = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data3, wfTimestampNow() );
+		$g3 = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
+		$g3->setSettings( $data3['settings'] );
+		$g3->setModuleData( $data3['module'] );
+
 		$this->assertFalse( $g3->supportsSkin( 'monobook' ), 'supportsSkin() returns false for all skins if skins list is empty (1)' );
 		$this->assertFalse( $g3->supportsSkin( 'modern' ), 'supportsSkin() returns false for all skins if skins list is empty (2)' );
 		$this->assertFalse( $g3->supportsSkin( 'vector' ), 'supportsSkin() returns false for all skins if skins list is empty (3)' );

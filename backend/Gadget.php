@@ -205,45 +205,44 @@ class Gadget {
 	 * Constructor
 	 * @param $id string Unique id of the gadget
 	 * @param $repo GadgetRepo that this gadget came from
-	 * @param $properties mixed Array or JSON blob (string) with settings and module info
-	 * @param $timestamp string Timestamp (TS_MW) this gadget's metadata was last touched
 	 * @throws MWException if $id or $properties is invalid
 	 */
-	public function __construct( $id, $repo, $properties, $timestamp ) {
+	public function __construct( $id, $repo ) {
 		if ( !self::isValidGadgetID( $id ) ) {
 			throw new MWException( 'Invalid gadget ID: ' . $id );
 		}
 
-		if ( is_string( $properties ) ) {
-			// TODO: Allowing both means one can potentially nest JSON
-			$properties = FormatJson::decode( $properties, true );
-		}
-
-		if ( !is_array( $properties ) ) {
-			throw new MWException( '$properties must be an array or a valid JSON string' );
-		}
-
 		$this->id = $id;
 		$this->repo = $repo;
-		$this->timestamp = $timestamp;
+		$this->timestamp = wfTimestampNow(); // placeholder
+	}
 
-		// Set any missing fields to their default values
-		if ( !isset( $properties['settings'] ) ) {
-			$properties['settings'] = array();
-		}
-		if ( !isset( $properties['module'] ) ) {
-			$properties['module'] = array();
-		}
+	public function setSettings( array $settings ) {
 		$base = self::getPropertiesBase();
-		$this->settings = $properties['settings'] + $base['settings'];
-		$this->moduleData = $properties['module'] + $base['module'];
-
+		$this->settings = $settings + $base['settings'];
 		self::normalizeArray( $this->settings['rights'] );
 		if ( is_array( $this->settings['skins'] ) ) {
 			self::normalizeArray( $this->settings['skins'] );
 		}
+	}
+
+	public function setModuleData( array $moduleData ) {
+		$base = self::getPropertiesBase();
+		$this->moduleData = $moduleData + $base['module'];
 		self::normalizeArray( $this->moduleData['dependencies'] );
 		self::normalizeArray( $this->moduleData['messages'] );
+	}
+
+	public function setTimestamp( $timestamp ) {
+		$this->timestamp = $timestamp;
+	}
+
+	public function save( $timestamp = null ) {
+		if ( $timestamp === null ) {
+			$timestamp = wfTimestampNow();
+		}
+		$this->repo->modifyGadget( $this, $timestamp );
+		$this->timestamp = $timestamp;
 	}
 
 	/**

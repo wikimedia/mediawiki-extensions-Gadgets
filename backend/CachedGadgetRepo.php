@@ -95,12 +95,22 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 		return array_keys( $this->data );
 	}
 
+	/**
+	 * @param string $id
+	 * @return Gadget|null
+	 */
 	public function getGadget( $id ) {
 		$data = $this->maybeLoadDataFor( $id );
 		if ( !$data ) {
 			return null;
 		}
-		return new Gadget( $id, $this, $data['json'], $data['timestamp']  );
+		$gadget = new Gadget( $id, $this );
+		$json = wfObjectToArray( FormatJson::decode( $data['json'] ) );
+		$gadget->setSettings( $json['settings'] );
+		$gadget->setModuleData( $json['module'] );
+		$gadget->setTimestamp( $data['timestamp'] );
+
+		return $gadget;
 	}
 
 	/*** Private methods ***/

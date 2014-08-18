@@ -63,8 +63,9 @@ class GadgetsHooks {
 		/** @var GadgetDefinitionContent $content */
 		$content = $rev->getContent();
 		// Update the database entry for this gadget
-		$newGadget = new Gadget( $id, $repo, $content->getJsonData(), $gadgetTS );
-		$repo->modifyGadget( $newGadget, $rev->getTimestamp() );
+		$gadget->setSettings( $content->getSettings() );
+		$gadget->setModuleData( $content->getModuleData() );
+		$gadget->save( $rev->getTimestamp() );
 
 		// modifyGadget() returns a Status object with an error if there was a conflict,
 		// but we do't care, see similar comment in articleSaveComplete()

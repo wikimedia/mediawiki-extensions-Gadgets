@@ -31,8 +31,9 @@ class GadgetDefinitionSecondaryDataUpdate extends DataUpdate {
 	}
 
 	public function doUpdate() {
-		$repo = LocalGadgetRepo::singleton();
-		$gadget = new Gadget( $this->id, $repo, $this->new->getJsonData(), wfTimestampNow() );
-		$repo->modifyGadget( $gadget );
+		$gadget = new Gadget( $this->id, LocalGadgetRepo::singleton() );
+		$gadget->setSettings( $this->new->getSettings() );
+		$gadget->setModuleData( $this->new->getModuleData() );
+		$gadget->save();
 	}
 }
