@@ -467,7 +467,7 @@ class Gadget {
 	 * @param $user User object
 	 * @return bool
 	 */
-	public function isEnabledForUser( $user ) {
+	public function isEnabledForUser( User $user ) {
 		$id = $this->getId();
 		return (bool)$user->getOption( "gadget-$id", $this->isEnabledByDefault() );
 	}
@@ -478,13 +478,13 @@ class Gadget {
 	 * @param $user User: user to check against
 	 * @return Boolean
 	 */
-	public function isAllowed( $user ) {
+	public function isAllowed( User $user ) {
 		$required = $this->getRequiredRights();
 		$numRequired = count( $required );
 		if ( $numRequired === 0 ) {
-			// Short circuit to prevent calling $user->getRights()
+			// Short circuit
 			return true;
 		}
-		return count( array_intersect( $required, $user->getRights() ) ) == $numRequired;
+		return call_user_func_array( array( $user, 'isAllowedAll' ), $required );
 	}
 }
