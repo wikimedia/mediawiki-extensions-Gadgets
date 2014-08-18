@@ -5,6 +5,15 @@
  * @group Database
  */
 class GadgetTest extends MediaWikiTestCase {
+
+	/**
+	 * @covers Gadget::__construct
+	 */
+	public function testConstructor() {
+		$gadget = new Gadget( 'unittest', new LocalGadgetRepo );
+		$this->assertInstanceOf( 'Gadget', $gadget );
+	}
+
 	/**
 	 * @dataProvider provideIsValidGadgetID
 	 */
