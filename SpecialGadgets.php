@@ -396,11 +396,10 @@ class SpecialGadgets extends SpecialPage {
 		}
 		$exportDisplayList .= '</ul>';
 
-		global $wgScript;
 		$form =
 			Html::openElement( 'form', array(
 				'method' => 'get',
-				'action' => $wgScript,
+				'action' => wfScript(),
 				'class' => 'mw-gadgets-exportform'
 			) )
 			. '<fieldset><p>'
