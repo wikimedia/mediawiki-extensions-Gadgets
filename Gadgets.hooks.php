@@ -218,9 +218,10 @@ class GadgetsHooks {
 			ksort( $byCategory );
 			foreach ( $byCategory as $category => $gadgets ) {
 				$encCategory = bin2hex( $category );
+				/** @var Gadget $gadget */
 				foreach ( $gadgets as $gadget ) {
 					$id = $gadget->getId();
-					if ( $repo->isLocal() ) {
+					if ( $gadget->isLocal() ) {
 						// For local gadgets we have all the information
 						$title = htmlspecialchars( $gadget->getTitleMessage() );
 						$description = $gadget->getDescriptionMessage(); // Is parsed, doesn't need escaping

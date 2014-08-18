@@ -152,10 +152,6 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 		return wfGetDB( DB_SLAVE );
 	}
 	
-	public function isLocal() {
-		return true;
-	}
-	
 	/*** Public methods ***/
 	
 	/**

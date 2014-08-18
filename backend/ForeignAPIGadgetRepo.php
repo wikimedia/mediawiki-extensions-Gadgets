@@ -146,9 +146,4 @@ class ForeignAPIGadgetRepo extends CachedGadgetRepo {
 	public function deleteGadget( $id ) {
 		return Status::newFatal( 'gadget-manager-readonly-repository' );
 	}
-	
-	public function isLocal() {
-		return false;
-	}
-	
 }
