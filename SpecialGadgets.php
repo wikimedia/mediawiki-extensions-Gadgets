@@ -17,6 +17,8 @@ class SpecialGadgets extends SpecialPage {
 		'action' => 'view',
 	);
 
+	private $par;
+
 	public function __construct() {
 		parent::__construct( 'Gadgets' );
 	}
