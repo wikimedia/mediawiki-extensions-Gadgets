@@ -122,7 +122,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 	 */
 	protected function parseGadgets( $wikitext ) {
 		// Remove comments
-		$wikitext = preg_replace( '/<!--.*-->/s', '', $wikitext );
+		$wikitext = preg_replace( '/<!--.*?-->/s', '', $wikitext );
 		// Split by line
 		$lines = preg_split( '/(\r\n|\r|\n)+/', $wikitext );
 
