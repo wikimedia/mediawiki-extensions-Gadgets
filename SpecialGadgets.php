@@ -364,14 +364,12 @@ class SpecialGadgets extends SpecialPage {
 			$exportTitles[] = Title::makeTitleSafe( NS_GADGET, $style );
 		}
 
-		$gadgetModule = $gadget->getModule();
-
 		// Module messages in NS_MEDIAWIKI
-		foreach( $gadgetModule->getMessages() as $message ) {
+		foreach( $gadget->getMessages() as $message ) {
 			$message = Title::makeTitleSafe( NS_MEDIAWIKI, $message );
 			// Add this page and its subpages (for translations)
 			$exportTitles = array_merge( $exportTitles,
-				$message,
+				$message, // @fixme this should be an array?
 				$message->getSubpages()
 			);
 		}

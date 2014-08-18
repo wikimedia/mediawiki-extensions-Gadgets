@@ -282,8 +282,8 @@ class Gadget {
 	}
 
 	/**
-	 * Get the name of the ResourceLoader source for this gadget's module
-	 * @return string
+	 * Get the GadgetRepo this Gadget belongs to
+	 * @return GadgetRepo
 	 */
 	public function getRepo() {
 		return $this->repo;
@@ -425,11 +425,11 @@ class Gadget {
 	}
 
 	/**
-	 * Get the ResourceLoader module for this gadget, if available.
-	 * @return ResourceLoaderModule object
+	 * Returns a ResourceLoaderWikiModule-style array of pages
+	 *
+	 * @return array
 	 */
-	public function getModule() {
-		// Build $pages
+	public function getPages() {
 		$pages = array();
 		foreach ( $this->moduleData['scripts'] as $script ) {
 			$pages["Gadget:$script"] = array( 'type' => 'script' );
@@ -438,14 +438,20 @@ class Gadget {
 			$pages["Gadget:$style"] = array( 'type' => 'style' );
 		}
 
+		return $pages;
+	}
+
+	/**
+	 * Get the ResourceLoader module for this gadget, if available.
+	 *
+	 * This method really shouldn't be called unless there's a
+	 * good reason for it.
+	 *
+	 * @return GadgetResourceLoaderModule
+	 */
+	public function getModule() {
 		return new GadgetResourceLoaderModule(
-			$pages,
-			(array)$this->moduleData['dependencies'],
-			(array)$this->moduleData['messages'],
-			$this->repo->getSource(),
-			$this->moduleData['position'],
-			$this->timestamp,
-			$this->repo->getDB()
+			array( 'gadget' => $this )
 		);
 	}
 
@@ -467,6 +473,14 @@ class Gadget {
 
 	public function getDependencies() {
 		return $this->moduleData['dependencies'];
+	}
+
+	public function getMessages() {
+		return $this->moduleData['messages'];
+	}
+
+	public function getPosition() {
+		return $this->moduleData['position'];
 	}
 
 	/*** Public methods ***/

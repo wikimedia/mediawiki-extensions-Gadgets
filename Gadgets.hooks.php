@@ -309,7 +309,10 @@ class GadgetsHooks {
 		foreach ( $gadgets as $gadget ) {
 			$resourceLoader->register(
 				$gadget->getModuleName(),
-				array( 'object' => $gadget->getModule() )
+				array(
+					'class' => 'GadgetResourceLoaderModule',
+					'gadget' => $gadget
+				)
 			);
 		}
 		return true;
