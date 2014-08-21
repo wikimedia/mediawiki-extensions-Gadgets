@@ -117,7 +117,7 @@ class SpecialGadgets extends SpecialPage {
 		);
 
 		$extra[] = Linker::link(
-			$this->getTitle( "{$gadget->getId()}/export" ),
+			$this->getPageTitle( "{$gadget->getId()}/export" ),
 			$this->msg( 'gadgets-gadget-export' )->escaped(),
 			array(
 				'title' => $this->msg( 'gadgets-gadget-export-tooltip', $gadget->getId() )->plain(),
@@ -464,7 +464,7 @@ class SpecialGadgets extends SpecialPage {
 		// Would be nice if we wouldn't have to duplicate
 		// this from Skin::subPageSubtitle. Slightly modified though
 		$subpages = '';
-		$ptext = $this->getTitle( $this->par )->getPrefixedText();
+		$ptext = $this->getPageTitle( $this->par )->getPrefixedText();
 		if ( preg_match( '/\//', $ptext ) ) {
 			$links = explode( '/', $ptext );
 			array_pop( $links );
