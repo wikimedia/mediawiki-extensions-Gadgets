@@ -50,10 +50,6 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 		return $this->getMasterDB();
 	}
 	
-	public function isLocal() {
-		return false;
-	}
-	
 	/*** Overridden protected methods from LocalGadgetRepo ***/
 	protected function getMasterDB() {
 		if ( $this->db === null ) {

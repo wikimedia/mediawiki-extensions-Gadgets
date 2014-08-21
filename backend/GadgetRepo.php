@@ -67,12 +67,6 @@ abstract class GadgetRepo {
 	 */
 	abstract public function deleteGadget( $id );
 	
-	/**
-	 * Whether this repository is the local repository
-	 * @return boolean
-	 */
-	abstract public function isLocal();
-	
 	/**** Public methods ****/
 	
 	public function getGadgetsByCategory() {
@@ -109,7 +103,7 @@ abstract class GadgetRepo {
 	 */
 	public static function getAllGadgets() {
 		$retval = array();
-		$repos = GadgetRepo::getAllRepos();
+		$repos = self::getAllRepos();
 		foreach ( $repos as $repo ) {
 			$gadgets = $repo->getGadgetIds();
 			foreach ( $gadgets as $id ) {

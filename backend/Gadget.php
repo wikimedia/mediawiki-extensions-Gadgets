@@ -352,6 +352,15 @@ class Gadget {
 	}
 
 	/**
+	 * Whether this gadget is a local one
+	 *
+	 * @return bool
+	 */
+	public function isLocal() {
+		return get_class( $this->getRepo() ) === 'LocalGadgetRepo';
+	}
+
+	/**
 	 * Get the name of the category this gadget is in.
 	 * @return string Category key or empty string if not in any category
 	 */
