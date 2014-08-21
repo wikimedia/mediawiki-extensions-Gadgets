@@ -109,18 +109,18 @@ class SpecialGadgets extends SpecialPage {
 
 		$extra[] = Linker::link(
 			$this->getPageTitle( $gadget->getId() ),
-			wfMessage( 'gadgets-gadget-permalink' )->escaped(),
+			$this->msg( 'gadgets-gadget-permalink' )->escaped(),
 			array(
-				'title' => wfMessage( 'gadgets-gadget-permalink-tooltip', $gadget->getId() )->plain(),
+				'title' => $this->msg( 'gadgets-gadget-permalink-tooltip', $gadget->getId() )->plain(),
 				'class' => 'mw-gadgets-permalink',
 			)
 		);
 
 		$extra[] = Linker::link(
 			$this->getTitle( "{$gadget->getId()}/export" ),
-			wfMessage( 'gadgets-gadget-export' )->escaped(),
+			$this->msg( 'gadgets-gadget-export' )->escaped(),
 			array(
-				'title' => wfMessage( 'gadgets-gadget-export-tooltip', $gadget->getId() )->plain(),
+				'title' => $this->msg( 'gadgets-gadget-export-tooltip', $gadget->getId() )->plain(),
 				'class' => 'mw-gadgets-export',
 			)
 
@@ -132,9 +132,9 @@ class SpecialGadgets extends SpecialPage {
 			if ( $user->isAllowed( 'gadgets-definition-edit' ) ) {
 				$extra[] = Linker::link(
 					$gadgetDefinitionTitle,
-					wfMessage( 'gadgets-gadget-modify' )->escaped(),
+					$this->msg( 'gadgets-gadget-modify' )->escaped(),
 					array(
-						'title' => wfMessage( 'gadgets-gadget-modify-tooltip', $gadget->getId() )->plain(),
+						'title' => $this->msg( 'gadgets-gadget-modify-tooltip', $gadget->getId() )->plain(),
 						'class' => 'mw-gadgets-modify',
 					),
 					array( 'action' => 'edit' )
@@ -144,9 +144,9 @@ class SpecialGadgets extends SpecialPage {
 			if ( $user->isAllowed( 'gadgets-definition-delete' ) ) {
 				$extra[] = Linker::link(
 					$gadgetDefinitionTitle,
-					wfMessage( 'gadgets-gadget-delete' )->escaped(),
+					$this->msg( 'gadgets-gadget-delete' )->escaped(),
 					array(
-						'title' => wfMessage( 'gadgets-gadget-delete-tooltip', $gadget->getId() )->plain(),
+						'title' => $this->msg( 'gadgets-gadget-delete-tooltip', $gadget->getId() )->plain(),
 						'class' => 'mw-gadgets-delete',
 					),
 					array( 'action' => 'delete' )
@@ -161,8 +161,8 @@ class SpecialGadgets extends SpecialPage {
 			if ( $t ) {
 				$editLink = Linker::link(
 					$t,
-					wfMessage( 'gadgets-message-edit' )->escaped(),
-					array( 'title' => wfMessage( 'gadgets-message-edit-tooltip', $t->getPrefixedText() )->plain() ),
+					$this->msg( 'gadgets-message-edit' )->escaped(),
+					array( 'title' => $this->msg( 'gadgets-message-edit-tooltip', $t->getPrefixedText() )->plain() ),
 					array( 'action' => 'edit' )
 				);
 				$editTitle = '<span class="mw-gadgets-messagelink">' . $editLink . '</span>';
@@ -172,8 +172,8 @@ class SpecialGadgets extends SpecialPage {
 			if ( $t ) {
 				$editLink = Linker::link(
 					$t,
-					wfMessage( $t->isKnown() ? 'gadgets-desc-edit' : 'gadgets-desc-add' )->escaped(),
-					array( 'title' => wfMessage( $t->isKnown() ? 'gadgets-desc-edit-tooltip' : 'gadgets-desc-add-tooltip', $t->getPrefixedText() )->plain() ),
+					$this->msg( $t->isKnown() ? 'gadgets-desc-edit' : 'gadgets-desc-add' )->escaped(),
+					array( 'title' => $this->msg( $t->isKnown() ? 'gadgets-desc-edit-tooltip' : 'gadgets-desc-add-tooltip', $t->getPrefixedText() )->plain() ),
 					array( 'action' => 'edit' )
 				);
 				$editDescription = '<span class="mw-gadgets-messagelink">' . $editLink . '</span>';
@@ -211,7 +211,7 @@ class SpecialGadgets extends SpecialPage {
 		$userlang = $this->getLanguage();
 
 		$this->setHeaders();
-		$out->setPagetitle( wfMessage( 'gadgets-title' ) );
+		$out->setPagetitle( $this->msg( 'gadgets-title' ) );
 
 		$repo = LocalGadgetRepo::singleton();
 		$gadgetsByCategory = $repo->getGadgetsByCategory();
@@ -229,7 +229,7 @@ class SpecialGadgets extends SpecialPage {
 			$noGadgetsMsgHtml = Html::element( 'p',
 				array(
 					'class' => 'mw-gadgets-nogadgets'
-				), wfMessage( 'gadgets-nogadgets' )->plain()
+				), $this->msg( 'gadgets-nogadgets' )->plain()
 			);
 			$this->getOutput()->addHtml( $noGadgetsMsgHtml );
 			return;
@@ -268,7 +268,7 @@ class SpecialGadgets extends SpecialPage {
 			if ( $category !== '' ) {
 				$categoryTitle = $repo->getCategoryTitle( $category );
 			} else {
-				$categoryTitle = wfMessage( 'gadgets-uncategorized' )->plain();
+				$categoryTitle = $this->msg( 'gadgets-uncategorized' )->plain();
 			}
 
 			$editLink = '';
@@ -277,8 +277,8 @@ class SpecialGadgets extends SpecialPage {
 				if ( $t ) {
 					$editLink = Linker::link(
 						$t,
-						wfMessage( 'gadgets-message-edit' )->escaped(),
-						array( 'title' => wfMessage( 'gadgets-message-edit-tooltip', $t->getPrefixedText() ) ),
+						$this->msg( 'gadgets-message-edit' )->escaped(),
+						array( 'title' => $this->msg( 'gadgets-message-edit-tooltip', $t->getPrefixedText() ) ),
 						array( 'action' => 'edit' )
 					);
 					$editLink = '<span class="mw-gadgets-messagelink">' . $editLink . '</span>';
@@ -329,13 +329,13 @@ class SpecialGadgets extends SpecialPage {
 		foreach( $rights as $right ) {
 			$msg[] = Html::element( 'code', array(
 					'style' => 'white-space:nowrap',
-					'title' => wfMessage( "right-{$right}" )->text()
+					'title' => $this->msg( "right-{$right}" )->text()
 				), $right
 			);
 		}
 
 		$this->setHeaders();
-		$out->setPagetitle( wfMessage( 'gadgets-export-title', $gadget->getTitleMessage() ) );
+		$out->setPagetitle( $this->msg( 'gadgets-export-title', $gadget->getTitleMessage() ) );
 
 		// Make a list of all pagenames to be exported:
 		$exportTitles = array();
@@ -352,7 +352,7 @@ class SpecialGadgets extends SpecialPage {
 			$titleMessage,
 			$titleMessage->getSubpages(),
 			$descriptionMessage,
-			$desciptionMessage->getSubpages()
+			$descriptionMessage->getSubpages()
 		);
 
 		// Module script and styles in NS_GADGET
@@ -396,15 +396,14 @@ class SpecialGadgets extends SpecialPage {
 		}
 		$exportDisplayList .= '</ul>';
 
-		global $wgScript;
 		$form =
 			Html::openElement( 'form', array(
 				'method' => 'get',
-				'action' => $wgScript,
+				'action' => wfScript(),
 				'class' => 'mw-gadgets-exportform'
 			) )
 			. '<fieldset><p>'
-			. wfMessage( 'gadgets-export-text' )
+			. $this->msg( 'gadgets-export-text' )
 				->rawParams(
 					htmlspecialchars( $gadget->getId() ),
 					'', // $2 is no longer used. To avoid breaking backwards compatibility, skipped here and
@@ -418,7 +417,7 @@ class SpecialGadgets extends SpecialPage {
 			. Html::hidden( 'pages', $exportList )
 			. Html::hidden( 'wpDownload', '1' )
 			. Html::hidden( 'templates', '1' )
-			. Xml::submitButton( wfMessage( 'gadgets-export-download' )->text() )
+			. Xml::submitButton( $this->msg( 'gadgets-export-download' )->text() )
 			. '</fieldset></form>';
 
 		$out->addHTML( $form );
@@ -436,7 +435,7 @@ class SpecialGadgets extends SpecialPage {
 		$user = $this->getUser();
 
 		$this->setHeaders();
-		$out->setPagetitle( wfMessage( 'gadgets-gadget-title', $gadget->getTitleMessage() ) );
+		$out->setPagetitle( $this->msg( 'gadgets-gadget-title', $gadget->getTitleMessage() ) );
 
 		// Only load the gadget manager module if needed
 		if ( $user->isAllowed( 'gadgets-definition-delete' )
@@ -483,7 +482,7 @@ class SpecialGadgets extends SpecialPage {
 
 					$c++;
 					if ( $c > 1 ) {
-						$subpages .= wfMessage( 'pipe-separator' )->escaped();
+						$subpages .= $this->msg( 'pipe-separator' )->escaped();
 					} else {
 						// First iteration
 						$subpages .= '&lt; ';
