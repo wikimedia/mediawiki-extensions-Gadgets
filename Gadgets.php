@@ -190,12 +190,11 @@ $wgResourceModules += array(
 	// Method to interact with API
 	'ext.gadgets.api' => $gadResourceTemplate + array(
 		'scripts' => 'ext.gadgets.api.js',
-		// Can't depend on user.tokens yet due to a bug in ResourceLoader (bug 30914)
 		'dependencies' => array(
 			'ext.gadgets.init',
 			'mediawiki.Title',
 			'mediawiki.util',
-			#'user.tokens',
+			'user.tokens',
 		),
 	),
 	// jQuery plugin
