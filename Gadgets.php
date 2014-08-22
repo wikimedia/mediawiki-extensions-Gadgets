@@ -88,13 +88,11 @@ $wgAvailableRights = array_merge( $wgAvailableRights, array(
 	'gadgets-definition-delete'
 ) );
 
-// Example of user groups
-// Copy to your LocalSettings.php to use these
-// or grant the rights to an existing group (e.g. sysops)
-#$wgGroupPermissions['gadgetartists']['gadgets-edit'] = true;
-#$wgGroupPermissions['gadgetmanagers']['gadgets-definition-create'] = true;
-#$wgGroupPermissions['gadgetmanagers']['gadgets-definition-edit'] = true;
-#$wgGroupPermissions['gadgetmanagers']['gadgets-definition-delete'] = true;
+// Give all gadgets-* userrights to sysops by default
+$wgGroupPermissions['sysop']['gadgets-edit'] = true;
+$wgGroupPermissions['sysop']['gadgets-definition-create'] = true;
+$wgGroupPermissions['sysop']['gadgets-definition-edit'] = true;
+$wgGroupPermissions['sysop']['gadgets-definition-delete'] = true;
 
 $wgHooks['AfterImportPage'][]               = 'GadgetsHooks::gadgetDefinitionImport';
 $wgHooks['AfterImportPage'][]               = 'GadgetsHooks::cssOrJsPageImport';
