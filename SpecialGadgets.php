@@ -349,10 +349,10 @@ class SpecialGadgets extends SpecialPage {
 		$descriptionMessage = Title::makeTitleSafe( NS_MEDIAWIKI, $gadget->getDescriptionMessageKey() );
 		// Add these pages and their subpages (for translations)
 		$exportTitles = array_merge( $exportTitles,
-			$titleMessage,
-			$titleMessage->getSubpages(),
-			$descriptionMessage,
-			$descriptionMessage->getSubpages()
+			array( $titleMessage ),
+			iterator_to_array( $titleMessage->getSubpages() ),
+			array( $descriptionMessage ),
+			iterator_to_array( $descriptionMessage->getSubpages() )
 		);
 
 		// Module script and styles in NS_GADGET
@@ -369,8 +369,8 @@ class SpecialGadgets extends SpecialPage {
 			$message = Title::makeTitleSafe( NS_MEDIAWIKI, $message );
 			// Add this page and its subpages (for translations)
 			$exportTitles = array_merge( $exportTitles,
-				$message, // @fixme this should be an array?
-				$message->getSubpages()
+				array( $message ),
+				iterator_to_array( $message->getSubpages() )
 			);
 		}
 
