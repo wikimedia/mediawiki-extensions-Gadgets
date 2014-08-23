@@ -56,12 +56,10 @@ class ForeignAPIGadgetRepo extends CachedGadgetRepo {
 	
 	protected function getCacheKey( $id ) {
 		// No access to the foreign wiki's memc, so cache locally
-		// This uses the same cache keys as ForeignDBGadgetRepo but that's fine,
-		// source names should be unique.
 		if ( $id === null ) {
-			return wfMemcKey( 'gadgets', 'foreignrepoids', $this->source );
+			return wfMemcKey( 'gadgets', 'foreignapirepoids', $this->source );
 		} else {
-			return wfMemcKey( 'gadgets', 'foreignrepodata', $this->source, $id );
+			return wfMemcKey( 'gadgets', 'foreignapirepodata', $this->source, $id );
 		}
 	}
 	
