@@ -234,7 +234,7 @@ class GadgetsHooks {
 						$sectionCat = $category === '' ? '' : "/gadgetcategorylocal-$encRepoSource-$encCategory";
 						$preferences["gadget-$id"] = array(
 							'type' => 'toggle',
-							'label' => $text,
+							'label-raw' => $text,
 							'section' => "gadgets$sectionCat",
 							'default' => $gadget->isEnabledForUser( $user ),
 							'name' => 'gadgetpref-' . bin2hex( $id ),
