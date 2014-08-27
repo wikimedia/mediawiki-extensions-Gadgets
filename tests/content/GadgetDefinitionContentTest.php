@@ -24,9 +24,9 @@ class GadgetDefinitionContentTest extends MediaWikiLangTestCase {
 	 * @covers Gadget::validatePropertiesArray
 	 * @dataProvider provideIsValid
 	 */
-	public function testIsValid( $text, $result, $desc ) {
+	public function testIsValid( $text, $expected, $desc ) {
 		$content = new GadgetDefinitionContent( $text );
-		$this->assertEquals( $result, $content->isValid(), $desc );
+		$this->assertEquals( $expected, $content->isValid(), $desc );
 	}
 
 	/**
