@@ -54,6 +54,7 @@ $wgExtensionCredits['other'][] = array(
  * $wgGadgetRepositories[] = array(
  * 	'class' => 'ForeignAPIGadgetRepo',
  * 	'source' => 'mediawikiwiki',
+ * 	'apiUrl' => 'https://www.mediawiki.org/w/api.php',
  * 	'cacheTimeout' => 600, // Expiry for locally cached data, in seconds (optional; default is 600)
  * );
  */
@@ -137,6 +138,7 @@ $wgAutoloadClasses['Gadget'] = $dir . 'backend/Gadget.php';
 $wgAutoloadClasses['GadgetsHooks'] = $dir . 'Gadgets.hooks.php';
 $wgAutoloadClasses['GadgetPageList'] = $dir . 'backend/GadgetPageList.php';
 $wgAutoloadClasses['GadgetRepo'] = $dir . 'backend/GadgetRepo.php';
+$wgAutoloadClasses['GadgetRepoFactory'] = $dir . 'backend/GadgetRepoFactory.php';
 $wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'backend/GadgetResourceLoaderModule.php';
 $wgAutoloadClasses['LocalGadgetRepo'] = $dir . 'backend/LocalGadgetRepo.php';
 $wgAutoloadClasses['MigrateGadgets'] = $dir . 'migrateGadgets.php';

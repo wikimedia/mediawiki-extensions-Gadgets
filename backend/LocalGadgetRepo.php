@@ -4,18 +4,22 @@
  */
 class LocalGadgetRepo extends CachedGadgetRepo {
 
+	/**
+	 * Override default constructor to not require
+	 * any arguments
+	 */
+	public function __construct() {
+	}
+
 	/*** Public static methods ***/
 
 	/**
 	 * Get the instance of this class
+	 * @todo figure out whether we should deprecate this or not
 	 * @return LocalGadgetRepo
 	 */
 	public static function singleton() {
-		static $instance = null;
-		if ( $instance === null ) {
-			$instance = new self;
-		}
-		return $instance;
+		return GadgetRepoFactory::getDefaultInstance()->getLocalRepo();
 	}
 
 	/*** Protected methods inherited from CachedGadgetRepo ***/

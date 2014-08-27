@@ -212,7 +212,7 @@ class GadgetsHooks {
 		// (HTMLForm will barf on anything that's not a valid HTML ID, section IDs will
 		// get confused when dashes or slashes are added), we encode these things as hex
 		// so we know for sure they don't contain weird characters and are easy to decode
-		$repos = GadgetRepo::getAllRepos();
+		$repos = GadgetRepoFactory::getDefaultInstance()->getAllRepos();
 		foreach ( $repos as $repo ) {
 			$encRepoSource = bin2hex( $repo->getSource() );
 			$byCategory = $repo->getGadgetsByCategory();
@@ -306,7 +306,7 @@ class GadgetsHooks {
 	 * @return bool
 	 */
 	public static function onResourceLoaderRegisterModules( ResourceLoader &$resourceLoader ) {
-		$gadgets = GadgetRepo::getAllGadgets();
+		$gadgets = GadgetRepoFactory::getDefaultInstance()->getAllGadgets();
 		foreach ( $gadgets as $gadget ) {
 			$resourceLoader->register(
 				$gadget->getModuleName(),
@@ -328,7 +328,7 @@ class GadgetsHooks {
 		wfProfileIn( __METHOD__ );
 
 		$user = $out->getUser();
-		$gadgets = GadgetRepo::getAllGadgets();
+		$gadgets = GadgetRepoFactory::getDefaultInstance()->getAllGadgets();
 		foreach ( $gadgets as $gadget ) {
 			if ( $gadget->isEnabledForUser( $user ) &&
 				$gadget->isAllowed( $user ) &&
@@ -363,7 +363,7 @@ class GadgetsHooks {
 			global $wgGadgetEnableSharing;
 
 			// Pass the source data for each source that is used by a repository
-			$repos = GadgetRepo::getAllRepos();
+			$repos = GadgetRepoFactory::getDefaultInstance()->getAllRepos();
 			$sources = $out->getResourceLoader()->getSources();
 			$repoData = array();
 			foreach ( $repos as $repo ) {
