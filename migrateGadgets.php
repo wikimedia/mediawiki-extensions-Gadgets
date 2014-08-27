@@ -13,7 +13,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 		parent::__construct();
 		$this->mDescription = "Migrates old-style Gadgets defined in MediaWiki:Gadgets-definition to the new format";
 	}
-	
+
 	protected function getUpdateKey() {
 		return '2.0 migration to gadgets table';
 	}
@@ -30,7 +30,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 		$wgUser->setName( 'Maintenance script' );
 
 		$this->output( "Migrating old-style Gadgets from [[MediaWiki:Gadgets-definition]] ...\n" );
-		
+
 		$g = wfMessage( 'gadgets-definition' )->inContentLanguage();
 		if ( !$g->exists() ) {
 			$this->output( "No Gadget definition page found.\n" );
@@ -39,7 +39,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 		$wikitext = $g->plain();
 		$gadgets = $this->parseGadgets( $wikitext );
 		$this->output( count( $gadgets ) . " gadget definitions found.\n" );
-		
+
 		$notResourceLoaded = array();
 		$notMoved = $notCreated = array();
 		$categories = array();
@@ -51,7 +51,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 			if ( $gadget['settings']['category'] !== '' ) {
 				$categories[$gadget['settings']['category']] = true;
 			}
-			
+
 			$this->output( "Converting $id ...\n" );
 			$moves = array(
 				"MediaWiki:Gadget-$id" => "MediaWiki:Gadget-$id-desc",
@@ -64,7 +64,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 			$notMoved = array_merge( $notMoved, $this->processMoves( $moves,
 				wfMessage( 'gadgets-migrate-movereason-gadget', $id )->inContentLanguage()->plain()
 			) );
-			
+
 			$result = $this->createGadgetPage( $id, $gadget );
 			if ( $result === true ) {
 				$this->output( "Created [[Gadget definition:$id]]\n" );
@@ -73,7 +73,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 				$notCreated[] = $id;
 			}
 		}
-		
+
 		$this->output( "Moving category title messages ...\n" );
 		$categoryMoves = array();
 		foreach ( $categories as $category => $unused ) {
@@ -82,7 +82,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 		$notMoved = array_merge( $notMoved, $this->processMoves( $categoryMoves,
 			wfMessage( 'gadgets-migrate-movereason-category' )->inContentLanguage()->plain()
 		) );
-		
+
 		$noErrors = count( $notMoved ) == 0 && count( $notCreated ) == 0;
 		if ( count( $notMoved ) ) {
 			$this->output( "There were ERRORS moving " . count( $notMoved ) . " pages.\n" );
@@ -101,18 +101,18 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 		if ( $noErrors ) {
 			$this->output( "Gadgets migration finished without errors.\n" );
 		}
-		
+
 		if ( count( $notResourceLoaded ) ) {
 			$this->output( "WARNING: The following gadgets will now be loaded through ResourceLoader, but were not marked as supporting ResourceLoader. They may now be broken.\n" );
 			foreach ( $notResourceLoaded as $id ) {
 				$this->output( "* $id\n" );
 			}
 		}
-		
+
 		$this->output( "All done migrating gadgets.\n" );
 		return $noErrors;
 	}
-	
+
 	/**
 	 * Parse an old-style MediaWiki:Gadgets-definition page. This basically contains
 	 * the important parts of loadStructuredList() from the old Gadgets code.
@@ -145,7 +145,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 		}
 		return $gadgets;
 	}
-	
+
 	/**
 	 * Parse an old-style gadget definition. This is pretty much newFromDefinition() from the old Gadgets code,
 	 * with small modifications to make it output an array structure.
@@ -170,11 +170,11 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 			),
 			'resourceLoaded' => false
 		);
-		
+
 		if ( !preg_match( '/^\*+ *([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)(\s*\[.*?\])?\s*((\|[^|]*)+)\s*$/', $definition, $m ) ) {
 			return false;
 		}
-		
+
 		$name = trim( str_replace( ' ', '_', $m[1] ) );
 		$options = trim( $m[2], ' []' );
 
@@ -217,10 +217,10 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 
 		return array( $name => $gadget );
 	}
-	
+
 	protected function processMoves( $moves, $reason ) {
 		$notMoved = array();
-		
+
 		// Preprocessing step: add subpages
 		$movesWithSubpages = array();
 		foreach ( $moves as $from => $to ) {
@@ -239,7 +239,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 				$movesWithSubpages[$fromSub] = $toSub;
 			}
 		}
-		
+
 		foreach ( $movesWithSubpages as $from => $to ) {
 			$result = $this->moveGadgetPage( $from, $to, $reason );
 			if ( $result === true ) {
@@ -253,7 +253,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 		}
 		return $notMoved;
 	}
-	
+
 	protected function moveGadgetPage( $from, $to, $reason ) {
 		$fromTitle = Title::newFromText( $from );
 		$toTitle = Title::newFromText( $to );
@@ -266,7 +266,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 		if ( !$toTitle ) {
 			return "Invalid title: `$to'";
 		}
-		
+
 		$errors = $fromTitle->moveTo( $toTitle, /* $auth = */ false,
 			$reason,
 			/* $createRedirect = */ false
@@ -285,7 +285,7 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 				implode( "\n", $errorMsgs ) . "\n";
 		}
 	}
-	
+
 	protected function createGadgetPage( $id, $gadget ) {
 		$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $id );
 		if ( !$title ) {

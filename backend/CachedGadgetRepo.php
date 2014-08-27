@@ -6,40 +6,40 @@
  */
 abstract class CachedGadgetRepo extends GadgetRepo {
 	/*** Protected members ***/
-	
+
 	/** Cache for EXISTING gadgets. Nonexistent gadgets must not be cached here,
 	 * use $missCache instead. Values may be null, in which case only the gadget's
 	 * existence is cached and the data must still be retrieved from memc or the DB.
-	 * 
+	 *
 	 * array( id => null|array( 'json' => JSON string, 'timestamp' => timestamp ) )
 	 */
 	protected $data = array();
-	
+
 	/** Cache for gadget IDs that have been queried and found to be nonexistent.
-	 * 
+	 *
 	 * array( id => ignored )
 	 */
 	protected $missCache = array();
-	
+
 	/** If true, $data is assumed to contain all existing gadget IDs.
 	 */
 	protected $idsLoaded = false;
-	
+
 	/*** Abstract methods ***/
-	
+
 	/**
 	 * Load the full data for all gadgets.
 	 * @return array( id => array( 'json' => JSON string, 'timestamp' => timestamp ) )
 	 */
 	abstract protected function loadAllData();
-	
+
 	/**
 	 * Load the full data for one gadget.
 	 * @param $id string Gadget ID
 	 * @return array( 'json' => JSON string, 'timestamp' => timestamp ) or empty array if the gadget doesn't exist.
 	 */
 	abstract protected function loadDataFor( $id );
-	
+
 	/**
 	 * Get the memc key for caching the data for a given gadget, or for
 	 * caching the gadget IDs list.
@@ -47,16 +47,16 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 	 * @return string Memc key including wiki prefix, i.e. the return value of wfMemcKey() or wfForeignMemcKey()
 	 */
 	abstract protected function getCacheKey( $id );
-	
+
 	/**
 	 * Get the expiry time to use for caching a certain piece of data
 	 * @param $id See getCacheKey()
 	 * @return int Expiry time for memc, in seconds. If the expiry time is zero, the data is cached forever.
 	 */
 	abstract protected function getCacheExpiry( $id );
-	
+
 	/*** Protected methods ***/
-	
+
 	/**
 	 * Update the cache to account for the fact that a gadget has been
 	 * added, modified or deleted.
@@ -81,20 +81,20 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 			// Store nonexistence in memc as an empty array
 			$toCache = array();
 		}
-		
+
 		// Write to memc
 		$wgMemc->set( $this->getCacheKey( $id ), $toCache, $this->getCacheExpiry( $id ) );
 		// Clear the gadget names array in memc so it'll be regenerated later
 		$wgMemc->delete( $this->getCacheKey( null ) );
 	}
-	
+
 	/*** Public methods inherited from GadgetRepo ***/
-	
+
 	public function getGadgetIds() {
 		$this->maybeLoadIDs();
 		return array_keys( $this->data );
 	}
-	
+
 	public function getGadget( $id ) {
 		$data = $this->maybeLoadDataFor( $id );
 		if ( !$data ) {
@@ -102,9 +102,9 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 		}
 		return new Gadget( $id, $this, $data['json'], $data['timestamp']  );
 	}
-	
+
 	/*** Private methods ***/
-	
+
 	/**
 	 * Populate the keys in $this->data. Values are only populated if loadAllData() is called,
 	 * when loading from memc, all values are set to null and are lazy-loaded in loadDataFor().
@@ -115,7 +115,7 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 		if ( $this->idsLoaded ) {
 			return array_keys( $this->data );
 		}
-		
+
 		// Try memc
 		$key = $this->getCacheKey( null );
 		$cached = $wgMemc->get( $key );
@@ -126,7 +126,7 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 			$this->idsLoaded = true;
 			return array_keys( $this->data );
 		}
-		
+
 		$this->data = $this->loadAllData();
 		$arrayKeys = array_keys( $this->data );
 		// For memc, prepare an array with the IDs as keys but with each value set to null
@@ -137,16 +137,16 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 			$toCache = array();
 		}
 		$wgMemc->set( $key, $toCache, $this->getCacheExpiry( null ) );
-		
+
 		// Now that we have the data for every gadget, let's refresh those cache entries too
 		foreach ( $this->data as $id => $gadgetData ) {
 			$wgMemc->set( $this->getCacheKey( $id ), $gadgetData, $this->getCacheExpiry( $id ) );
 		}
-		
+
 		$this->idsLoaded = true;
 		return $arrayKeys;
 	}
-	
+
 	/**
 	 * Populate a given Gadget's data in $this->data . Tries memc first, then falls back to loadDataFor()
 	 * @param $id string Gadget ID
@@ -169,7 +169,7 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 			$this->missCache[$id] = true;
 			return array();
 		}
-		
+
 		// Try cache
 		$key = $this->getCacheKey( $id );
 		$cached = $wgMemc->get( $key );
@@ -184,7 +184,7 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 			}
 			return $cached;
 		}
-		
+
 		$data = $this->loadDataFor( $id );
 		if ( !$data ) {
 			// Gadget doesn't exist
@@ -198,7 +198,7 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 		}
 		// Save to memc
 		$wgMemc->set( $key, $data, $this->getCacheExpiry( $id ) );
-		
+
 		return $data;
 	}
 }

@@ -47,12 +47,12 @@ class GadgetsTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue( $g->supportsResourceLoader() );
 		$this->assertEquals( array( 'jquery.ui' ), $g->getDependencies() );
 	}
-	
+
 	function testPreferences() {
 		// FIXME this test is broken
 		$this->markTestIncomplete( 'Broken for now' );
 		return;
-		
+
 		global $wgUser, $wgOut, $wgTitle;
 
 		// This test makes call to the parser which requires valid OutputPage

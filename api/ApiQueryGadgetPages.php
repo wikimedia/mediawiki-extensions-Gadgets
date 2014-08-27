@@ -47,7 +47,7 @@ class ApiQueryGadgetPages extends ApiQueryGeneratorBase {
 	private function run( $resultPageSet = null ) {
 		$params = $this->extractRequestParams();
 		$db = $this->getDB();
-		
+
 		$this->addTables( 'gadgetpagelist' );
 		$this->addFields( array( 'gpl_namespace', 'gpl_title' ) );
 		$this->addWhereFld( 'gpl_extension', $params['extension'] );
@@ -60,7 +60,7 @@ class ApiQueryGadgetPages extends ApiQueryGeneratorBase {
 		$dir = ( $params['dir'] == 'descending' ? 'older' : 'newer' );
 		$from = $params['from'] !== null ? $this->titlePartToKey( $params['from'] ) : null;
 		$this->addWhereRange( 'gpl_title', $dir, $from, null );
-		
+
 		$res = $this->select( __METHOD__ );
 
 		$count = 0;
@@ -72,7 +72,7 @@ class ApiQueryGadgetPages extends ApiQueryGeneratorBase {
 				$this->setContinueEnumParameter( 'from', $this->keyToTitle( $row->gpl_title ) );
 				break;
 			}
-			
+
 			$title = Title::makeTitle( $row->gpl_namespace, $row->gpl_title );
 			if ( is_null( $resultPageSet ) ) {
 				$vals = array( 'pagename' => $title->getText() );

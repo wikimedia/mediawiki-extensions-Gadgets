@@ -34,7 +34,7 @@ class GadgetTest extends MediaWikiTestCase {
 		$this->assertEquals( $expectSuccess, $status->isGood(), $desc );
 		$this->assertEquals( $expectedErrors, $status->getErrorsArray(), $desc );
 	}
-	
+
 	// Helper function because array_merge_recursive() doesn't work well for overriding arrays with other types
 	private static function buildPropertiesArray( $props ) {
 		$retval = Gadget::getPropertiesBase();
@@ -49,40 +49,40 @@ class GadgetTest extends MediaWikiTestCase {
 		}
 		return $retval;
 	}
-	
+
 	public function provideValidatePropertiesArray() {
 		return array(
 			array( null, false, array( array( 'gadgets-validate-invalidjson' ) ), 'only arrays are accepted (testing null)' ),
 			array( 'foo', false, array( array( 'gadgets-validate-invalidjson' ) ), 'only arrays are accepted (testing string)' ),
-			array( '{"settings": {"rights":[], "default":false,"hidden":false,"shared":true,"category":"foo"},"module":{"scripts":["Foo.js", 
-"Foo2.js"],"styles":["Foo.css"],"dependencies":[],"messages":["sessionfailure"]}}', false, array( array( 'gadgets-validate-invalidjson' ) ), 'only arrays are accepted (testing valid JSON string)' 
+			array( '{"settings": {"rights":[], "default":false,"hidden":false,"shared":true,"category":"foo"},"module":{"scripts":["Foo.js",
+"Foo2.js"],"styles":["Foo.css"],"dependencies":[],"messages":["sessionfailure"]}}', false, array( array( 'gadgets-validate-invalidjson' ) ), 'only arrays are accepted (testing valid JSON string)'
 ),
 			array( self::buildPropertiesArray( array() ), true, array(), 'base array is accepted' ),
-			array( self::buildPropertiesArray( array( 'settings' => 'blah' ) ), false, array( array( 'gadgets-validate-wrongtype', 'settings', 'array', 'string' ) ), 'settings set to a 
+			array( self::buildPropertiesArray( array( 'settings' => 'blah' ) ), false, array( array( 'gadgets-validate-wrongtype', 'settings', 'array', 'string' ) ), 'settings set to a
 string' ),
-			array( self::buildPropertiesArray( array( 'settings' => array( 'rights' => 'protect' ) ) ), false, array( array( 'gadgets-validate-wrongtype', 'settings.rights', 'array', 
+			array( self::buildPropertiesArray( array( 'settings' => array( 'rights' => 'protect' ) ) ), false, array( array( 'gadgets-validate-wrongtype', 'settings.rights', 'array',
 'string' ) ), 'rights set to a string' ),
-			array( self::buildPropertiesArray( array( 'settings' => array( 'default' => 42 ) ) ), false, array( array( 'gadgets-validate-wrongtype', 'settings.default', 'boolean', 
+			array( self::buildPropertiesArray( array( 'settings' => array( 'default' => 42 ) ) ), false, array( array( 'gadgets-validate-wrongtype', 'settings.default', 'boolean',
 'integer' ) ), 'default set to an integer' ),
-			array( self::buildPropertiesArray( array( 'settings' => array( 'hidden' => 3.14 ) ) ), false, array( array( 'gadgets-validate-wrongtype', 'settings.hidden', 'boolean', 
+			array( self::buildPropertiesArray( array( 'settings' => array( 'hidden' => 3.14 ) ) ), false, array( array( 'gadgets-validate-wrongtype', 'settings.hidden', 'boolean',
 'double' ) ), 'hidden set to a double' ),
-			array( self::buildPropertiesArray( array( 'settings' => array( 'shared' => array( 'foo' => 'bar' ) ) ) ), false, array( array( 'gadgets-validate-wrongtype', 
+			array( self::buildPropertiesArray( array( 'settings' => array( 'shared' => array( 'foo' => 'bar' ) ) ) ), false, array( array( 'gadgets-validate-wrongtype',
 'settings.shared', 'boolean', 'array' ) ), 'shared set to an array' ),
-			array( self::buildPropertiesArray( array( 'settings' => array( 'category' => null ) ) ), false, array( array( 'gadgets-validate-wrongtype', 'settings.category', 'string', 
+			array( self::buildPropertiesArray( array( 'settings' => array( 'category' => null ) ) ), false, array( array( 'gadgets-validate-wrongtype', 'settings.category', 'string',
 'NULL' ) ), 'category set to null' ),
-			array( self::buildPropertiesArray( array( 'module' => 'blah' ) ), false, array( array( 'gadgets-validate-wrongtype', 'module', 'array', 'string' ) ), 'module set to a 
+			array( self::buildPropertiesArray( array( 'module' => 'blah' ) ), false, array( array( 'gadgets-validate-wrongtype', 'module', 'array', 'string' ) ), 'module set to a
 string' ),
-			array( self::buildPropertiesArray( array( 'module' => array( 'scripts' => null ) ) ), false, array( array( 'gadgets-validate-wrongtype', 'module.scripts', 'array', 'NULL' ) 
+			array( self::buildPropertiesArray( array( 'module' => array( 'scripts' => null ) ) ), false, array( array( 'gadgets-validate-wrongtype', 'module.scripts', 'array', 'NULL' )
 ), 'scripts set to NULL' ),
-			array( self::buildPropertiesArray( array( 'module' => array( 'styles' => (object)array( 'Foo.css' ) ) ) ), false, array( array( 'gadgets-validate-wrongtype', 
+			array( self::buildPropertiesArray( array( 'module' => array( 'styles' => (object)array( 'Foo.css' ) ) ) ), false, array( array( 'gadgets-validate-wrongtype',
 'module.styles', 'array', 'object' ) ), 'styles set to an object' ),
-			array( self::buildPropertiesArray( array( 'module' => array( 'messages' => array( 'foo', 'bar', 1, 'baz' ) ) ) ), false, array( array( 'gadgets-validate-wrongtype', 
+			array( self::buildPropertiesArray( array( 'module' => array( 'messages' => array( 'foo', 'bar', 1, 'baz' ) ) ) ), false, array( array( 'gadgets-validate-wrongtype',
 'module.messages[2]', 'string', 'integer' ) ), 'messages[2] set to an integer' ),
-			array( self::buildPropertiesArray( array( 'module' => array( 'dependencies' => array( null ) ) ) ), false, array( array( 'gadgets-validate-wrongtype', 
+			array( self::buildPropertiesArray( array( 'module' => array( 'dependencies' => array( null ) ) ) ), false, array( array( 'gadgets-validate-wrongtype',
 'module.dependencies[0]', 'string', 'NULL' ) ), 'dependencies[0] set to null' ),
 		);
 	}
-	
+
 	public static function getBoilerplateData() {
 		// Should be static or const or something, but PHP won't let us do that cause PHP sucks
 		return array(
@@ -103,7 +103,7 @@ string' ),
 			)
 		);
 	}
-	
+
 	public function testGetters() {
 		$data = self::getBoilerplateData();
 		$now = wfTimestampNow();
@@ -141,20 +141,20 @@ string' ),
 		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data, $now );
 		$this->assertEquals( FormatJson::encode( $oldData ), $g->getJSON(), 'getJSON removes duplicates from arrays' );
 	}
-	
+
 	public function testMessageFunctions() {
 		global $wgLang;
-		
+
 		$g = new Gadget( 'gadgettest1', LocalGadgetRepo::singleton(), Gadget::getPropertiesBase(), wfTimestampNow() );
 		$this->assertEquals( 'gadget-gadgettest1-title', $g->getTitleMessageKey(), 'getTitleMessageKey' );
 		$this->assertEquals( 'gadget-gadgettest1-desc', $g->getDescriptionMessageKey(), 'getDescriptionMessageKey' );
-		
+
 		// Make sure the gadget-gadgettest1-{title,desc} messages exist
 		// In the test environment, the MessageCache is disabled because
 		// $wgUseDatabaseMessages is set to false. Temporarily enable it
 		// so we can write messages to the DB and use them.
 		MessageCache::singleton()->enable();
-		
+
 		$titleMsgTitle = Title::newFromText( 'MediaWiki:gadget-gadgettest1-title' );
 		$descMsgTitle = Title::newFromText( 'MediaWiki:gadget-gadgettest1-desc' );
 		if ( !$titleMsgTitle->exists() ) {
@@ -165,7 +165,7 @@ string' ),
 		}
 		$this->assertEquals( wfMessage( 'gadget-gadgettest1-title' )->plain(), $g->getTitleMessage(), 'getTitleMessage for existing message' );
 		$this->assertEquals( wfMessage( 'gadget-gadgettest1-desc' )->plain(), $g->getDescriptionMessage(), 'getDescriptionMessage for existing message' );
-		
+
 		$g = new Gadget( 'gadgettest2', LocalGadgetRepo::singleton(), Gadget::getPropertiesBase(), wfTimestampNow() );
 		$titleMsgTitle = Title::newFromText( 'MediaWiki:gadget-gadgettest2-title' );
 		$descMsgTitle = Title::newFromText( 'MediaWiki:gadget-gadgettest2-desc' );
@@ -179,11 +179,11 @@ string' ),
 		}
 		$this->assertEquals( $wgLang->ucfirst( 'gadgettest2' ), $g->getTitleMessage(), 'getTitleMessage for nonexistent message' );
 		$this->assertEquals( '', $g->getDescriptionMessage(), 'getDescriptionMessage for nonexistent message' );
-		
+
 		MessageCache::singleton()->disable();
-		
+
 	}
-	
+
 	public function testGetModule() {
 		$data = self::getBoilerplateData();
 		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data, wfTimestampNow() );
@@ -193,7 +193,7 @@ string' ),
 			'Gadget:Bar.js' => array( 'type' => 'script' ),
 			'Gadget:Foo.css' => array( 'type' => 'style' ),
 		);
-		
+
 		$this->assertEquals( 'ext.gadget.GadgetTest', $g->getModuleName(), 'getModuleName' );
 		$this->assertEquals( $g->getDependencies(), $m->getDependencies(), 'getDependencies' );
 		$this->assertEquals( $data['module']['messages'], $m->getMessages(), 'getMessages' );
@@ -201,35 +201,35 @@ string' ),
 		$this->assertEquals( LocalGadgetRepo::singleton()->getSource(), $m->getSource(), 'getSource' );
 		$this->assertEquals( $pages, $m->getPages( ResourceLoaderContext::newDummyContext() ), 'getPages' );
 	}
-	
+
 	public function testIsEnabledForUser() {
 		$defaultOff = self::buildPropertiesArray( array( 'settings' => array( 'default' => false ) ) );
 		$defaultOn = self::buildPropertiesArray( array( 'settings' => array( 'default' => true ) ) );
 		$gOff = new Gadget( 'GadgetTestOffByDefault', LocalGadgetRepo::singleton(), $defaultOff, wfTimestampNow() );
 		$gOn = new Gadget( 'GadgetTestOnByDefault', LocalGadgetRepo::singleton(), $defaultOn, wfTimestampNow() );
 		$user = new User;
-		
+
 		$this->assertFalse( $gOff->isEnabledByDefault(), 'isEnabledByDefault for gOff' );
 		$this->assertTrue( $gOn->isEnabledByDefault(), 'isEnabledByDefault for gOn' );
 		$this->assertFalse( $gOff->isEnabledForUser( $user ), 'isEnabledForUser for gOff with default pref' );
 		$this->assertTrue( $gOn->isEnabledForUser( $user ), 'isEnabledForUser for gOn with default pref' );
-		
+
 		$user->setOption( 'gadget-GadgetTestOffByDefault', 0 );
 		$this->assertFalse( $gOff->isEnabledForUser( $user ), 'isEnabledForUser for gOff with pref off' );
 		$user->setOption( 'gadget-GadgetTestOffByDefault', 1 );
 		$this->assertTrue( $gOff->isEnabledForUser( $user ), 'isEnabledForUser for gOff with pref on' );
-		
+
 		$user->setOption( 'gadget-GadgetTestOnByDefault', 0 );
 		$this->assertFalse( $gOn->isEnabledForUser( $user ), 'isEnabledForUser for gOn with pref off' );
 		$user->setOption( 'gadget-GadgetTestOnByDefault', 1 );
 		$this->assertTrue( $gOn->isEnabledForUser( $user ), 'isEnabledForUser for gOn with pref on' );
 	}
-	
+
 	public function testIsAllowed() {
 		$data = self::buildPropertiesArray( array( 'settings' => array( 'rights' => array( 'foo', 'bar' ) ) ) );
 		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data, wfTimestampNow() );
 		$user = new User;
-		
+
 		// This is dirty, but I don't know how I would otherwise test this
 		$user->mRights = array();
 		$this->assertFalse( $g->isAllowed( $user ), 'user has no rights' );
@@ -240,23 +240,23 @@ string' ),
 		$user->mRights = array( 'foo', 'bar' );
 		$this->assertTrue( $g->isAllowed( $user ), 'user has both foo and bar rights' );
 	}
-	
+
 	public function testSupportsSkin() {
 		$data = self::buildPropertiesArray( array( 'settings' => array( 'skins' => array( 'monobook', 'modern' ) ) ) );
 		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data, wfTimestampNow() );
-		
+
 		$this->assertTrue( $g->supportsSkin( 'monobook' ), 'supportsSkin() returns true for skins enumerated in skins list (1)' );
 		$this->assertTrue( $g->supportsSkin( 'modern' ), 'supportsSkin() returns true for skins enumerated in skins list (2)' );
 		$this->assertFalse( $g->supportsSkin( 'vector' ), 'supportsSkin() returns false for skin not listed in skins list' );
 		$this->assertFalse( $g->supportsSkin( 'viosrtubulviurbhujvwkctuljvilubhyjvca' ), 'supportsSkin() returns false for nonexistent skin' );
-		
+
 		$data2 = self::buildPropertiesArray( array( 'settings' => array( 'skins' => true ) ) );
 		$g2 = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data2, wfTimestampNow() );
 		$this->assertTrue( $g2->supportsSkin( 'monobook' ), 'supportsSkin() returns true for all skins if skins=true (1)' );
 		$this->assertTrue( $g2->supportsSkin( 'modern' ), 'supportsSkin() returns true for all skins if skins=true (2)' );
 		$this->assertTrue( $g2->supportsSkin( 'vector' ), 'supportsSkin() returns true for all skins if skins=true (3)' );
 		$this->assertTrue( $g2->supportsSkin( 'viosrtubulviurbhujvwkctuljvilubhyjvca' ), 'supportsSkin() returns true for nonexistent skin if skins=true' );
-		
+
 		$data3 = self::buildPropertiesArray( array( 'settings' => array( 'skins' => array() ) ) );
 		$g3 = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton(), $data3, wfTimestampNow() );
 		$this->assertFalse( $g3->supportsSkin( 'monobook' ), 'supportsSkin() returns false for all skins if skins list is empty (1)' );

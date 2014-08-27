@@ -45,7 +45,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 		$data = array();
 		$result = $this->getResult();
 		$repo = LocalGadgetRepo::singleton();
-		
+
 		$gadgetsByCategory = $repo->getGadgetsByCategory();
 		if ( $gadgetsByCategory ) {
 			foreach ( $gadgetsByCategory as $category => $gadgets ) {

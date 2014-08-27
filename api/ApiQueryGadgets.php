@@ -58,7 +58,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	private function getList() {
 		$repo = LocalGadgetRepo::singleton();
 		$result = array();
-		
+
 		if ( $this->neededIds !== false ) {
 			// Get all requested gadgets by id
 			$ids = $this->neededIds;
@@ -66,14 +66,14 @@ class ApiQueryGadgets extends ApiQueryBase {
 			// Get them all
 			$ids = $repo->getGadgetIds();
 		}
-		
+
 		foreach ( $ids as $id ) {
 			$gadget = $repo->getGadget( $id );
 			if ( $gadget && $this->isNeeded( $gadget ) ) {
 				$result[$id] = $gadget;
 			}
 		}
-		
+
 		return $result;
 	}
 

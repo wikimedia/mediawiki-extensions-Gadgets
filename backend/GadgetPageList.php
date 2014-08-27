@@ -26,7 +26,7 @@ class GadgetPageList {
 		preg_match( '!\.(css|js)$!u', $title->getText(), $m );
 		return isset( $m[1] ) ? $m[1] : '';
 	}
-	
+
 	/**
 	 * Check whether a given title is a gadget page
 	 * @param Title $title object
@@ -35,7 +35,7 @@ class GadgetPageList {
 	public static function isGadgetPage( Title $title ) {
 		return ( $title->isCssOrJsPage() || $title->isCssJsSubpage() ) && !$title->isRedirect();
 	}
-	
+
 	/**
 	 * Get a row for the gadgetpagelist table
 	 * @param Title $title
@@ -48,11 +48,11 @@ class GadgetPageList {
 			'gpl_title' => $title->getDBKey()
 		);
 	}
-	
+
 	/**
 	 * Update the status of a title, typically called when a title has been
 	 * edited or created.
-	 * 
+	 *
 	 * If $title is a CSS/JS page and not a redirect, it is added to the table.
 	 * If it is a CSS/JS page but is a redirect, it is removed from the table.
 	 * If it's not a CSS/JS page, it's assumed never to have been added to begin with, so nothing happens/
@@ -67,7 +67,7 @@ class GadgetPageList {
 			}
 		}
 	}
-	
+
 	/**
 	 * Add a title to the gadgetpagelist table
 	 * @param Title $title
@@ -78,7 +78,7 @@ class GadgetPageList {
 			__METHOD__, array( 'IGNORE' )
 		);
 	}
-	
+
 	/**
 	 * Delete a title from the gadgetpagelist table
 	 * @param Title $title

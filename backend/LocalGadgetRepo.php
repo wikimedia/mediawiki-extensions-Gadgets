@@ -3,9 +3,9 @@
  * Gadget repository that gets its gadgets from the local database.
  */
 class LocalGadgetRepo extends CachedGadgetRepo {
-	
+
 	/*** Public static methods ***/
-	
+
 	/**
 	 * Get the instance of this class
 	 * @return LocalGadgetRepo
@@ -17,9 +17,9 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 		}
 		return $instance;
 	}
-	
+
 	/*** Protected methods inherited from CachedGadgetRepo ***/
-	
+
 	protected function getCacheKey( $id ) {
 		if ( $id === null ) {
 			return wfMemcKey( 'gadgets', 'localrepoids' );
@@ -27,34 +27,34 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 			return wfMemcKey( 'gadgets', 'localrepodata', $id );
 		}
 	}
-	
+
 	protected function getCacheExpiry( $id ) {
 		// We're dealing with metadata for local gadgets, and we have
 		// full control over cache invalidation.
 		// So cache forever
 		return 0;
 	}
-	
+
 	protected function updateCache( $id, $data ) {
 		global $wgMemc;
 		parent::updateCache( $id, $data );
 		// Also purge the IDs list used by foreign repos
 		$wgMemc->delete( wfMemcKey( 'gadgets', 'localrepoidsshared' ) );
 	}
-	
+
 	protected function loadAllData() {
 		$query = $this->getLoadAllDataQuery();
 		$dbr = $this->getDB();
 		$res = $dbr->select( $query['tables'], $query['fields'], $query['conds'], __METHOD__,
 			$query['options'], $query['join_conds'] );
-		
+
 		$data = array();
 		foreach ( $res as $row ) {
 			$data[$row->gd_id] = array( 'json' => $row->gd_blob, 'timestamp' => $row->gd_timestamp );
 		}
 		return $data;
 	}
-	
+
 	protected function loadDataFor( $id ) {
 		$query = $this->getLoadDataForQuery( $id );
 		$dbr = $this->getDB();
@@ -68,23 +68,23 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 			return array( 'json' => $row->gd_blob, 'timestamp' => $row->gd_timestamp );
 		}
 	}
-	
+
 	/*** Public methods inherited from GadgetRepo ***/
-	
+
 	public function getSource() {
 		return 'local';
 	}
-	
+
 	public function isWriteable() {
 		return true;
 	}
-	
+
 	public function modifyGadget( Gadget $gadget, $timestamp = null ) {
 		global $wgMemc;
 		if ( !$this->isWriteable() ) {
 			return Status::newFatal( 'gadget-manager-readonly-repository' );
 		}
-		
+
 		$dbw = $this->getMasterDB();
 		$id = $gadget->getId();
 		$json = $gadget->getJSON();
@@ -96,7 +96,7 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 			'gd_shared' => $gadget->isShared(),
 			'gd_timestamp' => $newTs
 		);
-		
+
 		// First INSERT IGNORE the row, in case the gadget doesn't already exist
 		$dbw->begin();
 		$created = false;
@@ -112,38 +112,38 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 			$created = $dbw->affectedRows();
 		}
 		$dbw->commit();
-		
+
 		// Detect conflicts
 		if ( !$created ) {
 			// Some conflict occurred
 			wfDebug( __METHOD__ . ": conflict detected\n" );
 			return Status::newFatal( 'gadgets-manager-modify-conflict', $id, $ts );
 		}
-		
+
 		$this->updateCache( $id, array( 'json' => $json, 'timestamp' => $newTs ) );
-		
+
 		return Status::newGood();
 	}
-	
+
 	public function deleteGadget( $id ) {
 		global $wgMemc;
 		if ( !$this->isWriteable() ) {
 			return Status::newFatal( 'gadget-manager-readonly-repository' );
 		}
-		
+
 		// Remove gadget from database
 		$dbw = $this->getMasterDB();
 		$dbw->delete( 'gadgets', array( 'gd_id' => $id ), __METHOD__ );
 		$affectedRows = $dbw->affectedRows();
-		
+
 		$this->updateCache( $id, null );
-		
+
 		if ( $affectedRows === 0 ) {
 			return Status::newFatal( 'gadgets-manager-nosuchgadget', $id );
 		}
 		return Status::newGood();
 	}
-	
+
 	/**
 	 * Get the slave DB connection. Subclasses can override this to use a different DB
 	 * @return DatabaseBase
@@ -151,15 +151,15 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	public function getDB() {
 		return wfGetDB( DB_SLAVE );
 	}
-	
+
 	/*** Public methods ***/
-	
+
 	/**
 	 * Get the localized title for a given category in a given language.
-	 * 
+	 *
 	 * The "gadgetcategory-$category" message is used, if it exists.
 	 * If it doesn't exist, ucfirst( $category ) is returned.
-	 * 
+	 *
 	 * @param $category string Category ID
 	 * @param $lang string|Language|null Language code or Language object. If null, $wgLang is used
 	 * @return string Localized category title
@@ -176,10 +176,10 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 		}
 		return $msg->plain();
 	}
-	
-	
+
+
 	/*** Protected methods ***/
-	
+
 	/**
 	 * Get the master DB connection. Subclasses can override this to use a different DB
 	 * @return DatabaseBase
@@ -187,7 +187,7 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	protected function getMasterDB() {
 		return wfGetDB( DB_MASTER );
 	}
-	
+
 	/**
 	 * Get the DB query to use in loadAllData(). Subclasses can override this to tweak the query.
 	 * @return Array
@@ -201,7 +201,7 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 			'join_conds' => array(),
 		);
 	}
-	
+
 	/**
 	 * Get the DB query to use in loadDataFor(). Subclasses can override this to tweak the query.
 	 * @param $id string Gadget ID

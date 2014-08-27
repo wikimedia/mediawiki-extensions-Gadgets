@@ -10,29 +10,29 @@ abstract class GadgetRepo {
 	 */
 	public function __construct( array $info = array() ) {
 	}
-	
+
 	/**** Abstract methods ****/
-	
+
 	/**
 	 * Get the name of the ResourceLoader source of the modules
 	 * returned by this repository.
 	 * @return string Source name
 	 */
 	abstract public function getSource();
-	
+
 	/**
 	 * Get the ids of the gadgets provided by this repository
 	 * @return array of ids (strings)
 	 */
 	abstract public function getGadgetIds();
-	
+
 	/**
 	 * Get a Gadget object for a given gadget id
 	 * @param $id string Gadget id
 	 * @return Gadget object or null if no such gadget
 	 */
 	abstract public function getGadget( $id );
-	
+
 	/**
 	 * Check whether this repository allows write actions. If this method returns false,
 	 * methods that modify the state of the repository or the gadgets in it (i.e. modifyGadget()
@@ -40,14 +40,14 @@ abstract class GadgetRepo {
 	 * @return bool
 	 */
 	abstract public function isWriteable();
-	
+
 	/**
 	 * Get the Database object for the database this repository is based on, or null if this
 	 * repository is not based on a database (but e.g. on a remote API)
 	 * @return DatabaseBase object (slave connection) or null
 	 */
 	abstract public function getDB();
-	
+
 	/**
 	 * Modify a gadget, replacing its metadata with the
 	 * metadata in the provided Gadget object. The id is taken
@@ -58,7 +58,7 @@ abstract class GadgetRepo {
 	 * @return Status
 	 */
 	abstract public function modifyGadget( Gadget $gadget, $timestamp = null );
-	
+
 	/**
 	 * Irrevocably delete a gadget from the repository. Will fail
 	 * if there is no gadget by the given id.
@@ -66,9 +66,9 @@ abstract class GadgetRepo {
 	 * @return Status
 	 */
 	abstract public function deleteGadget( $id );
-	
+
 	/**** Public methods ****/
-	
+
 	public function getGadgetsByCategory() {
 		$retval = array();
 		$gadgetIDs = $this->getGadgetIds();
@@ -78,9 +78,9 @@ abstract class GadgetRepo {
 		}
 		return $retval;
 	}
-	
+
 	/*** Public static methods ***/
-	
+
 	/**
 	 * Get all gadget repositories. Returns the LocalGadgetRepo singleton and any
 	 * repositories configured in $wgGadgetRepositories, in that order.
@@ -96,7 +96,7 @@ abstract class GadgetRepo {
 		}
 		return $repos;
 	}
-	
+
 	/**
 	 * Get all gadgets from all repositories
 	 * @return Gadget[]

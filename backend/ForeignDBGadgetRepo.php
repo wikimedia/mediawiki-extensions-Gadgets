@@ -1,7 +1,7 @@
 <?php
 /**
  * Gadget repository that gets its gadgets from a foreign database.
- * 
+ *
  * Options (all of these are MANDATORY except cacheTimeout):
  * 'source': Name of the source these gadgets are loaded from, as defined in ResourceLoader
  * 'dbType': Database type, see DatabaseBase::factory()
@@ -16,40 +16,40 @@
  */
 class ForeignDBGadgetRepo extends LocalGadgetRepo {
 	protected $db = null;
-	
+
 	protected $source, $dbServer, $dbUser, $dbPassword, $dbName, $dbFlags, $tablePrefix, $hasSharedCache,
 		$cacheTimeout = 600;
-	
+
 	/**
 	 * Constructor.
 	 * @param $options array See class documentation comment for option details
 	 */
 	public function __construct( array $options ) {
 		parent::__construct( $options );
-		
+
 		$optionKeys = array( 'source', 'dbType', 'dbServer', 'dbUser', 'dbPassword', 'dbName',
 			'dbFlags', 'tablePrefix', 'hasSharedCache' );
 		foreach ( $optionKeys as $optionKey ) {
 			$this->{$optionKey} = $options[$optionKey];
 		}
-		
+
 		if ( isset( $options['cacheTimeout'] ) ) {
 			$this->cacheTimeout = $options['cacheTimeout'];
 		}
 	}
-	
+
 	public function isWriteable() {
 		return false;
 	}
-	
+
 	public function getSource() {
 		return $this->source;
 	}
-	
+
 	public function getDB() {
 		return $this->getMasterDB();
 	}
-	
+
 	/*** Overridden protected methods from LocalGadgetRepo ***/
 	protected function getMasterDB() {
 		if ( $this->db === null ) {
@@ -66,7 +66,7 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 		}
 		return $this->db;
 	}
-	
+
 	protected function getCacheKey( $id ) {
 		if ( $this->hasSharedCache ) {
 			// Access the foreign wiki's memc
@@ -90,7 +90,7 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 			}
 		}
 	}
-	
+
 	protected function getCacheExpiry( $id ) {
 		if ( $this->hasSharedCache ) {
 			// We're using the other wiki's local cache, and
@@ -101,13 +101,13 @@ class ForeignDBGadgetRepo extends LocalGadgetRepo {
 			return $this->cacheTimeout;
 		}
 	}
-	
+
 	protected function getLoadAllDataQuery() {
 		$query = parent::getLoadAllDataQuery();
 		$query['conds']['gd_shared'] = 1;
 		return $query;
 	}
-	
+
 	protected function getLoadDataForQuery( $id ) {
 		$query = parent::getLoadDataForQuery( $id );
 		$query['conds']['gd_shared'] = 1;

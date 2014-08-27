@@ -10,12 +10,12 @@ if ( !class_exists( 'Maintenance' ) ) {
 
 class PopulateGadgetPageList extends LoggedUpdateMaintenance {
 	const BATCH_SIZE = 100;
-	
+
 	public function __construct() {
 		parent::__construct();
 		$this->mDescription = "Populates the gadgetpagelist table";
 	}
-	
+
 	protected function getUpdateKey() {
 		return 'populate gadgetpagelist';
 	}
@@ -27,9 +27,9 @@ class PopulateGadgetPageList extends LoggedUpdateMaintenance {
 	protected function doDBUpdates() {
 		$dbr = wfGetDB( DB_SLAVE );
 		$dbw = wfGetDB( DB_MASTER );
-		
+
 		$this->output( "Populating gadgetpagelist table ...\n" );
-		
+
 		$lastPageID = 0;
 		$processed = 0;
 		$written = 0;
@@ -45,7 +45,7 @@ class PopulateGadgetPageList extends LoggedUpdateMaintenance {
 				break;
 			}
 			$processed += $dbr->numRows( $res );
-			
+
 			// Build gadgetpagelist rows
 			$gplRows = array();
 			foreach ( $res as $row ) {
@@ -56,14 +56,14 @@ class PopulateGadgetPageList extends LoggedUpdateMaintenance {
 				$lastPageID = intval( $row->page_id );
 			}
 			$dbr->freeResult( $res );
-			
+
 			// Insert the new rows
 			$dbw->insert( 'gadgetpagelist', $gplRows, __METHOD__, array( 'IGNORE' ) );
 			$written += count( $gplRows );
-			
+
 			$this->output( "... $processed pages processed, $written rows written, page_id $lastPageID\n" );
 		}
-		
+
 		$this->output( "Done\n" );
 		return true;
 	}

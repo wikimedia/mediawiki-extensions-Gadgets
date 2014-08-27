@@ -17,7 +17,7 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 
 	/**
 	 * Overrides the abstract function from ResourceLoaderWikiModule class.
-	 * 
+	 *
 	 * This method is public because it's used by GadgetTest.php
 	 * @param ResourceLoaderContext $context
 	 * @return array
