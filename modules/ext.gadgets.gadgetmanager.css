@@ -99,6 +99,10 @@
 	background: white;
 }
 
+.mw-gadgetmanager-propcloud input {
+	width: 40%;
+}
+
 .mw-gadgetmanager-prop {
 	float: left;
 	margin: 2px 5px 5px 2px;

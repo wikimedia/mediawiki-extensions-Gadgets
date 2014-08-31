@@ -26,11 +26,11 @@
 						<table>\
 							<tr>\
 								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-scripts"><html:msg key="gadgetmanager-prop-scripts" /></label></td>\
-								<td><input type="text" id="mw-gadgetmanager-input-scripts" /></td>\
+								<td><input type="text" id="mw-gadgetmanager-input-scripts" placeholder-msg="gadgetmanager-prop-scripts-placeholder" /></td>\
 							</tr>\
 							<tr>\
 								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-styles"><html:msg key="gadgetmanager-prop-styles" /></label></td>\
-								<td><input type="text" id="mw-gadgetmanager-input-styles" /></td>\
+								<td><input type="text" id="mw-gadgetmanager-input-styles" placeholder-msg="gadgetmanager-prop-styles-placeholder" /></td>\
 							</tr>\
 							<tr>\
 								<td class="mw-gadgetmanager-label"><label for="mw-gadgetmanager-input-dependencies"><html:msg key="gadgetmanager-prop-dependencies" /></label></td>\
@@ -432,9 +432,10 @@
 			$form.find( '#mw-gadgetmanager-input-scripts' ).createPropCloud({
 				props: metadata.module.scripts,
 				autocompleteSource: function ( data, response ) {
+					var lookup = mw.Title.newFromText( data.term ).getMain();
 					// Use cache if available
-					if ( data.term in suggestCacheScripts ) {
-						response( suggestCacheScripts[data.term] );
+					if ( lookup in suggestCacheScripts ) {
+						response( suggestCacheScripts[lookup] );
 						return;
 					}
 
@@ -444,7 +445,7 @@
 							list: 'gadgetpages',
 							gpnamespace: nsGadgetId,
 							gpextension: 'js',
-							gpprefix: data.term
+							gpprefix: lookup
 						}, function ( json ) {
 							if ( json && json.query && json.query.gadgetpages ) {
 								var suggestions = json.query.gadgetpages.splice( 0, suggestLimit );
@@ -453,7 +454,7 @@
 								} );
 
 								// Update cache
-								suggestCacheScripts[data.term] = suggestions;
+								suggestCacheScripts[lookup] = suggestions;
 
 								response( suggestions );
 							} else {
@@ -470,9 +471,10 @@
 			$form.find( '#mw-gadgetmanager-input-styles' ).createPropCloud({
 				props: metadata.module.styles,
 				autocompleteSource: function ( data, response ) {
+					var lookup = mw.Title.newFromText( data.term ).getMain();
 					// Use cache if available
-					if ( data.term in suggestCacheStyles ) {
-						response( suggestCacheStyles[data.term] );
+					if ( lookup in suggestCacheStyles ) {
+						response( suggestCacheStyles[lookup] );
 						return;
 					}
 					$.getJSON( mw.util.wikiScript( 'api' ), {
@@ -481,7 +483,7 @@
 							list: 'gadgetpages',
 							gpnamespace: nsGadgetId,
 							gpextension: 'css',
-							gpprefix: data.term
+							gpprefix: lookup
 						}, function ( json ) {
 							if ( json && json.query && json.query.gadgetpages ) {
 								var suggestions = $.map( json.query.gadgetpages, function ( val ) {
@@ -490,7 +492,7 @@
 								suggestions = suggestions.splice( 0, suggestLimit );
 
 								// Update cache
-								suggestCacheStyles[data.term] = suggestions;
+								suggestCacheStyles[lookup] = suggestions;
 
 								response( suggestions );
 							} else {

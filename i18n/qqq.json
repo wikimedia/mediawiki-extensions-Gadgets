@@ -58,5 +58,7 @@
 	"grouppage-gadgetmanagers": "{{group|gadgetmanagers|page}}",
 	"gadgets-migrate-editsummary-gadget": "Edit summary used by the migrateGadgets.php maintenance script when creating a gadget definition page. $1 is the name of the gadget.",
 	"gadgets-migrate-movereason-gadget": "Move reason used by the migrateGadgets.php maintenance script when moving a gadget JS or CSS page. $1 is the name of the gadget.",
-	"gadgets-migrate-movereason-category": "Move reason used by the migrateGadgets.php maintenance script when moving a gadget category message (MediaWiki: page)."
+	"gadgets-migrate-movereason-category": "Move reason used by the migrateGadgets.php maintenance script when moving a gadget category message (MediaWiki: page).",
+	"gadgetmanager-prop-scripts-placeholder": "Placeholder text shown on the gadget manager scripts input box.",
+	"gadgetmanager-prop-styles-placeholder": "Placeholder text shown on the gadget manager styles input box."
 }
