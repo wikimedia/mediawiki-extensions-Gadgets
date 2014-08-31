@@ -349,7 +349,8 @@
 
 				// Validate
 				$form.find( '#mw-gadgetmanager-input-id' ).bind( 'keyup keypress keydown', function () {
-					var val = $( this ).val();
+					var $el = $( this ),
+						val = $el.val();
 
 					// Reset
 					toggleDialogButtons( $form, 'enable' );
