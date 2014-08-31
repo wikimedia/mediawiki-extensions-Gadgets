@@ -194,6 +194,7 @@ $wgResourceModules += array(
 			'ext.gadgets.init',
 			'mediawiki.Title',
 			'mediawiki.util',
+			'mediawiki.api',
 			'user.tokens',
 		),
 	),
@@ -216,6 +217,7 @@ $wgResourceModules += array(
 			'jquery.spinner',
 			'mediawiki.Title',
 			'mediawiki.util',
+			'mediawiki.api',
 		),
 		'messages' => array(
 			'gadgetmanager-editor-title-editing',

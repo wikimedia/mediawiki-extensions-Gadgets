@@ -439,29 +439,24 @@
 						return;
 					}
 
-					$.getJSON( mw.util.wikiScript( 'api' ), {
-							format: 'json',
-							action: 'query',
-							list: 'gadgetpages',
-							gpnamespace: nsGadgetId,
-							gpextension: 'js',
-							gpprefix: lookup
-						}, function ( json ) {
-							if ( json && json.query && json.query.gadgetpages ) {
-								var suggestions = json.query.gadgetpages.splice( 0, suggestLimit );
-								suggestions = $.map( suggestions, function ( val ) {
-									return val.pagename;
-								} );
+					new mw.Api().get( {
+						list: 'gadgetpages',
+						gpnamespace: nsGadgetId,
+						gpextension: 'js',
+						gpprefix: lookup
+					} ).done( function ( json ) {
+						var suggestions = json.query.gadgetpages.splice( 0, suggestLimit );
+						suggestions = $.map( suggestions, function ( val ) {
+							return val.pagename;
+						} );
 
-								// Update cache
-								suggestCacheScripts[lookup] = suggestions;
+						// Update cache
+						suggestCacheScripts[lookup] = suggestions;
 
-								response( suggestions );
-							} else {
-								response( [] );
-							}
-						}
-					);
+						response( suggestions );
+					} ).fail( function () {
+						response( [] );
+					} );
 				},
 				prefix: 'mw-gadgetmanager-',
 				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )
@@ -477,29 +472,25 @@
 						response( suggestCacheStyles[lookup] );
 						return;
 					}
-					$.getJSON( mw.util.wikiScript( 'api' ), {
-							format: 'json',
-							action: 'query',
-							list: 'gadgetpages',
-							gpnamespace: nsGadgetId,
-							gpextension: 'css',
-							gpprefix: lookup
-						}, function ( json ) {
-							if ( json && json.query && json.query.gadgetpages ) {
-								var suggestions = $.map( json.query.gadgetpages, function ( val ) {
-									return val.pagename;
-								} );
-								suggestions = suggestions.splice( 0, suggestLimit );
 
-								// Update cache
-								suggestCacheStyles[lookup] = suggestions;
+					new mw.Api().get( {
+						list: 'gadgetpages',
+						gpnamespace: nsGadgetId,
+						gpextension: 'css',
+						gpprefix: lookup
+					} ).done( function ( json ) {
+						var suggestions = $.map( json.query.gadgetpages, function ( val ) {
+							return val.pagename;
+						} );
+						suggestions = suggestions.splice( 0, suggestLimit );
 
-								response( suggestions );
-							} else {
-								response( [] );
-							}
-						}
-					);
+						// Update cache
+						suggestCacheStyles[lookup] = suggestions;
+
+						response( suggestions );
+					} ).fail( function () {
+						response( [] );
+					} );
 				},
 				prefix: 'mw-gadgetmanager-',
 				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )
@@ -528,30 +519,25 @@
 						response( suggestCacheMsgs[data.term] );
 						return;
 					}
-					$.getJSON( mw.util.wikiScript( 'api' ), {
-							format: 'json',
-							action: 'query',
-							meta: 'allmessages',
-							amprefix: data.term,
-							amnocontent: true,
-							amincludelocal: true,
-							amlang: mw.config.get( 'wgContentLanguage' )
-						}, function ( json ) {
-							if ( json && json.query && json.query.allmessages ) {
-								var suggestions = $.map( json.query.allmessages, function ( val ) {
-									return val.name;
-								} );
-								suggestions = suggestions.splice( 0, suggestLimit );
+					new mw.Api().get( {
+						meta: 'allmessages',
+						amprefix: data.term,
+						amnocontent: true,
+						amincludelocal: true,
+						amlang: mw.config.get( 'wgContentLanguage' )
+					} ).done( function ( json ) {
+						var suggestions = $.map( json.query.allmessages, function ( val ) {
+							return val.name;
+						} );
+						suggestions = suggestions.splice( 0, suggestLimit );
 
-								// Update cache
-								suggestCacheMsgs[data.term] = suggestions;
+						// Update cache
+						suggestCacheMsgs[data.term] = suggestions;
 
-								response( suggestions );
-							} else {
-								response( [] );
-							}
-						}
-					);
+						response( suggestions );
+					} ).fail( function () {
+						response( [] );
+					} );
 				},
 				prefix: 'mw-gadgetmanager-',
 				removeTooltip: mw.msg( 'gadgetmanager-editor-removeprop-tooltip' )

@@ -172,8 +172,6 @@
 				}
 				// Get from API if not cached
 				var queryData = {
-					format: 'json',
-					action: 'query',
 					list: 'gadgets',
 					gaprop: 'id|title|desc|metadata|definitiontimestamp',
 					galanguage: mw.config.get( 'wgUserLanguage' )
@@ -181,38 +179,24 @@
 				if ( id !== null ) {
 					queryData.gaids = id;
 				}
-				$.ajax({
-					url: mw.gadgets.conf.repos[repoName].apiScript,
-					data: queryData,
-					type: 'GET',
-					dataType: 'json',
-					success: function ( data ) {
-						if ( data && data.query && data.query.gadgets ) {
-							data = data.query.gadgets;
-							if ( id !== null ) {
-								data = data[0] || null;
-							} else {
-								data = gadgetArrToObj( data );
-							}
-							// Update cache
-							cacheGadgetData( repoName, id, data );
-							success( objClone( data ) );
+				new mw.Api( { ajax: { url: mw.gadgets.conf.repos[repoName].apiScript, dataType: 'jsonp' } } )
+					.get( queryData )
+					.done( function ( data ) {
+						data = data.query.gadgets;
+						if ( id !== null ) {
+							data = data[0] || null;
 						} else {
-							// Invalidate cache
-							cacheGadgetData( repoName, id, null );
-							if ( data && data.error ) {
-								error( data.error.code );
-							} else {
-								error( 'unknown' );
-							}
+							data = gadgetArrToObj( data );
 						}
-					},
-					error: function () {
+						// Update cache
+						cacheGadgetData( repoName, id, data );
+						success( objClone( data ) );
+					} )
+					.fail( function ( code ) {
 						// Invalidate cache
 						cacheGadgetData( repoName, id, null );
-						error( 'unknown' );
-					}
-				} );
+						error( code );
+					} );
 			},
 
 			/**
@@ -232,39 +216,19 @@
 					return null;
 				}
 				// Get from API if not cached
-				return $.ajax({
-					url: mw.gadgets.conf.repos[repoName].apiScript,
-					data: {
-						format: 'json',
-						action: 'query',
-						list: 'gadgetcategories',
-						gcprop: 'name|title|members',
-						gclanguage: mw.config.get( 'wgUserLanguage' )
-					},
-					type: 'GET',
-					dataType: 'json',
-					success: function ( data ) {
-						if ( data && data.query && data.query.gadgetcategories )
-						{
-							data = data.query.gadgetcategories;
-							// Update cache
-							gadgetCategoryCache[repoName] = data;
-							success( arrClone( data ) );
-						} else {
-							// Invalidate cache
-							gadgetCategoryCache[repoName] = null;
-							if ( data && data.error ) {
-								error( data.error.code );
-							} else {
-								error( 'unknown' );
-							}
-						}
-					},
-					error: function () {
-						// Invalidate cache
-						gadgetCategoryCache[repoName] = null;
-						error( 'unknown' );
-					}
+				return new mw.Api( { ajax: { url: mw.gadgets.conf.repos[repoName].apiScript, dataType: 'jsonp' } } ).get( {
+					list: 'gadgetcategories',
+					gcprop: 'name|title|members',
+					gclanguage: mw.config.get( 'wgUserLanguage' )
+				} ).done( function ( data ) {
+					data = data.query.gadgetcategories;
+					// Update cache
+					gadgetCategoryCache[repoName] = data;
+					success( arrClone( data ) );
+				} ).fail( function ( code ) {
+					// Invalidate cache
+					gadgetCategoryCache[repoName] = null;
+					error( code );
 				} );
 			},
 
@@ -289,49 +253,35 @@
 						/*jshint camelcase: false*/ mw.config.get( 'wgNamespaceIds' ).gadget_definition
 					),
 					query = {
-						format: 'json',
 						action: 'edit',
 						title: t.getPrefixedDb(),
 						text: $.toJSON( gadget.metadata ),
 						summary: mw.msg( 'gadgetmanager-comment-modify', gadget.id ),
 						token: mw.user.tokens.get( 'editToken' )
 					};
-					// Optional, only include if passed
-					if ( gadget.definitiontimestamp ) {
-						query.basetimestamp = gadget.definitiontimestamp;
+				// Optional, only include if passed
+				if ( gadget.definitiontimestamp ) {
+					query.basetimestamp = gadget.definitiontimestamp;
+				}
+				if ( o.starttimestamp ) {
+					query.starttimestamp = o.starttimestamp;
+				}
+				// Allow more customization for mw.gadgets.api.doCreateGadget
+				if ( o.extraquery ) {
+					$.extend( query, o.extraquery );
+				}
+				return new mw.Api().post( query ).done( function ( data ) {
+					// Invalidate cache
+					cacheGadgetData( 'local', gadget.id, null );
+					if ( data.edit.result === 'Success' ) {
+						o.success( data.edit );
+					} else {
+						o.error( data.edit.result );
 					}
-					if ( o.starttimestamp ) {
-						query.starttimestamp = o.starttimestamp;
-					}
-					// Allow more customization for mw.gadgets.api.doCreateGadget
-					if ( o.extraquery ) {
-						$.extend( query, o.extraquery );
-					}
-				return $.ajax({
-					url: mw.util.wikiScript( 'api' ),
-					type: 'POST',
-					data: query,
-					dataType: 'json',
-					success: function ( data ) {
-						// Invalidate cache
-						cacheGadgetData( 'local', gadget.id, null );
-						if ( data && data.edit && data.edit.result ) {
-							if ( data.edit.result === 'Success' ) {
-								o.success( data.edit );
-							} else {
-								o.error( data.edit.result );
-							}
-						} else if ( data && data.error ) {
-							o.error( data.error.code );
-						} else {
-							o.error( 'unknown' );
-						}
-					},
-					error: function () {
-						// Invalidate cache
-						cacheGadgetData( 'local', gadget.id, null );
-						o.error( 'unknown' );
-					}
+				} ).fail( function ( code ) {
+					// Invalidate cache
+					cacheGadgetData( 'local', gadget.id, null );
+					o.error( code );
 				} );
 			},
 
