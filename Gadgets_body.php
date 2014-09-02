@@ -50,6 +50,11 @@ class Gadget {
 		//      Also, title-normalization applies.
 		$gadget = new Gadget();
 		$gadget->name = trim( str_replace( ' ', '_', $m[1] ) );
+		// If the name is too long, then RL will throw an MWException when
+		// we try to register the module
+		if ( !ResourceLoader::isValidModuleName( $gadget->getModuleName() ) ) {
+			return false;
+		}
 		$gadget->definition = $definition;
 		$options = trim( $m[2], ' []' );
 
