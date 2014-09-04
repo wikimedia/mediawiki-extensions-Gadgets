@@ -15,6 +15,7 @@ class GadgetTest extends MediaWikiTestCase {
 	}
 
 	/**
+	 * @covers Gadget::isValidGadgetID
 	 * @dataProvider provideIsValidGadgetID
 	 */
 	public function testIsValidGadgetID( $input, $expectedToBeValid, $desc ) {
@@ -36,6 +37,7 @@ class GadgetTest extends MediaWikiTestCase {
 	}
 
 	/**
+	 * @covers Gadget::validatePropertiesArray
 	 * @dataProvider provideValidatePropertiesArray
 	 */
 	public function testValidatePropertiesArray( $input, $expectSuccess, $expectedErrors, $desc ) {
@@ -136,6 +138,9 @@ string' ),
 		$this->assertEquals( $data['module']['dependencies'], $g->getDependencies(), 'getDependencies' );
 	}
 
+	/**
+	 * @covers Gadget::getJSON
+	 */
 	public function testGetJSON() {
 		$data = self::getBoilerplateData();
 		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
@@ -160,6 +165,10 @@ string' ),
 		$this->assertEquals( FormatJson::encode( $oldData ), $g->getJSON(), 'getJSON removes duplicates from arrays' );
 	}
 
+	/**
+	 * @covers Gadget::getTitleMessageKey
+	 * @covers Gadget::getDescriptionMessageKey
+	 */
 	public function testMessageFunctions() {
 		global $wgLang;
 
@@ -203,6 +212,9 @@ string' ),
 
 	}
 
+	/**
+	 * @covers Gadget::getModule
+	 */
 	public function testGetModule() {
 		$data = self::getBoilerplateData();
 		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
@@ -224,6 +236,10 @@ string' ),
 		$this->assertEquals( $pages, $m->getPages( ResourceLoaderContext::newDummyContext() ), 'getPages' );
 	}
 
+	/**
+	 * @covers Gadget::isEnabledByDefault
+	 * @covers Gadget::isEnabledForUser
+	 */
 	public function testIsEnabledForUser() {
 		$defaultOff = self::buildPropertiesArray( array( 'settings' => array( 'default' => false ) ) );
 		$defaultOn = self::buildPropertiesArray( array( 'settings' => array( 'default' => true ) ) );
@@ -253,6 +269,9 @@ string' ),
 		$this->assertTrue( $gOn->isEnabledForUser( $user ), 'isEnabledForUser for gOn with pref on' );
 	}
 
+	/**
+	 * @covers Gadget::isAllowed
+	 */
 	public function testIsAllowed() {
 		$data = self::buildPropertiesArray( array( 'settings' => array( 'rights' => array( 'foo', 'bar' ) ) ) );
 		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
@@ -272,6 +291,9 @@ string' ),
 		$this->assertTrue( $g->isAllowed( $user ), 'user has both foo and bar rights' );
 	}
 
+	/**
+	 * @covers Gadget::supportsSkin
+	 */
 	public function testSupportsSkin() {
 		$data = self::buildPropertiesArray( array( 'settings' => array( 'skins' => array( 'monobook', 'modern' ) ) ) );
 		$g = new Gadget( 'GadgetTest', LocalGadgetRepo::singleton() );
