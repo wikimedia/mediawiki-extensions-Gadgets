@@ -213,6 +213,15 @@ string' ),
 	}
 
 	/**
+	 * @return ResourceLoaderContext
+	 */
+	private function getMockContext() {
+		return $this->getMockBuilder( 'ResourceLoaderContext' )
+			->disableOriginalConstructor()
+			->getMock();
+	}
+
+	/**
 	 * @covers Gadget::getModule
 	 */
 	public function testGetModule() {
@@ -233,7 +242,7 @@ string' ),
 		$this->assertEquals( $data['module']['messages'], $m->getMessages(), 'getMessages' );
 		$this->assertEquals( $data['module']['position'], $m->getPosition(), 'getPosition' );
 		$this->assertEquals( LocalGadgetRepo::singleton()->getSource(), $m->getSource(), 'getSource' );
-		$this->assertEquals( $pages, $m->getPages( ResourceLoaderContext::newDummyContext() ), 'getPages' );
+		$this->assertEquals( $pages, $m->getPages( $this->getMockContext() ), 'getPages' );
 	}
 
 	/**
