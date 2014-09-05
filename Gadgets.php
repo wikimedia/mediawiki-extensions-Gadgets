@@ -52,3 +52,8 @@ $wgSpecialPageGroups['Gadgets'] = 'wiki';
 
 $wgAPIListModules['gadgetcategories'] = 'ApiQueryGadgetCategories';
 $wgAPIListModules['gadgets'] = 'ApiQueryGadgets';
+
+/**
+ * Whether the gadget list should be cached or recomputed every time
+ */
+$wgGadgetsCaching = true;
