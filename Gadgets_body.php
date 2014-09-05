@@ -21,8 +21,7 @@ class Gadget {
 	 */
 	const GADGET_CLASS_VERSION = 7;
 
-	private $version = self::GADGET_CLASS_VERSION,
-			$scripts = array(),
+	private $scripts = array(),
 			$styles = array(),
 			$dependencies = array(),
 			$name,
@@ -139,14 +138,6 @@ class Gadget {
 	 */
 	public function getModuleName() {
 		return "ext.gadget.{$this->name}";
-	}
-
-	/**
-	 * Checks whether this is an instance of an older version of this class deserialized from cache
-	 * @return Boolean
-	 */
-	public function isOutdated() {
-		return $this->version != self::GADGET_CLASS_VERSION;
 	}
 
 	/**
@@ -327,18 +318,14 @@ class Gadget {
 		if ( !is_array( $gadgets ) ) {
 			return false;
 		}
-		// Check if we have 1) array of gadgets 2) the gadgets are up to date
+		// Check if we have an array of gadgets
 		// One check is enough
 		/**
 		 * @var $g Gadget
 		 */
 		foreach ( $gadgets as $list ) {
 			foreach ( $list as $g ) {
-				if ( !( $g instanceof Gadget ) || $g->isOutdated() ) {
-					return false;
-				} else {
-					return true;
-				}
+				return $g instanceof Gadget;
 			}
 		}
 
