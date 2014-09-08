@@ -10,7 +10,7 @@
 	"prefs-gadgets": "Gedžeti",
 	"gadgets-prefstext": "Ispod se nalazi spisak posebnih gadžeta koje možete da omogućite na svom nalogu.\nOve spravice su uglavnom zasnovane na javaskripti, tako da ona mora biti omogućena.\nGadžeti neće uticati na stranicu za podešavanje.\n\nOni nisu deo softvera Medijaviki, već se razvijaju i održavaju od strane korisnika na vašem lokalnom vikiju.\nAdministratori mogu da izmene [[MediaWiki:Gadgets-definition|značenja]] i [[Special:Gadgets|opise]] dostupnih gadžeta.",
 	"gadgets": "Gedžeti",
-	"gadgets-title": "gedžeti",
+	"gadgets-title": "Gedžeti",
 	"gadgets-pagetext": "Ispod je spisak posebnih gadžeta koje korisnici mogu da omoguće na svojoj [[Special:Preferences#mw-prefsection-gadgets|stranici za podešavanje]], kao što je navedeno u [[MediaWiki:Gadgets-definition|definicijama]].\nOvaj pregled pruža brz pristup sistemskim porukama koje definišu svaki opis i kod gadžeta.",
 	"gadgets-uses": "koristi se",
 	"gadgets-required-rights": "Zahteva {{PLURAL:$2|sledeće pravo|sledeća prava}}:\n\n$1",
