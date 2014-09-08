@@ -140,8 +140,8 @@ class GadgetDefinitionContentTest extends MediaWikiLangTestCase {
 	private function getMockWikiPage() {
 		$page = $this->getMockBuilder( 'WikiPage' )->disableOriginalConstructor()
 			->getMock();
-		$page->expects( $this->any() )->method( 'exists' )->willReturn( true );
-		$page->expects( $this->any() )->method( 'getTitle' )->willReturn( Title::newMainPage() );
+		$page->expects( $this->any() )->method( 'exists' )->will( $this->returnValue( true ) );
+		$page->expects( $this->any() )->method( 'getTitle' )->will( $this->returnValue( Title::newMainPage() ) );
 		return $page;
 	}
 
@@ -162,7 +162,7 @@ class GadgetDefinitionContentTest extends MediaWikiLangTestCase {
 		$oldContent = new GadgetDefinitionContent( '{}' );
 		$newContent = new GadgetDefinitionContent( '{"settings": {"skins": ["vector", "monobook"]}}' );
 		$parserOutput = $this->getMock( 'ParserOutput' );
-		$parserOutput->expects( $this->any() )->method( 'getSecondaryDataUpdates' )->willReturn( array() );
+		$parserOutput->expects( $this->any() )->method( 'getSecondaryDataUpdates' )->will( $this->returnValue( array() ) );
 		$found = false;
 		$updates = $newContent->getSecondaryDataUpdates( Title::newMainPage(), $oldContent, true, $parserOutput );
 		foreach ( $updates as $update ) {
