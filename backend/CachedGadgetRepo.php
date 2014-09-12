@@ -25,7 +25,19 @@ abstract class CachedGadgetRepo implements GadgetRepo {
 	 */
 	protected $idsLoaded = false;
 
+	/**
+	 * @var BagOStuff
+	 */
+	protected $cache;
+
+	/**
+	 * Subclasses should always call the parent constructor
+	 *
+	 * @param array $options
+	 */
 	public function __construct( array $options ) {
+		global $wgMemc;
+		$this->cache = $wgMemc;
 	}
 
 	/*** Abstract methods ***/
@@ -67,7 +79,6 @@ abstract class CachedGadgetRepo implements GadgetRepo {
 	 * @param array $data array( 'json' => JSON string, 'timestamp' => timestamp ) if added or modified, or null if deleted
 	 */
 	protected function updateCache( $id, $data ) {
-		global $wgMemc;
 		$toCache = $data;
 		if ( $data !== null ) {
 			// Added or modified
@@ -86,9 +97,9 @@ abstract class CachedGadgetRepo implements GadgetRepo {
 		}
 
 		// Write to memc
-		$wgMemc->set( $this->getCacheKey( $id ), $toCache, $this->getCacheExpiry( $id ) );
+		$this->cache->set( $this->getCacheKey( $id ), $toCache, $this->getCacheExpiry( $id ) );
 		// Clear the gadget names array in memc so it'll be regenerated later
-		$wgMemc->delete( $this->getCacheKey( null ) );
+		$this->cache->delete( $this->getCacheKey( null ) );
 	}
 
 	/*** Public methods inherited from GadgetRepo ***/
@@ -124,14 +135,13 @@ abstract class CachedGadgetRepo implements GadgetRepo {
 	 * @return array Array of gadget IDs
 	 */
 	private function maybeLoadIDs() {
-		global $wgMemc;
 		if ( $this->idsLoaded ) {
 			return array_keys( $this->data );
 		}
 
 		// Try memc
 		$key = $this->getCacheKey( null );
-		$cached = $wgMemc->get( $key );
+		$cached = $this->cache->get( $key );
 		if ( is_array( $cached ) ) {
 			// Yay, data is in cache
 			// Add to $this->data , but let things already in $this->data take precedence
@@ -149,11 +159,11 @@ abstract class CachedGadgetRepo implements GadgetRepo {
 			// array_fill() and array_combine() don't like empty arrays
 			$toCache = array();
 		}
-		$wgMemc->set( $key, $toCache, $this->getCacheExpiry( null ) );
+		$this->cache->set( $key, $toCache, $this->getCacheExpiry( null ) );
 
 		// Now that we have the data for every gadget, let's refresh those cache entries too
 		foreach ( $this->data as $id => $gadgetData ) {
-			$wgMemc->set( $this->getCacheKey( $id ), $gadgetData, $this->getCacheExpiry( $id ) );
+			$this->cache->set( $this->getCacheKey( $id ), $gadgetData, $this->getCacheExpiry( $id ) );
 		}
 
 		$this->idsLoaded = true;
@@ -166,7 +176,6 @@ abstract class CachedGadgetRepo implements GadgetRepo {
 	 * @return array array( 'json' => JSON string, 'timestamp' => timestamp ) or empty array if the gadget doesn't exist.
 	 */
 	private function maybeLoadDataFor( $id ) {
-		global $wgMemc;
 		if ( isset( $this->data[$id] ) && is_array( $this->data[$id] ) ) {
 			// Already loaded, nothing to do here.
 			return $this->data[$id];
@@ -185,7 +194,7 @@ abstract class CachedGadgetRepo implements GadgetRepo {
 
 		// Try cache
 		$key = $this->getCacheKey( $id );
-		$cached = $wgMemc->get( $key );
+		$cached = $this->cache->get( $key );
 		if ( is_array( $cached ) ) {
 			// Yay, data is in cache
 			if ( count( $cached ) ) {
@@ -201,7 +210,7 @@ abstract class CachedGadgetRepo implements GadgetRepo {
 		$data = $this->loadDataFor( $id );
 		if ( !$data ) {
 			// Gadget doesn't exist
-			// Use empty array to prevent confusion with $wgMemc->get() return values for missing keys
+			// Use empty array to prevent confusion with $this->cache->get() return values for missing keys
 			$data = array();
 			// DO NOT store $data in $this->data, because it's supposed to contain existing gadgets only
 			$this->missCache[$id] = true;
@@ -210,7 +219,7 @@ abstract class CachedGadgetRepo implements GadgetRepo {
 			$this->data[$id] = $data;
 		}
 		// Save to memc
-		$wgMemc->set( $key, $data, $this->getCacheExpiry( $id ) );
+		$this->cache->set( $key, $data, $this->getCacheExpiry( $id ) );
 
 		return $data;
 	}

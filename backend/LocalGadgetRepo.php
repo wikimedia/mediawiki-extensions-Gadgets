@@ -9,6 +9,7 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	 * any arguments
 	 */
 	public function __construct() {
+		parent::__construct( array() );
 	}
 
 	/*** Public static methods ***/
@@ -40,10 +41,9 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	}
 
 	protected function updateCache( $id, $data ) {
-		global $wgMemc;
 		parent::updateCache( $id, $data );
 		// Also purge the IDs list used by foreign repos
-		$wgMemc->delete( wfMemcKey( 'gadgets', 'localrepoidsshared' ) );
+		$this->cache->delete( wfMemcKey( 'gadgets', 'localrepoidsshared' ) );
 	}
 
 	protected function loadAllData() {
@@ -84,7 +84,6 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	}
 
 	public function modifyGadget( Gadget $gadget, $timestamp = null ) {
-		global $wgMemc;
 		if ( !$this->isWriteable() ) {
 			return Status::newFatal( 'gadget-manager-readonly-repository' );
 		}
@@ -130,7 +129,6 @@ class LocalGadgetRepo extends CachedGadgetRepo {
 	}
 
 	public function deleteGadget( $id ) {
-		global $wgMemc;
 		if ( !$this->isWriteable() ) {
 			return Status::newFatal( 'gadget-manager-readonly-repository' );
 		}
