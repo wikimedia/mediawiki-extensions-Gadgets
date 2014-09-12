@@ -4,7 +4,7 @@
  * repos that obtain gadget data from a database or a REST API. Currently, all
  * repos use this.
  */
-abstract class CachedGadgetRepo extends GadgetRepo {
+abstract class CachedGadgetRepo implements GadgetRepo {
 	/*** Protected members ***/
 
 	/** Cache for EXISTING gadgets. Nonexistent gadgets must not be cached here,
@@ -25,17 +25,20 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 	 */
 	protected $idsLoaded = false;
 
+	public function __construct( array $options ) {
+	}
+
 	/*** Abstract methods ***/
 
 	/**
 	 * Load the full data for all gadgets.
-	 * @return array( id => array( 'json' => JSON string, 'timestamp' => timestamp ) )
+	 * @return array ( id => array( 'json' => JSON string, 'timestamp' => timestamp ) )
 	 */
 	abstract protected function loadAllData();
 
 	/**
 	 * Load the full data for one gadget.
-	 * @param $id string Gadget ID
+	 * @param string $id Gadget ID
 	 * @return array( 'json' => JSON string, 'timestamp' => timestamp ) or empty array if the gadget doesn't exist.
 	 */
 	abstract protected function loadDataFor( $id );
@@ -43,14 +46,14 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 	/**
 	 * Get the memc key for caching the data for a given gadget, or for
 	 * caching the gadget IDs list.
-	 * @param $id string|null Gadget ID to get the memc key for, or null to get the memc key for the IDs list
+	 * @param string|null $id Gadget ID to get the memc key for, or null to get the memc key for the IDs list
 	 * @return string Memc key including wiki prefix, i.e. the return value of wfMemcKey() or wfForeignMemcKey()
 	 */
 	abstract protected function getCacheKey( $id );
 
 	/**
 	 * Get the expiry time to use for caching a certain piece of data
-	 * @param $id See getCacheKey()
+	 * @param string|null $id See getCacheKey()
 	 * @return int Expiry time for memc, in seconds. If the expiry time is zero, the data is cached forever.
 	 */
 	abstract protected function getCacheExpiry( $id );
@@ -60,8 +63,8 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 	/**
 	 * Update the cache to account for the fact that a gadget has been
 	 * added, modified or deleted.
-	 * @param $id string Gadget ID
-	 * @param $data array array( 'json' => JSON string, 'timestamp' => timestamp ) if added or modified, or null if deleted
+	 * @param string $id Gadget ID
+	 * @param array $data array( 'json' => JSON string, 'timestamp' => timestamp ) if added or modified, or null if deleted
 	 */
 	protected function updateCache( $id, $data ) {
 		global $wgMemc;
@@ -159,8 +162,8 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 
 	/**
 	 * Populate a given Gadget's data in $this->data . Tries memc first, then falls back to loadDataFor()
-	 * @param $id string Gadget ID
-	 * @return array( 'json' => JSON string, 'timestamp' => timestamp ) or empty array if the gadget doesn't exist.
+	 * @param string $id Gadget ID
+	 * @return array array( 'json' => JSON string, 'timestamp' => timestamp ) or empty array if the gadget doesn't exist.
 	 */
 	private function maybeLoadDataFor( $id ) {
 		global $wgMemc;
@@ -210,5 +213,15 @@ abstract class CachedGadgetRepo extends GadgetRepo {
 		$wgMemc->set( $key, $data, $this->getCacheExpiry( $id ) );
 
 		return $data;
+	}
+
+	public function getGadgetsByCategory() {
+		$retval = array();
+		$gadgetIDs = $this->getGadgetIds();
+		foreach ( $gadgetIDs as $id ) {
+			$gadget = $this->getGadget( $id );
+			$retval[$gadget->getCategory()][] = $gadget;
+		}
+		return $retval;
 	}
 }

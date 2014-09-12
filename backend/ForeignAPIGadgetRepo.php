@@ -4,6 +4,7 @@
  *
  * Options (all of these are MANDATORY):
  * 'source': Name of the source these gadgets are loaded from, as defined in ResourceLoader
+ * 'apiUrl': URL to the api.php endpoint for the remote wiki
  * 'cacheTimeout': Expiry for locally cached data, in seconds (optional; default is 600)
  */
 class ForeignAPIGadgetRepo extends CachedGadgetRepo {
@@ -21,11 +22,10 @@ class ForeignAPIGadgetRepo extends CachedGadgetRepo {
 	 * @param $options array See class documentation comment for option details
 	 */
 	public function __construct( array $options ) {
-		global $wgResourceLoaderSources;
 		parent::__construct( $options );
 
 		$this->source = $options['source'];
-		$this->apiURL = $wgResourceLoaderSources[$this->source]['apiScript'];
+		$this->apiURL = $options['apiUrl'];
 		if ( isset( $options['cacheTimeout'] ) ) {
 			$this->cacheTimeout = $options['cacheTimeout'];
 		}
