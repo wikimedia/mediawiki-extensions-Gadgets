@@ -1,6 +1,6 @@
 <?php
 
-class GadgetDefinitionContentTest extends MediaWikiLangTestCase {
+class GadgetDefinitionContentTest extends GadgetContentTestCase {
 
 	/**
 	 * @covers GadgetDefinitionContent::__construct
@@ -135,14 +135,6 @@ class GadgetDefinitionContentTest extends MediaWikiLangTestCase {
     }
 }', 'settings.skins set to [vector, monobook]' ),
 		);
-	}
-
-	private function getMockWikiPage() {
-		$page = $this->getMockBuilder( 'WikiPage' )->disableOriginalConstructor()
-			->getMock();
-		$page->expects( $this->any() )->method( 'exists' )->will( $this->returnValue( true ) );
-		$page->expects( $this->any() )->method( 'getTitle' )->will( $this->returnValue( Title::newMainPage() ) );
-		return $page;
 	}
 
 	public function testGetDeletionUpdates() {

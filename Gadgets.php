@@ -99,10 +99,7 @@ $wgAvailableRights = array_merge( $wgAvailableRights, array(
 
 $wgHooks['AfterImportPage'][]               = 'GadgetsHooks::gadgetDefinitionImport';
 $wgHooks['AfterImportPage'][]               = 'GadgetsHooks::cssOrJsPageImport';
-$wgHooks['ArticleDeleteComplete'][]         = 'GadgetsHooks::cssJsPageDelete';
-$wgHooks['ArticleSaveComplete'][]           = 'GadgetsHooks::cssOrJsPageSaveComplete';
 $wgHooks['ArticleUndelete'][]               = 'GadgetsHooks::gadgetDefinitionUndelete';
-$wgHooks['ArticleUndelete'][]               = 'GadgetsHooks::cssOrJsPageUndelete';
 $wgHooks['BeforePageDisplay'][]             = 'GadgetsHooks::onBeforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][]     = 'GadgetsHooks::onMakeGlobalVariablesScript';
 $wgHooks['CanonicalNamespaces'][]           = 'GadgetsHooks::onCanonicalNamespaces';
@@ -112,11 +109,11 @@ $wgHooks['LoadExtensionSchemaUpdates'][]    = 'GadgetsHooks::onLoadExtensionSche
 $wgHooks['ParserTestTables'][]              = 'GadgetsHooks::onParserTestTables';
 $wgHooks['PreferencesGetLegend'][]          = 'GadgetsHooks::onPreferencesGetLegend';
 $wgHooks['ResourceLoaderRegisterModules'][] = 'GadgetsHooks::onResourceLoaderRegisterModules';
-$wgHooks['TitleIsCssOrJsPage'][]            = 'GadgetsHooks::onTitleIsCssOrJsPage';
 $wgHooks['TitleIsMovable'][]                = 'GadgetsHooks::onTitleIsMovable';
 $wgHooks['TitleMoveComplete'][]             = 'GadgetsHooks::onTitleMoveComplete';
 $wgHooks['getUserPermissionsErrors'][]      = 'GadgetsHooks::getUserPermissionsErrors';
 $wgHooks['UnitTestsList'][]                 = 'GadgetsHooks::onUnitTestsList';
+$wgHooks['ContentHandlerDefaultModelFor'][] = 'GadgetsHooks::onContentHandlerDefaultModelFor';
 $wgExtensionFunctions[]                     = 'GadgetsHooks::addAPIMessageMapEntries';
 
 # Extension:CodeEditor
@@ -148,10 +145,22 @@ $wgAutoloadClasses['SpecialGadgets'] = $dir . 'SpecialGadgets.php';
 # content/
 $wgAutoloadClasses['GadgetDefinitionContent'] = __DIR__ . '/content/GadgetDefinitionContent.php';
 $wgAutoloadClasses['GadgetDefinitionContentHandler'] = __DIR__ . '/content/GadgetDefinitionContentHandler.php';
+$wgAutoloadClasses['GadgetCssContent'] = __DIR__ . '/content/GadgetCssContent.php';
+$wgAutoloadClasses['GadgetCssContentHandler'] = __DIR__ . '/content/GadgetCssContentHandler.php';
+$wgAutoloadClasses['GadgetJsContent'] = __DIR__ . '/content/GadgetJsContent.php';
+$wgAutoloadClasses['GadgetJsContentHandler'] = __DIR__ . '/content/GadgetJsContentHandler.php';
+$wgAutoloadClasses['GadgetScriptDeletionUpdate'] = __DIR__ . '/content/GadgetScriptDeletionUpdate.php';
+$wgAutoloadClasses['GadgetScriptSecondaryDataUpdate'] = __DIR__ . '/content/GadgetScriptSecondaryDataUpdate.php';
+
 $wgAutoloadClasses['GadgetDefinitionDeletionUpdate'] = __DIR__ . '/content/GadgetDefinitionDeletionUpdate.php';
 $wgAutoloadClasses['GadgetDefinitionSecondaryDataUpdate'] = __DIR__ . '/content/GadgetDefinitionSecondaryDataUpdate.php';
 
+# tests/
+$wgAutoloadClasses['GadgetContentTestCase'] = __DIR__ . '/tests/content/GadgetContentTestCase.php';
+
 $wgContentHandlers['GadgetDefinition'] = 'GadgetDefinitionContentHandler';
+$wgContentHandlers['GadgetCss'] = 'GadgetCssContentHandler';
+$wgContentHandlers['GadgetJs'] = 'GadgetJsContentHandler';
 $wgNamespaceContentModels[NS_GADGET_DEFINITION] = 'GadgetDefinition';
 
 $wgSpecialPages['Gadgets'] = 'SpecialGadgets';

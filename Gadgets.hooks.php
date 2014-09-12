@@ -37,6 +37,26 @@ class GadgetsHooks {
 	}
 
 	/**
+	 * @param Title $title
+	 * @param string $model
+	 * @return bool
+	 */
+	public static function onContentHandlerDefaultModelFor( Title $title, &$model ) {
+		if ( $title->inNamespace( NS_GADGET ) ) {
+			switch ( GadgetPageList::determineExtension( $title ) ) {
+				case 'js':
+					$model = 'GadgetJs';
+					return false;
+				case 'css':
+					$model = 'GadgetCss';
+					return false;
+			}
+		}
+
+		return true;
+	}
+
+	/**
 	 * Update the database entry for a gadget if the description page is
 	 * newer than the database entry.
 	 * @param $title Title object
@@ -85,51 +105,6 @@ class GadgetsHooks {
 
 	public static function gadgetDefinitionImport( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
 		self::gadgetDefinitionUpdateIfChanged( $title );
-		return true;
-	}
-
-	/**
-	 * ArticleDeleteComplete hook handler.
-	 *
-	 * @param $article Article
-	 * @param $user User
-	 * @param $reason String: Deletion summary
-	 * @param $id Int: Page ID
-	 */
-	public static function cssJsPageDelete( $article, $user, $reason, $id ) {
-		GadgetPageList::delete( $article->getTitle() );
-		return true;
-	}
-
-	/**
-	 * ArticleSaveComplete hook handler.
-	 *
-	 * @param $article Article
-	 * @param $user User
-	 * @param $text String: New page text
-	 * @param $summary String: Edit summary
-	 * @param $isMinor Bool: Whether this was a minor edit
-	 * @param $isWatch unused
-	 * @param $section unused
-	 * @param $flags: Int: Bitmap of flags passed to WikiPage::doEdit()
-	 * @param $revision: Revision object for the new revision
-	 */
-	public static function cssOrJsPageSaveComplete( $article, $user, $text, $summary, $isMinor,
-			$isWatch, $section, $flags, $revision )
-	{
-		$title = $article->getTitle();
-		GadgetPageList::updatePageStatus( $title );
-		return true;
-	}
-
-	/**
-	 * ArticleUndelete hook handler
-	 * @param $title Title object
-	 * @param $created Bool: Whether this undeletion recreated the page
-	 * @param $comment String: Undeletion summary
-	 */
-	public static function cssOrJsPageUndelete( $title, $created, $comment ) {
-		GadgetPageList::updatePageStatus( $title );
 		return true;
 	}
 
@@ -436,20 +411,6 @@ class GadgetsHooks {
 
 	/**
 	 * @param Title $title
-	 * @param bool $result
-	 * @return bool
-	 */
-	public static function onTitleIsCssOrJsPage( Title $title, &$result ) {
-		if ( $title->inNamespace( NS_GADGET )
-			&& preg_match( '!\.(css|js)$!u', $title->getText() )
-		) {
-			$result = true;
-		}
-		return true;
-	}
-
-	/**
-	 * @param Title $title
 	 * @param $result
 	 * @return bool
 	 */
@@ -496,9 +457,7 @@ class GadgetsHooks {
 	}
 
 	/**
-	 * If E:CodeEditor is installed, use it for Gadget definition pages
-	 * JavaScript/CSS pages in the Gadget namespace are automatically
-	 * taken care of
+	 * If E:CodeEditor is installed, use it
 	 *
 	 * @param Title $title
 	 * @param string $lang
@@ -507,6 +466,14 @@ class GadgetsHooks {
 	public static function onCodeEditorGetPageLanguage( Title $title, &$lang ) {
 		if ( $title->inNamespace( NS_GADGET_DEFINITION ) ) {
 			$lang = 'javascript';
+		}
+
+		if ( $title->inNamespace( NS_GADGET ) ) {
+			if ( $title->hasContentModel( 'GadgetJs' ) ) {
+				$lang = 'javascript';
+			} elseif ( $title->hasContentModel( 'GadgetCss' ) ) {
+				$lang = 'css';
+			}
 		}
 
 		return true;
