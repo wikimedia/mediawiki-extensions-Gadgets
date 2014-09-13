@@ -25,13 +25,15 @@ class GadgetDefinitionContentHandler extends JSONContentHandler {
 		parent::__construct( 'GadgetDefinition' );
 	}
 
-	protected $contentClass = 'GadgetDefinitionContent';
-
 	/**
 	 * @param Title $title
 	 * @return bool
 	 */
 	public function canBeUsedOn( Title $title ) {
 		return $title->inNamespace( NS_GADGET_DEFINITION );
+	}
+
+	protected function getContentClass() {
+		return 'GadgetDefinitionContent';
 	}
 }
