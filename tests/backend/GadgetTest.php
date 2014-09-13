@@ -290,24 +290,28 @@ string' ),
 
 	/**
 	 * @covers Gadget::isAllowed
+	 * @dataProvider provideIsAllowed
 	 */
-	public function testIsAllowed() {
-		$data = self::buildPropertiesArray( array( 'settings' => array( 'rights' => array( 'foo', 'bar' ) ) ) );
-		$g = new Gadget( 'GadgetTest', $this->getMockRepo() );
-		$g->setSettings( $data['settings'] );
-		$g->setModuleData( $data['module'] );
+	public function testIsAllowed( array $rights, $expected, $desc ) {
+		/** @var PHPUnit_Framework_MockObject_MockObject|Gadget $g */
+		$g = $this->getMock( 'Gadget', array( 'getRequiredRights' ), array(), '', false );
+		$g->expects( $this->any() )->method( 'getRequiredRights' )
+			->will( $this->returnValue( array( 'foo', 'bar' ) ) );
+		/** @var PHPUnit_Framework_MockObject_MockObject|User $user */
+		$user = $this->getMock( 'User', array( 'getRights' ) );
+		$user->expects( $this->any() )->method( 'getRights' )
+			->will( $this->returnValue( $rights ) );
 
-		$user = new User;
+		$this->assertEquals( $expected, $g->isAllowed( $user ), $desc );
+	}
 
-		// This is dirty, but I don't know how I would otherwise test this
-		$user->mRights = array();
-		$this->assertFalse( $g->isAllowed( $user ), 'user has no rights' );
-		$user->mRights = array( 'foo' );
-		$this->assertFalse( $g->isAllowed( $user ), 'user has foo right only' );
-		$user->mRights = array( 'bar' );
-		$this->assertFalse( $g->isAllowed( $user ), 'user has bar right only' );
-		$user->mRights = array( 'foo', 'bar' );
-		$this->assertTrue( $g->isAllowed( $user ), 'user has both foo and bar rights' );
+	public static function provideIsAllowed() {
+		return array(
+			array( array(), false, 'user has no rights' ),
+			array( array( 'foo' ), false, 'user has foo right only' ),
+			array( array( 'bar' ), false, 'user has bar right only' ),
+			array( array( 'foo', 'bar' ), true, 'user has both foo and bar rights' ),
+		);
 	}
 
 	/**
