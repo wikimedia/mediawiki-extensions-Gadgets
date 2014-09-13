@@ -204,10 +204,10 @@ class Gadget {
 	/**
 	 * Constructor
 	 * @param $id string Unique id of the gadget
-	 * @param $repo GadgetRepo that this gadget came from
+	 * @param GadgetRepo $repo that this gadget came from
 	 * @throws MWException if $id or $properties is invalid
 	 */
-	public function __construct( $id, $repo ) {
+	public function __construct( $id, GadgetRepo $repo ) {
 		if ( !self::isValidGadgetID( $id ) ) {
 			throw new MWException( 'Invalid gadget ID: ' . $id );
 		}

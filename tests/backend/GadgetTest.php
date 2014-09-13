@@ -12,6 +12,8 @@ class GadgetTest extends MediaWikiTestCase {
 	public function testConstructor() {
 		$gadget = new Gadget( 'unittest', new LocalGadgetRepo );
 		$this->assertInstanceOf( 'Gadget', $gadget );
+		$this->setExpectedException( 'MWException' );
+		new Gadget( 'invalid||id', new LocalGadgetRepo );
 	}
 
 	/**
