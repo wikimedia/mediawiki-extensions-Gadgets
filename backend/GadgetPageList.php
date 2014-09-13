@@ -28,15 +28,6 @@ class GadgetPageList {
 	}
 
 	/**
-	 * Check whether a given title is a gadget page
-	 * @param Title $title object
-	 * @return bool True if $title is a CSS/JS page and isn't a redirect, false otherwise
-	 */
-	public static function isGadgetPage( Title $title ) {
-		return ( $title->isCssOrJsPage() || $title->isCssJsSubpage() ) && !$title->isRedirect();
-	}
-
-	/**
 	 * Get a row for the gadgetpagelist table
 	 * @param Title $title
 	 * @return array Database row

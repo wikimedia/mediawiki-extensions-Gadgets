@@ -50,7 +50,9 @@ class PopulateGadgetPageList extends LoggedUpdateMaintenance {
 			$gplRows = array();
 			foreach ( $res as $row ) {
 				$title = Title::newFromRow( $row );
-				if ( GadgetPageList::isGadgetPage( $title ) ) {
+				if ( $title->hasContentModel( 'GadgetJs' )
+					|| $title->hasContentModel( 'GadgetCss' )
+				) {
 					$gplRows[] = GadgetPageList::getRowForTitle( $title );
 				}
 				$lastPageID = intval( $row->page_id );
