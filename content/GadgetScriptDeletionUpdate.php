@@ -10,6 +10,13 @@ class GadgetScriptDeletionUpdate extends DataUpdate {
 	}
 
 	public function doUpdate() {
-		GadgetPageList::delete( $this->title );
+		wfGetDB( DB_MASTER )->delete(
+			'gadgetpagelist',
+			array(
+				'gpl_title' => $this->title->getDBkey(),
+				'gpl_namespace' => $this->title->getNamespace(),
+			),
+			__METHOD__
+		);
 	}
 }

@@ -96,7 +96,6 @@ $wgGroupPermissions['sysop']['gadgets-definition-edit'] = true;
 $wgGroupPermissions['sysop']['gadgets-definition-delete'] = true;
 
 $wgHooks['AfterImportPage'][]               = 'GadgetsHooks::gadgetDefinitionImport';
-$wgHooks['AfterImportPage'][]               = 'GadgetsHooks::cssOrJsPageImport';
 $wgHooks['ArticleUndelete'][]               = 'GadgetsHooks::gadgetDefinitionUndelete';
 $wgHooks['BeforePageDisplay'][]             = 'GadgetsHooks::onBeforePageDisplay';
 $wgHooks['MakeGlobalVariablesScript'][]     = 'GadgetsHooks::onMakeGlobalVariablesScript';
@@ -131,7 +130,6 @@ $wgAutoloadClasses['ForeignAPIGadgetRepo'] = $dir . 'backend/ForeignAPIGadgetRep
 $wgAutoloadClasses['ForeignDBGadgetRepo'] = $dir . 'backend/ForeignDBGadgetRepo.php';
 $wgAutoloadClasses['Gadget'] = $dir . 'backend/Gadget.php';
 $wgAutoloadClasses['GadgetsHooks'] = $dir . 'Gadgets.hooks.php';
-$wgAutoloadClasses['GadgetPageList'] = $dir . 'backend/GadgetPageList.php';
 $wgAutoloadClasses['GadgetRepo'] = $dir . 'backend/GadgetRepo.php';
 $wgAutoloadClasses['GadgetRepoFactory'] = $dir . 'backend/GadgetRepoFactory.php';
 $wgAutoloadClasses['GadgetResourceLoaderModule'] = $dir . 'backend/GadgetResourceLoaderModule.php';

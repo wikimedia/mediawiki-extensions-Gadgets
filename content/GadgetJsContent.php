@@ -30,7 +30,7 @@ class GadgetJsContent extends JavaScriptContent {
 	) {
 		return array_merge(
 			parent::getSecondaryDataUpdates( $title, $old, $recursive, $parserOutput ),
-			array( new GadgetScriptSecondaryDataUpdate( $title ) )
+			array( new GadgetScriptSecondaryDataUpdate( $title, 'js' ) )
 		);
 	}
 }

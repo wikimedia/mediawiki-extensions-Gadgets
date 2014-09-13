@@ -43,7 +43,9 @@ class GadgetsHooks {
 	 */
 	public static function onContentHandlerDefaultModelFor( Title $title, &$model ) {
 		if ( $title->inNamespace( NS_GADGET ) ) {
-			switch ( GadgetPageList::determineExtension( $title ) ) {
+			preg_match( '!\.(css|js)$!u', $title->getText(), $ext );
+			$ext = isset( $ext[1] ) ? $ext[1] : '';
+			switch ( $ext ) {
 				case 'js':
 					$model = 'GadgetJs';
 					return false;
@@ -108,17 +110,27 @@ class GadgetsHooks {
 		return true;
 	}
 
-	public static function onTitleMoveComplete( $oldTitle, $newTitle, $user, $pageid, $redirid ) {
-		// Delete the old title from the list. Even if it still exists after the move,
-		// it'll be a redirect and we don't want those in there
-		GadgetPageList::delete( $oldTitle );
+	/**
+	 * Really, this should all be taken care of by core, except move page
+	 * logic is icky, and it doesn't. So until it does, run the appropriate
+	 * updates as necessary.
+	 */
+	public static function onTitleMoveComplete( Title $oldTitle, Title $newTitle ) {
+		if ( $oldTitle->inNamespace( NS_GADGET ) ) {
+			$delUpd = new GadgetScriptDeletionUpdate( $oldTitle );
+			$delUpd->doUpdate();
+		}
 
-		GadgetPageList::updatePageStatus( $newTitle );
-		return true;
-	}
+		if ( $newTitle->inNamespace( NS_GADGET ) ) {
+			if ( $newTitle->hasContentModel( 'GadgetCss' ) ) {
+				$secUpd = new GadgetScriptSecondaryDataUpdate( $newTitle, 'css' );
+				$secUpd->doUpdate();
+			} elseif ( $newTitle->hasContentModel( 'GadgetJs' ) ) {
+				$secUpd = new GadgetScriptSecondaryDataUpdate( $newTitle, 'js' );
+				$secUpd->doUpdate();
+			}
+		}
 
-	public static function cssOrJsPageImport( $title, $origTitle, $revCount, $sRevCount, $pageInfo ) {
-		GadgetPageList::updatePageStatus( $title );
 		return true;
 	}
 
