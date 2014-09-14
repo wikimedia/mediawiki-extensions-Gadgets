@@ -46,6 +46,9 @@ class GadgetResourceLoaderModuleTest extends MediaWikiTestCase {
 			->getMock();
 	}
 
+	/**
+	 * @covers GadgetResourceLoaderModule::getPages
+	 */
 	public function testGetPages() {
 		$g = $this->getMockGadget();
 		$module = new GadgetResourceLoaderModule(
