@@ -112,7 +112,7 @@ $wgHooks['TitleMoveComplete'][]             = 'GadgetsHooks::onTitleMoveComplete
 $wgHooks['getUserPermissionsErrors'][]      = 'GadgetsHooks::getUserPermissionsErrors';
 $wgHooks['UnitTestsList'][]                 = 'GadgetsHooks::onUnitTestsList';
 $wgHooks['ContentHandlerDefaultModelFor'][] = 'GadgetsHooks::onContentHandlerDefaultModelFor';
-$wgExtensionFunctions[]                     = 'GadgetsHooks::addAPIMessageMapEntries';
+$wgExtensionFunctions[]                     = 'GadgetsHooks::onExtensionFunctions';
 
 # Extension:CodeEditor
 $wgHooks['CodeEditorGetPageLanguage'][]     = 'GadgetsHooks::onCodeEditorGetPageLanguage';

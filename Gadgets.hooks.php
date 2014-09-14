@@ -439,7 +439,8 @@ class GadgetsHooks {
 		return true;
 	}
 
-	public static function addAPIMessageMapEntries() {
+	public static function onExtensionFunctions() {
+		global $wgSyntaxHighlightModels;
 		ApiBase::$messageMap += array(
 			'gadgets-validate-invalidjson' => array(
 				'code' => 'gadgets-validate-invalidjson',
@@ -454,6 +455,10 @@ class GadgetsHooks {
 				'info' => 'The property $1 must be of type $2 instead of $3.'
 			),
 		);
+
+		// For E:SyntaxHighlight_GeSHi
+		$wgSyntaxHighlightModels['GadgetJs'] = 'javascript';
+		$wgSyntaxHighlightModels['GadgetCss'] = 'css';
 	}
 
 	/**
