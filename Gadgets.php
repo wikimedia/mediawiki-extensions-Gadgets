@@ -155,6 +155,7 @@ $wgAutoloadClasses['GadgetDefinitionSecondaryDataUpdate'] = __DIR__ . '/content/
 
 # tests/
 $wgAutoloadClasses['GadgetContentTestCase'] = __DIR__ . '/tests/content/GadgetContentTestCase.php';
+$wgAutoloadClasses['DatabaseBasedGadgetRepoTestCase'] = __DIR__ . '/tests/backend/DatabaseBasedGadgetRepoTestCase.php';
 
 $wgContentHandlers['GadgetDefinition'] = 'GadgetDefinitionContentHandler';
 $wgContentHandlers['GadgetCss'] = 'GadgetCssContentHandler';

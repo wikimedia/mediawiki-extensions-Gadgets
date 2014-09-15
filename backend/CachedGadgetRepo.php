@@ -37,7 +37,14 @@ abstract class CachedGadgetRepo implements GadgetRepo {
 	 */
 	public function __construct( array $options ) {
 		global $wgMemc;
-		$this->cache = $wgMemc;
+		$this->setCache( $wgMemc );
+	}
+
+	/**
+	 * @param BagOStuff $cache
+	 */
+	public function setCache( BagOStuff $cache ) {
+		$this->cache = $cache;
 	}
 
 	/*** Abstract methods ***/
