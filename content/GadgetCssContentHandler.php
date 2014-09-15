@@ -7,7 +7,8 @@ class GadgetCssContentHandler extends CssContentHandler {
 	}
 
 	public function canBeUsedOn( Title $title ) {
-		return $title->inNamespace( NS_GADGET ); // @todo also check ends with .css?
+		return $title->inNamespace( NS_GADGET )
+		&& substr( $title->getText(), -4 ) === '.css';
 	}
 
 	protected function getContentClass() {
