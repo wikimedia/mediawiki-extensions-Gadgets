@@ -20,7 +20,7 @@
  * @file
  */
 
-class GadgetDefinitionContent extends JSONContent {
+class GadgetDefinitionContent extends JsonContent {
 
 	public function __construct( $text ) {
 		parent::__construct( $text, 'GadgetDefinition' );

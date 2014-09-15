@@ -20,7 +20,7 @@
  * @file
  */
 
-class GadgetDefinitionContentHandler extends JSONContentHandler {
+class GadgetDefinitionContentHandler extends JsonContentHandler {
 	public function __construct() {
 		parent::__construct( 'GadgetDefinition' );
 	}
