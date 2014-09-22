@@ -292,8 +292,8 @@ class MigrateGadgets extends LoggedUpdateMaintenance {
 			return "Invalid title `Gadget definition:$id'";
 		}
 		$page = WikiPage::factory( $title );
-		$status = $page->doEdit(
-			FormatJson::encode( $gadget ),
+		$status = $page->doEditContent(
+			new GadgetDefinitionContent( FormatJson::encode( $gadget ) ),
 			wfMessage( 'gadgets-migrate-editsummary-gadget', $id )->plain()
 		);
 		if ( $status->isOK() ) {
