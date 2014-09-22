@@ -7,7 +7,8 @@ class GadgetJsContentHandler extends JavaScriptContentHandler {
 	}
 
 	public function canBeUsedOn( Title $title ) {
-		return $title->inNamespace( NS_GADGET ); // @todo also check ends with .js?
+		return $title->inNamespace( NS_GADGET )
+		&& substr( $title->getText(), -3 ) === '.js';
 	}
 
 	protected function getContentClass() {
