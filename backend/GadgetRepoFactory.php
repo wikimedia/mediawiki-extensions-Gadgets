@@ -38,7 +38,7 @@ class GadgetRepoFactory {
 	}
 
 	public function register( array $config ) {
-		$this->repos[] = $config;
+		$this->repoConfigs[] = $config;
 	}
 
 	/**
