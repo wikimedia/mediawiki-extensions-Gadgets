@@ -339,7 +339,7 @@ $specialPageAliases['uk'] = array(
 	'Gadgets' => array( 'Додатки' ),
 );
 
-/** vèneto (vèneto) */
+/** Venetian (vèneto) */
 $specialPageAliases['vec'] = array(
 	'Gadgets' => array( 'Strumenti' ),
 );
