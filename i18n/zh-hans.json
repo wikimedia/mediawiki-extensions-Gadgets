@@ -10,7 +10,9 @@
 			"Xiaomingyan",
 			"Yfdyh000",
 			"阿pp",
-			"Mywood"
+			"Mywood",
+			"Impersonator 1",
+			"Liuxinyu970226"
 		]
 	},
 	"gadgets-desc": "允许用户在其[[Special:Preferences#mw-prefsection-gadgets|系统设置]]中选择自定义[[Special:Gadgets|CSS和JavaScript工具]]",
@@ -20,7 +22,7 @@
 	"gadgets-title": "小工具",
 	"gadgets-pagetext": "下面是用户可以在他们的[[Special:Preferences#mw-prefsection-gadgets|设置页面]]启用的特殊小工具的列表，由[[MediaWiki:Gadgets-definition|定义]]确定。这个概览提供便捷访问确定每个小工具的说明和代码的系统信息页面的途径。",
 	"gadgets-uses": "使用",
-	"gadgets-required-rights": "需要以下{{PLURAL:$2|权限|权限}}：\n\n$1",
+	"gadgets-required-rights": "需要以下{{PLURAL:$2|权限}}：\n\n$1",
 	"gadgets-required-skins": "可用在{{PLURAL:$2|$1外观|以下外观：$1}}。",
 	"gadgets-default": "默认所有人启用。",
 	"gadgets-export": "导出",
