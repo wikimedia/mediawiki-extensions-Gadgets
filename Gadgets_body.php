@@ -374,9 +374,14 @@ class Gadget {
 
 		$gadgets = self::listFromDefinition( $g );
 
-		if ( !count( $gadgets ) || !$wgGadgetsCaching ) {
+		if ( !count( $gadgets ) ) {
 			// Don't cache in case we couldn't find any gadgets. Bug 37228
 			$gadgets = false;
+			wfProfileOut( __METHOD__ );
+			return $gadgets;
+		}
+
+		if ( !$wgGadgetsCaching ) {
 			wfProfileOut( __METHOD__ );
 			return $gadgets;
 		}
