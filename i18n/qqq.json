@@ -29,5 +29,21 @@
 	"gadgets-export-title": "Used as page title. Example: [[Special:Gadgets/export/editbuttons]]",
 	"gadgets-not-found": "Used as error message. Parameters:\n* $1 - gadget name",
 	"gadgets-export-text": "Used as page description in [[Special:Gadgets]].\n\nRefers to {{msg-mw|Gadgets-export-download}}.\n\nSee example: [[Special:Gadgets/export/editbuttons]]\n\nFollowed by the \"Export\" form.\n\nParameters:\n* $1 - gadget name\n* $2 - gadget definition (code)",
-	"gadgets-export-download": "Use the verb for this message. Submit button.\n{{Identical|Download}}"
+	"gadgets-export-download": "Use the verb for this message. Submit button.\n{{Identical|Download}}",
+	"apihelp-query+gadgetcategories-description": "{{doc-apihelp-description|query+gadgetcategories}}",
+	"apihelp-query+gadgetcategories-param-prop": "{{doc-apihelp-param|query+gadgetcategories|prop}}",
+	"apihelp-query+gadgetcategories-param-names": "{{doc-apihelp-param|query+gadgetcategories|names}}",
+	"apihelp-query+gadgetcategories-example-1": "{{doc-apihelp-example|query+gadgetcategories}}",
+	"apihelp-query+gadgetcategories-example-2": "{{doc-apihelp-example|query+gadgetcategories}}",
+	"apihelp-query+gadgets-description": "{{doc-apihelp-description|query+gadgets}}",
+	"apihelp-query+gadgets-param-prop": "{{doc-apihelp-param|query+gadgets|prop}}",
+	"apihelp-query+gadgets-param-categories": "{{doc-apihelp-param|query+gadgets|categories}}",
+	"apihelp-query+gadgets-param-ids": "{{doc-apihelp-param|query+gadgets|ids}}",
+	"apihelp-query+gadgets-param-allowedonly": "{{doc-apihelp-param|query+gadgets|allowedonly}}",
+	"apihelp-query+gadgets-param-enabledonly": "{{doc-apihelp-param|query+gadgets|enabledonly}}",
+	"apihelp-query+gadgets-example-1": "{{doc-apihelp-example|query+gadgets}}",
+	"apihelp-query+gadgets-example-2": "{{doc-apihelp-example|query+gadgets}}",
+	"apihelp-query+gadgets-example-3": "{{doc-apihelp-example|query+gadgets}}",
+	"apihelp-query+gadgets-example-4": "{{doc-apihelp-example|query+gadgets}}",
+	"apihelp-query+gadgets-example-5": "{{doc-apihelp-example|query+gadgets}}"
 }
