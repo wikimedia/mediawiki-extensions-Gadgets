@@ -12,7 +12,8 @@
 			"阿pp",
 			"Mywood",
 			"Impersonator 1",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"御坂美琴"
 		]
 	},
 	"gadgets-desc": "允许用户在其[[Special:Preferences#mw-prefsection-gadgets|系统设置]]中选择自定义[[Special:Gadgets|CSS和JavaScript工具]]",
@@ -29,5 +30,9 @@
 	"gadgets-export-title": "导出小工具",
 	"gadgets-not-found": "找不到“$1”小工具。",
 	"gadgets-export-text": "要导出$1小工具，请单击“{{int:gadgets-export-download}}”按钮，保存下载的文件，前往目标wiki的Special:Import并将文件上传。然后添加下内容至MediaWiki:Gadgets-definition页面：\n<pre>$2</pre>\n您必须在目标wiki上拥有适当的权限（包括编辑系统信息的权限），并且启用从文件上传导入。",
-	"gadgets-export-download": "下载"
+	"gadgets-export-download": "下载",
+	"apihelp-query+gadgetcategories-param-names": "要获取的分类名。",
+	"apihelp-query+gadgets-description": "返回一个本Wiki上的小工具的列表。",
+	"apihelp-query+gadgets-param-enabledonly": "只列出当前用户启用的小工具。",
+	"apihelp-query+gadgets-example-5": "获取当前用户启用的小工具列表。"
 }
