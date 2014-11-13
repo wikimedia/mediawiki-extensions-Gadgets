@@ -11,5 +11,6 @@
 	"gadgets-uses": "کاروردیا",
 	"gadgets-export": "وه صحرا ديئن",
 	"gadgets-not-found": "گجت  \"$1\" پیدا نبی.",
-	"gadgets-export-download": "گرتن"
+	"gadgets-export-download": "گرتن",
+	"apihelp-query+gadgetcategories-example-2": "گرتن همه دونسمنیا دباره دسه یایی که نومشو فو و باره"
 }
