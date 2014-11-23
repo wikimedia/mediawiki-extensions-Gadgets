@@ -34,6 +34,8 @@
 	"apihelp-query+gadgetcategories-param-names": "要获取的分类名。",
 	"apihelp-query+gadgets-description": "返回一个本Wiki上的小工具的列表。",
 	"apihelp-query+gadgets-param-categories": "来自要检索的分类的小工具。",
+	"apihelp-query+gadgets-param-ids": "要检索的小工具ID。",
+	"apihelp-query+gadgets-param-allowedonly": "只列出允许当前用户使用的小工具。",
 	"apihelp-query+gadgets-param-enabledonly": "只列出当前用户启用的小工具。",
 	"apihelp-query+gadgets-example-5": "获取当前用户启用的小工具列表"
 }
