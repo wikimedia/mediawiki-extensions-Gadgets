@@ -31,6 +31,7 @@
 	"gadgets-not-found": "找不到“$1”小工具。",
 	"gadgets-export-text": "要导出$1小工具，请单击“{{int:gadgets-export-download}}”按钮，保存下载的文件，前往目标wiki的Special:Import并将文件上传。然后添加下内容至MediaWiki:Gadgets-definition页面：\n<pre>$2</pre>\n您必须在目标wiki上拥有适当的权限（包括编辑系统信息的权限），并且启用从文件上传导入。",
 	"gadgets-export-download": "下载",
+	"apihelp-query+gadgetcategories-description": "返回小工具分类列表。",
 	"apihelp-query+gadgetcategories-param-names": "要获取的分类名。",
 	"apihelp-query+gadgetcategories-example-1": "获取现有小工具分类的列表",
 	"apihelp-query+gadgetcategories-example-2": "获取所有有关名称为“foo”和“bar”的分类的信息",
