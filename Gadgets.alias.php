@@ -349,6 +349,11 @@ $specialPageAliases['vi'] = array(
 	'Gadgets' => array( 'Tiện_ích', 'Công_cụ_đa_năng' ),
 );
 
+/** Chinese (中文) */
+$specialPageAliases['zh'] = array(
+	'Gadgets' => array( '小工具' ),
+);
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'Gadgets' => array( '小工具' ),
