@@ -28,6 +28,11 @@
 	"gadgets-export-download": "Herunterladen",
 	"apihelp-query+gadgetcategories-description": "Gibt eine Liste mit Gadget-Kategorien zurück.",
 	"apihelp-query+gadgetcategories-param-names": "Namen der abzurufenden Kategorien.",
+	"apihelp-query+gadgetcategories-example-1": "Ruft eine Liste vorhandener Helferleinkategorien ab",
 	"apihelp-query+gadgets-description": "Gibt eine Liste der Helferlein zurück, die auf diesem Wiki verwendet werden.",
-	"apihelp-query+gadgets-param-ids": "Kennungen der abzurufenden Helferlein."
+	"apihelp-query+gadgets-param-ids": "Kennungen der abzurufenden Helferlein.",
+	"apihelp-query+gadgets-param-allowedonly": "Nur Helferlein auflisten, die für den aktuellen Benutzer erlaubt sind.",
+	"apihelp-query+gadgets-example-1": "Ruft eine Liste der Helferlein zusammen mit ihren Beschreibungen ab",
+	"apihelp-query+gadgets-example-3": "Ruft eine Liste der Helferlein ab, die zur Kategorie „foo“ gehören",
+	"apihelp-query+gadgets-example-4": "Informationen über die Helferlein „foo“ und „bar“ abrufen"
 }
