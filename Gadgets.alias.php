@@ -34,6 +34,11 @@ $specialPageAliases['as'] = array(
 	'Gadgets' => array( 'গেজেটসমূহ' ),
 );
 
+/** Avaric (авар) */
+$specialPageAliases['av'] = array(
+	'Gadgets' => array( 'Гаджеты' ),
+);
+
 /** Bulgarian (български) */
 $specialPageAliases['bg'] = array(
 	'Gadgets' => array( 'Джаджи' ),
