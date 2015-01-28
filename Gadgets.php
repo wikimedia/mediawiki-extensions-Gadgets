@@ -26,6 +26,7 @@ $wgExtensionCredits['other'][] = array(
 	'author' => array( 'Daniel Kinzler', 'Max Semenik' ),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Gadgets',
 	'descriptionmsg' => 'gadgets-desc',
+	'license-name' => 'GPL-2.0+',
 );
 
 $wgHooks['ArticleSaveComplete'][]           = 'GadgetHooks::articleSaveComplete';
