@@ -20,5 +20,8 @@
 	"gadgets-export-title": "Esportassion d'acessòri",
 	"gadgets-not-found": "Acessòri \"$1\" pa trovà.",
 	"gadgets-export-text": "Për esporté l'acessòri $1, sgnaché an sël boton \"{{int:gadgets-export-download}}\", salvé l'archivi dëscarià, andé a Special:Import an sla wiki ëd destinassion e carielo. Peui gionté lòn ch'a-i é sì-sota a la pàgina MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nA-i é da manca d'avèj ij përmess aproprià an sla wiki ëd destinassion (comprèis ij drit për modifiché ij mëssagi ëd sistema) e l'amportassion da archivi carià a dev esse abilità.",
-	"gadgets-export-download": "Dëscaria"
+	"gadgets-export-download": "Dëscaria",
+	"apihelp-query+gadgetcategories-description": "A smon na lista ëd categorìe d'acessòri.",
+	"apihelp-query+gadgetcategories-param-prop": "Che anformassion an sla categorìa d'acessòri oten-e:\n;name:Nòm ëd la categorìa anterna.\n;title:Tìtol ëd la categorìa.\n;members:Nùmer d'acessòri ant la categorìa.",
+	"apihelp-query+gadgetcategories-param-names": "Nùmer ëd categorìe da oten-e."
 }

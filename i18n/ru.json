@@ -29,5 +29,7 @@
 	"gadgets-export-download": "Скачать",
 	"apihelp-query+gadgetcategories-description": "Возвращает список категорий гаджетов.",
 	"apihelp-query+gadgetcategories-example-1": "Получить список существующих категорий гаджетов",
-	"apihelp-query+gadgets-param-ids": "Идентификаторы гаджетов для получения."
+	"apihelp-query+gadgets-description": "Возвращает список гаджетов, используемых в этой вики.",
+	"apihelp-query+gadgets-param-ids": "Идентификаторы гаджетов для получения.",
+	"apihelp-query+gadgets-example-5": "Получить список гаджетов, включённых у данного участника"
 }
