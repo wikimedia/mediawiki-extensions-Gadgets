@@ -209,6 +209,11 @@ $specialPageAliases['lb'] = array(
 	'Gadgets' => array( 'Gadgeten' ),
 );
 
+/** لوری (لوری) */
+$specialPageAliases['lrc'] = array(
+	'Gadgets' => array( 'گجتیا' ),
+);
+
 /** Minangkabau (Baso Minangkabau) */
 $specialPageAliases['min'] = array(
 	'Gadgets' => array( 'Pakakeh' ),
