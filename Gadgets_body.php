@@ -19,7 +19,9 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	const GADGET_CLASS_VERSION = 7;
+	const GADGET_CLASS_VERSION = 8;
+
+	const CACHE_TTL = 86400;
 
 	private $scripts = array(),
 			$styles = array(),
@@ -33,6 +35,9 @@ class Gadget {
 			$onByDefault = false,
 			$position = 'bottom',
 			$category;
+
+	/** @var array|bool Result of loadStructuredList() */
+	private static $definitionCache;
 
 	/**
 	 * Creates an instance of this class from definition in MediaWiki:Gadgets-definition
@@ -307,81 +312,93 @@ class Gadget {
 	}
 
 	/**
-	 * Checks whether gadget list from cache can be used.
-	 * @param $gadgets array
-	 * @return Boolean
-	 */
-	private static function isValidList( $gadgets ) {
-		if ( !is_array( $gadgets ) ) {
-			return false;
-		}
-		// Check if we have an array of gadgets
-		// One check is enough
-		/**
-		 * @var $g Gadget
-		 */
-		foreach ( $gadgets as $list ) {
-			foreach ( $list as $g ) {
-				return $g instanceof Gadget;
-			}
-		}
-
-		return true; // empty array
-	}
-
-	/**
 	 * Loads list of gadgets and returns it as associative array of sections with gadgets
 	 * e.g. array( 'sectionnname1' => array( $gadget1, $gadget2 ),
 	 *             'sectionnname2' => array( $gadget3 ) );
-	 * @param $forceNewText String: New text of MediaWiki:gadgets-definition. If specified, will
-	 * 	      force a purge of cache and recreation of the gadget list.
-	 * @return Mixed: Array or false
+	 * @return array|bool Gadget array or false on failure
 	 */
-	public static function loadStructuredList( $forceNewText = null ) {
-		static $gadgets = null;
-		if ( $gadgets !== null && $forceNewText === null ) {
-			return $gadgets;
+	public static function loadStructuredList() {
+		if ( self::$definitionCache !== null ) {
+			return self::$definitionCache; // process cache hit
 		}
 
 		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'gadgets' );
-		$cache = ObjectCache::getInstance( $config->get( 'GadgetsCacheType' ) ?: CACHE_ANYTHING );
+		// Ideally $t1Cache is APC, and $wanCache is memcached
+		$t1Cache = $config->get( 'GadgetsCacheType' )
+			? ObjectCache::getInstance( $config->get( 'GadgetsCacheType' ) )
+			: ObjectCache::getInstance( CACHE_NONE );
+		$wanCache = ObjectCache::getMainWANInstance();
+
 		$key = wfMemcKey( 'gadgets-definition', self::GADGET_CLASS_VERSION );
 
-		if ( $forceNewText === null ) {
-			if ( $config->get( 'GadgetsCaching' ) ) {
-				// cached?
-				$gadgets = $cache->get( $key );
-				if ( self::isValidList( $gadgets ) ) {
-					return $gadgets;
-				}
+		if ( $config->get( 'GadgetsCaching' ) ) {
+			// Cache generated after this time should be up-to-date
+			$ckTime = $wanCache->getCheckKeyTime( $key ) + WANObjectCache::HOLDOFF_TTL;
+			// Check the tier 1 cache
+			$value = $t1Cache->get( $key );
+			if ( $value && $value['time'] > $ckTime ) {
+				self::$definitionCache = $value['gadgets']; // process cache
+				return self::$definitionCache;
 			}
 
+			// Fetch value from WAN cache or regenerate if needed.
+			// This is hit occasinally and more so when the list changes.
+			$value = $wanCache->getWithSetCallback(
+				$key,
+				function( $old, &$ttl ) {
+					$now = microtime( true );
+					$gadgets = Gadget::fetchStructuredList();
+					if ( $gadgets === false ) {
+						$ttl = WANObjectCache::TTL_UNCACHEABLE;
+					}
+
+					return array( 'gadgets' => $gadgets, 'time' => $now );
+				},
+				self::CACHE_TTL,
+				array( $key ),
+				array( 'lockTSE' => 300 )
+			);
+
+			// Update the tier 1 cache as needed
+			if ( $value['gadgets'] !== false && $value['time'] > $ckTime ) {
+				// Set a modest TTL to keep the WAN key in cache
+				$t1Cache->set( $key, $value, mt_rand( 300, 600 ) );
+			}
+
+			self::$definitionCache = $value['gadgets']; // process cache
+		} else {
+			self::$definitionCache = self::fetchStructuredList(); // process cache
+		}
+
+		return self::$definitionCache;
+	}
+
+	/**
+	 * Fetch list of gadgets and returns it as associative array of sections with gadgets
+	 * e.g. array( 'sectionnname1' => array( $gadget1, $gadget2 ),
+	 *             'sectionnname2' => array( $gadget3 ) );
+	 * @param $forceNewText String: Injected text of MediaWiki:gadgets-definition [optional]
+	 * @return array|bool
+	 */
+	public static function fetchStructuredList( $forceNewText = null ) {
+		if ( $forceNewText === null ) {
 			$g = wfMessage( "gadgets-definition" )->inContentLanguage();
 			if ( !$g->exists() ) {
-				$gadgets = false;
-				return $gadgets;
+				return false; // don't cache
 			}
+
 			$g = $g->plain();
 		} else {
 			$g = $forceNewText;
 		}
 
 		$gadgets = self::listFromDefinition( $g );
-
 		if ( !count( $gadgets ) ) {
-			// Don't cache in case we couldn't find any gadgets. Bug 37228
-			$gadgets = false;
-			return $gadgets;
+			return false; // don't cache; Bug 37228
 		}
 
-		if ( !$config->get( 'GadgetsCaching' ) ) {
-			return $gadgets;
-		}
-
-		// cache for a while. gets purged automatically when MediaWiki:Gadgets-definition is edited
-		$cache->set( $key, $gadgets, 60 * 60 * 24 );
 		$source = $forceNewText !== null ? 'input text' : 'MediaWiki:Gadgets-definition';
-		wfDebug( __METHOD__ . ": $source parsed, cache entry $key updated\n" );
+		wfDebug( __METHOD__ . ": $source parsed, cache entry should be updated\n" );
 
 		return $gadgets;
 	}
@@ -413,6 +430,23 @@ class Gadget {
 		}
 
 		return $gadgets;
+	}
+
+	/**
+	 * Update MediaWiki:Gadgets-definition cache
+	 */
+	public static function purgeDefinitionCache() {
+		$key = wfMemcKey( 'gadgets-definition', Gadget::GADGET_CLASS_VERSION );
+		ObjectCache::getMainWANInstance()->touchCheckKey( $key );
+	}
+
+	/**
+	 * Inject gadgets into the process cache for unit tests
+	 *
+	 * @param array|bool $cache Result of fetchStructuredList()
+	 */
+	public static function injectDefinitionCache( $cache ) {
+		self::$definitionCache = $cache;
 	}
 }
 

@@ -34,7 +34,7 @@ class GadgetHooks {
 		// update cache if MediaWiki:Gadgets-definition was edited
 		$title = $article->getTitle();
 		if ( $title->getNamespace() == NS_MEDIAWIKI && $title->getText() == 'Gadgets-definition' ) {
-			Gadget::loadStructuredList( $text );
+			Gadget::purgeDefinitionCache();
 		}
 		return true;
 	}

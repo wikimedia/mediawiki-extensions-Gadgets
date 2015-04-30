@@ -46,13 +46,16 @@ class GadgetsTest extends MediaWikiTestCase {
 	function testPreferences() {
 		$prefs = array();
 
-		Gadget::loadStructuredList( '* foo | foo.js
+		$gadgets = Gadget::fetchStructuredList( '* foo | foo.js
 ==keep-section1==
 * bar| bar.js
 ==remove-section==
 * baz [rights=embezzle] |baz.js
 ==keep-section2==
 * quux [rights=read] | quux.js' );
+		$this->assertGreaterThanOrEqual( 2, count( $gadgets ), "Gadget list parsed" );
+
+		Gadget::injectDefinitionCache( $gadgets );
 		$this->assertTrue( GadgetHooks::getPreferences( new User, $prefs ), 'GetPrefences hook should return true' );
 
 		$options = $prefs['gadgets']['options'];
