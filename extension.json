@@ -24,7 +24,6 @@
 		]
 	},
 	"ExtensionMessagesFiles": {
-		"Gadgets": "Gadgets.i18n.php",
 		"GadgetsAlias": "Gadgets.alias.php"
 	},
 	"AutoloadClasses": {
