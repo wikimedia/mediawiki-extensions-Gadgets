@@ -12,7 +12,8 @@
 			"Urhixidur",
 			"Zcqsc06",
 			"Zetud",
-			"Djiboun"
+			"Djiboun",
+			"Windes"
 		]
 	},
 	"gadgets-desc": "Permet aux utilisateurs de choisir des [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences#mw-prefsection-gadgets|préférences]]",
@@ -31,7 +32,7 @@
 	"gadgets-export-text": "Pour exporter le gadget $1, cliquez sur le bouton « {{int:gadgets-export-download}} », enregistrez le fichier téléchargé puis allez sur la page Special:Import du wiki de destination et importez-la. Ajoutez ensuite le texte suivant dans la page MediaWiki:Gadgets-definition :\n<pre>$2</pre>\nIl est nécessaire de disposer des droits correspondants sur le wiki de destination (y compris celui de modifier les messages système) et l’import depuis des fichiers doit être activé.",
 	"gadgets-export-download": "Télécharger",
 	"apihelp-query+gadgetcategories-description": "Renvoie une liste de catégories de gadget.",
-	"apihelp-query+gadgetcategories-param-names": "Noms des catégories à renvoyer.",
+	"apihelp-query+gadgetcategories-param-names": "Noms des catégories à récupérer.",
 	"apihelp-query+gadgetcategories-example-1": "Fournit une liste des catégories de gadget existantes",
 	"apihelp-query+gadgetcategories-example-2": "Fournit toutes les informations sur les catégories \"foo\" et \"bar\"",
 	"apihelp-query+gadgets-description": "Renvoie une liste des gadgets utilisés sur ce wiki."
