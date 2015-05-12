@@ -54,7 +54,11 @@
 			"GadgetHooks::onUnitTestsList"
 		]
 	},
+	"ConfigRegistry": {
+		"gadgets": "GlobalVarConfig::newInstance"
+	},
 	"config": {
-		"GadgetsCaching": true
+		"GadgetsCaching": true,
+		"GadgetsCacheType": false
 	}
 }
