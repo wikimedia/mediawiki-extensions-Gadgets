@@ -338,19 +338,19 @@ class Gadget {
 	 * @return Mixed: Array or false
 	 */
 	public static function loadStructuredList( $forceNewText = null ) {
-		global $wgMemc, $wgGadgetsCaching;
-
 		static $gadgets = null;
 		if ( $gadgets !== null && $forceNewText === null ) {
 			return $gadgets;
 		}
 
+		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'gadgets' );
+		$cache = ObjectCache::getInstance( $config->get( 'GadgetsCacheType' ) ?: CACHE_ANYTHING );
 		$key = wfMemcKey( 'gadgets-definition', self::GADGET_CLASS_VERSION );
 
 		if ( $forceNewText === null ) {
-			if ( $wgGadgetsCaching ) {
+			if ( $config->get( 'GadgetsCaching' ) ) {
 				// cached?
-				$gadgets = $wgMemc->get( $key );
+				$gadgets = $cache->get( $key );
 				if ( self::isValidList( $gadgets ) ) {
 					return $gadgets;
 				}
@@ -374,12 +374,12 @@ class Gadget {
 			return $gadgets;
 		}
 
-		if ( !$wgGadgetsCaching ) {
+		if ( !$config->get( 'GadgetsCaching' ) ) {
 			return $gadgets;
 		}
 
 		// cache for a while. gets purged automatically when MediaWiki:Gadgets-definition is edited
-		$wgMemc->set( $key, $gadgets, 60 * 60 * 24 );
+		$cache->set( $key, $gadgets, 60 * 60 * 24 );
 		$source = $forceNewText !== null ? 'input text' : 'MediaWiki:Gadgets-definition';
 		wfDebug( __METHOD__ . ": $source parsed, cache entry $key updated\n" );
 
@@ -411,6 +411,7 @@ class Gadget {
 				}
 			}
 		}
+
 		return $gadgets;
 	}
 }
