@@ -23,6 +23,7 @@
 	"gadgets-export-text": "Para exportar o trebello $1, prema sobre o botón \"{{int:gadgets-export-download}}\", garde o ficheiro descargado,\nvaia á páxina especial Special:Import do wiki de destino e cárgueo. A continuación, engada o seguinte texto na páxina MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nDebe ter os permisos axeitados no wiki de destino (incluído o dereito de modificar as mensaxes do sistema) e a importación desde a carga de ficheiros debe estar activada.",
 	"gadgets-export-download": "Descargar",
 	"apihelp-query+gadgetcategories-description": "Retorna unha lista de categorías de trebellos.",
+	"apihelp-query+gadgetcategories-param-prop": "Que información de categoría obter:\n;name:Nome interno da categoría.\n;title:Título da categoría.\n;members:Número de trebellos na categoría.",
 	"apihelp-query+gadgetcategories-param-names": "Nomes de categorías a consultar.",
 	"apihelp-query+gadgetcategories-example-1": "Obter unha lista de categorías de trebellos existentes",
 	"apihelp-query+gadgetcategories-example-2": "Obter toda a información sobre categorías nomeadas \"foo\" e \"bar\"",
