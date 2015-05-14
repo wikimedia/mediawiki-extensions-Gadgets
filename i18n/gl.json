@@ -28,6 +28,7 @@
 	"apihelp-query+gadgetcategories-example-1": "Obter unha lista de categorías de trebellos existentes",
 	"apihelp-query+gadgetcategories-example-2": "Obter toda a información sobre categorías nomeadas \"foo\" e \"bar\"",
 	"apihelp-query+gadgets-description": "Retornar unha lista dos trebellos usados nesta wiki.",
+	"apihelp-query+gadgets-param-prop": "Que información obter do trebello:\n;id:Identificador interno de trebello.\n;metadata:Metadatos do trebello.\n;desc:Descrición do trebello transformada en HTML (pode ser lento, usar só se é necesario realmente).",
 	"apihelp-query+gadgets-param-categories": "De que categorías consultar os trebellos.",
 	"apihelp-query+gadgets-param-ids": "Identificadores dos trebellos a consultar.",
 	"apihelp-query+gadgets-param-allowedonly": "Listar só os trebellos permitidos para o usuario actual.",
