@@ -202,4 +202,8 @@ class SpecialGadgets extends SpecialPage {
 			. Html::closeElement( 'form' )
 		);
 	}
+
+	protected function getGroupName() {
+		return 'wiki';
+	}
 }

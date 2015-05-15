@@ -11,9 +11,6 @@
 	"SpecialPages": {
 		"Gadgets": "SpecialGadgets"
 	},
-	"SpecialPageGroups": {
-		"Gadgets": "wiki"
-	},
 	"APIListModules": {
 		"gadgetcategories": "ApiQueryGadgetCategories",
 		"gadgets": "ApiQueryGadgets"
