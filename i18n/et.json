@@ -32,7 +32,7 @@
 	"apihelp-query+gadgets-param-allowedonly": "Loetle ainult tööriistad, mille antud kasutaja on lubanud.",
 	"apihelp-query+gadgets-param-enabledonly": "Loetle ainult tööriistad, mille antud kasutaja on lubanud.",
 	"apihelp-query+gadgets-example-1": "Hangi tööriistade loetelu kirjeldustega",
-	"apihelp-query+gadgets-example-2": "Hangi tööriistade loetelu kõigi võimalike omadustega",
+	"apihelp-query+gadgets-example-2": "Hangi tööriistade loetelu kõigi võimalike atribuutidega",
 	"apihelp-query+gadgets-example-3": "Hangi loetelu tööriistadest, mis kuuluvad kategooriasse \"foo\"",
 	"apihelp-query+gadgets-example-4": "Hangi teave tööriistade \"foo\" ja \"bar\" kohta",
 	"apihelp-query+gadgets-example-5": "Hangi loetelu tööriistadest, mille antud kasutaja on lubanud"
