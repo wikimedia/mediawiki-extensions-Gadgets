@@ -7,7 +7,8 @@
 			"Remember the dot",
 			"Sanbec",
 			"Vivaelcelta",
-			"Themasterriot"
+			"Themasterriot",
+			"Ryo567"
 		]
 	},
 	"gadgets-desc": "Permite a los usuarios seleccionar [[Special:Gadgets|accesorios de CSS y JavaScript personailzados]]\nen sus [[Special:Preferences#mw-prefsection-gadgets|preferencias]].",
@@ -24,5 +25,8 @@
 	"gadgets-export-title": "Exportación de gadget",
 	"gadgets-not-found": "Gadget \"$1\" no encontrado.",
 	"gadgets-export-text": "Para exportar el gadget $1, haz click en el botón \"{{int:gadgets-export-download}}\", graba el archivo descargado,\nve a Special:Importar un wiki de destino y subirlo. Luego agrega lo siguiente a MediaWiki:Gadgets-definition page:\n<pre>$2</pre>\nDebes tener permisos apropiados en el wiki de destino (incluyendo el derecho a editar mensajes de sistema) e importación desde archivos subidos debe estar habilitado.",
-	"gadgets-export-download": "Descargar"
+	"gadgets-export-download": "Descargar",
+	"apihelp-query+gadgetcategories-description": "Devuelve una lista de categorías de gadgets.",
+	"apihelp-query+gadgetcategories-param-names": "Nombres de las categorías de recuperar.",
+	"apihelp-query+gadgetcategories-example-2": "Obtener toda la información acerca de las categorías llamadas \"foo\" y \"bar\"."
 }
