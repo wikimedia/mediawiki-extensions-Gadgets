@@ -332,17 +332,22 @@ class Gadget {
 		$key = wfMemcKey( 'gadgets-definition', self::GADGET_CLASS_VERSION );
 
 		if ( $config->get( 'GadgetsCaching' ) ) {
-			// Cache generated after this time should be up-to-date
-			$ckTime = $wanCache->getCheckKeyTime( $key ) + WANObjectCache::HOLDOFF_TTL;
-			// Check the tier 1 cache
+			// (a) Check the tier 1 cache
 			$value = $t1Cache->get( $key );
+			// Check if it passes a blind TTL check (avoids I/O)
+			if ( $value && ( microtime( true ) - $value['time'] ) < 10 ) {
+				self::$definitionCache = $value['gadgets']; // process cache
+				return self::$definitionCache;
+			}
+			// Cache generated after the "check" time should be up-to-date
+			$ckTime = $wanCache->getCheckKeyTime( $key ) + WANObjectCache::HOLDOFF_TTL;
 			if ( $value && $value['time'] > $ckTime ) {
 				self::$definitionCache = $value['gadgets']; // process cache
 				return self::$definitionCache;
 			}
 
-			// Fetch value from WAN cache or regenerate if needed.
-			// This is hit occasinally and more so when the list changes.
+			// (b) Fetch value from WAN cache or regenerate if needed.
+			// This is hit occasionally and more so when the list changes.
 			$value = $wanCache->getWithSetCallback(
 				$key,
 				function( $old, &$ttl ) {
