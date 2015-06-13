@@ -150,6 +150,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 				'hidden' => false, // Only exists in RL2 branch
 				'shared' => false, // Only exists in RL2 branch
 				'category' => $g->getCategory(),
+				'legacyscripts' => (bool)$g->getLegacyScripts(),
 			),
 			'module' => array(
 				'scripts' => $g->getScripts(),
