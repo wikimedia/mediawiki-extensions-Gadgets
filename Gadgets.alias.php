@@ -214,7 +214,7 @@ $specialPageAliases['lb'] = array(
 	'Gadgets' => array( 'Gadgeten' ),
 );
 
-/** Northern Luri (لوری مینجایی) */
+/** Northern Luri (لۊری شومالی) */
 $specialPageAliases['lrc'] = array(
 	'Gadgets' => array( 'گأجئتیا' ),
 );
