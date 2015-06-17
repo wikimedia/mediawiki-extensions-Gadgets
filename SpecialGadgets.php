@@ -10,10 +10,7 @@
  */
 
 class SpecialGadgets extends SpecialPage {
-	/**
-	 * Constructor
-	 */
-	function __construct() {
+	public function __construct() {
 		parent::__construct( 'Gadgets', '', true );
 	}
 
@@ -21,7 +18,7 @@ class SpecialGadgets extends SpecialPage {
 	 * Main execution function
 	 * @param $par array Parameters passed to the page
 	 */
-	function execute( $par ) {
+	public function execute( $par ) {
 		$parts = explode( '/', $par );
 
 		if ( count( $parts ) == 2 && $parts[0] == 'export' ) {

@@ -152,8 +152,8 @@ class GadgetHooks {
 				$resourceLoader->register( $g->getModuleName(), $module );
 			}
 		}
-		return true;
 
+		return true;
 	}
 
 	/**
@@ -189,9 +189,8 @@ class GadgetHooks {
 			}
 		}
 
-
 		// Allow other extensions, e.g. MobileFrontend, to disallow legacy gadgets
-		if ( wfRunHooks( 'Gadgets::allowLegacy', array( $out->getContext() ) ) ) {
+		if ( Hooks::run( 'Gadgets::allowLegacy', array( $out->getContext() ) ) ) {
 			$lb->execute( __METHOD__ );
 
 			$done = array();

@@ -20,11 +20,18 @@
  */
 
 class ApiQueryGadgetCategories extends ApiQueryBase {
-	private $props,
-		$neededNames;
+	/**
+	 * @var array
+	 */
+	private $props;
 
-	public function __construct( $query, $moduleName ) {
-		parent::__construct( $query, $moduleName, 'gc' );
+	/**
+	 * @var array|bool
+	 */
+	private $neededNames;
+
+	public function __construct( ApiQuery $queryModule, $moduleName ) {
+		parent::__construct( $queryModule, $moduleName, 'gc' );
 	}
 
 	public function execute() {

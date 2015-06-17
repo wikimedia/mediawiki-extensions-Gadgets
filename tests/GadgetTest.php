@@ -11,12 +11,12 @@ class GadgetsTest extends MediaWikiTestCase {
 		return $g;
 	}
 
-	function testInvalidLines() {
+	public function testInvalidLines() {
 		$this->assertFalse( Gadget::newFromDefinition( '' ) );
 		$this->assertFalse( Gadget::newFromDefinition( '<foo|bar>' ) );
 	}
 
-	function testSimpleCases() {
+	public function testSimpleCases() {
 		$g = $this->create( '* foo bar| foo.css|foo.js|foo.bar' );
 		$this->assertEquals( 'foo_bar', $g->getName() );
 		$this->assertEquals( 'ext.gadget.foo_bar', $g->getModuleName() );
@@ -29,21 +29,21 @@ class GadgetsTest extends MediaWikiTestCase {
 		$this->assertTrue( $g->hasModule() );
 	}
 
-	function testRLtag() {
+	public function testRLtag() {
 		$g = $this->create( '*foo [ResourceLoader]|foo.js|foo.css' );
 		$this->assertEquals( 'foo', $g->getName() );
 		$this->assertTrue( $g->supportsResourceLoader() );
 		$this->assertEquals( 0, count( $g->getLegacyScripts() ) );
 	}
 
-	function testDependencies() {
+	public function testDependencies() {
 		$g = $this->create( '* foo[ResourceLoader|dependencies=jquery.ui]|bar.js' );
 		$this->assertEquals( array( 'Gadget-bar.js' ), $g->getScripts() );
 		$this->assertTrue( $g->supportsResourceLoader() );
 		$this->assertEquals( array( 'jquery.ui' ), $g->getDependencies() );
 	}
 
-	function testPreferences() {
+	public function testPreferences() {
 		$prefs = array();
 
 		$gadgets = Gadget::fetchStructuredList( '* foo | foo.js
