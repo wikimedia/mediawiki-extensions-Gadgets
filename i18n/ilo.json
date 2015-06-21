@@ -10,7 +10,7 @@
 	"gadgets": "Dagiti gadget",
 	"gadgets-title": "Dagiti gadget",
 	"gadgets-pagetext": "Dita baba ket listaan dagiti naipangruna a gadget a mabalin a pakabaelan dagiti agar-aramat iti bukodda a [[Special:Preferences#mw-prefsection-gadgets|panid ti kakaykayatan]], a kas naipalawag babaen dagiti [[MediaWiki:Gadgets-definition|pannakaipalawag]].\nDaytoy a pakabuklan ket mangited iti nalaka a panagserrek kadagiti panid ti mensahe ti sistema a mangipalawag ti tungngal maysa a deskripsion ken kodigo ti gadget.",
-	"gadgets-uses": "Us-usar",
+	"gadgets-uses": "Agus-usar ti",
 	"gadgets-required-rights": "Masapul ti sumaganad a {{PLURAL:$2|karbengan|karkarbengan}}:\n\n$1",
 	"gadgets-required-skins": "Mabalin a magun-od {{PLURAL:$2|iti $1 a kudil|kadagiti sumaganad a kudil: $1}}.",
 	"gadgets-default": "Napakabaelan para iti amin babaen ti kasisigud.",
