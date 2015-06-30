@@ -33,5 +33,7 @@
 	"apihelp-query+gadgetcategories-example-2": "Получить всю информацию о категориях с названиями «Foo» и «Bar»",
 	"apihelp-query+gadgets-description": "Возвращает список гаджетов, используемых в этой вики.",
 	"apihelp-query+gadgets-param-ids": "Идентификаторы гаджетов для получения.",
+	"apihelp-query+gadgets-example-3": "Получить список гаджетов в категории «foo»",
+	"apihelp-query+gadgets-example-4": "Получить информацию о гаджетах «foo» и «bar»",
 	"apihelp-query+gadgets-example-5": "Получить список гаджетов, включённых у данного участника"
 }
