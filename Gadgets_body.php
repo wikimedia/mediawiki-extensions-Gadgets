@@ -39,6 +39,39 @@ class Gadget {
 	/** @var array|bool Result of loadStructuredList() */
 	private static $definitionCache;
 
+	public function __construct( array $options ) {
+		foreach ( $options as $member => $option ) {
+			switch ( $member ) {
+				case 'scripts':
+				case 'styles':
+				case 'dependencies':
+				case 'name':
+				case 'definition':
+				case 'resourceLoaded':
+				case 'requiredRights':
+				case 'requiredSkins':
+				case 'targets':
+				case 'onByDefault':
+				case 'position':
+				case 'category':
+					$this->{$member} = $option;
+					break;
+				default:
+					throw new InvalidArgumentException( "Unrecognized '$member' parameter" );
+			}
+		}
+	}
+
+	/**
+	 * Whether the provided gadget id is valid
+	 *
+	 * @param string $id
+	 * @return bool
+	 */
+	public static function isValidGadgetID( $id ) {
+		return strlen( $id ) > 0 && ResourceLoader::isValidModuleName( "ext.gadget.$id" );
+	}
+
 	/**
 	 * Creates an instance of this class from definition in MediaWiki:Gadgets-definition
 	 * @param $definition String: Gadget definition
@@ -52,14 +85,14 @@ class Gadget {
 		// NOTE: the gadget name is used as part of the name of a form field,
 		//      and must follow the rules defined in http://www.w3.org/TR/html4/types.html#type-cdata
 		//      Also, title-normalization applies.
-		$gadget = new Gadget();
-		$gadget->name = trim( str_replace( ' ', '_', $m[1] ) );
+		$info = array();
+		$info['name'] = trim( str_replace( ' ', '_', $m[1] ) );
 		// If the name is too long, then RL will throw an MWException when
 		// we try to register the module
-		if ( !ResourceLoader::isValidModuleName( $gadget->getModuleName() ) ) {
+		if ( !self::isValidGadgetID( $info['name'] ) ) {
 			return false;
 		}
-		$gadget->definition = $definition;
+		$info['definition'] = $definition;
 		$options = trim( $m[2], ' []' );
 
 		foreach ( preg_split( '/\s*\|\s*/', $options, -1, PREG_SPLIT_NO_EMPTY ) as $option ) {
@@ -74,25 +107,25 @@ class Gadget {
 
 			switch ( $option ) {
 				case 'ResourceLoader':
-					$gadget->resourceLoaded = true;
+					$info['resourceLoaded'] = true;
 					break;
 				case 'dependencies':
-					$gadget->dependencies = $params;
+					$info['dependencies'] = $params;
 					break;
 				case 'rights':
-					$gadget->requiredRights = $params;
+					$info['requiredRights'] = $params;
 					break;
 				case 'skins':
-					$gadget->requiredSkins = $params;
+					$info['requiredSkins'] = $params;
 					break;
 				case 'default':
-					$gadget->onByDefault = true;
+					$info['onByDefault'] = true;
 					break;
 				case 'targets':
-					$gadget->targets = $params;
+					$info['targets'] = $params;
 					break;
 				case 'top':
-					$gadget->position = 'top';
+					$info['position'] = 'top';
 					break;
 			}
 		}
@@ -101,13 +134,13 @@ class Gadget {
 			$page = "Gadget-$page";
 
 			if ( preg_match( '/\.js/', $page ) ) {
-				$gadget->scripts[] = $page;
+				$info['scripts'][] = $page;
 			} elseif ( preg_match( '/\.css/', $page ) ) {
-				$gadget->styles[] = $page;
+				$info['styles'][] = $page;
 			}
 		}
 
-		return $gadget;
+		return new Gadget( $info );
 	}
 
 	/**
