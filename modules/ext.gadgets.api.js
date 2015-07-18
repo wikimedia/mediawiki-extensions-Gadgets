@@ -255,7 +255,7 @@
 					query = {
 						action: 'edit',
 						title: t.getPrefixedDb(),
-						text: $.toJSON( gadget.metadata ),
+						text: JSON.stringify( gadget.metadata ),
 						summary: mw.msg( 'gadgetmanager-comment-modify', gadget.id ),
 						token: mw.user.tokens.get( 'editToken' )
 					};
