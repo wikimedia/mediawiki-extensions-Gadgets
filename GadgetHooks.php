@@ -33,8 +33,11 @@ class GadgetHooks {
 	public static function articleSaveComplete( $article, $user, $text ) {
 		// update cache if MediaWiki:Gadgets-definition was edited
 		$title = $article->getTitle();
-		if ( $title->getNamespace() == NS_MEDIAWIKI && $title->getText() == 'Gadgets-definition' ) {
-			Gadget::purgeDefinitionCache();
+		$repo = GadgetRepo::singleton();
+		if ( $title->getNamespace() == NS_MEDIAWIKI && $title->getText() == 'Gadgets-definition'
+			&& $repo instanceof MediaWikiGadgetsDefinitionRepo
+		) {
+			$repo->purgeDefinitionCache();
 		}
 		return true;
 	}
@@ -45,7 +48,7 @@ class GadgetHooks {
 	 * @return bool
 	 */
 	public static function userGetDefaultOptions( &$defaultOptions ) {
-		$gadgets = Gadget::loadStructuredList();
+		$gadgets = GadgetRepo::singleton()->getStructuredList();
 		if ( !$gadgets ) {
 			return true;
 		}
@@ -71,7 +74,7 @@ class GadgetHooks {
 	 * @return bool
 	 */
 	public static function getPreferences( $user, &$preferences ) {
-		$gadgets = Gadget::loadStructuredList();
+		$gadgets = GadgetRepo::singleton()->getStructuredList();
 		if ( !$gadgets ) {
 			return true;
 		}
@@ -138,15 +141,14 @@ class GadgetHooks {
 	 * @return bool
 	 */
 	public static function registerModules( &$resourceLoader ) {
-		$gadgets = Gadget::loadList();
-		if ( !$gadgets ) {
+		$repo = GadgetRepo::singleton();
+		$ids = $repo->getGadgetIds();
+		if ( !$ids ) {
 			return true;
 		}
 
-		/**
-		 * @var $g Gadget
-		 */
-		foreach ( $gadgets as $g ) {
+		foreach ( $ids as $id ) {
+			$g = $repo->getGadget( $id );
 			$module = $g->getModule();
 			if ( $module ) {
 				$resourceLoader->register( $g->getModuleName(), $module );
@@ -162,8 +164,9 @@ class GadgetHooks {
 	 * @return bool
 	 */
 	public static function beforePageDisplay( $out ) {
-		$gadgets = Gadget::loadList();
-		if ( !$gadgets ) {
+		$repo = GadgetRepo::singleton();
+		$ids = $repo->getGadgetIds();
+		if ( !$ids ) {
 			return true;
 		}
 
@@ -175,7 +178,8 @@ class GadgetHooks {
 		 * @var $gadget Gadget
 		 */
 		$user = $out->getUser();
-		foreach ( $gadgets as $gadget ) {
+		foreach ( $ids as $id ) {
+			$gadget = $repo->getGadget( $id );
 			if ( $gadget->isEnabled( $user ) && $gadget->isAllowed( $user ) ) {
 				if ( $gadget->hasModule() ) {
 					$out->addModuleStyles( $gadget->getModuleName() );
@@ -191,7 +195,7 @@ class GadgetHooks {
 
 		// Allow other extensions, e.g. MobileFrontend, to disallow legacy gadgets
 		if ( Hooks::run( 'Gadgets::allowLegacy', array( $out->getContext() ) ) ) {
-			$lb->execute( __METHOD__ );
+			$lb->execute();
 
 			$done = array();
 

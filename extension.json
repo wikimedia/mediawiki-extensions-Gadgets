@@ -29,7 +29,9 @@
 		"Gadget": "Gadgets_body.php",
 		"GadgetHooks": "GadgetHooks.php",
 		"GadgetResourceLoaderModule": "Gadgets_body.php",
-		"SpecialGadgets": "SpecialGadgets.php"
+		"SpecialGadgets": "SpecialGadgets.php",
+		"GadgetRepo": "includes/GadgetRepo.php",
+		"MediaWikiGadgetsDefinitionRepo": "includes/MediaWikiGadgetsDefinitionRepo.php"
 	},
 	"Hooks": {
 		"ArticleSaveComplete": [

@@ -39,7 +39,7 @@ class SpecialGadgets extends SpecialPage {
 		$output->setPagetitle( $this->msg( 'gadgets-title' ) );
 		$output->addWikiMsg( 'gadgets-pagetext' );
 
-		$gadgets = Gadget::loadStructuredList();
+		$gadgets = GadgetRepo::singleton()->getStructuredList();
 		if ( !$gadgets ) {
 			return;
 		}
@@ -171,16 +171,13 @@ class SpecialGadgets extends SpecialPage {
 		global $wgScript;
 
 		$output = $this->getOutput();
-		$gadgets = Gadget::loadList();
-		if ( !isset( $gadgets[$gadget] ) ) {
+		try {
+			$g = GadgetRepo::singleton()->getGadget( $gadget );
+		} catch ( InvalidArgumentException $e ) {
 			$output->showErrorPage( 'error', 'gadgets-not-found', array( $gadget ) );
 			return;
 		}
 
-		/**
-		 * @var $g Gadget
-		 */
-		$g = $gadgets[$gadget];
 		$this->setHeaders();
 		$output->setPagetitle( $this->msg( 'gadgets-export-title' ) );
 		$output->addWikiMsg( 'gadgets-export-text', $gadget, $g->getDefinition() );

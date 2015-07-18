@@ -4,16 +4,22 @@
  */
 
 class GadgetsTest extends MediaWikiTestCase {
+	/**
+	 * @param string $line
+	 * @return Gadget
+	 */
 	private function create( $line ) {
-		$g = Gadget::newFromDefinition( $line );
+		$repo = new MediaWikiGadgetsDefinitionRepo();
+		$g = $repo->newFromDefinition( $line, 'misc' );
 		$this->assertInstanceOf( 'Gadget', $g );
 
 		return $g;
 	}
 
 	public function testInvalidLines() {
-		$this->assertFalse( Gadget::newFromDefinition( '' ) );
-		$this->assertFalse( Gadget::newFromDefinition( '<foo|bar>' ) );
+		$repo = new MediaWikiGadgetsDefinitionRepo();
+		$this->assertFalse( $repo->newFromDefinition( '', 'misc' ) );
+		$this->assertFalse( $repo->newFromDefinition( '<foo|bar>', 'misc' ) );
 	}
 
 	public function testSimpleCases() {
@@ -45,8 +51,11 @@ class GadgetsTest extends MediaWikiTestCase {
 
 	public function testPreferences() {
 		$prefs = array();
+		$repo = TestingAccessWrapper::newFromObject( new MediaWikiGadgetsDefinitionRepo() );
+		// Force usage of a MediaWikiGadgetsDefinitionRepo
+		GadgetRepo::setSingleton( $repo );
 
-		$gadgets = Gadget::fetchStructuredList( '* foo | foo.js
+		$gadgets = $repo->fetchStructuredList( '* foo | foo.js
 ==keep-section1==
 * bar| bar.js
 ==remove-section==
@@ -55,12 +64,17 @@ class GadgetsTest extends MediaWikiTestCase {
 * quux [rights=read] | quux.js' );
 		$this->assertGreaterThanOrEqual( 2, count( $gadgets ), "Gadget list parsed" );
 
-		Gadget::injectDefinitionCache( $gadgets );
+		$repo->definitionCache = $gadgets;
 		$this->assertTrue( GadgetHooks::getPreferences( new User, $prefs ), 'GetPrefences hook should return true' );
 
 		$options = $prefs['gadgets']['options'];
 		$this->assertFalse( isset( $options['&lt;gadget-section-remove-section&gt;'] ), 'Must not show empty sections' );
 		$this->assertTrue( isset( $options['&lt;gadget-section-keep-section1&gt;'] ) );
 		$this->assertTrue( isset( $options['&lt;gadget-section-keep-section2&gt;'] ) );
+	}
+
+	public function tearDown() {
+		GadgetRepo::setSingleton();
+		parent::tearDown();
 	}
 }

@@ -71,7 +71,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	 * @return array
 	 */
 	private function getList() {
-		$gadgets = Gadget::loadStructuredList();
+		$gadgets = GadgetRepo::singleton()->getStructuredList();
 
 		if ( $gadgets === false ) {
 			return array();

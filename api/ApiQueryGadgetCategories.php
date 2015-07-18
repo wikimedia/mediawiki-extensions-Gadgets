@@ -49,7 +49,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 	private function getList() {
 		$data = array();
 		$result = $this->getResult();
-		$gadgets = Gadget::loadStructuredList();
+		$gadgets = GadgetRepo::singleton()->getStructuredList();
 
 		if ( $gadgets ) {
 			foreach ( $gadgets as $category => $list ) {
