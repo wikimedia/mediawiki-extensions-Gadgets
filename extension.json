@@ -56,7 +56,8 @@
 	},
 	"config": {
 		"GadgetsCaching": true,
-		"GadgetsCacheType": false
+		"GadgetsCacheType": false,
+		"GadgetsEnableLegacyGadgets": true
 	},
 	"manifest_version": 1
 }

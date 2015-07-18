@@ -162,6 +162,8 @@ class GadgetHooks {
 	 * @return bool
 	 */
 	public static function beforePageDisplay( $out ) {
+		global $wgGadgetsEnableLegacyGadgets;
+
 		$gadgets = Gadget::loadList();
 		if ( !$gadgets ) {
 			return true;
@@ -189,8 +191,11 @@ class GadgetHooks {
 			}
 		}
 
-		// Allow other extensions, e.g. MobileFrontend, to disallow legacy gadgets
-		if ( Hooks::run( 'Gadgets::allowLegacy', array( $out->getContext() ) ) ) {
+		// Check if legacy gadgets are even enabled
+		if ( $wgGadgetsEnableLegacyGadgets &&
+			// Allow other extensions, e.g. MobileFrontend, to disallow legacy gadgets
+			Hooks::run( 'Gadgets::allowLegacy', array( $out->getContext() ) )
+		) {
 			$lb->execute( __METHOD__ );
 
 			$done = array();
