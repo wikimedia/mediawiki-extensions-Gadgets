@@ -355,58 +355,51 @@ class Gadget {
 			return self::$definitionCache; // process cache hit
 		}
 
-		$config = ConfigFactory::getDefaultInstance()->makeConfig( 'gadgets' );
 		// Ideally $t1Cache is APC, and $wanCache is memcached
-		$t1Cache = $config->get( 'GadgetsCacheType' )
-			? ObjectCache::getInstance( $config->get( 'GadgetsCacheType' ) )
-			: ObjectCache::getInstance( CACHE_NONE );
+		$t1Cache = ObjectCache::newAccelerator( array(), 'hash' );
 		$wanCache = ObjectCache::getMainWANInstance();
 
 		$key = wfMemcKey( 'gadgets-definition', self::GADGET_CLASS_VERSION );
 
-		if ( $config->get( 'GadgetsCaching' ) ) {
-			// (a) Check the tier 1 cache
-			$value = $t1Cache->get( $key );
-			// Check if it passes a blind TTL check (avoids I/O)
-			if ( $value && ( microtime( true ) - $value['time'] ) < 10 ) {
-				self::$definitionCache = $value['gadgets']; // process cache
-				return self::$definitionCache;
-			}
-			// Cache generated after the "check" time should be up-to-date
-			$ckTime = $wanCache->getCheckKeyTime( $key ) + WANObjectCache::HOLDOFF_TTL;
-			if ( $value && $value['time'] > $ckTime ) {
-				self::$definitionCache = $value['gadgets']; // process cache
-				return self::$definitionCache;
-			}
-
-			// (b) Fetch value from WAN cache or regenerate if needed.
-			// This is hit occasionally and more so when the list changes.
-			$value = $wanCache->getWithSetCallback(
-				$key,
-				function( $old, &$ttl ) {
-					$now = microtime( true );
-					$gadgets = Gadget::fetchStructuredList();
-					if ( $gadgets === false ) {
-						$ttl = WANObjectCache::TTL_UNCACHEABLE;
-					}
-
-					return array( 'gadgets' => $gadgets, 'time' => $now );
-				},
-				self::CACHE_TTL,
-				array( $key ),
-				array( 'lockTSE' => 300 )
-			);
-
-			// Update the tier 1 cache as needed
-			if ( $value['gadgets'] !== false && $value['time'] > $ckTime ) {
-				// Set a modest TTL to keep the WAN key in cache
-				$t1Cache->set( $key, $value, mt_rand( 300, 600 ) );
-			}
-
+		// (a) Check the tier 1 cache
+		$value = $t1Cache->get( $key );
+		// Check if it passes a blind TTL check (avoids I/O)
+		if ( $value && ( microtime( true ) - $value['time'] ) < 10 ) {
 			self::$definitionCache = $value['gadgets']; // process cache
-		} else {
-			self::$definitionCache = self::fetchStructuredList(); // process cache
+			return self::$definitionCache;
 		}
+		// Cache generated after the "check" time should be up-to-date
+		$ckTime = $wanCache->getCheckKeyTime( $key ) + WANObjectCache::HOLDOFF_TTL;
+		if ( $value && $value['time'] > $ckTime ) {
+			self::$definitionCache = $value['gadgets']; // process cache
+			return self::$definitionCache;
+		}
+
+		// (b) Fetch value from WAN cache or regenerate if needed.
+		// This is hit occasionally and more so when the list changes.
+		$value = $wanCache->getWithSetCallback(
+			$key,
+			function( $old, &$ttl ) {
+				$now = microtime( true );
+				$gadgets = Gadget::fetchStructuredList();
+				if ( $gadgets === false ) {
+					$ttl = WANObjectCache::TTL_UNCACHEABLE;
+				}
+
+				return array( 'gadgets' => $gadgets, 'time' => $now );
+			},
+			self::CACHE_TTL,
+			array( $key ),
+			array( 'lockTSE' => 300 )
+		);
+
+		// Update the tier 1 cache as needed
+		if ( $value['gadgets'] !== false && $value['time'] > $ckTime ) {
+			// Set a modest TTL to keep the WAN key in cache
+			$t1Cache->set( $key, $value, mt_rand( 300, 600 ) );
+		}
+
+		self::$definitionCache = $value['gadgets']; // process cache
 
 		return self::$definitionCache;
 	}

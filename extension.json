@@ -54,9 +54,5 @@
 	"ConfigRegistry": {
 		"gadgets": "GlobalVarConfig::newInstance"
 	},
-	"config": {
-		"GadgetsCaching": true,
-		"GadgetsCacheType": false
-	},
 	"manifest_version": 1
 }
