@@ -207,51 +207,6 @@ class ApiQueryGadgets extends ApiQueryBase {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Returns a list of gadgets used on this wiki';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return array(
-			'prop' => array(
-				'What gadget information to get:',
-				' id             - Internal gadget ID',
-				' metadata       - The gadget metadata',
-				' desc           - Gadget description transformed into HTML (can be slow, use only if really needed)',
-			),
-			'categories' => 'Gadgets from what categories to retrieve',
-			'ids' => 'ID(s) of gadgets to retrieve',
-			'allowedonly' => 'List only gadgets allowed to current user',
-			'enabledonly' => 'List only gadgets enabled by current user',
-		);
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		$params = $this->getAllowedParams();
-		$allProps = implode( '|', $params['prop'][ApiBase::PARAM_TYPE] );
-		return array(
-			'Get a list of gadgets along with their descriptions:',
-			'    api.php?action=query&list=gadgets&gaprop=id|desc',
-			'Get a list of gadgets with all possible properties:',
-			"    api.php?action=query&list=gadgets&gaprop=$allProps",
-			'Get a list of gadgets belonging to category "foo":',
-			'    api.php?action=query&list=gadgets&gacategories=foo',
-			'Get information about gadgets "foo" and "bar":',
-			'    api.php?action=query&list=gadgets&gaids=foo|bar&gaprop=id|desc|metadata',
-			'Get a list of gadgets enabled by current user:',
-			'    api.php?action=query&list=gadgets&gaenabledonly',
-		);
-	}
-
-	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {

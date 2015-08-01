@@ -96,43 +96,6 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 	}
 
 	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getDescription() {
-		return 'Returns a list of gadget categories';
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getParamDescription() {
-		return array(
-			'prop' => array(
-				'What gadget category information to get:',
-				' name     - Internal category name',
-				' title    - Category title',
-				' members  - Number of gadgets in category',
-			),
-			'names' => 'Name(s) of categories to retrieve',
-		);
-	}
-
-	/**
-	 * @deprecated since MediaWiki core 1.25
-	 */
-	public function getExamples() {
-		$params = $this->getAllowedParams();
-		$allProps = implode( '|', $params['prop'][ApiBase::PARAM_TYPE] );
-
-		return array(
-			'Get a list of existing gadget categories:',
-			'    api.php?action=query&list=gadgetcategories',
-			'Get all information about categories named "foo" and "bar":',
-			"    api.php?action=query&list=gadgetcategories&gcnames=foo|bar&gcprop=$allProps",
-		);
-	}
-
-	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
