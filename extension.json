@@ -28,7 +28,7 @@
 		"ApiQueryGadgets": "api/ApiQueryGadgets.php",
 		"Gadget": "Gadgets_body.php",
 		"GadgetHooks": "GadgetHooks.php",
-		"GadgetResourceLoaderModule": "Gadgets_body.php",
+		"GadgetResourceLoaderModule": "includes/GadgetResourceLoaderModule.php",
 		"SpecialGadgets": "SpecialGadgets.php",
 		"GadgetRepo": "includes/GadgetRepo.php",
 		"MediaWikiGadgetsDefinitionRepo": "includes/MediaWikiGadgetsDefinitionRepo.php"
