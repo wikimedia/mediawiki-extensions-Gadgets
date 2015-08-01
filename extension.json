@@ -53,8 +53,5 @@
 			"GadgetHooks::onUnitTestsList"
 		]
 	},
-	"ConfigRegistry": {
-		"gadgets": "GlobalVarConfig::newInstance"
-	},
 	"manifest_version": 1
 }
