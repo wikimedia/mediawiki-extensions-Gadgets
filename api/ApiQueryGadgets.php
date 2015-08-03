@@ -147,8 +147,8 @@ class ApiQueryGadgets extends ApiQueryBase {
 				'rights' => $g->getRequiredRights(),
 				'skins' => $g->getRequiredSkins(),
 				'default' => $g->isOnByDefault(),
-				'hidden' => false, // Only exists in RL2 branch
-				'shared' => false, // Only exists in RL2 branch
+				'hidden' => $g->isHidden(),
+				'shared' => false,
 				'category' => $g->getCategory(),
 				'legacyscripts' => (bool)$g->getLegacyScripts(),
 			),
@@ -156,7 +156,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 				'scripts' => $g->getScripts(),
 				'styles' => $g->getStyles(),
 				'dependencies' => $g->getDependencies(),
-				'messages' => array(), // Only exists in RL2 branch
+				'messages' => $g->getMessages(),
 			)
 		);
 	}

@@ -4,7 +4,7 @@
  * Class representing a list of resources for one gadget
  */
 class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
-	private $pages, $dependencies;
+	private $pages, $dependencies, $messages;
 
 	/**
 	 * Creates an instance of this class
@@ -18,13 +18,15 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 * @param $dependencies Array: Names of resources this module depends on
 	 * @param $targets Array: List of targets this module support
 	 * @param $position String: 'bottom' or 'top'
+	 * @param $messages Array
 	 */
-	public function __construct( $pages, $dependencies, $targets, $position ) {
+	public function __construct( $pages, $dependencies, $targets, $position, $messages ) {
 		$this->pages = $pages;
 		$this->dependencies = $dependencies;
 		$this->targets = $targets;
 		$this->position = $position;
 		$this->isPositionDefined = true;
+		$this->messages = $messages;
 	}
 
 	/**
@@ -51,5 +53,9 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 */
 	public function getPosition() {
 		return $this->position;
+	}
+
+	public function getMessages() {
+		return $this->messages;
 	}
 }

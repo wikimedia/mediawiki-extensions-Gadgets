@@ -19,13 +19,14 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	const GADGET_CLASS_VERSION = 8;
+	const GADGET_CLASS_VERSION = 9;
 
 	const CACHE_TTL = 86400;
 
 	private $scripts = array(),
 			$styles = array(),
 			$dependencies = array(),
+			$messages = array(),
 			$name,
 			$definition,
 			$resourceLoaded = false,
@@ -33,6 +34,7 @@ class Gadget {
 			$requiredSkins = array(),
 			$targets = array( 'desktop' ),
 			$onByDefault = false,
+			$hidden = false,
 			$position = 'bottom',
 			$category;
 
@@ -45,6 +47,7 @@ class Gadget {
 				case 'scripts':
 				case 'styles':
 				case 'dependencies':
+				case 'messages':
 				case 'name':
 				case 'definition':
 				case 'resourceLoaded':
@@ -53,6 +56,7 @@ class Gadget {
 				case 'targets':
 				case 'onByDefault':
 				case 'position':
+				case 'hidden':
 				case 'category':
 					$this->{$member} = $option;
 					break;
@@ -137,6 +141,13 @@ class Gadget {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function isHidden() {
+		return $this->hidden;
+	}
+
+	/**
 	 * @return Boolean: Whether all of this gadget's JS components support ResourceLoader
 	 */
 	public function supportsResourceLoader() {
@@ -202,7 +213,13 @@ class Gadget {
 			return null;
 		}
 
-		return new GadgetResourceLoaderModule( $pages, $this->dependencies, $this->targets, $this->position );
+		return new GadgetResourceLoaderModule(
+			$pages,
+			$this->dependencies,
+			$this->targets,
+			$this->position,
+			$this->messages
+		);
 	}
 
 	/**
@@ -222,6 +239,13 @@ class Gadget {
 	 */
 	public function getDependencies() {
 		return $this->dependencies;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getMessages() {
+		return $this->messages;
 	}
 
 	/**

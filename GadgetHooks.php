@@ -89,7 +89,7 @@ class GadgetHooks {
 			 * @var $gadget Gadget
 			 */
 			foreach ( $thisSection as $gadget ) {
-				if ( $gadget->isAllowed( $user ) ) {
+				if ( !$gadget->isHidden() && $gadget->isAllowed( $user ) ) {
 					$gname = $gadget->getName();
 					# bug 30182: dir="auto" because it's often not translated
 					$desc = '<span dir="auto">' . $gadget->getDescription() . '</span>';
