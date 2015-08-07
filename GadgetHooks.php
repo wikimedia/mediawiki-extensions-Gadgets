@@ -20,6 +20,7 @@
  *
  * @file
  */
+use WrappedString\WrappedString;
 
 class GadgetHooks {
 	/**
@@ -172,7 +173,7 @@ class GadgetHooks {
 
 		$lb = new LinkBatch();
 		$lb->setCaller( __METHOD__ );
-		$pages = array();
+		$enabledLegacyGadgets = array();
 
 		/**
 		 * @var $gadget Gadget
@@ -186,56 +187,30 @@ class GadgetHooks {
 					$out->addModules( $gadget->getModuleName() );
 				}
 
-				foreach ( $gadget->getLegacyScripts() as $page ) {
-					$lb->add( NS_MEDIAWIKI, $page );
-					$pages[] = $page;
+				if ( $gadget->getLegacyScripts() ) {
+					$enabledLegacyGadgets[] = $id;
 				}
 			}
 		}
 
-		// Allow other extensions, e.g. MobileFrontend, to disallow legacy gadgets
-		if ( Hooks::run( 'Gadgets::allowLegacy', array( $out->getContext() ) ) ) {
-			$lb->execute();
-
-			$done = array();
-
-			foreach ( $pages as $page ) {
-				if ( isset( $done[$page] ) ) {
-					continue;
-				}
-
-				$done[$page] = true;
-				self::applyScript( $page, $out );
-			}
+		$strings = array();
+		foreach ( $enabledLegacyGadgets as $id ) {
+			$strings[] = self::makeLegacyWarning( $id );
 		}
+		$out->addHTML( WrappedString::join( "\n", $strings ) );
 
 		return true;
 	}
 
-	/**
-	 * Adds one legacy script to output.
-	 *
-	 * @param string $page Unprefixed page title
-	 * @param OutputPage $out
-	 */
-	private static function applyScript( $page, $out ) {
-		global $wgJsMimeType;
+	private static function makeLegacyWarning( $id ) {
+		$special = SpecialPage::getTitleFor( 'Gadgets' );
 
-		# bug 22929: disable gadgets on sensitive pages.  Scripts loaded through the
-		# ResourceLoader handle this in OutputPage::getModules()
-		# TODO: make this extension load everything via RL, then we don't need to worry
-		# about any of this.
-		if ( $out->getAllowedModules( ResourceLoaderModule::TYPE_SCRIPTS ) < ResourceLoaderModule::ORIGIN_USER_SITEWIDE ) {
-			return;
-		}
-
-		$t = Title::makeTitleSafe( NS_MEDIAWIKI, $page );
-		if ( !$t ) {
-			return;
-		}
-
-		$u = $t->getLocalURL( 'action=raw&ctype=' . $wgJsMimeType );
-		$out->addScriptFile( $u, $t->getLatestRevID() );
+		return ResourceLoader::makeInlineScript(
+			Xml::encodeJsCall( 'mw.log.warn', array(
+				"Gadget \"$id\" was not loaded. Please migrate it to use ResourceLoader. " .
+				' See <' . $special->getCanonicalURL() . '>.'
+			) )
+		);
 	}
 
 	/**

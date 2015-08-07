@@ -122,6 +122,13 @@ class SpecialGadgets extends SpecialPage {
 					$lnk[] = Linker::link( $t, htmlspecialchars( $t->getText() ) );
 				}
 				$output->addHTML( $lang->commaList( $lnk ) );
+				if ( $gadget->getLegacyScripts() ) {
+					$output->addHTML( '<br />' . Html::rawElement(
+						'span',
+						array( 'class' => 'mw-gadget-legacy errorbox' ),
+						$this->msg( 'gadgets-legacy' )->parse()
+					) );
+				}
 
 				$rights = array();
 				foreach ( $gadget->getRequiredRights() as $right ) {
