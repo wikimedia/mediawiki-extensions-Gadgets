@@ -36,5 +36,9 @@
 	"apihelp-query+gadgets-example-2": "Get a list of gadgets with all possible properties",
 	"apihelp-query+gadgets-example-3": "Get a list of gadgets belonging to category \"foo\"",
 	"apihelp-query+gadgets-example-4": "Get information about gadgets \"foo\" and \"bar\"",
-	"apihelp-query+gadgets-example-5": "Get a list of gadgets enabled by current user"
+	"apihelp-query+gadgets-example-5": "Get a list of gadgets enabled by current user",
+	"right-gadgets-edit": "Edit gadget JavaScript and CSS pages",
+	"action-gadgets-edit": "edit this gadget JavaScript or CSS page",
+	"right-gadgets-definition-edit": "Edit gadget definitions",
+	"action-gadgets-definition-edit": "edit this gadget definition"
 }
