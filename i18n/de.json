@@ -43,5 +43,9 @@
 	"apihelp-query+gadgets-example-2": "Ruft eine Liste der Helferlein mit allen möglichen Eigenschaften ab",
 	"apihelp-query+gadgets-example-3": "Ruft eine Liste der Helferlein ab, die zur Kategorie „foo“ gehören",
 	"apihelp-query+gadgets-example-4": "Informationen über die Helferlein „foo“ und „bar“ abrufen",
-	"apihelp-query+gadgets-example-5": "Ruft eine Liste der Helferlein ab, die vom aktuellen Benutzer aktiviert wurden"
+	"apihelp-query+gadgets-example-5": "Ruft eine Liste der Helferlein ab, die vom aktuellen Benutzer aktiviert wurden",
+	"right-gadgets-edit": "JavaScript- und CSS-Seiten von Helferlein bearbeiten",
+	"action-gadgets-edit": "diese JavaScript- oder CSS-Seite des Helferleins zu bearbeiten",
+	"right-gadgets-definition-edit": "Definitionen von Helferlein bearbeiten",
+	"action-gadgets-definition-edit": "diese Definition des Helferleins zu bearbeiten"
 }

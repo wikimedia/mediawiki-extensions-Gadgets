@@ -39,5 +39,9 @@
 	"apihelp-query+gadgets-example-2": "קבלת רשימת גאדג'טים עם כל המאפיינים שלהם",
 	"apihelp-query+gadgets-example-3": "קבלת רשימת גאדג'טים בקטגוריה \"foo\"",
 	"apihelp-query+gadgets-example-4": "קבלת מידע על הגאדג'טים \"foo\" ו־\"bar\"",
-	"apihelp-query+gadgets-example-5": "קבלת רשימת גאדג'טים שמופעלים למשתמש הנוכחי"
+	"apihelp-query+gadgets-example-5": "קבלת רשימת גאדג'טים שמופעלים למשתמש הנוכחי",
+	"right-gadgets-edit": "עריכת דפי JavaScript ו־CSS של גאדג'טים",
+	"action-gadgets-edit": "לערוף את דף ה־JavaScript או דף ה־CSS של הגאדג'ט הזה",
+	"right-gadgets-definition-edit": "עריכת הגדרות גאדג'טים",
+	"action-gadgets-definition-edit": "לערוך את הגדרת הגאדג'ט הזה"
 }

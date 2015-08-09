@@ -36,5 +36,9 @@
 	"apihelp-query+gadgets-example-2": "Дај список на алатки со сите можни својства",
 	"apihelp-query+gadgets-example-3": "Дај список на алатки што è припаѓаат на категоријата „foo“",
 	"apihelp-query+gadgets-example-4": "Дај информации за алатките „foo“ и „bar“",
-	"apihelp-query+gadgets-example-5": "Дај список на алатки што ги има вклучено тековниот корисник."
+	"apihelp-query+gadgets-example-5": "Дај список на алатки што ги има вклучено тековниот корисник.",
+	"right-gadgets-edit": "Менување на JavaScript- и CSS-страниците на алатка",
+	"action-gadgets-edit": "менување на JavaScript- и CSS-страниците на алатка",
+	"right-gadgets-definition-edit": "Менување на определбите на алатка",
+	"action-gadgets-definition-edit": "менување на определбата на оваа алатка"
 }

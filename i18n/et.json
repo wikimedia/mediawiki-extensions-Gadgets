@@ -15,6 +15,7 @@
 	"gadgets-required-rights": "Tarvis on {{PLURAL:$2|järgmist õigust|järgmisi õigusi}}:\n\n$1",
 	"gadgets-required-skins": "Saadaval {{PLURAL:$2|järgmise kujundusega|järgmiste kujundustega}}: $1.",
 	"gadgets-default": "Vaikimisi kõigile lubatud.",
+	"gadgets-legacy": "Tööriist on laadimata. Palun kohanda ResourceLoaderiga. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Lisateave])",
 	"gadgets-export": "Ekspordi",
 	"gadgets-export-title": "Tööriista eksportimine",
 	"gadgets-not-found": "Tööriista \"$1\" ei leidu.",
@@ -35,5 +36,9 @@
 	"apihelp-query+gadgets-example-2": "Hangi tööriistade loetelu kõigi võimalike atribuutidega",
 	"apihelp-query+gadgets-example-3": "Hangi loetelu tööriistadest, mis kuuluvad kategooriasse \"foo\"",
 	"apihelp-query+gadgets-example-4": "Hangi teave tööriistade \"foo\" ja \"bar\" kohta",
-	"apihelp-query+gadgets-example-5": "Hangi loetelu tööriistadest, mille antud kasutaja on lubanud"
+	"apihelp-query+gadgets-example-5": "Hangi loetelu tööriistadest, mille antud kasutaja on lubanud",
+	"right-gadgets-edit": "Muuta tööriistade JavaScripti ja CSS-lehekülgi",
+	"action-gadgets-edit": "muuta tööriistade JavaScripti ega CSS-lehekülgi",
+	"right-gadgets-definition-edit": "Muuta tööriistade määratlusi",
+	"action-gadgets-definition-edit": "muuta tööriistade määratlusi"
 }
