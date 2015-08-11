@@ -11,7 +11,8 @@
 			"Riwnodennyk",
 			"Sodmy",
 			"Тест",
-			"Ата"
+			"Ата",
+			"Base"
 		]
 	},
 	"gadgets-desc": "Дозволяє користувачам обирати [[Special:Gadgets|CSS- та JavaScript-додатки]] у своїх [[Special:Preferences#mw-prefsection-gadgets|налаштуваннях]]",
@@ -24,6 +25,7 @@
 	"gadgets-required-rights": "{{PLURAL:$2|1=Потрібне право|Потрібні такі права}}:\n\n$1",
 	"gadgets-required-skins": "Доступний на {{PLURAL:$2|1=$1 skin|наступних темах оформлення: $1}}.",
 	"gadgets-default": "Увімкнено для всіх за замовчуванням.",
+	"gadgets-legacy": "Додаток не завантажено. Будь ласка, здійсніть міграцію на ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Дізнатися більше])",
 	"gadgets-export": "Експортувати",
 	"gadgets-export-title": "Експорт додатка",
 	"gadgets-not-found": "Додаток \"$1\" не знайдено.",
@@ -44,5 +46,9 @@
 	"apihelp-query+gadgets-example-2": "Отримати список ґаджетів з усіма можливими властивостями",
 	"apihelp-query+gadgets-example-3": "Отримати список ґаджетів, які належать до категорії «foo»",
 	"apihelp-query+gadgets-example-4": "Отримати інформацію про ґаджети «foo» і «bar»",
-	"apihelp-query+gadgets-example-5": "Отримати список ґаджетів, увімкнених даним користувачем"
+	"apihelp-query+gadgets-example-5": "Отримати список ґаджетів, увімкнених даним користувачем",
+	"right-gadgets-edit": "Редагувати сторінки JavaScript та CSS додатку",
+	"action-gadgets-edit": "редагувати JavaScript- чи  CSS-сторінку цього додатку",
+	"right-gadgets-definition-edit": "Редагувати визначення додатку",
+	"action-gadgets-definition-edit": "редагувати визначення цього додатку"
 }
