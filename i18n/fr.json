@@ -15,7 +15,8 @@
 			"Djiboun",
 			"Windes",
 			"Lucky",
-			"Gomoko"
+			"Gomoko",
+			"SRXcraft"
 		]
 	},
 	"gadgets-desc": "Permet aux utilisateurs de choisir des [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences#mw-prefsection-gadgets|préférences]]",
@@ -28,6 +29,7 @@
 	"gadgets-required-rights": "Requiert {{PLURAL:$2|le droit suivant|les droits suivants}} : \n\n$1.",
 	"gadgets-required-skins": "Disponible sur {{PLURAL:$2|l’habillage suivant|les habillages suivants}} : $1.",
 	"gadgets-default": "Activé pour tout le monde par défaut.",
+	"gadgets-legacy": "Le gadget n’est pas chargé. Veuillez migrer vers ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) En savoir plus])",
 	"gadgets-export": "Exporter",
 	"gadgets-export-title": "Export de gadget",
 	"gadgets-not-found": "Gadget « $1 » non trouvé.",
@@ -48,5 +50,9 @@
 	"apihelp-query+gadgets-example-2": "Obtenir une liste de gadgets avec toutes les propriétés possibles",
 	"apihelp-query+gadgets-example-3": "Obtenir une liste des gadgets appartenant à la catégorie « foo »",
 	"apihelp-query+gadgets-example-4": "Obtenir l’information sur les gadgets « foo » et « bar »",
-	"apihelp-query+gadgets-example-5": "Obtenir une liste des gadgets activés par l’utilisateur actuel"
+	"apihelp-query+gadgets-example-5": "Obtenir une liste des gadgets activés par l’utilisateur actuel",
+	"right-gadgets-edit": "Modifier les pages JavaScript et CSS de gadget",
+	"action-gadgets-edit": "modifier la page JavaScript ou CSS de ce gadget",
+	"right-gadgets-definition-edit": "Modifier les définitions des gadget",
+	"action-gadgets-definition-edit": "modifier la définition de ce gadget"
 }

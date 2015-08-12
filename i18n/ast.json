@@ -15,6 +15,7 @@
 	"gadgets-required-rights": "Requier {{PLURAL:$2|el siguiente permisu|los siguientes permisos}}:\n\n$1",
 	"gadgets-required-skins": "Disponible {{PLURAL:$2|nel aspeutu $1|nos siguientes aspeutos: $1}}.",
 	"gadgets-default": "Activáu para toos de mou predetermináu.",
+	"gadgets-legacy": "El gadget nun ta cargáu. Migra a ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Saber más])",
 	"gadgets-export": "Esportar",
 	"gadgets-export-title": "Esportación d'accesorios",
 	"gadgets-not-found": "Nun s'alcontró l'accesoriu \"$1\".",
@@ -35,5 +36,9 @@
 	"apihelp-query+gadgets-example-2": "Amosar la llista de gadgets con toles propiedaes posibles",
 	"apihelp-query+gadgets-example-3": "Amosar la llista de gadgets que pertenezan a la categoría «foo»",
 	"apihelp-query+gadgets-example-4": "Amosar información sobro los gadgets «foo» y «bar»",
-	"apihelp-query+gadgets-example-5": "Ver la llista de los gadgets activaos pol usuariu actual."
+	"apihelp-query+gadgets-example-5": "Ver la llista de los gadgets activaos pol usuariu actual.",
+	"right-gadgets-edit": "Editar gadget en JavaScript y páxines CSS",
+	"action-gadgets-edit": "editar esti gadget en JavaScript o páxina CSS",
+	"right-gadgets-definition-edit": "Editar definiciones de gadget",
+	"action-gadgets-definition-edit": "editar esta definición de gadget"
 }
