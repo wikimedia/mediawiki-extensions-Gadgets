@@ -38,5 +38,9 @@
 	"apihelp-query+gadgets-example-2": "Gauti įrankių su visomis galimomis parinktimis sąrašą",
 	"apihelp-query+gadgets-example-3": "Gauti įrankių, priklausančių kategorijai \"foo\", sąrašą",
 	"apihelp-query+gadgets-example-4": "Gauti informaciją apie įrankius \"foo\" ir \"bar\"",
-	"apihelp-query+gadgets-example-5": "Gauti įrankių, aktyvuotų dabartinio naudotojo, sąrašą"
+	"apihelp-query+gadgets-example-5": "Gauti įrankių, aktyvuotų dabartinio naudotojo, sąrašą",
+	"right-gadgets-edit": "Redaguoti įrankio JavaScript ir CSS puslapius",
+	"action-gadgets-edit": "redaguoti šio įrankio JavaScript arba CSS puslapį",
+	"right-gadgets-definition-edit": "Redaguoti įrankių apibrėžimus",
+	"action-gadgets-definition-edit": "redaguoti šio įrankio apibrėžimą"
 }
