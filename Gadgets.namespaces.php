@@ -16,6 +16,13 @@ $namespaceNames['en'] = array(
 	NS_GADGET_DEFINITION_TALK => 'Gadget_definition_talk',
 );
 
+$namespaceNames['fa'] = array(
+	NS_GADGET => 'ابزار',
+	NS_GADGET_TALK => 'بحث_ابزار',
+	NS_GADGET_DEFINITION => 'توضیحات_ابزار',
+	NS_GADGET_DEFINITION_TALK => 'بحث_توضیحات_ابزار',
+);
+
 $namespaceNames['he'] = array(
 	NS_GADGET => 'גאדג\'ט',
 	NS_GADGET_TALK => 'שיחת_גאדג\'ט',
