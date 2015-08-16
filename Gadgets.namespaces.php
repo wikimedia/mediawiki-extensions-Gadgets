@@ -37,6 +37,13 @@ $namespaceNames['pl'] = array(
 	NS_GADGET_DEFINITION_TALK => 'Dyskusja_definicji_gadżetu',
 );
 
+$namespaceNames['ur'] = array(
+	NS_GADGET => 'آلہ',
+	NS_GADGET_TALK => 'تبادلۂ_خیال_آلہ',
+	NS_GADGET_DEFINITION => 'تعریف_آلہ',
+	NS_GADGET_DEFINITION_TALK => 'تبادلۂ_خیال_تعریف_آلہ',
+);
+
 $namespaceNames['vi'] = array(
 	NS_GADGET => 'Tiện_ích',
 	NS_GADGET_TALK => 'Thảo_luận_Tiện_ích',
