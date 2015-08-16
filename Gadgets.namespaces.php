@@ -30,3 +30,9 @@ $namespaceNames['he'] = array(
 	NS_GADGET_DEFINITION_TALK => 'שיחת_הגדרת_גאדג\'ט',
 );
 
+$namespaceNames['vi'] = array(
+	NS_GADGET => 'Tiện_ích',
+	NS_GADGET_TALK => 'Thảo_luận_Tiện_ích',
+	NS_GADGET_DEFINITION => 'Định_nghĩa_tiện_ích',
+	NS_GADGET_DEFINITION_TALK => 'Thảo_luận_Định_nghĩa_tiện_ích',
+);
