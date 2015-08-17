@@ -9,6 +9,13 @@ if ( !defined( 'NS_GADGET' ) ) {
 	define( 'NS_GADGET_DEFINITION_TALK', 2303 );
 }
 
+$namespaceNames['azb'] = array(
+	NS_GADGET => 'آلت',
+	NS_GADGET_TALK => 'آلت_دانیشیغی',
+	NS_GADGET_DEFINITION => 'آلت_آچیقلاماسی',
+	NS_GADGET_DEFINITION_TALK => 'آلت_آچیقلاماسی_دانیشیغی',
+);
+
 $namespaceNames['ckb'] = array(
 	NS_GADGET => 'ئامراز',
 	NS_GADGET_TALK => 'وتووێژی_ئامراز',
