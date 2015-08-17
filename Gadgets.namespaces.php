@@ -51,6 +51,13 @@ $namespaceNames['it'] = array(
 	NS_GADGET_DEFINITION_TALK => 'Discussioni_definizione_accessorio',
 );
 
+$namespaceNames['lrc'] = array(
+	NS_GADGET => 'گأجئت',
+	NS_GADGET_TALK => 'چأک_چئنە_گأجئت',
+	NS_GADGET_DEFINITION => 'توضییا_گأجئت',
+	NS_GADGET_DEFINITION_TALK => 'چأک_چئنە_توضییا_گأجئت',
+);
+
 $namespaceNames['pl'] = array(
 	NS_GADGET => 'Gadżet',
 	NS_GADGET_TALK => 'Dyskusja_gadżetu',
