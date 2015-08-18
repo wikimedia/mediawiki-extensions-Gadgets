@@ -58,6 +58,13 @@ $namespaceNames['lrc'] = array(
 	NS_GADGET_DEFINITION_TALK => 'چأک_چئنە_توضییا_گأجئت',
 );
 
+$namespaceNames['mzn'] = array(
+	NS_GADGET => 'گجت',
+	NS_GADGET_TALK => 'گجت_گپ',
+	NS_GADGET_DEFINITION => 'گجت_توضیحات',
+	NS_GADGET_DEFINITION_TALK => 'گجت_توضیحات_گپ',
+);
+
 $namespaceNames['pl'] = array(
 	NS_GADGET => 'Gadżet',
 	NS_GADGET_TALK => 'Dyskusja_gadżetu',
