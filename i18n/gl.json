@@ -17,6 +17,7 @@
 	"gadgets-required-rights": "{{PLURAL:$2|Cómpre o seguinte dereito|Cómpren os seguintes dereitos}}:\n\n$1",
 	"gadgets-required-skins": "Dispoñible {{PLURAL:$2|na aparencia $1|nas seguintes aparencias: $1}}.",
 	"gadgets-default": "Activado para todos por defecto.",
+	"gadgets-legacy": "O trebello non está cargado. Por favor, migre a ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Máis información])",
 	"gadgets-export": "Exportar",
 	"gadgets-export-title": "Exportación de trebellos",
 	"gadgets-not-found": "Non se atopou o trebello \"$1\".",
@@ -37,5 +38,9 @@
 	"apihelp-query+gadgets-example-2": "Amosar unha lista de trebellos con tódalas propiedades posibles",
 	"apihelp-query+gadgets-example-3": "Amosar unha lista de trebellos que pertenzan á categoría \"foo\"",
 	"apihelp-query+gadgets-example-4": "Amosar información sobre os trebellos \"foo\" e \"bar\"",
-	"apihelp-query+gadgets-example-5": "Amosar unha lista dos trebellos habilitados para o usuario actual"
+	"apihelp-query+gadgets-example-5": "Amosar unha lista dos trebellos habilitados para o usuario actual",
+	"right-gadgets-edit": "Editar as páxinas de JavaScript e CSS dos trebellos",
+	"action-gadgets-edit": "editar a páxina de JavaScript ou CSS deste trebello",
+	"right-gadgets-definition-edit": "Editar as definicións dos trebellos",
+	"action-gadgets-definition-edit": "editar a definición deste trebello"
 }
