@@ -23,6 +23,13 @@ $namespaceNames['ckb'] = array(
 	NS_GADGET_DEFINITION_TALK => 'وتووێژی_پێناسه‌ی_ئامراز',
 );
 
+$namespaceNames['de'] = array(
+	NS_GADGET => 'Gadget',
+	NS_GADGET_TALK => 'Gadget_Diskussion',
+	NS_GADGET_DEFINITION => 'Gadget-Definition',
+	NS_GADGET_DEFINITION_TALK => 'Gadget-Definition_Diskussion',
+);
+
 $namespaceNames['en'] = array(
 	NS_GADGET => 'Gadget',
 	NS_GADGET_TALK => 'Gadget_talk',
