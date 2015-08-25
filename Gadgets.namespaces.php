@@ -16,6 +16,13 @@ $namespaceNames['azb'] = array(
 	NS_GADGET_DEFINITION_TALK => 'آلت_آچیقلاماسی_دانیشیغی',
 );
 
+$namespaceNames['bgn'] = array(
+	NS_GADGET => 'وسیله_ئان',
+	NS_GADGET_TALK => 'وسیله_ئان_ئی_گپ',
+	NS_GADGET_DEFINITION => 'وسیله_ئانی_شرح',
+	NS_GADGET_DEFINITION_TALK => 'وسیله_ئانی_شرح_ئی_گپ',
+);
+
 $namespaceNames['ckb'] = array(
 	NS_GADGET => 'ئامراز',
 	NS_GADGET_TALK => 'وتووێژی_ئامراز',
