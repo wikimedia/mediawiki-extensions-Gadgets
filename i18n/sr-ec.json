@@ -23,5 +23,9 @@
 	"gadgets-export-title": "Извоз гаџета",
 	"gadgets-not-found": "Гаџет „$1“ није пронађен.",
 	"gadgets-export-text": "Да бисте извезли $1 гаџет, кликните на дугме „{{int:gadgets-export-download}}“, сачувајте преузету датотеку,\nпређите на ''Special:Import'' на жељеној викији и пошаљите гаџет. Након тога, додајте следеће на ''MediaWiki:Gadgets-definition'' страницу:\n<pre>$2</pre>\nМорате имати одређене дозволе на наведеној викији (укључујући и право за уређивање системских порука), док увоз преко датотека мора бити омогућен.",
-	"gadgets-export-download": "Преузми"
+	"gadgets-export-download": "Преузми",
+	"right-gadgets-edit": "уређивање JavaScript и CSS страница геџета",
+	"action-gadgets-edit": "уређивање JavaScript и CSS страница геџета",
+	"right-gadgets-definition-edit": "уређивање дефиниција геџета",
+	"action-gadgets-definition-edit": "уређивање дефиниција геџета"
 }
