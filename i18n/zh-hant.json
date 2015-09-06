@@ -24,6 +24,7 @@
 	"gadgets-required-rights": "需要以下{{PLURAL:$2|權限|權限}}：\n\n$1",
 	"gadgets-required-skins": "可用於{{PLURAL:$2|$1 外觀|下列外觀：$1}}。",
 	"gadgets-default": "所有人預設開啟。",
+	"gadgets-legacy": "未載入小工具，請改使用 ResourceLoader。\n([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) 了解更多])",
 	"gadgets-export": "匯出",
 	"gadgets-export-title": "匯出小工具",
 	"gadgets-not-found": "查無小工具 \"$1\"。",
@@ -44,5 +45,9 @@
 	"apihelp-query+gadgets-example-2": "取得小工具及其所有屬性清單",
 	"apihelp-query+gadgets-example-3": "取得屬於分類 \"foo\" 的小工具清單",
 	"apihelp-query+gadgets-example-4": "取得有關小工具 \"foo\" 與 \"bar\" 的資訊",
-	"apihelp-query+gadgets-example-5": "取得由目前使用者開竹呚的小工具清單"
+	"apihelp-query+gadgets-example-5": "取得由目前使用者開竹呚的小工具清單",
+	"right-gadgets-edit": "編輯小工具的 JavaScript 與 CSS 頁面",
+	"action-gadgets-edit": "編輯這個小工具的 JavaScript 或 CSS 頁面",
+	"right-gadgets-definition-edit": "編輯小工具定義",
+	"action-gadgets-definition-edit": "編輯此小工具的定義"
 }
