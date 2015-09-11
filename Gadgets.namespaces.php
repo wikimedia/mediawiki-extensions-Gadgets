@@ -86,6 +86,13 @@ $namespaceNames['mzn'] = array(
 	NS_GADGET_DEFINITION_TALK => 'گجت_توضیحات_گپ',
 );
 
+$namespaceNames['or'] = array(
+	NS_GADGET => 'ଗ୍ୟାଜେଟ',
+	NS_GADGET_TALK => 'ଗ୍ୟାଜେଟ_ଆଲୋଚନା',
+	NS_GADGET_DEFINITION => 'ଗ୍ୟାଜେଟ_ସଂଜ୍ଞା',
+	NS_GADGET_DEFINITION_TALK => 'ଗ୍ୟାଜେଟ_ସଂଜ୍ଞା_ଆଲୋଚନା',
+);
+
 $namespaceNames['pl'] = array(
 	NS_GADGET => 'Gadżet',
 	NS_GADGET_TALK => 'Dyskusja_gadżetu',
