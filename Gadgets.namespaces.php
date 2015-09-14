@@ -76,7 +76,7 @@ $namespaceNames['ko'] = array(
 	NS_GADGET => '소도구',
 	NS_GADGET_TALK => '소도구토론',
 	NS_GADGET_DEFINITION => '소도구정의',
-	NS_GADGET_DEFINITIKN_TALK => '소도구정의토론',
+	NS_GADGET_DEFINITION_TALK => '소도구정의토론',
 );
 
 $namespaceNames['lrc'] = array(
