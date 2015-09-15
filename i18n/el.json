@@ -22,6 +22,7 @@
 	"gadgets-required-rights": "Απαιτεί {{PLURAL:$2|το ακόλουθο δικαίωμα|τα ακόλουθα δικαιώματα}}:\n\n$1",
 	"gadgets-required-skins": "Διαθέσιμο {{PLURAL:$2|στο θέμα εμφάνισης $1|στα ακόλουθα θέματα εμφάνισης: $1}}.",
 	"gadgets-default": "Ενεργοποιημένο για όλους από προεπιλογή.",
+	"gadgets-legacy": "Η μικροεφαρμογή δεν φορτώθηκε. Παρακαλούμε αναβαθμίσετε σε περιβάλλον ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Μάθετε περισσότερα])",
 	"gadgets-export": "Εξαγωγή",
 	"gadgets-export-title": "Εξαγωγή μικροεφαρμογής",
 	"gadgets-not-found": "Η μικροεφαρμογή «$1» δεν βρέθηκε.",
@@ -42,5 +43,9 @@
 	"apihelp-query+gadgets-example-2": "Λήψη λίστας μικροεφαρμογών με όλες τις πιθανές ιδιότητες",
 	"apihelp-query+gadgets-example-3": "Λήψη λίστας μικροεφαρμογών που ανήκουν στην κατηγορία «τάδε»",
 	"apihelp-query+gadgets-example-4": "Λήψη πληροφοριών σχετικά με τις μικροεφαρμογές «τάδε» και «δείνα»",
-	"apihelp-query+gadgets-example-5": "Λήψη λίστας μικροεφαρμογών ενεργοποιημένων από τον τρέχοντα χρήστη"
+	"apihelp-query+gadgets-example-5": "Λήψη λίστας μικροεφαρμογών ενεργοποιημένων από τον τρέχοντα χρήστη",
+	"right-gadgets-edit": "Επεξεργασία σελίδων JavaScript ή CSS της μικροεφαρμογής",
+	"action-gadgets-edit": "επεξεργαστείτε τις σελίδες JavaScript ή CSS αυτής της μικροεφαρμογής",
+	"right-gadgets-definition-edit": "Επεξεργασία ορισμών μικροεφαρμογών",
+	"action-gadgets-definition-edit": "επεξεργαστείτε τον ορισμό αυτής μικροεφαρμογής"
 }
