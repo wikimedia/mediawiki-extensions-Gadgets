@@ -26,7 +26,7 @@
 	"apihelp-query+gadgetcategories-param-prop": "Wat gadget categorie informatie te krijgen:\n;naam:Interne naam van de categorie.\n;titel:Categorie titel.\n;leden:Aantal gadgets in de categorie.",
 	"apihelp-query+gadgetcategories-param-names": "Namen van categorieën op te halen.",
 	"apihelp-query+gadgetcategories-example-1": "Een lijst van bestaande gadget categorieën",
-	"apihelp-query+gadgetcategories-example-2": "Je krijgt alle informatie over categorieën met de naam \"foo\" en \"bar\"",
+	"apihelp-query+gadgetcategories-example-2": "Alle informatie opvragen over categorieën met de naam \"foo\" en \"bar\"",
 	"apihelp-query+gadgets-description": "Het resultaat is een lijst van gadgets gebruikt op deze wiki.",
 	"apihelp-query+gadgets-param-prop": "Wat gadget informatie te krijgen:\n;id:Interne gadget ID.\n;metadata:De gadget metadata.\n;desc:Gadget beschrijving omgezet in HTML (kan traag zijn, alleen gebruiken als het echt nodig is).",
 	"apihelp-query+gadgets-param-categories": "Gadgets uit welke categorieën op te halen.",
