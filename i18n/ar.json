@@ -30,5 +30,7 @@
 	"apihelp-query+gadgets-param-enabledonly": "اسرد فقط الإضافات المفعَّلة من قبل المستخدم الحالي.",
 	"apihelp-query+gadgets-example-1": "اعط قائمة بالإضافات مع وصفها.",
 	"apihelp-query+gadgets-example-2": "اعط قائمة بالإضافات مع كامل خصائصها الممكنة",
-	"apihelp-query+gadgets-example-5": "أعط قائمة الإضافات المفعَّلة من قبل المستخدم الحالي"
+	"apihelp-query+gadgets-example-5": "أعط قائمة الإضافات المفعَّلة من قبل المستخدم الحالي",
+	"right-gadgets-edit": "تعديل صفحات JavaScript و CSS للإضافات",
+	"right-gadgets-definition-edit": "تعديل تعريفات الإضافات"
 }
