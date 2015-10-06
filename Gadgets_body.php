@@ -38,9 +38,6 @@ class Gadget {
 			$position = 'bottom',
 			$category;
 
-	/** @var array|bool Result of loadStructuredList() */
-	private static $definitionCache;
-
 	public function __construct( array $options ) {
 		foreach ( $options as $member => $option ) {
 			switch ( $member ) {
