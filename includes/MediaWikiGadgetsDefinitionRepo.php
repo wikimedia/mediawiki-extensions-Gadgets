@@ -75,7 +75,8 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		$us = $this;
 		$value = $wanCache->getWithSetCallback(
 			$key,
-			function( $old, &$ttl ) use ( $us ) {
+			Gadget::CACHE_TTL,
+			function ( $old, &$ttl ) use ( $us ) {
 				$now = microtime( true );
 				$gadgets = $us->fetchStructuredList();
 				if ( $gadgets === false ) {
@@ -84,9 +85,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 
 				return array( 'gadgets' => $gadgets, 'time' => $now );
 			},
-			Gadget::CACHE_TTL,
-			array( $key ),
-			array( 'lockTSE' => 300 )
+			array( 'checkKeys' => array( $key ), 'lockTSE' => 300 )
 		);
 
 		// Update the tier 1 cache as needed
