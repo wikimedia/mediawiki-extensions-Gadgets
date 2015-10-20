@@ -38,7 +38,8 @@
 		"gadgets-definition-edit"
 	],
 	"SpecialPages": {
-		"Gadgets": "SpecialGadgets"
+		"Gadgets": "SpecialGadgets",
+		"GadgetUsage": "SpecialGadgetUsage"
 	},
 	"APIListModules": {
 		"gadgetcategories": "ApiQueryGadgetCategories",
@@ -60,6 +61,7 @@
 		"GadgetHooks": "GadgetHooks.php",
 		"GadgetResourceLoaderModule": "includes/GadgetResourceLoaderModule.php",
 		"SpecialGadgets": "SpecialGadgets.php",
+		"SpecialGadgetUsage": "SpecialGadgetUsage.php",
 		"GadgetRepo": "includes/GadgetRepo.php",
 		"MediaWikiGadgetsDefinitionRepo": "includes/MediaWikiGadgetsDefinitionRepo.php"
 	},
