@@ -62,7 +62,7 @@ class SpecialGadgets extends SpecialPage {
 				$lnkTarget = $t
 					? Linker::link( $t, $this->msg( $editInterfaceMessage )->escaped(), array(), array( 'action' => 'edit' ) )
 					: htmlspecialchars( $section );
-				$lnk =  "&#160; &#160; [$lnkTarget]";
+				$lnk = "&#160; &#160; [$lnkTarget]";
 
 				$ttext = $this->msg( "gadget-section-$section" )->parse();
 

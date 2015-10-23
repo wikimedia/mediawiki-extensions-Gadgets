@@ -181,7 +181,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		$options = trim( $m[2], ' []' );
 
 		foreach ( preg_split( '/\s*\|\s*/', $options, -1, PREG_SPLIT_NO_EMPTY ) as $option ) {
-			$arr  = preg_split( '/\s*=\s*/', $option, 2 );
+			$arr = preg_split( '/\s*=\s*/', $option, 2 );
 			$option = $arr[0];
 			if ( isset( $arr[1] ) ) {
 				$params = explode( ',', $arr[1] );
@@ -227,6 +227,5 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 
 		return new Gadget( $info );
 	}
-
 
 }

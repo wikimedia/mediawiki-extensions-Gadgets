@@ -87,7 +87,7 @@ class SpecialGadgetUsage extends QueryPage {
 		$gadgetUserCount = $this->getLanguage()->formatNum( $result->value );
 		if ( $gadgetTitle ) {
 			$html = Html::openElement( 'tr', array() );
-			$html .=  Html::rawElement( 'td', array(), $gadgetTitle );
+			$html .= Html::rawElement( 'td', array(), $gadgetTitle );
 			$html .= Html::rawElement( 'td', array(), $gadgetUserCount );
 			$html .= Html::closeElement( 'tr' );
 			return $html;
