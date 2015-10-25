@@ -12,7 +12,8 @@
 			"Siebrand",
 			"The Evil IP address",
 			"Umherirrender",
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Robby"
 		]
 	},
 	"gadgets-desc": "{{desc|name=Gadgets|url=https://www.mediawiki.org/wiki/Extension:Gadgets}}",
@@ -20,7 +21,7 @@
 	"gadgets-prefstext": "In Gadgets extension. This is the explanation text displayed under the Gadgets tab in [[Special:Preferences#mw-prefsection-gadgets|Special:Preferences]].",
 	"gadgets": "{{doc-special|Gadgets}}\n{{Identical|Gadgets}}",
 	"gadgetusage": "{{doc-special|Gadget usage statistics}}",
-	"gadgetusage-gadget": "Table column header on [[Special:GadgetUsage]]",
+	"gadgetusage-gadget": "Table column header on [[Special:GadgetUsage]]\n{{Identical|Gadget}}",
 	"gadgetusage-usercount": "Table column header on [[Special:GadgetUsage]]",
 	"gadgetusage-noresults": "Message shown to user when no gadgets found installed on the wiki. Used on [[Special:GadgetUsage]]",
 	"gadgetusage-summary": "Intro text on [[Special:GadgetUsage]]",

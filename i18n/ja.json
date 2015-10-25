@@ -8,13 +8,18 @@
 			"Shirayuki",
 			"Whym",
 			"青子守歌",
-			"SkyDaisy9"
+			"SkyDaisy9",
+			"Sujiniku"
 		]
 	},
 	"gadgets-desc": "利用者が [[Special:Gadgets|CSS や JavaScript のカスタム ガジェット]]を[[Special:Preferences#mw-prefsection-gadgets|{{int:preferences}}]]で選択できるようにする",
 	"prefs-gadgets": "ガジェット",
 	"gadgets-prefstext": "以下はあなたのアカウントで利用できるガジェットの一覧です。\nこれらのガジェットはほとんどが JavaScript ベースであるため、動作させるにはご使用中のブラウザーの JavaScript を有効にする必要があります。\n{{int:preferences}}ページではこれらのガジェットが機能しないことにご注意ください。\n\nまた、これらのガジェットは MediaWiki ソフトウェアの一部ではなく、通常はローカルウィキの利用者が開発/メンテナンスをしていることにもご注意ください。\n管理者は、利用できるガジェットについてその[[MediaWiki:Gadgets-definition|定義]]や[[Special:Gadgets|説明]]を編集できます。",
 	"gadgets": "ガジェット",
+	"gadgetusage": "ガジェットの使用状況の統計",
+	"gadgetusage-gadget": "ガジェット",
+	"gadgetusage-usercount": "利用者の数",
+	"gadgetusage-noresults": "ガジェットが一つも見つかりませんでした。",
 	"gadgets-title": "ガジェット",
 	"gadgets-pagetext": "以下は、利用者が[[Special:Preferences#mw-prefsection-gadgets|{{int:preferences}}]]で有効化できるガジェットの一覧です。これらは[[MediaWiki:Gadgets-definition|定義ページ]]で定義されています。\nこの概要ページでは、各ガジェットの説明やプログラム コードを定義しているシステム メッセージ ページへの簡単なアクセスを提供します。",
 	"gadgets-uses": "使用するファイル",
