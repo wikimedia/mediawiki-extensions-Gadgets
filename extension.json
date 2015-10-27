@@ -83,6 +83,9 @@
 		],
 		"UnitTestsList": [
 			"GadgetHooks::onUnitTestsList"
+		],
+		"wgQueryPages": [
+			"GadgetHooks::onwgQueryPages"
 		]
 	},
 	"manifest_version": 1

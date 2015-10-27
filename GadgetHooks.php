@@ -223,4 +223,14 @@ class GadgetHooks {
 		$files = array_merge( $files, glob( "$testDir/*Test.php" ) );
 		return true;
 	}
+
+	/**
+	 * Add the GadgetUsage special page to the list of QueryPages.
+	 * @param array &$queryPages
+	 * @return bool
+	 */
+	public static function onwgQueryPages( &$queryPages ) {
+		$queryPages[] = array( 'SpecialGadgetUsage', 'GadgetUsage' );
+		return true;
+	}
 }
