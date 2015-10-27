@@ -25,7 +25,6 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 		$this->dependencies = $dependencies;
 		$this->targets = $targets;
 		$this->position = $position;
-		$this->isPositionDefined = true;
 		$this->messages = $messages;
 	}
 
