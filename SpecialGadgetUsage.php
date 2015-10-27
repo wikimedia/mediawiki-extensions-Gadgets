@@ -71,7 +71,7 @@ class SpecialGadgetUsage extends QueryPage {
 
 		$headers = array( 'gadgetusage-gadget', 'gadgetusage-usercount' );
 		foreach( $headers as $h ) {
-			$html .= Html::rawElement( 'th', array(), $this->msg( $h )->escaped() );
+			$html .= Html::element( 'th', array(), $this->msg( $h )->text() );
 		}
 		$html .= Html::closeElement( 'tr' );
 		$this->getOutput()->addHTML( $html );
@@ -80,15 +80,15 @@ class SpecialGadgetUsage extends QueryPage {
 	/**
 	 * @param Skin $skin
 	 * @param object $result Result row
-	 * @return string bool
+	 * @return string|bool String of HTML
 	 */
 	public function formatResult( $skin, $result ) {
-		$gadgetTitle = wfEscapeWikiText( substr( $result->title, 7 ) );
+		$gadgetTitle = substr( $result->title, 7 );
 		$gadgetUserCount = $this->getLanguage()->formatNum( $result->value );
 		if ( $gadgetTitle ) {
 			$html = Html::openElement( 'tr', array() );
-			$html .= Html::rawElement( 'td', array(), $gadgetTitle );
-			$html .= Html::rawElement( 'td', array(), $gadgetUserCount );
+			$html .= Html::element( 'td', array(), $gadgetTitle );
+			$html .= Html::element( 'td', array(), $gadgetUserCount );
 			$html .= Html::closeElement( 'tr' );
 			return $html;
 		}
