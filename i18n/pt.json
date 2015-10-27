@@ -7,13 +7,19 @@
 			"Malafaya",
 			"555",
 			"He7d3r",
-			"Fúlvio"
+			"Fúlvio",
+			"Vitorvicentevalente"
 		]
 	},
 	"gadgets-desc": "Permite que os utilizadores seleccionem [[Special:Gadgets|''\"gadgets\"'' em JavaScript e CSS]] personalizados nas suas [[Special:Preferences#mw-prefsection-gadgets|preferências]]",
 	"prefs-gadgets": "Gadgets",
 	"gadgets-prefstext": "Segue-se uma lista de ''\"gadgets\"'' especiais que pode ativar na sua conta.\nEstes ''gadgets'' são baseados principalmente em JavaScript, sendo necessário ativar o suporte a JavaScript no seu browser para que funcionem.\nNote que não terão efeito nesta página de preferências.\n\nNote também que estes ''gadgets'' especiais não fazem parte do programa MediaWiki, sendo geralmente desenvolvidos e mantidos por utilizadores na sua wiki local.\nAdministradores locais podem editar os ''gadgets'' disponíveis usando as [[MediaWiki:Gadgets-definition|definições]] e [[Special:Gadgets|descrições]].",
 	"gadgets": "Gadgets",
+	"gadgetusage": "Estatísticas de utilização de gadget",
+	"gadgetusage-gadget": "Gadget",
+	"gadgetusage-usercount": "Número de utilizadores",
+	"gadgetusage-noresults": "Não foram encontrados gadgets.",
+	"gadgetusage-summary": "Esta tabela indica o número de utilizadores que ativaram cada gadget nesta wiki. Poderá listar gadgets que já não estejam disponíveis.",
 	"gadgets-title": "Gadgets",
 	"gadgets-pagetext": "Segue-se uma lista de ''\"gadgets\"'' que podem ser ativados pelos utilizadores nas suas [[Special:Preferences#mw-prefsection-gadgets|preferências]], como estabelecido pelas [[MediaWiki:Gadgets-definition|definições]].\nEste resumo proporciona acesso fácil às páginas das mensagens de sistema que definem a descrição e o código de cada ''gadget''.",
 	"gadgets-uses": "Utiliza",

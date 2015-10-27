@@ -4,13 +4,18 @@
 			"Annabel",
 			"SPQRobin",
 			"Siebrand",
-			"Esketti"
+			"Esketti",
+			"Sjoerddebruin"
 		]
 	},
 	"gadgets-desc": "Laat gebruikers [[Special:Gadgets|CSS en JavaScripts]] activeren in hun [[Special:Preferences#mw-prefsection-gadgets|voorkeuren]]",
 	"prefs-gadgets": "Uitbreidingen",
 	"gadgets-prefstext": "Hieronder staan de speciale uitbreidingen die u kunt inschakelen.\nDe uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet voor uw browser ingeschakeld zijn om ze te laten werken.\nDe uitbreidingen hebben geen invloed op deze pagina met voorkeuren.\n\nDeze speciale uitbreidingen zijn geen onderdeel van de MediaWiki-software en worden meestal ontwikkeld en onderhouden door gebruikers van uw wiki.\nBeheerders kunnen de beschikbare uitbreidingen opgeven in [[MediaWiki:Gadgets-definition|definities]] en [[Special:Gadgets|beschrijvingen]].",
 	"gadgets": "Uitbreidingen",
+	"gadgetusage": "Gadget-gebruiksstatistieken",
+	"gadgetusage-gadget": "Gadget",
+	"gadgetusage-usercount": "Aantal gebruikers",
+	"gadgetusage-noresults": "Geen gadgets gevonden.",
 	"gadgets-title": "Uitbreidingen",
 	"gadgets-pagetext": "Hieronder staan de speciale uitbreidingen die gebruikers kunnen inschakelen via hun [[Special:Preferences#mw-prefsection-gadgets|voorkeuren]], zoals ingesteld in de [[MediaWiki:Gadgets-definition|definities]].\nDit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschrijving en de programmacode van iedere uitbreiding staat.",
 	"gadgets-uses": "Gebruikt",
