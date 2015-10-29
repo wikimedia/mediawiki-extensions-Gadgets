@@ -14,7 +14,7 @@
 	"prefs-gadgets": "Gadżety",
 	"gadgets-prefstext": "Poniżej znajduje się lista specjalnych gadżetów, które możesz włączyć dla swojego konta użytkownika.\nGadżety najczęściej wykorzystują JavaScript, więc by działały, musisz mieć w swojej przeglądarce włączoną obsługę JavaScriptu. Gadżety nie mają wpływu na tę stronę preferencji.\n\nGadżety nie są częścią oprogramowania MediaWiki i najprawdopodobniej zostały stworzone przez użytkowników tej wiki.\nLokalni administratorzy mogą edytować dostępne gadżety używając stron [[MediaWiki:Gadgets-definition|Definicje gadżetów]] oraz [[Special:Gadgets|Gadżety]].",
 	"gadgets": "Gadżety",
-	"gadgetusage": "Statystyki użycia gadżetu",
+	"gadgetusage": "Statystyki użycia gadżetów",
 	"gadgetusage-gadget": "Gadżet",
 	"gadgetusage-usercount": "Liczba użytkowników",
 	"gadgetusage-noresults": "Nie znaleziono gadżetów.",
