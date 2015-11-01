@@ -17,7 +17,7 @@
 	"gadgetusage-noresults": "सुविधा सापडल्या नाहीत.",
 	"gadgets-title": "गॅजेट",
 	"gadgets-pagetext": "खाली तुम्ही तुमच्या सदस्यत्वासाठी [[Special:Preferences#mw-prefsection-gadgets|माझ्या पसंती]] पानावर वापरू शकत असलेल्या [[MediaWiki:Gadgets-definition|व्याख्या]]ने सांगितलेल्या गॅजेट्सची यादी दिलेली आहे. हे पान तुम्हाला प्रत्येक गॅजेट्सचा कोड व व्याख्या देणार्‍या पानासाठी सोपी संपर्क सुविधा पुरविते.",
-	"gadgets-uses": "उपयोग",
+	"gadgets-uses": "वापर",
 	"gadgets-required-rights": "खालील {{PLURAL:$2|अधिकार}} हवेच :\n\n$1",
 	"gadgets-required-skins": "{{PLURAL:$2|$1 skin|खालील देखाव्यांवर  : $1}} उपलब्ध आहेत",
 	"gadgets-default": "सर्वांसाठी डिफॉल्ट उपलब्ध केले आहे",
