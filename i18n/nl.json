@@ -5,7 +5,8 @@
 			"SPQRobin",
 			"Siebrand",
 			"Esketti",
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Romaine"
 		]
 	},
 	"gadgets-desc": "Laat gebruikers [[Special:Gadgets|CSS en JavaScripts]] activeren in hun [[Special:Preferences#mw-prefsection-gadgets|voorkeuren]]",
@@ -16,6 +17,7 @@
 	"gadgetusage-gadget": "Gadget",
 	"gadgetusage-usercount": "Aantal gebruikers",
 	"gadgetusage-noresults": "Geen gadgets gevonden.",
+	"gadgetusage-summary": "Deze tabel geeft het aantal gebruikers weer die een bepaald gadget geactiveerd heeft op deze wiki. Het kan mogelijk gadgets bevatten die niet langer beschikbaar zijn.",
 	"gadgets-title": "Uitbreidingen",
 	"gadgets-pagetext": "Hieronder staan de speciale uitbreidingen die gebruikers kunnen inschakelen via hun [[Special:Preferences#mw-prefsection-gadgets|voorkeuren]], zoals ingesteld in de [[MediaWiki:Gadgets-definition|definities]].\nDit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschrijving en de programmacode van iedere uitbreiding staat.",
 	"gadgets-uses": "Gebruikt",
