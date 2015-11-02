@@ -96,6 +96,23 @@ class SpecialGadgetUsage extends QueryPage {
 	}
 
 	/**
+	 * Get a list of default gadgets
+	 * @return list
+	*/
+	protected function getDefaultGadgets() {
+		$gadgetRepo = GadgetRepo::singleton();
+		$gadgetIds = $gadgetRepo->getGadgetIds();
+		$gadgetsList = array();
+		foreach ( $gadgetIds as $g ) {
+			$gadget = $gadgetRepo->getGadget( $g );
+			if ( $gadget->isOnByDefault() ) {
+				$gadgetsList[] = $gadget->getName();
+			}
+		}
+		return $gadgetsList;
+	}
+
+	/**
 	 * Format and output report results using the given information plus
 	 * OutputPage
 	 *
@@ -107,13 +124,17 @@ class SpecialGadgetUsage extends QueryPage {
 	 * @param int $offset Paging offset
 	 */
 	protected function outputResults( $out, $skin, $dbr, $res, $num, $offset ) {
+		$defaultGadgets = $this->getDefaultGadgets();
 		if ( $num > 0 ) {
 			$this->outputTableStart();
-
 			foreach ( $res as $row ) {
-				$line = $this->formatResult( $skin, $row );
-				if ( $line ) {
-					$out->addHTML( $line );
+				// Remove the 'gadget-' part of the result string and compare if it's present
+				// in $defaultGadgets, if not we format it and add it to the output
+				if ( !in_array( substr( $row->title, 7 ), $defaultGadgets ) ) {
+					$line = $this->formatResult( $skin, $row );
+					if ( $line ) {
+						$out->addHTML( $line );
+					}
 				}
 			}
 			// Close table element
