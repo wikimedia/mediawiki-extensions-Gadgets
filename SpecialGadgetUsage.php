@@ -97,11 +97,11 @@ class SpecialGadgetUsage extends QueryPage {
 
 	/**
 	 * Get a list of default gadgets
-	 * @return list
+	 * @param GadgetRepo $gadgetRepo
+	 * @param array $gadgetIds list of gagdet ids registered in the wiki
+	 * @return array
 	*/
-	protected function getDefaultGadgets() {
-		$gadgetRepo = GadgetRepo::singleton();
-		$gadgetIds = $gadgetRepo->getGadgetIds();
+	protected function getDefaultGadgets( $gadgetRepo, $gadgetIds ) {
 		$gadgetsList = array();
 		foreach ( $gadgetIds as $g ) {
 			$gadget = $gadgetRepo->getGadget( $g );
@@ -124,16 +124,21 @@ class SpecialGadgetUsage extends QueryPage {
 	 * @param int $offset Paging offset
 	 */
 	protected function outputResults( $out, $skin, $dbr, $res, $num, $offset ) {
-		$defaultGadgets = $this->getDefaultGadgets();
+		$gadgetRepo = GadgetRepo::singleton();
+		$gadgetIds = $gadgetRepo->getGadgetIds();
+		$defaultGadgets = $this->getDefaultGadgets( $gadgetRepo, $gadgetIds );
 		if ( $num > 0 ) {
 			$this->outputTableStart();
 			foreach ( $res as $row ) {
 				// Remove the 'gadget-' part of the result string and compare if it's present
 				// in $defaultGadgets, if not we format it and add it to the output
 				if ( !in_array( substr( $row->title, 7 ), $defaultGadgets ) ) {
-					$line = $this->formatResult( $skin, $row );
-					if ( $line ) {
-						$out->addHTML( $line );
+					// Only pick gadgets which are in the list $gadgetIds to make sure they exist
+					if ( in_array( substr( $row->title, 7 ), $gadgetIds ) ) {
+						$line = $this->formatResult( $skin, $row );
+						if ( $line ) {
+							$out->addHTML( $line );
+						}
 					}
 				}
 			}
