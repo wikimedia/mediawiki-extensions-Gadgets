@@ -19,6 +19,7 @@
 	"gadgetusage-gadget": "Accessorio",
 	"gadgetusage-usercount": "Numero di utenti",
 	"gadgetusage-noresults": "Nessun accessorio trovato.",
+	"gadgetusage-summary": "Questa tabella indica il numero di utenti che hanno attivato un accessorio su questa wiki. Potrebbero essere compresi anche gadget che non sono più disponibili.",
 	"gadgets-title": "Accessori",
 	"gadgets-pagetext": "Di seguito sono elencati gli accessori (''gadget'') che gli utenti possono abilitare sulla propria pagina delle [[Special:Preferences#mw-prefsection-gadgets|preferenze]], seguendo le [[MediaWiki:Gadgets-definition|definizioni]]. Questa panoramica fornisce un comodo mezzo per accedere ai messaggi di sistema nei quali sono definiti la descrizione e il codice di ciascun accessorio.",
 	"gadgets-uses": "Utilizza",
