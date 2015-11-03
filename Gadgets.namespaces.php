@@ -58,6 +58,13 @@ $namespaceNames['es'] = array(
 	NS_GADGET_DEFINITION_TALK => 'Accesorio_definición_discusión',
 );
 
+$namespaceNames['et'] = array(
+	NS_GADGET => 'Tööriist',
+	NS_GADGET_TALK => 'Tööriista_arutelu',
+	NS_GADGET_DEFINITION => 'Tööriista_määratlus',
+	NS_GADGET_DEFINITION_TALK => 'Tööriista_määratluse_arutelu',
+);
+
 $namespaceNames['fa'] = array(
 	NS_GADGET => 'ابزار',
 	NS_GADGET_TALK => 'بحث_ابزار',
