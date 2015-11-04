@@ -15,6 +15,7 @@
 	"gadgetusage-gadget": "Udělátko",
 	"gadgetusage-usercount": "Počet uživatelů",
 	"gadgetusage-noresults": "Nenalezena žádná udělátka.",
+	"gadgetusage-summary": "Tato tabulka zobrazuje počet uživatelů, kteří si zapnuli jednotlivá udělátka na této wiki. Může zahrnovat i udělátka, která již nejsou dostupná.",
 	"gadgets-title": "Udělátka",
 	"gadgets-pagetext": "Níže je přehled speciálních udělátek, která si uživatelé mohou zapnout ve svém [[Special:Preferences#mw-prefsection-gadgets|nastavení]]. Jejich seznam lze upravovat na stránce [[MediaWiki:Gadgets-definition]].\nTento přehled poskytuje jednoduchý přístup k&nbsp;systémovým hlášením, která definují zdrojový kód a&nbsp;popis každého udělátka.",
 	"gadgets-uses": "používá",
