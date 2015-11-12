@@ -12,7 +12,7 @@
 	"gadgetusage-gadget": "Gadget",
 	"gadgetusage-usercount": "Number of users",
 	"gadgetusage-noresults": "No gadgets found.",
-	"gadgetusage-summary": "This table indicates the number of users who have enabled each gadget on this wiki. It may include gadgets that are no longer available.",
+	"gadgetusage-summary": "This table indicates the number of users who have enabled each gadget on this wiki. This list excludes gadgets enabled for everyone by default and may include gadgets that are no longer available.",
 	"gadgets-definition": "",
 	"gadgets-title": "Gadgets",
 	"gadgets-pagetext": "Below is a list of special gadgets users can enable on their [[Special:Preferences#mw-prefsection-gadgets|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].\nThis overview provides easy access to the system message pages that define each gadget's description and code.",
