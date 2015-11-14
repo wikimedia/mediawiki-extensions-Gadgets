@@ -13,7 +13,7 @@
 	"gadgetusage-gadget": "Tööriist",
 	"gadgetusage-usercount": "Kasutajaid",
 	"gadgetusage-noresults": "Tööriistu ei leidu.",
-	"gadgetusage-summary": "Siin tabelis on näidatud, mitu kasutajat selles vikis igat tööriista kasutab. Siin võivad olla ka tööriistad, mis pole enam kasutuses.",
+	"gadgetusage-summary": "Siin tabelis on näidatud, mitu kasutajat selles vikis igat tööriista kasutab. Siit on välja jäetud tööriistad, mis on kõigil vaikimisi sisse lülitatud. Siin võib olla ära toodud tööriistu, mis pole enam kasutuses.",
 	"gadgets-title": "Tööriistad",
 	"gadgets-pagetext": "Allpool on nimekiri eririistadest, mida kasutajad saavad oma [[Special:Preferences#mw-prefsection-gadgets|eelistuste leheküljel]] sisse lülitada, nii nagu [[MediaWiki:Gadgets-definition|määratlustes]] määratletud. See ülevaade võimaldab kergesti ligi pääseda süsteemi sõnumilehekülgedele, milles on iga riista kirjeldus ja kood.",
 	"gadgets-uses": "Kasutab",
