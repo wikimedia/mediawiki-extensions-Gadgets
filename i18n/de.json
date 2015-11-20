@@ -34,6 +34,8 @@
 	"gadgets-not-found": "Helferlein „$1“ wurde nicht gefunden.",
 	"gadgets-export-text": "Um das Helferlein $1 zu exportieren, klicke auf die Schaltfläche „{{int:gadgets-export-download}}“ und speichere die heruntergeladene Datei. Gehe sodann zur Spezialseite Spezial:Import auf dem für den Import vorgesehenen Wiki und lade die Datei hoch. Füge danach den folgenden Text zur Seite MediaWiki:Gadgets-definition hinzu:\n<pre>$2</pre>\nDu musst über die notwendigen Berechtigungen auf dem für den Import vorgesehenen Wiki verfügen (einschließlich der Berechtigung, MediaWiki-Systemnachrichten zu bearbeiten). Zudem muss der Import von Datei-Uploads aktiviert sein.",
 	"gadgets-export-download": "Herunterladen",
+	"gadgets-validate-notset": "Die Eigenschaft <code>$1</code> ist nicht festgelegt.",
+	"gadgets-validate-wrongtype": "Die Eigenschaft <code>$1</code> muss vom Typ <code>$2</code> sein anstatt <code>$3</code>.",
 	"apihelp-query+gadgetcategories-description": "Gibt eine Liste mit Helferleinkategorien zurück.",
 	"apihelp-query+gadgetcategories-param-prop": "Welche Information der Helferleinkategorie abgerufen werden soll:\n;name:Interner Name der Kategorie.\n;title:Titel der Kategorie.\n;members:Anzahl der Helferlein in der Kategorie.",
 	"apihelp-query+gadgetcategories-param-names": "Namen der abzurufenden Kategorien.",
