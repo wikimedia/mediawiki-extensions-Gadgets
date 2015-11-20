@@ -35,3 +35,9 @@ See http://www.mediawiki.org/wiki/Extension:Gadgets#Usage
 * Gadgets do not apply to Special:Preferences, Special:UserLogin and
   Special:ResetPass so users can always disable any broken gadgets they
   may have enabled, and malicious gadgets will be unable to steal passwords.
+
+== Configuration settings ==
+* $wgGadgetsRepoClass configures which GadgetRepo implementation will be used
+  to source gadgets from. Currently, "MediaWikiGadgetsDefinitionRepo" is the
+  recommended setting and default. The "GadgetDefinitionNamespaceRepo" is not
+  ready for production usage yet.

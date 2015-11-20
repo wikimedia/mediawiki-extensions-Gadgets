@@ -216,7 +216,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		}
 
 		foreach ( preg_split( '/\s*\|\s*/', $m[3], -1, PREG_SPLIT_NO_EMPTY ) as $page ) {
-			$page = "Gadget-$page";
+			$page = "MediaWiki:Gadget-$page";
 
 			if ( preg_match( '/\.js/', $page ) ) {
 				$info['scripts'][] = $page;
