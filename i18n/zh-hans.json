@@ -38,6 +38,8 @@
 	"gadgets-not-found": "找不到“$1”小工具。",
 	"gadgets-export-text": "要导出$1小工具，请单击“{{int:gadgets-export-download}}”按钮，保存下载的文件，前往目标wiki的Special:Import并将文件上传。然后添加下内容至MediaWiki:Gadgets-definition页面：\n<pre>$2</pre>\n您必须在目标wiki上拥有适当的权限（包括编辑系统信息的权限），并且启用从文件上传导入。",
 	"gadgets-export-download": "下载",
+	"gadgets-validate-notset": "属性<code>$1</code>未被设置。",
+	"gadgets-validate-wrongtype": "属性<code>$1</code>的类型必须为<code>$2</code>，而不是<code>$3</code>。",
 	"apihelp-query+gadgetcategories-description": "返回小工具分类列表。",
 	"apihelp-query+gadgetcategories-param-prop": "要获取小工具分类的什么信息：\n;name：内部分类名称。\n;title：分类标题。\n;members：在该分类中的小工具数量。",
 	"apihelp-query+gadgetcategories-param-names": "要获取的分类名。",

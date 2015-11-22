@@ -29,6 +29,8 @@
 	"gadgets-not-found": "הגאדג׳ט \"$1\" לא נמצא.",
 	"gadgets-export-text": "כדי לייצא את הגאדג׳ט $1, יש ללחוץ על הלחצן \"{{int:gadgets-export-download}}\", לשמור את הקובץ שהתקבל,\nלגשת אל Special:Import באתר הוויקי המיועד ולהעלות אותו. ואז להוסיף את הדברים הבאים לדף MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nעליך להיות עם הרשאות מתאימות באתר הוויקי המיועד (לרבות הרשאות לעריכת הודעות מערכת) והאפשרות לייבוא מקובץ חייבת להיות מופעלת.",
 	"gadgets-export-download": "הורדה",
+	"gadgets-validate-notset": "המאפיין <code>$1</code> אינו מוגדר.",
+	"gadgets-validate-wrongtype": "המאפיין <code>$1</code> צריך להיות מסוג <code>$2</code> ולא <code>$3</code>.",
 	"apihelp-query+gadgetcategories-description": "החזרת רשימת קטגוריות של גדג'טים.",
 	"apihelp-query+gadgetcategories-param-prop": "איזה מידע על גאדג'טים לקבל:\n;name:שם קטגוריה פנימי.\n;title:שם הקטגוריה.\n;members:מספר הגאדג'טים בקטגוריה.",
 	"apihelp-query+gadgetcategories-param-names": "שמות הקטגוריות לאחזור.",

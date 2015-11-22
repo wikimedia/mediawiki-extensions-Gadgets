@@ -26,6 +26,8 @@
 	"gadgets-not-found": "Gadget \"$1\" nun truvato.",
 	"gadgets-export-text": "Pe esportà 'o $1 gadget, cliccate ncopp' 'u buttone \"{{int:gadgets-export-download}}\", riggistrate 'u file scarrecato, ghiate 'a pàggene Special:Import ncopp' 'a Wiki 'e destinaziona e carrecatevello. Pò azzeccate 'a paggena ccà MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nAvita tenè permesse ghiuste ncopp' 'a wiki 'e destinaziona (ncludenno 'e deritte 'e cagnà mmasciate d' 'o sistema) e 'a mpurtaziona 'e file carrecate adda essere appicciata.",
 	"gadgets-export-download": "Scarreca",
+	"gadgets-validate-notset": "'O codece <code>$1</code> 'e pruprietà nun è mpustato.",
+	"gadgets-validate-wrongtype": "'O codece <code>$1</code> 'e pruprietà adda essere 'e tipo <code>$2</code> mmece 'e <code>$3</code>.",
 	"apihelp-query+gadgetcategories-description": "Torna arreto n'elenco 'e categurìe 'e gadget.",
 	"apihelp-query+gadgetcategories-param-prop": "Quala nfurmaziona 'e categurìa 'e gadget piglià:\n;name:Nomme nterno 'e categurìa.\n;title:Titulo 'e categuria.\n;members:Nummero 'e gadget int'a sta categurìa.",
 	"apihelp-query+gadgetcategories-param-names": "Nomme r' 'e categurìe a turnà.",
