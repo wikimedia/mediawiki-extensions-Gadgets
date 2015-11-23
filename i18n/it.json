@@ -8,7 +8,8 @@
 			"Nemo bis",
 			"Statix64",
 			"Lucas2",
-			"MattiaMen"
+			"MattiaMen",
+			"Fringio"
 		]
 	},
 	"gadgets-desc": "Consente agli utenti di selezionare [[Special:Gadgets|accessori CSS e JavaScript]] nelle proprie [[Special:Preferences#mw-prefsection-gadgets|preferenze]]",
@@ -31,6 +32,7 @@
 	"gadgets-not-found": "Accessorio \"$1\" non trovato.",
 	"gadgets-export-text": "Per esportare l'accessorio $1, fai clic sul pulsante \"{{int:gadgets-export-download}}\", salva il file scaricato,\nvai alla pagina Special:Import nella wiki di destinazione e carica il file. Poi aggiungi quanto segue alla pagina MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nDevi disporre dei permessi appropriati nella wiki di destinazione (incluso il diritto di modificare i messaggi di sistema) e l'importazione da file deve essere abilitata.",
 	"gadgets-export-download": "Scarica",
+	"gadgets-validate-notset": "La proprietà <code>$1</code> non è impostata.",
 	"right-gadgets-edit": "Modifica i gadget JavaScript e le pagine CSS",
 	"action-gadgets-edit": "modificare questo gadget Javascript o pagina CSS",
 	"right-gadgets-definition-edit": "Modifica le definizioni dei gadget",
