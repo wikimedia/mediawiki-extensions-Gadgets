@@ -30,6 +30,7 @@
 	"gadgets-not-found": "Nie odnaleziono gadżetu „$1”.",
 	"gadgets-export-text": "Jeśli chcesz wyeksportować gadżet „$1” kliknij na przycisk „{{int:gadgets-export-download}}”, zapisz pobrany plik, wejdź na stronę „Special:Import” w docelowej wiki i prześlij go. Następnie dodaj poniższy kod do strony MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nMusisz mieć właściwe uprawnienia na wiki docelowej (w tym do edycji komunikatów systemowych) oraz musi być włączony import na serwer poprzez przesłanie pliku.",
 	"gadgets-export-download": "Pobierz",
+	"gadgets-validate-wrongtype": "Właściwość <code>$1</code> musi być typem <code>$2</code> zamiast <code>$3</code>.",
 	"right-gadgets-edit": "Edycja gadżetów JavaScript oraz stron CSS",
 	"action-gadgets-edit": "edytowania tego gadżetu JavaScript lub strony CSS",
 	"right-gadgets-definition-edit": "Edycja definicji gadżetów",
