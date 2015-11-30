@@ -39,20 +39,44 @@ class SpecialGadgetUsage extends QueryPage {
 		return true;
 	}
 
+	/**
+	 * SQL Query being used:
+	 * SELECT up_property, SUM(up_value), count(qcc_title)
+	 * FROM user_properties
+	 * LEFT JOIN user ON up_user = user_id
+	 * LEFT JOIN querycachetwo ON user_name = qcc_title AND qcc_type = 'activeusers' AND up_value = 1
+	 * WHERE up_property LIKE 'gadget-%'
+	 * GROUP BY up_property;
+	 */
 	public function getQueryInfo() {
 		$dbr = wfGetDB( DB_SLAVE );
 		return array(
-			'tables' => array( 'user_properties' ),
+			'tables' => array( 'user_properties', 'user', 'querycachetwo' ),
 			'fields' => array(
 				'title' => 'up_property',
 				'value' => 'SUM( up_value )',
-				'namespace' => NS_GADGET
+				// Need to pick fields existing in the querycache table so that the results are cachable
+				'namespace' => 'COUNT( qcc_title )'
 			),
 			'conds' => array(
 				'up_property' . $dbr->buildLike( 'gadget-', $dbr->anyString() )
 			),
 			'options' => array(
 				'GROUP BY' => array( 'up_property' )
+			),
+			'join_conds' => array(
+				'user' => array(
+					'LEFT JOIN', array(
+						'up_user = user_id'
+					)
+				),
+				'querycachetwo' => array(
+					'LEFT JOIN', array(
+						'user_name = qcc_title',
+						'qcc_type = "activeusers"',
+						'up_value = 1'
+					)
+				)
 			)
 		);
 	}
@@ -69,7 +93,7 @@ class SpecialGadgetUsage extends QueryPage {
 		$html = Html::openElement( 'table', array( 'class' => array( 'sortable', 'wikitable' ) ) );
 		$html .= Html::openElement( 'tr', array() );
 
-		$headers = array( 'gadgetusage-gadget', 'gadgetusage-usercount' );
+		$headers = array( 'gadgetusage-gadget', 'gadgetusage-usercount', 'gadgetusage-activeusers' );
 		foreach( $headers as $h ) {
 			$html .= Html::element( 'th', array(), $this->msg( $h )->text() );
 		}
@@ -85,10 +109,12 @@ class SpecialGadgetUsage extends QueryPage {
 	public function formatResult( $skin, $result ) {
 		$gadgetTitle = substr( $result->title, 7 );
 		$gadgetUserCount = $this->getLanguage()->formatNum( $result->value );
+		$activeUsers = $this->getLanguage()->formatNum( $result->namespace );
 		if ( $gadgetTitle ) {
 			$html = Html::openElement( 'tr', array() );
 			$html .= Html::element( 'td', array(), $gadgetTitle );
 			$html .= Html::element( 'td', array(), $gadgetUserCount );
+			$html .= Html::element( 'td', array(), $activeUsers );
 			$html .= Html::closeElement( 'tr' );
 			return $html;
 		}
@@ -127,6 +153,9 @@ class SpecialGadgetUsage extends QueryPage {
 		$gadgetRepo = GadgetRepo::singleton();
 		$gadgetIds = $gadgetRepo->getGadgetIds();
 		$defaultGadgets = $this->getDefaultGadgets( $gadgetRepo, $gadgetIds );
+		$out->addHtml(
+			$this->msg( 'gadgetusage-intro', $this->getConfig()->get( 'ActiveUserDays' ) )->parseAsBlock()
+		);
 		if ( $num > 0 ) {
 			$this->outputTableStart();
 			foreach ( $res as $row ) {
