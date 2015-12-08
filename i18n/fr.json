@@ -18,7 +18,8 @@
 			"Gomoko",
 			"SRXcraft",
 			"Macofe",
-			"Ltrlg"
+			"Ltrlg",
+			"Orlodrim"
 		]
 	},
 	"gadgets-desc": "Permet aux utilisateurs de choisir des [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences#mw-prefsection-gadgets|préférences]]",
@@ -29,7 +30,8 @@
 	"gadgetusage-gadget": "Gadget",
 	"gadgetusage-usercount": "Nombre d'utilisateurs",
 	"gadgetusage-noresults": "Aucun gadget trouvé.",
-	"gadgetusage-summary": "Ce tableau contient le nombre d’utilisateurs qui ont activé chaque gadget de ce wiki. Cette liste exclut les gadgets activés pour tout le monde par défaut, et peut comprendre des gadgets qui ne sont plus disponibles.",
+	"gadgetusage-intro": "Ce tableau contient le nombre d’utilisateurs qui ont activé chaque gadget de ce wiki. Un utilisateur est considéré comme actif s’il a fait une modification au cours {{PLURAL:$1|de la journée|des $1 derniers jours}}. Cette liste exclut les gadgets activés pour tout le monde par défaut, et peut comprendre des gadgets qui ne sont plus disponibles.",
+	"gadgetusage-activeusers": "Utilisateurs actifs",
 	"gadgets-title": "Gadgets",
 	"gadgets-pagetext": "Voici une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences#mw-prefsection-gadgets|page de préférences]], tel que défini dans les [[MediaWiki:Gadgets-definition|définitions]].\nCette vue d’ensemble donne un accès rapide aux pages de messages système qui définissent la description et le code de chaque gadget.",
 	"gadgets-uses": "Utilise",
