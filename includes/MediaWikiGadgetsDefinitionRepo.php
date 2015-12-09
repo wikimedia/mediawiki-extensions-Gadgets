@@ -5,7 +5,7 @@
  */
 class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 
-	const CACHE_VERSION = 1;
+	const CACHE_VERSION = 2;
 
 	private $definitionCache;
 
