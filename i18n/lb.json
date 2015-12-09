@@ -14,6 +14,7 @@
 	"gadgetusage-gadget": "Gadget",
 	"gadgetusage-usercount": "Zuel vun de Benotzer",
 	"gadgetusage-noresults": "Keng Gadgete fonnt.",
+	"gadgetusage-activeusers": "Aktiv Benotzer",
 	"gadgets-title": "Gadgeten",
 	"gadgets-pagetext": "Ënnendrënner ass eng Lëscht vun de spezielle Gadgeten déi d'Benotzer op hire [[Special:Preferences#mw-prefsection-gadgets|Benotzer-Astellungen]] aschalte kënnen, sou wéi dat op [[MediaWiki:Gadgets-definition|definéiert]] ass.\nDës Iwwersiicht gëtt einfachen Zougang zu de Systemmessage-Säiten, déi all Gadget beschreiwen an zum Programméiercode vun dem Gadget.",
 	"gadgets-uses": "Benotzt",
