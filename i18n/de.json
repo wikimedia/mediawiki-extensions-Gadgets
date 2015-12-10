@@ -21,7 +21,7 @@
 	"gadgetusage-gadget": "Helferlein",
 	"gadgetusage-usercount": "Anzahl der Benutzer",
 	"gadgetusage-noresults": "Keine Helferlein gefunden.",
-	"gadgetusage-intro": "Diese Tabelle zeigt für jedes Helferlein auf diesem Wiki die Anzahl der Benutzer an, die es aktiviert haben. Ein aktiver Benutzer wird als jemand gezählt, der eine Bearbeitung während {{PLURAL:$1|des letzten Tages|der letzten $1 Tage}} durchgeführt hat. Diese Liste schließt Helferlein aus, die standardmäßig für jeden aktiviert sind und könnte Helferlein enthalten, die nicht mehr verfügbar sind.",
+	"gadgetusage-intro": "Diese Tabelle zeigt für jedes Helferlein auf diesem Wiki die Anzahl der aktiven Benutzer an, die es aktiviert haben. Als aktiver Benutzer wird jemand gezählt, der eine Bearbeitung während {{PLURAL:$1|des letzten Tages|der letzten $1 Tage}} durchgeführt hat. Diese Liste schließt Helferlein aus, die standardmäßig für jeden aktiviert sind und könnte Helferlein enthalten, die nicht mehr verfügbar sind.",
 	"gadgetusage-activeusers": "Aktive Benutzer",
 	"gadgets-title": "Helferlein",
 	"gadgets-pagetext": "Liste besonderer, in [[MediaWiki:Gadgets-definition]] festgelegter Helferlein, die für jeden Benutzer in seinen [[Special:Preferences#mw-prefsection-gadgets|persönlichen Einstellungen]] verfügbar sind.\nDiese Übersicht bietet direkten Zugang zu den MediaWiki-Systemnachrichten, welche die Beschreibung sowie den Programmcode jedes Helferlein enthalten.",

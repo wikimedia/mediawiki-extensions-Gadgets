@@ -15,7 +15,7 @@
 	"gadgetusage-gadget": "Trebello",
 	"gadgetusage-usercount": "Número de usuarios",
 	"gadgetusage-noresults": "Non se atoparon trebellos.",
-	"gadgetusage-intro": "Esta táboa indica o número de usuarios que teñen activado algún trebello nesta wiki. A lista non inclúe os trebellos activados para todos por defecto e podería incluír trebellos que xa non están dispoñíbeis.",
+	"gadgetusage-intro": "Esta táboa indica o número de usuarios que teñen activado algún trebello nesta wiki. Un usuario activo é alguén que fixo algunha edición {{PLURAL:$1|no último día|nos últimos $1 días}}. A lista non inclúe os trebellos activados para todos por defecto e podería incluír trebellos que xa non están dispoñíbeis.",
 	"gadgetusage-activeusers": "Usuarios activos",
 	"gadgets-title": "Trebellos",
 	"gadgets-pagetext": "Embaixo hai unha lista dos trebellos especiais que os usuarios poden habilitar na súa páxina de preferencias, tal e como se describe nas [[MediaWiki:Gadgets-definition|definicións]].\nEste panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que define cada descrición e código dos trebellos.",
