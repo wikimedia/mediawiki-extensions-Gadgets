@@ -114,7 +114,7 @@ class SpecialGadgets extends SpecialPage {
 
 				$lnk = array();
 				foreach ( $gadget->getScriptsAndStyles() as $codePage ) {
-					$t = Title::makeTitleSafe( NS_MEDIAWIKI, $codePage );
+					$t = Title::newFromText( $codePage );
 
 					if ( !$t ) {
 						continue;
