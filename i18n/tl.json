@@ -14,6 +14,7 @@
 	"gadgetusage-gadget": "Gadyet/Aparato",
 	"gadgetusage-usercount": "Bilang ng mga tagagamit",
 	"gadgetusage-noresults": "Walang natagpuang mga aparato/gadyet.",
+	"gadgetusage-activeusers": "Mga aktibong tagagamit",
 	"gadgets-title": "Mga gadyet (kasangkapan)",
 	"gadgets-pagetext": "Nasa ibaba ang isang talaan ng natatanging mga kasangkapan (gadyet) na mapapagana ng mga tagagamit sa kanilang [[Special:Preferences#mw-prefsection-gadgets|pahina ng mga kagustuhan]], ayon sa nilalarawan ng [[MediaWiki:Gadgets-definition|mga kahulugan]].\nNagbibigay ang pagtalakay na ito ng magaang na daan/akseso patungo sa mga pahina ng sistemang pangmensahe na nagbibigay kahulugan sa paglalarawan at kodigo ng bawat gadyet.",
 	"gadgets-uses": "Mga mapaggagamitan",
