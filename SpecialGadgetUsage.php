@@ -82,7 +82,7 @@ class SpecialGadgetUsage extends QueryPage {
 	}
 
 	public function getOrderFields() {
-		return array( 'up_property' );
+		return array( 'value' );
 	}
 
 	/**
@@ -135,6 +135,7 @@ class SpecialGadgetUsage extends QueryPage {
 				$gadgetsList[] = $gadget->getName();
 			}
 		}
+		asort( $gadgetsList, SORT_STRING | SORT_FLAG_CASE );
 		return $gadgetsList;
 	}
 
@@ -158,6 +159,15 @@ class SpecialGadgetUsage extends QueryPage {
 		);
 		if ( $num > 0 ) {
 			$this->outputTableStart();
+			// Append default gadgets to the table with 'default' in the total and active user fields
+			foreach ( $defaultGadgets as $default ) {
+				$html = Html::openElement( 'tr', array() );
+				$html .= Html::element( 'td', array(), $default );
+				$html .= Html::element( 'td', array(), $this->msg( 'gadgetusage-default' ) );
+				$html .= Html::element( 'td', array(), $this->msg( 'gadgetusage-default' ) );
+				$html .= Html::closeElement( 'tr' );
+				$out->addHTML( $html );
+			}
 			foreach ( $res as $row ) {
 				// Remove the 'gadget-' part of the result string and compare if it's present
 				// in $defaultGadgets, if not we format it and add it to the output
