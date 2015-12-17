@@ -111,7 +111,8 @@
 		]
 	},
 	"config": {
-		"GadgetsRepoClass": "MediaWikiGadgetsDefinitionRepo"
+		"GadgetsRepoClass": "MediaWikiGadgetsDefinitionRepo",
+		"SpecialGadgetUsageActiveUsers": true
 	},
 	"manifest_version": 1
 }
