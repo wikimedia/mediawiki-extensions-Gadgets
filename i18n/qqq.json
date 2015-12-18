@@ -27,7 +27,7 @@
 	"gadgetusage-intro": "Intro text on [[Special:GadgetUsage]] Parameter:\n* $1 - the number of days to consider for defining a user as active",
 	"gadgetusage-intro-noactive": "Intro text on [[Special:GadgetUsage]]",
 	"gadgetusage-activeusers": "Table column header for active users using a gadget",
-	"gadgetusage-default": "Message to indicate the gadget is default and actual stats are not available",
+	"gadgetusage-default": "Message to indicate the gadget is default and actual stats are not available\n{{Identical|Default}}",
 	"gadgets-definition": "{{notranslate}}",
 	"gadgets-title": "{{Identical|Gadgets}}",
 	"gadgets-pagetext": "Used as intro text in [[Special:Gadgets]].",
