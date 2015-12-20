@@ -20,6 +20,7 @@
 	"gadgetusage-usercount": "Número de utilizadores",
 	"gadgetusage-noresults": "Não foram encontrados gadgets.",
 	"gadgetusage-intro": "Esta tabela indica o número de utilizadores que ativaram cada gadget nesta wiki. Poderá listar gadgets que já não estejam disponíveis.",
+	"gadgetusage-intro-noactive": "Esta tabela indica o número de utilizadores que ativaram cada gadget nesta wiki. Esta lista exclui estatísticas de gadgets ativados por padrão e pode incluir gadgets que não estão mais disponíveis.",
 	"gadgetusage-activeusers": "Utilizadores ativos",
 	"gadgetusage-default": "Padrão",
 	"gadgets-title": "Gadgets",

@@ -22,6 +22,7 @@
 	"gadgetusage-usercount": "Anzahl der Benutzer",
 	"gadgetusage-noresults": "Keine Helferlein gefunden.",
 	"gadgetusage-intro": "Diese Tabelle zeigt für jedes Helferlein auf diesem Wiki die Anzahl der aktiven Benutzer an, die es aktiviert haben. Als aktiver Benutzer wird jemand gezählt, der eine Bearbeitung während {{PLURAL:$1|des letzten Tages|der letzten $1 Tage}} durchgeführt hat. Diese Liste schließt Statistiken für Helferlein aus, die standardmäßig für jeden aktiviert sind und könnte Helferlein enthalten, die nicht mehr verfügbar sind.",
+	"gadgetusage-intro-noactive": "Diese Tabelle zeigt die Anzahl der Benutzer an, die jedes Helferlein auf diesem Wiki aktiviert haben. Diese Liste schließt Statistiken für Helferlein aus, die standardmäßig für jeden aktiviert sind und kann Helferlein beinhalten, die nicht mehr verfügbar sind.",
 	"gadgetusage-activeusers": "Aktive Benutzer",
 	"gadgetusage-default": "Standard",
 	"gadgets-title": "Helferlein",
