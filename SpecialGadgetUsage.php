@@ -50,7 +50,16 @@ class SpecialGadgetUsage extends QueryPage {
 	}
 
 	/**
-	 * SQL Query being used:
+	 * Define the database query that is used to generate the stats table.
+	 * This uses 1 of 2 possible queries, depending on $wgSpecialGadgetUsageActiveUsers.
+	 *
+	 * The simple query is essentially:
+	 * SELECT up_property, SUM(up_value)
+	 * FROM user_properties
+	 * WHERE up_property LIKE 'gadget-%'
+	 * GROUP BY up_property;
+	 *
+	 * The more expensive query is:
 	 * SELECT up_property, SUM(up_value), count(qcc_title)
 	 * FROM user_properties
 	 * LEFT JOIN user ON up_user = user_id
