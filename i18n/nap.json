@@ -14,6 +14,7 @@
 	"gadgetusage-usercount": "Nummero 'e utente",
 	"gadgetusage-noresults": "Nisciuno gadget truvato",
 	"gadgetusage-intro": "Sta tabbella ndicasse 'o nummero 'e utente c'avisser'appicciato ogne gadget ind'a stu wiki. N'utente attivo se cuntasse comm'a coccherunno c'avesse fatto nu cagnamiento dint'a ll' {{PLURAL:$1|ùrdemo juorno|ùrdeme $1 ghiuorne}}. Sta lista lassa fore 'e statistiche p' 'e gadget appicciate pe' tuttuquante 'e manera predeterminata e putesse ncludere gadget ca nun fossero cchiù a disposizione.",
+	"gadgetusage-intro-noactive": "Sta tabbella ndicasse 'o nummero 'e utente c'avisser'appicciato ogne gadget ind'a stu wiki. Sta lista lassa fore 'e statistiche 'e gadget appicciate pe' tuttuquante 'e manera predeterminata e putesse ncludere gadget ca nun fossero cchiù a disposizione.",
 	"gadgetusage-activeusers": "Utente attive",
 	"gadgetusage-default": "'E bbase",
 	"gadgets-title": "Gadget",
