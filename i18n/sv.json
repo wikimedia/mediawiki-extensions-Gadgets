@@ -8,7 +8,8 @@
 			"Lejonel",
 			"M.M.S.",
 			"Skalman",
-			"Lokal Profil"
+			"Lokal Profil",
+			"WikiPhoenix"
 		]
 	},
 	"gadgets-desc": "Låter användare aktivera personliga [[Special:Gadgets|CSS- och JavaScript-finesser]] genom sina [[Special:Preferences#mw-prefsection-gadgets|inställningar]]",
@@ -17,7 +18,8 @@
 	"gadgets": "Finesser",
 	"gadgetusage": "Finessanvändningsstatistik",
 	"gadgetusage-noresults": "Inga finesser hittades.",
-	"gadgetusage-summary": "Denna tabell anger antalet användare som har aktiverat respektive finess på denna wiki. Det kan vara finesser som inte längre finns.",
+	"gadgetusage-intro": "Denna tabell anger antalet användare som har aktiverat respektive finess på denna wiki. Det kan vara finesser som inte längre finns.",
+	"gadgetusage-default": "Standard",
 	"gadgets-title": "Finesser",
 	"gadgets-pagetext": "Härunder finns en lista över finesser som användare kan aktivera i sina [[Special:Preferences#mw-prefsection-gadgets|inställningar]], definierad av [[MediaWiki:Gadgets-definition|definitionerna]].\nDen här översikten ger enkel åtkomst till de systemmeddelanden som definierar beskrivningarna och koden för varje finess.",
 	"gadgets-uses": "Använder",
