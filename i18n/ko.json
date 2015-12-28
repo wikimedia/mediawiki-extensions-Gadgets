@@ -8,7 +8,8 @@
 			"아라",
 			"SeoJeongHo",
 			"Kurousagi",
-			"Yearning"
+			"Yearning",
+			"Priviet"
 		]
 	},
 	"gadgets-desc": "각 사용자가 [[Special:Gadgets|CSS와 자바스크립트 소도구]]를 [[Special:Preferences#mw-prefsection-gadgets|사용자 환경 설정]]을 통해 사용할 수 있습니다",
@@ -19,6 +20,7 @@
 	"gadgetusage-gadget": "소도구",
 	"gadgetusage-usercount": "사용자 수",
 	"gadgetusage-noresults": "소도구를 찾지 못했습니다.",
+	"gadgetusage-default": "기본값",
 	"gadgets-title": "소도구",
 	"gadgets-pagetext": "[[Special:Preferences#mw-prefsection-gadgets|사용자 환경 설정]]에서 설정할 수 있는 소도구 목록입니다. 해당 목록은 [[MediaWiki:Gadgets-definition|소도구 정의]]에서 편집할 수 있습니다.\n이 문서에서는 각 소도구의 각 설명 문서와 코드의 시스템 메시지 링크를 제공합니다.",
 	"gadgets-uses": "다음 코드를 사용",
