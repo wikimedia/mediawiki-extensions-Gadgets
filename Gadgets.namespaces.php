@@ -79,6 +79,13 @@ $namespaceNames['he'] = array(
 	NS_GADGET_DEFINITION_TALK => 'שיחת_הגדרת_גאדג\'ט',
 );
 
+$namespaceNames['is'] = array(
+	NS_GADGET => 'Smától',
+	NS_GADGET_TALK => 'Smátólaspjall',
+	NS_GADGET_DEFINITION => 'Smátóla_skilgreining',
+	NS_GADGET_DEFINITION_TALK => 'Smátóla_skilgreiningarspjall',
+);
+
 $namespaceNames['it'] = array(
 	NS_GADGET => 'Accessorio',
 	NS_GADGET_TALK => 'Discussioni_accessorio',
