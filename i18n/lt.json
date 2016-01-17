@@ -17,6 +17,7 @@
 	"gadgetusage-usercount": "Vartotojų skaičius",
 	"gadgetusage-noresults": "Priemonių nerasta.",
 	"gadgetusage-intro": "Ši lentelė indikuoja skaičių naudotojų, kurie įgalino kiekvieną priemonę šiame vikyje. Šiame sąraše nėra priemonių įgalintų visiems pagal numatytuosius nustatymus ir gali būti įtrauktos ir priemonės, kurios nebėra prieinamos.",
+	"gadgetusage-activeusers": "Aktyvūs naudotojai",
 	"gadgetusage-default": "Numatytasis",
 	"gadgets-title": "Priemonės",
 	"gadgets-pagetext": "Žemiau yra sąrašas specialių priemonių, kurias naudotojai gali įjungti savo [[Special:Preferences#mw-prefsection-gadgets|nustatymų puslapyje]]. Jos apibūdintos [[MediaWiki:Gadgets-definition|priemonių aprašyme]]. Ši apžvalga suteikia lengvą priėjimą prie sisteminių pranešimų puslapių, kuriuose pateiktas kiekvienos priemonės trumpas aprašas ir kodas.",
