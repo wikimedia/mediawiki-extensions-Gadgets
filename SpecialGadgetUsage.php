@@ -196,7 +196,7 @@ class SpecialGadgetUsage extends QueryPage {
 		$defaultGadgets = $this->getDefaultGadgets( $gadgetRepo, $gadgetIds );
 		if ( $this->activeUsers ) {
 			$out->addHtml(
-				$this->msg( 'gadgetusage-intro', $this->getConfig()->get( 'ActiveUserDays' ) )->parseAsBlock()
+				$this->msg( 'gadgetusage-intro' )->numParams( $this->getConfig()->get( 'ActiveUserDays' ) )->parseAsBlock()
 			);
 		} else {
 			$out->addHtml(
