@@ -17,6 +17,7 @@
 	"gadgetusage-usercount": "Vartotojų skaičius",
 	"gadgetusage-noresults": "Priemonių nerasta.",
 	"gadgetusage-intro": "Ši lentelė indikuoja skaičių naudotojų, kurie įgalino kiekvieną priemonę šiame vikyje. Šiame sąraše nėra priemonių įgalintų visiems pagal numatytuosius nustatymus ir gali būti įtrauktos ir priemonės, kurios nebėra prieinamos.",
+	"gadgetusage-intro-noactive": "Ši lentelė nurodo skaičių naudotojų, kurie įgalino priemones šiame vikyje. Šiame sąraše nėra statistikos priemonių, įgalintų visiems numatytuoju būdu ir gali būti įtrauktos priemonės, kurios jau nebeprieinamos.",
 	"gadgetusage-activeusers": "Aktyvūs naudotojai",
 	"gadgetusage-default": "Numatytasis",
 	"gadgets-title": "Priemonės",
