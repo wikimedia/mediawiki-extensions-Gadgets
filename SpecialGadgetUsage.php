@@ -133,7 +133,12 @@ class SpecialGadgetUsage extends QueryPage {
 			$headers[] = 'gadgetusage-activeusers';
 		}
 		foreach( $headers as $h ) {
-			$html .= Html::element( 'th', array(), $this->msg( $h )->text() );
+			if ( $h == 'gadgetusage-gadget' ) {
+				$html .= Html::element( 'th', array(), $this->msg( $h )->text() );
+			} else {
+				$html .= Html::element( 'th', array( 'data-sort-type' => 'number' ),
+					$this->msg( $h )->text() );
+			}
 		}
 		$html .= Html::closeElement( 'tr' );
 		$this->getOutput()->addHTML( $html );
