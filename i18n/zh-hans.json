@@ -44,7 +44,7 @@
 	"gadgets-validate-notset": "属性<code>$1</code>未被设置。",
 	"gadgets-validate-wrongtype": "属性<code>$1</code>的类型必须为<code>$2</code>，而不是<code>$3</code>。",
 	"apihelp-query+gadgetcategories-description": "返回小工具分类列表。",
-	"apihelp-query+gadgetcategories-param-prop": "要获取小工具分类的什么信息：\n;name：内部分类名称。\n;title：分类标题。\n;members：在该分类中的小工具数量。",
+	"apihelp-query+gadgetcategories-param-prop": "要获取的小工具分类信息：\n;name:内部分类名称。\n;title:分类标题。\n;members:分类中的小工具数量。",
 	"apihelp-query+gadgetcategories-param-names": "要获取的分类名。",
 	"apihelp-query+gadgetcategories-example-1": "获取现有小工具分类的列表",
 	"apihelp-query+gadgetcategories-example-2": "获取所有有关名称为“foo”和“bar”的分类的信息",
