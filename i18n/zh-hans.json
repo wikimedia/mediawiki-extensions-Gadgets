@@ -14,14 +14,15 @@
 			"Impersonator 1",
 			"Liuxinyu970226",
 			"御坂美琴",
-			"Dimension"
+			"Dimension",
+			"PhiLiP"
 		]
 	},
 	"gadgets-desc": "允许用户在其[[Special:Preferences#mw-prefsection-gadgets|系统设置]]中选择自定义[[Special:Gadgets|CSS和JavaScript工具]]",
 	"prefs-gadgets": "小工具",
 	"gadgets-prefstext": "下面是你可以为你的账户启用的特殊小工具的列表。这些小工具大多数基于JavaScript，所以你必需使你的浏览器启用JavaScript以使它们工作。请注意这些小工具不会在这个设置页面上产生效果。\n\n同时请注意，这些特殊小工具不是MediaWiki软件的组成部分，他们通常是由你的本地wiki的用户开发并维护的。本地管理员可以编辑可用小工具的[[MediaWiki:Gadgets-definition|定义]]和[[Special:Gadgets|说明]]。",
 	"gadgets": "小工具",
-	"gadgetusage": "小工具用途统计",
+	"gadgetusage": "小工具使用统计",
 	"gadgetusage-gadget": "小工具",
 	"gadgetusage-usercount": "用户人数",
 	"gadgetusage-noresults": "没有找到小工具。",
