@@ -11,6 +11,8 @@
 	"gadgetusage-gadget": "Гаджет",
 	"gadgetusage-usercount": "Пайдаланушылар саны",
 	"gadgetusage-noresults": "Ешқандай гаджет табылмады.",
+	"gadgetusage-activeusers": "Белсенді пайдаланушылар",
+	"gadgetusage-default": "Әдепкі",
 	"gadgets-title": "Гаджеттер",
 	"gadgets-pagetext": "Төменде қатысушылар өзінің [[Special:Preferences#mw-prefsection-gadgets|баптауларынан]] қоса алатын арнаулы гаджеттер тізімі берілген. [[MediaWiki:Gadgets-definition]] шолу беті арқылы әрбір гаджеттердің сипаттамасы мен әмірін анықтайтын жүйе хабар беттеріне жеңіл қатынай аласыз.",
 	"gadgets-uses": "Қолданыстағылар",
