@@ -115,15 +115,62 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 		ParserOutput &$output
 	) {
 		'@phan-var GadgetDefinitionContent $content';
-		parent::fillParserOutput( $content, $cpoParams, $output );
-		$assoc = $content->getAssocArray();
-		foreach ( [ 'scripts', 'styles', 'datas' ] as $type ) {
-			foreach ( $assoc['module'][$type] as $page ) {
-				$title = Title::makeTitleSafe( NS_GADGET, $page );
-				if ( $title ) {
-					$output->addLink( $title );
+		// Create a deep clone. FIXME: unserialize(serialize()) is hacky.
+		$data = unserialize( serialize( $content->getData()->getValue() ) );
+		if ( $data !== null ) {
+			foreach ( [ 'scripts', 'styles', 'datas' ] as $type ) {
+				if ( isset( $data->module->{$type} ) ) {
+					foreach ( $data->module->{$type} as &$page ) {
+						$title = Title::makeTitleSafe( NS_GADGET, $page );
+						$this->makeLink( $output, $page, $title );
+					}
 				}
 			}
+			foreach ( $data->module->dependencies as &$dep ) {
+				if ( str_starts_with( $dep, 'ext.gadget.' ) ) {
+					$gadgetId = explode( 'ext.gadget.', $dep )[1];
+					$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $gadgetId );
+					$this->makeLink( $output, $dep, $title );
+				}
+			}
+			foreach ( $data->module->peers as &$peer ) {
+				$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $peer );
+				$this->makeLink( $output, $peer, $title );
+			}
+			foreach ( $data->module->messages as &$msg ) {
+				$title = Title::makeTitleSafe( NS_MEDIAWIKI, $msg );
+				$this->makeLink( $output, $msg, $title );
+			}
+			if ( $data->settings->category ) {
+				$this->makeLink(
+					$output,
+					$data->settings->category,
+					Title::makeTitleSafe( NS_MEDIAWIKI, "gadget-section-" . $data->settings->category )
+				);
+			}
+		}
+
+		if ( !$cpoParams->getGenerateHtml() || !$content->isValid() ) {
+			$output->setText( '' );
+		} else {
+			$output->setText( $content->rootValueTable( $data ) );
+			$output->addModuleStyles( 'mediawiki.content.json' );
+		}
+	}
+
+	/**
+	 * Create a link on the page
+	 * @param ParserOutput $output
+	 * @param string &$text The text to link
+	 * @param Title|null $title Link target title
+	 * @return void
+	 */
+	private function makeLink( ParserOutput $output, string &$text, ?Title $title ) {
+		if ( $title ) {
+			$output->addLink( $title );
+			$text = new GadgetDefinitionContentArmor(
+				Linker::link( $title, htmlspecialchars( '"' . $text . '"' ) )
+			);
 		}
 	}
 }

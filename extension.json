@@ -77,6 +77,7 @@
 		"GadgetDefinitionNamespaceRepo": "includes/GadgetDefinitionNamespaceRepo.php",
 		"MediaWikiGadgetsDefinitionRepo": "includes/MediaWikiGadgetsDefinitionRepo.php",
 		"GadgetDefinitionContent": "includes/content/GadgetDefinitionContent.php",
+		"GadgetDefinitionContentArmor": "includes/content/GadgetDefinitionContentArmor.php",
 		"GadgetDefinitionContentHandler": "includes/content/GadgetDefinitionContentHandler.php",
 		"GadgetDefinitionValidator": "includes/content/GadgetDefinitionValidator.php",
 		"GadgetDefinitionSecondaryDataUpdate": "includes/content/GadgetDefinitionSecondaryDataUpdate.php",
