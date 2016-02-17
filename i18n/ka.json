@@ -13,6 +13,7 @@
 	"gadgetusage-gadget": "გაჯეტი",
 	"gadgetusage-usercount": "მომხმარებელთა რაოდენობა",
 	"gadgetusage-noresults": "გაჯეტი ვერ მოიძებნა.",
+	"gadgetusage-activeusers": "აქტიური მომხმარებლები",
 	"gadgetusage-default": "სტანდარტული",
 	"gadgets-title": "გაჯეტები",
 	"gadgets-pagetext": "ქვემოთ მოცემულია სპეციალური გაჯეტების სია, რომლების ჩართვაც შეუძლიათ მომხმარებლებს თავიანთი [[Special:Preferences#mw-prefsection-gadgets|კონფიგურაციის გვერდზე]], სიის შესაბამისად [[MediaWiki:Gadgets-definition|განმარტებების]] გვერდზე.\nეს სია საშუალებას იძლევა მარტივად მივიღოთ სისტემური შეტყობინებების გვერდებთან წვდომა, რომლებიც განსაზღვრავენ გაჯეტების აღწერასა და გამავალ კოდებს.",
