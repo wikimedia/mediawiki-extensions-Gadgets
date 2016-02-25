@@ -59,8 +59,8 @@
 	"apihelp-query+gadgets-example-3": "Отримати список ґаджетів, які належать до категорії «foo»",
 	"apihelp-query+gadgets-example-4": "Отримати інформацію про ґаджети «foo» і «bar»",
 	"apihelp-query+gadgets-example-5": "Отримати список ґаджетів, увімкнених даним користувачем",
-	"right-gadgets-edit": "Редагувати сторінки JavaScript та CSS додатку",
-	"action-gadgets-edit": "редагувати JavaScript- чи  CSS-сторінку цього додатку",
-	"right-gadgets-definition-edit": "Редагувати визначення додатку",
-	"action-gadgets-definition-edit": "редагувати визначення цього додатку"
+	"right-gadgets-edit": "редагування сторінок додатків на JavaScript та CSS",
+	"action-gadgets-edit": "редагування JavaScript- чи CSS-сторінки цього додатку",
+	"right-gadgets-definition-edit": "редагування визначень додатків",
+	"action-gadgets-definition-edit": "редагування визначення цього додатку"
 }
