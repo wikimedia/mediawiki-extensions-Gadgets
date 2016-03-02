@@ -9,7 +9,7 @@
 	},
 	"gadgets-desc": "Deixa que os usuarios seleccionen [[Special:Gadgets|trebellos CSS e JavaScript]] nas súas [[Special:Preferences#mw-prefsection-gadgets|preferencias]]",
 	"prefs-gadgets": "Trebellos",
-	"gadgets-prefstext": "A continuación hai unha lista de trebellos especiais que pode activar para a súa conta.\nA maioría destes trebellos baséanse no JavaScript, así que ten que ter o JavaScript activado no seu navegador para que funcionen.\nTeña en conta que estes trebellos non funcionarán nesta páxina de preferencias.\n\nTeña tamén en conta que estes trebellos especiais non son parte do software de MediaWiki e que os crean e manteñen os usuarios no seu wiki local. Os administradores locais poden editar as [[MediaWiki:Gadgets-definition|definicións]] e [[Special:Gadgets|descricións]] dos trebellos dispoñibles.",
+	"gadgets-prefstext": "A continuación hai unha lista de trebellos especiais que pode activar para a súa conta.\nA maioría destes trebellos baséanse no JavaScript, así que ten que ter o JavaScript activado no seu navegador para que funcionen.\nTeña en conta que estes trebellos non funcionarán nesta páxina de preferencias.\n\nTeña tamén en conta que estes trebellos especiais non son parte do software de MediaWiki e que os crean e manteñen os usuarios no seu wiki local. Os administradores locais poden editar as [[MediaWiki:Gadgets-definition|definicións]] e [[Special:Gadgets|descricións]] dos trebellos dispoñibles. O número de usuarios de cada trebello nesta wiki está listado nas [[Special:GadgetUsage|estatísticas de uso de Trebellos]].",
 	"gadgets": "Trebellos",
 	"gadgetusage": "Estatísticas de uso do trebello",
 	"gadgetusage-gadget": "Trebello",
