@@ -10,7 +10,8 @@
 			"青子守歌",
 			"SkyDaisy9",
 			"Sujiniku",
-			"Otokoume"
+			"Otokoume",
+			"2nd-player"
 		]
 	},
 	"gadgets-desc": "利用者が [[Special:Gadgets|CSS や JavaScript のカスタム ガジェット]]を[[Special:Preferences#mw-prefsection-gadgets|{{int:preferences}}]]で選択できるようにする",
@@ -56,7 +57,7 @@
 	"apihelp-query+gadgets-example-4": "ガジェット「foo」および「bar」についての情報を取得",
 	"apihelp-query+gadgets-example-5": "現在の利用者が有効にしているガジェットの一覧を取得",
 	"right-gadgets-edit": "ガジェットの JavaScript および CSS ページの編集",
-	"action-gadgets-edit": "このガジェットの JavaScript および CSS ページを編集",
+	"action-gadgets-edit": "このガジェットの JavaScript または CSS ページを編集",
 	"right-gadgets-definition-edit": "ガジェット定義の編集",
 	"action-gadgets-definition-edit": "このガジェット定義を編集"
 }
