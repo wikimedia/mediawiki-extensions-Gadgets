@@ -37,6 +37,13 @@ $namespaceNames['ckb'] = array(
 	NS_GADGET_DEFINITION_TALK => 'وتووێژی_پێناسه‌ی_ئامراز',
 );
 
+$namespaceNames['cs'] = array(
+	NS_GADGET => 'Udělátko',
+	NS_GADGET_TALK => 'Diskuse_k_udělátku',
+	NS_GADGET_DEFINITION => 'Definice_udělátka',
+	NS_GADGET_DEFINITION_TALK => 'Diskuse_k_definici_udělátka',
+);
+
 $namespaceNames['de'] = array(
 	NS_GADGET => 'Gadget',
 	NS_GADGET_TALK => 'Gadget_Diskussion',
