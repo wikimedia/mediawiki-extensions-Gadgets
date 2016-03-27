@@ -11,7 +11,8 @@
 			"Александр Сигачёв",
 			"Okras",
 			"NBS",
-			"Frhdkazan"
+			"Frhdkazan",
+			"Лилиә"
 		]
 	},
 	"gadgets-desc": "Позволяет участникам выбирать в своих [[Special:Preferences#mw-prefsection-gadgets|настройках]] те или иные [[Special:Gadgets|CSS- и JavaScript-гаджеты]]",
@@ -22,6 +23,7 @@
 	"gadgetusage-gadget": "Гаджет",
 	"gadgetusage-usercount": "Количество участников",
 	"gadgetusage-noresults": "Никаких гаджетов не найдено.",
+	"gadgetusage-intro": "Был таблица Викиҙың һәр бер гаджетын әүҙемләштергән кешеләрҙең һанын күрһәтә. Әүҙем файҙаланыусы булып, һуңғы мөхәррирләгән кеше була {{PLURAL:$1|day|$1 days}}. Ҡуйылған гаджеттар был исемлектең иҫәбенә инмәй, ә эшләмәгәндәре уның иҫәбендә тора.",
 	"gadgetusage-activeusers": "Активные участники",
 	"gadgetusage-default": "По умолчанию",
 	"gadgets-title": "Гаджеты",
@@ -43,6 +45,7 @@
 	"apihelp-query+gadgetcategories-example-1": "Получить список существующих категорий гаджетов",
 	"apihelp-query+gadgetcategories-example-2": "Получить всю информацию о категориях с названиями «Foo» и «Bar»",
 	"apihelp-query+gadgets-description": "Возвращает список гаджетов, используемых в этой вики.",
+	"apihelp-query+gadgets-param-categories": "Ниндәй категориянан гаджеттар алырға кәрәк",
 	"apihelp-query+gadgets-param-ids": "Идентификаторы гаджетов для получения.",
 	"apihelp-query+gadgets-param-allowedonly": "Перечислить только гаджеты, разрешённые текущему участнику.",
 	"apihelp-query+gadgets-param-enabledonly": "Перечислить только гаджеты, включенные у текущего участника.",
