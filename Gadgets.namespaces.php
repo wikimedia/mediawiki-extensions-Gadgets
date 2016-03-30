@@ -23,6 +23,13 @@ $namespaceNames['ar'] = array(
 	NS_GADGET_DEFINITION_TALK => 'نقاش_تعريف_الإضافة',
 );
 
+$namespaceNames['ast'] = array(
+	NS_GADGET => 'Accesoriu',
+	NS_GADGET_TALK => 'Accesoriu_alderique',
+	NS_GADGET_DEFINITION => 'Accesoriu_definición',
+	NS_GADGET_DEFINITION_TALK => 'Accesoriu_definición_alderique',
+);
+
 $namespaceNames['azb'] = array(
 	NS_GADGET => 'آلت',
 	NS_GADGET_TALK => 'آلت_دانیشیغی',
