@@ -45,7 +45,7 @@
 	"apihelp-query+gadgetcategories-example-1": "Получить список существующих категорий гаджетов",
 	"apihelp-query+gadgetcategories-example-2": "Получить всю информацию о категориях с названиями «Foo» и «Bar»",
 	"apihelp-query+gadgets-description": "Возвращает список гаджетов, используемых в этой вики.",
-	"apihelp-query+gadgets-param-categories": "Ниндәй категориянан гаджеттар алырға кәрәк",
+	"apihelp-query+gadgets-param-categories": "Гаджеты из каких категорий получать.",
 	"apihelp-query+gadgets-param-ids": "Идентификаторы гаджетов для получения.",
 	"apihelp-query+gadgets-param-allowedonly": "Перечислить только гаджеты, разрешённые текущему участнику.",
 	"apihelp-query+gadgets-param-enabledonly": "Перечислить только гаджеты, включенные у текущего участника.",
