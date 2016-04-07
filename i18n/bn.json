@@ -25,7 +25,7 @@
 	"gadgets-uses": "ব্যবহারসমূহ",
 	"gadgets-required-rights": "নিচের {{PLURAL:$2|অধিকার|অধিকারগুলো}} প্রয়োজন:\n$1",
 	"gadgets-required-skins": "{{PLURAL:$2|$1 স্কিন|স্কিনগুলো: $1}} থেকে ব্যবহার করা যাবে।",
-	"gadgets-default": "সকলের জন্য সয়ংক্রিয়ভাবে সক্রিয়।",
+	"gadgets-default": "সকলের জন্য স্বয়ংক্রিয়ভাবে সক্রিয়।",
 	"gadgets-legacy": "গ্যাজেট লোড করা হয়নি। ResourceLoader-এ স্থানান্তরিত হোন। ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) আরো জানুন])",
 	"gadgets-export": "রপ্তানি",
 	"gadgets-export-title": "গ্যাজেট রফতানী",
