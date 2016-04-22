@@ -65,6 +65,13 @@ $namespaceNames['de'] = array(
 	NS_GADGET_DEFINITION_TALK => 'Gadget-Definition_Diskussion',
 );
 
+$namespaceNames['diq'] = array(
+	NS_GADGET => 'Halet',
+	NS_GADGET_TALK => 'Halet_vaten',
+	NS_GADGET_DEFINITION => 'Halet_şınasnayış',
+	NS_GADGET_DEFINITION_TALK => 'Halet_şınasnayış_vaten',
+);
+
 $namespaceNames['en'] = array(
 	NS_GADGET => 'Gadget',
 	NS_GADGET_TALK => 'Gadget_talk',
