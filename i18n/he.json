@@ -52,6 +52,6 @@
 	"apihelp-query+gadgets-example-5": "קבלת רשימת גאדג'טים שמופעלים למשתמש הנוכחי",
 	"right-gadgets-edit": "עריכת דפי JavaScript ו־CSS של גאדג'טים",
 	"action-gadgets-edit": "לערוף את דף ה־JavaScript או דף ה־CSS של הגאדג'ט הזה",
-	"right-gadgets-definition-edit": "עריכת הגדרות גאדג'טים",
+	"right-gadgets-definition-edit": "עריכת הגדרות של גאדג'טים",
 	"action-gadgets-definition-edit": "לערוך את הגדרת הגאדג'ט הזה"
 }
