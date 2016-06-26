@@ -107,6 +107,13 @@ $namespaceNames['fa'] = [
 	NS_GADGET_DEFINITION_TALK => 'بحث_توضیحات_ابزار',
 ];
 
+$namespaceNames['fr'] = [
+	NS_GADGET => 'Gadget',
+	NS_GADGET_TALK => 'Discussion_gadget',
+	NS_GADGET_DEFINITION => 'Définition_de_gadget',
+	NS_GADGET_DEFINITION_TALK => 'Discussion_définition_de_gadget',
+];
+
 $namespaceNames['he'] = [
 	NS_GADGET => 'גאדג\'ט',
 	NS_GADGET_TALK => 'שיחת_גאדג\'ט',
