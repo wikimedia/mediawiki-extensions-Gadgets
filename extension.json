@@ -103,9 +103,6 @@
 		"ResourceLoaderRegisterModules": [
 			"GadgetHooks::registerModules"
 		],
-		"UnitTestsList": [
-			"GadgetHooks::onUnitTestsList"
-		],
 		"wgQueryPages": [
 			"GadgetHooks::onwgQueryPages"
 		]

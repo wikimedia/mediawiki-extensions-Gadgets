@@ -303,17 +303,6 @@ class GadgetHooks {
 	}
 
 	/**
-	 * UnitTestsList hook handler
-	 * @param array $files
-	 * @return bool
-	 */
-	public static function onUnitTestsList( array &$files ) {
-		$testDir = __DIR__ . '/tests/';
-		$files = array_merge( $files, glob( "$testDir/*Test.php" ) );
-		return true;
-	}
-
-	/**
 	 * Add the GadgetUsage special page to the list of QueryPages.
 	 * @param array &$queryPages
 	 * @return bool
