@@ -12,7 +12,7 @@
 	"gadgetusage-activeusers": "Aktivaj uzantoj",
 	"gadgetusage-default": "Defaŭlta",
 	"gadgets-title": "Aldonaĵoj",
-	"gadgets-pagetext": "Jen listo da specialaj aldonaĵoj kiujn uzuloj povas aktivigi en [[Special:Preferences#mw-prefsection-gadgets|siaj preferoj]], kiel difinite en [[MediaWiki:Gadgets-definition|difinoj]].\nĈi tiu superrigardo provizas facilan aliron al la sistemaj mesaĝoj kiuj difinas la priskribon kaj la kodon de ĉiuj aldonaĵoj.",
+	"gadgets-pagetext": "Jen listo da specialaj aldonaĵoj kiujn uzantoj povas aktivigi en [[Special:Preferences#mw-prefsection-gadgets|siaj preferoj]], kiel difinite en [[MediaWiki:Gadgets-definition|difinoj]].\nĈi tiu superrigardo provizas facilan aliron al la sistemaj mesaĝoj kiuj difinas la priskribon kaj la kodon de ĉiuj aldonaĵoj.",
 	"gadgets-uses": "uzas",
 	"gadgets-required-rights": "Bezonas la {{PLURAL:$2|jenan rajton|jenajn rajtojn}}:\n\n$1",
 	"gadgets-required-skins": "Dispona kun la {{PLURAL:$2|$1 etoso|jenaj etosoj:$1}}.",
