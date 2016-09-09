@@ -37,6 +37,7 @@
 	"apihelp-query+gadgetcategories-param-names": "أسماء التصنيفات للاسترداد.",
 	"apihelp-query+gadgetcategories-example-1": "الحصول على قائمة بتصنيفات الإضافات الموجودة",
 	"apihelp-query+gadgets-description": "يعطي قائمة بالإضافات المستخدمة في هذا الويكي.",
+	"apihelp-query+gadgets-param-categories": "الإضافات من أي تصنيفات للاسترجاع.",
 	"apihelp-query+gadgets-param-ids": "معرفات  الإضافات للاسترداد.",
 	"apihelp-query+gadgets-param-allowedonly": "اسرد فقط الإضافات المسموحة للمستخدم الحالي.",
 	"apihelp-query+gadgets-param-enabledonly": "اسرد فقط الإضافات المفعَّلة من قبل المستخدم الحالي.",
