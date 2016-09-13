@@ -33,6 +33,7 @@
 	"gadgets-export-text": "لتصدير $1 الأداة، انقر فوق \"{{int:gadgets-export-download}}\" زر حفظ الملف الذي تم تحميله،\n الذهاب إلى الخاص: الاستيراد على واجهة الويكي وتحميله. قم بإضافة ما يلي إلى MediaWiki:Gadgets-definition الصفحة:\n<pre>$2</pre>\nيجب أن يكون لديك الأذونات المناسبة على الويكي (بما في ذلك الحق في تحرير رسائل النظام) ويجب أن يتم تمكين الاستيراد من تحميل الملف.",
 	"gadgets-export-download": "نزّل",
 	"gadgets-validate-notset": "الخاصية <code>$1</code> ليست مضبوطة.",
+	"gadgets-validate-wrongtype": "الخاصية <code>$1</code> يجب أن تكون من النوع <code>$2</code> بدلا من <code>$3</code>.",
 	"apihelp-query+gadgetcategories-description": "يعطي قائمة بتصنيفات الإضافات.",
 	"apihelp-query+gadgetcategories-param-names": "أسماء التصنيفات للاسترداد.",
 	"apihelp-query+gadgetcategories-example-1": "الحصول على قائمة بتصنيفات الإضافات الموجودة",
