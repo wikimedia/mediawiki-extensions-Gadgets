@@ -170,6 +170,7 @@ class GadgetHooks {
 		$lb = new LinkBatch();
 		$lb->setCaller( __METHOD__ );
 		$enabledLegacyGadgets = array();
+		$typelessMixedGadgets = array();
 
 		/**
 		 * @var $gadget Gadget
@@ -183,8 +184,15 @@ class GadgetHooks {
 			}
 			if ( $gadget->isEnabled( $user ) && $gadget->isAllowed( $user ) ) {
 				if ( $gadget->hasModule() ) {
-					$out->addModuleStyles( Gadget::getModuleName( $gadget->getName() ) );
-					$out->addModules( Gadget::getModuleName( $gadget->getName() ) );
+					if ( $gadget->getType() === 'styles' ) {
+						$out->addModuleStyles( Gadget::getModuleName( $gadget->getName() ) );
+					} elseif ( $gadget->getType() === 'general' ) {
+						$out->addModules( Gadget::getModuleName( $gadget->getName() ) );
+					} else {
+						$out->addModuleStyles( Gadget::getModuleName( $gadget->getName() ) );
+						$out->addModules( Gadget::getModuleName( $gadget->getName() ) );
+						$typelessMixedGadgets[] = $id;
+					}
 				}
 
 				if ( $gadget->getLegacyScripts() ) {
@@ -197,6 +205,9 @@ class GadgetHooks {
 		foreach ( $enabledLegacyGadgets as $id ) {
 			$strings[] = self::makeLegacyWarning( $id );
 		}
+		foreach ( $typelessMixedGadgets as $id ) {
+			$strings[] = self::makeTypelessWarning( $id );
+		}
 		$out->addHTML( WrappedString::join( "\n", $strings ) );
 
 		return true;
@@ -208,11 +219,17 @@ class GadgetHooks {
 		return ResourceLoader::makeInlineScript(
 			Xml::encodeJsCall( 'mw.log.warn', array(
 				"Gadget \"$id\" was not loaded. Please migrate it to use ResourceLoader. " .
-				' See <' . $special->getCanonicalURL() . '>.'
+				'See <' . $special->getCanonicalURL() . '>.'
 			) )
 		);
 	}
 
+	private static function makeTypelessWarning( $id ) {
+		return ResourceLoader::makeInlineScript( Xml::encodeJsCall( 'mw.log.warn', array(
+			"Gadget \"$id\" styles loaded twice. Migrate to type=general. " .
+			'See <https://phabricator.wikimedia.org/T42284>.'
+		) ) );
+	}
 
 	/**
 	 * Valid gadget definition page after content is modified
