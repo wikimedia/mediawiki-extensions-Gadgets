@@ -24,14 +24,14 @@ use WrappedString\WrappedString;
 
 class GadgetHooks {
 	/**
-	 * ArticleSaveComplete hook handler.
+	 * PageContentSaveComplete hook handler.
 	 *
 	 * @param $article Article
 	 * @param $user User
-	 * @param $text String: New page text
+	 * @param $content Content New page content
 	 * @return bool
 	 */
-	public static function articleSaveComplete( $article, $user, $text ) {
+	public static function onPageContentSaveComplete( $article, $user, $content ) {
 		// update cache if MediaWiki:Gadgets-definition was edited
 		$title = $article->getTitle();
 		$repo = GadgetRepo::singleton();

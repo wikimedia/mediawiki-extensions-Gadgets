@@ -76,8 +76,8 @@
 		"GadgetDefinitionDeletionUpdate": "includes/content/GadgetDefinitionDeletionUpdate.php"
 	},
 	"Hooks": {
-		"ArticleSaveComplete": [
-			"GadgetHooks::articleSaveComplete"
+		"PageContentSaveComplete": [
+			"GadgetHooks::onPageContentSaveComplete"
 		],
 		"BeforePageDisplay": [
 			"GadgetHooks::beforePageDisplay"
