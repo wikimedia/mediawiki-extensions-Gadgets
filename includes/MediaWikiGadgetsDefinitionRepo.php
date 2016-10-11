@@ -1,4 +1,5 @@
 <?php
+use MediaWiki\MediaWikiServices;
 
 /**
  * Gadgets repo powered by MediaWiki:Gadgets-definition
@@ -32,7 +33,8 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * was edited.
 	 */
 	public function purgeDefinitionCache() {
-		ObjectCache::getMainWANInstance()->touchCheckKey( $this->getCheckKey() );
+		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$cache->touchCheckKey( $this->getCheckKey() );
 	}
 
 	private function getCheckKey() {
@@ -51,8 +53,8 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		}
 
 		// Ideally $t1Cache is APC, and $wanCache is memcached
-		$t1Cache = ObjectCache::newAccelerator( array(), 'hash' );
-		$wanCache = ObjectCache::getMainWANInstance();
+		$t1Cache = ObjectCache::getLocalServerInstance( 'hash' );
+		$wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 
 		$key = $this->getCheckKey();
 
