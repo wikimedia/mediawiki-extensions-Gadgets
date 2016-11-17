@@ -132,6 +132,17 @@ class GadgetsTest extends MediaWikiTestCase {
 		$this->assertEquals( $mType, $this->getModule( $g )->getType(), "Module: $message" );
 	}
 
+	public function testIsHidden() {
+		$g = $this->create( '* foo[hidden]|bar.js' );
+		$this->assertTrue( $g->isHidden() );
+
+		$g = $this->create( '* foo[ResourceLoader|hidden]|bar.js' );
+		$this->assertTrue( $g->isHidden() );
+
+		$g = $this->create( '* foo[ResourceLoader]|bar.js' );
+		$this->assertFalse( $g->isHidden() );
+	}
+
 	public function testPreferences() {
 		$prefs = array();
 		$repo = TestingAccessWrapper::newFromObject( new MediaWikiGadgetsDefinitionRepo() );
