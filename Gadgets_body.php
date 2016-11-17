@@ -298,7 +298,7 @@ class Gadget {
 		if ( $this->type === 'styles' || $this->type === 'general' ) {
 			return $this->type;
 		}
-		if ( $this->styles && !$this->scripts ) {
+		if ( $this->styles && !$this->scripts && !$this->dependencies ) {
 			// Similar to ResourceLoaderWikiModule default
 			return 'styles';
 		}

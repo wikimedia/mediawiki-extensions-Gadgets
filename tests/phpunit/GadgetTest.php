@@ -85,6 +85,12 @@ class GadgetsTest extends MediaWikiTestCase {
 				ResourceLoaderModule::LOAD_GENERAL,
 			),
 			array(
+				'Default (styles only with dependencies)',
+				'* foo[ResourceLoader|dependencies=jquery.ui]|bar.css',
+				'',
+				ResourceLoaderModule::LOAD_GENERAL,
+			),
+			array(
 				'Styles type (mixed)',
 				'* foo[ResourceLoader|type=styles]|bar.css|bar.js',
 				'styles',
