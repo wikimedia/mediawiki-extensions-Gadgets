@@ -56,7 +56,6 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 				'styles' => array(),
 				'dependencies' => array(),
 				'messages' => array(),
-				'position' => 'bottom',
 				'type' => '',
 			),
 		);

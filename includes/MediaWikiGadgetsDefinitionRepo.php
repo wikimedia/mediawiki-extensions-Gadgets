@@ -211,9 +211,6 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 				case 'targets':
 					$info['targets'] = $params;
 					break;
-				case 'top':
-					$info['position'] = 'top';
-					break;
 				case 'type':
 					// Single value, not a list
 					$info['type'] = isset( $params[0] ) ? $params[0] : '';

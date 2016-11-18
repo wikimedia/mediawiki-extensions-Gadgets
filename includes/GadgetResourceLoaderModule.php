@@ -72,14 +72,6 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	}
 
 	/**
-	 * Overrides ResourceLoaderModule::getPosition()
-	 * @return String: 'bottom' or 'top'
-	 */
-	public function getPosition() {
-		return $this->getGadget()->getPosition();
-	}
-
-	/**
 	 * Overrides ResourceLoaderWikiModule::getType()
 	 * @return string ResourceLoaderModule::LOAD_STYLES or ResourceLoaderModule::LOAD_GENERAL
 	 */

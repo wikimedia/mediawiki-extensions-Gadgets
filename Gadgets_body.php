@@ -35,7 +35,6 @@ class Gadget {
 			$targets = array( 'desktop' ),
 			$onByDefault = false,
 			$hidden = false,
-			$position = 'bottom',
 			$type = '',
 			$category;
 
@@ -53,7 +52,6 @@ class Gadget {
 				case 'requiredSkins':
 				case 'targets':
 				case 'onByDefault':
-				case 'position':
 				case 'type':
 				case 'hidden':
 				case 'category':
@@ -89,7 +87,6 @@ class Gadget {
 			'styles' => array_map( $prefixGadgetNs, $data['module']['styles'] ),
 			'dependencies' => $data['module']['dependencies'],
 			'messages' => $data['module']['messages'],
-			'position' => $data['module']['position'],
 			'type' => $data['module']['type'],
 		);
 
@@ -280,14 +277,6 @@ class Gadget {
 	 */
 	public function getRequiredSkins() {
 		return $this->requiredSkins;
-	}
-
-	/**
-	 * Returns the position of this Gadget's ResourceLoader module
-	 * @return String: 'bottom' or 'top'
-	 */
-	public function getPosition() {
-		return $this->position;
 	}
 
 	/**

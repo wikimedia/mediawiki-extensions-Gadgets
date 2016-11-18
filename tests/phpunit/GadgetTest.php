@@ -56,14 +56,6 @@ class GadgetsTest extends MediaWikiTestCase {
 		$this->assertEquals( array( 'jquery.ui' ), $g->getDependencies() );
 	}
 
-	public function testPosition() {
-		$g = $this->create( '* foo[ResourceLoader]|bar.js' );
-		$this->assertEquals( 'bottom', $g->getPosition(), 'Default position' );
-
-		$g = $this->create( '* foo[ResourceLoader|top]|bar.js' );
-		$this->assertEquals( 'top', $g->getPosition(), 'Position top' );
-	}
-
 	public static function provideGetType() {
 		return array(
 			array(
