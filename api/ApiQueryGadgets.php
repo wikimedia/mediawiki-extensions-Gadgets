@@ -156,6 +156,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 				'scripts' => $g->getScripts(),
 				'styles' => $g->getStyles(),
 				'dependencies' => $g->getDependencies(),
+				'peers' => $g->getPeers(),
 				'messages' => $g->getMessages(),
 			]
 		];
@@ -168,6 +169,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'scripts' => 'script',
 			'styles' => 'style',
 			'dependencies' => 'dependency',
+			'peers' => 'peer',
 			'messages' => 'message',
 		];
 

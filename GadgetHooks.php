@@ -182,12 +182,31 @@ class GadgetHooks {
 			} catch ( InvalidArgumentException $e ) {
 				continue;
 			}
+			$peers = [];
+			foreach ( $gadget->getPeers() as $peerName ) {
+				try {
+					$peers[] = $repo->getGadget( $peerName );
+				} catch ( InvalidArgumentException $e ) {
+					// Ignore
+					// @todo: Emit warning for invalid peer?
+				}
+			}
 			if ( $gadget->isEnabled( $user ) && $gadget->isAllowed( $user ) ) {
 				if ( $gadget->hasModule() ) {
 					if ( $gadget->getType() === 'styles' ) {
 						$out->addModuleStyles( Gadget::getModuleName( $gadget->getName() ) );
 					} elseif ( $gadget->getType() === 'general' ) {
 						$out->addModules( Gadget::getModuleName( $gadget->getName() ) );
+						// Load peer modules
+						foreach ( $peers as $peer ) {
+							if ( $peer->getType() === 'styles' ) {
+								$out->addModuleStyles( Gadget::getModuleName( $peer->getName() ) );
+							}
+							// Else if not type=styles: Use dependencies instead.
+							// Note: No need for recursion as styles modules don't support
+							// either of 'dependencies' and 'peers'.
+							// @todo: Emit warning for non-styles peer?
+						}
 					} else {
 						$out->addModuleStyles( Gadget::getModuleName( $gadget->getName() ) );
 						$out->addModules( Gadget::getModuleName( $gadget->getName() ) );
