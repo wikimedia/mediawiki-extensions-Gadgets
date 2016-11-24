@@ -353,7 +353,7 @@ $specialPageAliases['tt-cyrl'] = array(
 
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = array(
-	'Gadgets' => array( 'Додатки' ),
+	'Gadgets' => array( 'Додатки', 'Гаджеты' ),
 );
 
 /** Venetian (vèneto) */
