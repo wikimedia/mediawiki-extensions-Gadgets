@@ -55,6 +55,12 @@ $specialPageAliases['bjn'] = array(
 	'Gadgets' => array( 'Pakakas' ),
 );
 
+/** Bengali (বাংলা) */
+$specialPageAliases['bn'] = array(
+	'Gadgets' => array( 'গ্যাজেট' ),
+	'GadgetUsage' => array( 'গ্যাজেট_ব্যবহার' ),
+);
+
 /** Breton (brezhoneg) */
 $specialPageAliases['br'] = array(
 	'Gadgets' => array( 'Bitrakoù' ),
