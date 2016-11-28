@@ -20,7 +20,7 @@
 	"gadgetusage-usercount": "Amari karberan",
 	"gadgetusage-noresults": "Hacet nivineya.",
 	"gadgets-title": "Hacetê werdi",
-	"gadgets-pagetext": "Cêr de yew listeya hacetanê xasan esta ke ti eşkenî [[Special:Preferences#mw-prefsection-gadgets|xesabê xo]] de a bikî, seke [[MediaWiki:Gadgets-definition|definitions]] nîşan dîyayo.\nNo ewnîyayîşo pêroyî îmkan dano ke merdim bi asanî bireso pelanê mesajanê sistemî ke descripisyon û kodê her hacetî nawneno.",
+	"gadgets-pagetext": "Cêr de yew listeya hacetanê xasan esta ke aıma senê [[Special:Preferences#mw-prefsection-gadgets|xesabê xo]] de akerê, seke [[MediaWiki:Gadgets-definition|selasnayış]] senê nışan bıkerê.\n\nNa degme weynayış, enê haceta dehana rehat cıresayışi rê imkan dana.",
 	"gadgets-uses": "Karêno",
 	"gadgets-required-rights": "Cêrêni icab kenê {{PLURAL:$2|raşti|raşteya}}:\n\n$1",
 	"gadgets-required-skins": "Zerrey {{PLURAL:$2|$1 skin|skino ke pawêno: $1}} dı esto.",
