@@ -44,6 +44,13 @@ $namespaceNames['bgn'] = array(
 	NS_GADGET_DEFINITION_TALK => 'وسیله_ئانی_شرح_ئی_گپ',
 );
 
+$namespaceNames['bn'] = array(
+	NS_GADGET => 'গ্যাজেট',
+	NS_GADGET_TALK => 'গ্যাজেট_আলোচনা',
+	NS_GADGET_DEFINITION => 'গ্যাজেট_সংজ্ঞা',
+	NS_GADGET_DEFINITION_TALK => 'গ্যাজেট_সংজ্ঞার_আলোচনা',
+);
+
 $namespaceNames['ckb'] = array(
 	NS_GADGET => 'ئامراز',
 	NS_GADGET_TALK => 'وتووێژی_ئامراز',
