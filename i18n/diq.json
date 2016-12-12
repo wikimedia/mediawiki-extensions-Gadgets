@@ -8,7 +8,8 @@
 			"Olvörg",
 			"Xoser",
 			"Kumkumuk",
-			"1917 Ekim Devrimi"
+			"1917 Ekim Devrimi",
+			"Gırd"
 		]
 	},
 	"gadgets-desc": "Karberan ré destur bidek [[Special:Preferences#mw-prefsection-gadgets|hesıbyayan]]'ra [[Special:Gadgets|Hacetanê CSS u JavaScriptî]] bışé weçiné",
@@ -21,7 +22,7 @@
 	"gadgetusage-noresults": "Hacet nivineya.",
 	"gadgets-title": "Hacetê werdi",
 	"gadgets-pagetext": "Cêr de yew listeya hacetanê xasan esta ke aıma senê [[Special:Preferences#mw-prefsection-gadgets|xesabê xo]] de akerê, seke [[MediaWiki:Gadgets-definition|selasnayış]] senê nışan bıkerê.\n\nNa degme weynayış, enê haceta dehana rehat cıresayışi rê imkan dana.",
-	"gadgets-uses": "Karêno",
+	"gadgets-uses": "Gureneno",
 	"gadgets-required-rights": "Cêrêni icab kenê {{PLURAL:$2|raşti|raşteya}}:\n\n$1",
 	"gadgets-required-skins": "Zerrey {{PLURAL:$2|$1 skin|skino ke pawêno: $1}} dı esto.",
 	"gadgets-default": "Merduman pêron rê aktiv ke.",
