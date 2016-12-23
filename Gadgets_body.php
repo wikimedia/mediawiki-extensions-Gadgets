@@ -2,7 +2,7 @@
 /**
  * Gadgets extension - lets users select custom javascript gadgets
  *
- * For more info see http://mediawiki.org/wiki/Extension:Gadgets
+ * For more info see https://www.mediawiki.org/wiki/Extension:Gadgets
  *
  * @file
  * @ingroup Extensions

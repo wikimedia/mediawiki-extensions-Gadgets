@@ -25,7 +25,7 @@ LocalSettings.php file (near the end):
 
 Usage
 -------------
-See http://www.mediawiki.org/wiki/Extension:Gadgets#Usage
+See https://www.mediawiki.org/wiki/Extension:Gadgets#Usage
 
 Caveats
 -------------

@@ -170,7 +170,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 			return false;
 		}
 		// NOTE: the gadget name is used as part of the name of a form field,
-		//      and must follow the rules defined in http://www.w3.org/TR/html4/types.html#type-cdata
+		//      and must follow the rules defined in https://www.w3.org/TR/html4/types.html#type-cdata
 		//      Also, title-normalization applies.
 		$info = array( 'category' => $category );
 		$info['name'] = trim( str_replace( ' ', '_', $m[1] ) );
