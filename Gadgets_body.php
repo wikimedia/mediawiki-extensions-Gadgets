@@ -23,16 +23,16 @@ class Gadget {
 
 	const CACHE_TTL = 86400;
 
-	private $scripts = array(),
-			$styles = array(),
-			$dependencies = array(),
-			$messages = array(),
+	private $scripts = [],
+			$styles = [],
+			$dependencies = [],
+			$messages = [],
 			$name,
 			$definition,
 			$resourceLoaded = false,
-			$requiredRights = array(),
-			$requiredSkins = array(),
-			$targets = array( 'desktop' ),
+			$requiredRights = [],
+			$requiredSkins = [],
+			$targets = [ 'desktop' ],
 			$onByDefault = false,
 			$hidden = false,
 			$type = '',
@@ -75,7 +75,7 @@ class Gadget {
 		$prefixGadgetNs = function ( $page ) {
 			return 'Gadget:' . $page;
 		};
-		$info = array(
+		$info = [
 			'name' => $id,
 			'resourceLoaded' => true,
 			'requiredRights' => $data['settings']['rights'],
@@ -88,7 +88,7 @@ class Gadget {
 			'dependencies' => $data['module']['dependencies'],
 			'messages' => $data['module']['messages'],
 			'type' => $data['module']['type'],
-		);
+		];
 
 		return new self( $info );
 
@@ -101,7 +101,7 @@ class Gadget {
 	 * @return Gadget
 	 */
 	public static function newEmptyGadget( $id ) {
-		return new self( array( 'name' => $id ) );
+		return new self( [ 'name' => $id ] );
 	}
 
 	/**
@@ -243,7 +243,7 @@ class Gadget {
 	 */
 	public function getLegacyScripts() {
 		if ( $this->supportsResourceLoader() ) {
-			return array();
+			return [];
 		}
 		return $this->scripts;
 	}

@@ -51,17 +51,17 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 				return $dbr->selectFieldValues(
 					'page',
 					'page_title',
-					array(
+					[
 						'page_namespace' => NS_GADGET_DEFINITION
-					),
+					],
 					__METHOD__
 				);
 			},
-			array(
-				'checkKeys' => array( $this->idsKey ),
+			[
+				'checkKeys' => [ $this->idsKey ],
 				'pcTTL' => 5,
 				'lockTSE' => '30',
-			)
+			]
 		);
 	}
 
@@ -110,11 +110,11 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 
 				return Gadget::newFromDefinitionContent( $id, $content );
 			},
-			array(
-				'checkKeys' => array( $key ),
+			[
+				'checkKeys' => [ $key ],
 				'pcTTL' => 5,
 				'lockTSE' => '30',
-			)
+			]
 		);
 
 		if ( $gadget === null ) {

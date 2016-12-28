@@ -47,15 +47,15 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	 */
 	protected function getPages( ResourceLoaderContext $context ) {
 		$gadget = $this->getGadget();
-		$pages = array();
+		$pages = [];
 
 		foreach ( $gadget->getStyles() as $style ) {
-			$pages[$style] = array( 'type' => 'style' );
+			$pages[$style] = [ 'type' => 'style' ];
 		}
 
 		if ( $gadget->supportsResourceLoader() ) {
 			foreach ( $gadget->getScripts() as $script ) {
-				$pages[$script] = array( 'type' => 'script' );
+				$pages[$script] = [ 'type' => 'script' ];
 			}
 		}
 

@@ -61,7 +61,7 @@ class SpecialGadgets extends SpecialPage {
 			if ( $section !== false && $section !== '' ) {
 				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-section-$section$langSuffix" );
 				$lnkTarget = $t
-					? Linker::link( $t, $this->msg( $editInterfaceMessage )->escaped(), array(), array( 'action' => 'edit' ) )
+					? Linker::link( $t, $this->msg( $editInterfaceMessage )->escaped(), [], [ 'action' => 'edit' ] )
 					: htmlspecialchars( $section );
 				$lnk = "&#160; &#160; [$lnkTarget]";
 
@@ -72,7 +72,7 @@ class SpecialGadgets extends SpecialPage {
 					$listOpen = false;
 				}
 
-				$output->addHTML( Html::rawElement( 'h2', array(), $ttext . $lnk ) . "\n" );
+				$output->addHTML( Html::rawElement( 'h2', [], $ttext . $lnk ) . "\n" );
 			}
 
 			/**
@@ -85,12 +85,12 @@ class SpecialGadgets extends SpecialPage {
 					continue;
 				}
 
-				$links = array();
+				$links = [];
 				$links[] = Linker::link(
 					$t,
 					$this->msg( $editInterfaceMessage )->escaped(),
-					array(),
-					array( 'action' => 'edit' )
+					[],
+					[ 'action' => 'edit' ]
 				);
 				$links[] = Linker::link(
 					$this->getPageTitle( "export/{$gadget->getName()}" ),
@@ -112,7 +112,7 @@ class SpecialGadgets extends SpecialPage {
 						$this->msg( 'colon-separator' )->escaped()
 				);
 
-				$lnk = array();
+				$lnk = [];
 				foreach ( $gadget->getScriptsAndStyles() as $codePage ) {
 					$t = Title::newFromText( $codePage );
 
@@ -126,12 +126,12 @@ class SpecialGadgets extends SpecialPage {
 				if ( $gadget->getLegacyScripts() ) {
 					$output->addHTML( '<br />' . Html::rawElement(
 						'span',
-						array( 'class' => 'mw-gadget-legacy errorbox' ),
+						[ 'class' => 'mw-gadget-legacy errorbox' ],
 						$this->msg( 'gadgets-legacy' )->parse()
 					) );
 				}
 
-				$rights = array();
+				$rights = [];
 				foreach ( $gadget->getRequiredRights() as $right ) {
 					$rights[] = '* ' . $this->msg( "right-$right" )->plain();
 				}
@@ -144,7 +144,7 @@ class SpecialGadgets extends SpecialPage {
 				$requiredSkins = $gadget->getRequiredSkins();
 				// $requiredSkins can be an array or true (if all skins are supported)
 				if ( is_array( $requiredSkins ) ) {
-					$skins = array();
+					$skins = [];
 					$validskins = Skin::getSkinNames();
 					foreach ( $requiredSkins as $skinid ) {
 						if ( isset( $validskins[$skinid] ) ) {
@@ -186,7 +186,7 @@ class SpecialGadgets extends SpecialPage {
 		try {
 			$g = GadgetRepo::singleton()->getGadget( $gadget );
 		} catch ( InvalidArgumentException $e ) {
-			$output->showErrorPage( 'error', 'gadgets-not-found', array( $gadget ) );
+			$output->showErrorPage( 'error', 'gadgets-not-found', [ $gadget ] );
 			return;
 		}
 
@@ -199,7 +199,7 @@ class SpecialGadgets extends SpecialPage {
 			$exportList .= "$page\n";
 		}
 
-		$output->addHTML( Html::openElement( 'form', array( 'method' => 'get', 'action' => $wgScript ) )
+		$output->addHTML( Html::openElement( 'form', [ 'method' => 'get', 'action' => $wgScript ] )
 			. Html::hidden( 'title', SpecialPage::getTitleFor( 'Export' )->getPrefixedDBKey() )
 			. Html::hidden( 'pages', $exportList )
 			. Html::hidden( 'wpDownload', '1' )
