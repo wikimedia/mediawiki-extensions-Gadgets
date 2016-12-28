@@ -36,7 +36,7 @@ class SpecialGadgets extends SpecialPage {
 
 		$output = $this->getOutput();
 		$this->setHeaders();
-		$output->setPagetitle( $this->msg( 'gadgets-title' ) );
+		$output->setPageTitle( $this->msg( 'gadgets-title' ) );
 		$output->addWikiMsg( 'gadgets-pagetext' );
 
 		$gadgets = GadgetRepo::singleton()->getStructuredList();
@@ -191,7 +191,7 @@ class SpecialGadgets extends SpecialPage {
 		}
 
 		$this->setHeaders();
-		$output->setPagetitle( $this->msg( 'gadgets-export-title' ) );
+		$output->setPageTitle( $this->msg( 'gadgets-export-title' ) );
 		$output->addWikiMsg( 'gadgets-export-text', $gadget, $g->getDefinition() );
 
 		$exportList = "MediaWiki:gadget-$gadget\n";
