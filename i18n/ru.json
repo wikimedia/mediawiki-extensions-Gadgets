@@ -12,7 +12,8 @@
 			"Okras",
 			"NBS",
 			"Frhdkazan",
-			"Лилиә"
+			"Лилиә",
+			"Ping08"
 		]
 	},
 	"gadgets-desc": "Позволяет участникам выбирать в своих [[Special:Preferences#mw-prefsection-gadgets|настройках]] те или иные [[Special:Gadgets|CSS- и JavaScript-гаджеты]]",
@@ -55,7 +56,7 @@
 	"apihelp-query+gadgets-example-4": "Получить информацию о гаджетах «foo» и «bar»",
 	"apihelp-query+gadgets-example-5": "Получить список гаджетов, включённых у данного участника",
 	"right-gadgets-edit": "правка JavaScript- и CSS-страниц гаджетов",
-	"action-gadgets-edit": "редактирование JavaScript- или CSS-страницы этого гаджета",
+	"action-gadgets-edit": "редактирование JavaScript или CSS-страницы этого гаджета",
 	"right-gadgets-definition-edit": "правка обсуждений гаджетов",
 	"action-gadgets-definition-edit": "редактирование определения этого гаджета"
 }
