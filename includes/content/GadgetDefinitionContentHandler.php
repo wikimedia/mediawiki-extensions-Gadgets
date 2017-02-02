@@ -54,6 +54,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 			'module' => [
 				'scripts' => [],
 				'styles' => [],
+				'peers' => [],
 				'dependencies' => [],
 				'messages' => [],
 				'type' => '',

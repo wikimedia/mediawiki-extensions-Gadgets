@@ -26,6 +26,7 @@ class Gadget {
 	private $scripts = [],
 			$styles = [],
 			$dependencies = [],
+			$peers = [],
 			$messages = [],
 			$name,
 			$definition,
@@ -44,6 +45,7 @@ class Gadget {
 				case 'scripts':
 				case 'styles':
 				case 'dependencies':
+				case 'peers':
 				case 'messages':
 				case 'name':
 				case 'definition':
@@ -86,6 +88,7 @@ class Gadget {
 			'scripts' => array_map( $prefixGadgetNs, $data['module']['scripts'] ),
 			'styles' => array_map( $prefixGadgetNs, $data['module']['styles'] ),
 			'dependencies' => $data['module']['dependencies'],
+			'peers' => $data['module']['peers'],
 			'messages' => $data['module']['messages'],
 			'type' => $data['module']['type'],
 		];
@@ -254,6 +257,19 @@ class Gadget {
 	 */
 	public function getDependencies() {
 		return $this->dependencies;
+	}
+
+	/**
+	 * Get list of extra modules that should be loaded when this gadget is enabled
+	 *
+	 * Primary use case is to allow a Gadget that includes JavaScript to also load
+	 * a (usually, hidden) styles-type module to be applied to the page. Dependencies
+	 * don't work for this use case as those would not be part of page rendering.
+	 *
+	 * @return Array
+	 */
+	public function getPeers() {
+		return $this->peers;
 	}
 
 	/**

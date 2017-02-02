@@ -28,6 +28,10 @@ class SpecialGadgets extends SpecialPage {
 		}
 	}
 
+	private function makeAnchor( $gadgetName ) {
+		return 'gadget-' . Sanitizer::escapeId( $gadgetName, [ 'noninitial' ] );
+	}
+
 	/**
 	 * Displays form showing the list of installed gadgets
 	 */
@@ -79,8 +83,8 @@ class SpecialGadgets extends SpecialPage {
 			 * @var $gadget Gadget
 			 */
 			foreach ( $entries as $gadget ) {
-				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-{$gadget->getName()}$langSuffix" );
-
+				$name = $gadget->getName();
+				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-{$name}$langSuffix" );
 				if ( !$t ) {
 					continue;
 				}
@@ -93,26 +97,34 @@ class SpecialGadgets extends SpecialPage {
 					[ 'action' => 'edit' ]
 				);
 				$links[] = Linker::link(
-					$this->getPageTitle( "export/{$gadget->getName()}" ),
+					$this->getPageTitle( "export/{$name}" ),
 					$this->msg( 'gadgets-export' )->escaped()
 				);
 
-				$ttext = $this->msg( "gadget-{$gadget->getName()}" )->parse();
+				$ttext = $this->msg( "gadget-{$name}" )->parse();
 
 				if ( !$listOpen ) {
 					$listOpen = true;
 					$output->addHTML( Xml::openElement( 'ul' ) );
 				}
 
-				$lnk = '&#160;&#160;' .
+				$actions = '&#160;&#160;' .
 					$this->msg( 'parentheses' )->rawParams( $lang->pipeList( $links ) )->escaped();
-				$output->addHTML( Xml::openElement( 'li' ) .
-						$ttext . $lnk . "<br />" .
+				$output->addHTML(
+					Xml::openElement( 'li', [ 'id' => $this->makeAnchor( $name ) ] ) .
+						$ttext . $actions . "<br />" .
 						$this->msg( 'gadgets-uses' )->escaped() .
 						$this->msg( 'colon-separator' )->escaped()
 				);
 
 				$lnk = [];
+				foreach ( $gadget->getPeers() as $peer ) {
+					$lnk[] = Html::element(
+						'a',
+						[ 'href' => '#' . $this->makeAnchor( $peer ) ],
+						$peer
+					);
+				}
 				foreach ( $gadget->getScriptsAndStyles() as $codePage ) {
 					$t = Title::newFromText( $codePage );
 

@@ -21,6 +21,7 @@ class GadgetDefinitionValidator {
 		'module.scripts' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'module.styles' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'module.dependencies' => [ 'is_array', 'array', 'is_string', 'string' ],
+		'module.peers' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'module.messages' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'module.type' => [ 'is_string', 'string' ],
 	];
