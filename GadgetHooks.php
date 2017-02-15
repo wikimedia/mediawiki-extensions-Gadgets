@@ -246,7 +246,7 @@ class GadgetHooks {
 	private static function makeTypelessWarning( $id ) {
 		return ResourceLoader::makeInlineScript( Xml::encodeJsCall( 'mw.log.warn', [
 			"Gadget \"$id\" styles loaded twice. Migrate to type=general. " .
-			'See <https://phabricator.wikimedia.org/T42284>.'
+			'See <https://www.mediawiki.org/wiki/RL/MGU#Gadget_type>.'
 		] ) );
 	}
 
