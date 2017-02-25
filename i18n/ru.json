@@ -57,7 +57,7 @@
 	"apihelp-query+gadgets-example-3": "Получить список гаджетов в категории «foo»",
 	"apihelp-query+gadgets-example-4": "Получить информацию о гаджетах «foo» и «bar»",
 	"apihelp-query+gadgets-example-5": "Получить список гаджетов, включённых у данного участника",
-	"right-gadgets-edit": "правка JavaScript- и CSS-страниц гаджетов",
+	"right-gadgets-edit": "правка JavaScript и CSS-страниц гаджетов",
 	"action-gadgets-edit": "редактирование JavaScript или CSS-страницы этого гаджета",
 	"right-gadgets-definition-edit": "правка описаний гаджетов",
 	"action-gadgets-definition-edit": "редактирование определения этого гаджета"
