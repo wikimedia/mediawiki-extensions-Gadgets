@@ -5,7 +5,6 @@ use MediaWiki\MediaWikiServices;
  * Gadgets repo powered by MediaWiki:Gadgets-definition
  */
 class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
-
 	const CACHE_VERSION = 2;
 
 	private $definitionCache;
@@ -133,7 +132,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	/**
 	 * Generates a structured list of Gadget objects from a definition
 	 *
-	 * @param $definition
+	 * @param string $definition
 	 * @return array Array( name => Gadget )
 	 */
 	private function listFromDefinition( $definition ) {
@@ -166,12 +165,16 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 */
 	public function newFromDefinition( $definition, $category ) {
 		$m = [];
-		if ( !preg_match( '/^\*+ *([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)(\s*\[.*?\])?\s*((\|[^|]*)+)\s*$/', $definition, $m ) ) {
+		if ( !preg_match(
+			'/^\*+ *([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)(\s*\[.*?\])?\s*((\|[^|]*)+)\s*$/',
+			$definition,
+			$m
+		) ) {
 			return false;
 		}
 		// NOTE: the gadget name is used as part of the name of a form field,
-		//      and must follow the rules defined in https://www.w3.org/TR/html4/types.html#type-cdata
-		//      Also, title-normalization applies.
+		// and must follow the rules defined in https://www.w3.org/TR/html4/types.html#type-cdata
+		// Also, title-normalization applies.
 		$info = [ 'category' => $category ];
 		$info['name'] = trim( str_replace( ' ', '_', $m[1] ) );
 		// If the name is too long, then RL will throw an MWException when
@@ -236,5 +239,4 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 
 		return new Gadget( $info );
 	}
-
 }
