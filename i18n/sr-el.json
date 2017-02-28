@@ -4,12 +4,13 @@
 			"Michaello",
 			"Milicevic01",
 			"Жељко Тодоровић",
-			"Сербијана"
+			"Сербијана",
+			"Srdjan m"
 		]
 	},
 	"gadgets-desc": "Omogućava korisnicima da izaberu prilagođene [[Special:Gadgets|CSS i javaskript spravice]] u svojim [[Special:Preferences#mw-prefsection-gadgets|podešavanjima]]",
 	"prefs-gadgets": "Spravice",
-	"gadgets-prefstext": "Ispod se nalazi spisak posebnih gadžeta koje možete da omogućite na svom nalogu.\nOve spravice su uglavnom zasnovane na javaskripti, tako da ona mora biti omogućena.\nGadžeti neće uticati na stranicu za podešavanje.\n\nOni nisu deo softvera Medijaviki, već se razvijaju i održavaju od strane korisnika na vašem lokalnom vikiju.\nAdministratori mogu da izmene [[MediaWiki:Gadgets-definition|značenja]] i [[Special:Gadgets|opise]] dostupnih gadžeta.",
+	"gadgets-prefstext": "Ispod se nalazi spisak posebnih spravica koje možete da omogućite na svom nalogu. \nOve spravice su uglavnom zasnovane na Javaskriptu, tako da on mora biti omogućen. \nSpravice neće uticati na stranicu za podešavanje.\n\nOne nisu deo softvera Medijaviki, već se razvijaju i održavaju od strane korisnika na Vašem lokalnom vikiju.\nAdministratori mogu izmeniti [[MediaWiki:Gadgets-definition|značenja]] i [[Special:Gadgets|opise]] dostupnih spravica. Broj korisnika za svaku spravicu na ovoj vikiji je naveden u [[Special:GadgetUsage|statistici korišćenja spravica]].",
 	"gadgets": "Spravice",
 	"gadgetusage": "Statistika korišćenja spravica",
 	"gadgetusage-intro": "Tabela prikazuje broj korisnika koji su omogućili spravice na ovom vikiju. U aktivne korisnike se ubraja onaj koji je napravio izmenu u {{PLURAL:$1|poslednji dan|$1 poslednja dana|$1 poslednjih dana}}. Spisak ne uključuje statistike za spravice koje su svima podrazumevane i može uključivati spravice koje više nisu dostupne.",
