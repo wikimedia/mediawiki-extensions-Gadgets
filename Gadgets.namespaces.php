@@ -177,6 +177,13 @@ $namespaceNames['pl'] = [
 	NS_GADGET_DEFINITION_TALK => 'Dyskusja_definicji_gadżetu',
 ];
 
+$namespaceNames['pnb'] = [
+	NS_GADGET => 'آلہ',
+	NS_GADGET_TALK => 'آلہ_گل_بات',
+	NS_GADGET_DEFINITION => 'آلہ_تعریف',
+	NS_GADGET_DEFINITION_TALK => 'آلہ_تعریف_گل_بات',
+];
+
 $namespaceNames['ur'] = [
 	NS_GADGET => 'آلہ',
 	NS_GADGET_TALK => 'تبادلۂ_خیال_آلہ',
