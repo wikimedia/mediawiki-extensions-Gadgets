@@ -65,7 +65,7 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	/**
 	 * Overrides ResourceLoaderModule::getDependencies()
 	 * @param $context ResourceLoaderContext
-	 * @return Array: Names of resources this module depends on
+	 * @return string[] Names of resources this module depends on
 	 */
 	public function getDependencies( ResourceLoaderContext $context = null ) {
 		return $this->getGadget()->getDependencies();
