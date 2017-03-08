@@ -108,12 +108,14 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 */
 	public function fetchStructuredList( $forceNewText = null ) {
 		if ( $forceNewText === null ) {
-			$g = wfMessage( "gadgets-definition" )->inContentLanguage();
-			if ( !$g->exists() ) {
+			// T157210: avoid using wfMessage() to avoid staleness due to cache layering
+			$title = Title::makeTitle( NS_MEDIAWIKI, 'Gadgets-definition' );
+			$rev = Revision::newFromTitle( $title );
+			if ( !$rev || !$rev->getContent() || $rev->getContent()->isEmpty() ) {
 				return false; // don't cache
 			}
 
-			$g = $g->plain();
+			$g = $rev->getContent()->getNativeData();
 		} else {
 			$g = $forceNewText;
 		}
