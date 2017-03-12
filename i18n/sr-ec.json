@@ -29,7 +29,7 @@
 	"gadgets-default": "Подразумевано укључен за сваког.",
 	"gadgets-legacy": "Геџет није учитан. Молимо вас пребаците га на ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Сазнајте више])",
 	"gadgets-export": "Извези",
-	"gadgets-export-title": "Извоз гаџета",
+	"gadgets-export-title": "Извоз справице",
 	"gadgets-not-found": "Справица „$1“ није пронађена.",
 	"gadgets-export-text": "Да бисте извезли $1 справицу, кликните на дугме „{{int:gadgets-export-download}}“, сачувајте преузету датотеку,\nпређите на ''Special:Import'' на жељеној викији и пошаљите справицу. Након тога, додајте следеће на ''MediaWiki:Gadgets-definition'' страницу:\n<pre>$2</pre>\nМорате имати одређене дозволе на наведеној викији (укључујући и право за уређивање системских порука), док увоз преко датотека мора бити омогућен.",
 	"gadgets-export-download": "Преузми",

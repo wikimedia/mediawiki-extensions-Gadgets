@@ -25,7 +25,7 @@
 	"gadgets-default": "Podrazumevano uključen za svakog.",
 	"gadgets-legacy": "Gedžet nije učitan. Molimo vas prebacite ga na ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Saznajte više])",
 	"gadgets-export": "Izvezi",
-	"gadgets-export-title": "Izvoz gadžeta",
+	"gadgets-export-title": "Izvoz spravice",
 	"gadgets-not-found": "Gadžet „$1“ nije pronađen.",
 	"gadgets-export-text": "Da biste izvezli $1 gadžet, kliknite na dugme „{{int:gadgets-export-download}}“, sačuvajte preuzetu datoteku,\npređite na ''Special:Import'' na željenoj vikiji i pošaljite gadžet. Nakon toga, dodajte sledeće na ''MediaWiki:Gadgets-definition'' stranicu:\n<pre>$2</pre>\nMorate imati određene dozvole na navedenoj vikiji (uključujući i pravo za uređivanje sistemskih poruka), dok uvoz preko datoteka mora biti omogućen.",
 	"gadgets-export-download": "Preuzmi",
