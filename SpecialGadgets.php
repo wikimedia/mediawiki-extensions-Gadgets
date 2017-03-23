@@ -61,11 +61,13 @@ class SpecialGadgets extends SpecialPage {
 			? 'edit'
 			: 'viewsource';
 
+		$linkRenderer = $this->getLinkRenderer();
 		foreach ( $gadgets as $section => $entries ) {
 			if ( $section !== false && $section !== '' ) {
 				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-section-$section$langSuffix" );
 				$lnkTarget = $t
-					? Linker::link( $t, $this->msg( $editInterfaceMessage )->escaped(), [], [ 'action' => 'edit' ] )
+					? $linkRenderer->makeLink( $t, $this->msg( $editInterfaceMessage )->text(),
+						[], [ 'action' => 'edit' ] )
 					: htmlspecialchars( $section );
 				$lnk = "&#160; &#160; [$lnkTarget]";
 
@@ -90,15 +92,15 @@ class SpecialGadgets extends SpecialPage {
 				}
 
 				$links = [];
-				$links[] = Linker::link(
+				$links[] = $linkRenderer->makeLink(
 					$t,
-					$this->msg( $editInterfaceMessage )->escaped(),
+					$this->msg( $editInterfaceMessage )->text(),
 					[],
 					[ 'action' => 'edit' ]
 				);
-				$links[] = Linker::link(
+				$links[] = $linkRenderer->makeLink(
 					$this->getPageTitle( "export/{$name}" ),
-					$this->msg( 'gadgets-export' )->escaped()
+					$this->msg( 'gadgets-export' )->text()
 				);
 
 				$ttext = $this->msg( "gadget-{$name}" )->parse();
@@ -132,7 +134,7 @@ class SpecialGadgets extends SpecialPage {
 						continue;
 					}
 
-					$lnk[] = Linker::link( $t, htmlspecialchars( $t->getText() ) );
+					$lnk[] = $linkRenderer->makeLink( $t, $t->getText() );
 				}
 				$output->addHTML( $lang->commaList( $lnk ) );
 				if ( $gadget->getLegacyScripts() ) {
