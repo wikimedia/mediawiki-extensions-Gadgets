@@ -79,6 +79,13 @@ $namespaceNames['diq'] = [
 	NS_GADGET_DEFINITION_TALK => 'Halet_şınasnayış_vaten',
 ];
 
+$namespaceNames['dty'] = [
+	NS_GADGET => 'ग्याजेट',
+	NS_GADGET_TALK => 'ग्याजेट_कुरणि',
+	NS_GADGET_DEFINITION => 'ग्याजेट_परिभाषा',
+	NS_GADGET_DEFINITION_TALK => 'ग्याजेट_परिभाषा_कुरणि',
+];
+
 $namespaceNames['en'] = [
 	NS_GADGET => 'Gadget',
 	NS_GADGET_TALK => 'Gadget_talk',
