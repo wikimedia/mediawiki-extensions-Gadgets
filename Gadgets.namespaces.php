@@ -72,6 +72,13 @@ $namespaceNames['de'] = [
 	NS_GADGET_DEFINITION_TALK => 'Gadget-Definition_Diskussion',
 ];
 
+$namespaceNames['din'] = [
+	NS_GADGET => 'Muluuitet',
+	NS_GADGET_TALK => 'Jam_wɛ̈t_ë_muluuitet',
+	NS_GADGET_DEFINITION => 'Wɛ̈tdic_ë_muluuitet',
+	NS_GADGET_DEFINITION_TALK => 'Jam_wɛ̈t_ë_wɛ̈tdic_ë_muluuitet',
+];
+
 $namespaceNames['diq'] = [
 	NS_GADGET => 'Halet',
 	NS_GADGET_TALK => 'Halet_vaten',
