@@ -170,7 +170,6 @@ class GadgetHooks {
 		$lb = new LinkBatch();
 		$lb->setCaller( __METHOD__ );
 		$enabledLegacyGadgets = [];
-		$typelessMixedGadgets = [];
 
 		/**
 		 * @var $gadget Gadget
@@ -195,22 +194,17 @@ class GadgetHooks {
 				if ( $gadget->hasModule() ) {
 					if ( $gadget->getType() === 'styles' ) {
 						$out->addModuleStyles( Gadget::getModuleName( $gadget->getName() ) );
-					} elseif ( $gadget->getType() === 'general' ) {
+					} else {
 						$out->addModules( Gadget::getModuleName( $gadget->getName() ) );
 						// Load peer modules
 						foreach ( $peers as $peer ) {
 							if ( $peer->getType() === 'styles' ) {
 								$out->addModuleStyles( Gadget::getModuleName( $peer->getName() ) );
 							}
-							// Else if not type=styles: Use dependencies instead.
+							// Else, if not type=styles: Use dependencies instead.
 							// Note: No need for recursion as styles modules don't support
 							// either of 'dependencies' and 'peers'.
-							// @todo: Emit warning for non-styles peer?
 						}
-					} else {
-						$out->addModuleStyles( Gadget::getModuleName( $gadget->getName() ) );
-						$out->addModules( Gadget::getModuleName( $gadget->getName() ) );
-						$typelessMixedGadgets[] = $id;
 					}
 				}
 
@@ -223,9 +217,6 @@ class GadgetHooks {
 		$strings = [];
 		foreach ( $enabledLegacyGadgets as $id ) {
 			$strings[] = self::makeLegacyWarning( $id );
-		}
-		foreach ( $typelessMixedGadgets as $id ) {
-			$strings[] = self::makeTypelessWarning( $id );
 		}
 		$out->addHTML( WrappedString::join( "\n", $strings ) );
 
@@ -241,13 +232,6 @@ class GadgetHooks {
 				'See <' . $special->getCanonicalURL() . '>.'
 			] )
 		);
-	}
-
-	private static function makeTypelessWarning( $id ) {
-		return ResourceLoader::makeInlineScript( Xml::encodeJsCall( 'mw.log.warn', [
-			"Gadget \"$id\" styles loaded twice. Migrate to type=general. " .
-			'See <https://www.mediawiki.org/wiki/RL/MGU#Gadget_type>.'
-		] ) );
 	}
 
 	/**

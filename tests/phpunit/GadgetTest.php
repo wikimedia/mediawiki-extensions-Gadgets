@@ -64,7 +64,7 @@ class GadgetsTest extends MediaWikiTestCase {
 			[
 				'Default (mixed)',
 				'* foo[ResourceLoader]|bar.css|bar.js',
-				'',
+				'general',
 				ResourceLoaderModule::LOAD_GENERAL,
 			],
 			[
@@ -82,7 +82,7 @@ class GadgetsTest extends MediaWikiTestCase {
 			[
 				'Default (styles only with dependencies)',
 				'* foo[ResourceLoader|dependencies=jquery.ui]|bar.css',
-				'',
+				'general',
 				ResourceLoaderModule::LOAD_GENERAL,
 			],
 			[
