@@ -297,21 +297,17 @@ class Gadget {
 
 	/**
 	 * Returns the load type of this Gadget's ResourceLoader module
-	 * @return string 'styles', 'general' or ''
+	 * @return string 'styles' or 'general'
 	 */
 	public function getType() {
 		if ( $this->type === 'styles' || $this->type === 'general' ) {
 			return $this->type;
 		}
+		// Similar to ResourceLoaderWikiModule default
 		if ( $this->styles && !$this->scripts && !$this->dependencies ) {
-			// Similar to ResourceLoaderWikiModule default
 			return 'styles';
-		}
-		if ( !$this->styles && $this->supportsResourceLoader() && $this->scripts ) {
+		} else {
 			return 'general';
 		}
-		// Real default is in GadgetResourceLoaderModule so that beforePageDisplay
-		// can distinguish between explicit and fallback.
-		return '';
 	}
 }
