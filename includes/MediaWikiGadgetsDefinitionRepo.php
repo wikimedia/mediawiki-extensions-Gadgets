@@ -135,7 +135,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * Generates a structured list of Gadget objects from a definition
 	 *
 	 * @param string $definition
-	 * @return array Array( name => Gadget )
+	 * @return Gadget[] List of Gadget objects indexed by the gadget's name.
 	 */
 	private function listFromDefinition( $definition ) {
 		$definition = preg_replace( '/<!--.*?-->/s', '', $definition );

@@ -163,9 +163,10 @@ class GadgetsTest extends MediaWikiTestCase {
 		$this->assertTrue( GadgetHooks::getPreferences( new User, $prefs ), 'GetPrefences hook should return true' );
 
 		$options = $prefs['gadgets']['options'];
-		$this->assertFalse( isset( $options['⧼gadget-section-remove-section⧽'] ), 'Must not show empty sections' );
-		$this->assertTrue( isset( $options['⧼gadget-section-keep-section1⧽'] ) );
-		$this->assertTrue( isset( $options['⧼gadget-section-keep-section2⧽'] ) );
+		$this->assertArrayNotHasKey( '⧼gadget-section-remove-section⧽', $options,
+			'Must not show empty sections' );
+		$this->assertArrayHasKey( '⧼gadget-section-keep-section1⧽', $options );
+		$this->assertArrayHasKey( '⧼gadget-section-keep-section2⧽', $options );
 	}
 
 	public function tearDown() {
