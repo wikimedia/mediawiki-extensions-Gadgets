@@ -11,7 +11,6 @@
  * @license GNU General Public Licence 2.0 or later
  */
 
-
 /**
  * Wrapper for one gadget.
  */
@@ -117,7 +116,6 @@ class Gadget {
 		return strlen( $id ) > 0 && ResourceLoader::isValidModuleName( Gadget::getModuleName( $id ) );
 	}
 
-
 	/**
 	 * @return String: Gadget name
 	 */
@@ -171,12 +169,17 @@ class Gadget {
 	 * @return Boolean
 	 */
 	public function isAllowed( $user ) {
-		return count( array_intersect( $this->requiredRights, $user->getRights() ) ) == count( $this->requiredRights )
-			&& ( $this->requiredSkins === true || !count( $this->requiredSkins ) || in_array( $user->getOption( 'skin' ), $this->requiredSkins ) );
+		return count( array_intersect( $this->requiredRights, $user->getRights() ) ) ==
+			count( $this->requiredRights )
+			&& ( $this->requiredSkins === true
+				|| !count( $this->requiredSkins )
+				|| in_array( $user->getOption( 'skin' ), $this->requiredSkins )
+			);
 	}
 
 	/**
-	 * @return Boolean: Whether this gadget is on by default for everyone (but can be disabled in preferences)
+	 * @return bool Whether this gadget is on by default for everyone
+	 *  (but can be disabled in preferences)
 	 */
 	public function isOnByDefault() {
 		return $this->onByDefault;

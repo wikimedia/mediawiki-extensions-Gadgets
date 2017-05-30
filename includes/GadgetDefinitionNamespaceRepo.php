@@ -19,7 +19,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	 */
 	private $wanCache;
 
-	public function __construct () {
+	public function __construct() {
 		$this->wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 	}
 

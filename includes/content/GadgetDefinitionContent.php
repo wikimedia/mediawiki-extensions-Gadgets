@@ -67,7 +67,6 @@ class GadgetDefinitionContent extends JsonContent {
 		}
 	}
 
-
 	/**
 	 * @return Status
 	 */

@@ -103,7 +103,7 @@ class GadgetHooks {
 			if ( $section !== '' ) {
 				$section = wfMessage( "gadget-section-$section" )->parse();
 
-				if ( count ( $available ) ) {
+				if ( count( $available ) ) {
 					$options[$section] = $available;
 				}
 			} else {
@@ -253,7 +253,9 @@ class GadgetHooks {
 
 		if ( !$content instanceof GadgetDefinitionContent ) {
 			// This should not be possible?
-			throw new Exception( "Tried to save non-GadgetDefinitionContent to {$title->getPrefixedText()}" );
+			throw new Exception(
+				"Tried to save non-GadgetDefinitionContent to {$title->getPrefixedText()}"
+			);
 		}
 
 		$status = $content->validate();

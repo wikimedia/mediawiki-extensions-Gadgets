@@ -160,7 +160,8 @@ class GadgetsTest extends MediaWikiTestCase {
 		$this->assertGreaterThanOrEqual( 2, count( $gadgets ), "Gadget list parsed" );
 
 		$repo->definitionCache = $gadgets;
-		$this->assertTrue( GadgetHooks::getPreferences( new User, $prefs ), 'GetPrefences hook should return true' );
+		$this->assertTrue( GadgetHooks::getPreferences( new User, $prefs ),
+			'GetPrefences hook should return true' );
 
 		$options = $prefs['gadgets']['options'];
 		$this->assertArrayNotHasKey( '⧼gadget-section-remove-section⧽', $options,

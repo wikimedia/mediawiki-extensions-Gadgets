@@ -36,14 +36,12 @@ class SpecialGadgetUsage extends QueryPage {
 		$this->activeUsers = $this->getConfig()->get( 'SpecialGadgetUsageActiveUsers' );
 	}
 
-
 	/**
 	 * Flag for holding the value of config variable SpecialGadgetUsageActiveUsers
 	 *
 	 * @var bool $activeUsers
 	 */
 	public $activeUsers;
-
 
 	public function isExpensive() {
 		return true;
@@ -132,7 +130,7 @@ class SpecialGadgetUsage extends QueryPage {
 		if ( $this->activeUsers ) {
 			$headers[] = 'gadgetusage-activeusers';
 		}
-		foreach( $headers as $h ) {
+		foreach ( $headers as $h ) {
 			if ( $h == 'gadgetusage-gadget' ) {
 				$html .= Html::element( 'th', [], $this->msg( $h )->text() );
 			} else {
@@ -201,7 +199,8 @@ class SpecialGadgetUsage extends QueryPage {
 		$defaultGadgets = $this->getDefaultGadgets( $gadgetRepo, $gadgetIds );
 		if ( $this->activeUsers ) {
 			$out->addHtml(
-				$this->msg( 'gadgetusage-intro' )->numParams( $this->getConfig()->get( 'ActiveUserDays' ) )->parseAsBlock()
+				$this->msg( 'gadgetusage-intro' )
+					->numParams( $this->getConfig()->get( 'ActiveUserDays' ) )->parseAsBlock()
 			);
 		} else {
 			$out->addHtml(
