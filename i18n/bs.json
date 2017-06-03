@@ -12,6 +12,7 @@
 	"gadgetusage": "Statistika korištenja dodataka",
 	"gadgetusage-gadget": "Dodatak",
 	"gadgetusage-usercount": "Broj korisnika",
+	"gadgetusage-noresults": "Nije pronađen nijedan dodatak.",
 	"gadgetusage-intro": "Tabela prikazuje koliko je korisnika uključilo određene dodatke na wikiju. Pod aktivnim korisnicima smatraju se oni koji su napravili  izmjenu u {{PLURAL:$1|posljednji dan|posljednja $1 dana|posljednjih $1 dana}}. Spisak ne prikazuje statistike za standardne dodatke (koji su svima prvobitno uključeni) i moguće je da sadrži dodatke koji više nisu dostupni.",
 	"gadgetusage-activeusers": "Aktivni korisnici",
 	"gadgetusage-default": "Standardni",
