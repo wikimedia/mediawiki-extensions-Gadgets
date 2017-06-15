@@ -30,6 +30,13 @@ $namespaceNames['ast'] = [
 	NS_GADGET_DEFINITION_TALK => 'Accesoriu_definición_alderique',
 ];
 
+$namespaceNames['atj'] = [
+	NS_GADGET => 'Gadget',
+	NS_GADGET_TALK => 'Ka_ici_aimihitonaniwok_gadget',
+	NS_GADGET_DEFINITION => 'Tipatcitcikan_e_icinakok_gadget',
+	NS_GADGET_DEFINITION_TALK => 'Ka_ici_aimihitonaniwok_tipatcitcikan_gadget_otci',
+];
+
 $namespaceNames['azb'] = [
 	NS_GADGET => 'آلت',
 	NS_GADGET_TALK => 'آلت_دانیشیغی',
