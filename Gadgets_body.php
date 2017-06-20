@@ -93,7 +93,6 @@ class Gadget {
 		];
 
 		return new self( $info );
-
 	}
 
 	/**
