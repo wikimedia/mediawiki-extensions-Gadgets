@@ -88,4 +88,8 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 	public function getTargets() {
 		return $this->getGadget()->getTargets();
 	}
+
+	public function getGroup() {
+		return 'site';
+	}
 }
