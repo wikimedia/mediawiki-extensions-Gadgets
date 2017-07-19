@@ -21,6 +21,7 @@
 	"gadgets": "Gadgets",
 	"gadgetusage-gadget": "Gadgets",
 	"gadgetusage-intro-noactive": "Esta tabela indica o número de usuários que ativaram cada gadget nesta wiki. Esta lista exclui estatísticas para gadgets ativados para todos por padrão e pode incluir gadgets que não estão mais disponíveis.",
+	"gadgetusage-activeusers": "Usuários ativos",
 	"gadgetusage-default": "Padrão",
 	"gadgets-title": "Gadgets",
 	"gadgets-pagetext": "Segue-se uma lista de \"gadgets\" que podem ser ativados pelos usuários através de [[Special:Preferences#mw-prefsection-gadgets|suas páginas de preferências]], definidos em [[MediaWiki:Gadgets-definition|suas definições]].\nEsta lista possibilita um acesso fácil para as mensagens de sistema que definem as descrições e códigos de cada um dos gadgets.",
