@@ -112,7 +112,7 @@ class Gadget {
 	 * @return bool
 	 */
 	public static function isValidGadgetID( $id ) {
-		return strlen( $id ) > 0 && ResourceLoader::isValidModuleName( Gadget::getModuleName( $id ) );
+		return strlen( $id ) > 0 && ResourceLoader::isValidModuleName( self::getModuleName( $id ) );
 	}
 
 	/**
