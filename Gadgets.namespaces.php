@@ -44,6 +44,13 @@ $namespaceNames['azb'] = [
 	NS_GADGET_DEFINITION_TALK => 'آلت_آچیقلاماسی_دانیشیغی',
 ];
 
+$namespaceNames['ba'] = [
+	NS_GADGET => 'Гаджет',
+	NS_GADGET_TALK => 'Гаджет_буйынса_фекерләшеү',
+	NS_GADGET_DEFINITION => 'Гаджет_билдәһе',
+	NS_GADGET_DEFINITION_TALK => 'Гаджет_билдәһе_буйынса_фекерләшеү',
+];
+
 $namespaceNames['bgn'] = [
 	NS_GADGET => 'وسیله_ئان',
 	NS_GADGET_TALK => 'وسیله_ئان_ئی_گپ',
