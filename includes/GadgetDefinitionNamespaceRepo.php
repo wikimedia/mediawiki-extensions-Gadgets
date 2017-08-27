@@ -124,7 +124,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	}
 
 	/**
-	 * @param $id
+	 * @param strng $id
 	 * @return string
 	 */
 	private function getGadgetCacheKey( $id ) {

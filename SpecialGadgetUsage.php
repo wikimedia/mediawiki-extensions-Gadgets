@@ -64,6 +64,7 @@ class SpecialGadgetUsage extends QueryPage {
 	 * LEFT JOIN querycachetwo ON user_name = qcc_title AND qcc_type = 'activeusers' AND up_value = 1
 	 * WHERE up_property LIKE 'gadget-%'
 	 * GROUP BY up_property;
+	 * @return array
 	 */
 	public function getQueryInfo() {
 		$dbr = wfGetDB( DB_SLAVE );

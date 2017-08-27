@@ -26,9 +26,9 @@ class GadgetHooks {
 	/**
 	 * PageContentSaveComplete hook handler.
 	 *
-	 * @param $article Article
-	 * @param $user User
-	 * @param $content Content New page content
+	 * @param Article $article
+	 * @param User $user
+	 * @param Content $content New page content
 	 * @return bool
 	 */
 	public static function onPageContentSaveComplete( $article, $user, $content ) {
@@ -45,7 +45,7 @@ class GadgetHooks {
 
 	/**
 	 * UserGetDefaultOptions hook handler
-	 * @param $defaultOptions Array of default preference keys and values
+	 * @param array &$defaultOptions Array of default preference keys and values
 	 * @return bool
 	 */
 	public static function userGetDefaultOptions( &$defaultOptions ) {
@@ -70,8 +70,8 @@ class GadgetHooks {
 
 	/**
 	 * GetPreferences hook handler.
-	 * @param $user User
-	 * @param $preferences Array: Preference descriptions
+	 * @param User $user
+	 * @param array &$preferences Preference descriptions
 	 * @return bool
 	 */
 	public static function getPreferences( $user, &$preferences ) {
@@ -138,7 +138,7 @@ class GadgetHooks {
 
 	/**
 	 * ResourceLoaderRegisterModules hook handler.
-	 * @param $resourceLoader ResourceLoader
+	 * @param ResourceLoader &$resourceLoader
 	 * @return bool
 	 */
 	public static function registerModules( &$resourceLoader ) {
@@ -157,7 +157,7 @@ class GadgetHooks {
 
 	/**
 	 * BeforePageDisplay hook handler.
-	 * @param $out OutputPage
+	 * @param OutputPage $out
 	 * @return bool
 	 */
 	public static function beforePageDisplay( $out ) {
@@ -287,7 +287,7 @@ class GadgetHooks {
 	 * in the Gadget namespace based on their file extension
 	 *
 	 * @param Title $title
-	 * @param string $model
+	 * @param string &$model
 	 * @return bool
 	 */
 	public static function onContentHandlerDefaultModelFor( Title $title, &$model ) {
@@ -312,7 +312,7 @@ class GadgetHooks {
 	 * knows the language for Gadget: namespace pages.
 	 *
 	 * @param Title $title
-	 * @param string $lang
+	 * @param string &$lang
 	 * @return bool
 	 */
 	public static function onCodeEditorGetPageLanguage( Title $title, &$lang ) {
