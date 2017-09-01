@@ -1,5 +1,6 @@
 <?php
 use MediaWiki\MediaWikiServices;
+use Wikimedia\Rdbms\Database;
 
 /**
  * Gadgets repo powered by MediaWiki:Gadgets-definition
@@ -77,7 +78,9 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		$value = $wanCache->getWithSetCallback(
 			$key,
 			Gadget::CACHE_TTL,
-			function ( $old, &$ttl ) use ( $us ) {
+			function ( $old, &$ttl, &$setOpts ) use ( $us ) {
+				$setOpts += Database::getCacheSetOptions( wfGetDB( DB_REPLICA ) );
+
 				$now = microtime( true );
 				$gadgets = $us->fetchStructuredList();
 				if ( $gadgets === false ) {
