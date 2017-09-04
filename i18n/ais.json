@@ -1,9 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Bunukwiki"
+			"Bunukwiki",
+			"Benel"
 		]
 	},
 	"gadgetusage-default": "pataayaw tu kawaw",
+	"gadgets-title": "adidi’ay a sakaluk",
 	"gadgets-export": "patahkal"
 }
