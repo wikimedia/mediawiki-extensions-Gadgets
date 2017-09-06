@@ -121,6 +121,7 @@ class GadgetHooks {
 				'section' => 'gadgets',
 				'raw' => 1,
 				'rawrow' => 1,
+				'noglobal' => true,
 			];
 
 		$preferences['gadgets'] =
@@ -131,6 +132,7 @@ class GadgetHooks {
 				'label' => '&#160;',
 				'prefix' => 'gadget-',
 				'default' => $default,
+				'noglobal' => true,
 			];
 
 		return true;
