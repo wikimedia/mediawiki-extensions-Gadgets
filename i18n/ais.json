@@ -5,7 +5,10 @@
 			"Benel"
 		]
 	},
+	"gadgetusage-usercount": "misaungayay nikayadah",
+	"gadgetusage-activeusers": "saungay nu binawlan a misaungayay",
 	"gadgetusage-default": "pataayaw tu kawaw",
 	"gadgets-title": "adidi’ay a sakaluk",
-	"gadgets-export": "patahkal"
+	"gadgets-export": "patahkal",
+	"gadgets-export-title": "patahkal adidi’ay a sakaluk"
 }
