@@ -67,7 +67,7 @@ class SpecialGadgetUsage extends QueryPage {
 	 * @return array
 	 */
 	public function getQueryInfo() {
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		if ( !$this->activeUsers ) {
 			return [
 				'tables' => [ 'user_properties' ],

@@ -35,7 +35,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 			$key,
 			self::CACHE_TTL,
 			function ( $oldValue, &$ttl, array &$setOpts ) {
-				$dbr = wfGetDB( DB_SLAVE );
+				$dbr = wfGetDB( DB_REPLICA );
 				$setOpts += Database::getCacheSetOptions( $dbr );
 
 				return $dbr->selectFieldValues(
@@ -71,7 +71,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 			$key,
 			self::CACHE_TTL,
 			function ( $old, &$ttl, array &$setOpts ) use ( $id ) {
-				$setOpts += Database::getCacheSetOptions( wfGetDB( DB_SLAVE ) );
+				$setOpts += Database::getCacheSetOptions( wfGetDB( DB_REPLICA ) );
 				$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $id );
 				if ( !$title ) {
 					$ttl = WANObjectCache::TTL_UNCACHEABLE;
