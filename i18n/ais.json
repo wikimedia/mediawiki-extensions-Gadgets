@@ -15,8 +15,10 @@
 	"gadgets-export-title": "patahkal adidi’ay a sakaluk",
 	"gadgets-not-found": "inayi’ adidi’ay sakaluk \"$1\".",
 	"apihelp-query+gadgetcategories-description": "maminay tu adidi’ay sakaluk kakuniza piazihan-tu-sulit.",
+	"apihelp-query+gadgetcategories-example-1": "maala izaway a adidi’ay sakaluk kakuniza piazihan-tu-sulit",
 	"apihelp-query+gadgets-param-categories": "nay tina kakuniza maala adidi’ay sakaluk.",
 	"apihelp-query+gadgets-param-ids": "amiala adidi’ay sakaluk a ID.",
 	"apihelp-query+gadgets-example-1": "maala adidi’ay sakaluk atu kya sapuelac piazihan-tu-sulit",
+	"apihelp-query+gadgets-example-2": "maala adidi’ay sakaluk aut kya sacahamin susin piazihan-tu-sulit",
 	"action-gadgets-definition-edit": "mikawaway-kalumyiti tina pasaheci nu adidi’ay sakaluk"
 }
