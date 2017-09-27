@@ -38,6 +38,7 @@
 	"gadgets-validate-notset": "خصوصیت <code>$1</code> تنظیم نشده‌است.",
 	"gadgets-validate-wrongtype": "خصوصیت <code>$1</code> به جای نوع <code>$3</code> باید از نوع <code>$2</code> باشد.",
 	"apihelp-query+gadgetcategories-description": "بازگرداندن فهرست رده‌های ابزار.",
+	"apihelp-query+gadgetcategories-param-names": "نام‌های رده‌ها برای دریافت.",
 	"right-gadgets-definition-edit": "ویرایش تنظیمات ابزارها",
 	"action-gadgets-definition-edit": "ویرایش تنظیمات این ابزار"
 }
