@@ -14,7 +14,8 @@
 			"LNDDYL",
 			"Liuxinyu970226",
 			"Bowleerin",
-			"PhiLiP"
+			"PhiLiP",
+			"Translatealcd"
 		]
 	},
 	"gadgets-desc": "讓使用者可以於 [[Special:Preferences#mw-prefsection-gadgets|偏好設定]] 中自訂 [[Special:Gadgets|CSS 與 JavaScript 的小工具]]",
@@ -55,7 +56,7 @@
 	"apihelp-query+gadgets-example-2": "取得小工具及其所有屬性清單",
 	"apihelp-query+gadgets-example-3": "取得屬於分類 \"foo\" 的小工具清單",
 	"apihelp-query+gadgets-example-4": "取得有關小工具 \"foo\" 與 \"bar\" 的資訊",
-	"apihelp-query+gadgets-example-5": "取得由目前使用者開竹呚的小工具清單",
+	"apihelp-query+gadgets-example-5": "取得由目前使用者開啟的小工具清單",
 	"right-gadgets-edit": "編輯小工具的 JavaScript 與 CSS 頁面",
 	"action-gadgets-edit": "編輯這個小工具的 JavaScript 或 CSS 頁面",
 	"right-gadgets-definition-edit": "編輯小工具定義",
