@@ -174,8 +174,8 @@ class ApiQueryGadgets extends ApiQueryBase {
 		];
 
 		$result = $this->getResult();
-		foreach ( $metadata as &$data ) {
-			foreach ( $data as $key => &$value ) {
+		foreach ( $metadata as $data ) {
+			foreach ( $data as $key => $value ) {
 				if ( is_array( $value ) ) {
 					$tag = isset( $tagNames[$key] ) ? $tagNames[$key] : $key;
 					$result->setIndexedTagName( $value, $tag );
