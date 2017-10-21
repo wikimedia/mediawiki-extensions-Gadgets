@@ -170,7 +170,7 @@ class SpecialGadgetUsage extends QueryPage {
 	 * @param GadgetRepo $gadgetRepo
 	 * @param array $gadgetIds list of gagdet ids registered in the wiki
 	 * @return array
-	*/
+	 */
 	protected function getDefaultGadgets( $gadgetRepo, $gadgetIds ) {
 		$gadgetsList = [];
 		foreach ( $gadgetIds as $g ) {
