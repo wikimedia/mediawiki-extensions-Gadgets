@@ -14,6 +14,7 @@
 	"gadgets-title": "adidi’ay a sakaluk",
 	"gadgets-uses": "misaungayay",
 	"gadgets-required-rights": "maydih isasa’ay a {{PLURAL:$2|tungus}}：\n\n$1",
+	"gadgets-required-skins": "kapah misanga’ i{{PLURAL:$2|$1 nuhekalan|cudad i sasa nuhekalan: $1}}.",
 	"gadgets-default": "sacahamin tademaw pataayaw tu kawaw miwawah",
 	"gadgets-export": "patahkal",
 	"gadgets-export-title": "patahkal adidi’ay a sakaluk",
