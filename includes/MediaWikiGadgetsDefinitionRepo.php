@@ -1,4 +1,6 @@
 <?php
+
+use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\Database;
 
@@ -28,11 +30,17 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		}
 	}
 
+	public function handlePageUpdate( LinkTarget $target ) {
+		if ( $target->getNamespace() == NS_MEDIAWIKI && $target->getText() == 'Gadgets-definition' ) {
+			$this->purgeDefinitionCache();
+		}
+	}
+
 	/**
 	 * Purge the definitions cache, for example if MediaWiki:Gadgets-definition
 	 * was edited.
 	 */
-	public function purgeDefinitionCache() {
+	private function purgeDefinitionCache() {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$cache->touchCheckKey( $this->getCheckKey() );
 	}

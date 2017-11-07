@@ -33,13 +33,7 @@ class GadgetHooks {
 	 */
 	public static function onPageContentSaveComplete( $article, $user, $content ) {
 		// update cache if MediaWiki:Gadgets-definition was edited
-		$title = $article->getTitle();
-		$repo = GadgetRepo::singleton();
-		if ( $title->getNamespace() == NS_MEDIAWIKI && $title->getText() == 'Gadgets-definition'
-			&& $repo instanceof MediaWikiGadgetsDefinitionRepo
-		) {
-			$repo->purgeDefinitionCache();
-		}
+		GadgetRepo::singleton()->handlePageUpdate( $article->getTitle() );
 		return true;
 	}
 
@@ -277,10 +271,7 @@ class GadgetHooks {
 	 */
 	public static function onPageContentInsertComplete( WikiPage $page ) {
 		if ( $page->getTitle()->inNamespace( NS_GADGET_DEFINITION ) ) {
-			$repo = GadgetRepo::singleton();
-			if ( $repo instanceof GadgetDefinitionNamespaceRepo ) {
-				$repo->purgeGadgetIdsList();
-			}
+			GadgetRepo::singleton()->handlePageCreation( $page->getTitle() );
 		}
 	}
 

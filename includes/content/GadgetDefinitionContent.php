@@ -102,7 +102,7 @@ class GadgetDefinitionContent extends JsonContent {
 	public function getDeletionUpdates( WikiPage $page, ParserOutput $parserOutput = null ) {
 		return array_merge(
 			parent::getDeletionUpdates( $page, $parserOutput ),
-			[ new GadgetDefinitionDeletionUpdate( $page->getTitle()->getText() ) ]
+			[ new GadgetDefinitionDeletionUpdate( $page->getTitle() ) ]
 		);
 	}
 
@@ -118,7 +118,7 @@ class GadgetDefinitionContent extends JsonContent {
 	) {
 		return array_merge(
 			parent::getSecondaryDataUpdates( $title, $old, $recursive, $parserOutput ),
-			[ new GadgetDefinitionSecondaryDataUpdate( $title->getText() ) ]
+			[ new GadgetDefinitionSecondaryDataUpdate( $title ) ]
 		);
 	}
 }

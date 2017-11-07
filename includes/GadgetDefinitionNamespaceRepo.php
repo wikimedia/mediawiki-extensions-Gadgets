@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 
 /**
@@ -51,6 +52,34 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 				'lockTSE' => 30
 			]
 		);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function handlePageUpdate( LinkTarget $target ) {
+		if ( $target->inNamespace( NS_GADGET_DEFINITION ) ) {
+			$this->purgeGadgetEntry( $target->getText() );
+		}
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function handlePageCreation( LinkTarget $target ) {
+		if ( $target->inNamespace( NS_GADGET_DEFINITION ) ) {
+			$this->purgeGadgetIdsList();
+		}
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function handlePageDeletion( LinkTarget $target ) {
+		if ( $target->inNamespace( NS_GADGET_DEFINITION ) ) {
+			$this->purgeGadgetIdsList();
+			$this->purgeGadgetEntry( $target->getText() );
+		}
 	}
 
 	/**
