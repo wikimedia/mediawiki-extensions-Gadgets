@@ -7,7 +7,8 @@
 			"Esketti",
 			"Sjoerddebruin",
 			"Romaine",
-			"Edoderoo"
+			"Edoderoo",
+			"Mainframe98"
 		]
 	},
 	"gadgets-desc": "Laat gebruikers [[Special:Gadgets|CSS en JavaScripts]] activeren in hun [[Special:Preferences#mw-prefsection-gadgets|voorkeuren]]",
@@ -37,11 +38,13 @@
 	"gadgets-validate-notset": "De eigenschap <code>$1</code> is niet ingesteld.",
 	"gadgets-validate-wrongtype": "De eigenschap <code>$1</code> moet van het type <code>$2</code> zijn in plaats van <code>$3</code>.",
 	"apihelp-query+gadgetcategories-description": "Geeft een lijst met uitbreidingscategorieën terug.",
+	"apihelp-query+gadgetcategories-summary": "Geeft een lijst met uitbreidingscategorieën terug.",
 	"apihelp-query+gadgetcategories-param-prop": "Welke uitbreidingscategoriegegevens op te halen:\n;name:Interne naam van de categorie;\n;title:Categorienaam;\n;members:Aantal uitbreidingen in de categorie.",
 	"apihelp-query+gadgetcategories-param-names": "Namen van op te halen categorieën.",
 	"apihelp-query+gadgetcategories-example-1": "Een lijst van bestaande uitbreidingscategorieën",
 	"apihelp-query+gadgetcategories-example-2": "Alle informatie opvragen over categorieën met de naam \"foo\" en \"bar\"",
 	"apihelp-query+gadgets-description": "Geeft een lijst terug met in deze wiki gebruikte uitbreidingen.",
+	"apihelp-query+gadgets-summary": "Geeft een lijst terug met in deze wiki gebruikte uitbreidingen.",
 	"apihelp-query+gadgets-param-prop": "Welke uitbreidingsgegevens op te halen:\n;id:Intern uitbreidings-ID;\n;metadata:De metadata van de uitbreiding;\n;desc:Beschrijving van de uitbreiding in HTML (kan langzaam zijn, gebruik alleen als echt nodig).",
 	"apihelp-query+gadgets-param-categories": "Uitbreidingen uit welke categorieën op te halen.",
 	"apihelp-query+gadgets-param-ids": "ID's van uitbreidingen om op te halen.",
