@@ -177,6 +177,13 @@ $namespaceNames['lrc'] = [
 	NS_GADGET_DEFINITION_TALK => 'چأک_چئنە_توضییا_گأجئت',
 ];
 
+$namespaceNames['mwl'] = [
+	NS_GADGET => 'Gadget',
+	NS_GADGET_TALK => 'Cumbersa_gadget',
+	NS_GADGET_DEFINITION => 'Defeniçon_gadget',
+	NS_GADGET_DEFINITION_TALK => 'Cumbersa_defeniçon_gadget',
+];
+
 $namespaceNames['mzn'] = [
 	NS_GADGET => 'گجت',
 	NS_GADGET_TALK => 'گجت_گپ',
