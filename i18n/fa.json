@@ -8,7 +8,8 @@
 			"Reza1615",
 			"Wayiran",
 			"ZxxZxxZ",
-			"Mjbmr"
+			"Mjbmr",
+			"Alpineer"
 		]
 	},
 	"gadgets-desc": "به کاربرها امکان انتخاب [[Special:Gadgets|ابزارهای شخصی سی‌اس‌اس و جاوااسکریپت]] را از طریق صفحهٔ [[Special:Preferences#mw-prefsection-gadgets|ترجیحات]] می‌دهد",
@@ -40,12 +41,16 @@
 	"apihelp-query+gadgetcategories-description": "بازگرداندن فهرست رده‌های ابزار.",
 	"apihelp-query+gadgetcategories-summary": "بازگرداندن فهرست رده‌های ابزارها",
 	"apihelp-query+gadgetcategories-param-names": "نام‌های رده‌ها برای دریافت.",
+	"apihelp-query+gadgetcategories-example-1": "دریافت فهرستی از دسته‌بندی‌های ابزارهای موجود",
 	"apihelp-query+gadgets-description": "فهرست کردن همه ابزارها در این ویکی",
 	"apihelp-query+gadgets-summary": "بازگرداندن فهرست ابزارهای استفاده شده در این ویکی",
 	"apihelp-query+gadgets-param-categories": "رده‌هایی که از آن فهرست ابزارها را می‌خواهید",
 	"apihelp-query+gadgets-param-ids": "شماره گجت‌ها برای دریافت",
 	"apihelp-query+gadgets-param-allowedonly": "فقط فهرست کردن ابزارهایی که کاربر کنونی می‌تواند استفاده کند",
 	"apihelp-query+gadgets-param-enabledonly": "فهرست کردن گجت‌هایی که توسط کاربر کنونی فعال شده‌است.",
+	"apihelp-query+gadgets-example-5": "دریافت فهرستی از ابزارهای فعال‌شدهٔ کاربر جاری",
+	"right-gadgets-edit": "ویرایش صفحه‌های جاوااسکریپت و سی‌اس‌اس ابزار",
+	"action-gadgets-edit": "ویرایش صفحهٔ جاوااسکریپت و سی‌اس‌اس این ابزار",
 	"right-gadgets-definition-edit": "ویرایش تنظیمات ابزارها",
 	"action-gadgets-definition-edit": "ویرایش تنظیمات این ابزار"
 }
