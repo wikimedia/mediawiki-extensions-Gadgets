@@ -26,14 +26,14 @@ class GadgetHooks {
 	/**
 	 * PageContentSaveComplete hook handler.
 	 *
-	 * @param Article $article
+	 * @param WikiPage $wikiPage
 	 * @param User $user
 	 * @param Content $content New page content
 	 * @return bool
 	 */
-	public static function onPageContentSaveComplete( $article, $user, $content ) {
+	public static function onPageContentSaveComplete( WikiPage $wikiPage, $user, $content ) {
 		// update cache if MediaWiki:Gadgets-definition was edited
-		GadgetRepo::singleton()->handlePageUpdate( $article->getTitle() );
+		GadgetRepo::singleton()->handlePageUpdate( $wikiPage->getTitle() );
 		return true;
 	}
 
