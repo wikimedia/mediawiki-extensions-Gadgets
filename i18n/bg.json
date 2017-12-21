@@ -6,7 +6,8 @@
 			"Spiritia",
 			"Turin",
 			"Vodnokon4e",
-			"StanProg"
+			"StanProg",
+			"ShockD"
 		]
 	},
 	"gadgets-desc": "Позволява на потребителите да избират и активират [[Special:Gadgets|CSS и JavaScript джаджи]] от своите [[Special:Preferences#mw-prefsection-gadgets|настройки]]",
@@ -37,5 +38,6 @@
 	"apihelp-query+gadgets-param-allowedonly": "Списък само на джаджите, до които потребителят има достъп.",
 	"apihelp-query+gadgets-param-enabledonly": "Списък само на джаджите, които потребителят е активирал в профила си.",
 	"right-gadgets-edit": "Редактиране на JavaScript и CSS страниците на джаджите",
-	"right-gadgets-definition-edit": "Редактиране на дефинициите на джаджите"
+	"right-gadgets-definition-edit": "Редактиране на дефинициите на джаджите",
+	"action-gadgets-definition-edit": "редактиране на дефиницията на тази джаджа"
 }
