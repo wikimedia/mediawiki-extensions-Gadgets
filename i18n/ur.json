@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Muhammad Shuaib",
-			"පසිඳු කාවින්ද"
+			"පසිඳු කාවින්ද",
+			"BukhariSaeed"
 		]
 	},
 	"prefs-gadgets": "آلات",
@@ -16,6 +17,7 @@
 	"gadgetusage-activeusers": "فعال صارفین",
 	"gadgetusage-default": "طے شدہ",
 	"gadgets-title": "آلات",
+	"gadgets-pagetext": "ذیل میں خصوصی آلات کی فہرست درج ہے جنھیں صارفین اپنی [[Special:Preferences#mw-prefsection-gadgets|ترجیحات]] سے فعال کر سکتے ہیں، ان آلات کا صفحہ تعریفات [[MediaWiki:Gadgets-definition|یہاں]] موجود ہے۔ اس صفحہ کے ذریعہ ان آلات کے نظامی پیغام اور ان کی سکرپٹ تک بآسانی رسائی حاصل کی جا سکتی ہے۔",
 	"gadgets-uses": "استعمال کرتا ہے",
 	"gadgets-required-rights": "حسب ذیل {{PLURAL:$2|اختیار|اختیارات}} درکار {{PLURAL:$2|ہے|ہیں}}:\n\n$1",
 	"gadgets-default": "ابتدائی طور پر ہر ایک کے لیے فعال ہے۔",
