@@ -149,6 +149,13 @@ $namespaceNames['he'] = [
 	NS_GADGET_DEFINITION_TALK => 'שיחת_הגדרת_גאדג\'ט',
 ];
 
+$namespaceNames['inh'] = [
+	NS_GADGET => 'Гаджет',
+	NS_GADGET_TALK => 'Гаджет_ювцар',
+	NS_GADGET_DEFINITION => 'Гаджета_къоастадар',
+	NS_GADGET_DEFINITION_TALK => 'Гаджета_къоастадар_дувцар',
+];
+
 $namespaceNames['is'] = [
 	NS_GADGET => 'Smától',
 	NS_GADGET_TALK => 'Smátólaspjall',
