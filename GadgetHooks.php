@@ -20,7 +20,7 @@
  *
  * @file
  */
-use WrappedString\WrappedString;
+use Wikimedia\WrappedString;
 
 class GadgetHooks {
 	/**
