@@ -97,7 +97,7 @@ class GadgetDefinitionContent extends JsonContent {
 	/**
 	 * @param WikiPage $page
 	 * @param ParserOutput $parserOutput
-	 * @return DataUpdate[]
+	 * @return DeferrableUpdate[]
 	 */
 	public function getDeletionUpdates( WikiPage $page, ParserOutput $parserOutput = null ) {
 		return array_merge(
