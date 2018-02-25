@@ -5,7 +5,7 @@ use Wikimedia\TestingAccessWrapper;
 /**
  * @group Gadgets
  */
-class GadgetsTest extends MediaWikiTestCase {
+class GadgetTest extends MediaWikiTestCase {
 
 	public function tearDown() {
 		GadgetRepo::setSingleton();
