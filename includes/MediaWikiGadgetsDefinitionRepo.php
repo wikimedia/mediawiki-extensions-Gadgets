@@ -12,6 +12,12 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 
 	private $definitionCache;
 
+	/**
+	 * @param string $id
+	 *
+	 * @return Gadget
+	 * @throws InvalidArgumentException
+	 */
 	public function getGadget( $id ) {
 		$gadgets = $this->loadGadgets();
 		if ( !isset( $gadgets[$id] ) ) {

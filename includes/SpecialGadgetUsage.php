@@ -24,6 +24,9 @@
  * @author Niharika Kohli <niharika@wikimedia.org>
  */
 
+use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\ResultWrapper;
+
 /**
  * Special:GadgetUsage - Lists all the gadgets on the wiki along with number of users.
  * @ingroup SpecialPage

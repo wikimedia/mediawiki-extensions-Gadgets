@@ -84,6 +84,7 @@ class GadgetDefinitionContent extends JsonContent {
 	 * all fields filled out, populating defaults as necessary.
 	 *
 	 * @return array
+	 * @suppress PhanUndeclaredMethod
 	 */
 	public function getAssocArray() {
 		$info = wfObjectToArray( $this->getData()->getValue() );

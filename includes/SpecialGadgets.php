@@ -16,7 +16,7 @@ class SpecialGadgets extends SpecialPage {
 
 	/**
 	 * Main execution function
-	 * @param array $par Parameters passed to the page
+	 * @param string $par Parameters passed to the page
 	 */
 	public function execute( $par ) {
 		$parts = explode( '/', $par );

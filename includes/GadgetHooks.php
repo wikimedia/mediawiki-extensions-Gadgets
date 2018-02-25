@@ -239,6 +239,7 @@ class GadgetHooks {
 	 * @param string $summary
 	 * @throws Exception
 	 * @return bool
+	 * @suppress PhanUndeclaredMethod
 	 */
 	public static function onEditFilterMergedContent( $context, $content, $status, $summary ) {
 		$title = $context->getTitle();
