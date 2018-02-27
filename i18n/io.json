@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Malafaya"
+			"Malafaya",
+			"Joao Xavier"
 		]
 	},
+	"gadgetusage-activeusers": "Aktiva uzeri",
 	"gadgets-uses": "Ol uzas"
 }
