@@ -20,6 +20,7 @@
  *
  * @file
  */
+use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\WrappedString;
 
 class GadgetHooks {
@@ -326,5 +327,16 @@ class GadgetHooks {
 	public static function onwgQueryPages( &$queryPages ) {
 		$queryPages[] = [ 'SpecialGadgetUsage', 'GadgetUsage' ];
 		return true;
+	}
+
+	/**
+	 * Prevent gadget preferences from being deleted.
+	 * @link https://www.mediawiki.org/wiki/Manual:Hooks/DeleteUnknownPreferences
+	 * @suppress PhanParamTooMany
+	 * @param string[] &$where Array of where clause conditions to add to.
+	 * @param IDatabase $db
+	 */
+	public static function onDeleteUnknownPreferences( &$where, IDatabase $db ) {
+		$where[] = 'up_property NOT' . $db->buildLike( 'gadget-', $db->anyString() );
 	}
 }

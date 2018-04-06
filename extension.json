@@ -108,6 +108,9 @@
 		],
 		"wgQueryPages": [
 			"GadgetHooks::onwgQueryPages"
+		],
+		"DeleteUnknownPreferences": [
+			"GadgetHooks::onDeleteUnknownPreferences"
 		]
 	},
 	"config": {
