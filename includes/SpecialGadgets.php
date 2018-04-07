@@ -6,7 +6,7 @@
  * @ingroup SpecialPage
  * @author Daniel Kinzler, brightbyte.de
  * @copyright © 2007 Daniel Kinzler
- * @license GNU General Public License 2.0 or later
+ * @license GPL-2.0-or-later
  */
 
 class SpecialGadgets extends SpecialPage {
