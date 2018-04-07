@@ -25,7 +25,7 @@
  */
 
 use Wikimedia\Rdbms\IDatabase;
-use Wikimedia\Rdbms\ResultWrapper;
+use Wikimedia\Rdbms\IResultWrapper;
 
 /**
  * Special:GadgetUsage - Lists all the gadgets on the wiki along with number of users.
@@ -193,7 +193,7 @@ class SpecialGadgetUsage extends QueryPage {
 	 * @param OutputPage $out OutputPage to print to
 	 * @param Skin $skin User skin to use
 	 * @param IDatabase $dbr Database (read) connection to use
-	 * @param ResultWrapper $res Result pointer
+	 * @param IResultWrapper $res Result pointer
 	 * @param int $num Number of available result rows
 	 * @param int $offset Paging offset
 	 */
