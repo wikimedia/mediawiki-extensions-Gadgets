@@ -213,14 +213,17 @@ class SpecialGadgets extends SpecialPage {
 			$exportList .= "$page\n";
 		}
 
-		$output->addHTML( Html::openElement( 'form', [ 'method' => 'get', 'action' => $wgScript ] )
-			. Html::hidden( 'title', SpecialPage::getTitleFor( 'Export' )->getPrefixedDBKey() )
-			. Html::hidden( 'pages', $exportList )
-			. Html::hidden( 'wpDownload', '1' )
-			. Html::hidden( 'templates', '1' )
-			. Xml::submitButton( $this->msg( 'gadgets-export-download' )->text() )
-			. Html::closeElement( 'form' )
-		);
+		$htmlForm = HTMLForm::factory( 'ooui', [], $this->getContext() );
+		$htmlForm
+			->addHiddenField( 'title', SpecialPage::getTitleFor( 'Export' )->getPrefixedDBKey() )
+			->addHiddenField( 'pages', $exportList )
+			->addHiddenField( 'wpDownload', '1' )
+			->addHiddenField( 'templates', '1' )
+			->setAction( $wgScript )
+			->setMethod( 'get' )
+			->setSubmitText( $this->msg( 'gadgets-export-download' )->text() )
+			->prepareForm()
+			->displayForm( false );
 	}
 
 	protected function getGroupName() {
