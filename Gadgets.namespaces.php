@@ -177,6 +177,13 @@ $namespaceNames['ko'] = [
 	NS_GADGET_DEFINITION_TALK => '소도구정의토론',
 ];
 
+$namespaceNames['lfn'] = [
+	NS_GADGET => 'Macineta',
+	NS_GADGET_TALK => 'Macineta_Discute',
+	NS_GADGET_DEFINITION => 'Defini_de_macineta',
+	NS_GADGET_DEFINITION_TALK => 'Defini_de_macineta_Discute',
+];
+
 $namespaceNames['lrc'] = [
 	NS_GADGET => 'گأجئت',
 	NS_GADGET_TALK => 'چأک_چئنە_گأجئت',
