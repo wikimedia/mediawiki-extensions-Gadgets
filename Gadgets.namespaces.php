@@ -128,6 +128,13 @@ $namespaceNames['et'] = [
 	NS_GADGET_DEFINITION_TALK => 'Tööriista_määratluse_arutelu',
 ];
 
+$namespaceNames['eu'] = [
+	NS_GADGET => 'Gadget',
+	NS_GADGET_TALK => 'Gadget_eztabaida',
+	NS_GADGET_DEFINITION => 'Gadget_definizio',
+	NS_GADGET_DEFINITION_TALK => 'Gadget_definizio_eztabaida',
+];
+
 $namespaceNames['fa'] = [
 	NS_GADGET => 'ابزار',
 	NS_GADGET_TALK => 'بحث_ابزار',
