@@ -256,9 +256,9 @@ class GadgetHooks {
 			);
 		}
 
-		$status = $content->validate();
-		if ( !$status->isGood() ) {
-			$status->merge( $status );
+		$validateStatus = $content->validate();
+		if ( !$validateStatus->isGood() ) {
+			$status->merge( $validateStatus );
 			return false;
 		}
 
