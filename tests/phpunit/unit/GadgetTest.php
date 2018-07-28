@@ -103,6 +103,17 @@ class GadgetTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers Gadget::getTargets
+	 */
+	public function testTargets() {
+		$g = $this->create( '*foo[ResourceLoader]|foo.js' );
+		$g2 = $this->create( '*bar[ResourceLoader|targets=desktop,mobile]|bar.js' );
+		$this->assertEquals( [ 'desktop' ], $g->getTargets() );
+		$this->assertEquals( [ 'desktop', 'mobile' ], $g2->getTargets() );
+	}
+
+	/**
+	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
 	 * @covers Gadget::getDependencies
 	 */
 	public function testDependencies() {

@@ -160,7 +160,6 @@ class GadgetHooks {
 		 * @var $gadget Gadget
 		 */
 		$user = $out->getUser();
-		$skin = $out->getSkin();
 		foreach ( $ids as $id ) {
 			try {
 				$gadget = $repo->getGadget( $id );
@@ -178,7 +177,8 @@ class GadgetHooks {
 			}
 			if ( $gadget->isEnabled( $user )
 				&& $gadget->isAllowed( $user )
-				&& $gadget->isSkinSupported( $skin )
+				&& $gadget->isSkinSupported( $out->getSkin() )
+				&& ( in_array( $out->getTarget() ?? 'desktop', $gadget->getTargets() ) )
 			) {
 				if ( $gadget->hasModule() ) {
 					if ( $gadget->getType() === 'styles' ) {
