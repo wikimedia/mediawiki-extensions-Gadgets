@@ -168,8 +168,7 @@ class Gadget {
 	 * @return bool
 	 */
 	public function isAllowed( User $user ) {
-		return count( array_intersect( $this->requiredRights, $user->getRights() ) ) ==
-			count( $this->requiredRights );
+		return $user->isAllowedAll( ...$this->requiredRights );
 	}
 
 	/**
