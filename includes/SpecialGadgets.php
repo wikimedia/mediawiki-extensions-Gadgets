@@ -51,7 +51,7 @@ class SpecialGadgets extends SpecialPage {
 		$output->disallowUserJs();
 		$lang = $this->getLanguage();
 		$langSuffix = "";
-		if ( $lang->getCode() != $wgContLang->getCode() ) {
+		if ( !$lang->equals( $wgContLang ) ) {
 			$langSuffix = "/" . $lang->getCode();
 		}
 
