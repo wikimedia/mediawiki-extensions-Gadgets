@@ -42,9 +42,7 @@ class GadgetTest extends MediaWikiTestCase {
 
 	/**
 	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers Gadget::__construct
-	 * @covers Gadget::getName
-	 * @covers Gadget::getModuleName
+	 * @covers Gadget
 	 */
 	public function testSimpleCases() {
 		$g = $this->create( '* foo bar| foo.css|foo.js|foo.bar' );
@@ -175,8 +173,10 @@ class GadgetTest extends MediaWikiTestCase {
 	}
 
 	/**
-	 * @covers MediaWikiGadgetsDefinitionRepo::fetchStructuredList
+	 * @covers Gadget
 	 * @covers GadgetHooks::getPreferences
+	 * @covers GadgetRepo
+	 * @covers MediaWikiGadgetsDefinitionRepo
 	 */
 	public function testPreferences() {
 		$prefs = [];
