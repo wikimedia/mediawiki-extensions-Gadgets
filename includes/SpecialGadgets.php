@@ -9,6 +9,8 @@
  * @license GPL-2.0-or-later
  */
 
+use MediaWiki\MediaWikiServices;
+
 class SpecialGadgets extends SpecialPage {
 	public function __construct() {
 		parent::__construct( 'Gadgets', '', true );
@@ -36,8 +38,6 @@ class SpecialGadgets extends SpecialPage {
 	 * Displays form showing the list of installed gadgets
 	 */
 	public function showMainForm() {
-		global $wgContLang;
-
 		$output = $this->getOutput();
 		$this->setHeaders();
 		$output->setPageTitle( $this->msg( 'gadgets-title' ) );
@@ -51,7 +51,7 @@ class SpecialGadgets extends SpecialPage {
 		$output->disallowUserJs();
 		$lang = $this->getLanguage();
 		$langSuffix = "";
-		if ( !$lang->equals( $wgContLang ) ) {
+		if ( !$lang->equals( MediaWikiServices::getInstance()->getContentLanguage() ) ) {
 			$langSuffix = "/" . $lang->getCode();
 		}
 
