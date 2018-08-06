@@ -113,6 +113,7 @@ $specialPageAliases['eo'] = [
 /** Spanish (español) */
 $specialPageAliases['es'] = [
 	'Gadgets' => [ 'Accesorios', 'Artilugios' ],
+	'GadgetUsage' => [ 'Uso_de_accesorios', 'Uso_de_artilugios' ],
 ];
 
 /** Estonian (eesti) */
