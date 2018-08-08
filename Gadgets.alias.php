@@ -306,6 +306,12 @@ $specialPageAliases['sa'] = [
 	'Gadgets' => [ 'सुविधा_(गॅजेट)' ],
 ];
 
+/** Santali (ᱥᱟᱱᱛᱟᱲᱤ) */
+$specialPageAliases['sat'] = [
+	'Gadgets' => [ 'ᱥᱟᱢᱟᱱᱚᱢᱠᱚ' ],
+	'GadgetUsage' => [ 'ᱥᱟᱢᱟᱱᱚᱢ_ᱵᱮᱵᱷᱟᱨᱟᱠᱟᱱ' ],
+];
+
 /** Sicilian (sicilianu) */
 $specialPageAliases['scn'] = [
 	'Gadgets' => [ 'Accessori' ],
