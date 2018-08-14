@@ -114,14 +114,12 @@ class GadgetHooks {
 		$preferences['gadgets-intro'] =
 			[
 				'type' => 'info',
-				'label' => '&#160;',
 				'default' => Xml::tags( 'tr', [],
 					Xml::tags( 'td', [ 'colspan' => 2 ],
 						wfMessage( 'gadgets-prefstext' )->parseAsBlock() ) ),
 				'section' => 'gadgets',
-				'raw' => 1,
-				'rawrow' => 1,
-				'noglobal' => true,
+				'rawrow' => true,
+				'raw' => true, // Needed to pass phan-taint-check-plugin, see T201902
 			];
 
 		$preferences['gadgets'] =
