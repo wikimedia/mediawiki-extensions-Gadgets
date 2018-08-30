@@ -61,6 +61,9 @@
 		"GadgetsAlias": "Gadgets.alias.php",
 		"GadgetsNamespaces": "Gadgets.namespaces.php"
 	},
+	"RawHtmlMessages": [
+		"gadgets-definition"
+	],
 	"AutoloadClasses": {
 		"ApiQueryGadgetCategories": "includes/api/ApiQueryGadgetCategories.php",
 		"ApiQueryGadgets": "includes/api/ApiQueryGadgets.php",
