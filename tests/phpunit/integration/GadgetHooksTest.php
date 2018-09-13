@@ -5,7 +5,6 @@ use MediaWiki\Extension\Gadgets\Gadget;
 use MediaWiki\Extension\Gadgets\Hooks as GadgetHooks;
 use MediaWiki\Extension\Gadgets\StaticGadgetRepo;
 use MediaWiki\Output\OutputPage;
-use MediaWiki\Skin\Skin;
 use MediaWiki\Title\Title;
 
 /**
@@ -24,8 +23,8 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup() );
 		$out = new OutputPage( RequestContext::getMain() );
 		$out->setTitle( Title::newMainPage() );
-		$skin = $this->createMock( Skin::class );
-		$hooks->onBeforePageDisplay( $out, $skin );
+		$html = '';
+		$hooks->onOutputPageBeforeHTML( $out, $html );
 		$this->assertArrayEquals( [ 'ext.gadget.g1' ], $out->getModuleStyles() );
 	}
 
@@ -40,14 +39,14 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 		$out->setTitle( Title::newMainPage() );
 		$user = $this->getTestUser()->getUser();
 		$context->setUser( $user );
-		$skin = $this->createMock( Skin::class );
+		$html = '';
 
-		$hooks->onBeforePageDisplay( $out, $skin );
+		$hooks->onOutputPageBeforeHTML( $out, $html );
 		$this->assertArrayEquals( [], $out->getModules() );
 
 		$services->getUserOptionsManager()->setOption( $user, 'gadget-g1', true );
 		$services->getUserOptionsManager()->saveOptions( $user );
-		$hooks->onBeforePageDisplay( $out, $skin );
+		$hooks->onOutputPageBeforeHTML( $out, $html );
 		$this->assertArrayEquals( [ 'ext.gadget.g1' ], $out->getModules() );
 	}
 

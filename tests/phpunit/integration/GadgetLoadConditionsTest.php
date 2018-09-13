@@ -32,7 +32,7 @@ class GadgetLoadConditionsTest extends MediaWikiIntegrationTestCase {
 		return $context;
 	}
 
-	private function outputBeforePageDisplay( IContextSource $context, array $definitions ): OutputPage {
+	private function outputPageBeforeHTML( IContextSource $context, array $definitions ): OutputPage {
 		$services = $this->getServiceContainer();
 
 		$gadgets = [];
@@ -44,13 +44,14 @@ class GadgetLoadConditionsTest extends MediaWikiIntegrationTestCase {
 
 		$out = new OutputPage( $context );
 		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup() );
-		$hooks->onBeforePageDisplay( $out, $context->getSkin() );
+		$html = '';
+		$hooks->onOutputPageBeforeHTML( $out, $html );
 
 		return $out;
 	}
 
 	private function getLoadedModules( IContextSource $context, array $definitions ): array {
-		return $this->outputBeforePageDisplay( $context, $definitions )->getModules();
+		return $this->outputPageBeforeHTML( $context, $definitions )->getModules();
 	}
 
 	public function testLoadByUrl() {
