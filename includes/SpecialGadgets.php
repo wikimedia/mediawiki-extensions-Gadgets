@@ -147,7 +147,11 @@ class SpecialGadgets extends SpecialPage {
 
 				$rights = [];
 				foreach ( $gadget->getRequiredRights() as $right ) {
-					$rights[] = '* ' . $this->msg( "right-$right" )->plain();
+					$rights[] = '* ' . Html::element(
+						'code',
+						[ 'title' => $this->msg( "right-$right" )->plain() ],
+						$right
+					);
 				}
 				if ( count( $rights ) ) {
 					$output->addHTML( '<br />' .
