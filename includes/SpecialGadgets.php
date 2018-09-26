@@ -122,6 +122,9 @@ class SpecialGadgets extends SpecialPage {
 				$needLineBreakAfter = true;
 
 				// Portion: Show files, dependencies, speers
+				if ( $needLineBreakAfter ) {
+					$output->addHTML( '<br />' );
+				}
 				$output->addHTML(
 					$this->msg( 'gadgets-uses' )->escaped() .
 					$this->msg( 'colon-separator' )->escaped()
@@ -142,6 +145,8 @@ class SpecialGadgets extends SpecialPage {
 					$lnk[] = $linkRenderer->makeLink( $t, $t->getText() );
 				}
 				$output->addHTML( $lang->commaList( $lnk ) );
+
+				// Portion: Legacy scripts
 				if ( $gadget->getLegacyScripts() ) {
 					if ( $needLineBreakAfter ) {
 						$output->addHTML( '<br />' );
