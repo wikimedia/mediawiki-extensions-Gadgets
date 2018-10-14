@@ -254,6 +254,13 @@ $namespaceNames['sd'] = [
 	NS_GADGET_DEFINITION_TALK => 'گيجيٽ_وصف_بحث',
 ];
 
+$namespaceNames['shn'] = [
+	NS_GADGET => 'ၶိူင်ႈပိတ်းပွတ်း',
+	NS_GADGET_TALK => 'ဢုပ်ႇၵုမ်_ၶိူင်ႈပိတ်းပွတ်း',
+	NS_GADGET_DEFINITION => 'ပိုတ်ႇတီႈပွင်ႇ_ၶိူင်ႈပိတ်းပွတ်း',
+	NS_GADGET_DEFINITION_TALK => 'ဢုပ်ႇၵုမ်_ပိုတ်ႇတီႈပွင်ႇ_ၶိူင်ႈပိတ်းပွတ်း',
+];
+
 $namespaceNames['ur'] = [
 	NS_GADGET => 'آلہ',
 	NS_GADGET_TALK => 'تبادلۂ_خیال_آلہ',
