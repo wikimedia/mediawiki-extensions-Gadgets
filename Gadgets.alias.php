@@ -318,6 +318,12 @@ $specialPageAliases['scn'] = [
 	'Gadgets' => [ 'Accessori' ],
 ];
 
+/** Shan (ၵႂၢမ်းတႆးလူင်) */
+$specialPageAliases['shn'] = [
+	'Gadgets' => [ 'ၶိုင်ႈပိတ်းပွတ်း' ],
+	'GadgetUsage' => [ 'လွင်ႈၸႂ်ႉတိုဝ်းၶိူင်ႈပိတ်းပွတ်း' ],
+];
+
 /** Sinhala (සිංහල) */
 $specialPageAliases['si'] = [
 	'Gadgets' => [ 'විජෙට්ටු' ],
