@@ -80,8 +80,11 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 
 		// (a) Check the tier 1 cache
 		$value = $t1Cache->get( $key );
+		// Randomize logical APC expiry to avoid stampedes
+		// somewhere between 7.0 and 10.0 (seconds)
+		$cutoffAge = mt_rand( 7 * 1e6, 10 * 1e6 ) / 1e6;
 		// Check if it passes a blind TTL check (avoids I/O)
-		if ( $value && ( microtime( true ) - $value['time'] ) < 10 ) {
+		if ( $value && ( microtime( true ) - $value['time'] ) < $cutoffAge ) {
 			$this->definitionCache = $value['gadgets']; // process cache
 			return $this->definitionCache;
 		}
