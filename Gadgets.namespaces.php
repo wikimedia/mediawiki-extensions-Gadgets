@@ -240,6 +240,13 @@ $namespaceNames['pnb'] = [
 	NS_GADGET_DEFINITION_TALK => 'آلہ_تعریف_گل_بات',
 ];
 
+$namespaceNames['ru'] = [
+	NS_GADGET => 'Гаджет',
+	NS_GADGET_TALK => 'Обсуждение_гаджета',
+	NS_GADGET_DEFINITION => 'Определение_гаджета',
+	NS_GADGET_DEFINITION_TALK => 'Обсуждение_определения_гаджета',
+];
+
 $namespaceNames['sat'] = [
 	NS_GADGET => 'ᱥᱟᱢᱟᱱᱚᱢ',
 	NS_GADGET_TALK => 'ᱥᱟᱢᱟᱱᱚᱢ_ᱜᱟᱞᱢᱟᱨᱟᱣ',

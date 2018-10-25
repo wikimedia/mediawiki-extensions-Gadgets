@@ -300,6 +300,7 @@ $specialPageAliases['ro'] = [
 /** Russian (русский) */
 $specialPageAliases['ru'] = [
 	'Gadgets' => [ 'Гаджеты' ],
+	'GadgetUsage' => [ 'Использование_гаджетов' ],
 ];
 
 /** Sanskrit (संस्कृतम्) */
