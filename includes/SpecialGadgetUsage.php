@@ -32,7 +32,7 @@ use Wikimedia\Rdbms\IResultWrapper;
  * @ingroup SpecialPage
  */
 class SpecialGadgetUsage extends QueryPage {
-	function __construct( $name = 'GadgetUsage' ) {
+	public function __construct( $name = 'GadgetUsage' ) {
 		parent::__construct( $name );
 		$this->limit = 1000; // Show all gadgets
 		$this->shownavigation = false;
