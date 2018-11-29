@@ -31,5 +31,7 @@
 	"apihelp-query+gadgetcategories-example-2": "Pigghie le 'mbormaziune sus a le categorije chiamate \"foo\" e \"bar\"",
 	"apihelp-query+gadgets-description": "Tuèrne 'n'elenghe de accessore ausate sus a sta uicchi.",
 	"apihelp-query+gadgets-summary": "Tuèrne 'n'elenghe de accessore ausate sus a sta uicchi.",
+	"apihelp-query+gadgets-param-ids": "ID de le gadget da recuperà.",
+	"right-gadgets-definition-edit": "Cange le definiziune de le gadget",
 	"action-gadgets-definition-edit": "cange 'a definizione de l'accessore"
 }
