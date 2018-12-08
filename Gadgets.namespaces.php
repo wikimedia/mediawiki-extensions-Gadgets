@@ -212,6 +212,13 @@ $namespaceNames['mzn'] = [
 	NS_GADGET_DEFINITION_TALK => 'گجت_توضیحات_گپ',
 ];
 
+$namespaceNames['nap'] = [
+	NS_GADGET => 'Pazziella',
+	NS_GADGET_TALK => 'Pazziella_chiàcchiera',
+	NS_GADGET_DEFINITION => 'Pazziella_definizzione',
+	NS_GADGET_DEFINITION_TALK => 'Pazziella_definizzione_chiàcchiera',
+];
+
 $namespaceNames['nl'] = [
 	NS_GADGET => 'Uitbreiding',
 	NS_GADGET_TALK => 'Overleg_uitbreiding',
