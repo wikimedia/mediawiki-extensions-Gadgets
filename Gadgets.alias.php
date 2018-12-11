@@ -257,6 +257,12 @@ $specialPageAliases['mt'] = [
 	'Gadgets' => [ 'Aġġeġġi', 'Aċċessorji' ],
 ];
 
+/** Neapolitan (napulitano) */
+$specialPageAliases['nap'] = [
+	'Gadgets' => [ 'Pazzielle' ],
+	'GadgetUsage' => [ 'PazziellaAuso' ],
+];
+
 /** Norwegian Bokmål (norsk bokmål) */
 $specialPageAliases['nb'] = [
 	'Gadgets' => [ 'Tilleggsfunksjoner' ],
