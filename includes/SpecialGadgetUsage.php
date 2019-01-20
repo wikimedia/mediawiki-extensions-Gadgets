@@ -232,9 +232,11 @@ class SpecialGadgetUsage extends QueryPage {
 			foreach ( $defaultGadgets as $default ) {
 				$html = Html::openElement( 'tr', [] );
 				$html .= Html::element( 'td', [], $default );
-				$html .= Html::element( 'td', [], $this->msg( 'gadgetusage-default' )->text() );
+				$html .= Html::element( 'td', [ 'data-sort-value' => 'Infinity' ],
+					$this->msg( 'gadgetusage-default' )->text() );
 				if ( $this->activeUsers ) {
-					$html .= Html::element( 'td', [], $this->msg( 'gadgetusage-default' )->text() );
+					$html .= Html::element( 'td', [ 'data-sort-value' => 'Infinity' ],
+						$this->msg( 'gadgetusage-default' )->text() );
 				}
 				$html .= Html::closeElement( 'tr' );
 				$out->addHTML( $html );
