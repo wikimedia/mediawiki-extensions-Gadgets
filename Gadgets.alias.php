@@ -349,6 +349,7 @@ $specialPageAliases['sl'] = [
 /** Serbian (Cyrillic script) (српски (ћирилица)‎) */
 $specialPageAliases['sr-ec'] = [
 	'Gadgets' => [ 'Гаџети', 'Геџети' ],
+	'GadgetUsage' => [ 'УпотребаГаџета', 'УпотребаГеџета' ],
 ];
 
 /** Swedish (svenska) */
