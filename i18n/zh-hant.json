@@ -16,7 +16,8 @@
 			"Bowleerin",
 			"PhiLiP",
 			"Translatealcd",
-			"Kly"
+			"Kly",
+			"A2093064"
 		]
 	},
 	"gadgets-desc": "讓使用者可以於 [[Special:Preferences#mw-prefsection-gadgets|偏好設定]] 中自訂 [[Special:Gadgets|CSS 與 JavaScript 的小工具]]",
@@ -41,7 +42,7 @@
 	"gadgets-export": "匯出",
 	"gadgets-export-title": "匯出小工具",
 	"gadgets-not-found": "查無小工具 \"$1\"。",
-	"gadgets-export-text": "要匯出 $1 小工具，請點選 \"{{int:gadgets-export-download}}\" 按鈕，並儲存下載的檔案，前往目標 Wiki 的 Special:Import 並將其上傳。然後將下列文字新增到 MediaWiki:Gadgets-definition 頁面：\n<pre>$2</pre>\n您必須擁有目標 Wiki 的適當權限 (包括編輯系統訊息的權限) ，且須開啟透過檔案上傳匯入的功能。",
+	"gadgets-export-text": "要匯出 $1 小工具，請點選「{{int:gadgets-export-download}}」按鈕，並儲存下載的檔案，前往目標 Wiki 的 Special:Import 並將其上傳。然後將下列文字新增到 MediaWiki:Gadgets-definition 頁面：\n<pre>$2</pre>\n您必須擁有目標 Wiki 的適當權限（包括編輯系統訊息的權限），且須開啟透過檔案上傳匯入的功能。",
 	"gadgets-export-download": "下載",
 	"gadgets-validate-notset": "屬性 <code>$1</code> 尚未設定。",
 	"gadgets-validate-wrongtype": "屬性 <code>$1</code> 必須是 <code>$2</code> 類型，而非 <code>$3</code>。",
