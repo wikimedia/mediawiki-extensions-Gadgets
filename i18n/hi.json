@@ -7,7 +7,8 @@
 			"Shyam",
 			"Siddhartha Ghai",
 			"Hindustanilanguage",
-			"Sfic"
+			"Sfic",
+			"Prong$31"
 		]
 	},
 	"gadgets-desc": "सदस्यों को उनकी [[Special:Preferences#mw-prefsection-gadgets|वरीयताओं]] में से चुनिंदा [[Special:Gadgets|CSS और जावालिपि जुगत]] चुनने दो।",
@@ -41,6 +42,9 @@
 	"apihelp-query+gadgets-param-ids": "प्राप्त करने के गैजेटों के आई०डी०।",
 	"apihelp-query+gadgets-param-allowedonly": "वर्तमान सदस्य को अनुमति-प्राप्त गैजेटों को सूचीबद्ध करें।",
 	"apihelp-query+gadgets-param-enabledonly": "वर्तमान सदस्य के लिए सक्रिय गैजेट सूची",
+	"apihelp-query+gadgets-example-5": "वर्तमान में सदस्यों द्वारा सक्षम किये गये उपकरणों की सूची प्राप्त करें",
+	"right-gadgets-edit": "उपकरण का जावास्क्रिप्ट तथा सीएसएस पृष्ठ सम्पादित करें",
+	"action-gadgets-edit": "इस उपकरण का जावास्क्रिप्ट या सीएसएस पृष्ठ सम्पादित करें",
 	"right-gadgets-definition-edit": "गैजेट की परिभाषा लिखें",
 	"action-gadgets-definition-edit": "इस गैजेट की परिभाषा लिखें"
 }
