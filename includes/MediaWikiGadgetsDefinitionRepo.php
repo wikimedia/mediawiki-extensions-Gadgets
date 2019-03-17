@@ -250,7 +250,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 					break;
 				case 'type':
 					// Single value, not a list
-					$info['type'] = isset( $params[0] ) ? $params[0] : '';
+					$info['type'] = $params[0] ?? '';
 					break;
 			}
 		}
