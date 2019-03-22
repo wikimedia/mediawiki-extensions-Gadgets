@@ -150,7 +150,8 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 				return false; // don't cache
 			}
 
-			$g = $revRecord->getContent( SlotRecord::MAIN )->getNativeData();
+			$content = $revRecord->getContent( SlotRecord::MAIN );
+			$g = ( $content instanceof TextContent ) ? $content->getText() : '';
 		} else {
 			$g = $forceNewText;
 		}
