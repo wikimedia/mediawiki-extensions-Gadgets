@@ -83,6 +83,7 @@ $specialPageAliases['ckb'] = [
 /** Czech (čeština) */
 $specialPageAliases['cs'] = [
 	'Gadgets' => [ 'Udělátka' ],
+	'GadgetUsage' => [ 'Využití_udělátek' ],
 ];
 
 /** German (Deutsch) */
