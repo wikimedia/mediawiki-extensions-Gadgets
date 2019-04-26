@@ -12,6 +12,7 @@
 	"apihelp-query+gadgetcategories-example-2": "Pigghie le 'mbormaziune sus a le categorije chiamate \"foo\" e \"bar\"",
 	"apihelp-query+gadgets-description": "Tuèrne 'n'elenghe de accessore ausate sus a sta uicchi.",
 	"apihelp-query+gadgets-summary": "Tuèrne 'n'elenghe de accessore ausate sus a sta uicchi.",
+	"apihelp-query+gadgets-param-prop": "Cè 'mbormaziune d'u gadget vuè ccu pigghie:\n;id:ID 'nderne d'u gadget.\n;metadata:'U metadate d'u gadget.\n;desc:Descrizione d'u gadget trasformate jndr'à l'HTML (pò essere lende, ausale sulamende ce te serve avveramende).",
 	"apihelp-query+gadgets-param-categories": "Da ce categorije a pigghià le gadget.",
 	"apihelp-query+gadgets-param-ids": "ID de le gadget da recuperà.",
 	"apihelp-query+gadgets-param-allowedonly": "Elenghe sulamende le accessorie conzendite a stu utende.",
