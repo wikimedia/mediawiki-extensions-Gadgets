@@ -148,6 +148,8 @@ class SpecialGadgetUsage extends QueryPage {
 		$html .= Html::closeElement( 'thead' );
 		$html .= Html::openElement( 'tbody', [] );
 		$this->getOutput()->addHTML( $html );
+		$this->getOutput()->addModuleStyles( 'jquery.tablesorter.styles' );
+		$this->getOutput()->addModules( 'jquery.tablesorter' );
 	}
 
 	/**
