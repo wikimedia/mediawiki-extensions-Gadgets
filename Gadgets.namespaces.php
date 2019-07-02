@@ -240,6 +240,13 @@ $namespaceNames['or'] = [
 	NS_GADGET_DEFINITION_TALK => 'ଗ୍ୟାଜେଟ_ସଂଜ୍ଞା_ଆଲୋଚନା',
 ];
 
+$namespaceNames['pa'] = [
+	NS_GADGET => 'ਗੈਜਟ',
+	NS_GADGET_TALK => 'ਗੈਜਟ_ਗੱਲ-ਬਾਤ',
+	NS_GADGET_DEFINITION => 'ਗੈਜਟ_ਪਰਿਭਾਸ਼ਾ',
+	NS_GADGET_DEFINITION_TALK => 'ਗੈਜਟ_ਪਰਿਭਾਸ਼ਾ_ਗੱਲ-ਬਾਤ',
+];
+
 $namespaceNames['pl'] = [
 	NS_GADGET => 'Gadżet',
 	NS_GADGET_TALK => 'Dyskusja_gadżetu',
