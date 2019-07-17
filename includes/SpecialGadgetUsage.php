@@ -40,6 +40,14 @@ class SpecialGadgetUsage extends QueryPage {
 	}
 
 	/**
+	 * @inheritDoc
+	 */
+	public function execute( $par ) {
+		parent::execute( $par );
+		$this->addHelpLink( 'Extension:Gadgets' );
+	}
+
+	/**
 	 * Flag for holding the value of config variable SpecialGadgetUsageActiveUsers
 	 *
 	 * @var bool $activeUsers
