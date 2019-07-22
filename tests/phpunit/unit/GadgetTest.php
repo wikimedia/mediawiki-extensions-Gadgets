@@ -5,28 +5,7 @@ use Wikimedia\TestingAccessWrapper;
 /**
  * @group Gadgets
  */
-class GadgetTest extends MediaWikiTestCase {
-	/**
-	 * @var User
-	 */
-	protected $user;
-
-	public function setUp() {
-		global $wgGroupPermissions;
-
-		parent::setUp();
-
-		$wgGroupPermissions['unittesters'] = [
-			'test' => true,
-		];
-		$this->user = $this->getTestUser( [ 'unittesters' ] )->getUser();
-	}
-
-	public function tearDown() {
-		GadgetRepo::setSingleton();
-		parent::tearDown();
-	}
-
+class GadgetTest extends MediaWikiUnitTestCase {
 	/**
 	 * @param string $line
 	 * @return Gadget
@@ -88,13 +67,24 @@ class GadgetTest extends MediaWikiTestCase {
 	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
 	 * @covers Gadget::isAllowed
 	 */
-	public function testisAllowed() {
+	public function testIsAllowed() {
+		$user = $this->getMockBuilder( User::class )
+			->setMethods( [ 'isAllowedAll' ] )
+			->getMock();
+		$user->method( 'isAllowedAll' )
+			->willReturnCallback(
+				function ( ...$rights ) {
+					return array_diff( $rights, [ 'test' ] ) === [];
+				}
+			);
+
+		/** @var User $user */
 		$gUnset = $this->create( '*foo[ResourceLoader]|foo.js' );
 		$gAllowed = $this->create( '*bar[ResourceLoader|rights=test]|bar.js' );
 		$gNotAllowed = $this->create( '*baz[ResourceLoader|rights=nope]|baz.js' );
-		$this->assertTrue( $gUnset->isAllowed( $this->user ) );
-		$this->assertTrue( $gAllowed->isAllowed( $this->user ) );
-		$this->assertFalse( $gNotAllowed->isAllowed( $this->user ) );
+		$this->assertTrue( $gUnset->isAllowed( $user ) );
+		$this->assertTrue( $gAllowed->isAllowed( $user ) );
+		$this->assertFalse( $gNotAllowed->isAllowed( $user ) );
 	}
 
 	/**
@@ -212,37 +202,5 @@ class GadgetTest extends MediaWikiTestCase {
 
 		$g = $this->create( '* foo[ResourceLoader]|bar.js' );
 		$this->assertFalse( $g->isHidden() );
-	}
-
-	/**
-	 * @covers Gadget
-	 * @covers GadgetHooks::getPreferences
-	 * @covers GadgetRepo
-	 * @covers MediaWikiGadgetsDefinitionRepo
-	 */
-	public function testPreferences() {
-		$prefs = [];
-		$repo = TestingAccessWrapper::newFromObject( new MediaWikiGadgetsDefinitionRepo() );
-		// Force usage of a MediaWikiGadgetsDefinitionRepo
-		GadgetRepo::setSingleton( $repo );
-
-		/** @var MediaWikiGadgetsDefinitionRepo $repo */
-		$gadgets = $repo->fetchStructuredList( '* foo | foo.js
-==keep-section1==
-* bar| bar.js
-==remove-section==
-* baz [rights=embezzle] |baz.js
-==keep-section2==
-* quux [rights=test] | quux.js' );
-		$this->assertGreaterThanOrEqual( 2, count( $gadgets ), "Gadget list parsed" );
-
-		$repo->definitionCache = $gadgets;
-		GadgetHooks::getPreferences( $this->user, $prefs );
-
-		$options = $prefs['gadgets']['options'];
-		$this->assertArrayNotHasKey( '⧼gadget-section-remove-section⧽', $options,
-			'Must not show empty sections' );
-		$this->assertArrayHasKey( '⧼gadget-section-keep-section1⧽', $options );
-		$this->assertArrayHasKey( '⧼gadget-section-keep-section2⧽', $options );
 	}
 }
