@@ -226,6 +226,7 @@ class GadgetTest extends MediaWikiTestCase {
 		// Force usage of a MediaWikiGadgetsDefinitionRepo
 		GadgetRepo::setSingleton( $repo );
 
+		/** @var MediaWikiGadgetsDefinitionRepo $repo */
 		$gadgets = $repo->fetchStructuredList( '* foo | foo.js
 ==keep-section1==
 * bar| bar.js
@@ -236,8 +237,7 @@ class GadgetTest extends MediaWikiTestCase {
 		$this->assertGreaterThanOrEqual( 2, count( $gadgets ), "Gadget list parsed" );
 
 		$repo->definitionCache = $gadgets;
-		$this->assertTrue( GadgetHooks::getPreferences( $this->user, $prefs ),
-			'GetPrefences hook should return true' );
+		GadgetHooks::getPreferences( $this->user, $prefs );
 
 		$options = $prefs['gadgets']['options'];
 		$this->assertArrayNotHasKey( '⧼gadget-section-remove-section⧽', $options,
