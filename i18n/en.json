@@ -34,5 +34,8 @@
 	"right-gadgets-edit": "Edit gadget JavaScript and CSS pages",
 	"action-gadgets-edit": "edit this gadget JavaScript or CSS page",
 	"right-gadgets-definition-edit": "Edit gadget definitions",
-	"action-gadgets-definition-edit": "edit this gadget definition"
+	"action-gadgets-definition-edit": "edit this gadget definition",
+	"group-gadgeteditor": "Gadget editors",
+	"group-gadgeteditor-member": "{{GENDER:$1|gadget editor}}",
+	"grouppage-gadgeteditor": "{{ns:project}}:Gadget editors"
 }
