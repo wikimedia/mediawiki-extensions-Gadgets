@@ -44,6 +44,16 @@
 		"gadgets-edit",
 		"gadgets-definition-edit"
 	],
+	"GroupPermissions": {
+		"gadgeteditor": {
+			"gadgets-edit": true,
+			"gadgets-definition-edit": true
+		},
+		"interface-admin": {
+			"gadgets-edit": true,
+			"gadgets-definition-edit": true
+		}
+	},
 	"SpecialPages": {
 		"Gadgets": "SpecialGadgets",
 		"GadgetUsage": "SpecialGadgetUsage"
