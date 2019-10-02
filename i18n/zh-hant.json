@@ -17,7 +17,8 @@
 			"PhiLiP",
 			"Translatealcd",
 			"Kly",
-			"A2093064"
+			"A2093064",
+			"Xiplus"
 		]
 	},
 	"gadgets-desc": "讓使用者可以於 [[Special:Preferences#mw-prefsection-gadgets|偏好設定]] 中自訂 [[Special:Gadgets|CSS 與 JavaScript 的小工具]]",
