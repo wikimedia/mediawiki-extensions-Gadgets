@@ -323,7 +323,6 @@ class GadgetHooks {
 	/**
 	 * Prevent gadget preferences from being deleted.
 	 * @link https://www.mediawiki.org/wiki/Manual:Hooks/DeleteUnknownPreferences
-	 * @suppress PhanParamTooMany
 	 * @param string[] &$where Array of where clause conditions to add to.
 	 * @param IDatabase $db
 	 */
