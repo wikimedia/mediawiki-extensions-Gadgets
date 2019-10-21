@@ -13,7 +13,8 @@
 			"Vito Genovese",
 			"TmY e12",
 			"Hedda",
-			"ToprakM"
+			"ToprakM",
+			"BaRaN6161 TURK"
 		]
 	},
 	"gadgets-desc": "Kullanıcıların [[Special:Preferences#mw-prefsection-gadgets|tercihlerinde]] özel [[Special:Gadgets|CSS ve JavaScript gadgetlerini]] seçmelerine izin verir",
@@ -38,5 +39,6 @@
 	"gadgets-export-text": "$1 gadgetini dışa aktarmak için \"{{int:gadgets-export-download}}\" düğmesine tıklayın, yüklenen dosyayı kaydedin, hedef vikide Special:Import sayfasına gidin ve yükleyin. Sonra aşağıdakini MediaWiki:Gadgets-definition sayfasına ekleyin:\n<pre>$2</pre>\nHedef vikide uygun izinlerinizin olması (sistem mesajlarını değiştirmek yetkisi dahil) ve dosyadan içe aktarmanın etkinleştirilmiş olması gerekir.",
 	"gadgets-export-download": "İndir",
 	"right-gadgets-edit": "Gadget, JavaScript ve CSS sayfalarını düzenle",
-	"right-gadgets-definition-edit": "Gadget tanımlarını düzenle"
+	"right-gadgets-definition-edit": "Gadget tanımlarını düzenle",
+	"action-gadgets-definition-edit": "bu gadget tanımını düzenle"
 }
