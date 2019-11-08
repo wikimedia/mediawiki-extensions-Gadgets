@@ -8,7 +8,8 @@
 			"Vodnokon4e",
 			"StanProg",
 			"ShockD",
-			"Vlad5250"
+			"Vlad5250",
+			"Ted Masters"
 		]
 	},
 	"gadgets-desc": "Позволява на потребителите да избират и активират [[Special:Gadgets|CSS и JavaScript джаджи]] от своите [[Special:Preferences#mw-prefsection-gadgets|настройки]]",
@@ -38,7 +39,7 @@
 	"gadgets-validate-notset": "Свойството <code>$1</code> не е установено.",
 	"gadgets-validate-wrongtype": "Свойството <code>$1</code> трябва да бъде от тип <code>$2</code> вместо от тип <code>$3</code>.",
 	"right-gadgets-edit": "Редактиране на JavaScript и CSS страниците на джаджите",
-	"action-gadgets-edit": "редактиране на JacaScript или CSS страницата на тази джаджа",
+	"action-gadgets-edit": "редактиране на JavaScript или CSS страницата за тази джаджа",
 	"right-gadgets-definition-edit": "Редактиране на дефинициите на джаджите",
 	"action-gadgets-definition-edit": "редактиране на дефиницията на тази джаджа"
 }
