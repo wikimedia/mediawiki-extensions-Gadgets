@@ -17,7 +17,7 @@
 	"prefs-gadgets": "Uitbreidingen",
 	"gadgets-prefstext": "Hieronder staan de speciale uitbreidingen die u kunt inschakelen.\nDe uitbreidingen zijn voornamelijk gebaseerd op JavaScript, dus JavaScript moet voor uw browser ingeschakeld zijn om ze te laten werken.\nDe uitbreidingen hebben geen invloed op deze pagina met voorkeuren.\n\nDeze speciale uitbreidingen zijn geen onderdeel van de MediaWiki-software en worden meestal ontwikkeld en onderhouden door gebruikers van uw wiki.\nBeheerders kunnen de beschikbare uitbreidingen opgeven in [[MediaWiki:Gadgets-definition|definities]] en [[Special:Gadgets|beschrijvingen]]. De [[Special:GadgetUsage|aantallen gebruikers van iedere uitbreiding op deze wiki]] zijn beschikbaar.",
 	"gadgets": "Uitbreidingen",
-	"gadgetusage": "Statistiken van uutbreidingsgebruuk",
+	"gadgetusage": "Uitbreidingsgebruiksstatistieken",
 	"gadgetusage-gadget": "Uitbreiding",
 	"gadgetusage-usercount": "Aantal gebruikers",
 	"gadgetusage-noresults": "Geen uitbreidingen gevonden.",
