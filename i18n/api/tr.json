@@ -1,15 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Arystanbek"
+			"Arystanbek",
+			"BaRaN6161 TURK"
 		]
 	},
 	"apihelp-query+gadgetcategories-description": "Döner gadget kategori listesi.",
+	"apihelp-query+gadgetcategories-summary": "Gadget kategorilerinin bir listesini döndürür.",
 	"apihelp-query+gadgetcategories-param-prop": "Kategori bilgi almak için ne gadget:\n;adı:İç kategori adı.\n;konu başlığı:Kategori Başlığı.\n;üyeler:kategorideki araçların Sayısı.",
 	"apihelp-query+gadgetcategories-param-names": "Almak için kategorilerin adlarını.",
 	"apihelp-query+gadgetcategories-example-1": "Mevcut gadget kategori listesi",
 	"apihelp-query+gadgetcategories-example-2": "Kategoriler \"foo\" ve \"bar\"adlı hakkında tüm bilgi almak",
 	"apihelp-query+gadgets-description": "Döner araçlar bu wiki üzerinde bulundurmalıdır.",
+	"apihelp-query+gadgets-summary": "Bu wikide kullanılan gadgetların listesini döndürür.",
 	"apihelp-query+gadgets-param-prop": "Bilgi almak için ne gadget:\n;ıd:İç gadget ID.\n;meta:gadget metadata.\n;tanım:Gadget açıklama HTML (Eğer gerçekten gerekirse yavaş, sadece kullanmak olabilir) dönüştü.",
 	"apihelp-query+gadgets-param-categories": "Almak için ne gelen araçlar.",
 	"apihelp-query+gadgets-param-ids": "Araçların kimliği almak için.",
