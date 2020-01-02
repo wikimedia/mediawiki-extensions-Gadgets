@@ -25,7 +25,7 @@
 	},
 	"gadgets-desc": "Permet aux utilisateurs de choisir des [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences#mw-prefsection-gadgets|préférences]]",
 	"prefs-gadgets": "Gadgets",
-	"gadgets-prefstext": "Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel principalement à JavaScript qui doit donc être activé dans votre navigateur Web.\n\nNotez aussi que ces gadgets spéciaux ne font pas partie du logiciel MediaWiki et qu’ils sont généralement développés et maintenus par les utilisateurs de votre wiki local.\n\nLes administrateurs locaux peuvent modifier [[MediaWiki:Gadgets-definition|les définitions]] et les [[Special:Gadgets|descriptions]] des gadgets disponibles. Le nombre d’utilisateurs pour chaque gadget de ce wiki est listé dans les [[Special:GadgetUsage|statistiques d’utilisation des gadgets]].",
+	"gadgets-prefstext": "Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte. Ils font appel principalement à JavaScript qui doit donc être activé dans votre navigateur Web.\n\nNotez aussi que ces gadgets spéciaux ne font pas partie du logiciel MediaWiki et qu’ils sont généralement développés et maintenus par les utilisateurs de votre wiki local.\n\nLes administrateurs d’interface locaux peuvent modifier [[MediaWiki:Gadgets-definition|les définitions]] des gadgets disponibles, et les administrateurs locaux peuvent modifier leurs [[Special:Gadgets|descriptions]]. Le nombre d’utilisateurs pour chaque gadget de ce wiki est listé dans les [[Special:GadgetUsage|statistiques d’utilisation des gadgets]].",
 	"gadgets": "Gadgets",
 	"gadgetusage": "Statistiques d’utilisation des gadgets",
 	"gadgetusage-gadget": "Gadget",
