@@ -9,12 +9,13 @@
 			"Statix64",
 			"Lucas2",
 			"MattiaMen",
-			"Fringio"
+			"Fringio",
+			"Dansita"
 		]
 	},
 	"gadgets-desc": "Consente agli utenti di selezionare [[Special:Gadgets|accessori CSS e JavaScript]] nelle proprie [[Special:Preferences#mw-prefsection-gadgets|preferenze]]",
 	"prefs-gadgets": "Accessori",
-	"gadgets-prefstext": "Di seguito è presente una lista di accessori speciali (''gadget'') che è possibile abilitare per la propria utenza.\nQuesti accessori sono in maggioranza basati su JavaScript, è quindi necessario abilitare JavaScript nel proprio browser affinché funzionino correttamente. Si noti che gli accessori non hanno alcun effetto in questa pagina di preferenze.\n\nInoltre, si noti che questi accessori speciali non sono compresi nel software MediaWiki e sono di solito realizzati e gestiti dagli utenti di ciascun sito wiki. Gli amministratori dell'interfaccia del sito possono modificare la lista degli accessori disponibili tramite le pagine delle [[MediaWiki:Gadgets-definition|definizioni]], mentre gli amministratori del sito possono modificare le loro [[Special:Gadgets|descrizioni]]. Il numero di utenti per ogni accessorio su questo wiki è elencato nelle [[Special:GadgetUsage|statistiche di uso degli accessori]].",
+	"gadgets-prefstext": "Di seguito è presente una lista di gadget che puoi abilitare per il tuo account.\nQuesti gadget sono solitamente basati su JavaScript, pertanto JavaScript deve essere abilitato nel tuo browser per poter funzionare.\nSi noti che tali gadget non avranno alcun effetto in questa pagina di preferenze.\n\nSi noti inoltre che questi gadget speciali non sono parte del software MediaWiki, e sono solitamente sviluppati e mantenuti da utenti della tua wiki locale.\nGli amministratori dell'interfaccia del sito possono modificare la lista dei gadget disponibili tramite le pagine delle [[MediaWiki:Gadgets-definition|definizioni]], mentre gli amministratori del sito possono modificare le loro [[Special:Gadgets|descrizioni]]. Il numero di utenti per ogni gadget su questa wiki è elencato nelle [[Special:GadgetUsage|statistiche di uso dei gadget]].",
 	"gadgets": "Accessori",
 	"gadgetusage": "Statistiche sull'uso degli accessori",
 	"gadgetusage-gadget": "Accessorio",
