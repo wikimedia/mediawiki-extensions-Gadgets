@@ -14,12 +14,13 @@
 			"TmY e12",
 			"Hedda",
 			"ToprakM",
-			"BaRaN6161 TURK"
+			"BaRaN6161 TURK",
+			"SwornToTranslate29"
 		]
 	},
 	"gadgets-desc": "Kullanıcıların [[Special:Preferences#mw-prefsection-gadgets|tercihlerinde]] özel [[Special:Gadgets|CSS ve JavaScript gadgetlerini]] seçmelerine izin verir",
 	"prefs-gadgets": "Küçük araçlar",
-	"gadgets-prefstext": "Hesabınız için etkinleştirebileceğiniz özel gadgetların listesi aşağıdadır.\nBu gadgetlar çoğunlukla JavaScript'e dayanmaktadır, bu nedenle çalışması için tarayıcınızda JavaScript'in etkinleştirilmesi gerekir.\nBu gadgetların bu tercihler sayfasında herhangi bir etkisi olmayacağını unutmayın.\n\nAyrıca, bu özel gadgetların MediaWiki yazılımının bir parçası olmadığını ve genellikle yerel vikinizdeki kullanıcılar tarafından geliştirildiğini ve korunduğunu unutmayın.\nYerel arayüz yöneticileri mevcut gadgetların [[MediaWiki:Gadgets-definition|tanımlarını]] düzenleyebilir ve yerel yöneticiler [[Special:Gadgets|açıklamalarını]] düzenleyebilir. Bu vikideki her gadget için kullanıcı sayısı [[Special:GadgetUsage|Gadget kullanım istatistiklerinde]] listelenmiştir.",
+	"gadgets-prefstext": "Hesabınız için etkinleştirebileceğiniz özel aygıtların listesi aşağıdadır.\nBu aygıtların çoğunlukla JavaScript temellidir, bu nedenle çalışması için tarayıcınızda JavaScript'in etkinleştirilmesi gerekir.\nBu aygıtların şuan bulunduğunuz tercihler sayfasında herhangi bir etkisi olmayacağını unutmayın.\n\nAyrıca, bu özel aygıtların MediaWiki yazılımının bir parçası olmadığını ve genellikle yerel vikinizdeki kullanıcılar tarafından geliştirildiğini ve sürdürüldüğünü unutmayın.\nYerel arayüz yöneticileri mevcut aygıtların [[MediaWiki:Gadgets-definition|tanımlar]] düzenleyebilir ve yerel yöneticiler, her aygıtın kaynak kodunu görebileceğiniz [[Special:Gadgets|açıklamalar]]ını düzenleyebilir. Bu vikideki her aygıt için kullanıcı sayısı [[Special:GadgetUsage|Aygıt kullanım istatistikler]]inde listelenmiştir.",
 	"gadgets": "Küçük araçlar",
 	"gadgetusage": "Küçük araç kullanım istatistikleri",
 	"gadgetusage-gadget": "Küçük araçlar",
