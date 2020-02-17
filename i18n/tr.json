@@ -32,7 +32,7 @@
 	"gadgetusage-default": "Varsayılan",
 	"gadgets-title": "Küçük araçlar",
 	"gadgets-pagetext": "Aşağıdaki, kullanıcıların [[Special:Preferences#mw-prefsection-gadgets|tercihler sayfasında]] etkin hale getirebileceği, [[MediaWiki:Gadgets-definition|tanımlarla]] belirtildiği gibi, özel gadgetlerin bir listesidir.\nBu genel bakış, her gadget'in tanımını ve kodunu belirten sistem mesaj sayfalarına kolay erişim sağlar.",
-	"gadgets-uses": "Şunu kullanıyor",
+	"gadgets-uses": "Kullanımlar",
 	"gadgets-required-rights": "Aşağıda gösterilen {{PLURAL:$2|hak|haklar}} gereklidir:\n\n$1",
 	"gadgets-required-skins": "Kullanılabilecek {{PLURAL:$2|$1 tema|temalar: $1}}.",
 	"gadgets-default": "Herkes için varsayılan olarak etkindir.",
