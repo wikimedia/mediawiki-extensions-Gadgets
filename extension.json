@@ -83,39 +83,17 @@
 		"GadgetDefinitionDeletionUpdate": "includes/content/GadgetDefinitionDeletionUpdate.php"
 	},
 	"Hooks": {
-		"PageContentSaveComplete": [
-			"GadgetHooks::onPageContentSaveComplete"
-		],
-		"BeforePageDisplay": [
-			"GadgetHooks::beforePageDisplay"
-		],
-		"CodeEditorGetPageLanguage": [
-			"GadgetHooks::onCodeEditorGetPageLanguage"
-		],
-		"ContentHandlerDefaultModelFor": [
-			"GadgetHooks::onContentHandlerDefaultModelFor"
-		],
-		"EditFilterMergedContent": [
-			"GadgetHooks::onEditFilterMergedContent"
-		],
-		"PageContentInsertComplete": [
-			"GadgetHooks::onPageContentInsertComplete"
-		],
-		"UserGetDefaultOptions": [
-			"GadgetHooks::userGetDefaultOptions"
-		],
-		"GetPreferences": [
-			"GadgetHooks::getPreferences"
-		],
-		"ResourceLoaderRegisterModules": [
-			"GadgetHooks::registerModules"
-		],
-		"wgQueryPages": [
-			"GadgetHooks::onwgQueryPages"
-		],
-		"DeleteUnknownPreferences": [
-			"GadgetHooks::onDeleteUnknownPreferences"
-		]
+		"PageContentSaveComplete": "GadgetHooks::onPageContentSaveComplete",
+		"BeforePageDisplay": "GadgetHooks::beforePageDisplay",
+		"CodeEditorGetPageLanguage": "GadgetHooks::onCodeEditorGetPageLanguage",
+		"ContentHandlerDefaultModelFor": "GadgetHooks::onContentHandlerDefaultModelFor",
+		"EditFilterMergedContent": "GadgetHooks::onEditFilterMergedContent",
+		"PageContentInsertComplete": "GadgetHooks::onPageContentInsertComplete",
+		"UserGetDefaultOptions": "GadgetHooks::userGetDefaultOptions",
+		"GetPreferences": "GadgetHooks::getPreferences",
+		"ResourceLoaderRegisterModules": "GadgetHooks::registerModules",
+		"wgQueryPages": "GadgetHooks::onwgQueryPages",
+		"DeleteUnknownPreferences": "GadgetHooks::onDeleteUnknownPreferences"
 	},
 	"config": {
 		"GadgetsRepoClass": "MediaWikiGadgetsDefinitionRepo",
