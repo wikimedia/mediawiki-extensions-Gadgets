@@ -43,8 +43,8 @@
 	"gadgets-export-download": "Завантажити",
 	"gadgets-validate-notset": "Властивість <code>$1</code> не встановлено.",
 	"gadgets-validate-wrongtype": "Тип властивості <code>$1</code> має бути <code>$2</code> замість <code>$3</code>.",
-	"right-gadgets-edit": "редагування сторінок додатків на JavaScript та CSS",
+	"right-gadgets-edit": "Редагування сторінок додатків на JavaScript та CSS",
 	"action-gadgets-edit": "редагування JavaScript- чи CSS-сторінки цього додатку",
-	"right-gadgets-definition-edit": "редагування визначень додатків",
+	"right-gadgets-definition-edit": "Редагування визначень додатків",
 	"action-gadgets-definition-edit": "редагування визначення цього додатку"
 }
