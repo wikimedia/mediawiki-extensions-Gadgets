@@ -23,3 +23,9 @@ project.index
 ## Sublime
 sublime-*
 sftp-config.json
+
+# Operating systems
+## Mac OS X
+.DS_Store
+## Windows
+Thumbs.db
