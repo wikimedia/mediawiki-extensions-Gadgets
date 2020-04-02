@@ -2,6 +2,8 @@
 
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionLookup;
+use MediaWiki\Revision\SlotRecord;
 use Wikimedia\Rdbms\Database;
 
 /**
@@ -21,8 +23,15 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	 */
 	private $wanCache;
 
+	/**
+	 * @var RevisionLookup
+	 */
+	private $revLookup;
+
 	public function __construct() {
-		$this->wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$services = MediaWikiServices::getInstance();
+		$this->wanCache = $services->getMainWANObjectCache();
+		$this->revLookup = $services->getRevisionLookup();
 	}
 
 	/**
@@ -109,13 +118,13 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 					return null;
 				}
 
-				$rev = Revision::newFromTitle( $title );
-				if ( !$rev ) {
+				$revRecord = $this->revLookup->getRevisionByTitle( $title );
+				if ( !$revRecord ) {
 					$ttl = WANObjectCache::TTL_UNCACHEABLE;
 					return null;
 				}
 
-				$content = $rev->getContent();
+				$content = $revRecord->getContent( SlotRecord::MAIN );
 				if ( !$content instanceof GadgetDefinitionContent ) {
 					// Uhm...
 					$ttl = WANObjectCache::TTL_UNCACHEABLE;
