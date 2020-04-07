@@ -1,18 +1,18 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardo.mps",
-			"Giro720",
-			"GoEThe",
-			"Helder.wiki",
-			"Rafael Vargas",
-			"555",
-			"He7d3r",
-			"Teles",
 			"Almondega",
 			"Eduardo Addad de Oliveira",
+			"Eduardo.mps",
+			"Felipe L. Ewald",
+			"Giro720",
+			"GoEThe",
 			"Hamilton Abreu",
-			"Felipe L. Ewald"
+			"He7d3r",
+			"Helder.wiki",
+			"Rafael Vargas",
+			"Teles",
+			555
 		]
 	},
 	"gadgets-desc": "Permite que os usuários selecionem [[Special:Gadgets|\"gadgets\" JavaScript e CSS]] personalizados nas suas [[Special:Preferences#mw-prefsection-gadgets|preferências]]",

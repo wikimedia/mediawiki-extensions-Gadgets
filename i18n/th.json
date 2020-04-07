@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Aefgh39622",
 			"Ans",
-			"Passawuth",
 			"Geonuch",
-			"Aefgh39622"
+			"Passawuth"
 		]
 	},
 	"gadgets-desc": "ให้ผู้ใช้สามารถเลือกใช้ [[Special:Gadgets|CSS และ จาวาสคริปต์]] ที่สร้างขึ้นเป็นการเฉพาะ ในหน้า [[Special:Preferences#mw-prefsection-gadgets|ตั้งค่า]] ได้",

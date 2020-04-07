@@ -2,16 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Crazymadlover",
+			"DannyS712",
 			"Fitoschido",
-			"Muro de Aguas",
-			"Remember the dot",
-			"Sanbec",
-			"Vivaelcelta",
-			"Themasterriot",
-			"Ryo567",
 			"Macofe",
+			"Muro de Aguas",
 			"Peter Bowman",
-			"DannyS712"
+			"Remember the dot",
+			"Ryo567",
+			"Sanbec",
+			"Themasterriot",
+			"Vivaelcelta"
 		]
 	},
 	"gadgets-desc": "Permite a los usuarios seleccionar [[Special:Gadgets|accesorios de CSS y JavaScript]] personalizados en sus [[Special:Preferences#mw-prefsection-gadgets|preferencias]].",

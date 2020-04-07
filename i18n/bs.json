@@ -2,8 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"CERminator",
-			"Srdjan m",
-			"Obsuser"
+			"Obsuser",
+			"Srdjan m"
 		]
 	},
 	"gadgets-desc": "Omogućava korisnicima da odaberu vlastite [[Special:Gadgets|CSS i JavaScript dodatke]] (gadgets) u svojim [[Special:Preferences#mw-prefsection-gadgets|postavkama]]",

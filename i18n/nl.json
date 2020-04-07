@@ -2,15 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Annabel",
-			"SPQRobin",
-			"Siebrand",
-			"Esketti",
-			"Sjoerddebruin",
-			"Romaine",
 			"Edoderoo",
+			"Esketti",
 			"Mainframe98",
 			"Mar(c)",
-			"Servien"
+			"Romaine",
+			"SPQRobin",
+			"Servien",
+			"Siebrand",
+			"Sjoerddebruin"
 		]
 	},
 	"gadgets-desc": "Laat gebruikers [[Special:Gadgets|CSS en JavaScripts]] activeren in hun [[Special:Preferences#mw-prefsection-gadgets|voorkeuren]]",

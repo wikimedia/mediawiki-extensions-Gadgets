@@ -1,11 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
+			"Danmichaelo",
+			"Jon Harald Søby",
 			"Laaknor",
 			"Nghtwlkr",
-			"Sjurhamre",
-			"Danmichaelo",
-			"Jon Harald Søby"
+			"Sjurhamre"
 		]
 	},
 	"gadgets-desc": "Lar brukere velge egendefinerte [[Special:Gadgets|CSS- og JavaScript-verktøy]] i [[Special:Preferences#mw-prefsection-gadgets|innstillingene sine]]",

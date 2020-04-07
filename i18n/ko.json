@@ -4,13 +4,13 @@
 			"Ficell",
 			"IRTC1015",
 			"Klutzy",
-			"Kwj2772",
-			"아라",
-			"SeoJeongHo",
 			"Kurousagi",
-			"Yearning",
+			"Kwj2772",
 			"Priviet",
-			"Ykhwong"
+			"SeoJeongHo",
+			"Yearning",
+			"Ykhwong",
+			"아라"
 		]
 	},
 	"gadgets-desc": "각 사용자가 [[Special:Gadgets|CSS와 자바스크립트 소도구]]를 [[Special:Preferences#mw-prefsection-gadgets|사용자 환경 설정]]을 통해 사용할 수 있습니다",

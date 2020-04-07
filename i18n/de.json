@@ -2,16 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"Daniel Kinzler, brightbyte.de",
+			"FriedhelmW",
 			"Geitost",
 			"Kghbln",
+			"Lucas Werkmeister",
 			"Metalhead64",
 			"Raimond Spekking",
 			"The Evil IP address",
-			"Umherirrender",
-			"✓",
 			"Tiin",
-			"FriedhelmW",
-			"Lucas Werkmeister"
+			"Umherirrender",
+			"✓"
 		]
 	},
 	"gadgets-desc": "Ermöglicht es Benutzern, in ihren [[Special:Preferences#mw-prefsection-gadgets|persönlichen Einstellungen]] vordefinierte [[Special:Gadgets|CSS- und JavaScript-Helferlein]] zu aktivieren",

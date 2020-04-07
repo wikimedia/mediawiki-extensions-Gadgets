@@ -2,9 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Ghaly",
+			"HitomiAkane",
 			"Meno25",
-			"Ramsis II",
-			"HitomiAkane"
+			"Ramsis II"
 		]
 	},
 	"gadgets-desc": "بيسمح لليوزرز انهم يختارو [[Special:Gadgets|اضافاتCSS وJavaScript]] فى [[Special:Preferences#mw-prefsection-gadgets|التفضيلات]] بتاعتهم",

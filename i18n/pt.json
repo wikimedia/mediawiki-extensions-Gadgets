@@ -1,15 +1,15 @@
 {
 	"@metadata": {
 		"authors": [
+			"Fúlvio",
 			"Hamilton Abreu",
+			"He7d3r",
 			"Helder.wiki",
 			"Luckas",
 			"Malafaya",
-			"555",
-			"He7d3r",
-			"Fúlvio",
+			"Mansil",
 			"Vitorvicentevalente",
-			"Mansil"
+			555
 		]
 	},
 	"gadgets-desc": "Permite que os utilizadores selecionem [[Special:Gadgets|''gadgets'' em JavaScript e CSS]] personalizados nas suas [[Special:Preferences#mw-prefsection-gadgets|preferências]]",

@@ -3,13 +3,13 @@
 		"authors": [
 			"Borislav",
 			"DCLXVI",
-			"Spiritia",
-			"Turin",
-			"Vodnokon4e",
-			"StanProg",
 			"ShockD",
+			"Spiritia",
+			"StanProg",
+			"Ted Masters",
+			"Turin",
 			"Vlad5250",
-			"Ted Masters"
+			"Vodnokon4e"
 		]
 	},
 	"gadgets-desc": "Позволява на потребителите да избират и активират [[Special:Gadgets|CSS и JavaScript джаджи]] от своите [[Special:Preferences#mw-prefsection-gadgets|настройки]]",

@@ -2,9 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Alma",
-			"Toliño",
 			"Banjo",
-			"Elisardojm"
+			"Elisardojm",
+			"Toliño"
 		]
 	},
 	"gadgets-desc": "Deixa que os usuarios seleccionen [[Special:Gadgets|trebellos CSS e JavaScript]] nas súas [[Special:Preferences#mw-prefsection-gadgets|preferencias]]",

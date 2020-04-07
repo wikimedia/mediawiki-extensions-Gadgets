@@ -1,21 +1,21 @@
 {
 	"@metadata": {
 		"authors": [
+			"Arystanbek",
+			"BaRaN6161 TURK",
 			"Emperyan",
 			"Erkan Yilmaz",
+			"HakanIST",
+			"Hedda",
 			"Incelemeelemani",
 			"Joseph",
 			"Karduelis",
 			"Koc61",
-			"Arystanbek",
 			"Mizunee",
-			"HakanIST",
-			"Vito Genovese",
+			"SwornToTranslate29",
 			"TmY e12",
-			"Hedda",
 			"ToprakM",
-			"BaRaN6161 TURK",
-			"SwornToTranslate29"
+			"Vito Genovese"
 		]
 	},
 	"gadgets-desc": "Kullanıcıların [[Special:Preferences#mw-prefsection-gadgets|tercihlerinde]] özel [[Special:Gadgets|CSS ve JavaScript gadgetlerini]] seçmelerine izin verir",

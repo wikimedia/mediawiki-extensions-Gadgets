@@ -1,23 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
+			"Adam-Yourist",
 			"Ahonc",
 			"Eleferen",
+			"Frhdkazan",
 			"Ignatus",
 			"Illusion",
-			"Kaganer",
-			"MaxSem",
-			"VasilievVV",
-			"Александр Сигачёв",
-			"Okras",
-			"NBS",
-			"Frhdkazan",
-			"Лилиә",
-			"Ping08",
-			"Mailman",
 			"Jack who built the house",
-			"Adam-Yourist",
-			"Vlad5250"
+			"Kaganer",
+			"Mailman",
+			"MaxSem",
+			"NBS",
+			"Okras",
+			"Ping08",
+			"VasilievVV",
+			"Vlad5250",
+			"Александр Сигачёв",
+			"Лилиә"
 		]
 	},
 	"gadgets-desc": "Позволяет участникам выбирать в своих [[Special:Preferences#mw-prefsection-gadgets|настройках]] те или иные [[Special:Gadgets|CSS- и JavaScript-гаджеты]]",

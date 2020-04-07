@@ -1,19 +1,19 @@
 {
 	"@metadata": {
 		"authors": [
+			"2nd-player",
 			"Aotake",
 			"Fryed-peach",
 			"JtFuruhata",
 			"Mzm5zbC3",
+			"Omotecho",
+			"Otokoume",
 			"Shirayuki",
-			"Whym",
-			"青子守歌",
 			"SkyDaisy9",
 			"Sujiniku",
-			"Otokoume",
-			"2nd-player",
+			"Whym",
 			"Yusuke1109",
-			"Omotecho"
+			"青子守歌"
 		]
 	},
 	"gadgets-desc": "利用者が [[Special:Gadgets|CSS や JavaScript のカスタム ガジェット]]を[[Special:Preferences#mw-prefsection-gadgets|{{int:preferences}}]]で選択できるようにする",

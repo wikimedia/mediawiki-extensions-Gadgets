@@ -1,10 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"CptViraj",
 			"Dsvyas",
 			"KartikMistry",
-			"Sushant savla",
-			"CptViraj"
+			"Sushant savla"
 		]
 	},
 	"gadgets-desc": "સભ્યોને  [[Special:Preferences#mw-prefsection-gadgets|મારી પસંદ]] માં પોતાના [[Special:Gadgets|CSS અને JavaScript ગેજેટ્સ]]  પસંદ કરવા દે છે.",

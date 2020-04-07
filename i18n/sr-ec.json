@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Acamicamacaraca",
+			"BadDog",
 			"Milicevic01",
 			"Millosh",
 			"Nikola Smolenski",
 			"Rancher",
 			"Жељко Тодоровић",
-			"Сербијана",
-			"Acamicamacaraca",
-			"BadDog"
+			"Сербијана"
 		]
 	},
 	"gadgets-desc": "Омогућава корисницима да изаберу прилагођене [[Special:Gadgets|CSS и јаваскрипт справице]] у својим [[Special:Preferences#mw-prefsection-gadgets|подешавањима]]",
