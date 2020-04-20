@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Candalua",
+			"Fierodelveneto",
 			"GatoSelvadego"
 		]
 	},
@@ -19,5 +20,6 @@
 	"gadgets-export-title": "Esporta acessorio",
 	"gadgets-not-found": "Acessorio \"$1\" mia catà.",
 	"gadgets-export-text": "Par esportar el gadget $1, struca \"{{int:gadgets-export-download}}\", salva el file, va su Special:Import de la wiki de destinassion e carichelo. Dopo zonta sta roba qua su MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nTe serve i parmessi su la wiki de destinassion (compreso quelo de modificar i messaji de sistema) e l'inportassion dei file la deve essar ativà.",
-	"gadgets-export-download": "Descarga"
+	"gadgets-export-download": "Descarga",
+	"action-gadgets-definition-edit": "modifegare ła definision de sto gadget"
 }
