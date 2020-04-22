@@ -36,16 +36,16 @@
 	"gadgets-required-rights": "Aşağıda gösterilen {{PLURAL:$2|hak|haklar}} gereklidir:\n\n$1",
 	"gadgets-required-skins": "Kullanılabilecek {{PLURAL:$2|$1 tema|temalar: $1}}.",
 	"gadgets-default": "Herkes için varsayılan olarak etkindir.",
-	"gadgets-legacy": "Gadget yüklenmedi. Lütfen ResourceLoader'a taşıyın. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Daha fazla bilgi edinin])",
+	"gadgets-legacy": "Küçük aracı yüklenmedi. Lütfen ResourceLoader'a taşıyın. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Daha fazla bilgi edinin])",
 	"gadgets-export": "Dışa aktar",
-	"gadgets-export-title": "Gadget dışa aktarımı",
-	"gadgets-not-found": "Gadget \"$1\" bulunamadı.",
+	"gadgets-export-title": "Küçük araç dışa aktarımı",
+	"gadgets-not-found": "Küçük araç \"$1\" bulunamadı.",
 	"gadgets-export-text": "$1 gadgetini dışa aktarmak için \"{{int:gadgets-export-download}}\" düğmesine tıklayın, yüklenen dosyayı kaydedin, hedef vikide Special:Import sayfasına gidin ve yükleyin. Sonra aşağıdakini MediaWiki:Gadgets-definition sayfasına ekleyin:\n<pre>$2</pre>\nHedef vikide uygun izinlerinizin olması (sistem mesajlarını değiştirmek yetkisi dahil) ve dosyadan içe aktarmanın etkinleştirilmiş olması gerekir.",
 	"gadgets-export-download": "İndir",
 	"gadgets-validate-notset": "<code>$1</code> özelliği ayarlanmadı.",
 	"gadgets-validate-wrongtype": "<code>$1</code> özelliği, <code>$3</code> yerine <code>$2</code> türünde olmalıdır.",
-	"right-gadgets-edit": "Gadget, JavaScript ve CSS sayfalarını düzenle",
-	"action-gadgets-edit": "bu gadget JavaScript veya CSS sayfasını düzenle",
-	"right-gadgets-definition-edit": "Gadget tanımlarını düzenle",
-	"action-gadgets-definition-edit": "bu gadget tanımını düzenle"
+	"right-gadgets-edit": "Küçük araç, JavaScript ve CSS sayfalarını düzenle",
+	"action-gadgets-edit": "bu küçük aracı JavaScript veya CSS sayfasını düzenle",
+	"right-gadgets-definition-edit": "Küçük araç tanımlarını düzenle",
+	"action-gadgets-definition-edit": "bu küçük araç tanımını düzenle"
 }
