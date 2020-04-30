@@ -14,5 +14,6 @@
 	"gadgets-uses": "Ol uzas",
 	"gadgets-export": "Exportacar",
 	"gadgets-export-text": "Por exportacar la ''gadget'' $1, kliktez la butono \"{{int:gadgets-export-download}}\", konservez l'arkivo deskargata,\nirez al Special:Import en la Wiki skopo, e sendez ol. Pose, adjuntez a la pagino MediaWiki:Gadgets-definition la sequanta defino:\n<pre>$2</pre>\nVu mustas havar specala permisi en la Wiki skopo (inkluzite yuro por revizar la mesaji dil sistemo), ed importacar del arkivi sendita mustas esar permisata.",
+	"gadgets-export-download": "Deskargar",
 	"right-gadgets-definition-edit": "Redaktar la defini dil ''gadget''-i"
 }
