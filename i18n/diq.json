@@ -38,6 +38,7 @@
 	"gadgets-validate-notset": "Xısusiyetê <code>$1</code> saz nêbiyo .",
 	"gadgets-validate-wrongtype": "Xısusiyetê <code>$1</code>, heruna <code>$3</code> dê wa zey <code>$2</code> bıbo .",
 	"right-gadgets-edit": "Haceta, JavaScript u pelanê CSS bıvurnê",
+	"action-gadgets-edit": "nê haceti JavaScript yana pela CSS bıvurnê",
 	"right-gadgets-definition-edit": "Hacet weçine bıvurne",
 	"action-gadgets-definition-edit": "Ena Hacet weçine bıvurne"
 }
