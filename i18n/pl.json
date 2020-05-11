@@ -31,7 +31,7 @@
 	"gadgets-required-rights": "Wymaga {{PLURAL:$2|uprawnienia|następujących uprawnień:}}\n\n$1",
 	"gadgets-required-skins": "Działa wyłącznie ze {{PLURAL:$2|skórką $1|skórkami: $1}}.",
 	"gadgets-default": "Domyślnie włączone dla wszystkich.",
-	"gadgets-legacy": "Gadżet nie został załadowany. Proszę dokonać migracji do ResourceLoadera. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Dowiedz się więcej])",
+	"gadgets-legacy": "Gadżet nie został załadowany. Proszę dokonać migracji do ResourceLoadera. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Dowiedz się więcej])",
 	"gadgets-export": "Eksportuj",
 	"gadgets-export-title": "Eksportowanie gadżetów",
 	"gadgets-not-found": "Nie odnaleziono gadżetu „$1”.",

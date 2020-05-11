@@ -26,7 +26,7 @@
 	"gadgets-required-rights": "Krever følgende {{PLURAL:$2|rettighet|rettigheter}}:\n\n$1",
 	"gadgets-required-skins": "Tilgjengelig i {{PLURAL:$2|drakta $1|følgende drakter: $1}}.",
 	"gadgets-default": "Aktivert for alle som standard",
-	"gadgets-legacy": "Tilleggsfunksjonen ble ikke lastet. Vennligst gå over til å bruke ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Lær mer])",
+	"gadgets-legacy": "Tilleggsfunksjonen ble ikke lastet. Vennligst gå over til å bruke ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Lær mer])",
 	"gadgets-export": "Eksporter",
 	"gadgets-export-title": "Tilleggsfunksjon eksport",
 	"gadgets-not-found": "Tilleggsfunksjon «$1» ikke funnet.",

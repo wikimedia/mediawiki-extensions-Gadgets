@@ -19,7 +19,7 @@
 	"gadgets-required-rights": "maydih isasa’ay a {{PLURAL:$2|tungus}}：\n\n$1",
 	"gadgets-required-skins": "kapah misanga’ i{{PLURAL:$2|$1 nuhekalan|cudad i sasa nuhekalan: $1}}.",
 	"gadgets-default": "sacahamin tademaw pataayaw tu kawaw miwawah",
-	"gadgets-legacy": "caay pacumud adidi’ay sakaluk, papisaungay ResourceLoader.\n([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) mizateng tu yadah])",
+	"gadgets-legacy": "caay pacumud adidi’ay sakaluk, papisaungay ResourceLoader.\n([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) mizateng tu yadah])",
 	"gadgets-export": "patahkal",
 	"gadgets-export-title": "patahkal adidi’ay a sakaluk",
 	"gadgets-not-found": "inayi’ adidi’ay sakaluk \"$1\".",

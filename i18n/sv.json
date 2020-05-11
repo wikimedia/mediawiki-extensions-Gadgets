@@ -30,7 +30,7 @@
 	"gadgets-required-rights": "Kräver följande {{PLURAL:$2|rättighet|rättigheter}}:\n\n$1",
 	"gadgets-required-skins": "Tillgängligt i {{PLURAL:$2|$1-utseendet|följande utseenden: $1}}.",
 	"gadgets-default": "Som standard aktiverat för alla.",
-	"gadgets-legacy": "Finessen är inte inläst. Migrera till ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Läs mer])",
+	"gadgets-legacy": "Finessen är inte inläst. Migrera till ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Läs mer])",
 	"gadgets-export": "Exportera",
 	"gadgets-export-title": "Exportera finess",
 	"gadgets-not-found": "Tillägg \"$1\" hittades inte.",

@@ -33,7 +33,7 @@
 	"gadgets-required-rights": "Requer {{PLURAL:$2|o seguinte privilégio|os seguintes privilégios}}:\n\n$1",
 	"gadgets-required-skins": "Disponível {{PLURAL:$2|no skin $1|nos seguintes skins: $1}}.",
 	"gadgets-default": "Ativado para todos por padrão.",
-	"gadgets-legacy": "O gadget não está carregado. Por favor, migre para ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Mais informacões])",
+	"gadgets-legacy": "O gadget não está carregado. Por favor, migre para ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Mais informacões])",
 	"gadgets-export": "Exportar",
 	"gadgets-export-title": "Exportar gadgets",
 	"gadgets-not-found": "O gadget \"$1\" não encontrado.",

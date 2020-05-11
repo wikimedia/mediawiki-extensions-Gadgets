@@ -22,7 +22,7 @@
 	"gadgets-required-rights": "Richiede {{PLURAL:$2|deritte|deritte}}:\n\n$1",
 	"gadgets-required-skins": "Disponibbele sus a {{PLURAL:$2|$1 'u skin|le seguende skin: $1}}.",
 	"gadgets-default": "Abbilete pe ogneune pe default.",
-	"gadgets-legacy": "Accessorie non caricate. Migre a ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) pe cchiù 'mbormaziune])",
+	"gadgets-legacy": "Accessorie non caricate. Migre a ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) pe cchiù 'mbormaziune])",
 	"gadgets-export": "Esporte",
 	"gadgets-export-title": "Esporte 'u gadget",
 	"gadgets-not-found": "Gadget \"$1\" none acchiate.",

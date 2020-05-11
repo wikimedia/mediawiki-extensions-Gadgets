@@ -29,7 +29,7 @@
 	"gadgets-required-rights": "{{PLURAL:$2|1=Патрабуецца права|Патрабуюцца наступныя правы}}:\n\n$1",
 	"gadgets-required-skins": "Даступны ў {{PLURAL:$2|1=тэме $1|наступных тэмах: $1}}.",
 	"gadgets-default": "Дазволеныя для ўсіх па змоўчваньні.",
-	"gadgets-legacy": "Інструмэнт не загружаны. Калі ласка, перанясіце на ResourceLoader ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Даведацца болей]).",
+	"gadgets-legacy": "Інструмэнт не загружаны. Калі ласка, перанясіце на ResourceLoader ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Даведацца болей]).",
 	"gadgets-export": "Экспартаваць",
 	"gadgets-export-title": "Экспарт гаджэта",
 	"gadgets-not-found": "Гаджэт «$1» ня знойдзены.",

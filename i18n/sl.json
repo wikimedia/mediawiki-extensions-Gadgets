@@ -25,7 +25,7 @@
 	"gadgets-required-rights": "Zahteva {{PLURAL:$2|naslednjo pravico|naslednji pravici|naslednje pravice}}:\n\n$1",
 	"gadgets-required-skins": "Na voljo na {{PLURAL:$2|koži $1|naslednjih kožah: $1}}.",
 	"gadgets-default": "Privzeto omogočeno za vsakogar.",
-	"gadgets-legacy": "Vtičnik ni naložen. Prosimo, preidi na ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Poizvedi več])",
+	"gadgets-legacy": "Vtičnik ni naložen. Prosimo, preidi na ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Poizvedi več])",
 	"gadgets-export": "Izvozi",
 	"gadgets-export-title": "Izvoz vtičnika",
 	"gadgets-not-found": "Vtičnika »$1« ni mogoče najti.",

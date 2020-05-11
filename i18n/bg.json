@@ -30,7 +30,7 @@
 	"gadgets-required-rights": "Изисква {{PLURAL:$2|следното потребителско право|следните потребителски права}}:\n\n$1",
 	"gadgets-required-skins": "Джаджата е достъпна в {{PLURAL:$2|облик „$1“|следните облици: „$1“}}.",
 	"gadgets-default": "Активирана за всички по подразбиране.",
-	"gadgets-legacy": "Джаджата не е заредена. Моля, мигрирайте към ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) научете повече])",
+	"gadgets-legacy": "Джаджата не е заредена. Моля, мигрирайте към ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) научете повече])",
 	"gadgets-export": "Изнасяне",
 	"gadgets-export-title": "Експорт на джаджи",
 	"gadgets-not-found": "Джаджа „$1“ не беше намерена.",

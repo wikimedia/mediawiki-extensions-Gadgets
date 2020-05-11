@@ -39,7 +39,7 @@
 	"gadgets-required-rights": "需要以下{{PLURAL:$2|權限|權限}}：\n\n$1",
 	"gadgets-required-skins": "可用於{{PLURAL:$2|$1 外觀|下列外觀：$1}}。",
 	"gadgets-default": "所有人預設開啟。",
-	"gadgets-legacy": "未載入小工具，請改使用 ResourceLoader。\n([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) 了解更多])",
+	"gadgets-legacy": "未載入小工具，請改使用 ResourceLoader。\n([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) 了解更多])",
 	"gadgets-export": "匯出",
 	"gadgets-export-title": "匯出小工具",
 	"gadgets-not-found": "查無小工具 \"$1\"。",

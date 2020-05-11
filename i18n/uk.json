@@ -35,7 +35,7 @@
 	"gadgets-required-rights": "{{PLURAL:$2|1=Потрібне право|Потрібні такі права}}:\n\n$1",
 	"gadgets-required-skins": "Доступний на {{PLURAL:$2|1=$1 skin|наступних темах оформлення: $1}}.",
 	"gadgets-default": "Увімкнено для всіх за замовчуванням.",
-	"gadgets-legacy": "Додаток не завантажено. Будь ласка, здійсніть міграцію на ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Дізнатися більше])",
+	"gadgets-legacy": "Додаток не завантажено. Будь ласка, здійсніть міграцію на ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Дізнатися більше])",
 	"gadgets-export": "Експортувати",
 	"gadgets-export-title": "Експорт додатка",
 	"gadgets-not-found": "Додаток \"$1\" не знайдено.",

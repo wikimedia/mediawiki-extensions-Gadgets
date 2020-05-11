@@ -23,7 +23,7 @@
 	"gadgets-required-rights": "Rique{{PLURAL:$2|'l siguiente permisu| los siguientes permisos}}:\n\n$1",
 	"gadgets-required-skins": "Disponible {{PLURAL:$2|nel aspeutu $1|nos siguientes aspeutos: $1}}.",
 	"gadgets-default": "Activáu para toos de mou predetermináu.",
-	"gadgets-legacy": "L'accesoriu nun ta cargáu. Migra a ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Saber más])",
+	"gadgets-legacy": "L'accesoriu nun ta cargáu. Migra a ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Saber más])",
 	"gadgets-export": "Esportar",
 	"gadgets-export-title": "Esportación d'accesorios",
 	"gadgets-not-found": "Nun s'alcontró l'accesoriu \"$1\".",

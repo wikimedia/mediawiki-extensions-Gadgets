@@ -30,7 +30,7 @@
 	"gadgets-required-rights": "يتطلب {{PLURAL:$2|الحق|الحقوق}} التالية:\n\n$1",
 	"gadgets-required-skins": "متاحة على {{PLURAL:$2|$1 skin|following skins: $1}}.",
 	"gadgets-default": "تمكين الجميع بشكل افتراضي.",
-	"gadgets-legacy": "الإضافة لم يتم تحميلها. من فضلك تحول إلى ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) اعرف المزيد])",
+	"gadgets-legacy": "الإضافة لم يتم تحميلها. من فضلك تحول إلى ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) اعرف المزيد])",
 	"gadgets-export": "صدّر",
 	"gadgets-export-title": "أداة تصدير",
 	"gadgets-not-found": "الأداة \"$1\" لم يتم العثور عليها.",

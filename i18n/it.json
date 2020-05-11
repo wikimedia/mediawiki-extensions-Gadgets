@@ -32,7 +32,7 @@
 	"gadgets-required-rights": "Richiede {{PLURAL:$2|il seguente diritto|i seguenti diritti}}:\n\n$1",
 	"gadgets-required-skins": "Disponibile {{PLURAL:$2|per il tema $1|per i seguenti temi: $1}}.",
 	"gadgets-default": "Attivato per tutti, per impostazione predefinita.",
-	"gadgets-legacy": "Accessorio non caricato. Migra a ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Per saperne di più])",
+	"gadgets-legacy": "Accessorio non caricato. Migra a ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Per saperne di più])",
 	"gadgets-export": "Esporta",
 	"gadgets-export-title": "Esporta accessorio",
 	"gadgets-not-found": "Accessorio \"$1\" non trovato.",

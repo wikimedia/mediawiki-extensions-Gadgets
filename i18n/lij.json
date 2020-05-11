@@ -22,7 +22,7 @@
 	"gadgets-required-rights": "Ghe voeu {{PLURAL:$2|o seguente drito|i seguenti driti}}:\n\n$1",
 	"gadgets-required-skins": "Disponibbile {{PLURAL:$2|pe-a pelle $1|pe-e seguente pelle: $1}}.",
 	"gadgets-default": "Attivou pe tutti pe impostassion predefinia.",
-	"gadgets-legacy": "Angæzo non caregou. Migra a ResourceLoader. ([https://www.mediawiki.org/wiki/ResourceLoader/Migration_guide_(users) Pe saveine de ciù])",
+	"gadgets-legacy": "Angæzo non caregou. Migra a ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Pe saveine de ciù])",
 	"gadgets-export": "Esporta",
 	"gadgets-export-title": "Esporta angæzo",
 	"gadgets-not-found": "Angæzo \"$1\" non trovou.",
