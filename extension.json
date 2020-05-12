@@ -96,8 +96,12 @@
 		"DeleteUnknownPreferences": "GadgetHooks::onDeleteUnknownPreferences"
 	},
 	"config": {
-		"GadgetsRepoClass": "MediaWikiGadgetsDefinitionRepo",
-		"SpecialGadgetUsageActiveUsers": true
+		"GadgetsRepoClass": {
+			"value": "MediaWikiGadgetsDefinitionRepo"
+		},
+		"SpecialGadgetUsageActiveUsers": {
+			"value": true
+		}
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
