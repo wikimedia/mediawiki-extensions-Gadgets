@@ -16,7 +16,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	 * How long in seconds the list of gadget ids and
 	 * individual gadgets should be cached for (1 day)
 	 */
-	const CACHE_TTL = 86400;
+	private const CACHE_TTL = 86400;
 
 	/**
 	 * @var WANObjectCache

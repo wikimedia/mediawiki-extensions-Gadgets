@@ -9,7 +9,7 @@ use Wikimedia\Rdbms\Database;
  * Gadgets repo powered by MediaWiki:Gadgets-definition
  */
 class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
-	const CACHE_VERSION = 2;
+	private const CACHE_VERSION = 2;
 
 	private $definitionCache;
 
