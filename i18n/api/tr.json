@@ -16,7 +16,7 @@
 	"apihelp-query+gadgets-param-prop": "Küçük aracı bilgilerini alacaksınız:\n;id:İç küçük aracı kimliği.\n;meta:Küçük araç meta verisi.\n;desc:Küçük aracı açıklama HTML'si (yavaş olabilir, gerçekten gerekirse yalnızca kullanmak olabilir) dönüştü.",
 	"apihelp-query+gadgets-param-categories": "Almak için ne gelen araçlar.",
 	"apihelp-query+gadgets-param-ids": "Araçların kimliği almak için.",
-	"apihelp-query+gadgets-param-allowedonly": "Liste sadece araçlar geçerli kullanıcı için izin verdi.",
+	"apihelp-query+gadgets-param-allowedonly": "Yalnızca geçerli kullanıcıya izin verilen küçük araçları listeleyin.",
 	"apihelp-query+gadgets-param-enabledonly": "Yalnızca geçerli kullanıcı tarafından etkinleştirilen gadgetları listeleyin.",
 	"apihelp-query+gadgets-example-1": "Açıklamalarıyla birlikte gadgetların bir listesini alın",
 	"apihelp-query+gadgets-example-2": "Olası tüm özelliklere sahip gadgetların bir listesini alın",
