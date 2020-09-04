@@ -27,7 +27,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	public const GADGET_CLASS_VERSION = 13;
+	public const GADGET_CLASS_VERSION = 14;
 
 	public const CACHE_TTL = 86400;
 
@@ -57,6 +57,8 @@ class Gadget {
 	private $requiredActions = [];
 	/** @var string[] */
 	private $requiredSkins = [];
+	/** @var int[] */
+	private $requiredNamespaces = [];
 	/** @var string[] used in Gadget::isTargetSupported */
 	private $targets = [ 'desktop', 'mobile' ];
 	/** @var bool */
@@ -88,6 +90,7 @@ class Gadget {
 				case 'requiredRights':
 				case 'requiredActions':
 				case 'requiredSkins':
+				case 'requiredNamespaces':
 				case 'targets':
 				case 'onByDefault':
 				case 'type':
@@ -126,6 +129,7 @@ class Gadget {
 			'package' => $data['settings']['package'],
 			'peers' => $data['module']['peers'],
 			'requiredActions' => $data['settings']['actions'],
+			'requiredNamespaces' => $data['settings']['namespaces'],
 			'requiredRights' => $data['settings']['rights'],
 			'requiredSkins' => $data['settings']['skins'],
 			'requiresES6' => $data['settings']['requiresES6'],
@@ -154,6 +158,7 @@ class Gadget {
 			'package' => $this->package,
 			'peers' => $this->peers,
 			'requiredActions' => $this->requiredActions,
+			'requiredNamespaces' => $this->requiredNamespaces,
 			'requiredRights' => $this->requiredRights,
 			'requiredSkins' => $this->requiredSkins,
 			'requiresES6' => $this->requiresES6,
@@ -279,7 +284,9 @@ class Gadget {
 	}
 
 	/**
-	 * @param string $action The action name
+	 * Whether to load the gadget on a given page action.
+	 *
+	 * @param string $action Action name
 	 * @return bool
 	 */
 	public function isActionSupported( string $action ): bool {
@@ -291,6 +298,18 @@ class Gadget {
 			$action = 'edit';
 		}
 		return in_array( $action, $this->requiredActions, true );
+	}
+
+	/**
+	 * Whether to load the gadget on pages in a given namespace ID.
+	 *
+	 * @param int $namespace Namespace ID
+	 * @return bool
+	 */
+	public function isNamespaceSupported( int $namespace ) {
+		return ( count( $this->requiredNamespaces ) === 0
+			|| in_array( $namespace, $this->requiredNamespaces )
+		);
 	}
 
 	/**
@@ -309,7 +328,7 @@ class Gadget {
 	/**
 	 * Check if this gadget is compatible with a skin
 	 *
-	 * @param Skin $skin The skin to check against
+	 * @param Skin $skin
 	 * @return bool
 	 */
 	public function isSkinSupported( Skin $skin ) {
@@ -431,11 +450,19 @@ class Gadget {
 	}
 
 	/**
-	 * Returns array of page actions on which the gadget runs
+	 * Returns array of page actions on which the gadget loads
 	 * @return string[]
 	 */
 	public function getRequiredActions() {
 		return $this->requiredActions;
+	}
+
+	/**
+	 * Returns array of namespaces in which this gadget loads
+	 * @return int[]
+	 */
+	public function getRequiredNamespaces() {
+		return $this->requiredNamespaces;
 	}
 
 	/**

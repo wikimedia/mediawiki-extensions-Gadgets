@@ -260,6 +260,25 @@ class SpecialGadgets extends SpecialPage {
 					$needLineBreakAfter = true;
 				}
 
+				// Portion: Show required namespaces (optional)
+				$namespaces = $gadget->getRequiredNamespaces();
+				if ( $namespaces ) {
+					if ( $needLineBreakAfter ) {
+						$output->addHTML( '<br />' );
+					}
+					$output->addHTML(
+						$this->msg(
+							'gadgets-required-namespaces',
+							$lang->commaList( array_map( function ( int $ns ) use ( $lang ) {
+								return $ns == NS_MAIN
+									? $this->msg( 'blanknamespace' )->text()
+									: $lang->getFormattedNsText( $ns );
+							}, $namespaces ) )
+						)->numParams( count( $namespaces ) )->parse()
+					);
+					$needLineBreakAfter = true;
+				}
+
 				if ( $gadget->supportsUrlLoad() ) {
 					if ( $needLineBreakAfter ) {
 						$output->addHTML( '<br />' );

@@ -46,10 +46,17 @@
 					}
 				},
 				"actions": {
-					"description": "Page actions on which the gadget is supported",
+					"description": "Page actions on which to load the gadget",
 					"type": "array",
 					"items": {
 						"type": "string"
+					}
+				},
+				"namespaces": {
+					"description": "Page namespaces in which to load the gadget",
+					"type": "array",
+					"items": {
+						"type": "number"
 					}
 				},
 				"category": {

@@ -257,6 +257,9 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 				case 'skins':
 					$info['requiredSkins'] = $params;
 					break;
+				case 'namespaces':
+					$info['requiredNamespaces'] = $params;
+					break;
 				case 'default':
 					$info['onByDefault'] = true;
 					break;

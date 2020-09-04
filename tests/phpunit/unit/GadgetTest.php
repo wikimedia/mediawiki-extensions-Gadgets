@@ -31,6 +31,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 				'actions' => [],
 				'targets' => [ 'desktop' ],
 				'skins' => [],
+				'namespaces' => [],
 				'category' => 'misc',
 				'supportsUrlLoad' => false,
 				'requiresES6' => false,
@@ -193,6 +194,29 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$gMultiActions = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|actions=unknown,history]|bar.js' );
 		$this->assertTrue( $gMultiActions->isActionSupported( 'history' ) );
 		$this->assertFalse( $gMultiActions->isActionSupported( 'view' ) );
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::isNamespaceSupported
+	 */
+	public function testNamespacesTag() {
+		$gUnsetNamespace = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
+		$gNamespace0 = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|namespaces=0]|bar.js' );
+		$gNamespace1 = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|namespaces=1]|bar.js' );
+		$gMultiNamespace = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|namespaces=1,2,3,4]|bar.js' );
+
+		$this->assertTrue( $gUnsetNamespace->isNamespaceSupported( 5 ) );
+
+		$this->assertTrue( $gNamespace0->isNamespaceSupported( 0 ) );
+		$this->assertFalse( $gNamespace0->isNamespaceSupported( 2 ) );
+
+		$this->assertTrue( $gNamespace1->isNamespaceSupported( 1 ) );
+		$this->assertFalse( $gNamespace1->isNamespaceSupported( 2 ) );
+
+		$this->assertTrue( $gMultiNamespace->isNamespaceSupported( 1 ) );
+		$this->assertTrue( $gMultiNamespace->isNamespaceSupported( 2 ) );
+		$this->assertFalse( $gMultiNamespace->isNamespaceSupported( 5 ) );
 	}
 
 	/**

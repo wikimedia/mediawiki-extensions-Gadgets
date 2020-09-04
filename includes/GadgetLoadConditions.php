@@ -33,6 +33,8 @@ class GadgetLoadConditions {
 	private $skin;
 	/** @var string */
 	private $action;
+	/** @var int */
+	private $namespace;
 	/** @var bool */
 	private $isMobileView;
 	/** @var string|null */
@@ -45,6 +47,7 @@ class GadgetLoadConditions {
 		$this->user = $out->getUser();
 		$this->skin = $out->getSkin();
 		$this->action = $out->getContext()->getActionName();
+		$this->namespace = $out->getTitle()->getNamespace();
 		$this->withGadgetParam = $out->getRequest()->getRawVal( 'withgadget' );
 		$this->isMobileView = $isMobileView;
 	}
@@ -60,6 +63,7 @@ class GadgetLoadConditions {
 			&& $gadget->isAllowed( $this->user )
 			&& $gadget->isActionSupported( $this->action )
 			&& $gadget->isSkinSupported( $this->skin )
+			&& $gadget->isNamespaceSupported( $this->namespace )
 			&& $gadget->isTargetSupported( $this->isMobileView );
 	}
 }
