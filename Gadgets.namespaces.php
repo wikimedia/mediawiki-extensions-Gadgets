@@ -261,6 +261,13 @@ $namespaceNames['pnb'] = [
 	NS_GADGET_DEFINITION_TALK => 'آلہ_تعریف_گل_بات',
 ];
 
+$namespaceNames['ro'] = [
+	NS_GADGET => 'Gadget',
+	NS_GADGET_TALK => 'Discuție_Gadget',
+	NS_GADGET_DEFINITION => 'Definiție_gadget',
+	NS_GADGET_DEFINITION_TALK => 'Discuție_Definiție_gadget',
+];
+
 $namespaceNames['ru'] = [
 	NS_GADGET => 'Гаджет',
 	NS_GADGET_TALK => 'Обсуждение_гаджета',
