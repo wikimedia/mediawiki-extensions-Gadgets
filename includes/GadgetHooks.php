@@ -280,6 +280,10 @@ class GadgetHooks {
 		$out->addHTML( WrappedString::join( "\n", $strings ) );
 	}
 
+	/**
+	 * @param string $id
+	 * @return string|WrappedString HTML
+	 */
 	private static function makeLegacyWarning( $id ) {
 		$special = SpecialPage::getTitleFor( 'Gadgets' );
 

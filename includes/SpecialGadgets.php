@@ -29,6 +29,10 @@ class SpecialGadgets extends SpecialPage {
 		}
 	}
 
+	/**
+	 * @param string $gadgetName
+	 * @return string
+	 */
 	private function makeAnchor( $gadgetName ) {
 		return 'gadget-' . Sanitizer::escapeIdForAttribute( $gadgetName );
 	}

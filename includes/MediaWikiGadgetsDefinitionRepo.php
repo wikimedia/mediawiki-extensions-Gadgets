@@ -52,6 +52,9 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		$cache->touchCheckKey( $this->getDefinitionCacheKey() );
 	}
 
+	/**
+	 * @return string
+	 */
 	private function getDefinitionCacheKey() {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 
