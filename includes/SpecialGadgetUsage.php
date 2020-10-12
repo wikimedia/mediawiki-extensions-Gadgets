@@ -273,6 +273,9 @@ class SpecialGadgetUsage extends QueryPage {
 		}
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getGroupName() {
 		return 'wiki';
 	}

@@ -262,6 +262,9 @@ class SpecialGadgets extends SpecialPage {
 			->displayForm( false );
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getGroupName() {
 		return 'wiki';
 	}
