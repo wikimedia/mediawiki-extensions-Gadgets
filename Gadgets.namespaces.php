@@ -303,11 +303,18 @@ $namespaceNames['shn'] = [
 	NS_GADGET_DEFINITION_TALK => 'ဢုပ်ႇၵုမ်_ပိုတ်ႇတီႈပွင်ႇ_ၶိူင်ႈပိတ်းပွတ်း',
 ];
 
-$namespaceNames['sr'] = [
+$namespaceNames['sr-ec'] = [
 	NS_GADGET => 'Справица',
 	NS_GADGET_TALK => 'Разговор_о_справици',
 	NS_GADGET_DEFINITION => 'Дефиниција_справице',
 	NS_GADGET_DEFINITION_TALK => 'Разговор_о_дефиницији_справице',
+];
+
+$namespaceNames['sr-el'] = [
+	NS_GADGET => 'Spravica',
+	NS_GADGET_TALK => 'Razgovor_o_spravici',
+	NS_GADGET_DEFINITION => 'Definicija_spravice',
+	NS_GADGET_DEFINITION_TALK => 'Razgovor_o_definiciji_spravice',
 ];
 
 $namespaceNames['ti'] = [
