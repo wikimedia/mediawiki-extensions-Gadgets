@@ -36,7 +36,7 @@ $specialPageAliases['as'] = [
 
 /** Avaric (авар) */
 $specialPageAliases['av'] = [
-	'Gadgets' => [ 'Гаджеты' ],
+	'Gadgets' => [ 'Гаджетал', 'Гаджеты' ],
 ];
 
 /** Bulgarian (български) */

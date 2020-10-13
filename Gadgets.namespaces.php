@@ -37,6 +37,13 @@ $namespaceNames['atj'] = [
 	NS_GADGET_DEFINITION_TALK => 'Ka_ici_aimihitonaniwok_tipatcitcikan_gadget_otci',
 ];
 
+$namespaceNames['av'] = [
+	NS_GADGET => 'Гаджет',
+	NS_GADGET_TALK => 'Гаджеталъул_бахӀс',
+	NS_GADGET_DEFINITION => 'Гаджеталъул_баян_чӀезаби',
+	NS_GADGET_DEFINITION_TALK => 'Гаджеталъул_баян_чӀезабиялъул_бахӀс',
+];
+
 $namespaceNames['azb'] = [
 	NS_GADGET => 'آلت',
 	NS_GADGET_TALK => 'آلت_دانیشیغی',
