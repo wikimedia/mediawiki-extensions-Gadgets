@@ -50,7 +50,7 @@ class SpecialGadgetUsage extends QueryPage {
 	/**
 	 * Flag for holding the value of config variable SpecialGadgetUsageActiveUsers
 	 *
-	 * @var bool $activeUsers
+	 * @var bool
 	 */
 	public $activeUsers;
 
