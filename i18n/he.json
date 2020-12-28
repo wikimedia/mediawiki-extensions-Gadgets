@@ -26,7 +26,7 @@
 	"gadgets-required-rights": "{{PLURAL:$2|נדרשת ההרשאה הבאה|נדרשות ההרשאות הבאות}}:\n\n$1",
 	"gadgets-required-skins": "זמין {{PLURAL:$2|בערכות העיצוב הבאות: $1|בערכת העיצוב $1}}",
 	"gadgets-default": "מופעל לכולם כברירת מחדל.",
-	"gadgets-legacy": "הגאדג'ט לא נטען. נא לעדכן לשימוש ב־ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) מידע נוסף])",
+	"gadgets-legacy": "הגאדג'ט אינו טעון. נא לעדכן לשימוש ב־ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) מידע נוסף])",
 	"gadgets-export": "ייצוא",
 	"gadgets-export-title": "ייצוא גאדג'טים",
 	"gadgets-not-found": "הגאדג׳ט \"$1\" לא נמצא.",
