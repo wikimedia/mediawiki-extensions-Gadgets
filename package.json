@@ -1,15 +1,15 @@
 {
-  "name": "gadgets",
-  "version": "0.0.0",
-  "private": true,
-  "description": "Build tools for the Gadgets extension.",
-  "scripts": {
-    "test": "grunt test"
-  },
-  "devDependencies": {
-    "grunt": "1.0.2",
-    "grunt-banana-checker": "0.6.0",
-    "grunt-contrib-jshint": "1.1.0",
-    "grunt-jsonlint": "1.1.0"
-  }
+	"name": "gadgets",
+	"version": "0.0.0",
+	"private": true,
+	"description": "Build tools for the Gadgets extension.",
+	"scripts": {
+		"test": "grunt test"
+	},
+	"devDependencies": {
+		"grunt": "1.3.0",
+		"grunt-banana-checker": "0.6.0",
+		"grunt-contrib-jshint": "1.1.0",
+		"grunt-jsonlint": "1.1.0"
+	}
 }
