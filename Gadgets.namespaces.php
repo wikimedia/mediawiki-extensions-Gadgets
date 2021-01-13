@@ -9,6 +9,13 @@ if ( !defined( 'NS_GADGET' ) ) {
 	define( 'NS_GADGET_DEFINITION_TALK', 2303 );
 }
 
+$namespaceNames['alt'] = [
+	NS_GADGET => 'Гаджет',
+	NS_GADGET_TALK => 'Гаджетти_шӱӱжери',
+	NS_GADGET_DEFINITION => 'Гаджетти_аайлары',
+	NS_GADGET_DEFINITION_TALK => 'Гаджеттиҥ_аайларын_шӱӱжери',
+];
+
 $namespaceNames['an'] = [
 	NS_GADGET => 'Accesorio',
 	NS_GADGET_TALK => 'Descusión_accesorio',
