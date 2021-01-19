@@ -183,7 +183,10 @@ class Gadget {
 	 * @return bool
 	 */
 	public function isAllowed( User $user ) {
-		return $user->isAllowedAll( ...$this->requiredRights );
+		if ( count( $this->requiredRights ) ) {
+			return $user->isAllowedAll( ...$this->requiredRights );
+		}
+		return true;
 	}
 
 	/**
