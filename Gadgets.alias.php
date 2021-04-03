@@ -297,6 +297,7 @@ $specialPageAliases['pa'] = [
 /** Polish (polski) */
 $specialPageAliases['pl'] = [
 	'Gadgets' => [ 'Gadżety' ],
+	'GadgetUsage' => [ 'Użycie_gadżetów', 'Statystyki_gadżetów' ],
 ];
 
 /** Romanian (română) */
