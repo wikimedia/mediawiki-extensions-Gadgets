@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Hello903hello",
 			"Moon0319",
 			"Shinjiman"
 		]
@@ -11,5 +12,8 @@
 	"gadgets": "架撐仔",
 	"gadgets-title": "架撐仔",
 	"gadgets-pagetext": "下面係一個按照[[MediaWiki:Gadgets-definition]]嘅定義特別小工具清單，用戶可以響佢哋嘅喜好設定頁度開佢哋。\n呢個概覽提供嘅系統信息頁嘅簡易存取，可以定義每個小工具嘅描述同埋碼。",
-	"gadgets-uses": "用"
+	"gadgets-uses": "用",
+	"gadgets-required-rights": "需要下列{{PLURAL:$2|權限}}：\n\n$1",
+	"gadgets-legacy": "無載入到呢個架生仔。請改用ResourceLoader。（[https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) 知多啲]）",
+	"gadgets-export": "匯出"
 }
