@@ -37,7 +37,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 	 * @return string
 	 */
 	protected function getContentClass() {
-		return 'GadgetDefinitionContent';
+		return GadgetDefinitionContent::class;
 	}
 
 	public function makeEmptyContent() {

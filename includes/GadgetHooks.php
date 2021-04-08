@@ -159,7 +159,7 @@ class GadgetHooks {
 
 		foreach ( $ids as $id ) {
 			$resourceLoader->register( Gadget::getModuleName( $id ), [
-				'class' => 'GadgetResourceLoaderModule',
+				'class' => GadgetResourceLoaderModule::class,
 				'id' => $id,
 			] );
 		}
