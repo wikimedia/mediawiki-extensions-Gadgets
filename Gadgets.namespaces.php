@@ -51,6 +51,11 @@ $namespaceNames['av'] = [
 	NS_GADGET_DEFINITION_TALK => 'Гаджеталъул_баян_чӀезабиялъул_бахӀс',
 ];
 
+$namespaceNames['az'] = [
+	NS_GADGET => 'Qadcet',
+	NS_GADGET_TALK => 'Qadcet müzakirəsi',
+];
+
 $namespaceNames['azb'] = [
 	NS_GADGET => 'آلت',
 	NS_GADGET_TALK => 'آلت_دانیشیغی',
