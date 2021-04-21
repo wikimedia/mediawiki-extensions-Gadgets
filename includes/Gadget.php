@@ -138,24 +138,17 @@ class Gadget {
 	}
 
 	/**
-	 * @return string Message key
-	 */
-	public function getDescriptionMessageKey() {
-		return "gadget-{$this->getName()}";
-	}
-
-	/**
 	 * @return string Gadget description parsed into HTML
 	 */
 	public function getDescription() {
-		return wfMessage( $this->getDescriptionMessageKey() )->parse();
+		return wfMessage( "gadget-{$this->getName()}" )->parse();
 	}
 
 	/**
 	 * @return string Wikitext of gadget description
 	 */
 	public function getRawDescription() {
-		return wfMessage( $this->getDescriptionMessageKey() )->plain();
+		return wfMessage( "gadget-{$this->getName()}" )->plain();
 	}
 
 	/**
