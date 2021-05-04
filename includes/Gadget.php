@@ -88,7 +88,7 @@ class Gadget {
 	 */
 	public static function newFromDefinitionContent( $id, GadgetDefinitionContent $content ) {
 		$data = $content->getAssocArray();
-		$prefixGadgetNs = function ( $page ) {
+		$prefixGadgetNs = static function ( $page ) {
 			return 'Gadget:' . $page;
 		};
 		$info = [
