@@ -224,6 +224,20 @@ $namespaceNames['lrc'] = [
 	NS_GADGET_DEFINITION_TALK => 'چأک_چئنە_توضییا_گأجئت',
 ];
 
+$namespaceNames['ms'] = [
+	NS_GADGET => 'Alat',
+	NS_GADGET_TALK => 'Perbincangan_alat',
+	NS_GADGET_DEFINITION => 'Penerangan_alat',
+	NS_GADGET_DEFINITION_TALK => 'Perbincangan_penerangan_alat',
+];
+
+$namespaceNames['ms-arab'] = [
+	NS_GADGET => 'الت',
+	NS_GADGET_TALK => 'ڤربينچڠن_الت',
+	NS_GADGET_DEFINITION => 'ڤنرڠن_الت',
+	NS_GADGET_DEFINITION_TALK => 'ڤربينچڠن_ڤنرڠن_الت',
+];
+
 $namespaceNames['mwl'] = [
 	NS_GADGET => 'Gadget',
 	NS_GADGET_TALK => 'Cumbersa_gadget',
