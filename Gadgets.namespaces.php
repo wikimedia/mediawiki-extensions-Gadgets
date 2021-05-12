@@ -330,10 +330,10 @@ $namespaceNames['sr-el'] = [
 ];
 
 $namespaceNames['ti'] = [
-	NS_GADGET => 'መሳርሕያ',
-	NS_GADGET_TALK => 'መሳርሕያ_ምይይጥ',
-	NS_GADGET_DEFINITION => 'መሳርሕያ_መብርሂ',
-	NS_GADGET_DEFINITION_TALK => 'መሳርሕያ_መብርሂ_ምይይጥ',
+	NS_GADGET => 'መሳርሒ',
+	NS_GADGET_TALK => 'ምይይጥ_መሳርሒ',
+	NS_GADGET_DEFINITION => 'መብርሂ_መሳርሒ',
+	NS_GADGET_DEFINITION_TALK => 'ምይይጥ_መብርሂ_መሳርሒ',
 ];
 
 $namespaceNames['ur'] = [
