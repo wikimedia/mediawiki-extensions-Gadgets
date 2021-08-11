@@ -15,13 +15,13 @@
 	"apihelp-query+gadgets-description": "Видає список гаджетів, використовуваних у цій вікі.",
 	"apihelp-query+gadgets-summary": "Видає список гаджетів, використовуваних у цій вікі.",
 	"apihelp-query+gadgets-param-prop": "Яку інформацію про гаджет отримати:\n;id:Внутрішній ID гаджета.\n;metadata:Метадані гаджета.\n;desc:Опис гаджета, перетворений у HTML (може бути повільно, використовуйте за справжньої потреби).",
-	"apihelp-query+gadgets-param-categories": "Гаджети з яких категорій отримувати.",
+	"apihelp-query+gadgets-param-categories": "Додатки з яких категорій отримувати.",
 	"apihelp-query+gadgets-param-ids": "ID гаджетів для отримання.",
 	"apihelp-query+gadgets-param-allowedonly": "Список лише дозволених даному користувачеві гаджетів.",
 	"apihelp-query+gadgets-param-enabledonly": "Список лише увімкнених даним користувачем гаджетів.",
 	"apihelp-query+gadgets-example-1": "Отримати список гаджетів разом з їх описами",
 	"apihelp-query+gadgets-example-2": "Отримати список гаджетів з усіма можливими властивостями",
 	"apihelp-query+gadgets-example-3": "Отримати список гаджетів, які належать до категорії «foo»",
-	"apihelp-query+gadgets-example-4": "Отримати інформацію про гаджети «foo» і «bar»",
+	"apihelp-query+gadgets-example-4": "Отримати інформацію про додатки «foo» і «bar»",
 	"apihelp-query+gadgets-example-5": "Отримати список гаджетів, увімкнених даним користувачем"
 }
