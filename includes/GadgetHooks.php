@@ -75,9 +75,7 @@ class GadgetHooks {
 		 */
 		foreach ( $gadgets as $thisSection ) {
 			foreach ( $thisSection as $gadgetId => $gadget ) {
-				if ( $gadget->isOnByDefault() ) {
-					$defaultOptions['gadget-' . $gadgetId] = 1;
-				}
+				$defaultOptions['gadget-' . $gadgetId] = $gadget->isOnByDefault() ? 1 : 0;
 			}
 		}
 	}
