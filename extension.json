@@ -90,6 +90,7 @@
 		"EditFilterMergedContent": "GadgetHooks::onEditFilterMergedContent",
 		"UserGetDefaultOptions": "GadgetHooks::userGetDefaultOptions",
 		"GetPreferences": "GadgetHooks::getPreferences",
+		"PreferencesGetLegend": "GadgetHooks::onPreferencesGetLegend",
 		"ResourceLoaderRegisterModules": "GadgetHooks::registerModules",
 		"wgQueryPages": "GadgetHooks::onwgQueryPages",
 		"DeleteUnknownPreferences": "GadgetHooks::onDeleteUnknownPreferences"
