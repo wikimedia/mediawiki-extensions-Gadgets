@@ -44,30 +44,6 @@ class GadgetDefinitionContent extends JsonContent {
 	}
 
 	/**
-	 * Register some links
-	 *
-	 * @param Title $title
-	 * @param int $revId
-	 * @param ParserOptions $options
-	 * @param bool $generateHtml
-	 * @param ParserOutput &$output
-	 */
-	protected function fillParserOutput( Title $title, $revId,
-		ParserOptions $options, $generateHtml, ParserOutput &$output
-	) {
-		parent::fillParserOutput( $title, $revId, $options, $generateHtml, $output );
-		$assoc = $this->getAssocArray();
-		foreach ( [ 'scripts', 'styles' ] as $type ) {
-			foreach ( $assoc['module'][$type] as $page ) {
-				$title = Title::makeTitleSafe( NS_GADGET, $page );
-				if ( $title ) {
-					$output->addLink( $title );
-				}
-			}
-		}
-	}
-
-	/**
 	 * @return Status
 	 */
 	public function validate() {
