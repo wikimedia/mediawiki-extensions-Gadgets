@@ -21,6 +21,7 @@
  * @file
  */
 
+use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Revision\SlotRenderingProvider;
 
 class GadgetDefinitionContentHandler extends JsonContentHandler {
@@ -100,5 +101,26 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 			parent::getSecondaryDataUpdates( $title, $content, $role, $slotOutput ),
 			[ new GadgetDefinitionSecondaryDataUpdate( $title ) ]
 		);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function fillParserOutput(
+		Content $content,
+		ContentParseParams $cpoParams,
+		ParserOutput &$output
+	) {
+		'@phan-var GadgetDefinitionContent $content';
+		parent::fillParserOutput( $content, $cpoParams, $output );
+		$assoc = $content->getAssocArray();
+		foreach ( [ 'scripts', 'styles' ] as $type ) {
+			foreach ( $assoc['module'][$type] as $page ) {
+				$title = Title::makeTitleSafe( NS_GADGET, $page );
+				if ( $title ) {
+					$output->addLink( $title );
+				}
+			}
+		}
 	}
 }
