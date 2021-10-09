@@ -33,13 +33,13 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		$gadgets = $this->loadGadgets();
 		if ( $gadgets ) {
 			return array_keys( $gadgets );
-		} else {
-			return [];
 		}
+
+		return [];
 	}
 
 	public function handlePageUpdate( LinkTarget $target ) {
-		if ( $target->getNamespace() == NS_MEDIAWIKI && $target->getText() == 'Gadgets-definition' ) {
+		if ( $target->getNamespace() === NS_MEDIAWIKI && $target->getText() == 'Gadgets-definition' ) {
 			$this->purgeDefinitionCache();
 		}
 	}
@@ -74,7 +74,8 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 */
 	protected function loadGadgets() {
 		if ( $this->definitionCache !== null ) {
-			return $this->definitionCache; // process cache hit
+			// process cache hit
+			return $this->definitionCache;
 		}
 
 		// Ideally $t1Cache is APC, and $wanCache is memcached
@@ -90,13 +91,15 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		$cutoffAge = mt_rand( 7000000, 15000000 ) / 1000000;
 		// Check if it passes a blind TTL check (avoids I/O)
 		if ( $value && ( microtime( true ) - $value['time'] ) < $cutoffAge ) {
-			$this->definitionCache = $value['gadgets']; // process cache
+			// process cache
+			$this->definitionCache = $value['gadgets'];
 			return $this->definitionCache;
 		}
 		// Cache generated after the "check" time should be up-to-date
 		$ckTime = $wanCache->getCheckKeyTime( $key ) + WANObjectCache::HOLDOFF_TTL;
 		if ( $value && $value['time'] > $ckTime ) {
-			$this->definitionCache = $value['gadgets']; // process cache
+			// process cache
+			$this->definitionCache = $value['gadgets'];
 			return $this->definitionCache;
 		}
 
@@ -147,7 +150,8 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 				|| !$revRecord->getContent( SlotRecord::MAIN )
 				|| $revRecord->getContent( SlotRecord::MAIN )->isEmpty()
 			) {
-				return false; // don't cache
+				// don't cache
+				return false;
 			}
 
 			$content = $revRecord->getContent( SlotRecord::MAIN );
@@ -158,7 +162,8 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 
 		$gadgets = $this->listFromDefinition( $g );
 		if ( !count( $gadgets ) ) {
-			return false; // don't cache; Bug 37228
+			// don't cache; Bug 37228
+			return false;
 		}
 
 		$source = $forceNewText !== null ? 'input text' : 'MediaWiki:Gadgets-definition';
@@ -204,7 +209,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	public function newFromDefinition( $definition, $category ) {
 		$m = [];
 		if ( !preg_match(
-			'/^\*+ *([a-zA-Z](?:[-_:.\w\d ]*[a-zA-Z0-9])?)(\s*\[.*?\])?\s*((\|[^|]*)+)\s*$/',
+			'/^\*+ *([a-zA-Z](?:[-_:.\w ]*[a-zA-Z0-9])?)(\s*\[.*?\])?\s*((\|[^|]*)+)\s*$/',
 			$definition,
 			$m
 		) ) {

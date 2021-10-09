@@ -219,8 +219,8 @@ class Gadget {
 	 */
 	public function isSkinSupported( Skin $skin ) {
 		return ( count( $this->requiredSkins ) === 0
-				|| in_array( $skin->getSkinName(), $this->requiredSkins )
-			);
+			|| in_array( $skin->getSkinName(), $this->requiredSkins )
+		);
 	}
 
 	/**
@@ -234,9 +234,9 @@ class Gadget {
 	 * @return bool Whether this gadget has resources that can be loaded via ResourceLoader
 	 */
 	public function hasModule() {
-		return count( $this->styles )
-			+ ( $this->supportsResourceLoader() ? count( $this->scripts ) : 0 )
-				> 0;
+		return (
+			count( $this->styles ) + ( $this->supportsResourceLoader() ? count( $this->scripts ) : 0 )
+		) > 0;
 	}
 
 	/**
@@ -340,8 +340,8 @@ class Gadget {
 		// Similar to ResourceLoaderWikiModule default
 		if ( $this->styles && !$this->scripts && !$this->dependencies ) {
 			return 'styles';
-		} else {
-			return 'general';
 		}
+
+		return 'general';
 	}
 }

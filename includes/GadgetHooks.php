@@ -51,10 +51,8 @@ class GadgetHooks {
 		$title = $wikiPage->getTitle();
 		$repo = GadgetRepo::singleton();
 
-		if ( $flags & EDIT_NEW ) {
-			if ( $title->inNamespace( NS_GADGET_DEFINITION ) ) {
-				$repo->handlePageCreation( $title );
-			}
+		if ( ( $flags & EDIT_NEW ) && $title->inNamespace( NS_GADGET_DEFINITION ) ) {
+			$repo->handlePageCreation( $title );
 		}
 
 		$repo->handlePageUpdate( $title );
@@ -125,25 +123,23 @@ class GadgetHooks {
 			}
 		}
 
-		$preferences['gadgets-intro'] =
-			[
-				'type' => 'info',
-				'default' => wfMessage( 'gadgets-prefstext' )->parseAsBlock(),
-				'section' => 'gadgets',
-				'raw' => true,
-			];
+		$preferences['gadgets-intro'] = [
+			'type' => 'info',
+			'default' => wfMessage( 'gadgets-prefstext' )->parseAsBlock(),
+			'section' => 'gadgets',
+			'raw' => true,
+		];
 
-		$preferences['gadgets'] =
-			[
-				'type' => 'multiselect',
-				'options-messages' => $options,
-				'options-messages-parse' => true,
-				'section' => 'gadgets',
-				'label' => '&#160;',
-				'prefix' => 'gadget-',
-				'default' => $default,
-				'noglobal' => true,
-			];
+		$preferences['gadgets'] = [
+			'type' => 'multiselect',
+			'options-messages' => $options,
+			'options-messages-parse' => true,
+			'section' => 'gadgets',
+			'label' => '&#160;',
+			'prefix' => 'gadget-',
+			'default' => $default,
+			'noglobal' => true,
+		];
 	}
 
 	/**

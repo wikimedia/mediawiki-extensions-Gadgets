@@ -1,4 +1,7 @@
 <?php
+
+use Wikimedia\ParamValidator\ParamValidator;
+
 /**
  * Created on 15 April 2011
  * API for Gadgets extension
@@ -120,7 +123,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			$data[] = $row;
 		}
 
-		$result->setIndexedTagName( $data, 'gadget' );
+		ApiResult::setIndexedTagName( $data, 'gadget' );
 		$result->addValue( 'query', $this->getModuleName(), $data );
 	}
 
@@ -176,12 +179,11 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'messages' => 'message',
 		];
 
-		$result = $this->getResult();
 		foreach ( $metadata as $data ) {
 			foreach ( $data as $key => $value ) {
 				if ( is_array( $value ) ) {
 					$tag = $tagNames[$key] ?? $key;
-					$result->setIndexedTagName( $value, $tag );
+					ApiResult::setIndexedTagName( $value, $tag );
 				}
 			}
 		}
@@ -190,7 +192,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	public function getAllowedParams() {
 		return [
 			'prop' => [
-				ApiBase::PARAM_DFLT => 'id|metadata',
+				ParamValidator::PARAM_DEFAULT => 'id|metadata',
 				ApiBase::PARAM_ISMULTI => true,
 				ApiBase::PARAM_TYPE => [
 					'id',

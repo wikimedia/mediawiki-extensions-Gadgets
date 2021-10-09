@@ -52,9 +52,9 @@ class GadgetDefinitionValidator {
 					if ( $tolerateMissing ) {
 						// Skip validation of this property altogether
 						continue 2;
-					} else {
-						return Status::newFatal( 'gadgets-validate-notset', $property );
 					}
+
+					return Status::newFatal( 'gadgets-validate-notset', $property );
 				}
 				$val = $val[$p];
 			}
@@ -63,10 +63,10 @@ class GadgetDefinitionValidator {
 			$func = $validation[0];
 			if ( !call_user_func( $func, $val ) ) {
 				return Status::newFatal(
-						'gadgets-validate-wrongtype',
-						$property,
-						$validation[1],
-						gettype( $val )
+					'gadgets-validate-wrongtype',
+					$property,
+					$validation[1],
+					gettype( $val )
 				);
 			}
 
@@ -76,10 +76,10 @@ class GadgetDefinitionValidator {
 				foreach ( $val as $i => $v ) {
 					if ( !call_user_func( $func, $v ) ) {
 						return Status::newFatal(
-								'gadgets-validate-wrongtype',
-								"{$property}[{$i}]",
-								$validation[3],
-								gettype( $v )
+							'gadgets-validate-wrongtype',
+							"{$property}[{$i}]",
+							$validation[3],
+							gettype( $v )
 						);
 					}
 				}

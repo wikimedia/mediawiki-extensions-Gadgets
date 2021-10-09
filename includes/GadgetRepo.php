@@ -87,7 +87,8 @@ abstract class GadgetRepo {
 	 */
 	public static function singleton() {
 		if ( self::$instance === null ) {
-			global $wgGadgetsRepoClass; // @todo use Config here
+			// @todo use Config here
+			global $wgGadgetsRepoClass;
 			self::$instance = new $wgGadgetsRepoClass();
 		}
 		return self::$instance;
