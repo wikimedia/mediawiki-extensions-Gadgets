@@ -293,7 +293,7 @@ class GadgetHooks {
 	 */
 	public static function onContentHandlerDefaultModelFor( Title $title, &$model ) {
 		if ( $title->inNamespace( NS_GADGET ) ) {
-			preg_match( '!\.(css|js)$!u', $title->getText(), $ext );
+			preg_match( '!\.(css|js|json)$!u', $title->getText(), $ext );
 			$ext = $ext[1] ?? '';
 			switch ( $ext ) {
 				case 'js':
@@ -301,6 +301,9 @@ class GadgetHooks {
 					return false;
 				case 'css':
 					$model = 'css';
+					return false;
+				case 'json':
+					$model = 'json';
 					return false;
 			}
 		}

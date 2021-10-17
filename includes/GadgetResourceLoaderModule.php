@@ -55,9 +55,30 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 			foreach ( $gadget->getScripts() as $script ) {
 				$pages[$script] = [ 'type' => 'script' ];
 			}
+			foreach ( $gadget->getJSONs() as $json ) {
+				$pages[$json] = [ 'type' => 'data' ];
+			}
 		}
 
 		return $pages;
+	}
+
+	/**
+	 * Overrides ResourceLoaderWikiModule::getRequireKey()
+	 * @param string $titleText
+	 * @return string
+	 */
+	public function getRequireKey( $titleText ): string {
+		return GadgetRepo::singleton()->titleWithoutPrefix( $titleText );
+	}
+
+	/**
+	 * Overrides ResourceLoaderWikiModule::isPackaged()
+	 * Returns whether this gadget is packaged.
+	 * @return bool
+	 */
+	public function isPackaged(): bool {
+		return $this->gadget->isPackaged();
 	}
 
 	/**

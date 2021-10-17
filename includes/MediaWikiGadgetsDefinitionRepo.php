@@ -14,6 +14,9 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	/** @var array|false|null */
 	private $definitionCache;
 
+	/** @var string */
+	protected $titlePrefix = 'MediaWiki:Gadget-';
+
 	/**
 	 * @param string $id
 	 *
@@ -260,6 +263,9 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 				case 'default':
 					$info['onByDefault'] = true;
 					break;
+				case 'package':
+					$info['package'] = true;
+					break;
 				case 'targets':
 					$info['targets'] = $params;
 					break;
@@ -271,9 +277,11 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		}
 
 		foreach ( preg_split( '/\s*\|\s*/', $m[3], -1, PREG_SPLIT_NO_EMPTY ) as $page ) {
-			$page = "MediaWiki:Gadget-$page";
+			$page = $this->titlePrefix . $page;
 
-			if ( preg_match( '/\.js/', $page ) ) {
+			if ( preg_match( '/\.json$/', $page ) ) {
+				$info['datas'][] = $page;
+			} elseif ( preg_match( '/\.js/', $page ) ) {
 				$info['scripts'][] = $page;
 			} elseif ( preg_match( '/\.css/', $page ) ) {
 				$info['styles'][] = $page;

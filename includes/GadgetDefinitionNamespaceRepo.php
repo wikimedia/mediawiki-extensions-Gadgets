@@ -19,6 +19,11 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	private const CACHE_TTL = 86400;
 
 	/**
+	 * @var string
+	 */
+	protected $titlePrefix = 'Gadget:';
+
+	/**
 	 * @var WANObjectCache
 	 */
 	private $wanCache;

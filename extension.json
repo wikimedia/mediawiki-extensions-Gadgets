@@ -82,6 +82,9 @@
 		"GadgetDefinitionSecondaryDataUpdate": "includes/content/GadgetDefinitionSecondaryDataUpdate.php",
 		"GadgetDefinitionDeletionUpdate": "includes/content/GadgetDefinitionDeletionUpdate.php"
 	},
+	"TestAutoloadClasses": {
+		"GadgetTestUtils": "tests/phpunit/GadgetTestUtils.php"
+	},
 	"Hooks": {
 		"PageSaveComplete": "GadgetHooks::onPageSaveComplete",
 		"BeforePageDisplay": "GadgetHooks::beforePageDisplay",

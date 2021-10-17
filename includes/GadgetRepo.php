@@ -10,6 +10,11 @@ abstract class GadgetRepo {
 	private static $instance;
 
 	/**
+	 * @var string
+	 */
+	protected $titlePrefix;
+
+	/**
 	 * Get the ids of the gadgets provided by this repository
 	 *
 	 * It's possible this could be out of sync with what
@@ -78,6 +83,20 @@ abstract class GadgetRepo {
 		}
 
 		return $list;
+	}
+
+	/**
+	 * Get the script file name without the "MediaWiki:Gadget-" or "Gadget:" prefix.
+	 * This name is used by the client-side require() so that require("Data.json") resolves
+	 * to either "MediaWiki:Gadget-Data.json" or "Gadget:Data.json" depending on the
+	 * $wgGadgetsRepoClass configuration, enabling easy migration between the configuration modes.
+	 *
+	 * @param string $titleText
+	 * @return string
+	 */
+	public function titleWithoutPrefix( string $titleText ): string {
+		$numReplaces = 1; // there will only one occurrence of the prefix
+		return str_replace( $this->titlePrefix, '', $titleText, $numReplaces );
 	}
 
 	/**

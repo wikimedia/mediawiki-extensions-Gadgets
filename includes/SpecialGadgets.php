@@ -153,6 +153,15 @@ class SpecialGadgets extends SpecialPage {
 				}
 				$output->addHTML( $lang->commaList( $lnk ) );
 
+				if ( $gadget->isPackaged() ) {
+					if ( $needLineBreakAfter ) {
+						$output->addHTML( '<br />' );
+					}
+					$output->addHTML( $this->msg( 'gadgets-packaged',
+						GadgetRepo::singleton()->titleWithoutPrefix( $gadget->getScripts()[0] ) ) );
+					$needLineBreakAfter = true;
+				}
+
 				// Portion: Legacy scripts
 				if ( $gadget->getLegacyScripts() ) {
 					if ( $needLineBreakAfter ) {

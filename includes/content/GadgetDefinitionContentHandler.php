@@ -54,6 +54,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 			'settings' => [
 				'rights' => [],
 				'default' => false,
+				'package' => false,
 				'hidden' => false,
 				'skins' => [],
 				'category' => ''
@@ -61,6 +62,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 			'module' => [
 				'scripts' => [],
 				'styles' => [],
+				'datas' => [],
 				'peers' => [],
 				'dependencies' => [],
 				'messages' => [],
@@ -114,7 +116,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 		'@phan-var GadgetDefinitionContent $content';
 		parent::fillParserOutput( $content, $cpoParams, $output );
 		$assoc = $content->getAssocArray();
-		foreach ( [ 'scripts', 'styles' ] as $type ) {
+		foreach ( [ 'scripts', 'styles', 'datas' ] as $type ) {
 			foreach ( $assoc['module'][$type] as $page ) {
 				$title = Title::makeTitleSafe( NS_GADGET, $page );
 				if ( $title ) {

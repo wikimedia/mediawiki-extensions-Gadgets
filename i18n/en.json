@@ -24,6 +24,7 @@
 	"gadgets-required-skins": "Available on the {{PLURAL:$2|$1 skin|following skins: $1}}.",
 	"gadgets-default": "Enabled for everyone by default.",
 	"gadgets-legacy": "Gadget is not loaded. Please migrate to ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Learn more])",
+	"gadgets-packaged": "This gadget is [https://www.mediawiki.org/wiki/ResourceLoader/Package_files packaged], with entry point being $1",
 	"gadgets-export": "Export",
 	"gadgets-export-title": "Gadget export",
 	"gadgets-not-found": "Gadget \"$1\" not found.",

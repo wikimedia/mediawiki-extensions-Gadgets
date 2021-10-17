@@ -151,6 +151,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 				'skins' => $g->getRequiredSkins(),
 				'default' => $g->isOnByDefault(),
 				'hidden' => $g->isHidden(),
+				'package' => $g->isPackaged(),
 				'shared' => false,
 				'category' => $g->getCategory(),
 				'legacyscripts' => (bool)$g->getLegacyScripts(),
@@ -158,6 +159,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'module' => [
 				'scripts' => $g->getScripts(),
 				'styles' => $g->getStyles(),
+				'datas' => $g->getJSONs(),
 				'dependencies' => $g->getDependencies(),
 				'peers' => $g->getPeers(),
 				'messages' => $g->getMessages(),
@@ -174,6 +176,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'skins' => 'skin',
 			'scripts' => 'script',
 			'styles' => 'style',
+			'datas' => 'data',
 			'dependencies' => 'dependency',
 			'peers' => 'peer',
 			'messages' => 'message',
