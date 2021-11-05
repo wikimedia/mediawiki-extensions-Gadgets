@@ -89,8 +89,13 @@ class GadgetHooks {
 			return;
 		}
 
-		$options = [];
-		$default = [];
+		$preferences['gadgets-intro'] = [
+			'type' => 'info',
+			'default' => wfMessage( 'gadgets-prefstext' )->parseAsBlock(),
+			'section' => 'gadgets',
+			'raw' => true,
+		];
+
 		$skin = RequestContext::getMain()->getSkin();
 		foreach ( $gadgets as $section => $thisSection ) {
 			$available = [];
@@ -105,41 +110,37 @@ class GadgetHooks {
 					&& $gadget->isSkinSupported( $skin )
 				) {
 					$gname = $gadget->getName();
-					$available[$gadget->getDescriptionMessageKey()] = $gname;
-					if ( $gadget->isEnabled( $user ) ) {
-						$default[] = $gname;
-					}
+					$sectionLabelMsg = "gadget-section-$section";
+
+					$preferences["gadget-$gname"] = [
+						'type' => 'check',
+						'label-message' => $gadget->getDescriptionMessageKey(),
+						'section' => $section !== '' ? "gadgets/$sectionLabelMsg" : 'gadgets',
+						'default' => $gadget->isEnabled( $user ),
+						'noglobal' => true,
+					];
 				}
 			}
-
-			if ( $available === [] ) {
-				continue;
-			}
-
-			if ( $section !== '' ) {
-				$options["gadget-section-$section"] = $available;
-			} else {
-				$options = array_merge( $options, $available );
-			}
 		}
+	}
 
-		$preferences['gadgets-intro'] = [
-			'type' => 'info',
-			'default' => wfMessage( 'gadgets-prefstext' )->parseAsBlock(),
-			'section' => 'gadgets',
-			'raw' => true,
-		];
-
-		$preferences['gadgets'] = [
-			'type' => 'multiselect',
-			'options-messages' => $options,
-			'options-messages-parse' => true,
-			'section' => 'gadgets',
-			'label' => '&#160;',
-			'prefix' => 'gadget-',
-			'default' => $default,
-			'noglobal' => true,
-		];
+	/**
+	 * PreferencesGetLegend hook handler.
+	 *
+	 * Used to override the subsection heading labels for the gadget groups. The default message would
+	 * be "prefs-$key", but we've previously used different messages, and they have on-wiki overrides
+	 * that would have to be moved if the message keys changed.
+	 *
+	 * @param HTMLForm $form the HTMLForm object. This is a ContextSource as well
+	 * @param string $key the section name
+	 * @param string &$legend the legend text. Defaults to wfMessage( "prefs-$key" )->text() but may
+	 *   be overridden
+	 * @return bool|void True or no return value to continue or false to abort
+	 */
+	public static function onPreferencesGetLegend( $form, $key, &$legend ) {
+		if ( str_starts_with( $key, 'gadget-section-' ) ) {
+			$legend = new OOUI\HtmlSnippet( $form->msg( $key )->parse() );
+		}
 	}
 
 	/**
