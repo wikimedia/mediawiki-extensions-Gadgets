@@ -52,10 +52,9 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 		$repo->definitionCache = $gadgets;
 		GadgetHooks::getPreferences( $this->user, $prefs );
 
-		$options = $prefs['gadgets']['options-messages'];
-		$this->assertArrayNotHasKey( 'gadget-section-remove-section', $options,
-			'Must not show empty sections' );
-		$this->assertArrayHasKey( 'gadget-section-keep-section1', $options );
-		$this->assertArrayHasKey( 'gadget-section-keep-section2', $options );
+		$this->assertArrayHasKey( 'gadget-bar', $prefs );
+		$this->assertArrayNotHasKey( 'gadget-baz', $prefs,
+			'Must not show unavailable gadgets' );
+		$this->assertEquals( 'gadgets/gadget-section-keep-section2', $prefs['gadget-quux']['section'] );
 	}
 }
