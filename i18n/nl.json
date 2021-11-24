@@ -11,7 +11,8 @@
 			"SPQRobin",
 			"Servien",
 			"Siebrand",
-			"Sjoerddebruin"
+			"Sjoerddebruin",
+			"Krinkle"
 		]
 	},
 	"gadgets-desc": "Laat gebruikers [[Special:Gadgets|CSS en JavaScripts]] activeren in hun [[Special:Preferences#mw-prefsection-gadgets|voorkeuren]]",
@@ -27,7 +28,7 @@
 	"gadgetusage-activeusers": "Actieve gebruikers",
 	"gadgetusage-default": "Standaard",
 	"gadgets-title": "Uitbreidingen",
-	"gadgets-pagetext": "Hieronder staan de speciale uitbreidingen die gebruikers kunnen inschakelen via hun [[Special:Preferences#mw-prefsection-gadgets|voorkeuren]], zoals ingesteld in de [[MediaWiki:Gadgets-definition|definities]].\nDit overzicht biedt eenvoudige toegang tot de systeemtekstpagina waar de beschrijving en de programmacode van iedere uitbreiding staat.",
+	"gadgets-pagetext": "Hieronder staan de speciale uitbreidingen die gebruikers kunnen inschakelen via hun [[Special:Preferences#mw-prefsection-gadgets|voorkeuren]], zoals ingesteld in de [[MediaWiki:Gadgets-definition|definities]].\nDit overzicht biedt eenvoudige toegang tot de systeemberichtenpagina waar de beschrijving en de programmacode van iedere uitbreiding staat.",
 	"gadgets-uses": "Gebruikt",
 	"gadgets-required-rights": "{{PLURAL:$2|Het volgende recht is|De volgende rechten zijn}} vereist:\n\n$1.",
 	"gadgets-required-skins": "Beschikbaar in de {{PLURAL:$2|vormgeving $1|volgende vormgevingen: $1}}.",
