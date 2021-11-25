@@ -13,6 +13,7 @@
 			"Koc61",
 			"Mizunee",
 			"MuratTheTurkish",
+			"SaldırganSincap",
 			"Sezgin İbiş",
 			"SwornToTranslate29",
 			"TmY e12",
@@ -47,7 +48,7 @@
 	"gadgets-validate-notset": "<code>$1</code> özelliği ayarlanmadı.",
 	"gadgets-validate-wrongtype": "<code>$1</code> özelliği, <code>$3</code> yerine <code>$2</code> türünde olmalıdır.",
 	"right-gadgets-edit": "Küçük araç, JavaScript ve CSS sayfalarını düzenle",
-	"action-gadgets-edit": "bu küçük aracı JavaScript veya CSS sayfasını düzenle",
+	"action-gadgets-edit": "bu küçük aracı JavaScript veya CSS sayfasına düzenleme",
 	"right-gadgets-definition-edit": "Küçük araç tanımlarını düzenle",
-	"action-gadgets-definition-edit": "bu küçük araç tanımını düzenle"
+	"action-gadgets-definition-edit": "bu küçük araç tanımını düzenleme"
 }
