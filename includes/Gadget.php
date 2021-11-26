@@ -11,6 +11,8 @@
  * @license GPL-2.0-or-later
  */
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Wrapper for one gadget.
  */
@@ -180,7 +182,8 @@ class Gadget {
 	 * @return bool
 	 */
 	public function isEnabled( $user ) {
-		return (bool)$user->getOption( "gadget-{$this->name}", $this->onByDefault );
+		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
+		return (bool)$userOptionsLookup->getOption( $user, "gadget-{$this->name}", $this->onByDefault );
 	}
 
 	/**
