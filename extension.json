@@ -71,19 +71,24 @@
 	"TestAutoloadClasses": {
 		"GadgetTestUtils": "tests/phpunit/GadgetTestUtils.php"
 	},
+	"HookHandlers": {
+		"GadgetHooks": {
+			"class": "MediaWiki\\Extension\\Gadgets\\Hooks"
+		}
+	},
 	"Hooks": {
-		"PageDeleteComplete": "MediaWiki\\Extension\\Gadgets\\Hooks::onPageDeleteComplete",
-		"PageSaveComplete": "MediaWiki\\Extension\\Gadgets\\Hooks::onPageSaveComplete",
-		"BeforePageDisplay": "MediaWiki\\Extension\\Gadgets\\Hooks::beforePageDisplay",
-		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Gadgets\\Hooks::onCodeEditorGetPageLanguage",
-		"ContentHandlerDefaultModelFor": "MediaWiki\\Extension\\Gadgets\\Hooks::onContentHandlerDefaultModelFor",
-		"EditFilterMergedContent": "MediaWiki\\Extension\\Gadgets\\Hooks::onEditFilterMergedContent",
-		"UserGetDefaultOptions": "MediaWiki\\Extension\\Gadgets\\Hooks::userGetDefaultOptions",
-		"GetPreferences": "MediaWiki\\Extension\\Gadgets\\Hooks::getPreferences",
-		"PreferencesGetLegend": "MediaWiki\\Extension\\Gadgets\\Hooks::onPreferencesGetLegend",
-		"ResourceLoaderRegisterModules": "MediaWiki\\Extension\\Gadgets\\Hooks::registerModules",
-		"wgQueryPages": "MediaWiki\\Extension\\Gadgets\\Hooks::onwgQueryPages",
-		"DeleteUnknownPreferences": "MediaWiki\\Extension\\Gadgets\\Hooks::onDeleteUnknownPreferences"
+		"PageDeleteComplete": "GadgetHooks",
+		"PageSaveComplete": "GadgetHooks",
+		"BeforePageDisplay": "GadgetHooks",
+		"CodeEditorGetPageLanguage": "GadgetHooks",
+		"ContentHandlerDefaultModelFor": "GadgetHooks",
+		"EditFilterMergedContent": "GadgetHooks",
+		"UserGetDefaultOptions": "GadgetHooks",
+		"GetPreferences": "GadgetHooks",
+		"PreferencesGetLegend": "GadgetHooks",
+		"ResourceLoaderRegisterModules": "GadgetHooks",
+		"wgQueryPages": "GadgetHooks",
+		"DeleteUnknownPreferences": "GadgetHooks"
 	},
 	"config": {
 		"GadgetsRepoClass": {
