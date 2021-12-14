@@ -18,6 +18,7 @@ class GadgetDefinitionValidator {
 		'settings.hidden' => [ 'is_bool', 'boolean' ],
 		'settings.package' => [ 'is_bool', 'boolean' ],
 		'settings.skins' => [ [ __CLASS__, 'isArrayOrTrue' ], 'array or true', 'is_string', 'string' ],
+		'settings.actions' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'settings.category' => [ 'is_string', 'string' ],
 		'module' => [ 'is_array', 'array' ],
 		'module.scripts' => [ 'is_array', 'array', 'is_string', 'string' ],

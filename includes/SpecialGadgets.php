@@ -219,6 +219,19 @@ class SpecialGadgets extends SpecialPage {
 					}
 				}
 
+				// Portion: Show required actions (optional)
+				$actions = $gadget->getRequiredActions();
+				if ( $actions ) {
+					if ( $needLineBreakAfter ) {
+						$output->addHTML( '<br />' );
+					}
+					$output->addHTML(
+						$this->msg( 'gadgets-required-actions', $lang->commaList( $actions ) )
+							->numParams( count( $actions ) )->parse()
+					);
+					$needLineBreakAfter = true;
+				}
+
 				// Portion: Show on by default (optional)
 				if ( $gadget->isOnByDefault() ) {
 					if ( $needLineBreakAfter ) {

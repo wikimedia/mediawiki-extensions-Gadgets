@@ -20,7 +20,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	public const GADGET_CLASS_VERSION = 10;
+	public const GADGET_CLASS_VERSION = 11;
 
 	public const CACHE_TTL = 86400;
 
@@ -44,6 +44,8 @@ class Gadget {
 	private $resourceLoaded = false;
 	/** @var string[] */
 	private $requiredRights = [];
+	/** @var string[] */
+	private $requiredActions = [];
 	/** @var string[] */
 	private $requiredSkins = [];
 	/** @var string[] */
@@ -72,6 +74,7 @@ class Gadget {
 				case 'definition':
 				case 'resourceLoaded':
 				case 'requiredRights':
+				case 'requiredActions':
 				case 'requiredSkins':
 				case 'targets':
 				case 'onByDefault':
@@ -106,6 +109,7 @@ class Gadget {
 			'onByDefault' => $data['settings']['default'],
 			'package' => $data['settings']['package'],
 			'hidden' => $data['settings']['hidden'],
+			'requiredActions' => $data['settings']['actions'],
 			'requiredSkins' => $data['settings']['skins'],
 			'category' => $data['settings']['category'],
 			'scripts' => array_map( $prefixGadgetNs, $data['module']['scripts'] ),
@@ -231,6 +235,21 @@ class Gadget {
 	}
 
 	/**
+	 * @param string $action The action name
+	 * @return bool
+	 */
+	public function isActionSupported( string $action ): bool {
+		if ( count( $this->requiredActions ) === 0 ) {
+			return true;
+		}
+		// Don't require specifying 'submit' action in addition to 'edit'
+		if ( $action == 'submit' ) {
+			$action = 'edit';
+		}
+		return in_array( $action, $this->requiredActions );
+	}
+
+	/**
 	 * Check if this gadget is compatible with a skin
 	 *
 	 * @param Skin $skin The skin to check against
@@ -345,6 +364,14 @@ class Gadget {
 	 */
 	public function getRequiredRights() {
 		return $this->requiredRights;
+	}
+
+	/**
+	 * Returns array of page actions on which the gadget runs
+	 * @return string[]
+	 */
+	public function getRequiredActions() {
+		return $this->requiredActions;
 	}
 
 	/**

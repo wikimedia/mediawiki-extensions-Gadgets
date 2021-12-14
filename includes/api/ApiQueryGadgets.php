@@ -149,6 +149,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'settings' => [
 				'rights' => $g->getRequiredRights(),
 				'skins' => $g->getRequiredSkins(),
+				'actions' => $g->getRequiredActions(),
 				'default' => $g->isOnByDefault(),
 				'hidden' => $g->isHidden(),
 				'package' => $g->isPackaged(),
@@ -174,6 +175,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 		static $tagNames = [
 			'rights' => 'right',
 			'skins' => 'skin',
+			'actions' => 'action',
 			'scripts' => 'script',
 			'styles' => 'style',
 			'datas' => 'data',
