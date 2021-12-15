@@ -173,6 +173,7 @@ class GadgetHooks {
 		$lb = new LinkBatch();
 		$lb->setCaller( __METHOD__ );
 		$enabledLegacyGadgets = [];
+		$req = $out->getRequest();
 
 		/**
 		 * @var $gadget Gadget
@@ -193,7 +194,7 @@ class GadgetHooks {
 					// @todo: Emit warning for invalid peer?
 				}
 			}
-			if ( $gadget->isEnabled( $user )
+			if ( ( $gadget->isEnabled( $user ) || $req->getRawVal( 'withgadget' ) === $id )
 				&& $gadget->isAllowed( $user )
 				&& $gadget->isSkinSupported( $out->getSkin() )
 				&& ( in_array( $out->getTarget() ?? 'desktop', $gadget->getTargets() ) )
