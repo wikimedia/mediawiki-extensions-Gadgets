@@ -115,6 +115,10 @@ class GadgetResourceLoaderModule extends ResourceLoaderWikiModule {
 		return $this->getGadget()->getTargets();
 	}
 
+	public function getSkins(): ?array {
+		return $this->getGadget()->getRequiredSkins() ?: null;
+	}
+
 	public function getGroup() {
 		return 'site';
 	}
