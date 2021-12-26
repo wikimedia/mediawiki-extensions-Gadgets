@@ -67,6 +67,18 @@ abstract class GadgetRepo {
 	}
 
 	/**
+	 * Given a gadget ID, return the title of the page where the gadget is
+	 * defined (or null if the given repo does not have per-gadget definition
+	 * pages).
+	 *
+	 * @param string $id
+	 * @return Title|null
+	 */
+	public function getGadgetDefinitionTitle( string $id ): ?Title {
+		return null;
+	}
+
+	/**
 	 * Get a list of gadgets sorted by category
 	 *
 	 * @return array [ 'category' => [ 'name' => $gadget ] ]

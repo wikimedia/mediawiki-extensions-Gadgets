@@ -63,9 +63,12 @@ class SpecialGadgets extends SpecialPage {
 
 		$listOpen = false;
 
-		$editInterfaceMessage = $this->getUser()->isAllowed( 'editinterface' )
+		$editDefinitionMessage = $this->getUser()->isAllowed( 'gadgets-definition-edit' )
 			? 'edit'
 			: 'viewsource';
+		$editInterfaceMessage = $this->getUser()->isAllowed( 'editinterface' )
+			? 'gadgets-editdescription'
+			: 'gadgets-viewdescription';
 
 		$linkRenderer = $this->getLinkRenderer();
 		$skinFactory = $services->getSkinFactory();
@@ -99,6 +102,15 @@ class SpecialGadgets extends SpecialPage {
 				}
 
 				$links = [];
+				$definitionTitle = GadgetRepo::singleton()->getGadgetDefinitionTitle( $name );
+				if ( $definitionTitle ) {
+					$links[] = $linkRenderer->makeLink(
+						$definitionTitle,
+						$this->msg( $editDefinitionMessage )->text(),
+						[],
+						[ 'action' => 'edit' ]
+					);
+				}
 				$links[] = $linkRenderer->makeLink(
 					$t,
 					$this->msg( $editInterfaceMessage )->text(),

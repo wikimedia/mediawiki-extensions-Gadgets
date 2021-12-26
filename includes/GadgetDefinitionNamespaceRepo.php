@@ -106,6 +106,13 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	}
 
 	/**
+	 * @inheritDoc
+	 */
+	public function getGadgetDefinitionTitle( string $id ): ?Title {
+		return Title::makeTitleSafe( NS_GADGET_DEFINITION, $id );
+	}
+
+	/**
 	 * @param string $id
 	 * @throws InvalidArgumentException
 	 * @return Gadget
