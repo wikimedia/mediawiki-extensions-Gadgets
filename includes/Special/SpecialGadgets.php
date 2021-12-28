@@ -324,6 +324,16 @@ class SpecialGadgets extends SpecialPage {
 					$needLineBreakAfter = true;
 				}
 
+				// Show warnings
+				$warnings = GadgetRepo::singleton()->validationWarnings( $gadget );
+
+				if ( count( $warnings ) > 0 ) {
+					$output->addHTML( Html::warningBox( implode( '<br/>', array_map( static function ( $msg ) {
+						return $msg->parse();
+					},  $warnings ) ) ) );
+					$needLineBreakAfter = false;
+				}
+
 				$output->addHTML( Html::closeElement( 'li' ) . "\n" );
 			}
 		}

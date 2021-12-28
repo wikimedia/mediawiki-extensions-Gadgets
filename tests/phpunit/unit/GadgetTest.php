@@ -366,4 +366,35 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$g = GadgetTestUtils::makeGadget( '* foo[ResourceLoader]|bar.js' );
 		$this->assertFalse( $g->isHidden() );
 	}
+
+	public static function provideWarnings() {
+		return [
+			[
+				'* foo[ResourceLoader|package]|foo.css',
+				[ 'gadgets-validate-noentrypoint' ]
+			],
+			[
+				'* foo[ResourceLoader]|foo.js,foo.json',
+				[ 'gadgets-validate-json' ]
+			],
+			[
+				'* foo[ResourceLoader|type=styles]|foo.js|foo.css',
+				[ 'gadgets-validate-scriptsnotallowed' ]
+			],
+			[
+				'* foo[ResourceLoader|type=styles|peers=bar]|foo.js|foo.json|foo.css',
+				[ 'gadgets-validate-scriptsnotallowed', 'gadgets-validate-stylepeers', 'gadgets-validate-json' ]
+			]
+		];
+	}
+
+	/**
+	 * @dataProvider provideWarnings
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::getValidationWarnings
+	 */
+	public function testGadgetWarnings( $definition, $expectedMsgKeys ) {
+		$g = GadgetTestUtils::makeGadget( $definition );
+		$msgKeys = $g->getValidationWarnings();
+		$this->assertArrayEquals( $expectedMsgKeys, $msgKeys );
+	}
 }

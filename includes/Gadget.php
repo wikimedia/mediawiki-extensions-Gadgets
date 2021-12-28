@@ -504,4 +504,39 @@ class Gadget {
 
 		return 'general';
 	}
+
+	/**
+	 * Get validation warnings
+	 * @return string[]
+	 */
+	public function getValidationWarnings(): array {
+		$warnings = [];
+
+		// Default gadget requiring ES6
+		if ( $this->onByDefault && $this->requiresES6 ) {
+			$warnings[] = "gadgets-validate-es6default";
+		}
+
+		// Non-package gadget containing JSON files
+		if ( !$this->package && count( $this->datas ) > 0 ) {
+			$warnings[] = "gadgets-validate-json";
+		}
+
+		// Package gadget without a script file in it (to serve as entry point)
+		if ( $this->package && count( $this->scripts ) === 0 ) {
+			$warnings[] = "gadgets-validate-noentrypoint";
+		}
+
+		// Gadget with type=styles having non-CSS files
+		if ( $this->type === 'styles' && count( $this->scripts ) > 0 ) {
+			$warnings[] = "gadgets-validate-scriptsnotallowed";
+		}
+
+		// Style-only gadgets having peers
+		if ( $this->getType() === 'styles' && count( $this->peers ) > 0 ) {
+			$warnings[] = "gadgets-validate-stylepeers";
+		}
+
+		return $warnings;
+	}
 }

@@ -298,8 +298,7 @@ class Hooks implements
 							try {
 								$peers[] = $repo->getGadget( $peerName );
 							} catch ( InvalidArgumentException $e ) {
-								// Ignore
-								// @todo: Emit warning for invalid peer?
+								// Ignore, warning is emitted on Special:Gadgets
 							}
 						}
 						// Load peer modules
