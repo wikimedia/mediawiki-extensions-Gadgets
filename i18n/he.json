@@ -27,6 +27,7 @@
 	"gadgets-required-skins": "זמין {{PLURAL:$2|בערכות העיצוב הבאות: $1|בערכת העיצוב $1}}",
 	"gadgets-default": "מופעל לכולם כברירת מחדל.",
 	"gadgets-legacy": "הגאדג'ט אינו טעון. נא לעדכן לשימוש ב־ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) מידע נוסף])",
+	"gadgets-packaged": "הגאדג'ט הזה [https://www.mediawiki.org/wiki/ResourceLoader/Package_files ארוז בחבילה], ונקודת הכניסה שלו היא $1",
 	"gadgets-export": "ייצוא",
 	"gadgets-export-title": "ייצוא גאדג'טים",
 	"gadgets-not-found": "הגאדג׳ט \"$1\" לא נמצא.",

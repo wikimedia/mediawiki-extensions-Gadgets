@@ -40,6 +40,7 @@
 	"gadgets-required-skins": "Kullanılabilecek {{PLURAL:$2|$1 tema|temalar: $1}}.",
 	"gadgets-default": "Herkes için varsayılan olarak etkindir.",
 	"gadgets-legacy": "Küçük aracı yüklenmedi. Lütfen ResourceLoader'a taşıyın. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Daha fazla bilgi edinin])",
+	"gadgets-packaged": "Bu küçük araç,[https://www.mediawiki.org/wiki/ResourceLoader/Package_files paketlidir] ve giriş noktası $1 betik dosyasıdır",
 	"gadgets-export": "Dışa aktar",
 	"gadgets-export-title": "Küçük araç dışa aktarımı",
 	"gadgets-not-found": "Küçük araç \"$1\" bulunamadı.",
