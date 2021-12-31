@@ -257,6 +257,9 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 				case 'hidden':
 					$info['hidden'] = true;
 					break;
+				case 'actions':
+					$info['requiredActions'] = $params;
+					break;
 				case 'skins':
 					$info['requiredSkins'] = $params;
 					break;

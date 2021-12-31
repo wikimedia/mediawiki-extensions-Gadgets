@@ -99,6 +99,26 @@ class GadgetTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers Gadget::isActionSupported
+	 */
+	public function testActionsTag() {
+		$gUnset = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
+		$gActionSupported = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|actions=edit]|bar.js' );
+		$gActionNotSupported = GadgetTestUtils::makeGadget( '*baz[ResourceLoader|actions=history]|baz.js' );
+		$this->assertTrue( $gUnset->isActionSupported( 'edit' ) );
+		$this->assertTrue( $gActionSupported->isActionSupported( 'edit' ) );
+		$this->assertFalse( $gActionNotSupported->isActionSupported( 'edit' ) );
+
+		// special case
+		$this->assertTrue( $gActionSupported->isActionSupported( 'submit' ) );
+
+		$gMultiActions = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|actions=unknown,history]|bar.js' );
+		$this->assertTrue( $gMultiActions->isActionSupported( 'history' ) );
+		$this->assertFalse( $gMultiActions->isActionSupported( 'view' ) );
+	}
+
+	/**
+	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
 	 * @covers Gadget::getTargets
 	 */
 	public function testTargets() {

@@ -196,6 +196,7 @@ class GadgetHooks {
 			}
 			if ( ( $gadget->isEnabled( $user ) || $req->getRawVal( 'withgadget' ) === $id )
 				&& $gadget->isAllowed( $user )
+				&& $gadget->isActionSupported( Action::getActionName( $out->getContext() ) )
 				&& $gadget->isSkinSupported( $out->getSkin() )
 				&& ( in_array( $out->getTarget() ?? 'desktop', $gadget->getTargets() ) )
 			) {

@@ -57,6 +57,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 				'package' => false,
 				'hidden' => false,
 				'skins' => [],
+				'actions' => [],
 				'category' => ''
 			],
 			'module' => [
