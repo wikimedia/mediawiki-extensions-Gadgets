@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Delhovlyn",
 			"Djiboun",
 			"Dr Brains",
@@ -37,6 +38,7 @@
 	"gadgetusage-default": "Par défaut",
 	"gadgets-title": "Gadgets",
 	"gadgets-pagetext": "Voici une liste de gadgets que les utilisateurs peuvent activer dans leur [[Special:Preferences#mw-prefsection-gadgets|page de préférences]], tel que défini dans les [[MediaWiki:Gadgets-definition|définitions]].\nCette vue d’ensemble donne un accès rapide aux pages de messages système qui définissent la description et le code de chaque gadget.",
+	"gadgets-editdescription": "Modifier la description",
 	"gadgets-uses": "Utilise",
 	"gadgets-required-rights": "Requiert {{PLURAL:$2|le droit suivant|les droits suivants}} : \n\n$1.",
 	"gadgets-required-skins": "Disponible sur {{PLURAL:$2|l’habillage suivant|les habillages suivants}} : $1.",
