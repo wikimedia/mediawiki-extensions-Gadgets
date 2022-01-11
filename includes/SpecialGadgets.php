@@ -244,6 +244,14 @@ class SpecialGadgets extends SpecialPage {
 					$needLineBreakAfter = true;
 				}
 
+				if ( $gadget->supportsUrlLoad() ) {
+					if ( $needLineBreakAfter ) {
+						$output->addHTML( '<br />' );
+					}
+					$output->addHTML( $this->msg( 'gadgets-supports-urlload' )->parse() );
+					$needLineBreakAfter = true;
+				}
+
 				// Portion: Show on by default (optional)
 				if ( $gadget->isOnByDefault() ) {
 					if ( $needLineBreakAfter ) {

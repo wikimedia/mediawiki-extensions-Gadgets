@@ -20,7 +20,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	public const GADGET_CLASS_VERSION = 11;
+	public const GADGET_CLASS_VERSION = 12;
 
 	public const CACHE_TTL = 86400;
 
@@ -60,6 +60,8 @@ class Gadget {
 	private $type = '';
 	/** @var string|null */
 	private $category;
+	/** @var bool */
+	private $supportsUrlLoad = false;
 
 	public function __construct( array $options ) {
 		foreach ( $options as $member => $option ) {
@@ -82,6 +84,7 @@ class Gadget {
 				case 'hidden':
 				case 'package':
 				case 'category':
+				case 'supportsUrlLoad':
 					$this->{$member} = $option;
 					break;
 				default:
@@ -112,6 +115,7 @@ class Gadget {
 			'requiredActions' => $data['settings']['actions'],
 			'requiredSkins' => $data['settings']['skins'],
 			'category' => $data['settings']['category'],
+			'supportsUrlLoad' => $data['settings']['supportsUrlLoad'],
 			'scripts' => array_map( $prefixGadgetNs, $data['module']['scripts'] ),
 			'styles' => array_map( $prefixGadgetNs, $data['module']['styles'] ),
 			'datas' => array_map( $prefixGadgetNs, $data['module']['datas'] ),
@@ -259,6 +263,13 @@ class Gadget {
 		return ( count( $this->requiredSkins ) === 0
 			|| in_array( $skin->getSkinName(), $this->requiredSkins )
 		);
+	}
+
+	/**
+	 * @return bool Whether the gadget can be loaded with `?withgadget` query parameter.
+	 */
+	public function supportsUrlLoad() {
+		return $this->supportsUrlLoad;
 	}
 
 	/**

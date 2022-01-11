@@ -48,6 +48,11 @@
 					"description": "Key of the category this gadget belongs to",
 					"type": "string",
 					"default": ""
+				},
+				"supportsdirectload": {
+					"description": "Whether this gadget supports ?withgadget query parameter",
+					"type": "boolean",
+					"default": false
 				}
 			}
 		},

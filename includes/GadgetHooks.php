@@ -188,26 +188,23 @@ class GadgetHooks {
 			} catch ( InvalidArgumentException $e ) {
 				continue;
 			}
-			$peers = [];
-			foreach ( $gadget->getPeers() as $peerName ) {
-				try {
-					$peers[] = $repo->getGadget( $peerName );
-				} catch ( InvalidArgumentException $e ) {
-					// Ignore
-					// @todo: Emit warning for invalid peer?
-				}
-			}
-			if ( ( $gadget->isEnabled( $user ) || $req->getRawVal( 'withgadget' ) === $id )
-				&& $gadget->isAllowed( $user )
-				&& $gadget->isActionSupported( Action::getActionName( $out->getContext() ) )
-				&& $gadget->isSkinSupported( $out->getSkin() )
-				&& ( in_array( $out->getTarget() ?? 'desktop', $gadget->getTargets() ) )
-			) {
+
+			if ( self::shouldLoadGadget( $gadget, $id, $user, $req, $out ) ) {
 				if ( $gadget->hasModule() ) {
 					if ( $gadget->getType() === 'styles' ) {
 						$out->addModuleStyles( Gadget::getModuleName( $gadget->getName() ) );
 					} else {
 						$out->addModules( Gadget::getModuleName( $gadget->getName() ) );
+
+						$peers = [];
+						foreach ( $gadget->getPeers() as $peerName ) {
+							try {
+								$peers[] = $repo->getGadget( $peerName );
+							} catch ( InvalidArgumentException $e ) {
+								// Ignore
+								// @todo: Emit warning for invalid peer?
+							}
+						}
 						// Load peer modules
 						foreach ( $peers as $peer ) {
 							if ( $peer->getType() === 'styles' ) {
@@ -308,6 +305,24 @@ class GadgetHooks {
 		}
 
 		return true;
+	}
+
+	/**
+	 * @param Gadget $gadget
+	 * @param string $id
+	 * @param User $user
+	 * @param WebRequest $req
+	 * @param OutputPage $out
+	 * @return bool Load gadget or not
+	 */
+	private static function shouldLoadGadget( $gadget, $id, $user, $req, $out ): bool {
+		$urlLoad = $req->getRawVal( 'withgadget' ) === $id && $gadget->supportsUrlLoad();
+
+		return ( $gadget->isEnabled( $user ) || $urlLoad )
+			&& $gadget->isAllowed( $user )
+			&& $gadget->isActionSupported( Action::getActionName( $out->getContext() ) )
+			&& $gadget->isSkinSupported( $out->getSkin() )
+			&& ( in_array( $out->getTarget() ?? 'desktop', $gadget->getTargets() ) );
 	}
 
 	/**
