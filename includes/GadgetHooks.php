@@ -73,7 +73,10 @@ class GadgetHooks {
 		 */
 		foreach ( $gadgets as $thisSection ) {
 			foreach ( $thisSection as $gadgetId => $gadget ) {
-				$defaultOptions['gadget-' . $gadgetId] = $gadget->isOnByDefault() ? 1 : 0;
+				// Hidden gadgets don't need to be added here, T299071
+				if ( !$gadget->isHidden() ) {
+					$defaultOptions['gadget-' . $gadgetId] = $gadget->isOnByDefault() ? 1 : 0;
+				}
 			}
 		}
 	}
