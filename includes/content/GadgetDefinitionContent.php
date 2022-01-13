@@ -70,4 +70,15 @@ class GadgetDefinitionContent extends JsonContent {
 
 		return $info;
 	}
+
+	/**
+	 * @inheritDoc
+	 */
+	protected function objectTable( $val ) {
+		if ( $val instanceof GadgetDefinitionContentArmor ) {
+			return (string)$val;
+		}
+
+		return parent::objectTable( $val );
+	}
 }
