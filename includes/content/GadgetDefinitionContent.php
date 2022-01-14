@@ -22,6 +22,12 @@
 
 class GadgetDefinitionContent extends JsonContent {
 
+	/** @var Status|null Cached validation result */
+	private $validation;
+
+	/**
+	 * @param string $text
+	 */
 	public function __construct( $text ) {
 		parent::__construct( $text, 'GadgetDefinition' );
 	}
@@ -47,12 +53,16 @@ class GadgetDefinitionContent extends JsonContent {
 	 * @return Status
 	 */
 	public function validate() {
-		if ( !parent::isValid() ) {
-			return $this->getData();
+		// Cache the validation result to avoid re-computations
+		if ( !$this->validation ) {
+			if ( !parent::isValid() ) {
+				$this->validation = $this->getData();
+			} else {
+				$validator = new GadgetDefinitionValidator();
+				$this->validation = $validator->validate( $this->getAssocArray() );
+			}
 		}
-
-		$validator = new GadgetDefinitionValidator();
-		return $validator->validate( $this->getAssocArray() );
+		return $this->validation;
 	}
 
 	/**
