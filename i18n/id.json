@@ -24,6 +24,8 @@
 	"gadgetusage-default": "Baku",
 	"gadgets-title": "Perkakas",
 	"gadgets-pagetext": "Berikut adalah daftar perkakas istimewa yang dapat diaktifkan pengguna melalui [[Special:Preferences#mw-prefsection-gadgets|halaman preferensi]] mereka sebagaimana didefinisikan oleh [[MediaWiki:Gadgets-definition]]. Tinjauan berikut memberikan kemudahan akses ke dalam halaman pesan sistem yang mendefinisikan deskripsi dan kode masing-masing perkakas.",
+	"gadgets-editdescription": "Sunting deskripsi",
+	"gadgets-viewdescription": "Lihat deskripsi",
 	"gadgets-uses": "Penggunaan",
 	"gadgets-required-rights": "Memerlukan {{PLURAL:$2|hak|hak-hak}} berikut:\n\n$1",
 	"gadgets-required-skins": "Tersedia dalam {{PLURAL:$2|$1 kulit|kulit berikut: $1}}.",
