@@ -47,5 +47,6 @@
 	"right-gadgets-edit": "JavaScript- und CSS-Seiten von Helferlein bearbeiten",
 	"action-gadgets-edit": "diese JavaScript- oder CSS-Seite des Helferleins zu bearbeiten",
 	"right-gadgets-definition-edit": "Definitionen von Helferlein bearbeiten",
-	"action-gadgets-definition-edit": "diese Definition des Helferleins zu bearbeiten"
+	"action-gadgets-definition-edit": "diese Definition des Helferleins zu bearbeiten",
+	"gadgets-wrong-contentmodel": "Seiten im {{ns:2302}}-Namensraum müssen das Inhaltsmodell GadgetDefinition haben."
 }
