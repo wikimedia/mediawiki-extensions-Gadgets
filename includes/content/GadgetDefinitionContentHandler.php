@@ -112,7 +112,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 	protected function fillParserOutput(
 		Content $content,
 		ContentParseParams $cpoParams,
-		ParserOutput &$output
+		ParserOutput &$parserOutput
 	) {
 		'@phan-var GadgetDefinitionContent $content';
 		// Create a deep clone. FIXME: unserialize(serialize()) is hacky.
@@ -122,7 +122,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 				if ( isset( $data->module->{$type} ) ) {
 					foreach ( $data->module->{$type} as &$page ) {
 						$title = Title::makeTitleSafe( NS_GADGET, $page );
-						$this->makeLink( $output, $page, $title );
+						$this->makeLink( $parserOutput, $page, $title );
 					}
 				}
 			}
@@ -130,20 +130,20 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 				if ( str_starts_with( $dep, 'ext.gadget.' ) ) {
 					$gadgetId = explode( 'ext.gadget.', $dep )[1];
 					$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $gadgetId );
-					$this->makeLink( $output, $dep, $title );
+					$this->makeLink( $parserOutput, $dep, $title );
 				}
 			}
 			foreach ( $data->module->peers as &$peer ) {
 				$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $peer );
-				$this->makeLink( $output, $peer, $title );
+				$this->makeLink( $parserOutput, $peer, $title );
 			}
 			foreach ( $data->module->messages as &$msg ) {
 				$title = Title::makeTitleSafe( NS_MEDIAWIKI, $msg );
-				$this->makeLink( $output, $msg, $title );
+				$this->makeLink( $parserOutput, $msg, $title );
 			}
 			if ( $data->settings->category ) {
 				$this->makeLink(
-					$output,
+					$parserOutput,
 					$data->settings->category,
 					Title::makeTitleSafe( NS_MEDIAWIKI, "gadget-section-" . $data->settings->category )
 				);
@@ -151,23 +151,23 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 		}
 
 		if ( !$cpoParams->getGenerateHtml() || !$content->isValid() ) {
-			$output->setText( '' );
+			$parserOutput->setText( '' );
 		} else {
-			$output->setText( $content->rootValueTable( $data ) );
-			$output->addModuleStyles( 'mediawiki.content.json' );
+			$parserOutput->setText( $content->rootValueTable( $data ) );
+			$parserOutput->addModuleStyles( [ 'mediawiki.content.json' ] );
 		}
 	}
 
 	/**
 	 * Create a link on the page
-	 * @param ParserOutput $output
+	 * @param ParserOutput $parserOutput
 	 * @param string &$text The text to link
 	 * @param Title|null $title Link target title
 	 * @return void
 	 */
-	private function makeLink( ParserOutput $output, string &$text, ?Title $title ) {
+	private function makeLink( ParserOutput $parserOutput, string &$text, ?Title $title ) {
 		if ( $title ) {
-			$output->addLink( $title );
+			$parserOutput->addLink( $title );
 			$text = new GadgetDefinitionContentArmor(
 				Linker::link( $title, htmlspecialchars( '"' . $text . '"' ) )
 			);
