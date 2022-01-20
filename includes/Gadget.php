@@ -12,6 +12,8 @@
  */
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Permissions\Authority;
+use MediaWiki\User\UserIdentity;
 
 /**
  * Wrapper for one gadget.
@@ -190,10 +192,10 @@ class Gadget {
 	/**
 	 * Checks whether this gadget is enabled for given user
 	 *
-	 * @param User $user user to check against
+	 * @param UserIdentity $user user to check against
 	 * @return bool
 	 */
-	public function isEnabled( $user ) {
+	public function isEnabled( UserIdentity $user ) {
 		$userOptionsLookup = MediaWikiServices::getInstance()->getUserOptionsLookup();
 		return (bool)$userOptionsLookup->getOption( $user, "gadget-{$this->name}", $this->onByDefault );
 	}
@@ -201,10 +203,10 @@ class Gadget {
 	/**
 	 * Checks whether given user has permissions to use this gadget
 	 *
-	 * @param User $user The user to check against
+	 * @param Authority $user The user to check against
 	 * @return bool
 	 */
-	public function isAllowed( User $user ) {
+	public function isAllowed( Authority $user ) {
 		if ( count( $this->requiredRights ) ) {
 			return $user->isAllowedAll( ...$this->requiredRights );
 		}
