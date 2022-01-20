@@ -57,5 +57,6 @@
 	"right-gadgets-edit": "Modifier les pages JavaScript et CSS de gadget",
 	"action-gadgets-edit": "modifier la page JavaScript ou CSS de ce gadget",
 	"right-gadgets-definition-edit": "Modifier les définitions des gadget",
-	"action-gadgets-definition-edit": "modifier la définition de ce gadget"
+	"action-gadgets-definition-edit": "modifier la définition de ce gadget",
+	"gadgets-wrong-contentmodel": "Les pages dans l’espace de noms {{ns:2302}} doivent provenir du modèle de contenu GadgetDefinition."
 }

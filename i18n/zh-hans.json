@@ -5,6 +5,7 @@
 			"Bencmq",
 			"Dimension",
 			"Gaoxuewei",
+			"GraceL",
 			"Hydra",
 			"Impersonator 1",
 			"Liangent",
@@ -55,5 +56,6 @@
 	"right-gadgets-edit": "编辑小工具的JavaScript和CSS页面",
 	"action-gadgets-edit": "编辑此小工具的JavaScript或CSS页面",
 	"right-gadgets-definition-edit": "编辑小工具定义",
-	"action-gadgets-definition-edit": "编辑此小工具的定义"
+	"action-gadgets-definition-edit": "编辑此小工具的定义",
+	"gadgets-wrong-contentmodel": "在{{ns:2302}} 命名空间的页码必须在定义的内容模型中。"
 }
