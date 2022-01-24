@@ -276,6 +276,10 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 					// Single value, not a list
 					$info['type'] = $params[0] ?? '';
 					break;
+				case 'supportsUrlLoad':
+					$val = $params[0] ?? '';
+					$info['supportsUrlLoad'] = $val !== 'false';
+					break;
 			}
 		}
 

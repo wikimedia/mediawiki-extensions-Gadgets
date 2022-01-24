@@ -20,6 +20,7 @@ class GadgetDefinitionValidator {
 		'settings.skins' => [ [ __CLASS__, 'isArrayOrTrue' ], 'array or true', 'is_string', 'string' ],
 		'settings.actions' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'settings.category' => [ 'is_string', 'string' ],
+		'settings.supportsUrlLoad' => [ 'is_bool', 'boolean' ],
 		'module' => [ 'is_array', 'array' ],
 		'module.scripts' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'module.styles' => [ 'is_array', 'array', 'is_string', 'string' ],

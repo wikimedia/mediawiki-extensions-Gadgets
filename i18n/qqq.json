@@ -52,5 +52,6 @@
 	"action-gadgets-edit": "{{doc-action|gadgets-edit}}",
 	"right-gadgets-definition-edit": "{{doc-right|gadgets-definition-edit}}",
 	"action-gadgets-definition-edit": "{{doc-action|gadgets-definition-edit}}",
-	"gadgets-wrong-contentmodel": "Error message shown while trying to change the content model of a page in gadget definition namespace to other than GadgetDefinition."
+	"gadgets-wrong-contentmodel": "Error message shown while trying to change the content model of a page in gadget definition namespace to other than GadgetDefinition.",
+	"gadgets-supports-urlload": "Used in [[Special:Gadgets]], if the gadget supports ?withgadget query parameter."
 }

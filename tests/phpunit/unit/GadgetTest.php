@@ -61,6 +61,22 @@ class GadgetTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers Gadget
+	 */
+	public function testSupportsUrlLoad() {
+		$directLoadAllowedByDefault = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
+		$directLoadAllowed1 = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|supportsUrlLoad]|bar.js' );
+		$directLoadAllowed2 = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|supportsUrlLoad=true]|bar.js' );
+		$directLoadNotAllowed = GadgetTestUtils::makeGadget( '*baz[ResourceLoader|supportsUrlLoad=false]|baz.js' );
+
+		$this->assertFalse( $directLoadAllowedByDefault->supportsUrlLoad() );
+		$this->assertTrue( $directLoadAllowed1->supportsUrlLoad() );
+		$this->assertTrue( $directLoadAllowed2->supportsUrlLoad() );
+		$this->assertFalse( $directLoadNotAllowed->supportsUrlLoad() );
+	}
+
+	/**
+	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
 	 * @covers Gadget::isAllowed
 	 */
 	public function testIsAllowed() {
