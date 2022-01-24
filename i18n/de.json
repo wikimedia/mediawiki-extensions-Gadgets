@@ -48,5 +48,6 @@
 	"action-gadgets-edit": "diese JavaScript- oder CSS-Seite des Helferleins zu bearbeiten",
 	"right-gadgets-definition-edit": "Definitionen von Helferlein bearbeiten",
 	"action-gadgets-definition-edit": "diese Definition des Helferleins zu bearbeiten",
-	"gadgets-wrong-contentmodel": "Seiten im {{ns:2302}}-Namensraum müssen das Inhaltsmodell GadgetDefinition haben."
+	"gadgets-wrong-contentmodel": "Seiten im {{ns:2302}}-Namensraum müssen das Inhaltsmodell GadgetDefinition haben.",
+	"gadgets-supports-urlload": "Dieses Helferlein unterstützt das Laden über eine URL mit dem Query-Parameter <code>?withgadget</code>"
 }
