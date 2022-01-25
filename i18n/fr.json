@@ -58,5 +58,6 @@
 	"action-gadgets-edit": "modifier la page JavaScript ou CSS de ce gadget",
 	"right-gadgets-definition-edit": "Modifier les définitions des gadget",
 	"action-gadgets-definition-edit": "modifier la définition de ce gadget",
-	"gadgets-wrong-contentmodel": "Les pages dans l’espace de noms {{ns:2302}} doivent provenir du modèle de contenu GadgetDefinition."
+	"gadgets-wrong-contentmodel": "Les pages dans l’espace de noms {{ns:2302}} doivent provenir du modèle de contenu GadgetDefinition.",
+	"gadgets-supports-urlload": "Ce gadget supporte le chargement via URL avec le paramètre de requête <code>?withgadget</code>."
 }
