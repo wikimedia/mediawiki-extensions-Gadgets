@@ -17,6 +17,7 @@
 			"Ping08",
 			"VasilievVV",
 			"Vlad5250",
+			"WindEwriX",
 			"Александр Сигачёв",
 			"Лилиә"
 		]
@@ -36,9 +37,11 @@
 	"gadgets-title": "Гаджеты",
 	"gadgets-pagetext": "Ниже приведён список гаджетов, которые участники могут включить на своей странице настроек, в соответствии со списком на странице [[MediaWiki:Gadgets-definition|определений]].\nЭтот список позволяет легко получить доступ к страницам системных сообщений, определяющих описания и исходные коды гаджетов.",
 	"gadgets-editdescription": "Править описание",
+	"gadgets-viewdescription": "Смотреть описание",
 	"gadgets-uses": "Использует",
 	"gadgets-required-rights": "{{PLURAL:$2|1=Требуется право|Требуются права}}:\n\n$1",
 	"gadgets-required-skins": "Доступен в {{PLURAL:$2|1=теме оформления «$1»|следующих темах оформления: $1}}.",
+	"gadgets-required-actions": "Работает на {{PLURAL:$2|странице действия <code>$1</code>|страницах следующих действий: <code>$1</code>}}.",
 	"gadgets-default": "Включён для всех по умолчанию.",
 	"gadgets-legacy": "Гаджет не загружен. Пожалуйста, исправьте код этого гаджета, чтобы он вызывался с помощью ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Узнать подробности])",
 	"gadgets-export": "Экспортировать",
@@ -47,9 +50,11 @@
 	"gadgets-export-text": "Для экспорта гаджета $1 нажмите кнопку «{{int:gadgets-export-download}}», сохраните загруженный файл,\nперейдите на страницу Special:Import целевой вики и загрузите файл. Затем добавьте следующие строки на страницу MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nВы должны иметь соответствующие разрешения в целевой вики (в том числе право на редактирование системных сообщений), также на сервере должна быть включена настройка импорта из файлов.",
 	"gadgets-export-download": "Скачать",
 	"gadgets-validate-notset": "Свойство <code>$1</code> не установлено.",
-	"gadgets-validate-wrongtype": "Свойство <code>$1</code> должна иметь тип <code>$2</code> вместо типа <code>$3</code>.",
+	"gadgets-validate-wrongtype": "Свойство <code>$1</code> должно иметь тип <code>$2</code> вместо типа <code>$3</code>.",
 	"right-gadgets-edit": "Правка JavaScript и CSS-страниц гаджетов",
 	"action-gadgets-edit": "редактирование JavaScript или CSS-страницы этого гаджета",
 	"right-gadgets-definition-edit": "Правка описаний гаджетов",
-	"action-gadgets-definition-edit": "редактирование определения этого гаджета"
+	"action-gadgets-definition-edit": "редактирование определения этого гаджета",
+	"gadgets-wrong-contentmodel": "Страницы в пространстве имён {{ns:2302}} должны иметь модель содержимого GadgetDefinition.",
+	"gadgets-supports-urlload": "Гаджет поддерживает загрузку с использованием параметра <code>?withgadget</code> в URL."
 }
