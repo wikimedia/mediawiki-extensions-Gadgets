@@ -1,9 +1,15 @@
 <?php
 
+namespace MediaWiki\Extension\Gadgets;
+
+use InvalidArgumentException;
+use MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContent;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
+use Title;
+use WANObjectCache;
 use Wikimedia\Rdbms\Database;
 
 /**

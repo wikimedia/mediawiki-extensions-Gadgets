@@ -1,5 +1,7 @@
 <?php
 
+namespace MediaWiki\Extension\Gadgets;
+
 /**
  * Copyright © 2007 Daniel Kinzler
  *
@@ -20,10 +22,31 @@
  *
  * @file
  */
+
+use Action;
+use Content;
+use EditPage;
+use Exception;
+use HTMLForm;
+use IContextSource;
+use InvalidArgumentException;
+use LinkBatch;
+use MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContent;
+use OOUI\HtmlSnippet;
+use OutputPage;
+use RequestContext;
+use ResourceLoader;
+use SpecialPage;
+use Status;
+use Title;
+use User;
+use WebRequest;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\WrappedString;
+use WikiPage;
+use Xml;
 
-class GadgetHooks {
+class Hooks {
 	/**
 	 * PageSaveComplete hook handler
 	 *
@@ -142,15 +165,15 @@ class GadgetHooks {
 	 */
 	public static function onPreferencesGetLegend( $form, $key, &$legend ) {
 		if ( str_starts_with( $key, 'gadget-section-' ) ) {
-			$legend = new OOUI\HtmlSnippet( $form->msg( $key )->parse() );
+			$legend = new HtmlSnippet( $form->msg( $key )->parse() );
 		}
 	}
 
 	/**
 	 * ResourceLoaderRegisterModules hook handler.
-	 * @param ResourceLoader &$resourceLoader
+	 * @param ResourceLoader $resourceLoader
 	 */
-	public static function registerModules( ResourceLoader &$resourceLoader ) {
+	public static function registerModules( ResourceLoader $resourceLoader ) {
 		$repo = GadgetRepo::singleton();
 		$ids = $repo->getGadgetIds();
 

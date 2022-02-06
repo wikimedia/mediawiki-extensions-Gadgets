@@ -20,6 +20,12 @@
  * @file
  */
 
+namespace MediaWiki\Extension\Gadgets\Content;
+
+use FormatJson;
+use JsonContent;
+use Status;
+
 class GadgetDefinitionContent extends JsonContent {
 
 	/** @var Status|null Cached validation result */

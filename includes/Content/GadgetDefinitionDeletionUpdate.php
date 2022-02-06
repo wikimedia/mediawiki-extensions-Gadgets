@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2016
+ * Copyright 2014
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,16 +20,28 @@
  * @file
  */
 
-class GadgetDefinitionContentArmor {
+namespace MediaWiki\Extension\Gadgets\Content;
 
-	/** @var string */
-	private $value;
+use DataUpdate;
+use MediaWiki\Extension\Gadgets\GadgetRepo;
+use MediaWiki\Linker\LinkTarget;
 
-	public function __construct( $value ) {
-		$this->value = $value;
+/**
+ * DataUpdate to run whenever a page in the Gadget definition
+ * is deleted.
+ */
+class GadgetDefinitionDeletionUpdate extends DataUpdate {
+	/**
+	 * Page that was deleted
+	 * @var LinkTarget
+	 */
+	private $target;
+
+	public function __construct( LinkTarget $target ) {
+		$this->target = $target;
 	}
 
-	public function __toString() {
-		return $this->value;
+	public function doUpdate() {
+		GadgetRepo::singleton()->handlePageDeletion( $this->target );
 	}
 }

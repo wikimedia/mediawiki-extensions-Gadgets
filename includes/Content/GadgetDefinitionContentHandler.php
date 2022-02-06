@@ -21,8 +21,17 @@
  * @file
  */
 
+namespace MediaWiki\Extension\Gadgets\Content;
+
+use Content;
+use DeferrableUpdate;
+use FormatJson;
+use JsonContentHandler;
+use Linker;
 use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Revision\SlotRenderingProvider;
+use ParserOutput;
+use Title;
 
 class GadgetDefinitionContentHandler extends JsonContentHandler {
 	public function __construct() {

@@ -1,6 +1,10 @@
 <?php
 
+namespace MediaWiki\Extension\Gadgets;
+
+use InvalidArgumentException;
 use MediaWiki\Linker\LinkTarget;
+use Title;
 
 abstract class GadgetRepo {
 
@@ -120,6 +124,7 @@ abstract class GadgetRepo {
 		if ( self::$instance === null ) {
 			// @todo use Config here
 			global $wgGadgetsRepoClass;
+			// @phan-suppress-next-line PhanPossiblyUndeclaredVariable
 			self::$instance = new $wgGadgetsRepoClass();
 		}
 		return self::$instance;
@@ -134,3 +139,5 @@ abstract class GadgetRepo {
 		self::$instance = $repo;
 	}
 }
+
+class_alias( GadgetRepo::class, 'GadgetRepo' );

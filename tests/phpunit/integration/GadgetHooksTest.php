@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\Extension\Gadgets\Hooks as GadgetHooks;
+use MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -28,10 +30,10 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers Gadget
-	 * @covers GadgetHooks::getPreferences
-	 * @covers GadgetRepo
-	 * @covers MediaWikiGadgetsDefinitionRepo
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget
+	 * @covers \MediaWiki\Extension\Gadgets\Hooks::getPreferences
+	 * @covers \MediaWiki\Extension\Gadgets\GadgetRepo
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo
 	 */
 	public function testPreferences() {
 		$prefs = [];

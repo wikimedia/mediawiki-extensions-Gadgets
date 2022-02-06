@@ -1,5 +1,9 @@
 <?php
 
+namespace MediaWiki\Extension\Gadgets\Content;
+
+use Status;
+
 /**
  * Class responsible for validating Gadget definition contents
  *

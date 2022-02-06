@@ -1,5 +1,13 @@
 <?php
 
+namespace MediaWiki\Extension\Gadgets\Api;
+
+use ApiBase;
+use ApiQuery;
+use ApiQueryBase;
+use ApiResult;
+use MediaWiki\Extension\Gadgets\Gadget;
+use MediaWiki\Extension\Gadgets\GadgetRepo;
 use Wikimedia\ParamValidator\ParamValidator;
 
 /**

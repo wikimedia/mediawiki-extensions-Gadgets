@@ -1,5 +1,12 @@
 <?php
 
+namespace MediaWiki\Extension\Gadgets;
+
+use InvalidArgumentException;
+use ResourceLoaderContext;
+use ResourceLoaderModule;
+use ResourceLoaderWikiModule;
+
 /**
  * Class representing a list of resources for one gadget, basically a wrapper
  * around the Gadget class.

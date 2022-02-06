@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2014
  *
@@ -20,15 +21,15 @@
  * @file
  */
 
+namespace MediaWiki\Extension\Gadgets\Content;
+
+use DataUpdate;
+use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Linker\LinkTarget;
 
-/**
- * DataUpdate to run whenever a page in the Gadget definition
- * is deleted.
- */
-class GadgetDefinitionDeletionUpdate extends DataUpdate {
+class GadgetDefinitionSecondaryDataUpdate extends DataUpdate {
+
 	/**
-	 * Page that was deleted
 	 * @var LinkTarget
 	 */
 	private $target;
@@ -38,6 +39,6 @@ class GadgetDefinitionDeletionUpdate extends DataUpdate {
 	}
 
 	public function doUpdate() {
-		GadgetRepo::singleton()->handlePageDeletion( $this->target );
+		GadgetRepo::singleton()->handlePageUpdate( $this->target );
 	}
 }

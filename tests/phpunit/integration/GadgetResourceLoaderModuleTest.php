@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Gadgets\Gadget;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -23,7 +24,7 @@ class GadgetResourceLoaderModuleTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers GadgetResourceLoaderModule::getPages
+	 * @covers \MediaWiki\Extension\Gadgets\GadgetResourceLoaderModule::getPages
 	 */
 	public function testGetPages() {
 		$pages = $this->gadgetModule->getPages( ResourceLoaderContext::newDummyContext() );

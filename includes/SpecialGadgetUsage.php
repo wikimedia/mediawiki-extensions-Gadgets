@@ -24,6 +24,13 @@
  * @author Niharika Kohli <niharika@wikimedia.org>
  */
 
+namespace MediaWiki\Extension\Gadgets;
+
+use Html;
+use OutputPage;
+use QueryPage;
+use Skin;
+use stdClass;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 

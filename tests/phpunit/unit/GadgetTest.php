@@ -1,11 +1,14 @@
 <?php
 
+use MediaWiki\Extension\Gadgets\Gadget;
+use MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo;
+
 /**
  * @group Gadgets
  */
 class GadgetTest extends MediaWikiUnitTestCase {
 	/**
-	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
 	 */
 	public function testInvalidLines() {
 		$repo = new MediaWikiGadgetsDefinitionRepo();
@@ -14,8 +17,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers Gadget
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget
 	 */
 	public function testSimpleCases() {
 		$g = GadgetTestUtils::makeGadget( '* foo bar| foo.css|foo.js|foo.bar' );
@@ -30,9 +33,9 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers Gadget::supportsResourceLoader
-	 * @covers Gadget::getLegacyScripts
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::supportsResourceLoader
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::getLegacyScripts
 	 */
 	public function testRLtag() {
 		$g = GadgetTestUtils::makeGadget( '*foo [ResourceLoader]|foo.js|foo.css' );
@@ -42,8 +45,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers Gadget
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget
 	 */
 	public function testPackaged() {
 		$g = GadgetTestUtils::makeGadget( '* foo bar[ResourceLoader|package]| foo.css|foo.js|foo.bar|foo.json' );
@@ -60,8 +63,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers Gadget
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget
 	 */
 	public function testSupportsUrlLoad() {
 		$directLoadAllowedByDefault = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
@@ -76,8 +79,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers Gadget::isAllowed
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::isAllowed
 	 */
 	public function testIsAllowed() {
 		$user = $this->getMockBuilder( User::class )
@@ -100,8 +103,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers Gadget::isSkinSupported
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::isSkinSupported
 	 */
 	public function testSkinsTag() {
 		$gUnset = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
@@ -114,8 +117,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers Gadget::isActionSupported
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::isActionSupported
 	 */
 	public function testActionsTag() {
 		$gUnset = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
@@ -134,8 +137,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers Gadget::getTargets
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::getTargets
 	 */
 	public function testTargets() {
 		$g = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
@@ -145,8 +148,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers Gadget::getDependencies
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::getDependencies
 	 */
 	public function testDependencies() {
 		$g = GadgetTestUtils::makeGadget( '* foo[ResourceLoader|dependencies=jquery.ui]|bar.js' );
@@ -222,9 +225,9 @@ class GadgetTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @dataProvider provideGetType
-	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers Gadget::getType
-	 * @covers GadgetResourceLoaderModule::getType
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::getType
+	 * @covers \MediaWiki\Extension\Gadgets\GadgetResourceLoaderModule::getType
 	 */
 	public function testType( $message, $definition, $gType, $mType ) {
 		$g = GadgetTestUtils::makeGadget( $definition );
@@ -233,8 +236,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	/**
-	 * @covers MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers Gadget::isHidden
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::isHidden
 	 */
 	public function testIsHidden() {
 		$g = GadgetTestUtils::makeGadget( '* foo[hidden]|bar.js' );

@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Copyright 2014
+ * Copyright 2016
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,20 +20,18 @@
  * @file
  */
 
-use MediaWiki\Linker\LinkTarget;
+namespace MediaWiki\Extension\Gadgets\Content;
 
-class GadgetDefinitionSecondaryDataUpdate extends DataUpdate {
+class GadgetDefinitionContentArmor {
 
-	/**
-	 * @var LinkTarget
-	 */
-	private $target;
+	/** @var string */
+	private $value;
 
-	public function __construct( LinkTarget $target ) {
-		$this->target = $target;
+	public function __construct( $value ) {
+		$this->value = $value;
 	}
 
-	public function doUpdate() {
-		GadgetRepo::singleton()->handlePageUpdate( $this->target );
+	public function __toString() {
+		return $this->value;
 	}
 }

@@ -11,9 +11,15 @@
  * @license GPL-2.0-or-later
  */
 
+namespace MediaWiki\Extension\Gadgets;
+
+use InvalidArgumentException;
+use MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContent;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\User\UserIdentity;
+use ResourceLoader;
+use Skin;
 
 /**
  * Wrapper for one gadget.

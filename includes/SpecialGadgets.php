@@ -9,7 +9,16 @@
  * @license GPL-2.0-or-later
  */
 
+namespace MediaWiki\Extension\Gadgets;
+
+use Html;
+use HTMLForm;
+use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
+use Sanitizer;
+use SpecialPage;
+use Title;
+use Xml;
 
 class SpecialGadgets extends SpecialPage {
 	public function __construct() {
