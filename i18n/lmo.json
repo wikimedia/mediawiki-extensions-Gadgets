@@ -38,5 +38,6 @@
 	"action-gadgets-edit": "modifega quell acessori Javascript chì o la pagina CSS",
 	"right-gadgets-definition-edit": "Modifega i definizzion di acessori",
 	"action-gadgets-definition-edit": "modifegà i definizzin di acessori",
-	"gadgets-wrong-contentmodel": "I pagine del spazzi di nom {{ns:2302}} i gh'hann de vegnì del modell de contegnud GadgetDefinition."
+	"gadgets-wrong-contentmodel": "I pagine del spazzi di nom {{ns:2302}} i gh'hann de vegnì del modell de contegnud GadgetDefinition.",
+	"gadgets-supports-urlload": "Quell acessori el suporta el caregament per mez de URL cont el parametro de query <code>?withgadget</code> ."
 }
