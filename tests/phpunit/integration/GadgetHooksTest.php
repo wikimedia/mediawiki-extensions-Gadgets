@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Extension\Gadgets\Hooks as GadgetHooks;
 use MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo;
 use Wikimedia\TestingAccessWrapper;
