@@ -66,7 +66,9 @@
 		"gadgets-definition"
 	],
 	"AutoloadClasses": {
+		"Gadget": "includes/Gadget.php",
 		"GadgetRepo": "includes/GadgetRepo.php",
+		"MediaWiki\\Extension\\Gadgets\\Gadget": "includes/Gadget.php",
 		"MediaWiki\\Extension\\Gadgets\\GadgetRepo": "includes/GadgetRepo.php"
 	},
 	"AutoloadNamespaces": {
