@@ -16,7 +16,7 @@ use Wikimedia\Rdbms\Database;
  * Gadgets repo powered by MediaWiki:Gadgets-definition
  */
 class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
-	private const CACHE_VERSION = 2;
+	private const CACHE_VERSION = 3;
 
 	/** @var array|false|null */
 	private $definitionCache;
