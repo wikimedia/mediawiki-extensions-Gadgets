@@ -69,6 +69,7 @@
 		"ApiQueryGadgetCategories": "includes/api/ApiQueryGadgetCategories.php",
 		"ApiQueryGadgets": "includes/api/ApiQueryGadgets.php",
 		"Gadget": "includes/Gadget.php",
+		"MediaWiki\\Extension\\Gadgets\\Gadget": "includes/Gadget.php",
 		"GadgetHooks": "includes/GadgetHooks.php",
 		"GadgetResourceLoaderModule": "includes/GadgetResourceLoaderModule.php",
 		"SpecialGadgets": "includes/SpecialGadgets.php",

@@ -411,3 +411,5 @@ class Gadget {
 		return 'general';
 	}
 }
+
+class_alias( 'Gadget', 'MediaWiki\\Extension\\Gadgets\\Gadget' );
