@@ -23,14 +23,12 @@ namespace MediaWiki\Extension\Gadgets;
  * @file
  */
 
-use Action;
 use Content;
 use EditPage;
 use Exception;
 use HTMLForm;
 use IContextSource;
 use InvalidArgumentException;
-use LinkBatch;
 use MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContent;
 use OOUI\HtmlSnippet;
 use OutputPage;
@@ -40,7 +38,6 @@ use SpecialPage;
 use Status;
 use Title;
 use User;
-use WebRequest;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\WrappedString;
 use WikiPage;
@@ -196,15 +193,12 @@ class Hooks {
 			return;
 		}
 
-		$lb = new LinkBatch();
-		$lb->setCaller( __METHOD__ );
 		$enabledLegacyGadgets = [];
-		$req = $out->getRequest();
+		$conditions = new GadgetLoadConditions( $out );
 
 		/**
 		 * @var $gadget Gadget
 		 */
-		$user = $out->getUser();
 		foreach ( $ids as $id ) {
 			try {
 				$gadget = $repo->getGadget( $id );
@@ -212,7 +206,7 @@ class Hooks {
 				continue;
 			}
 
-			if ( self::shouldLoadGadget( $gadget, $id, $user, $req, $out ) ) {
+			if ( $conditions->check( $gadget ) ) {
 				if ( $gadget->hasModule() ) {
 					if ( $gadget->getType() === 'styles' ) {
 						$out->addModuleStyles( Gadget::getModuleName( $gadget->getName() ) );
@@ -328,24 +322,6 @@ class Hooks {
 		}
 
 		return true;
-	}
-
-	/**
-	 * @param Gadget $gadget
-	 * @param string $id
-	 * @param User $user
-	 * @param WebRequest $req
-	 * @param OutputPage $out
-	 * @return bool Load gadget or not
-	 */
-	private static function shouldLoadGadget( $gadget, $id, $user, $req, $out ): bool {
-		$urlLoad = $req->getRawVal( 'withgadget' ) === $id && $gadget->supportsUrlLoad();
-
-		return ( $gadget->isEnabled( $user ) || $urlLoad )
-			&& $gadget->isAllowed( $user )
-			&& $gadget->isActionSupported( Action::getActionName( $out->getContext() ) )
-			&& $gadget->isSkinSupported( $out->getSkin() )
-			&& ( in_array( $out->getTarget() ?? 'desktop', $gadget->getTargets() ) );
 	}
 
 	/**
