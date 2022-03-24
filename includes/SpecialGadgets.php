@@ -188,12 +188,12 @@ class SpecialGadgets extends SpecialPage {
 					if ( $needLineBreakAfter ) {
 						$output->addHTML( '<br />' );
 					}
-					$output->addHTML( Html::rawElement(
-						'span',
-						[ 'class' => 'mw-gadget-legacy errorbox' ],
-						$this->msg( 'gadgets-legacy' )->parse()
+					$output->addHTML( Html::errorBox(
+						$this->msg( 'gadgets-legacy' )->parse(),
+						'',
+						'mw-gadget-legacy'
 					) );
-					$needLineBreakAfter = true;
+					$needLineBreakAfter = false;
 				}
 
 				// Portion: Show required rights (optional)
