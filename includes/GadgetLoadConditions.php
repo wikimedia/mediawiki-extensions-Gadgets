@@ -22,7 +22,6 @@ namespace MediaWiki\Extension\Gadgets;
  * @file
  */
 
-use MediaWiki\MediaWikiServices;
 use OutputPage;
 use Skin;
 use User;
@@ -46,7 +45,7 @@ class GadgetLoadConditions {
 		$this->user = $out->getUser();
 		$this->target = $out->getTarget() ?? 'desktop';
 		$this->skin = $out->getSkin();
-		$this->action = MediaWikiServices::getInstance()->getActionFactory()->getActionName( $out->getContext() );
+		$this->action = $out->getContext()->getActionName();
 		$this->withGadgetParam = $out->getRequest()->getRawVal( 'withgadget' );
 	}
 
