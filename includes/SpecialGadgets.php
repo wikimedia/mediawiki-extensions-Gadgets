@@ -306,7 +306,7 @@ class SpecialGadgets extends SpecialPage {
 
 		$htmlForm = HTMLForm::factory( 'ooui', [], $this->getContext() );
 		$htmlForm
-			->addHiddenField( 'title', SpecialPage::getTitleFor( 'Export' )->getPrefixedDBKey() )
+			->setTitle( SpecialPage::getTitleFor( 'Export' ) )
 			->addHiddenField( 'pages', $exportList )
 			->addHiddenField( 'wpDownload', '1' )
 			->addHiddenField( 'templates', '1' )
