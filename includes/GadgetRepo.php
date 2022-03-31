@@ -139,5 +139,3 @@ abstract class GadgetRepo {
 		self::$instance = $repo;
 	}
 }
-
-class_alias( GadgetRepo::class, 'GadgetRepo' );
