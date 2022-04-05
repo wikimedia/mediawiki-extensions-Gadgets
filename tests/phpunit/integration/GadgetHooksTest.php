@@ -15,13 +15,13 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 	protected $user;
 
 	public function setUp(): void {
-		global $wgGroupPermissions;
-
 		parent::setUp();
 
-		$wgGroupPermissions['unittesters'] = [
-			'test' => true,
-		];
+		$this->setGroupPermissions( [
+			'unittesters' => [
+				'test' => true,
+			],
+		] );
 		$this->user = $this->getTestUser( [ 'unittesters' ] )->getUser();
 	}
 
