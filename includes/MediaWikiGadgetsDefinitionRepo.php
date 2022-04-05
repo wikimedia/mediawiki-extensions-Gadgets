@@ -26,11 +26,10 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 
 	/**
 	 * @param string $id
-	 *
-	 * @return Gadget
 	 * @throws InvalidArgumentException
+	 * @return Gadget
 	 */
-	public function getGadget( $id ) {
+	public function getGadget( string $id ): Gadget {
 		$gadgets = $this->loadGadgets();
 		if ( !isset( $gadgets[$id] ) ) {
 			throw new InvalidArgumentException( "No gadget registered for '$id'" );
@@ -39,7 +38,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		return $gadgets[$id];
 	}
 
-	public function getGadgetIds() {
+	public function getGadgetIds(): array {
 		$gadgets = $this->loadGadgets();
 		if ( $gadgets ) {
 			return array_keys( $gadgets );
@@ -48,17 +47,16 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		return [];
 	}
 
-	public function handlePageUpdate( LinkTarget $target ) {
+	public function handlePageUpdate( LinkTarget $target ): void {
 		if ( $target->getNamespace() === NS_MEDIAWIKI && $target->getText() == 'Gadgets-definition' ) {
 			$this->purgeDefinitionCache();
 		}
 	}
 
 	/**
-	 * Purge the definitions cache, for example if MediaWiki:Gadgets-definition
-	 * was edited.
+	 * Purge the definitions cache, for example when MediaWiki:Gadgets-definition is edited.
 	 */
-	private function purgeDefinitionCache() {
+	private function purgeDefinitionCache(): void {
 		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$cache->touchCheckKey( $this->getDefinitionCacheKey() );
 	}

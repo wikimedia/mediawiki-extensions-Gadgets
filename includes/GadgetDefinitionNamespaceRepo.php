@@ -50,7 +50,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	 *
 	 * @return string[]
 	 */
-	public function getGadgetIds() {
+	public function getGadgetIds(): array {
 		$key = $this->getGadgetIdsKey();
 
 		$fname = __METHOD__;
@@ -79,7 +79,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	/**
 	 * @inheritDoc
 	 */
-	public function handlePageUpdate( LinkTarget $target ) {
+	public function handlePageUpdate( LinkTarget $target ): void {
 		if ( $target->inNamespace( NS_GADGET_DEFINITION ) ) {
 			$this->purgeGadgetEntry( $target->getText() );
 		}
@@ -88,7 +88,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	/**
 	 * @inheritDoc
 	 */
-	public function handlePageCreation( LinkTarget $target ) {
+	public function handlePageCreation( LinkTarget $target ): void {
 		if ( $target->inNamespace( NS_GADGET_DEFINITION ) ) {
 			$this->purgeGadgetIdsList();
 		}
@@ -97,7 +97,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	/**
 	 * @inheritDoc
 	 */
-	public function handlePageDeletion( LinkTarget $target ) {
+	public function handlePageDeletion( LinkTarget $target ): void {
 		if ( $target->inNamespace( NS_GADGET_DEFINITION ) ) {
 			$this->purgeGadgetIdsList();
 			$this->purgeGadgetEntry( $target->getText() );
@@ -107,7 +107,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	/**
 	 * Purge the list of gadget ids when a page is deleted or if a new page is created
 	 */
-	public function purgeGadgetIdsList() {
+	public function purgeGadgetIdsList(): void {
 		$this->wanCache->touchCheckKey( $this->getGadgetIdsKey() );
 	}
 
@@ -123,7 +123,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	 * @throws InvalidArgumentException
 	 * @return Gadget
 	 */
-	public function getGadget( $id ) {
+	public function getGadget( string $id ): Gadget {
 		$key = $this->getGadgetCacheKey( $id );
 		$gadget = $this->wanCache->getWithSetCallback(
 			$key,
