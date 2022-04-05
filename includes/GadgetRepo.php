@@ -38,30 +38,14 @@ abstract class GadgetRepo {
 	abstract public function getGadget( string $id ): Gadget;
 
 	/**
-	 * Invalidate any caches after the provided page is edited.
+	 * Invalidate any caches based on the provided page (after create, edit, or delete).
+	 *
+	 * This must be called on create and delete as well (T39228).
 	 *
 	 * @param LinkTarget $target
 	 * @return void
 	 */
 	public function handlePageUpdate( LinkTarget $target ): void {
-	}
-
-	/**
-	 * Invalidate any caches after the provided page is created.
-	 *
-	 * @param LinkTarget $target
-	 * @return void
-	 */
-	public function handlePageCreation( LinkTarget $target ): void {
-	}
-
-	/**
-	 * Invalidate any caches after the provided page is deleted.
-	 *
-	 * @param LinkTarget $target
-	 * @return void
-	 */
-	public function handlePageDeletion( LinkTarget $target ): void {
 	}
 
 	/**

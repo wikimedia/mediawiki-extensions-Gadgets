@@ -29,7 +29,11 @@ use Exception;
 use HTMLForm;
 use IContextSource;
 use InvalidArgumentException;
+use ManualLogEntry;
 use MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContent;
+use MediaWiki\Page\ProperPageIdentity;
+use MediaWiki\Permissions\Authority;
+use MediaWiki\Revision\RevisionRecord;
 use OOUI\HtmlSnippet;
 use OutputPage;
 use RequestContext;
@@ -37,6 +41,7 @@ use ResourceLoader;
 use SpecialPage;
 use Status;
 use Title;
+use TitleValue;
 use User;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\WrappedString;
@@ -45,13 +50,7 @@ use Xml;
 
 class Hooks {
 	/**
-	 * PageSaveComplete hook handler
-	 *
-	 * Only run in versions of mediawiki begining 1.35; before 1.35, ::onPageContentSaveComplete
-	 * and ::onPageContentInsertComplete are used
-	 *
-	 * @note parameters include classes not available before 1.35, so for those typehints
-	 * are not used. The variable name reflects the class
+	 * Handle MediaWiki\Page\Hook\PageSaveCompleteHook
 	 *
 	 * @param WikiPage $wikiPage
 	 * @param mixed $userIdentity unused
@@ -67,14 +66,34 @@ class Hooks {
 		int $flags,
 		$revisionRecord,
 		$editResult
-	) {
+	): void {
 		$title = $wikiPage->getTitle();
 		$repo = GadgetRepo::singleton();
+		$repo->handlePageUpdate( $title );
+	}
 
-		if ( ( $flags & EDIT_NEW ) && $title->inNamespace( NS_GADGET_DEFINITION ) ) {
-			$repo->handlePageCreation( $title );
-		}
-
+	/**
+	 * Handle MediaWiki\Page\Hook\PageDeleteCompleteHook
+	 *
+	 * @param ProperPageIdentity $page
+	 * @param Authority $deleter
+	 * @param string $reason
+	 * @param int $pageID
+	 * @param RevisionRecord $deletedRev Last revision
+	 * @param ManualLogEntry $logEntry
+	 * @param int $archivedRevisionCount Number of revisions deleted
+	 */
+	public static function onPageDeleteComplete(
+		ProperPageIdentity $page,
+		Authority $deleter,
+		string $reason,
+		int $pageID,
+		RevisionRecord $deletedRev,
+		ManualLogEntry $logEntry,
+		int $archivedRevisionCount
+	): void {
+		$title = TitleValue::newFromPage( $page );
+		$repo = GadgetRepo::singleton();
 		$repo->handlePageUpdate( $title );
 	}
 
