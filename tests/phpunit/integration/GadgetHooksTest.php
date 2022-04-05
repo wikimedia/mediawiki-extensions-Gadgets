@@ -52,7 +52,7 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 * quux [rights=test] | quux.js' );
 		$this->assertGreaterThanOrEqual( 2, count( $gadgets ), "Gadget list parsed" );
 
-		$repo->definitionCache = $gadgets;
+		$repo->definitions = $gadgets;
 		GadgetHooks::getPreferences( $this->user, $prefs );
 
 		$this->assertArrayHasKey( 'gadget-bar', $prefs );
