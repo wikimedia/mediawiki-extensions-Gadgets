@@ -26,48 +26,42 @@ abstract class GadgetRepo {
 	 *
 	 * @return string[]
 	 */
-	abstract public function getGadgetIds();
+	abstract public function getGadgetIds(): array;
 
 	/**
-	 * Get the Gadget object for a given gadget id
+	 * Get the Gadget object for a given gadget ID
 	 *
 	 * @param string $id
-	 * @throws InvalidArgumentException
 	 * @return Gadget
+	 * @throws InvalidArgumentException For unregistered ID, used by getStructuredList()
 	 */
-	abstract public function getGadget( $id );
+	abstract public function getGadget( string $id ): Gadget;
 
 	/**
-	 * Given that the provided page was updated, invalidate
-	 * caches if necessary
+	 * Invalidate any caches after the provided page is edited.
 	 *
 	 * @param LinkTarget $target
-	 *
 	 * @return void
 	 */
-	public function handlePageUpdate( LinkTarget $target ) {
+	public function handlePageUpdate( LinkTarget $target ): void {
 	}
 
 	/**
-	 * Given that the provided page was created, invalidate
-	 * caches if necessary
+	 * Invalidate any caches after the provided page is created.
 	 *
 	 * @param LinkTarget $target
-	 *
 	 * @return void
 	 */
-	public function handlePageCreation( LinkTarget $target ) {
+	public function handlePageCreation( LinkTarget $target ): void {
 	}
 
 	/**
-	 * Given that the provided page was updated, invalidate
-	 * caches if necessary
+	 * Invalidate any caches after the provided page is deleted.
 	 *
 	 * @param LinkTarget $target
-	 *
 	 * @return void
 	 */
-	public function handlePageDeletion( LinkTarget $target ) {
+	public function handlePageDeletion( LinkTarget $target ): void {
 	}
 
 	/**
@@ -83,9 +77,9 @@ abstract class GadgetRepo {
 	}
 
 	/**
-	 * Get a list of gadgets sorted by category
+	 * Get a lists of Gadget objects by category
 	 *
-	 * @return array [ 'category' => [ 'name' => $gadget ] ]
+	 * @return array<string,Gadget[]> `[ 'category' => [ 'name' => $gadget ] ]`
 	 */
 	public function getStructuredList() {
 		$list = [];
