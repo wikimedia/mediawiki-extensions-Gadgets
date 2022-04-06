@@ -72,6 +72,7 @@
 		"GadgetTestUtils": "tests/phpunit/GadgetTestUtils.php"
 	},
 	"Hooks": {
+		"PageDeleteComplete": "MediaWiki\\Extension\\Gadgets\\Hooks::onPageDeleteComplete",
 		"PageSaveComplete": "MediaWiki\\Extension\\Gadgets\\Hooks::onPageSaveComplete",
 		"BeforePageDisplay": "MediaWiki\\Extension\\Gadgets\\Hooks::beforePageDisplay",
 		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Gadgets\\Hooks::onCodeEditorGetPageLanguage",

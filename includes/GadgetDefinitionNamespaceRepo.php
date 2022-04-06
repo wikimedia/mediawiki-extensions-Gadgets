@@ -81,24 +81,6 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	 */
 	public function handlePageUpdate( LinkTarget $target ): void {
 		if ( $target->inNamespace( NS_GADGET_DEFINITION ) ) {
-			$this->purgeGadgetEntry( $target->getText() );
-		}
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function handlePageCreation( LinkTarget $target ): void {
-		if ( $target->inNamespace( NS_GADGET_DEFINITION ) ) {
-			$this->purgeGadgetIdsList();
-		}
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function handlePageDeletion( LinkTarget $target ): void {
-		if ( $target->inNamespace( NS_GADGET_DEFINITION ) ) {
 			$this->purgeGadgetIdsList();
 			$this->purgeGadgetEntry( $target->getText() );
 		}

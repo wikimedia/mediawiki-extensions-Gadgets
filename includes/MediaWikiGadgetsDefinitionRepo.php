@@ -121,9 +121,6 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 
 				$now = microtime( true );
 				$gadgets = $this->fetchStructuredList();
-				if ( $gadgets === false ) {
-					$ttl = WANObjectCache::TTL_UNCACHEABLE;
-				}
 
 				return [ 'gadgets' => $gadgets, 'time' => $now ];
 			},
@@ -145,7 +142,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * Fetch list of gadgets and returns it as associative array of sections with gadgets
 	 * e.g. [ $name => $gadget1, etc. ]
 	 * @param string|null $forceNewText Injected text of MediaWiki:gadgets-definition [optional]
-	 * @return array|false
+	 * @return array
 	 */
 	public function fetchStructuredList( $forceNewText = null ) {
 		if ( $forceNewText === null ) {
@@ -158,8 +155,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 				|| !$revRecord->getContent( SlotRecord::MAIN )
 				|| $revRecord->getContent( SlotRecord::MAIN )->isEmpty()
 			) {
-				// don't cache
-				return false;
+				return [];
 			}
 
 			$content = $revRecord->getContent( SlotRecord::MAIN );
@@ -169,10 +165,6 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		}
 
 		$gadgets = $this->listFromDefinition( $g );
-		if ( !count( $gadgets ) ) {
-			// don't cache; Bug 37228
-			return false;
-		}
 
 		$source = $forceNewText !== null ? 'input text' : 'MediaWiki:Gadgets-definition';
 		wfDebug( __METHOD__ . ": $source parsed, cache entry should be updated\n" );
