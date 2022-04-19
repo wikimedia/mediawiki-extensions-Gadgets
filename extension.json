@@ -80,7 +80,7 @@
 		"PageDeleteComplete": "GadgetHooks",
 		"PageSaveComplete": "GadgetHooks",
 		"BeforePageDisplay": "GadgetHooks",
-		"CodeEditorGetPageLanguage": "GadgetHooks",
+		"CodeEditorGetPageLanguage": "MediaWiki\\Extension\\Gadgets\\Hooks::onCodeEditorGetPageLanguage",
 		"ContentHandlerDefaultModelFor": "GadgetHooks",
 		"EditFilterMergedContent": "GadgetHooks",
 		"UserGetDefaultOptions": "GadgetHooks",
