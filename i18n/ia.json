@@ -26,6 +26,7 @@
 	"gadgets-required-actions": "Habera effecto sur le {{PLURAL:$2|pagina de action \"$1\"|sequente paginas de action: $1}}.",
 	"gadgets-default": "Activate pro omnes per predefinition.",
 	"gadgets-legacy": "Le gadget non es cargate. Per favor migra a ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Leger plus])",
+	"gadgets-packaged": "Iste gadget es [https://www.mediawiki.org/wiki/ResourceLoader/Package_files impacchettate], con puncto de entrata $1",
 	"gadgets-export": "Exportar",
 	"gadgets-export-title": "Exportation de gadget",
 	"gadgets-not-found": "Gadget \"$1\" non trovate.",
@@ -36,5 +37,7 @@
 	"right-gadgets-edit": "Modificar paginas JavaScript e CSS de gadgets",
 	"action-gadgets-edit": "modificar le pagina JavaScript o CSS de iste gadget",
 	"right-gadgets-definition-edit": "Modificar definitiones de gadgets",
-	"action-gadgets-definition-edit": "modificar le definition de iste gadget"
+	"action-gadgets-definition-edit": "modificar le definition de iste gadget",
+	"gadgets-wrong-contentmodel": "Paginas in le spatio de nomines {{ns:2302}} debe esser del modello de contento GadgetDefinition.",
+	"gadgets-supports-urlload": "Iste gadget supporta le cargamento via URL con le parametro de consulta <code>?withgadget</code>."
 }
