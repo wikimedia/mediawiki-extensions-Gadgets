@@ -33,5 +33,6 @@
 	"right-gadgets-edit": "Modificar paginas JavaScript e CSS de gadgets",
 	"action-gadgets-edit": "modificar le pagina JavaScript o CSS de iste gadget",
 	"right-gadgets-definition-edit": "Modificar definitiones de gadgets",
-	"action-gadgets-definition-edit": "modificar le definition de iste gadget"
+	"action-gadgets-definition-edit": "modificar le definition de iste gadget",
+	"gadgets-wrong-contentmodel": "Paginas in le spatio de nomines {{ns:2302}} debe esser del modello de contento GadgetDefinition."
 }
