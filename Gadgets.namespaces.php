@@ -294,6 +294,13 @@ $namespaceNames['pa'] = [
 	NS_GADGET_DEFINITION_TALK => 'ਗੈਜਟ_ਪਰਿਭਾਸ਼ਾ_ਗੱਲ-ਬਾਤ',
 ];
 
+$namespaceNames['pcm'] = [
+	NS_GADGET => 'Gajet',
+	NS_GADGET_TALK => 'Gajet_tok_abaut_am',
+	NS_GADGET_DEFINITION => 'Gajet_definishon',
+	NS_GADGET_DEFINITION_TALK => 'Gajet_definishon_tok_abaut_am',
+];
+
 $namespaceNames['pl'] = [
 	NS_GADGET => 'Gadżet',
 	NS_GADGET_TALK => 'Dyskusja_gadżetu',
