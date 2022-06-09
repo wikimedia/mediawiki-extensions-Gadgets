@@ -217,6 +217,13 @@ $namespaceNames['ko'] = [
 	NS_GADGET_DEFINITION_TALK => '소도구정의토론',
 ];
 
+$namespaceNames['ky'] = [
+	NS_GADGET => 'Гаджет',
+	NS_GADGET_TALK => 'Гаджетти_талкуулоо',
+	NS_GADGET_DEFINITION => 'Гаджеттин_түшүндүрмөсү',
+	NS_GADGET_DEFINITION_TALK => 'Гаджеттин_түшүндүрмөсүн_талкуулоо',
+];
+
 $namespaceNames['lfn'] = [
 	NS_GADGET => 'Macineta',
 	NS_GADGET_TALK => 'Macineta_Discute',
