@@ -42,8 +42,8 @@
 	"gadgets-export-download": "دریافت",
 	"gadgets-validate-notset": "خصوصیت <code>$1</code> تنظیم نشده‌است.",
 	"gadgets-validate-wrongtype": "ویژگی <code>$1</code> به جای نوع <code>$3</code> باید از نوع <code>$2</code> باشد.",
-	"right-gadgets-edit": "ویرایش صفحه‌های جاوااسکریپت و سی‌اس‌اس ابزار",
+	"right-gadgets-edit": "ویرایش صفحه‌های JavaScript و CSS ابزار",
 	"action-gadgets-edit": "ویرایش صفحهٔ جاوااسکریپت و سی‌اس‌اس این ابزار",
-	"right-gadgets-definition-edit": "ویرایش تنظیمات ابزارها",
+	"right-gadgets-definition-edit": "ویرایش تعریف‌های ابزار",
 	"action-gadgets-definition-edit": "ویرایش تنظیمات این ابزار"
 }
