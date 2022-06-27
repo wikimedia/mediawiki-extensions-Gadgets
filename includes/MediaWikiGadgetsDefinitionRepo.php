@@ -95,8 +95,8 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 			$key = $this->makeDefinitionCacheKey( $wanCache );
 			$this->definitions = $srvCache->getWithSetCallback(
 				$key,
-				// between 7.0 and 15.0 seconds to avoid memcached/lockTSE stampede (T203786)
-				mt_rand( 7000, 15000 ) / 1000,
+				// between 7 and 15 seconds to avoid memcached/lockTSE stampede (T203786)
+				mt_rand( 7, 15 ),
 				function () use ( $wanCache, $key ) {
 					return $wanCache->getWithSetCallback(
 						$key,
