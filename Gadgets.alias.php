@@ -211,6 +211,7 @@ $specialPageAliases['ja'] = [
 /** Korean (한국어) */
 $specialPageAliases['ko'] = [
 	'Gadgets' => [ '소도구', '가젯' ],
+	'GadgetUsage' => [ '소도구사용량' ],
 ];
 
 /** Ladino (Ladino) */
