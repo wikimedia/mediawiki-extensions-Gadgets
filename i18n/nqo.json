@@ -19,7 +19,7 @@
 	"gadgets-required-skins": "ߊ߬ ߘߌ߫ ߛߋ߫ ߛߐ߬ߘߐ߲߬ ߠߊ߫ {{PLURAL:$2|ߝߊߘߌߦߊߓߐ߫ $1|ߝߊߘߌߦߊߓߐ ߢߌ߲߬ ߠߎ߬ ߘߐ߫: $1}}.",
 	"gadgets-required-actions": "ߊ߬ ߦߋ߫ ߓߊ߯ߙߊ߫ ߟߊ߫ {{PLURAL:$2|ߞߐߜߍ ߞߍߟߌ $1|ߞߐߜߍ ߢߌ߲߬ ߠߎ߬ ߞߍߟߌ ߘߐ߫: $1}}.",
 	"gadgets-default": "ߊ߬ ߟߊߞߎ߲ߣߎ߲߫ ߓߍ߯ ߟߊߘߍ߬ߣߍ߲ ߢߍ߫ ߓߐߛߎ߲ ߓߟߏ߫.",
-	"gadgets-legacy": "ߛߙߋߓߍ ߡߊ߫ ߟߊߢߎ߲߫. ߝߎ߲ߘߌ߫ ߞߊ߬ ߥߊ߫ Resourceleader ߞߊ߲߬ ߖߊ߰ߣߌ߲߫. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) ߘߏ߫ ߜߘߍ߫ ߘߐߞߊ߬ߙߊ߲߬]])",
+	"gadgets-legacy": "ߛߙߋߓߍ ߡߊ߫ ߟߊߢߎ߲߫. ߝߎ߲ߘߌ߫ ߞߊ߬ ߥߊ߫ Resourceleader ߞߊ߲߬ ߖߊ߰ߣߌ߲߫. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) ߘߏ߫ ߜߘߍ߫ ߘߐߞߊ߬ߙߊ߲߬])",
 	"gadgets-packaged": "ߛߙߋߓߍ ߣߌ߲߬ ߦߋ߫ [https://www.mediawiki.org/wiki/ResourceLoader/Package_files packaged], ߞߵߊ߬ ߞߍ߫ ߦߏ߫ ߘߏ߲߬ߠߌ߲߫ ߘߊߞߎ߲߫ $1",
 	"gadgets-export": "ߟߊ߬ߝߏ߬ߦߌ߬ߟߌ",
 	"gadgets-export-title": "ߛߙߋߓߍ ߟߊߝߏ߬ߦߌ߬",
