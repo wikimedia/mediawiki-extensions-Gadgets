@@ -7,6 +7,7 @@
 			"Millosh",
 			"Nikola Smolenski",
 			"Rancher",
+			"Vlad5250",
 			"Жељко Тодоровић",
 			"Сербијана"
 		]
@@ -25,6 +26,8 @@
 	"gadgetusage-default": "Подразумевано",
 	"gadgets-title": "Справице",
 	"gadgets-pagetext": "Испод је списак посебних гаџета које корисници могу да омогуће на својој [[Special:Preferences#mw-prefsection-gadgets|страници за подешавање]], као што је наведено у [[MediaWiki:Gadgets-definition|дефиницијама]].\nОвај преглед пружа брз приступ системским порукама које дефинишу сваки опис и код гаџета.",
+	"gadgets-editdescription": "Уреди опис",
+	"gadgets-viewdescription": "Погледај опис",
 	"gadgets-uses": "Користи",
 	"gadgets-required-rights": "Захтева {{PLURAL:$2|следеће право|следећа права}}:\n\n$1",
 	"gadgets-required-skins": "Доступно у {{PLURAL:$2|теми $1|следећим темама: $1}}.",
