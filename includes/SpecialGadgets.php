@@ -22,7 +22,7 @@ use Xml;
 
 class SpecialGadgets extends SpecialPage {
 	public function __construct() {
-		parent::__construct( 'Gadgets', '', true );
+		parent::__construct( 'Gadgets' );
 	}
 
 	/**
