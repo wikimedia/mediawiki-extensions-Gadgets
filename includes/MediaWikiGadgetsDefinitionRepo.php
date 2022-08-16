@@ -23,6 +23,7 @@ namespace MediaWiki\Extension\Gadgets;
 use InvalidArgumentException;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use ObjectCache;
@@ -41,6 +42,15 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 
 	/** @var string */
 	protected $titlePrefix = 'MediaWiki:Gadget-';
+
+	private WANObjectCache $wanCache;
+
+	private RevisionLookup $revLookup;
+
+	public function __construct( WANObjectCache $wanCache, RevisionLookup $revLookup ) {
+		$this->wanCache = $wanCache;
+		$this->revLookup = $revLookup;
+	}
 
 	/**
 	 * @param string $id
@@ -70,11 +80,10 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * Purge the definitions cache, for example when MediaWiki:Gadgets-definition is edited.
 	 */
 	private function purgeDefinitionCache(): void {
-		$wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$srvCache = ObjectCache::getLocalServerInstance( 'hash' );
-		$key = $this->makeDefinitionCacheKey( $wanCache );
+		$key = $this->makeDefinitionCacheKey( $this->wanCache );
 
-		$wanCache->delete( $key );
+		$this->wanCache->delete( $key );
 		$srvCache->delete( $key );
 		$this->definitions = null;
 	}
@@ -115,7 +124,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		//
 		// 1. process cache. Faster repeat calls.
 		if ( $this->definitions === null ) {
-			$wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+			$wanCache = $this->wanCache;
 			$srvCache = ObjectCache::getLocalServerInstance( 'hash' );
 			$key = $this->makeDefinitionCacheKey( $wanCache );
 			$this->definitions = $srvCache->getWithSetCallback(
@@ -155,9 +164,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		if ( $forceNewText === null ) {
 			// T157210: avoid using wfMessage() to avoid staleness due to cache layering
 			$title = Title::makeTitle( NS_MEDIAWIKI, 'Gadgets-definition' );
-			$revRecord = MediaWikiServices::getInstance()
-				->getRevisionLookup()
-				->getRevisionByTitle( $title );
+			$revRecord = $this->revLookup->getRevisionByTitle( $title );
 			if ( !$revRecord
 				|| !$revRecord->getContent( SlotRecord::MAIN )
 				|| $revRecord->getContent( SlotRecord::MAIN )->isEmpty()

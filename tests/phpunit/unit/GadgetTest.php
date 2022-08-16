@@ -1,19 +1,19 @@
 <?php
 
 use MediaWiki\Extension\Gadgets\Gadget;
-use MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo;
 
 /**
  * @group Gadgets
  */
 class GadgetTest extends MediaWikiUnitTestCase {
+	use GadgetTestTrait;
 
 	/**
 	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget::toArray
 	 */
 	public function testToArray() {
-		$g = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|rights=test]|bar.js|foo.css | foo.json' );
+		$g = $this->makeGadget( '*bar[ResourceLoader|rights=test]|bar.js|foo.css | foo.json' );
 		$gNewFromSerialized = new Gadget( $g->toArray() );
 		$this->assertArrayEquals( $g->toArray(), $gNewFromSerialized->toArray() );
 	}
@@ -72,9 +72,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
 	 */
 	public function testInvalidLines() {
-		$repo = new MediaWikiGadgetsDefinitionRepo();
-		$this->assertFalse( $repo->newFromDefinition( '', 'misc' ) );
-		$this->assertFalse( $repo->newFromDefinition( '<foo|bar>', 'misc' ) );
+		$this->assertFalse( $this->makeGadget( '' ) );
+		$this->assertFalse( $this->makeGadget( '<foo|bar>' ) );
 	}
 
 	/**
@@ -82,7 +81,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget
 	 */
 	public function testSimpleCases() {
-		$g = GadgetTestUtils::makeGadget( '* foo bar| foo.css|foo.js|foo.bar' );
+		$g = $this->makeGadget( '* foo bar| foo.css|foo.js|foo.bar' );
 		$this->assertEquals( 'foo_bar', $g->getName() );
 		$this->assertEquals( 'ext.gadget.foo_bar', Gadget::getModuleName( $g->getName() ) );
 		$this->assertEquals( [ 'MediaWiki:Gadget-foo.js' ], $g->getScripts() );
@@ -99,7 +98,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget::getLegacyScripts
 	 */
 	public function testRLtag() {
-		$g = GadgetTestUtils::makeGadget( '*foo [ResourceLoader]|foo.js|foo.css' );
+		$g = $this->makeGadget( '*foo [ResourceLoader]|foo.js|foo.css' );
 		$this->assertEquals( 'foo', $g->getName() );
 		$this->assertTrue( $g->supportsResourceLoader() );
 		$this->assertCount( 0, $g->getLegacyScripts() );
@@ -110,7 +109,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget
 	 */
 	public function testPackaged() {
-		$g = GadgetTestUtils::makeGadget( '* foo bar[ResourceLoader|package]| foo.css|foo.js|foo.bar|foo.json' );
+		$g = $this->makeGadget( '* foo bar[ResourceLoader|package]| foo.css|foo.js|foo.bar|foo.json' );
 		$this->assertEquals( 'foo_bar', $g->getName() );
 		$this->assertEquals( 'ext.gadget.foo_bar', Gadget::getModuleName( $g->getName() ) );
 		$this->assertEquals( [ 'MediaWiki:Gadget-foo.js' ], $g->getScripts() );
@@ -128,10 +127,10 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget
 	 */
 	public function testSupportsUrlLoad() {
-		$directLoadAllowedByDefault = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$directLoadAllowed1 = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|supportsUrlLoad]|bar.js' );
-		$directLoadAllowed2 = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|supportsUrlLoad=true]|bar.js' );
-		$directLoadNotAllowed = GadgetTestUtils::makeGadget( '*baz[ResourceLoader|supportsUrlLoad=false]|baz.js' );
+		$directLoadAllowedByDefault = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
+		$directLoadAllowed1 = $this->makeGadget( '*bar[ResourceLoader|supportsUrlLoad]|bar.js' );
+		$directLoadAllowed2 = $this->makeGadget( '*bar[ResourceLoader|supportsUrlLoad=true]|bar.js' );
+		$directLoadNotAllowed = $this->makeGadget( '*baz[ResourceLoader|supportsUrlLoad=false]|baz.js' );
 
 		$this->assertFalse( $directLoadAllowedByDefault->supportsUrlLoad() );
 		$this->assertTrue( $directLoadAllowed1->supportsUrlLoad() );
@@ -155,9 +154,9 @@ class GadgetTest extends MediaWikiUnitTestCase {
 			);
 
 		/** @var User $user */
-		$gUnset = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$gAllowed = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|rights=test]|bar.js' );
-		$gNotAllowed = GadgetTestUtils::makeGadget( '*baz[ResourceLoader|rights=nope]|baz.js' );
+		$gUnset = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
+		$gAllowed = $this->makeGadget( '*bar[ResourceLoader|rights=test]|bar.js' );
+		$gNotAllowed = $this->makeGadget( '*baz[ResourceLoader|rights=nope]|baz.js' );
 		$this->assertTrue( $gUnset->isAllowed( $user ) );
 		$this->assertTrue( $gAllowed->isAllowed( $user ) );
 		$this->assertFalse( $gNotAllowed->isAllowed( $user ) );
@@ -168,9 +167,9 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget::isSkinSupported
 	 */
 	public function testSkinsTag() {
-		$gUnset = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$gSkinSupported = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|skins=fallback]|bar.js' );
-		$gSkinNotSupported = GadgetTestUtils::makeGadget( '*baz[ResourceLoader|skins=bar]|baz.js' );
+		$gUnset = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
+		$gSkinSupported = $this->makeGadget( '*bar[ResourceLoader|skins=fallback]|bar.js' );
+		$gSkinNotSupported = $this->makeGadget( '*baz[ResourceLoader|skins=bar]|baz.js' );
 		$skin = new SkinFallback();
 		$this->assertTrue( $gUnset->isSkinSupported( $skin ) );
 		$this->assertTrue( $gSkinSupported->isSkinSupported( $skin ) );
@@ -182,9 +181,9 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget::isActionSupported
 	 */
 	public function testActionsTag() {
-		$gUnset = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$gActionSupported = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|actions=edit]|bar.js' );
-		$gActionNotSupported = GadgetTestUtils::makeGadget( '*baz[ResourceLoader|actions=history]|baz.js' );
+		$gUnset = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
+		$gActionSupported = $this->makeGadget( '*bar[ResourceLoader|actions=edit]|bar.js' );
+		$gActionNotSupported = $this->makeGadget( '*baz[ResourceLoader|actions=history]|baz.js' );
 		$this->assertTrue( $gUnset->isActionSupported( 'edit' ) );
 		$this->assertTrue( $gActionSupported->isActionSupported( 'edit' ) );
 		$this->assertFalse( $gActionNotSupported->isActionSupported( 'edit' ) );
@@ -192,7 +191,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		// special case
 		$this->assertTrue( $gActionSupported->isActionSupported( 'submit' ) );
 
-		$gMultiActions = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|actions=unknown,history]|bar.js' );
+		$gMultiActions = $this->makeGadget( '*bar[ResourceLoader|actions=unknown,history]|bar.js' );
 		$this->assertTrue( $gMultiActions->isActionSupported( 'history' ) );
 		$this->assertFalse( $gMultiActions->isActionSupported( 'view' ) );
 	}
@@ -202,10 +201,10 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget::isNamespaceSupported
 	 */
 	public function testNamespacesTag() {
-		$gUnsetNamespace = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$gNamespace0 = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|namespaces=0]|bar.js' );
-		$gNamespace1 = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|namespaces=1]|bar.js' );
-		$gMultiNamespace = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|namespaces=1,2,3,4]|bar.js' );
+		$gUnsetNamespace = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
+		$gNamespace0 = $this->makeGadget( '*bar[ResourceLoader|namespaces=0]|bar.js' );
+		$gNamespace1 = $this->makeGadget( '*bar[ResourceLoader|namespaces=1]|bar.js' );
+		$gMultiNamespace = $this->makeGadget( '*bar[ResourceLoader|namespaces=1,2,3,4]|bar.js' );
 
 		$this->assertTrue( $gUnsetNamespace->isNamespaceSupported( 5 ) );
 
@@ -225,9 +224,9 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget::isContentModelSupported
 	 */
 	public function testContentModelsTags() {
-		$gUnsetModel = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$gModelWikitext = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|contentModels=wikitext]|bar.js' );
-		$gModelCode = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|contentModels=javascript,css]|bar.js' );
+		$gUnsetModel = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
+		$gModelWikitext = $this->makeGadget( '*bar[ResourceLoader|contentModels=wikitext]|bar.js' );
+		$gModelCode = $this->makeGadget( '*bar[ResourceLoader|contentModels=javascript,css]|bar.js' );
 
 		$this->assertTrue( $gUnsetModel->isContentModelSupported( 'wikitext' ) );
 
@@ -258,7 +257,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget::getDependencies
 	 */
 	public function testDependencies() {
-		$g = GadgetTestUtils::makeGadget( '* foo[ResourceLoader|dependencies=jquery.ui]|bar.js' );
+		$g = $this->makeGadget( '* foo[ResourceLoader|dependencies=jquery.ui]|bar.js' );
 		$this->assertEquals( [ 'MediaWiki:Gadget-bar.js' ], $g->getScripts() );
 		$this->assertTrue( $g->supportsResourceLoader() );
 		$this->assertEquals( [ 'jquery.ui' ], $g->getDependencies() );
@@ -269,8 +268,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget::requiresES6
 	 */
 	public function testES6() {
-		$es6gadget = GadgetTestUtils::makeGadget( '* foo[ResourceLoader|requiresES6]|bar.js' );
-		$es5gadget = GadgetTestUtils::makeGadget( '* foo[ResourceLoader]|bar.js' );
+		$es6gadget = $this->makeGadget( '* foo[ResourceLoader|requiresES6]|bar.js' );
+		$es5gadget = $this->makeGadget( '* foo[ResourceLoader]|bar.js' );
 		$this->assertTrue( $es6gadget->requiresES6() );
 		$this->assertFalse( $es5gadget->requiresES6() );
 	}
@@ -347,9 +346,9 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\GadgetResourceLoaderModule::getType
 	 */
 	public function testType( $message, $definition, $gType, $mType ) {
-		$g = GadgetTestUtils::makeGadget( $definition );
+		$g = $this->makeGadget( $definition );
 		$this->assertEquals( $gType, $g->getType(), "Gadget: $message" );
-		$this->assertEquals( $mType, GadgetTestUtils::makeGadgetModule( $g )->getType(), "Module: $message" );
+		$this->assertEquals( $mType, $this->makeGadgetModule( $g )->getType(), "Module: $message" );
 	}
 
 	/**
@@ -357,13 +356,13 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget::isHidden
 	 */
 	public function testIsHidden() {
-		$g = GadgetTestUtils::makeGadget( '* foo[hidden]|bar.js' );
+		$g = $this->makeGadget( '* foo[hidden]|bar.js' );
 		$this->assertTrue( $g->isHidden() );
 
-		$g = GadgetTestUtils::makeGadget( '* foo[ResourceLoader|hidden]|bar.js' );
+		$g = $this->makeGadget( '* foo[ResourceLoader|hidden]|bar.js' );
 		$this->assertTrue( $g->isHidden() );
 
-		$g = GadgetTestUtils::makeGadget( '* foo[ResourceLoader]|bar.js' );
+		$g = $this->makeGadget( '* foo[ResourceLoader]|bar.js' );
 		$this->assertFalse( $g->isHidden() );
 	}
 
@@ -393,7 +392,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget::getValidationWarnings
 	 */
 	public function testGadgetWarnings( $definition, $expectedMsgKeys ) {
-		$g = GadgetTestUtils::makeGadget( $definition );
+		$g = $this->makeGadget( $definition );
 		$msgKeys = $g->getValidationWarnings();
 		$this->assertArrayEquals( $expectedMsgKeys, $msgKeys );
 	}

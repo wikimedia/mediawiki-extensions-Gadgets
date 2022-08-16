@@ -21,8 +21,8 @@
 namespace MediaWiki\Extension\Gadgets\Content;
 
 use DataUpdate;
-use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Linker\LinkTarget;
+use MediaWiki\MediaWikiServices;
 
 class GadgetDefinitionSecondaryDataUpdate extends DataUpdate {
 
@@ -36,6 +36,7 @@ class GadgetDefinitionSecondaryDataUpdate extends DataUpdate {
 	}
 
 	public function doUpdate() {
-		GadgetRepo::singleton()->handlePageUpdate( $this->target );
+		$gadgetRepo = MediaWikiServices::getInstance()->getService( 'GadgetsRepo' );
+		$gadgetRepo->handlePageUpdate( $this->target );
 	}
 }

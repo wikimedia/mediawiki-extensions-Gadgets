@@ -37,8 +37,11 @@ use Xml;
  * @copyright 2007 Daniel Kinzler
  */
 class SpecialGadgets extends SpecialPage {
-	public function __construct() {
+	private GadgetRepo $gadgetRepo;
+
+	public function __construct( GadgetRepo $gadgetRepo ) {
 		parent::__construct( 'Gadgets' );
+		$this->gadgetRepo = $gadgetRepo;
 	}
 
 	/**
@@ -72,7 +75,7 @@ class SpecialGadgets extends SpecialPage {
 		$output->setPageTitle( $this->msg( 'gadgets-title' ) );
 		$output->addWikiMsg( 'gadgets-pagetext' );
 
-		$gadgets = GadgetRepo::singleton()->getStructuredList();
+		$gadgets = $this->gadgetRepo->getStructuredList();
 		if ( !$gadgets ) {
 			return;
 		}
@@ -127,7 +130,7 @@ class SpecialGadgets extends SpecialPage {
 				}
 
 				$links = [];
-				$definitionTitle = GadgetRepo::singleton()->getGadgetDefinitionTitle( $name );
+				$definitionTitle = $this->gadgetRepo->getGadgetDefinitionTitle( $name );
 				if ( $definitionTitle ) {
 					$links[] = $linkRenderer->makeLink(
 						$definitionTitle,
@@ -195,7 +198,7 @@ class SpecialGadgets extends SpecialPage {
 						$output->addHTML( '<br />' );
 					}
 					$output->addHTML( $this->msg( 'gadgets-packaged',
-						GadgetRepo::singleton()->titleWithoutPrefix( $gadget->getScripts()[0] ) ) );
+						$this->gadgetRepo->titleWithoutPrefix( $gadget->getScripts()[0] ) ) );
 					$needLineBreakAfter = true;
 				}
 
@@ -353,7 +356,7 @@ class SpecialGadgets extends SpecialPage {
 		$this->addHelpLink( 'Extension:Gadgets' );
 		$output = $this->getOutput();
 		try {
-			$g = GadgetRepo::singleton()->getGadget( $gadget );
+			$g = $this->gadgetRepo->getGadget( $gadget );
 		} catch ( InvalidArgumentException $e ) {
 			$output->showErrorPage( 'error', 'gadgets-not-found', [ $gadget ] );
 			return;

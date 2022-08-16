@@ -77,6 +77,12 @@ class Hooks implements
 	WgQueryPagesHook,
 	DeleteUnknownPreferencesHook
 {
+	private GadgetRepo $gadgetRepo;
+
+	public function __construct( GadgetRepo $gadgetRepo ) {
+		$this->gadgetRepo = $gadgetRepo;
+	}
+
 	/**
 	 * Handle MediaWiki\Page\Hook\PageSaveCompleteHook
 	 *
@@ -96,8 +102,7 @@ class Hooks implements
 		$editResult
 	): void {
 		$title = $wikiPage->getTitle();
-		$repo = GadgetRepo::singleton();
-		$repo->handlePageUpdate( $title );
+		$this->gadgetRepo->handlePageUpdate( $title );
 	}
 
 	/**
@@ -121,8 +126,7 @@ class Hooks implements
 		int $archivedRevisionCount
 	): void {
 		$title = TitleValue::newFromPage( $page );
-		$repo = GadgetRepo::singleton();
-		$repo->handlePageUpdate( $title );
+		$this->gadgetRepo->handlePageUpdate( $title );
 	}
 
 	/**
@@ -130,7 +134,7 @@ class Hooks implements
 	 * @param array &$defaultOptions Array of default preference keys and values
 	 */
 	public function onUserGetDefaultOptions( &$defaultOptions ) {
-		$gadgets = GadgetRepo::singleton()->getStructuredList();
+		$gadgets = $this->gadgetRepo->getStructuredList();
 		if ( !$gadgets ) {
 			return;
 		}
@@ -168,7 +172,7 @@ class Hooks implements
 	 * @param array &$preferences Preference descriptions
 	 */
 	public function onGetPreferences( $user, &$preferences ) {
-		$gadgets = GadgetRepo::singleton()->getStructuredList();
+		$gadgets = $this->gadgetRepo->getStructuredList();
 		if ( !$gadgets ) {
 			return;
 		}
@@ -252,7 +256,7 @@ class Hooks implements
 	 * @param ResourceLoader $resourceLoader
 	 */
 	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
-		foreach ( GadgetRepo::singleton()->getGadgetIds() as $id ) {
+		foreach ( $this->gadgetRepo->getGadgetIds() as $id ) {
 			$resourceLoader->register( Gadget::getModuleName( $id ), [
 				'class' => GadgetResourceLoaderModule::class,
 				'id' => $id,
@@ -266,7 +270,7 @@ class Hooks implements
 	 * @param Skin $skin
 	 */
 	public function onBeforePageDisplay( $out, $skin ): void {
-		$repo = GadgetRepo::singleton();
+		$repo = $this->gadgetRepo;
 		$ids = $repo->getGadgetIds();
 		$isMobileView = self::isMobileView();
 		if ( !$ids ) {

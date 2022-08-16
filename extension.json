@@ -46,12 +46,32 @@
 		"gadgets-definition-edit"
 	],
 	"SpecialPages": {
-		"Gadgets": "MediaWiki\\Extension\\Gadgets\\Special\\SpecialGadgets",
-		"GadgetUsage": "MediaWiki\\Extension\\Gadgets\\Special\\SpecialGadgetUsage"
+		"Gadgets": {
+			"class": "MediaWiki\\Extension\\Gadgets\\Special\\SpecialGadgets",
+			"services": [
+				"GadgetsRepo"
+			]
+		},
+		"GadgetUsage": {
+			"class": "MediaWiki\\Extension\\Gadgets\\Special\\SpecialGadgetUsage",
+			"services": [
+				"GadgetsRepo"
+			]
+		}
 	},
 	"APIListModules": {
-		"gadgetcategories": "MediaWiki\\Extension\\Gadgets\\Api\\ApiQueryGadgetCategories",
-		"gadgets": "MediaWiki\\Extension\\Gadgets\\Api\\ApiQueryGadgets"
+		"gadgetcategories": {
+			"class": "MediaWiki\\Extension\\Gadgets\\Api\\ApiQueryGadgetCategories",
+			"services": [
+				"GadgetsRepo"
+			]
+		},
+		"gadgets": {
+			"class": "MediaWiki\\Extension\\Gadgets\\Api\\ApiQueryGadgets",
+			"services": [
+				"GadgetsRepo"
+			]
+		}
 	},
 	"MessagesDirs": {
 		"Gadgets": [
@@ -70,11 +90,14 @@
 		"MediaWiki\\Extension\\Gadgets\\": "includes/"
 	},
 	"TestAutoloadClasses": {
-		"GadgetTestUtils": "tests/phpunit/GadgetTestUtils.php"
+		"GadgetTestTrait": "tests/phpunit/GadgetTestTrait.php"
 	},
 	"HookHandlers": {
 		"GadgetHooks": {
-			"class": "MediaWiki\\Extension\\Gadgets\\Hooks"
+			"class": "MediaWiki\\Extension\\Gadgets\\Hooks",
+			"services": [
+				"GadgetsRepo"
+			]
 		},
 		"GadgetCodeEditorHooks": {
 			"class": "MediaWiki\\Extension\\Gadgets\\CodeEditorHooks"
@@ -95,9 +118,18 @@
 		"DeleteUnknownPreferences": "GadgetHooks",
 		"PreferencesGetIcon": "GadgetHooks"
 	},
+	"ServiceWiringFiles": [
+		"includes/ServiceWiring.php"
+	],
 	"config": {
 		"GadgetsRepoClass": {
-			"value": "MediaWiki\\Extension\\Gadgets\\MediaWikiGadgetsDefinitionRepo"
+			"value": {
+				"class": "MediaWiki\\Extension\\Gadgets\\MediaWikiGadgetsDefinitionRepo",
+				"services": [
+					"MainWANObjectCache",
+					"RevisionLookup"
+				]
+			}
 		},
 		"SpecialGadgetUsageActiveUsers": {
 			"value": true

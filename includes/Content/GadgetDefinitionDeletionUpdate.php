@@ -21,8 +21,8 @@
 namespace MediaWiki\Extension\Gadgets\Content;
 
 use DataUpdate;
-use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Linker\LinkTarget;
+use MediaWiki\MediaWikiServices;
 
 /**
  * DataUpdate to run whenever a page in the Gadget definition
@@ -40,6 +40,7 @@ class GadgetDefinitionDeletionUpdate extends DataUpdate {
 	}
 
 	public function doUpdate() {
-		GadgetRepo::singleton()->handlePageUpdate( $this->target );
+		$gadgetRepo = MediaWikiServices::getInstance()->getService( 'GadgetsRepo' );
+		$gadgetRepo->handlePageUpdate( $this->target );
 	}
 }
