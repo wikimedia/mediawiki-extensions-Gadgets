@@ -61,12 +61,12 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 				$dbr = wfGetDB( DB_REPLICA );
 				$setOpts += Database::getCacheSetOptions( $dbr );
 
-				return $dbr->selectFieldValues(
-					'page',
-					'page_title',
-					[ 'page_namespace' => NS_GADGET_DEFINITION ],
-					$fname
-				);
+				return $dbr->newSelectQueryBuilder()
+					->select( 'page_title' )
+					->from( 'page' )
+					->where( [ 'page_namespace' => NS_GADGET_DEFINITION ] )
+					->caller( $fname )
+					->fetchFieldValues();
 			},
 			[
 				'checkKeys' => [ $key ],
