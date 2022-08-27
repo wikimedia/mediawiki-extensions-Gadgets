@@ -16,8 +16,7 @@
 			"id": 2300,
 			"constant": "NS_GADGET",
 			"name": "Gadget",
-			"capitallinkoverride": false,
-			"protection": "gadgets-edit"
+			"capitallinkoverride": false
 		},
 		{
 			"id": 2301,
@@ -42,7 +41,6 @@
 		"GadgetDefinition": "MediaWiki\\Extension\\Gadgets\\Content\\GadgetDefinitionContentHandler"
 	},
 	"AvailableRights": [
-		"gadgets-edit",
 		"gadgets-definition-edit"
 	],
 	"SpecialPages": {
@@ -93,7 +91,8 @@
 		"ResourceLoaderRegisterModules": "GadgetHooks",
 		"wgQueryPages": "GadgetHooks",
 		"DeleteUnknownPreferences": "GadgetHooks",
-		"PreferencesGetIcon": "GadgetHooks"
+		"PreferencesGetIcon": "GadgetHooks",
+		"getUserPermissionsErrors": "GadgetHooks"
 	},
 	"config": {
 		"GadgetsRepoClass": {

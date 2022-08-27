@@ -22,6 +22,7 @@
 
 namespace MediaWiki\Extension\Gadgets;
 
+use ApiMessage;
 use Content;
 use Exception;
 use ExtensionRegistry;
@@ -41,6 +42,7 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\PageDeleteCompleteHook;
 use MediaWiki\Page\ProperPageIdentity;
 use MediaWiki\Permissions\Authority;
+use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsHook;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
@@ -50,6 +52,7 @@ use MediaWiki\SpecialPage\Hook\WgQueryPagesHook;
 use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Hook\UserGetDefaultOptionsHook;
+use MessageSpecifier;
 use OOUI\HtmlSnippet;
 use OutputPage;
 use RequestContext;
@@ -75,7 +78,8 @@ class Hooks implements
 	EditFilterMergedContentHook,
 	ContentHandlerDefaultModelForHook,
 	WgQueryPagesHook,
-	DeleteUnknownPreferencesHook
+	DeleteUnknownPreferencesHook,
+	GetUserPermissionsErrorsHook
 {
 	/**
 	 * Handle MediaWiki\Page\Hook\PageSaveCompleteHook
@@ -422,5 +426,49 @@ class Hooks implements
 	 */
 	public function onDeleteUnknownPreferences( &$where, $db ) {
 		$where[] = 'up_property NOT' . $db->buildLike( 'gadget-', $db->anyString() );
+	}
+
+	/**
+	 * @param Title $title Title being checked against
+	 * @param User $user Current user
+	 * @param string $action Action being checked
+	 * @param array|string|MessageSpecifier &$result User permissions error to add. If none, return true.
+	 *   For consistency, error messages should be plain text with no special coloring,
+	 *   bolding, etc. to show that they're errors; presenting them properly to the
+	 *   user as errors is done by the caller.
+	 * @return bool|void
+	 */
+	public function onGetUserPermissionsErrors( $title, $user, $action, &$result ) {
+		if ( $action !== 'edit' || !$title->inNamespace( NS_GADGET ) ) {
+			return true;
+		}
+		switch ( $title->getContentModel() ) {
+			case CONTENT_MODEL_JSON:
+				if ( !$user->isAllowed( 'editsitejson' ) ) {
+					$result = ApiMessage::create( wfMessage( 'sitejsonprotected' ), 'sitejsonprotected' );
+					return false;
+				}
+				break;
+			case CONTENT_MODEL_CSS:
+				if ( !$user->isAllowed( 'editsitecss' ) ) {
+					$result = ApiMessage::create( wfMessage( 'sitecssprotected' ), 'sitecssprotected' );
+					return false;
+				}
+				break;
+			case CONTENT_MODEL_JAVASCRIPT:
+				if ( !$user->isAllowed( 'editsitejs' ) ) {
+					$result = ApiMessage::create( wfMessage( 'sitejsprotected' ), 'sitejsprotected' );
+					return false;
+				}
+				break;
+			default:
+				// For any other pages in the namespace
+				if ( !$user->isAllowed( 'editsitejs' ) ) {
+					$result = ApiMessage::create( wfMessage( 'gadgets-protected' ), 'permissiondenied' );
+					return false;
+				}
+				break;
+		}
+		return true;
 	}
 }

@@ -57,10 +57,9 @@
 	"gadgets-validate-invalidtargets": "Allowed values for targets are: mobile, desktop. Found invalid {{PLURAL:$2|value|values}}: $1",
 	"gadgets-validate-invalidtitle": "Page title \"$1\" is invalid",
 	"gadgets-validate-nopage": "Page \"$1\" does not exist.",
-	"right-gadgets-edit": "Edit gadget JavaScript and CSS pages",
-	"action-gadgets-edit": "edit this gadget JavaScript or CSS page",
 	"right-gadgets-definition-edit": "Edit gadget definitions",
 	"action-gadgets-definition-edit": "edit this gadget definition",
 	"gadgets-wrong-contentmodel": "Pages in {{ns:2302}} namespace must be of GadgetDefinition content model.",
-	"gadgets-supports-urlload": "This gadget supports loading via URL with <code>?withgadget</code> query parameter."
+	"gadgets-supports-urlload": "This gadget supports loading via URL with <code>?withgadget</code> query parameter.",
+	"gadgets-protected": "You do not have permission to edit pages in {{ns:2300}} namespace."
 }

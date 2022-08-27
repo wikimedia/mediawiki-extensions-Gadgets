@@ -71,10 +71,9 @@
 	"gadgets-validate-invalidtargets": "Warning message to indicate that the targets are not recognised. Parameters:\n* $1 - comma separated list of invalid targets, $2 - number of items in list $1",
 	"gadgets-validate-invalidtitle": "Warning message to indicate that the page title is invalid. Parameters:\n* $1 - page name",
 	"gadgets-validate-nopage": "Warning message to indicate the script/style/json page does not exist. Parameters:\n* $1 - page name",
-	"right-gadgets-edit": "{{doc-right|gadgets-edit}}",
-	"action-gadgets-edit": "{{doc-action|gadgets-edit}}",
 	"right-gadgets-definition-edit": "{{doc-right|gadgets-definition-edit}}",
 	"action-gadgets-definition-edit": "{{doc-action|gadgets-definition-edit}}",
 	"gadgets-wrong-contentmodel": "Error message shown while trying to change the content model of a page in gadget definition namespace to other than GadgetDefinition.",
-	"gadgets-supports-urlload": "Used in [[Special:Gadgets]], if the gadget supports ?withgadget query parameter."
+	"gadgets-supports-urlload": "Used in [[Special:Gadgets]], if the gadget supports ?withgadget query parameter.",
+	"gadgets-protected": "Error message shown while trying to edit any non-CSS/JS/JSON pages in gadget namespace, if user doesn't have permission"
 }
