@@ -7,6 +7,60 @@ use MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo;
  * @group Gadgets
  */
 class GadgetTest extends MediaWikiUnitTestCase {
+
+	/**
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::toArray
+	 */
+	public function testToArray() {
+		$g = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|rights=test]|bar.js|foo.css | foo.json' );
+		$gNewFromSerialized = new Gadget( $g->toArray() );
+		$this->assertArrayEquals( $g->toArray(), $gNewFromSerialized->toArray() );
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::serializeDefinition
+	 */
+	public function testGadgetFromDefinitionContent() {
+		$gArray = Gadget::serializeDefinition( 'bar', [
+			'settings' => [
+				'rights' => [],
+				'default' => true,
+				'package' => true,
+				'hidden' => false,
+				'actions' => [],
+				'targets' => [ 'desktop' ],
+				'skins' => [],
+				'category' => 'misc',
+				'supportsUrlLoad' => false,
+				'requiresES6' => false,
+			],
+			'module' => [
+				'scripts' => [ 'foo.js' ],
+				'styles' => [ 'bar.css' ],
+				'datas' => [],
+				'dependencies' => [ 'moment' ],
+				'peers' => [],
+				'messages' => [ 'blanknamespace' ],
+				'type' => 'general',
+			]
+		] );
+
+		$g = new Gadget( $gArray );
+
+		$this->assertTrue( $g->isOnByDefault() );
+		$this->assertTrue( $g->isPackaged() );
+		$this->assertFalse( $g->isHidden() );
+		$this->assertFalse( $g->supportsUrlLoad() );
+		$this->assertTrue( $g->supportsResourceLoader() );
+		$this->assertCount( 1, $g->getTargets() );
+		$this->assertCount( 1, $g->getScripts() );
+		$this->assertCount( 1, $g->getStyles() );
+		$this->assertCount( 0, $g->getJSONs() );
+		$this->assertCount( 1, $g->getDependencies() );
+		$this->assertCount( 1, $g->getMessages() );
+	}
+
 	/**
 	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
 	 */

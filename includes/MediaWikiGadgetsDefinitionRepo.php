@@ -35,7 +35,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 			throw new InvalidArgumentException( "No gadget registered for '$id'" );
 		}
 
-		return $gadgets[$id];
+		return new Gadget( $gadgets[$id] );
 	}
 
 	public function getGadgetIds(): array {
@@ -81,7 +81,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	/**
 	 * Get list of gadgets.
 	 *
-	 * @return Gadget[] List of Gadget objects
+	 * @return array[] List of Gadget objects
 	 */
 	protected function loadGadgets(): array {
 		// From back to front:
@@ -114,6 +114,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 							return $this->fetchStructuredList();
 						},
 						[
+							'version' => 2,
 							// Avoid database stampede
 							'lockTSE' => 300,
 						 ]
@@ -128,7 +129,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * Fetch list of gadgets and returns it as associative array of sections with gadgets
 	 * e.g. [ $name => $gadget1, etc. ]
 	 * @param string|null $forceNewText Injected text of MediaWiki:gadgets-definition [optional]
-	 * @return array
+	 * @return array[]
 	 */
 	public function fetchStructuredList( $forceNewText = null ) {
 		if ( $forceNewText === null ) {
@@ -162,9 +163,9 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * Generates a structured list of Gadget objects from a definition
 	 *
 	 * @param string $definition
-	 * @return Gadget[] List of Gadget objects indexed by the gadget's name.
+	 * @return array[] List of Gadget objects indexed by the gadget's name.
 	 */
-	private function listFromDefinition( $definition ) {
+	private function listFromDefinition( $definition ): array {
 		$definition = preg_replace( '/<!--.*?-->/s', '', $definition );
 		$lines = preg_split( '/(\r\n|\r|\n)+/', $definition );
 
@@ -178,7 +179,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 			} else {
 				$gadget = $this->newFromDefinition( $line, $section );
 				if ( $gadget ) {
-					$gadgets[$gadget->getName()] = $gadget;
+					$gadgets[$gadget->getName()] = $gadget->toArray();
 				}
 			}
 		}

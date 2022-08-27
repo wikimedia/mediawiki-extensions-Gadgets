@@ -131,12 +131,13 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 					return null;
 				}
 
-				return Gadget::newFromDefinitionContent( $id, $content );
+				return Gadget::serializeDefinition( $id, $content->getAssocArray() );
 			},
 			[
 				'checkKeys' => [ $key ],
 				'pcTTL' => WANObjectCache::TTL_PROC_SHORT,
-				'lockTSE' => 30
+				'lockTSE' => 30,
+				'version' => 2,
 			]
 		);
 
@@ -144,7 +145,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 			throw new InvalidArgumentException( "No gadget registered for '$id'" );
 		}
 
-		return $gadget;
+		return new Gadget( $gadget );
 	}
 
 	/**

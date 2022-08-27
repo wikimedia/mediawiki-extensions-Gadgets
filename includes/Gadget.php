@@ -14,7 +14,6 @@
 namespace MediaWiki\Extension\Gadgets;
 
 use InvalidArgumentException;
-use MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContent;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\User\UserIdentity;
@@ -105,18 +104,18 @@ class Gadget {
 	}
 
 	/**
-	 * Create a object based on the metadata in a GadgetDefinitionContent object
+	 * Create a serialized array based on the metadata in a GadgetDefinitionContent object,
+	 * from which a Gadget object can be constructed.
 	 *
 	 * @param string $id
-	 * @param GadgetDefinitionContent $content
-	 * @return Gadget
+	 * @param array $data
+	 * @return array
 	 */
-	public static function newFromDefinitionContent( $id, GadgetDefinitionContent $content ) {
-		$data = $content->getAssocArray();
+	public static function serializeDefinition( string $id, array $data ): array {
 		$prefixGadgetNs = static function ( $page ) {
 			return 'Gadget:' . $page;
 		};
-		$info = [
+		return [
 			'name' => $id,
 			'resourceLoaded' => true,
 			'requiresES6' => $data['settings']['requiresES6'],
@@ -137,8 +136,35 @@ class Gadget {
 			'messages' => $data['module']['messages'],
 			'type' => $data['module']['type'],
 		];
+	}
 
-		return new self( $info );
+	/**
+	 * Serialize to an array
+	 * @return array
+	 */
+	public function toArray(): array {
+		return [
+			'name' => $this->name,
+			'definition' => $this->definition,
+			'resourceLoaded' => $this->resourceLoaded,
+			'requiresES6' => $this->requiresES6,
+			'requiredRights' => $this->requiredRights,
+			'onByDefault' => $this->onByDefault,
+			'package' => $this->package,
+			'hidden' => $this->hidden,
+			'requiredActions' => $this->requiredActions,
+			'requiredSkins' => $this->requiredSkins,
+			'category' => $this->category,
+			'supportsUrlLoad' => $this->supportsUrlLoad,
+			'scripts' => $this->scripts,
+			'styles' => $this->styles,
+			'datas' => $this->datas,
+			'dependencies' => $this->dependencies,
+			'peers' => $this->peers,
+			'messages' => $this->messages,
+			'type' => $this->type,
+			'targets' => $this->targets,
+		];
 	}
 
 	/**
