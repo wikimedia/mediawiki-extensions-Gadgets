@@ -16,6 +16,7 @@
 			"id": 2300,
 			"constant": "NS_GADGET",
 			"name": "Gadget",
+			"capitallinkoverride": false,
 			"protection": "gadgets-edit"
 		},
 		{
