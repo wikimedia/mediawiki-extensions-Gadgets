@@ -57,8 +57,13 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * Purge the definitions cache, for example when MediaWiki:Gadgets-definition is edited.
 	 */
 	private function purgeDefinitionCache(): void {
-		$cache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-		$cache->delete( $this->makeDefinitionCacheKey( $cache ) );
+		$wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
+		$srvCache = ObjectCache::getLocalServerInstance( 'hash' );
+		$key = $this->makeDefinitionCacheKey( $wanCache );
+
+		$wanCache->delete( $key );
+		$srvCache->delete( $key );
+		$this->definitions = null;
 	}
 
 	/**
