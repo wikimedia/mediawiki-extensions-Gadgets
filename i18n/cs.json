@@ -36,5 +36,6 @@
 	"right-gadgets-edit": "Editace stránek s JavaScriptem a CSS udělátek",
 	"action-gadgets-edit": "editovat stránku s JavaScriptem nebo CSS tohoto udělátka",
 	"right-gadgets-definition-edit": "Editace definic udělátek",
-	"action-gadgets-definition-edit": "editovat definici tohoto udělátka"
+	"action-gadgets-definition-edit": "editovat definici tohoto udělátka",
+	"gadgets-wrong-contentmodel": "Stránky ve jmenném prostoru {{ns:2302}} musí mít jako model obsahu ''GadgetDefinition''."
 }
