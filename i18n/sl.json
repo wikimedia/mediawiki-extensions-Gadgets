@@ -7,7 +7,7 @@
 			"Smihael"
 		]
 	},
-	"gadgets-desc": "Omogoča uporabnikom, da vključijo [[Special:Gadgets|vtičnike CSS in JavaScript]] v [[Special:Preferences#mw-prefsection-gadgets|nastavitvah]]",
+	"gadgets-desc": "Omogoča uporabnikom, da v [[Special:Preferences#mw-prefsection-gadgets|nastavitvah]] vključijo [[Special:Gadgets|vtičnike CSS in JavaScript]]",
 	"prefs-gadgets": "Vtičniki",
 	"gadgets-prefstext": "Spodaj je prikazan seznam vtičnikov, ki jih lahko omogočite za svoj račun.\nVečinoma temeljijo na JavaScriptu, zato mora biti ta za njihovo delovanje omogočen v vašem brskalniku.\nTi vtičniki v nobenem primeru ne vplivajo na to nastavitveno stran.\n\nUpoštevajte, da ti vtičniki niso del programja MediaWiki, zato jih običajno razvijajo in vzdržujejo uporabniki v vašem lokalnem vikiju.\nLokalni administratorji vmesnika lahko urejajo [[MediaWiki:Gadgets-definition|opredelitve]] vtičnikov, ki so na voljo, lokalni administratorji pa lahko urejajo njihove [[Special:Gadgets|opise]], kjer si lahko ogledate izvorno kodo posameznih vtičnikov. Število uporabnikov posameznega vtičnika v tem vikiju je navedeno v [[Special:GadgetUsage|statistiki uporabe vtičnikov]].",
 	"gadgets": "Vtičniki",
@@ -32,8 +32,9 @@
 	"gadgets-export-text": "Za izvoz vtičnika $1 kliknite na gumb »{{int:gadgets-export-download}}«, shranite preneseno datoteko,\npojdite na Special:Import na ciljnem wikiju in jo naložite. Nato dodajte naslednjo vrstico na stran MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nNa ciljnem wikiju morate imeti ustrezna dovoljenja (vključno s pravico urejanja sistemskih sporočil) in omogočeni morajo biti uvozi iz naloženih datotek.",
 	"gadgets-export-download": "Prenesi",
 	"gadgets-validate-notset": "Lastnost <code>$1</code> ni nastavljena.",
-	"right-gadgets-edit": "Uredi vtičnikov JavaScript in strani CSS",
+	"gadgets-validate-wrongtype": "Lastnost <code>$1</code> mora biti vrste <code>$2</code> namesto <code>$3</code> .",
+	"right-gadgets-edit": "Urejanje strani JavaScript in CSS vtičnikov",
 	"action-gadgets-edit": "uredi JavaScript in strani CSS tega vtičnika",
-	"right-gadgets-definition-edit": "Uredi opredelitve vtičnika",
+	"right-gadgets-definition-edit": "Urejanje opredelitev vtičnikov",
 	"action-gadgets-definition-edit": "uredi opredelitev tega vtičnika"
 }
