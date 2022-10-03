@@ -6,6 +6,7 @@
 	},
 	"gadgets-desc": "Permitte que usatores selige [[Special:Gadgets|gadgets CSS e JavaScript]] personalisate in lor [[Special:Preferences#mw-prefsection-gadgets|preferentias]]",
 	"prefs-gadgets": "Gadgets",
+	"prefs-description-gadgets": "Activar functiones additional pro tu conto.",
 	"gadgets-prefstext": "Infra es un lista de gadgets special que tu pote activar in tu conto.\nIste gadgets se basa pro le major parte sur JavaScript, dunque JavaScript debe esser active in tu navigator pro permitter que illos functiona.\nNota que iste gadgets non habera effecto in iste pagina de preferentias.\n\nNota etiam que iste gadgets special non face parte del software de MediaWiki, e es normalmente disveloppate e mantenite per usatores in tu wiki local.\nLe administratores local de interfacie pote modificar le [[MediaWiki:Gadgets-definition|definitiones]] del gadgets disponibile, e le administratores local pote modificar lor [[Special:Gadgets|descriptiones]], ubi tu pote vider le codice fonte de cata gadget. Le numero de usatores de cata gadget sur iste wiki es listate in le pagina [[Special:GadgetUsage|Statisticas de uso de gadgets]].",
 	"gadgets": "Gadgets",
 	"gadgetusage": "Statisticas de uso del gadget",
