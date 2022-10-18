@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"PiefPafPier"
+		]
+	},
+	"prefs-gadgets": "Lytsark",
+	"gadgets": "Lytsark",
+	"gadgetusage": "Brûkmestatistiken Lytsark",
+	"gadgetusage-gadget": "Lytsark",
+	"gadgetusage-usercount": "Meidoggertal",
+	"gadgetusage-noresults": "Gjin lytsark fûn.",
+	"gadgetusage-activeusers": "Warbere meidoggers",
+	"gadgetusage-default": "Standert",
+	"gadgets-title": "Lytsark",
+	"gadgets-uses": "Brûkt",
+	"gadgets-required-rights": "Freget {{PLURAL:$2|it neikommende rjocht|de neikommende rjochten}}:\n\n$1",
+	"gadgets-required-skins": "Beskikber by de {{PLURAL:$2|foarmjouwing $1|neikommende foarmjouwings: $1}}.",
+	"gadgets-default": "Standert foar eltsenien ynskeakele.",
+	"gadgets-export": "Eksportearje",
+	"gadgets-export-title": "Lytsark eksportearje",
+	"gadgets-not-found": "Lytsark \"$1\" net fûn.",
+	"gadgets-export-download": "Ophelje"
+}
