@@ -1,0 +1,34 @@
+{
+	"@metadata": {
+		"authors": [
+			"PiefPafPier"
+		]
+	},
+	"gadgets-desc": "Lit meidoggers spesjalisearre [[Special:Gadgets|CSS- en JavaScript-lytsark]] selektearje yn harren [[Special:Preferences#mw-prefsection-gadgets|foarkarren]]",
+	"prefs-gadgets": "Lytsark",
+	"gadgets": "Lytsark",
+	"gadgetusage": "Brûkmestatistiken Lytsark",
+	"gadgetusage-gadget": "Lytsark",
+	"gadgetusage-usercount": "Meidoggertal",
+	"gadgetusage-noresults": "Gjin lytsark fûn.",
+	"gadgetusage-activeusers": "Warbere meidoggers",
+	"gadgetusage-default": "Standert",
+	"gadgets-title": "Lytsark",
+	"gadgets-editdescription": "Beskriuwing bewurkje",
+	"gadgets-viewdescription": "Beskriuwing besjen",
+	"gadgets-uses": "Brûkt",
+	"gadgets-required-rights": "Freget {{PLURAL:$2|it neikommende rjocht|de neikommende rjochten}}:\n\n$1",
+	"gadgets-required-skins": "Beskikber by de {{PLURAL:$2|foarmjouwing $1|neikommende foarmjouwings: $1}}.",
+	"gadgets-required-actions": "Wurket by de {{PLURAL:$2|side-aksje \"$1\"|neikommende side-aksjes: $1}}.",
+	"gadgets-default": "Standert foar eltsenien ynskeakele.",
+	"gadgets-legacy": "It lytsark is net laden. Gean oer op ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Mear witte])",
+	"gadgets-packaged": "Dit lytsark is [https://www.mediawiki.org/wiki/ResourceLoader/Package_files ferpakt], mei as yngong $1",
+	"gadgets-export": "Eksportearje",
+	"gadgets-export-title": "Lytsark eksportearje",
+	"gadgets-not-found": "Lytsark \"$1\" net fûn.",
+	"gadgets-export-download": "Ophelje",
+	"right-gadgets-edit": "JavaScript- en CSS-siden fan lytsark bewurkje",
+	"action-gadgets-edit": "en bewurkje de JavaScript- of CSS-side fan dit lytsark",
+	"gadgets-wrong-contentmodel": "Siden yn 'e nammeromte '{{ns:2302}}' moatte fan it ynhâldsmodel GadgetDefinition wêze.",
+	"gadgets-supports-urlload": "Dit lytsark stipet it laden fia URL mei de oanfraachparameter <code>?withgadget</code>."
+}
