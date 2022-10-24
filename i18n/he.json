@@ -37,6 +37,7 @@
 	"gadgets-not-found": "הגאדג׳ט \"$1\" לא נמצא.",
 	"gadgets-export-text": "כדי לייצא את הגאדג'ט $1, יש ללחוץ על הכפתור \"{{int:gadgets-export-download}}\", לשמור את הקובץ שהתקבל,\nלגשת אל הדף Special:Import באתר הוויקי המיועד ולהעלות את הקובץ. לאחר מכן, יש להוסיף את הקוד הבא לדף MediaWiki:Gadgets-definition באתר הוויקי המיועד:\n<pre>$2</pre>\nיש להחזיק בהרשאות מתאימות באתר הוויקי המיועד (לרבות הרשאה לעריכת הודעות מערכת), והאפשרות ליבוא מקובץ חייבת להיות מופעלת.",
 	"gadgets-export-download": "הורדה",
+	"gadgets-requires-es6": "הגאדג'ט הזה נתמך רק בדפדפנים תואמי ES6",
 	"gadgets-validate-notset": "המאפיין <code>$1</code> אינו מוגדר.",
 	"gadgets-validate-wrongtype": "המאפיין <code>$1</code> צריך להיות מסוג <code>$2</code> ולא <code>$3</code>.",
 	"right-gadgets-edit": "עריכת דפי JavaScript ו־CSS של גאדג'טים",

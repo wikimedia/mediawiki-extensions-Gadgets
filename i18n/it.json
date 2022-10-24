@@ -40,6 +40,7 @@
 	"gadgets-not-found": "Accessorio \"$1\" non trovato.",
 	"gadgets-export-text": "Per esportare l'accessorio $1, fai clic sul pulsante \"{{int:gadgets-export-download}}\", salva il file scaricato,\nvai alla pagina Special:Import nella wiki di destinazione e carica il file. Poi aggiungi quanto segue alla pagina MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nDevi disporre dei permessi appropriati nella wiki di destinazione (incluso il diritto di modificare i messaggi di sistema) e l'importazione da file deve essere abilitata.",
 	"gadgets-export-download": "Scarica",
+	"gadgets-requires-es6": "Questo accessorio è supportato solo su browser compatibili con ES6",
 	"gadgets-validate-notset": "La proprietà <code>$1</code> non è impostata.",
 	"gadgets-validate-wrongtype": "La proprietà <code>$1</code> deve essere di tipo <code>$2</code> anziché <code>$3</code>.",
 	"right-gadgets-edit": "Modifica i gadget JavaScript e le pagine CSS",
