@@ -89,7 +89,8 @@
 		"PreferencesGetLegend": "GadgetHooks",
 		"ResourceLoaderRegisterModules": "GadgetHooks",
 		"wgQueryPages": "GadgetHooks",
-		"DeleteUnknownPreferences": "GadgetHooks"
+		"DeleteUnknownPreferences": "GadgetHooks",
+		"PreferencesGetIcon": "GadgetHooks"
 	},
 	"config": {
 		"GadgetsRepoClass": {
