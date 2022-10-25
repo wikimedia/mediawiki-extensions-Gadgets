@@ -37,6 +37,7 @@
 	"gadgets-not-found": "Tilleggsfunksjonen «$1» ikke funnet.",
 	"gadgets-export-text": "For å eksportere verktøyet $1, klikk på «{{int:gadgets-export-download}}»-knappen, lagre den nedlastede filen, gå til Special:Import på destinasjonswikien og last den opp. Deretter legger du til følgende på siden MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nDu må ha de nødvendige tillatelsene på destinasjonswikien (inkludert retten til å redigere systemmeldinger) og import fra filopplastinger må være aktivert.",
 	"gadgets-export-download": "Last ned",
+	"gadgets-requires-es6": "Denne tilleggsfunksjonen virker kun i nettlesere som har støtte for ES6",
 	"gadgets-validate-notset": "Egenskapen <code>$1</code> er ikke satt.",
 	"gadgets-validate-wrongtype": "Egenskapen <code>$1</code> må være av typen <code>$2</code> i stedet for <code>$3</code>.",
 	"right-gadgets-edit": "Redigere tilleggsfunksjoners JavaScript- og CSS-sider",
