@@ -7,6 +7,7 @@
 			"Sator",
 			"Subi",
 			"Unai Fdz. de Betoño",
+			"Xabier Armendaritz",
 			"පසිඳු කාවින්ද"
 		]
 	},
@@ -26,7 +27,7 @@
 	"gadgets-export": "Esportatu",
 	"gadgets-export-title": "Gadgeten esportazioa",
 	"gadgets-not-found": "Ez da \"$1\" gadgeta aurkitu.",
-	"gadgets-export-download": "Jaitsi",
+	"gadgets-export-download": "Deskargatu",
 	"action-gadgets-edit": "gadget honen JavaScript edo CSS orria aldatu",
 	"right-gadgets-definition-edit": "Gadgetaren definizioak aldatu",
 	"action-gadgets-definition-edit": "Gadget honen definizioa aldatu"
