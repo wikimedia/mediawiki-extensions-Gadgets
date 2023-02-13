@@ -252,6 +252,13 @@ $namespaceNames['ms-arab'] = [
 	NS_GADGET_DEFINITION_TALK => 'ڤربينچڠن_ڤنرڠن_الت',
 ];
 
+$namespaceNames['mnw'] = [
+	NS_GADGET => 'ကိရိယာ',
+	NS_GADGET_TALK => 'ကိရိယာ_ဓရီုကျာ',
+	NS_GADGET_DEFINITION => 'ကိရိယာ_ပွံက်အဓိပ္ပါယ်',
+	NS_GADGET_DEFINITION_TALK => 'ကိရိယာ_ပွံက်အဓိပ္ပါယ်_ဓရီုကျာ',
+];
+
 $namespaceNames['mwl'] = [
 	NS_GADGET => 'Gadget',
 	NS_GADGET_TALK => 'Cumbersa_gadget',
