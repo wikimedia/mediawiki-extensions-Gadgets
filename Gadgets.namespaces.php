@@ -224,6 +224,13 @@ $namespaceNames['ko'] = [
 	NS_GADGET_DEFINITION_TALK => '소도구정의토론',
 ];
 
+$namespaceNames['ks-arab'] = [
+	NS_GADGET => 'آلہٕ',
+	NS_GADGET_TALK => 'آلہٕ_کَتھ',
+	NS_GADGET_DEFINITION => 'آلہٕ_تَعارُف',
+	NS_GADGET_DEFINITION_TALK => 'آلہٕ_تَعارُف_کَتھ',
+];
+
 $namespaceNames['ky'] = [
 	NS_GADGET => 'Гаджет',
 	NS_GADGET_TALK => 'Гаджетти_талкуулоо',
