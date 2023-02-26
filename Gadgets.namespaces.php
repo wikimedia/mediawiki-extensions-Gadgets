@@ -84,6 +84,13 @@ $namespaceNames['bn'] = [
 	NS_GADGET_DEFINITION_TALK => 'গ্যাজেট_সংজ্ঞার_আলোচনা',
 ];
 
+$namespaceNames['ce'] = [
+	NS_GADGET => 'Гаджет',
+	NS_GADGET_TALK => 'Гаджет_йийцар',
+	NS_GADGET_DEFINITION => 'Гаджет_къастор',
+	NS_GADGET_DEFINITION_TALK => 'Гаджет_къастор_дийцар',
+];
+
 $namespaceNames['ckb'] = [
 	NS_GADGET => 'ئامراز',
 	NS_GADGET_TALK => 'وتووێژی_ئامراز',
