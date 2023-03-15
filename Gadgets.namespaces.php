@@ -23,6 +23,13 @@ $namespaceNames['an'] = [
 	NS_GADGET_DEFINITION_TALK => 'Descusión_definición_accesorio',
 ];
 
+$namespaceNames['anp'] = [
+	NS_GADGET => 'गैजेट',
+	NS_GADGET_TALK => 'गैजेट_वार्ता',
+	NS_GADGET_DEFINITION => 'गैजेट_परिभाषा',
+	NS_GADGET_DEFINITION_TALK => 'गैजेट_परिभाषा_वार्ता',
+];
+
 $namespaceNames['ar'] = [
 	NS_GADGET => 'إضافة',
 	NS_GADGET_TALK => 'نقاش_الإضافة',
