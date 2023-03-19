@@ -17,10 +17,10 @@ class GadgetDefinitionValidator {
 	private const TYPE_INT = [ 'callback' => 'is_int', 'expect' => 'number' ];
 	private const TYPE_STRING = [ 'callback' => 'is_string', 'expect' => 'string' ];
 	private const TYPE_PAGE_SUFFIX = [
-		'callback' => [ __CLASS__, 'isResourcePageSuffix' ], 'expect' => '.js, .css, .json'
+		'callback' => [ self::class, 'isResourcePageSuffix' ], 'expect' => '.js, .css, .json'
 	];
 	private const TYPE_MODULE_TYPE = [
-		'callback' => [ __CLASS__, 'isModuleType' ], 'expect' => '"", "general", "styles"',
+		'callback' => [ self::class, 'isModuleType' ], 'expect' => '"", "general", "styles"',
 	];
 
 	/**
