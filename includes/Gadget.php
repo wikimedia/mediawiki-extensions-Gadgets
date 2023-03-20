@@ -124,6 +124,7 @@ class Gadget {
 			'onByDefault' => $data['settings']['default'],
 			'package' => $data['settings']['package'],
 			'hidden' => $data['settings']['hidden'],
+			'targets' => $data['settings']['targets'],
 			'requiredActions' => $data['settings']['actions'],
 			'requiredSkins' => $data['settings']['skins'],
 			'category' => $data['settings']['category'],
