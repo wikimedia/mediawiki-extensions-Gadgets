@@ -425,11 +425,6 @@ $specialPageAliases['vi'] = [
 	'Gadgets' => [ 'Tiện_ích', 'Công_cụ_đa_năng' ],
 ];
 
-/** Chinese (中文) */
-$specialPageAliases['zh'] = [
-	'Gadgets' => [ '小工具' ],
-];
-
 /** Simplified Chinese (中文（简体）) */
 $specialPageAliases['zh-hans'] = [
 	'Gadgets' => [ '小工具' ],
