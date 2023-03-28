@@ -214,6 +214,12 @@ $specialPageAliases['ko'] = [
 	'GadgetUsage' => [ '소도구사용량' ],
 ];
 
+/** Kashmiri (کٲشُر) */
+$specialPageAliases['ks-arab'] = [
+	'Gadgets' => [ 'آلہٕ' ],
+	'GadgetUsage' => [ 'آلہٕ_اِستِمال' ],
+];
+
 /** Ladino (Ladino) */
 $specialPageAliases['lad'] = [
 	'Gadgets' => [ 'Instrumenticos' ],
