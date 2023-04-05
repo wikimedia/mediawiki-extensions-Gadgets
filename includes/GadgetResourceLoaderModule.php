@@ -60,6 +60,9 @@ class GadgetResourceLoaderModule extends RL\WikiModule {
 				$pages[$script] = [ 'type' => 'script' ];
 			}
 			if ( $gadget->isPackaged() ) {
+				foreach ( $gadget->getVues() as $vue ) {
+					$pages[$vue] = [ 'type' => 'script-vue' ];
+				}
 				foreach ( $gadget->getJSONs() as $json ) {
 					$pages[$json] = [ 'type' => 'data' ];
 				}

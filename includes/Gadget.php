@@ -36,7 +36,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	public const GADGET_CLASS_VERSION = 19;
+	public const GADGET_CLASS_VERSION = 20;
 
 	public const CACHE_TTL = 86400;
 
@@ -409,10 +409,19 @@ class Gadget {
 	}
 
 	/**
+	 * @return string[] Vue page names (including namespace)
+	 */
+	public function getVues(): array {
+		return array_values( array_filter( $this->pages, static function ( $page ) {
+			return str_ends_with( $page, '.vue' );
+		} ) );
+	}
+
+	/**
 	 * @return string[] All page names for this gadget's resources
 	 */
 	public function getScriptsAndStyles() {
-		return array_merge( $this->getScripts(), $this->getStyles(), $this->getJSONs() );
+		return array_merge( $this->getScripts(), $this->getStyles(), $this->getJSONs(), $this->getVues() );
 	}
 
 	/**
