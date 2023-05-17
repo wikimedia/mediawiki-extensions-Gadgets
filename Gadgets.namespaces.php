@@ -385,6 +385,13 @@ $namespaceNames['shn'] = [
 	NS_GADGET_DEFINITION_TALK => 'ဢုပ်ႇၵုမ်_ပိုတ်ႇတီႈပွင်ႇ_ၶိူင်ႈပိတ်းပွတ်း',
 ];
 
+$namespaceNames['sl'] = [
+	NS_GADGET => 'Pripomoček',
+	NS_GADGET_TALK => 'Pogovor_o_pripomočku',
+	NS_GADGET_DEFINITION => 'Opredelitev_pripomočka',
+	NS_GADGET_DEFINITION_TALK => 'Pogovor_o_opredelitvi_pripomočka',
+];
+
 $namespaceNames['sr-ec'] = [
 	NS_GADGET => 'Справица',
 	NS_GADGET_TALK => 'Разговор_о_справици',
