@@ -415,6 +415,12 @@ $specialPageAliases['ur'] = [
 	'GadgetUsage' => [ 'آلات_کا_استعمال' ],
 ];
 
+/** Uzbek (oʻzbekcha) */
+$specialPageAliases['uz'] = [
+	'Gadgets' => [ 'Gadjetlar' ],
+	'GadgetUsage' => [ 'Gadjetlardan_foydalanish' ],
+];
+
 /** Venetian (vèneto) */
 $specialPageAliases['vec'] = [
 	'Gadgets' => [ 'Strumenti' ],

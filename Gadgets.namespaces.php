@@ -420,6 +420,13 @@ $namespaceNames['ur'] = [
 	NS_GADGET_DEFINITION_TALK => 'تبادلۂ_خیال_تعریف_آلہ',
 ];
 
+$namespaceNames['uz'] = [
+	NS_GADGET => 'Gadjet',
+	NS_GADGET_TALK => 'Gadjet_munozarasi',
+	NS_GADGET_DEFINITION => 'Gadjet_taʼrifi',
+	NS_GADGET_DEFINITION_TALK => 'Gadjet_taʼrifi_munozarasi',
+];
+
 $namespaceNames['vi'] = [
 	NS_GADGET => 'Tiện_ích',
 	NS_GADGET_TALK => 'Thảo_luận_Tiện_ích',
