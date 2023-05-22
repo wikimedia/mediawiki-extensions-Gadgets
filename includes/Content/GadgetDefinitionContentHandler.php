@@ -70,6 +70,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 				'targets' => [ 'desktop', 'mobile' ],
 				'actions' => [],
 				'namespaces' => [],
+				'contentModels' => [],
 				'category' => '',
 				'supportsUrlLoad' => false,
 			],

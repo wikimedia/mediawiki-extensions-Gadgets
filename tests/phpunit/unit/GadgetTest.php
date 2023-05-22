@@ -32,6 +32,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 				'targets' => [ 'desktop' ],
 				'skins' => [],
 				'namespaces' => [],
+				'contentModels' => [],
 				'category' => 'misc',
 				'supportsUrlLoad' => false,
 				'requiresES6' => false,
@@ -217,6 +218,25 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$this->assertTrue( $gMultiNamespace->isNamespaceSupported( 1 ) );
 		$this->assertTrue( $gMultiNamespace->isNamespaceSupported( 2 ) );
 		$this->assertFalse( $gMultiNamespace->isNamespaceSupported( 5 ) );
+	}
+
+	/**
+	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
+	 * @covers \MediaWiki\Extension\Gadgets\Gadget::isContentModelSupported
+	 */
+	public function testContentModelsTags() {
+		$gUnsetModel = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
+		$gModelWikitext = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|contentModels=wikitext]|bar.js' );
+		$gModelCode = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|contentModels=javascript,css]|bar.js' );
+
+		$this->assertTrue( $gUnsetModel->isContentModelSupported( 'wikitext' ) );
+
+		$this->assertTrue( $gModelWikitext->isContentModelSupported( 'wikitext' ) );
+		$this->assertFalse( $gModelWikitext->isContentModelSupported( 'javascript' ) );
+
+		$this->assertTrue( $gModelCode->isContentModelSupported( 'javascript' ) );
+		$this->assertTrue( $gModelCode->isContentModelSupported( 'css' ) );
+		$this->assertFalse( $gModelCode->isContentModelSupported( 'wikitext' ) );
 	}
 
 	/**
