@@ -371,6 +371,13 @@ $namespaceNames['sat'] = [
 	NS_GADGET_DEFINITION_TALK => 'ᱥᱟᱢᱟᱱᱚᱢ_ᱢᱮᱱᱮᱛᱮᱫ_ᱜᱟᱞᱢᱟᱨᱟᱣ',
 ];
 
+$namespaceNames['scn'] = [
+	NS_GADGET => 'Accissoriu',
+	NS_GADGET_TALK => 'Discussioni_accissoriu',
+	NS_GADGET_DEFINITION => 'Difinizzioni_accissoriu',
+	NS_GADGET_DEFINITION_TALK => 'Discussioni_difinizzioni_accissoriu',
+];
+
 $namespaceNames['sd'] = [
 	NS_GADGET => 'گيجيٽ',
 	NS_GADGET_TALK => 'گيجيٽ_بحث',
