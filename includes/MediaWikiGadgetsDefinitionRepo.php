@@ -206,7 +206,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		// Also, title-normalization applies.
 		$info = [ 'category' => $category ];
 		$info['name'] = trim( str_replace( ' ', '_', $m[1] ) );
-		// If the name is too long, then RL will throw an MWException when
+		// If the name is too long, then RL will throw an exception when
 		// we try to register the module
 		if ( !Gadget::isValidGadgetID( $info['name'] ) ) {
 			return false;
