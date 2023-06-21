@@ -59,7 +59,7 @@ class Gadget {
 	/** @var string[] */
 	private $requiredSkins = [];
 	/** @var string[] */
-	private $targets = [ 'desktop' ];
+	private $targets = [ 'desktop', 'mobile' ];
 	/** @var bool */
 	private $onByDefault = false;
 	/** @var bool */

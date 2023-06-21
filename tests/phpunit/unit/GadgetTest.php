@@ -143,7 +143,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	public function testTargets() {
 		$g = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
 		$g2 = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|targets=desktop,mobile]|bar.js' );
-		$this->assertEquals( [ 'desktop' ], $g->getTargets() );
+		$this->assertEquals( [ 'desktop', 'mobile' ], $g->getTargets() );
 		$this->assertEquals( [ 'desktop', 'mobile' ], $g2->getTargets() );
 	}
 
