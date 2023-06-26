@@ -7,13 +7,11 @@
 			"Ата"
 		]
 	},
-	"apihelp-query+gadgetcategories-description": "Видає список категорій гаджетів.",
 	"apihelp-query+gadgetcategories-summary": "Видає список категорій гаджетів.",
 	"apihelp-query+gadgetcategories-param-prop": "Яку категорію гаджетів отримати:\n;name:Внутрішнє ім'я категорії.\n;title:Назва категорії.\n;members:Кількість гаджетів у категорії.",
 	"apihelp-query+gadgetcategories-param-names": "Імена категорій для виведення.",
 	"apihelp-query+gadgetcategories-example-1": "Отримати список наявних категорій гаджетів",
 	"apihelp-query+gadgetcategories-example-2": "Отримати всю інформацію про категорії з іменами «foo» і «bar»",
-	"apihelp-query+gadgets-description": "Видає список гаджетів, використовуваних у цій вікі.",
 	"apihelp-query+gadgets-summary": "Видає список гаджетів, використовуваних у цій вікі.",
 	"apihelp-query+gadgets-param-prop": "Яку інформацію про гаджет отримати:\n;id:Внутрішній ID гаджета.\n;metadata:Метадані гаджета.\n;desc:Опис гаджета, перетворений у HTML (може бути повільно, використовуйте за справжньої потреби).",
 	"apihelp-query+gadgets-param-categories": "Додатки з яких категорій отримувати.",

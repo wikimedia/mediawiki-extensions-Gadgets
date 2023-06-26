@@ -4,13 +4,11 @@
 			"McDutchie"
 		]
 	},
-	"apihelp-query+gadgetcategories-description": "Restitue un lista de categorias de gadgets.",
 	"apihelp-query+gadgetcategories-summary": "Restitue un lista de categorias de gadgets.",
 	"apihelp-query+gadgetcategories-param-prop": "Qual information de categoria de gadgets obtener:\n;name:Nomine interne del categoria.\n;title:Titulo del categoria;\n;members:Numero de gadgets in le categoria.",
 	"apihelp-query+gadgetcategories-param-names": "Nomines del categorias a recuperar.",
 	"apihelp-query+gadgetcategories-example-1": "Obtener un lista de categorias existente de gadgets",
 	"apihelp-query+gadgetcategories-example-2": "Obtener tote le informationes sur categorias denominate \"foo\" e \"bar\"",
-	"apihelp-query+gadgets-description": "Restitue un lista de gadgets usate sur iste wiki.",
 	"apihelp-query+gadgets-summary": "Restitue un lista de gadgets usate sur iste wiki.",
 	"apihelp-query+gadgets-param-prop": "Qual information de gadget obtener:\n;id:ID interne del gadget.\n;metadata:Le metadatos del gadget.\n;desc:Le description del gadget transformate in HTML (pote esser lente, usa solo si es vermente necessari).",
 	"apihelp-query+gadgets-param-categories": "Le categorias del quales recuperar gadgets.",

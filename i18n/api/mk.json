@@ -4,13 +4,11 @@
 			"Bjankuloski06"
 		]
 	},
-	"apihelp-query+gadgetcategories-description": "Дава список на категории за алатки.",
 	"apihelp-query+gadgetcategories-summary": "Дава список на категории за алатки.",
 	"apihelp-query+gadgetcategories-param-prop": "Кои информации за категориите за алатки да се дадат:\n;name: Внатрешен назив на категоријата.\n;title: Наслов на категоријата.\n;members: Број на алатки во категоријата.",
 	"apihelp-query+gadgetcategories-param-names": "Називи на категориите што треба да се дадат.",
 	"apihelp-query+gadgetcategories-example-1": "Дај список на постоечки категории за алатки",
 	"apihelp-query+gadgetcategories-example-2": "Дај ги сите информации за категориите наречени „foo“ и „bar“",
-	"apihelp-query+gadgets-description": "Дава список на алатки што се користат на ова вики.",
 	"apihelp-query+gadgets-summary": "Дава список на алатки што се користат на ова вики.",
 	"apihelp-query+gadgets-param-prop": "Кои информации за алатките да се дадат:\n;id: Внатрешна назнака на алатката.\n;metadata: Метаподатоци за алатката.\n;desc: Описот на алатката преобразен во HTML (може да биде бавно, па користете го само ако навистина ви е потребно).",
 	"apihelp-query+gadgets-param-categories": "За кои категории да се дадат алатките.",
