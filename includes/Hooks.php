@@ -25,6 +25,7 @@ namespace MediaWiki\Extension\Gadgets;
 
 use Content;
 use Exception;
+use ExtensionRegistry;
 use HTMLForm;
 use IContextSource;
 use InvalidArgumentException;
@@ -35,6 +36,7 @@ use MediaWiki\Hook\DeleteUnknownPreferencesHook;
 use MediaWiki\Hook\EditFilterMergedContentHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Hook\PreferencesGetLegendHook;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\PageDeleteCompleteHook;
 use MediaWiki\Page\ProperPageIdentity;
 use MediaWiki\Permissions\Authority;
@@ -146,6 +148,20 @@ class Hooks implements
 	}
 
 	/**
+	 * Check whether the gadget should load on the mobile domain based on its definition.
+	 *
+	 * @return bool
+	 */
+	private static function isMobileView(): bool {
+		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
+			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
+			return $mobileContext->shouldDisplayMobileView();
+		} else {
+			return false;
+		}
+	}
+
+	/**
 	 * GetPreferences hook handler.
 	 * @param User $user
 	 * @param array &$preferences Preference descriptions
@@ -164,6 +180,7 @@ class Hooks implements
 		];
 
 		$skin = RequestContext::getMain()->getSkin();
+		$isMobileView = self::isMobileView();
 		foreach ( $gadgets as $section => $thisSection ) {
 			$available = [];
 
@@ -174,6 +191,7 @@ class Hooks implements
 				if (
 					!$gadget->isHidden()
 					&& $gadget->isAllowed( $user )
+					&& $gadget->isTargetSupported( $isMobileView )
 					&& $gadget->isSkinSupported( $skin )
 				) {
 					$gname = $gadget->getName();
@@ -243,12 +261,13 @@ class Hooks implements
 	public function onBeforePageDisplay( $out, $skin ): void {
 		$repo = GadgetRepo::singleton();
 		$ids = $repo->getGadgetIds();
+		$isMobileView = self::isMobileView();
 		if ( !$ids ) {
 			return;
 		}
 
 		$enabledLegacyGadgets = [];
-		$conditions = new GadgetLoadConditions( $out );
+		$conditions = new GadgetLoadConditions( $out, $isMobileView );
 
 		/**
 		 * @var $gadget Gadget

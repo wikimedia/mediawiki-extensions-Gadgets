@@ -57,7 +57,7 @@ class Gadget {
 	private $requiredActions = [];
 	/** @var string[] */
 	private $requiredSkins = [];
-	/** @var string[] */
+	/** @var string[] used in Gadget::isTargetSupported */
 	private $targets = [ 'desktop', 'mobile' ];
 	/** @var bool */
 	private $onByDefault = false;
@@ -293,6 +293,19 @@ class Gadget {
 	}
 
 	/**
+	 * Check whether the gadget should load on the mobile domain based on its definition.
+	 *
+	 * @return bool
+	 */
+	public function isTargetSupported( bool $isMobileView ): bool {
+		if ( $isMobileView ) {
+			return in_array( 'mobile', $this->targets );
+		} else {
+			return in_array( 'desktop', $this->targets );
+		}
+	}
+
+	/**
 	 * Check if this gadget is compatible with a skin
 	 *
 	 * @param Skin $skin The skin to check against
@@ -367,13 +380,6 @@ class Gadget {
 	 */
 	public function getScriptsAndStyles() {
 		return array_merge( $this->scripts, $this->styles, $this->getJSONs() );
-	}
-
-	/**
-	 * @return array
-	 */
-	public function getTargets() {
-		return $this->targets;
 	}
 
 	/**

@@ -53,7 +53,6 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$this->assertFalse( $g->isHidden() );
 		$this->assertFalse( $g->supportsUrlLoad() );
 		$this->assertTrue( $g->supportsResourceLoader() );
-		$this->assertCount( 1, $g->getTargets() );
 		$this->assertCount( 1, $g->getScripts() );
 		$this->assertCount( 1, $g->getStyles() );
 		$this->assertCount( 0, $g->getJSONs() );
@@ -192,13 +191,16 @@ class GadgetTest extends MediaWikiUnitTestCase {
 
 	/**
 	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 * @covers \MediaWiki\Extension\Gadgets\Gadget::getTargets
 	 */
-	public function testTargets() {
-		$g = GadgetTestUtils::makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$g2 = GadgetTestUtils::makeGadget( '*bar[ResourceLoader|targets=desktop,mobile]|bar.js' );
-		$this->assertEquals( [ 'desktop', 'mobile' ], $g->getTargets() );
-		$this->assertEquals( [ 'desktop', 'mobile' ], $g2->getTargets() );
+	public function testGadgetTargets() {
+		$gadget = new Gadget( [
+			'targets' => [ 'desktop' ]
+		] );
+
+		$this->assertFalse( $gadget->isTargetSupported( true ),
+			'Desktop-targeted code is not shipped in mobile mode.' );
+		$this->assertTrue( $gadget->isTargetSupported( false ),
+			'Desktop-targeted code is shipped in desktop mode.' );
 	}
 
 	/**
