@@ -286,7 +286,7 @@ class Gadget {
 			return true;
 		}
 		// Don't require specifying 'submit' action in addition to 'edit'
-		if ( $action == 'submit' ) {
+		if ( $action === 'submit' ) {
 			$action = 'edit';
 		}
 		return in_array( $action, $this->requiredActions );

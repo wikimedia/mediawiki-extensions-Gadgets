@@ -48,7 +48,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	}
 
 	public function handlePageUpdate( LinkTarget $target ): void {
-		if ( $target->getNamespace() === NS_MEDIAWIKI && $target->getText() == 'Gadgets-definition' ) {
+		if ( $target->getNamespace() === NS_MEDIAWIKI && $target->getText() === 'Gadgets-definition' ) {
 			$this->purgeDefinitionCache();
 		}
 	}

@@ -31,7 +31,7 @@ class SpecialGadgets extends SpecialPage {
 	public function execute( $par ) {
 		$parts = $par !== null ? explode( '/', $par ) : [];
 
-		if ( count( $parts ) == 2 && $parts[0] == 'export' ) {
+		if ( count( $parts ) === 2 && $parts[0] === 'export' ) {
 			$this->showExportForm( $parts[1] );
 		} else {
 			$this->showMainForm();
