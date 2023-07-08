@@ -57,7 +57,7 @@
 					"type": "string",
 					"default": ""
 				},
-				"supportsdirectload": {
+				"supportsUrlLoad": {
 					"description": "Whether this gadget supports ?withgadget query parameter",
 					"type": "boolean",
 					"default": false
