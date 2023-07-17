@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Alesaru",
 			"Cin",
 			"Firilacroco",
 			"KlaudiuMihaila",
@@ -29,5 +30,6 @@
 	"gadgets-export": "Exportă",
 	"gadgets-export-title": "Exportul de gadgeturi",
 	"gadgets-not-found": "Gadgetul „$1” nu a fost găsit.",
+	"gadgets-export-text": "Pentru a exporta gadgetul $1 , faceți clic pe butonul „{{int:gadgets-export-download}}”, salvați fișierul descărcat,",
 	"gadgets-export-download": "Descarcă"
 }
