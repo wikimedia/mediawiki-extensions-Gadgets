@@ -227,27 +227,24 @@ class SpecialGadgets extends SpecialPage {
 
 				// Portion: Show required skins (optional)
 				$requiredSkins = $gadget->getRequiredSkins();
-				// $requiredSkins can be an array, or true (if all skins are supported)
-				if ( is_array( $requiredSkins ) ) {
-					$skins = [];
-					$validskins = $skinFactory->getSkinNames();
-					foreach ( $requiredSkins as $skinid ) {
-						if ( isset( $validskins[$skinid] ) ) {
-							$skins[] = $this->msg( "skinname-$skinid" )->plain();
-						} else {
-							$skins[] = $skinid;
-						}
+				$skins = [];
+				$validskins = $skinFactory->getSkinNames();
+				foreach ( $requiredSkins as $skinid ) {
+					if ( isset( $validskins[$skinid] ) ) {
+						$skins[] = $this->msg( "skinname-$skinid" )->plain();
+					} else {
+						$skins[] = $skinid;
 					}
-					if ( $skins ) {
-						if ( $needLineBreakAfter ) {
-							$output->addHTML( '<br />' );
-						}
-						$output->addHTML(
-							$this->msg( 'gadgets-required-skins', $lang->commaList( $skins ) )
-								->numParams( count( $skins ) )->parse()
-						);
-						$needLineBreakAfter = true;
+				}
+				if ( $skins ) {
+					if ( $needLineBreakAfter ) {
+						$output->addHTML( '<br />' );
 					}
+					$output->addHTML(
+						$this->msg( 'gadgets-required-skins', $lang->commaList( $skins ) )
+							->numParams( count( $skins ) )->parse()
+					);
+					$needLineBreakAfter = true;
 				}
 
 				// Portion: Show required actions (optional)
