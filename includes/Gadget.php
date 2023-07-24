@@ -289,7 +289,7 @@ class Gadget {
 		if ( $action === 'submit' ) {
 			$action = 'edit';
 		}
-		return in_array( $action, $this->requiredActions );
+		return in_array( $action, $this->requiredActions, true );
 	}
 
 	/**
@@ -299,9 +299,9 @@ class Gadget {
 	 */
 	public function isTargetSupported( bool $isMobileView ): bool {
 		if ( $isMobileView ) {
-			return in_array( 'mobile', $this->targets );
+			return in_array( 'mobile', $this->targets, true );
 		} else {
-			return in_array( 'desktop', $this->targets );
+			return in_array( 'desktop', $this->targets, true );
 		}
 	}
 
@@ -313,7 +313,7 @@ class Gadget {
 	 */
 	public function isSkinSupported( Skin $skin ) {
 		return ( count( $this->requiredSkins ) === 0
-			|| in_array( $skin->getSkinName(), $this->requiredSkins )
+			|| in_array( $skin->getSkinName(), $this->requiredSkins, true )
 		);
 	}
 
