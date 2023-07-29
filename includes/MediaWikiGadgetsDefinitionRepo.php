@@ -84,6 +84,13 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * @return array[] List of Gadget objects
 	 */
 	protected function loadGadgets(): array {
+		if ( defined( 'MW_PHPUNIT_TEST' ) && MediaWikiServices::getInstance()->isStorageDisabled() ) {
+			// Bail out immediately if storage is disabled. This should never happen in normal operations, but can
+			// happen a lot in tests: this method is called from the UserGetDefaultOptions hook handler, so any test
+			// that uses UserOptionsLookup will end up reaching this code, which is problematic if the test is not
+			// in the Database group (T155147).
+			return [];
+		}
 		// From back to front:
 		//
 		// 3. wan cache (e.g. memcached)
