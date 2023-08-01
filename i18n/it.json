@@ -3,6 +3,7 @@
 		"authors": [
 			"Beta16",
 			"BrokenArrow",
+			"Candalua",
 			"Dansita",
 			"Darth Kule",
 			"Fringio",
@@ -35,6 +36,7 @@
 	"gadgets-uses": "Usa",
 	"gadgets-required-rights": "Richiede {{PLURAL:$2|il seguente diritto|i seguenti diritti}}:\n\n$1",
 	"gadgets-required-skins": "Disponibile {{PLURAL:$2|per il tema $1|per i seguenti temi: $1}}.",
+	"gadgets-required-actions": "Funziona {{PLURAL:$2|sull'azione di pagina \"$1\"|sulle seguenti azioni di pagina: $1}}.",
 	"gadgets-default": "Attivato per tutti, per impostazione predefinita.",
 	"gadgets-legacy": "Accessorio non caricato. Migra a ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Per saperne di più])",
 	"gadgets-export": "Esporta",
