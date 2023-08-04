@@ -214,6 +214,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 					'metadata',
 					'desc',
 				],
+				ApiBase::PARAM_HELP_MSG_PER_VALUE => [],
 			],
 			'categories' => [
 				ParamValidator::PARAM_ISMULTI => true,
