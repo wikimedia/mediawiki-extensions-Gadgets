@@ -7,6 +7,7 @@ use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group Gadgets
+ * @group Database
  */
 class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 	public function tearDown(): void {
