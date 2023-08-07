@@ -8,6 +8,7 @@
 	},
 	"apihelp-query+gadgetcategories-summary": "Returnerar en lista för finesskategorier.",
 	"apihelp-query+gadgetcategories-param-prop": "Vilken information om finesskategorier som ska tas med:\n;name:Internt kategorinamn.\n;title:Kategorititel.\n;members:Antal finesser i kategorin.",
+	"apihelp-query+gadgetcategories-paramvalue-prop-title": "Kategorititel.",
 	"apihelp-query+gadgetcategories-param-names": "Namn på kategorier som ska hämtas.",
 	"apihelp-query+gadgetcategories-example-1": "Få en lista över befintliga finesskategorier",
 	"apihelp-query+gadgetcategories-example-2": "Få all information om kategorier med namnen \"foo\" och \"bar\"",
