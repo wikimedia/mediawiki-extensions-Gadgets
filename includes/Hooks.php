@@ -401,23 +401,6 @@ class Hooks implements
 	}
 
 	/**
-	 * Set the CodeEditor language for Gadget definition pages. It already
-	 * knows the language for Gadget: namespace pages.
-	 *
-	 * @param Title $title
-	 * @param string &$lang
-	 * @return bool
-	 */
-	public static function onCodeEditorGetPageLanguage( Title $title, &$lang ) {
-		if ( $title->hasContentModel( 'GadgetDefinition' ) ) {
-			$lang = 'json';
-			return false;
-		}
-
-		return true;
-	}
-
-	/**
 	 * Add the GadgetUsage special page to the list of QueryPages.
 	 * @param array &$queryPages
 	 */
