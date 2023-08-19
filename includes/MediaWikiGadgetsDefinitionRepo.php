@@ -6,9 +6,9 @@ use InvalidArgumentException;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\Title\Title;
 use ObjectCache;
 use TextContent;
-use Title;
 use WANObjectCache;
 use Wikimedia\Rdbms\Database;
 
