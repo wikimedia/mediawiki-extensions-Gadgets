@@ -30,8 +30,8 @@ use JsonContentHandler;
 use Linker;
 use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Revision\SlotRenderingProvider;
+use MediaWiki\Title\Title;
 use ParserOutput;
-use Title;
 
 class GadgetDefinitionContentHandler extends JsonContentHandler {
 	public function __construct() {

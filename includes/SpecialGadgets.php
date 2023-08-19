@@ -15,9 +15,9 @@ use Html;
 use HTMLForm;
 use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 use Sanitizer;
 use SpecialPage;
-use Title;
 use Xml;
 
 class SpecialGadgets extends SpecialPage {
