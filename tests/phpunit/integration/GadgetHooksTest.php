@@ -52,8 +52,8 @@ EOT;
 			} );
 		( new GadgetHooks() )->onGetPreferences( $user, $prefs );
 
-		$this->assertArrayHasKey( 'gadget-bar', $prefs );
-		$this->assertArrayNotHasKey( 'gadget-baz', $prefs,
+		$this->assertEquals( 'check', $prefs['gadget-bar']['type'] );
+		$this->assertEquals( 'api', $prefs['gadget-baz']['type'],
 			'Must not show unavailable gadgets' );
 		$this->assertEquals( 'gadgets/gadget-section-keep-section2', $prefs['gadget-quux']['section'] );
 	}
