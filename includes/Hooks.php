@@ -188,23 +188,26 @@ class Hooks implements
 			 * @var $gadget Gadget
 			 */
 			foreach ( $thisSection as $gadget ) {
+				// Only show option to enable gadget if it can be enabled
+				$type = 'api';
 				if (
 					!$gadget->isHidden()
 					&& $gadget->isAllowed( $user )
 					&& $gadget->isTargetSupported( $isMobileView )
 					&& $gadget->isSkinSupported( $skin )
 				) {
-					$gname = $gadget->getName();
-					$sectionLabelMsg = "gadget-section-$section";
-
-					$preferences["gadget-$gname"] = [
-						'type' => 'check',
-						'label-message' => $gadget->getDescriptionMessageKey(),
-						'section' => $section !== '' ? "gadgets/$sectionLabelMsg" : 'gadgets',
-						'default' => $gadget->isEnabled( $user ),
-						'noglobal' => true,
-					];
+					$type = 'check';
 				}
+				$gname = $gadget->getName();
+				$sectionLabelMsg = "gadget-section-$section";
+
+				$preferences["gadget-$gname"] = [
+					'type' => $type,
+					'label-message' => $gadget->getDescriptionMessageKey(),
+					'section' => $section !== '' ? "gadgets/$sectionLabelMsg" : 'gadgets',
+					'default' => $gadget->isEnabled( $user ),
+					'noglobal' => true,
+				];
 			}
 		}
 	}
