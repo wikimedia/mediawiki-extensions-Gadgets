@@ -36,6 +36,7 @@ use MediaWiki\Hook\DeleteUnknownPreferencesHook;
 use MediaWiki\Hook\EditFilterMergedContentHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Hook\PreferencesGetLegendHook;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\PageDeleteCompleteHook;
 use MediaWiki\Page\ProperPageIdentity;
@@ -179,6 +180,16 @@ class Hooks implements
 			'raw' => true,
 		];
 
+		$safeMode = MediaWikiServices::getInstance()->getUserOptionsLookup()->getOption( $user, 'forcesafemode' );
+		if ( $safeMode ) {
+			$preferences['gadgets-safemode'] = [
+				'type' => 'info',
+				'default' => Html::warningBox( wfMessage( 'gadgets-prefstext-safemode' )->parse() ),
+				'section' => 'gadgets',
+				'raw' => true,
+			];
+		}
+
 		$skin = RequestContext::getMain()->getSkin();
 		$isMobileView = self::isMobileView();
 		foreach ( $gadgets as $section => $thisSection ) {
@@ -191,7 +202,8 @@ class Hooks implements
 				// Only show option to enable gadget if it can be enabled
 				$type = 'api';
 				if (
-					!$gadget->isHidden()
+					!$safeMode
+					&& !$gadget->isHidden()
 					&& $gadget->isAllowed( $user )
 					&& $gadget->isTargetSupported( $isMobileView )
 					&& $gadget->isSkinSupported( $skin )
