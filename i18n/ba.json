@@ -27,7 +27,7 @@
 	"gadgets-default": "Барыһы өсөн дә программа көйләүе буйынса ҡабыҙылған.",
 	"gadgets-legacy": "Гаджет йөкләнмәгән. ResourceLoader-ға күсегеҙ. ([https\n://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Тулыраҡ мәғлүмәт])",
 	"gadgets-export": "Сығарырға",
-	"gadgets-export-title": "Гаджетты экспортлау",
+	"gadgets-export-title": "Гаджетты сығарыу",
 	"gadgets-not-found": "\"$1\" гаджеты табылманы.",
 	"gadgets-export-download": "Йөкләргә",
 	"gadgets-validate-notset": "<code>$1</code> үҙенсәнлеге билдәләнмәгән.",
