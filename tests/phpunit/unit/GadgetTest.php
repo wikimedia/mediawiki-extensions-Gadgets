@@ -58,6 +58,12 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$this->assertCount( 0, $g->getJSONs() );
 		$this->assertCount( 1, $g->getDependencies() );
 		$this->assertCount( 1, $g->getMessages() );
+
+		// Ensure parity and internal consistency
+		// between Gadget::serializeDefinition and Gadget::toArray
+		$arr = $g->toArray();
+		unset( $arr['definition'] );
+		$this->assertSame( $arr, $gArray );
 	}
 
 	/**
