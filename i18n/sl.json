@@ -11,6 +11,7 @@
 	"prefs-gadgets": "Pripomočki",
 	"prefs-description-gadgets": "Omogočite dodatne možnosti za svoj račun.",
 	"gadgets-prefstext": "Spodaj je prikazan seznam pripomočkov, ki jih lahko omogočite za svoj račun.\nVečinoma temeljijo na JavaScriptu, zato mora biti ta za njihovo delovanje omogočen v vašem brskalniku.\nTi pripomočki v nobenem primeru ne vplivajo na to stran prilagoditev.\n\nUpoštevajte, da ti posebni pripomočki niso del programja MediaWiki, ampak jih običajno razvijajo in vzdržujejo uporabniki v vašem lokalnem vikiju.\nLokalni administratorji vmesnika lahko urejajo [[MediaWiki:Gadgets-definition|opredelitve]] razpoložljivih pripomočkov, lokalni administratorji pa lahko urejajo njihove [[Special:Gadgets|opise]], kjer si lahko ogledate izvorno kodo posameznih pripomočkov. Število uporabnikov posameznega pripomočka v tem vikiju je navedeno v [[Special:GadgetUsage|statistiki uporabe pripomočkov]].",
+	"gadgets-prefstext-safemode": "Pripomočki trenutno niso na voljo, ker je omogočen varni način. Če želite uporabljati pripomočke, [[#mw-input-wpforcesafemode|onemogočite varni način]].",
 	"gadgets": "Pripomočki",
 	"gadgetusage": "Statistika uporabe pripomočkov",
 	"gadgetusage-gadget": "Pripomoček",
