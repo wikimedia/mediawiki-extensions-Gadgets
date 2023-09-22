@@ -30,6 +30,7 @@
 	"gadgets-required-rights": "{{PLURAL:$2|נדרשת ההרשאה הבאה|נדרשות ההרשאות הבאות}}:\n\n$1",
 	"gadgets-required-skins": "זמין {{PLURAL:$2|בערכות העיצוב הבאות: $1|בערכת העיצוב $1}}",
 	"gadgets-required-actions": "עובד {{PLURAL:$2|בפעולת הדף \"$1\"|בפעולות הדף הבאות: $1}}.",
+	"gadgets-required-namespaces": "עובד {{PLURAL:$2|במרחב השם|במרחבי השם הבאים:}} $1.",
 	"gadgets-default": "מופעל לכולם כברירת מחדל.",
 	"gadgets-legacy": "הגאדג'ט אינו טעון. נא לעדכן לשימוש ב־ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) מידע נוסף])",
 	"gadgets-packaged": "הגאדג'ט הזה [https://www.mediawiki.org/wiki/ResourceLoader/Package_files ארוז בחבילה], ונקודת הכניסה שלו היא $1",
