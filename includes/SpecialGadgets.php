@@ -279,6 +279,18 @@ class SpecialGadgets extends SpecialPage {
 					$needLineBreakAfter = true;
 				}
 
+				// Portion: Show required content models (optional)
+				$contentModels = $gadget->getRequiredContentModels();
+				if ( $contentModels ) {
+					if ( $needLineBreakAfter ) {
+						$output->addHTML( '<br />' );
+					}
+					$output->addHTML(
+						$this->msg( 'gadgets-required-contentmodels', $lang->commaList( $contentModels ) )
+							->numParams( count( $contentModels ) )->parse()
+					);
+				}
+
 				if ( $gadget->supportsUrlLoad() ) {
 					if ( $needLineBreakAfter ) {
 						$output->addHTML( '<br />' );

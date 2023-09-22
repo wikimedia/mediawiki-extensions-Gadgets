@@ -59,6 +59,13 @@
 						"type": "number"
 					}
 				},
+				"contentModels": {
+					"description": "Content models on which the gadget is supported",
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
 				"category": {
 					"description": "Key of the category this gadget belongs to",
 					"type": "string",

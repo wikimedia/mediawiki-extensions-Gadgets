@@ -27,7 +27,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	public const GADGET_CLASS_VERSION = 14;
+	public const GADGET_CLASS_VERSION = 15;
 
 	public const CACHE_TTL = 86400;
 
@@ -59,6 +59,8 @@ class Gadget {
 	private $requiredSkins = [];
 	/** @var int[] */
 	private $requiredNamespaces = [];
+	/** @var string[] */
+	private $requiredContentModels = [];
 	/** @var string[] used in Gadget::isTargetSupported */
 	private $targets = [ 'desktop', 'mobile' ];
 	/** @var bool */
@@ -91,6 +93,7 @@ class Gadget {
 				case 'requiredActions':
 				case 'requiredSkins':
 				case 'requiredNamespaces':
+				case 'requiredContentModels':
 				case 'targets':
 				case 'onByDefault':
 				case 'type':
@@ -129,6 +132,7 @@ class Gadget {
 			'package' => $data['settings']['package'],
 			'peers' => $data['module']['peers'],
 			'requiredActions' => $data['settings']['actions'],
+			'requiredContentModels' => $data['settings']['contentModels'],
 			'requiredNamespaces' => $data['settings']['namespaces'],
 			'requiredRights' => $data['settings']['rights'],
 			'requiredSkins' => $data['settings']['skins'],
@@ -158,6 +162,7 @@ class Gadget {
 			'package' => $this->package,
 			'peers' => $this->peers,
 			'requiredActions' => $this->requiredActions,
+			'requiredContentModels' => $this->requiredContentModels,
 			'requiredNamespaces' => $this->requiredNamespaces,
 			'requiredRights' => $this->requiredRights,
 			'requiredSkins' => $this->requiredSkins,
@@ -338,6 +343,18 @@ class Gadget {
 	}
 
 	/**
+	 * Check if this gadget is compatible with the given content model
+	 *
+	 * @param string $contentModel The content model ID
+	 * @return bool
+	 */
+	public function isContentModelSupported( string $contentModel ) {
+		return ( count( $this->requiredContentModels ) === 0
+			|| in_array( $contentModel, $this->requiredContentModels )
+		);
+	}
+
+	/**
 	 * @return bool Whether the gadget can be loaded with `?withgadget` query parameter.
 	 */
 	public function supportsUrlLoad() {
@@ -471,6 +488,14 @@ class Gadget {
 	 */
 	public function getRequiredSkins() {
 		return $this->requiredSkins;
+	}
+
+	/**
+	 * Returns array of content models where this gadget works
+	 * @return string[]
+	 */
+	public function getRequiredContentModels() {
+		return $this->requiredContentModels;
 	}
 
 	/**
