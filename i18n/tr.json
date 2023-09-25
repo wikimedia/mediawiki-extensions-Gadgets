@@ -44,6 +44,7 @@
 	"gadgets-required-skins": "{{PLURAL:$2|$1 teması|$1 temaları}} için kullanılabilir.",
 	"gadgets-required-actions": "{{PLURAL:$2|\"$1\" sayfa eylemiyle sınırlıdır|Aşağıdaki sayfa eylemleriyle sınırlıdır: $1}}.",
 	"gadgets-required-namespaces": "{{PLURAL:$2|$1 ad alanıyla|$1 ad alanlarıyla}} sınırlıdır.",
+	"gadgets-required-contentmodels": "{{PLURAL:$2|$1 içerik modeli ile sınırlıdır|Şu içerik modelleriyle sınırlıdır: $1}}.",
 	"gadgets-default": "Herkes için varsayılan olarak etkindir.",
 	"gadgets-legacy": "Küçük aracı yüklenmedi. Lütfen ResourceLoader'a taşıyın. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Daha fazla bilgi edinin])",
 	"gadgets-packaged": "Bu küçük araç,[https://www.mediawiki.org/wiki/ResourceLoader/Package_files paketlidir] ve giriş noktası $1 betik dosyasıdır",

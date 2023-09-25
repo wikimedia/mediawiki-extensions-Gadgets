@@ -30,6 +30,7 @@
 	"gadgets-required-skins": "Na voljo pri {{PLURAL:$2|preobleki $1|naslednjih preoblekah: $1}}.",
 	"gadgets-required-actions": "Omejeno na {{PLURAL:$2|dejanje na strani »1«|dejanja na naslednjih straneh: $1}}.",
 	"gadgets-required-namespaces": "Omejeno na {{PLURAL:$2|imenski prostor $1|naslednje imenske prostore: $1}}.",
+	"gadgets-required-contentmodels": "Omejeno na {{PLURAL:$2|vsebinski model $1 |naslednje vsebinske modele: $1}}.",
 	"gadgets-default": "Privzeto omogočeno za vsakogar.",
 	"gadgets-legacy": "Pripomoček ni naložen. Prosimo, preidite na ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Več o tem])",
 	"gadgets-packaged": "Ta pripomoček je [https://www.mediawiki.org/wiki/ResourceLoader/Package_files pakiran], z vstopno točko $1",

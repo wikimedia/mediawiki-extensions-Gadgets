@@ -36,6 +36,7 @@
 	"gadgets-required-skins": "Działa wyłącznie na {{PLURAL:$2|skórce $1|skórkach: $1}}.",
 	"gadgets-required-actions": "Działa wyłącznie podczas {{PLURAL:$2|akcji „$1”|następujących akcji: $1}}.",
 	"gadgets-required-namespaces": "Działa wyłącznie w {{PLURAL:$2|przestrzeni nazw „$1”|przestrzeniach nazw: $1}}.",
+	"gadgets-required-contentmodels": "Działa wyłącznie z {{PLURAL:$2|modelem zawartości „$1”|modelami zawartości: $1}}.",
 	"gadgets-default": "Domyślnie włączone dla wszystkich.",
 	"gadgets-legacy": "Gadżet nie został załadowany. Proszę dokonać migracji do ResourceLoadera. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Dowiedz się więcej])",
 	"gadgets-packaged": "Ten gadżet jest [https://www.mediawiki.org/wiki/ResourceLoader/Package_files spakowany], a jego plik docelowy to $1",
