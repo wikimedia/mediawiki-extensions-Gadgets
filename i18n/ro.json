@@ -31,6 +31,6 @@
 	"gadgets-export": "Exportă",
 	"gadgets-export-title": "Exportul de gadgeturi",
 	"gadgets-not-found": "Gadgetul „$1” nu a fost găsit.",
-	"gadgets-export-text": "Pentru a exporta gadgetul $1 , faceți clic pe butonul „{{int:gadgets-export-download}}”, salvați fișierul descărcat,",
+	"gadgets-export-text": "Pentru a exporta gadgetul $1, apăsați butonul „{{int:gadgets-export-download}}”, salvați fișierul descărcat, mergeți la Special:Import pe wiki-ul de destinație și încărcați-l. Apoi adăugați următoarele la pagina MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nTrebuie să aveți permisiuni corespunzătoare (incluzând dreptul de a edita mesaje de sistem) pe wiki-ul de destinație, iar importul din partea încărcărilor de fișiere trebuie să fie activat.",
 	"gadgets-export-download": "Descarcă"
 }
