@@ -48,6 +48,7 @@
 	"gadgets-required-skins": "Disponible sur {{PLURAL:$2|l’habillage suivant|les habillages suivants}} : $1.",
 	"gadgets-required-actions": "Limité à {{PLURAL:$2|l’action de page « $1 »|les actions de page suivantes : $1}}.",
 	"gadgets-required-namespaces": "Limité {{PLURAL:$2|à l’espace de noms $1|aux espaces de nom : $1}}.",
+	"gadgets-required-contentmodels": "Limité {{PLURAL:$2|au modèle de contenu $1|aux modèles de contenu suivants : $1}}.",
 	"gadgets-default": "Activé pour tout le monde par défaut.",
 	"gadgets-legacy": "Le gadget n’est pas chargé. Veuillez migrer vers « ResourceLoader » (chargeur de ressources). ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) En savoir plus])",
 	"gadgets-packaged": "Ce gadget est [https://www.mediawiki.org/wiki/ResourceLoader/Package_files mis en paquet], avec le point d’entrée $1.",
