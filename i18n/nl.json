@@ -33,7 +33,7 @@
 	"gadgets-editdescription": "Beschrijving bewerken",
 	"gadgets-uses": "Gebruikt",
 	"gadgets-required-rights": "{{PLURAL:$2|Het volgende recht is|De volgende rechten zijn}} vereist:\n\n$1.",
-	"gadgets-required-skins": "Beschikbaar in de {{PLURAL:$2|vormgeving $1|volgende vormgevingen: $1}}.",
+	"gadgets-required-skins": "Beschikbaar voor de {{PLURAL:$2|vormgeving $1|volgende vormgevingen: $1}}.",
 	"gadgets-default": "Standaard ingeschakeld voor iedereen.",
 	"gadgets-legacy": "De uitbreiding is niet geladen. Pas het aan en gebruik ResourceLoader ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) meer lezen]).",
 	"gadgets-export": "Exporteren",
