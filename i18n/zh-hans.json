@@ -11,6 +11,7 @@
 			"Impersonator 1",
 			"Lakejason0",
 			"Liangent",
+			"LittlePaw365",
 			"Liuxinyu970226",
 			"Mywood",
 			"PhiLiP",
@@ -65,6 +66,6 @@
 	"action-gadgets-edit": "编辑此小工具的JavaScript或CSS页面",
 	"right-gadgets-definition-edit": "编辑小工具定义",
 	"action-gadgets-definition-edit": "编辑此小工具的定义",
-	"gadgets-wrong-contentmodel": "在{{ns:2302}} 命名空间的页码必须在定义的内容模型中。",
+	"gadgets-wrong-contentmodel": "{{ns:2302}}命名空间内的页面必须是小工具定义内容模型。",
 	"gadgets-supports-urlload": "此小工具支持通过包含<code>?withgadget</code>查询的URL来加载。"
 }
