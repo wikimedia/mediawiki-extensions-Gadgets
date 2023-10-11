@@ -40,7 +40,7 @@
 	"gadgets-required-namespaces": "Limitato {{PLURAL:$2|al namespace $1|ai namespace $1}}.",
 	"gadgets-default": "Attivato per tutti, per impostazione predefinita.",
 	"gadgets-legacy": "Accessorio non caricato. Migra a ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Per saperne di più])",
-	"gadgets-packaged": "Questo gadget è [[mediawikiwiki:ResourceLoader/Package_files|pacchettizzato]], con il seguente punto di ingresso: $1",
+	"gadgets-packaged": "Questo accessorio è [https://www.mediawiki.org/wiki/ResourceLoader/Package_files pacchettizzato], con punto di ingresso $1",
 	"gadgets-export": "Esporta",
 	"gadgets-export-title": "Esporta accessorio",
 	"gadgets-not-found": "Accessorio \"$1\" non trovato.",
