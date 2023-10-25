@@ -1,7 +1,4 @@
 <?php
-
-namespace MediaWiki\Extension\Gadgets;
-
 /**
  * Copyright © 2007 Daniel Kinzler
  *
@@ -22,6 +19,8 @@ namespace MediaWiki\Extension\Gadgets;
  *
  * @file
  */
+
+namespace MediaWiki\Extension\Gadgets;
 
 use Content;
 use Exception;

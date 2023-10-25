@@ -1,7 +1,4 @@
 <?php
-
-namespace MediaWiki\Extension\Gadgets;
-
 /**
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,14 +15,18 @@ namespace MediaWiki\Extension\Gadgets;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
  * http://www.gnu.org/copyleft/gpl.html
  *
- * @author Siddharth VP
  * @file
  */
+
+namespace MediaWiki\Extension\Gadgets;
 
 use OutputPage;
 use Skin;
 use User;
 
+/**
+ * @author Siddharth VP
+ */
 class GadgetLoadConditions {
 	/** @var User */
 	private $user;

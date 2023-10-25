@@ -1,9 +1,5 @@
 <?php
 /**
- * Implements Special:GadgetUsage
- *
- * Copyright © 2015 Niharika Kohli
- *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -20,8 +16,6 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  * @file
- * @ingroup SpecialPage
- * @author Niharika Kohli <niharika@wikimedia.org>
  */
 
 namespace MediaWiki\Extension\Gadgets\Special;
@@ -36,8 +30,9 @@ use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 
 /**
- * Special:GadgetUsage - Lists all the gadgets on the wiki along with number of users.
- * @ingroup SpecialPage
+ * Special:GadgetUsage lists all the gadgets on the wiki along with number of users.
+ *
+ * @copyright 2015 Niharika Kohli
  */
 class SpecialGadgetUsage extends QueryPage {
 	public function __construct( $name = 'GadgetUsage' ) {
