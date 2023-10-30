@@ -31,6 +31,7 @@ use IContextSource;
 use InvalidArgumentException;
 use ManualLogEntry;
 use MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContent;
+use MediaWiki\Extension\Gadgets\Special\SpecialGadgetUsage;
 use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\DeleteUnknownPreferencesHook;
 use MediaWiki\Hook\EditFilterMergedContentHook;
@@ -420,7 +421,7 @@ class Hooks implements
 	 * @param array &$queryPages
 	 */
 	public function onWgQueryPages( &$queryPages ) {
-		$queryPages[] = [ 'SpecialGadgetUsage', 'GadgetUsage' ];
+		$queryPages[] = [ SpecialGadgetUsage::class, 'GadgetUsage' ];
 	}
 
 	/**

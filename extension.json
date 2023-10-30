@@ -46,8 +46,8 @@
 		"gadgets-definition-edit"
 	],
 	"SpecialPages": {
-		"Gadgets": "MediaWiki\\Extension\\Gadgets\\SpecialGadgets",
-		"GadgetUsage": "MediaWiki\\Extension\\Gadgets\\SpecialGadgetUsage"
+		"Gadgets": "MediaWiki\\Extension\\Gadgets\\Special\\SpecialGadgets",
+		"GadgetUsage": "MediaWiki\\Extension\\Gadgets\\Special\\SpecialGadgetUsage"
 	},
 	"APIListModules": {
 		"gadgetcategories": "MediaWiki\\Extension\\Gadgets\\Api\\ApiQueryGadgetCategories",
