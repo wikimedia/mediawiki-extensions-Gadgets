@@ -24,9 +24,10 @@
  * @author Niharika Kohli <niharika@wikimedia.org>
  */
 
-namespace MediaWiki\Extension\Gadgets;
+namespace MediaWiki\Extension\Gadgets\Special;
 
 use Html;
+use MediaWiki\Extension\Gadgets\GadgetRepo;
 use OutputPage;
 use QueryPage;
 use Skin;

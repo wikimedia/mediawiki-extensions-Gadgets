@@ -9,11 +9,13 @@
  * @license GPL-2.0-or-later
  */
 
-namespace MediaWiki\Extension\Gadgets;
+namespace MediaWiki\Extension\Gadgets\Special;
 
 use Html;
 use HTMLForm;
 use InvalidArgumentException;
+use MediaWiki\Extension\Gadgets\Gadget;
+use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use Sanitizer;
