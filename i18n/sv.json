@@ -36,6 +36,7 @@
 	"gadgets-required-actions": "Fungerar på {{PLURAL:$2|\"$1\" sidåtgärd|följande sidåtgärder: $1}}.",
 	"gadgets-default": "Som standard aktiverad för alla.",
 	"gadgets-legacy": "Finessen är inte inläst. Migrera till ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Läs mer])",
+	"gadgets-packaged": "Denna finess är [https://www.mediawiki.org/wiki/ResourceLoader/Package_files paketerad] med ingångspunkten $1",
 	"gadgets-export": "Exportera",
 	"gadgets-export-title": "Exportera finess",
 	"gadgets-not-found": "Finess \"$1\" hittades inte.",
