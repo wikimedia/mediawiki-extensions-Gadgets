@@ -231,7 +231,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		// and must follow the rules defined in https://www.w3.org/TR/html4/types.html#type-cdata
 		// Also, title-normalization applies.
 		$info = [ 'category' => $category ];
-		$info['name'] = trim( str_replace( ' ', '_', $m[1] ) );
+		$info['name'] = str_replace( ' ', '_', $m[1] );
 		// If the name is too long, then RL will throw an exception when
 		// we try to register the module
 		if ( !Gadget::isValidGadgetID( $info['name'] ) ) {
