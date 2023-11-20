@@ -193,11 +193,6 @@ class Hooks implements
 		$skin = RequestContext::getMain()->getSkin();
 		$isMobileView = self::isMobileView();
 		foreach ( $gadgets as $section => $thisSection ) {
-			$available = [];
-
-			/**
-			 * @var $gadget Gadget
-			 */
 			foreach ( $thisSection as $gadget ) {
 				// Only show option to enable gadget if it can be enabled
 				$type = 'api';
@@ -257,10 +252,7 @@ class Hooks implements
 	 * @param ResourceLoader $resourceLoader
 	 */
 	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
-		$repo = GadgetRepo::singleton();
-		$ids = $repo->getGadgetIds();
-
-		foreach ( $ids as $id ) {
+		foreach ( GadgetRepo::singleton()->getGadgetIds() as $id ) {
 			$resourceLoader->register( Gadget::getModuleName( $id ), [
 				'class' => GadgetResourceLoaderModule::class,
 				'id' => $id,

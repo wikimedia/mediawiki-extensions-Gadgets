@@ -57,16 +57,11 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	}
 
 	public function getGadgetIds(): array {
-		$gadgets = $this->loadGadgets();
-		if ( $gadgets ) {
-			return array_keys( $gadgets );
-		}
-
-		return [];
+		return array_keys( $this->loadGadgets() );
 	}
 
 	public function handlePageUpdate( LinkTarget $target ): void {
-		if ( $target->getNamespace() === NS_MEDIAWIKI && $target->getText() === 'Gadgets-definition' ) {
+		if ( $target->inNamespace( NS_MEDIAWIKI ) && $target->getDBkey() === 'Gadgets-definition' ) {
 			$this->purgeDefinitionCache();
 		}
 	}
@@ -219,26 +214,31 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * @return Gadget|false Instance of Gadget class or false if $definition is invalid
 	 */
 	public function newFromDefinition( $definition, $category ) {
-		$m = [];
 		if ( !preg_match(
 			'/^\*+ *([a-zA-Z](?:[-_:.\w ]*[a-zA-Z0-9])?)(\s*\[.*?\])?\s*((\|[^|]*)+)\s*$/',
 			$definition,
-			$m
+			$matches
 		) ) {
 			return false;
 		}
+		[ , $name, $options, $pages ] = $matches;
+		$options = trim( $options, ' []' );
+
 		// NOTE: the gadget name is used as part of the name of a form field,
 		// and must follow the rules defined in https://www.w3.org/TR/html4/types.html#type-cdata
 		// Also, title-normalization applies.
-		$info = [ 'category' => $category ];
-		$info['name'] = str_replace( ' ', '_', $m[1] );
+		$name = str_replace( ' ', '_', $name );
 		// If the name is too long, then RL will throw an exception when
 		// we try to register the module
-		if ( !Gadget::isValidGadgetID( $info['name'] ) ) {
+		if ( !Gadget::isValidGadgetID( $name ) ) {
 			return false;
 		}
-		$info['definition'] = $definition;
-		$options = trim( $m[2], ' []' );
+
+		$info = [
+			'category' => $category,
+			'name' => $name,
+			'definition' => $definition,
+		];
 
 		foreach ( preg_split( '/\s*\|\s*/', $options, -1, PREG_SPLIT_NO_EMPTY ) as $option ) {
 			$arr = preg_split( '/\s*=\s*/', $option, 2 );
@@ -301,7 +301,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 			}
 		}
 
-		foreach ( preg_split( '/\s*\|\s*/', $m[3], -1, PREG_SPLIT_NO_EMPTY ) as $page ) {
+		foreach ( preg_split( '/\s*\|\s*/', $pages, -1, PREG_SPLIT_NO_EMPTY ) as $page ) {
 			$page = $this->titlePrefix . $page;
 
 			if ( preg_match( '/\.json$/', $page ) ) {

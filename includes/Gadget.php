@@ -204,7 +204,7 @@ class Gadget {
 	 * @return bool
 	 */
 	public static function isValidGadgetID( $id ) {
-		return strlen( $id ) > 0 && ResourceLoader::isValidModuleName( self::getModuleName( $id ) );
+		return $id !== '' && ResourceLoader::isValidModuleName( self::getModuleName( $id ) );
 	}
 
 	/**
@@ -218,7 +218,7 @@ class Gadget {
 	 * @return string Message key
 	 */
 	public function getDescriptionMessageKey() {
-		return "gadget-{$this->getName()}";
+		return 'gadget-' . $this->name;
 	}
 
 	/**
@@ -268,10 +268,7 @@ class Gadget {
 	 * @return bool
 	 */
 	public function isAllowed( Authority $user ) {
-		if ( count( $this->requiredRights ) ) {
-			return $user->isAllowedAll( ...$this->requiredRights );
-		}
-		return true;
+		return !$this->requiredRights || $user->isAllowedAll( ...$this->requiredRights );
 	}
 
 	/**
@@ -294,7 +291,7 @@ class Gadget {
 	 */
 	public function isPackaged(): bool {
 		// A packaged gadget needs to have a main script, so there must be at least one script
-		return $this->package && $this->supportsResourceLoader() && count( $this->scripts ) > 0;
+		return $this->package && $this->supportsResourceLoader() && $this->scripts !== [];
 	}
 
 	/**
@@ -321,9 +318,7 @@ class Gadget {
 	 * @return bool
 	 */
 	public function isNamespaceSupported( int $namespace ) {
-		return ( count( $this->requiredNamespaces ) === 0
-			|| in_array( $namespace, $this->requiredNamespaces )
-		);
+		return !$this->requiredNamespaces || in_array( $namespace, $this->requiredNamespaces );
 	}
 
 	/**
@@ -332,11 +327,7 @@ class Gadget {
 	 * @return bool
 	 */
 	public function isTargetSupported( bool $isMobileView ): bool {
-		if ( $isMobileView ) {
-			return in_array( 'mobile', $this->targets, true );
-		} else {
-			return in_array( 'desktop', $this->targets, true );
-		}
+		return in_array( $isMobileView ? 'mobile' : 'desktop', $this->targets, true );
 	}
 
 	/**
@@ -346,9 +337,7 @@ class Gadget {
 	 * @return bool
 	 */
 	public function isSkinSupported( Skin $skin ) {
-		return ( count( $this->requiredSkins ) === 0
-			|| in_array( $skin->getSkinName(), $this->requiredSkins, true )
-		);
+		return !$this->requiredSkins || in_array( $skin->getSkinName(), $this->requiredSkins, true );
 	}
 
 	/**
@@ -358,9 +347,7 @@ class Gadget {
 	 * @return bool
 	 */
 	public function isContentModelSupported( string $contentModel ) {
-		return ( count( $this->requiredContentModels ) === 0
-			|| in_array( $contentModel, $this->requiredContentModels )
-		);
+		return !$this->requiredContentModels || in_array( $contentModel, $this->requiredContentModels );
 	}
 
 	/**
@@ -388,9 +375,7 @@ class Gadget {
 	 * @return bool Whether this gadget has resources that can be loaded via ResourceLoader
 	 */
 	public function hasModule() {
-		return (
-			count( $this->styles ) + ( $this->supportsResourceLoader() ? count( $this->scripts ) : 0 )
-		) > 0;
+		return $this->styles || ( $this->supportsResourceLoader() && $this->scripts );
 	}
 
 	/**
@@ -433,10 +418,7 @@ class Gadget {
 	 * @return string[]
 	 */
 	public function getLegacyScripts() {
-		if ( $this->supportsResourceLoader() ) {
-			return [];
-		}
-		return $this->scripts;
+		return $this->supportsResourceLoader() ? [] : $this->scripts;
 	}
 
 	/**
