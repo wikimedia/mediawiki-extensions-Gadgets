@@ -74,9 +74,5 @@
 	"gadgets-validate-invalidtitle": "Warning message to indicate that the page title is invalid. Parameters:\n* $1 - page name",
 	"gadgets-validate-unknownpages": "Warning message to indicate that a gadget contains pages without .js, .css or .json suffix, which are not recognised.",
 	"gadgets-validate-nopage": "Warning message to indicate the script/style/json page does not exist. Parameters:\n* $1 - page name",
-	"right-gadgets-definition-edit": "{{doc-right|gadgets-definition-edit}}",
-	"action-gadgets-definition-edit": "{{doc-action|gadgets-definition-edit}}",
-	"gadgets-wrong-contentmodel": "Error message shown while trying to change the content model of a page in gadget definition namespace to other than GadgetDefinition.",
-	"gadgets-supports-urlload": "Used in [[Special:Gadgets]], if the gadget supports ?withgadget query parameter.",
-	"gadgets-protected": "Error message shown while trying to edit any non-CSS/JS/JSON pages in gadget namespace, if user doesn't have permission"
+	"gadgets-supports-urlload": "Used in [[Special:Gadgets]], if the gadget supports ?withgadget query parameter."
 }

@@ -15,7 +15,7 @@ use MediaWikiIntegrationTestCase;
 class GadgetDefinitionContentHandlerTest extends MediaWikiIntegrationTestCase {
 
 	public function testHandler() {
-		$status = $this->editPage( 'Gadget definition:X1', '{}' );
+		$status = $this->editPage( 'MediaWiki:Gadgets/X1.json', '{}' );
 		/** @var RevisionRecord $rev */
 		$rev = $status->getValue()['revision-record'];
 		$revText = $rev->getContent( SlotRecord::MAIN )->serialize();

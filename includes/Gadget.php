@@ -119,7 +119,7 @@ class Gadget {
 	 */
 	public static function serializeDefinition( string $id, array $data ): array {
 		$prefixGadgetNs = static function ( $page ) {
-			return 'Gadget:' . $page;
+			return GadgetRepo::RESOURCE_TITLE_PREFIX . $page;
 		};
 		return [
 			'category' => $data['settings']['category'],

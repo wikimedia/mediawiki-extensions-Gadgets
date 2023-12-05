@@ -24,7 +24,9 @@ use Content;
 use FormatJson;
 use JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
+use MediaWiki\Extension\Gadgets\MediaWikiGadgetsJsonRepo;
 use MediaWiki\Linker\Linker;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
 
@@ -38,7 +40,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 	 * @return bool
 	 */
 	public function canBeUsedOn( Title $title ) {
-		return $title->inNamespace( NS_GADGET_DEFINITION );
+		return MediaWikiGadgetsJsonRepo::isGadgetDefinitionTitle( $title );
 	}
 
 	/** @inheritDoc */
@@ -102,23 +104,28 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 		if ( $data !== null ) {
 			if ( isset( $data->module->pages ) ) {
 				foreach ( $data->module->pages as &$page ) {
-					$title = Title::makeTitleSafe( NS_GADGET, $page );
+					$title = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-$page" );
 					$this->makeLink( $parserOutput, $page, $title );
 				}
 			}
+			$gadgetRepo = MediaWikiServices::getInstance()->getService( 'GadgetsRepo' );
 			if ( isset( $data->module->dependencies ) ) {
 				foreach ( $data->module->dependencies as &$dep ) {
 					if ( str_starts_with( $dep, 'ext.gadget.' ) ) {
 						$gadgetId = explode( 'ext.gadget.', $dep )[ 1 ];
-						$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $gadgetId );
-						$this->makeLink( $parserOutput, $dep, $title );
+						$title = $gadgetRepo->getGadgetDefinitionTitle( $gadgetId );
+						if ( $title ) {
+							$this->makeLink( $parserOutput, $dep, $title );
+						}
 					}
 				}
 			}
 			if ( isset( $data->module->peers ) ) {
 				foreach ( $data->module->peers as &$peer ) {
-					$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $peer );
-					$this->makeLink( $parserOutput, $peer, $title );
+					$title = $gadgetRepo->getGadgetDefinitionTitle( $peer );
+					if ( $title ) {
+						$this->makeLink( $parserOutput, $peer, $title );
+					}
 				}
 			}
 			if ( isset( $data->module->messages ) ) {

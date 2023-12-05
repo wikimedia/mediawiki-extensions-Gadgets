@@ -11,38 +11,9 @@
 		"MediaWiki": ">= 1.42"
 	},
 	"type": "other",
-	"namespaces": [
-		{
-			"id": 2300,
-			"constant": "NS_GADGET",
-			"name": "Gadget",
-			"capitallinkoverride": false
-		},
-		{
-			"id": 2301,
-			"constant": "NS_GADGET_TALK",
-			"name": "Gadget_talk"
-		},
-		{
-			"id": 2302,
-			"constant": "NS_GADGET_DEFINITION",
-			"name": "Gadget_definition",
-			"protection": "gadgets-definition-edit",
-			"capitallinkoverride": false,
-			"defaultcontentmodel": "GadgetDefinition"
-		},
-		{
-			"id": 2303,
-			"constant": "NS_GADGET_DEFINITION_TALK",
-			"name": "Gadget_definition_talk"
-		}
-	],
 	"ContentHandlers": {
 		"GadgetDefinition": "MediaWiki\\Extension\\Gadgets\\Content\\GadgetDefinitionContentHandler"
 	},
-	"AvailableRights": [
-		"gadgets-definition-edit"
-	],
 	"SpecialPages": {
 		"Gadgets": {
 			"class": "MediaWiki\\Extension\\Gadgets\\Special\\SpecialGadgets",
@@ -78,8 +49,7 @@
 		]
 	},
 	"ExtensionMessagesFiles": {
-		"GadgetsAlias": "Gadgets.alias.php",
-		"GadgetsNamespaces": "Gadgets.namespaces.php"
+		"GadgetsAlias": "Gadgets.alias.php"
 	},
 	"RawHtmlMessages": [
 		"gadgets-definition"

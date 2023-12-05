@@ -362,40 +362,22 @@ class Hooks implements
 				$status->merge( $validateStatus );
 				return false;
 			}
-		} else {
-			$title = $context->getTitle();
-			if ( $title->inNamespace( NS_GADGET_DEFINITION ) ) {
-				$status->merge( Status::newFatal( "gadgets-wrong-contentmodel" ) );
-				return false;
-			}
 		}
 
 		return true;
 	}
 
 	/**
-	 * Mark the Title as having a content model of javascript or css for pages
-	 * in the Gadget namespace based on their file extension
+	 * Create "MediaWiki:Gadgets/<id>.json" pages with GadgetDefinitionContent
 	 *
 	 * @param Title $title
 	 * @param string &$model
 	 * @return bool
 	 */
 	public function onContentHandlerDefaultModelFor( $title, &$model ) {
-		if ( $title->inNamespace( NS_GADGET ) ) {
-			preg_match( '!\.(css|js|json)$!u', $title->getText(), $ext );
-			$ext = $ext[1] ?? '';
-			switch ( $ext ) {
-				case 'js':
-					$model = 'javascript';
-					return false;
-				case 'css':
-					$model = 'css';
-					return false;
-				case 'json':
-					$model = 'json';
-					return false;
-			}
+		if ( MediaWikiGadgetsJsonRepo::isGadgetDefinitionTitle( $title ) ) {
+			$model = 'GadgetDefinition';
+			return false;
 		}
 
 		return true;
@@ -430,36 +412,13 @@ class Hooks implements
 	 * @return bool|void
 	 */
 	public function onGetUserPermissionsErrors( $title, $user, $action, &$result ) {
-		if ( $action !== 'edit' || !$title->inNamespace( NS_GADGET ) ) {
-			return true;
+		if ( $action === 'edit'
+			&& MediaWikiGadgetsJsonRepo::isGadgetDefinitionTitle( $title )
+		) {
+			if ( !$user->isAllowed( 'editsitejs' ) ) {
+				$result = ApiMessage::create( wfMessage( 'sitejsprotected' ), 'sitejsprotected' );
+				return false;
+			}
 		}
-		switch ( $title->getContentModel() ) {
-			case CONTENT_MODEL_JSON:
-				if ( !$user->isAllowed( 'editsitejson' ) ) {
-					$result = ApiMessage::create( wfMessage( 'sitejsonprotected' ), 'sitejsonprotected' );
-					return false;
-				}
-				break;
-			case CONTENT_MODEL_CSS:
-				if ( !$user->isAllowed( 'editsitecss' ) ) {
-					$result = ApiMessage::create( wfMessage( 'sitecssprotected' ), 'sitecssprotected' );
-					return false;
-				}
-				break;
-			case CONTENT_MODEL_JAVASCRIPT:
-				if ( !$user->isAllowed( 'editsitejs' ) ) {
-					$result = ApiMessage::create( wfMessage( 'sitejsprotected' ), 'sitejsprotected' );
-					return false;
-				}
-				break;
-			default:
-				// For any other pages in the namespace
-				if ( !$user->isAllowed( 'editsitejs' ) ) {
-					$result = ApiMessage::create( wfMessage( 'gadgets-protected' ), 'permissiondenied' );
-					return false;
-				}
-				break;
-		}
-		return true;
 	}
 }
