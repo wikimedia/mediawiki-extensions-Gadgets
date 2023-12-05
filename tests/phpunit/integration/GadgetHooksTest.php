@@ -35,7 +35,7 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 * quux [rights=$testRightAllowed] | quux.js
 EOT;
 
-		$hooks = new GadgetHooks( $repo->object );
+		$hooks = new GadgetHooks( $repo->object, $services->getUserOptionsLookup(), null );
 
 		/** @var MediaWikiGadgetsDefinitionRepo $repo */
 		$gadgets = $repo->fetchStructuredList( $gadgetsDef );

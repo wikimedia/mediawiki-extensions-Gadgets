@@ -94,7 +94,11 @@
 		"GadgetHooks": {
 			"class": "MediaWiki\\Extension\\Gadgets\\Hooks",
 			"services": [
-				"GadgetsRepo"
+				"GadgetsRepo",
+				"UserOptionsLookup"
+			],
+			"optional_services": [
+				"MobileFrontend.Context"
 			]
 		},
 		"GadgetCodeEditorHooks": {

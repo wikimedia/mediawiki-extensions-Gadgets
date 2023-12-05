@@ -25,7 +25,6 @@ namespace MediaWiki\Extension\Gadgets;
 use ApiMessage;
 use Content;
 use Exception;
-use ExtensionRegistry;
 use HTMLForm;
 use IContextSource;
 use InvalidArgumentException;
@@ -38,7 +37,6 @@ use MediaWiki\Hook\EditFilterMergedContentHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Hook\PreferencesGetLegendHook;
 use MediaWiki\Html\Html;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\PageDeleteCompleteHook;
 use MediaWiki\Page\ProperPageIdentity;
 use MediaWiki\Permissions\Authority;
@@ -52,7 +50,9 @@ use MediaWiki\SpecialPage\Hook\WgQueryPagesHook;
 use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Hook\UserGetDefaultOptionsHook;
+use MediaWiki\User\UserOptionsLookup;
 use MessageSpecifier;
+use MobileContext;
 use OOUI\HtmlSnippet;
 use OutputPage;
 use RequestContext;
@@ -82,9 +82,19 @@ class Hooks implements
 	GetUserPermissionsErrorsHook
 {
 	private GadgetRepo $gadgetRepo;
+	private UserOptionsLookup $userOptionsLookup;
+	/** @phan-suppress-next-line PhanUndeclaredTypeProperty */
+	private ?MobileContext $mobileContext;
 
-	public function __construct( GadgetRepo $gadgetRepo ) {
+	public function __construct(
+		GadgetRepo $gadgetRepo,
+		UserOptionsLookup $userOptionsLookup,
+		// @phan-suppress-next-line PhanUndeclaredTypeParameter
+		?MobileContext $mobileContext
+	) {
 		$this->gadgetRepo = $gadgetRepo;
+		$this->userOptionsLookup = $userOptionsLookup;
+		$this->mobileContext = $mobileContext;
 	}
 
 	/**
@@ -161,13 +171,9 @@ class Hooks implements
 	 *
 	 * @return bool
 	 */
-	private static function isMobileView(): bool {
-		if ( ExtensionRegistry::getInstance()->isLoaded( 'MobileFrontend' ) ) {
-			$mobileContext = MediaWikiServices::getInstance()->getService( 'MobileFrontend.Context' );
-			return $mobileContext->shouldDisplayMobileView();
-		} else {
-			return false;
-		}
+	private function isMobileView(): bool {
+		// @phan-suppress-next-line PhanUndeclaredClassMethod
+		return $this->mobileContext && $this->mobileContext->shouldDisplayMobileView();
 	}
 
 	/**
@@ -188,7 +194,7 @@ class Hooks implements
 			'raw' => true,
 		];
 
-		$safeMode = MediaWikiServices::getInstance()->getUserOptionsLookup()->getOption( $user, 'forcesafemode' );
+		$safeMode = $this->userOptionsLookup->getOption( $user, 'forcesafemode' );
 		if ( $safeMode ) {
 			$preferences['gadgets-safemode'] = [
 				'type' => 'info',
@@ -199,7 +205,7 @@ class Hooks implements
 		}
 
 		$skin = RequestContext::getMain()->getSkin();
-		$isMobileView = self::isMobileView();
+		$isMobileView = $this->isMobileView();
 		foreach ( $gadgets as $section => $thisSection ) {
 			foreach ( $thisSection as $gadget ) {
 				// Only show option to enable gadget if it can be enabled
@@ -276,7 +282,7 @@ class Hooks implements
 	public function onBeforePageDisplay( $out, $skin ): void {
 		$repo = $this->gadgetRepo;
 		$ids = $repo->getGadgetIds();
-		$isMobileView = self::isMobileView();
+		$isMobileView = $this->isMobileView();
 		if ( !$ids ) {
 			return;
 		}
