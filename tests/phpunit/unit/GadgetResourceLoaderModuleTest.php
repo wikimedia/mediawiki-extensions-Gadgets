@@ -1,12 +1,13 @@
 <?php
 
 use MediaWiki\Extension\Gadgets\Gadget;
+use MediaWiki\ResourceLoader as RL;
 use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group Gadgets
  */
-class GadgetResourceLoaderModuleTest extends MediaWikiIntegrationTestCase {
+class GadgetResourceLoaderModuleTest extends MediaWikiUnitTestCase {
 	use GadgetTestTrait;
 
 	/**
@@ -28,7 +29,8 @@ class GadgetResourceLoaderModuleTest extends MediaWikiIntegrationTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\GadgetResourceLoaderModule::getPages
 	 */
 	public function testGetPages() {
-		$pages = $this->gadgetModule->getPages( ResourceLoaderContext::newDummyContext() );
+		$context = $this->createMock( RL\Context::class );
+		$pages = $this->gadgetModule->getPages( $context );
 		$this->assertArrayHasKey( 'MediaWiki:Gadget-foo.css', $pages );
 		$this->assertArrayHasKey( 'MediaWiki:Gadget-foo.js', $pages );
 		$this->assertArrayHasKey( 'MediaWiki:Gadget-foo.json', $pages );
@@ -41,7 +43,7 @@ class GadgetResourceLoaderModuleTest extends MediaWikiIntegrationTestCase {
 		$nonPackageGadget = $this->makeGadget( '*foo [ResourceLoader]|foo.js|foo.css|foo.json' );
 		$nonPackageGadgetModule = $this->makeGadgetModule( $nonPackageGadget );
 		$this->assertArrayNotHasKey( 'MediaWiki:Gadget-foo.json',
-			$nonPackageGadgetModule->getPages( ResourceLoaderContext::newDummyContext() ) );
+			$nonPackageGadgetModule->getPages( $context ) );
 	}
 
 }
