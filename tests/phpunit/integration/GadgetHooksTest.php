@@ -1,6 +1,5 @@
 <?php
 
-use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Extension\Gadgets\Hooks as GadgetHooks;
 use MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo;
 use Wikimedia\TestingAccessWrapper;
@@ -10,10 +9,6 @@ use Wikimedia\TestingAccessWrapper;
  * @group Database
  */
 class GadgetHooksTest extends MediaWikiIntegrationTestCase {
-	public function tearDown(): void {
-		GadgetRepo::setSingleton();
-		parent::tearDown();
-	}
 
 	/**
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget
@@ -25,9 +20,10 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 		$prefs = [];
 		$testRightAllowed = 'gadget-test-right-allowed';
 		$testRightNotAllowed = 'gadget-test-right-notallowed';
-		$repo = TestingAccessWrapper::newFromObject( new MediaWikiGadgetsDefinitionRepo() );
-		// Force usage of a MediaWikiGadgetsDefinitionRepo
-		GadgetRepo::setSingleton( $repo );
+		$services = $this->getServiceContainer();
+		$repo = TestingAccessWrapper::newFromObject( new MediaWikiGadgetsDefinitionRepo(
+			$services->getMainWANObjectCache(), $services->getRevisionLookup()
+		) );
 
 		$gadgetsDef = <<<EOT
 * foo | foo.js
@@ -38,6 +34,8 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 ==keep-section2==
 * quux [rights=$testRightAllowed] | quux.js
 EOT;
+
+		$hooks = new GadgetHooks( $repo->object );
 
 		/** @var MediaWikiGadgetsDefinitionRepo $repo */
 		$gadgets = $repo->fetchStructuredList( $gadgetsDef );
@@ -50,7 +48,7 @@ EOT;
 			->willReturnCallback( static function ( ...$rights ) use ( $testRightNotAllowed ): bool {
 				return !in_array( $testRightNotAllowed, $rights, true );
 			} );
-		( new GadgetHooks() )->onGetPreferences( $user, $prefs );
+		$hooks->onGetPreferences( $user, $prefs );
 
 		$this->assertEquals( 'check', $prefs['gadget-bar']['type'] );
 		$this->assertEquals( 'api', $prefs['gadget-baz']['type'],

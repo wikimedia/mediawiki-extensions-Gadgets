@@ -35,8 +35,11 @@ use Wikimedia\Rdbms\IResultWrapper;
  * @copyright 2015 Niharika Kohli
  */
 class SpecialGadgetUsage extends QueryPage {
-	public function __construct( $name = 'GadgetUsage' ) {
-		parent::__construct( $name );
+	private GadgetRepo $gadgetRepo;
+
+	public function __construct( GadgetRepo $gadgetRepo ) {
+		parent::__construct( 'GadgetUsage' );
+		$this->gadgetRepo = $gadgetRepo;
 		$this->limit = 1000; // Show all gadgets
 		$this->shownavigation = false;
 	}
@@ -199,14 +202,13 @@ class SpecialGadgetUsage extends QueryPage {
 
 	/**
 	 * Get a list of default gadgets
-	 * @param GadgetRepo $gadgetRepo
 	 * @param array $gadgetIds list of gagdet ids registered in the wiki
 	 * @return array
 	 */
-	protected function getDefaultGadgets( $gadgetRepo, $gadgetIds ) {
+	protected function getDefaultGadgets( $gadgetIds ) {
 		$gadgetsList = [];
 		foreach ( $gadgetIds as $g ) {
-			$gadget = $gadgetRepo->getGadget( $g );
+			$gadget = $this->gadgetRepo->getGadget( $g );
 			if ( $gadget->isOnByDefault() ) {
 				$gadgetsList[] = $gadget->getName();
 			}
@@ -227,9 +229,8 @@ class SpecialGadgetUsage extends QueryPage {
 	 * @param int $offset Paging offset
 	 */
 	protected function outputResults( $out, $skin, $dbr, $res, $num, $offset ) {
-		$gadgetRepo = GadgetRepo::singleton();
-		$gadgetIds = $gadgetRepo->getGadgetIds();
-		$defaultGadgets = $this->getDefaultGadgets( $gadgetRepo, $gadgetIds );
+		$gadgetIds = $this->gadgetRepo->getGadgetIds();
+		$defaultGadgets = $this->getDefaultGadgets( $gadgetIds );
 		if ( $this->isActiveUsersEnabled() ) {
 			$out->addHtml(
 				$this->msg( 'gadgetusage-intro' )

@@ -226,13 +226,12 @@ abstract class GadgetRepo {
 	/**
 	 * Get the configured default GadgetRepo.
 	 *
+	 * @deprecated Use the GadgetsRepo service instead
 	 * @return GadgetRepo
 	 */
 	public static function singleton() {
 		if ( self::$instance === null ) {
-			// @todo use Config here
-			global $wgGadgetsRepoClass;
-			self::$instance = new $wgGadgetsRepoClass();
+			return MediaWikiServices::getInstance()->getService( 'GadgetsRepo' );
 		}
 		return self::$instance;
 	}
@@ -240,6 +239,7 @@ abstract class GadgetRepo {
 	/**
 	 * Should only be used by unit tests
 	 *
+	 * @deprecated Use the GadgetsRepo service instead
 	 * @param GadgetRepo|null $repo
 	 */
 	public static function setSingleton( $repo = null ) {

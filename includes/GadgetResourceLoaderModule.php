@@ -3,6 +3,7 @@
 namespace MediaWiki\Extension\Gadgets;
 
 use InvalidArgumentException;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\ResourceLoader as RL;
 
 /**
@@ -33,7 +34,7 @@ class GadgetResourceLoaderModule extends RL\WikiModule {
 	private function getGadget() {
 		if ( !$this->gadget ) {
 			try {
-				$this->gadget = GadgetRepo::singleton()->getGadget( $this->id );
+				$this->gadget = MediaWikiServices::getInstance()->getService( 'GadgetsRepo' )->getGadget( $this->id );
 			} catch ( InvalidArgumentException $e ) {
 				// Fallback to a placeholder object...
 				$this->gadget = Gadget::newEmptyGadget( $this->id );
@@ -74,7 +75,7 @@ class GadgetResourceLoaderModule extends RL\WikiModule {
 	 * @return string
 	 */
 	public function getRequireKey( $titleText ): string {
-		return GadgetRepo::singleton()->titleWithoutPrefix( $titleText );
+		return MediaWikiServices::getInstance()->getService( 'GadgetsRepo' )->titleWithoutPrefix( $titleText );
 	}
 
 	/**

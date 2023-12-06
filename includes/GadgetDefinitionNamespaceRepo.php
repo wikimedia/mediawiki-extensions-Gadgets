@@ -5,7 +5,6 @@ namespace MediaWiki\Extension\Gadgets;
 use InvalidArgumentException;
 use MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContent;
 use MediaWiki\Linker\LinkTarget;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
@@ -39,10 +38,9 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	 */
 	private $revLookup;
 
-	public function __construct() {
-		$services = MediaWikiServices::getInstance();
-		$this->wanCache = $services->getMainWANObjectCache();
-		$this->revLookup = $services->getRevisionLookup();
+	public function __construct( WANObjectCache $wanCache, RevisionLookup $revLookup ) {
+		$this->wanCache = $wanCache;
+		$this->revLookup = $revLookup;
 	}
 
 	/**

@@ -41,8 +41,11 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 	 */
 	private $neededNames;
 
-	public function __construct( ApiQuery $queryModule, $moduleName ) {
+	private GadgetRepo $gadgetRepo;
+
+	public function __construct( ApiQuery $queryModule, $moduleName, GadgetRepo $gadgetRepo ) {
 		parent::__construct( $queryModule, $moduleName, 'gc' );
+		$this->gadgetRepo = $gadgetRepo;
 	}
 
 	public function execute() {
@@ -63,7 +66,7 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 	private function getList() {
 		$data = [];
 		$result = $this->getResult();
-		$gadgets = GadgetRepo::singleton()->getStructuredList();
+		$gadgets = $this->gadgetRepo->getStructuredList();
 
 		if ( $gadgets ) {
 			foreach ( $gadgets as $category => $list ) {

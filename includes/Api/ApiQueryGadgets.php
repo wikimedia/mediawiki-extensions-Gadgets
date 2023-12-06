@@ -54,8 +54,11 @@ class ApiQueryGadgets extends ApiQueryBase {
 	 */
 	private $listEnabled;
 
-	public function __construct( ApiQuery $queryModule, $moduleName ) {
+	private GadgetRepo $gadgetRepo;
+
+	public function __construct( ApiQuery $queryModule, $moduleName, GadgetRepo $gadgetRepo ) {
 		parent::__construct( $queryModule, $moduleName, 'ga' );
+		$this->gadgetRepo = $gadgetRepo;
 	}
 
 	public function execute() {
@@ -80,7 +83,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 	 * @return array
 	 */
 	private function getList() {
-		$gadgets = GadgetRepo::singleton()->getStructuredList();
+		$gadgets = $this->gadgetRepo->getStructuredList();
 
 		if ( !$gadgets ) {
 			return [];
