@@ -30,4 +30,5 @@ trait GadgetTestTrait {
 		$module->gadget = $g;
 		return $module;
 	}
+
 }
