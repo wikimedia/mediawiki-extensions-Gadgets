@@ -32,8 +32,6 @@
 	"gadgets-export-download": "Scarreca",
 	"gadgets-validate-notset": "'O codece <code>$1</code> 'e pruprietà nun è mpustato.",
 	"gadgets-validate-wrongtype": "'O codece <code>$1</code> 'e pruprietà adda essere 'e tipo <code>$2</code> mmece 'e <code>$3</code>.",
-	"right-gadgets-edit": "Cagna 'a pazziella JavaScript e li paggene CSS",
-	"action-gadgets-edit": "cagna sta pazziella JavaScript o paggena CSS",
 	"right-gadgets-definition-edit": "Cagna 'e definiziuni d' 'e ppazzielle",
 	"action-gadgets-definition-edit": "cagna 'a definiziona 'e sta pazziella"
 }

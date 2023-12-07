@@ -54,16 +54,15 @@
 	"gadgets-validate-invalidjson": "דף הנתונים $1 אינו בשימוש, עקב מודל תוכן בלתי־תקין \"$2\".",
 	"gadgets-validate-nopeer": "לגאדג'ט עמית \"$1\" אין השפעה כי הוא לא קיים.",
 	"gadgets-validate-invalidpeer": "לגאדג'ט \"$1\" אין השפעה כי אינו גאדג'ט סגנונות בלבד.",
-	"gadgets-validate-invalidactions": "{{PLURAL:$2|הפעולה הבאה|הפעולות הבאות}} אינן מוכרות: $1",
+	"gadgets-validate-invalidactions": "{{PLURAL:$2|הפעולה הבאה אינה מוכרת|הפעולות הבאות אינן מוכרות}}: $1",
 	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|מודל התוכן הבא אינו קיים|מודלי התוכן הבאים אינם קיימים}}: $1",
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|מספר מרחב השם הבא אינו קיים|מספרי מרחב השם הבאים אינם קיימים}}: $1",
 	"gadgets-validate-invalidtargets": "הערכים המותרים עבור יעדים הם: mobile‏‏, desktop. {{PLURAL:$2|נמצא ערך בלתי־תקין|נמצאו ערכים בלתי־תקינים}}: $1",
 	"gadgets-validate-invalidtitle": "כותרת הדף \"$1\" אינה תקינה",
 	"gadgets-validate-nopage": "הדף $1 אינו קיים.",
-	"right-gadgets-edit": "עריכת דפי JavaScript ו־CSS של גאדג'טים",
-	"action-gadgets-edit": "לערוך את דף ה־JavaScript או את דף ה־CSS של הגאדג'ט הזה",
 	"right-gadgets-definition-edit": "עריכת הגדרות של גאדג'טים",
 	"action-gadgets-definition-edit": "לערוך את הגדרת הגאדג'ט הזה",
 	"gadgets-wrong-contentmodel": "דפים במרחב השם {{ns:2302}} צריכים להשתייך למודל התוכן GadgetDefinition.",
-	"gadgets-supports-urlload": "הגאדג'ט הזה תומך בטעינה דרך URL רק עם פרמטר השאילתה <code dir=\"ltr\">?withgadget</code>."
+	"gadgets-supports-urlload": "הגאדג'ט הזה תומך בטעינה דרך URL רק עם פרמטר השאילתה <code dir=\"ltr\">?withgadget</code>.",
+	"gadgets-protected": "אין לך הרשאה לערוך דפים במרחב השם {{ns:2300}}."
 }

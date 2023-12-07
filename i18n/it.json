@@ -50,9 +50,8 @@
 	"gadgets-validate-notset": "La proprietà <code>$1</code> non è impostata.",
 	"gadgets-validate-wrongtype": "La proprietà <code>$1</code> deve essere di tipo <code>$2</code> anziché <code>$3</code>.",
 	"gadgets-validate-invalidactions": "{{PLURAL:$2|La seguente azione non è riconosciuta|Le seguenti azione non sono riconosciute}}: $1",
+	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|Il seguente modello di contenuto non esiste|I seguenti modelli di contenuto non esistono}}: $1",
 	"gadgets-validate-nopage": "La pagina \"$1\" non esiste.",
-	"right-gadgets-edit": "Modifica i gadget JavaScript e le pagine CSS",
-	"action-gadgets-edit": "modificare questo gadget Javascript o pagina CSS",
 	"right-gadgets-definition-edit": "Modifica le definizioni dei gadget",
 	"action-gadgets-definition-edit": "modificare la definizione di questo gadget"
 }

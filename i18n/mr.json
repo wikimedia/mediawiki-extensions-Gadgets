@@ -33,8 +33,6 @@
 	"gadgets-export-download": "अधिभारण करा",
 	"gadgets-validate-notset": "गुणधर्म <code>$1</code> स्थापिलेला नाही.",
 	"gadgets-validate-wrongtype": "गुणधर्म <code>$1</code> हा <code>$3</code> याऐवजी <code>$2</code> प्रकारचा असावा.",
-	"right-gadgets-edit": "उपकरणाची JavaScript व CSS पाने संपादित करा",
-	"action-gadgets-edit": "या उपकरणाचे JavaScript किंवा CSS पान संपादित करा",
 	"right-gadgets-definition-edit": "उपकरणाची व्याख्या संपादित करा",
 	"action-gadgets-definition-edit": "या उपकरणाची व्याख्या संपादित करा"
 }

@@ -60,8 +60,6 @@
 	"gadgets-requires-es6": "Ce gadget n’est pris en charge que sur les navigateurs dont le moteur JavaScript est compatible avec la spécification ES6 (ECMAScript 6).",
 	"gadgets-validate-notset": "La propriété <code>$1</code> n’est pas définie.",
 	"gadgets-validate-wrongtype": "La propriété <code>$1</code> doit être de type <code>$2</code> plutôt que <code>$3</code>.",
-	"right-gadgets-edit": "Modifier les pages JavaScript et CSS de gadget",
-	"action-gadgets-edit": "modifier la page JavaScript ou CSS de ce gadget",
 	"right-gadgets-definition-edit": "Modifier les définitions de gadgets",
 	"action-gadgets-definition-edit": "modifier la définition de ce gadget",
 	"gadgets-wrong-contentmodel": "Les pages dans l’espace de noms {{ns:2302}} doivent provenir du modèle de contenu GadgetDefinition.",

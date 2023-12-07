@@ -38,8 +38,6 @@
 	"gadgets-export-download": "Tải về",
 	"gadgets-validate-notset": "Thuộc tính <code>$1</code> không được đặt.",
 	"gadgets-validate-wrongtype": "Thuộc tính <code>$1</code> phải là kiểu <code>$2</code> thay vì <code>$3</code>.",
-	"right-gadgets-edit": "Sửa đổi trang tiện ích JavaScript và CSS",
-	"action-gadgets-edit": "sửa đổi trang tiện ích JavaScript hoặc CSS này",
 	"right-gadgets-definition-edit": "Sửa đổi các định nghĩa tiện ích",
 	"action-gadgets-definition-edit": "sửa đổi định nghĩa của tiện ích này",
 	"gadgets-wrong-contentmodel": "Các trang trong không gian tên {{ns:2302}} phải có mô hình nội dung GadgetDefinition.",

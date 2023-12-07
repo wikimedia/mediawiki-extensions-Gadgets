@@ -42,10 +42,10 @@
 	"gadgets-validate-invalidjs": "Скрипта $1 се не користи због погрешног садржинског модела „$2”.",
 	"gadgets-validate-invalidcss": "Стилска таблица $1 се не користи због погрешног садржинског модела „$2”.",
 	"gadgets-validate-invalidactions": "{{PLURAL:$2|Следећа радња није препозната|Следеће радње нису препознате}}: $1",
+	"gadgets-validate-invalidcontentmodels": "Следећи садржински {{PLURAL:$2|модел не постоји|модели не постоје}}: $1",
 	"gadgets-validate-invalidtitle": "Назив странице „$1” није ваљан",
 	"gadgets-validate-nopage": "Страница „$1” не постоји.",
-	"right-gadgets-edit": "уређивање JavaScript и CSS страница геџета",
-	"action-gadgets-edit": "уредите јаваскрипт и CSS странице ове справице",
 	"right-gadgets-definition-edit": "уређивање дефиниција геџета",
-	"action-gadgets-definition-edit": "уредите дефиницију ове справице"
+	"action-gadgets-definition-edit": "уредите дефиницију ове справице",
+	"gadgets-protected": "Немате дозволу да уређујете странице у именском простору {{ns:2300}}."
 }

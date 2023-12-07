@@ -30,8 +30,6 @@
 	"gadgets-export-download": "Scarrega",
 	"gadgets-validate-notset": "A propietæ <code>$1</code> a no l'è impostâ.",
 	"gadgets-validate-wrongtype": "A propietæ <code>$1</code> a dev'ese de tipo <code>$2</code> ansiché <code>$3</code>.",
-	"right-gadgets-edit": "Modiffica i angæxi JavaScript e e paggine CSS",
-	"action-gadgets-edit": "modificâ sto angæzo Javascript ò paggina CSS",
 	"right-gadgets-definition-edit": "Modificâ e definissioin di angæxi",
 	"action-gadgets-definition-edit": "modificâ a definission de st'angæzo chie"
 }

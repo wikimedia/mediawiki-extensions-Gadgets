@@ -38,8 +38,6 @@
 	"gadgets-export-download": "Parsisiųsti",
 	"gadgets-validate-notset": "Savybė <code>$1</code> yra nenustatyta.",
 	"gadgets-validate-wrongtype": "Savybė <code>$1</code> turi būti tipo <code>$2</code> vietoje <code>$3</code>.",
-	"right-gadgets-edit": "Redaguoti įrankio JavaScript ir CSS puslapius",
-	"action-gadgets-edit": "redaguoti šio įrankio JavaScript arba CSS puslapį",
 	"right-gadgets-definition-edit": "Redaguoti įrankių apibrėžimus",
 	"action-gadgets-definition-edit": "redaguoti šio įrankio apibrėžimą"
 }

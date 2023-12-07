@@ -60,8 +60,6 @@
 	"gadgets-validate-invalidtargets": "Tillatte verdier for target er: mobile, desktop. Fant {{PLURAL:$2|ugyldig verdi|ugyldige verdier}}: $1",
 	"gadgets-validate-invalidtitle": "Sidetittelen «$1» er ugyldig",
 	"gadgets-validate-nopage": "Siden «$1» finnes ikke.",
-	"right-gadgets-edit": "Redigere tilleggsfunksjoners JavaScript- og CSS-sider",
-	"action-gadgets-edit": "redigere denne tilleggsfunksjonens JavaScript- eller CSS-side",
 	"right-gadgets-definition-edit": "Redigere tilleggsfunksjonsdefinisjonene",
 	"action-gadgets-definition-edit": "redigere denne tilleggsfunksjonens definisjon",
 	"gadgets-wrong-contentmodel": "Sider i navnerommet «{{ns:2302}}» må ha innholdsmodellen GadgetDefinition.",

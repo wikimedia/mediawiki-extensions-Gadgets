@@ -35,8 +35,6 @@
 	"gadgets-requires-es6": "A Zeova Kaset rãmbã sẽn yaa b rãmb n pa tõe n maan b sẽn datã n maan b toorẽ wã yĩnga.",
 	"gadgets-validate-notset": "B pa yãk bũmb ning sẽn boond tɩ <code>$1</code> wã ye.",
 	"gadgets-validate-wrongtype": "Bãngr ning sẽn yaa <code>$1</code> wã segd n yaa <code>$2</code> sẽn pa <code>$3</code> ye.",
-	"right-gadgets-edit": "Yãk-y n tool-y neda JavaScript la CSS seb-n-taar",
-	"action-gadgets-edit": "sak n tool-yẽnga JavaScript wall CSS seb-kãngã",
 	"right-gadgets-definition-edit": "Modifẽ-y bũmb nins b sẽn boond tɩ gadgetsã",
 	"action-gadgets-definition-edit": "sak n wilg tɩ bũmb ning b sẽn yeel tɩ \"gaddget\" wã",
 	"gadgets-wrong-contentmodel": "Pagbã sẽn be {{ns:2302}} yʋy zĩiga pʋgẽ wã segd n yaa GadgetDefinition content modelã.",

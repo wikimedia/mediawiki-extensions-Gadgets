@@ -29,8 +29,6 @@
 	"gadgets-not-found": "Heb ganfod teclyn \"$1\".",
 	"gadgets-export-text": "I allforio'r teclyn $1, pwyswch ar y botwm \"{{int:gadgets-export-download}}\", rhowch y ffeil a islwythir ar gadw, ewch i Special:Import ar wici'r pendraw a'i huwchlwytho. Yna ychwanegwch y canlynol at y dudalen MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nMae'n rhaid bod y galluoedd pwrpasol gennych ar wici'r pendraw (gan gynnwys y gallu i olygu negeseuon y sustem), a rhaid bod mewnforio drwy uwchlwytho ffeiliau wedi ei alluogi.",
 	"gadgets-export-download": "Lawrlwytho",
-	"right-gadgets-edit": "Golygu tudalennau teclyn JavaScript a CSS",
-	"action-gadgets-edit": "olygu'r dudalen declyn JavaScript neu CSS hon",
 	"right-gadgets-definition-edit": "Golygu diffiniadau teclyn",
 	"action-gadgets-definition-edit": "olygu diffiniad y teclyn hwn"
 }

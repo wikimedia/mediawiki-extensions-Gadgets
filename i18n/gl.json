@@ -34,8 +34,6 @@
 	"gadgets-export-download": "Descargar",
 	"gadgets-validate-notset": "A propiedade <code>$1</code> non está establecida.",
 	"gadgets-validate-wrongtype": "A propiedade <code>$1</code> debe ser de tipo <code>$2</code> en vez de <code>$3</code>.",
-	"right-gadgets-edit": "Editar as páxinas de JavaScript e CSS dos trebellos",
-	"action-gadgets-edit": "editar a páxina de JavaScript ou CSS deste trebello",
 	"right-gadgets-definition-edit": "Editar as definicións dos trebellos",
 	"action-gadgets-definition-edit": "editar a definición deste trebello"
 }

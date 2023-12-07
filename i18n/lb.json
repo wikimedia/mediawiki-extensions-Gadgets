@@ -32,8 +32,6 @@
 	"gadgets-export-download": "Eroflueden",
 	"gadgets-validate-invalidtitle": "De Säitentitel \"$1\" ass net gülteg",
 	"gadgets-validate-nopage": "D'Säit „$1“ gëtt et net.",
-	"right-gadgets-edit": "JavaScript- an CSS-Säite vu Gadgeten änneren",
-	"action-gadgets-edit": "dëse JavaScript oder dës CSS-Säit vum Gadget änneren",
 	"right-gadgets-definition-edit": "Definitioune vu Gadgeten änneren",
 	"action-gadgets-definition-edit": "dës Definitioun vum Gadget änneren"
 }

@@ -61,16 +61,15 @@
 	"gadgets-validate-invalidjson": "Die Datenseite $1 wird aufgrund des ungültigen Inhaltsmodells „$2“ nicht verwendet.",
 	"gadgets-validate-nopeer": "Das Peer-Gadget „$1“ wird ignoriert, da es nicht existiert.",
 	"gadgets-validate-invalidpeer": "Das Peer-Gadget „$1“ wird ignoriert, da es sich nicht nur um ein Style-Helferlein handelt.",
-	"gadgets-validate-invalidactions": "Folgende {{PLURAL:$2|Aktion wird|Aktionen werden}} nicht erkannt: $1",
-	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|Folgendes Inhaltmodell existiert|Folgende Inhaltsmodelle existieren}} nicht: $1",
-	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|Folgende Namensraumnummer existiert|Folgende Namensraumnummern existieren}} nicht: $1",
+	"gadgets-validate-invalidactions": "{{PLURAL:$2|Die folgende Aktion wird|Die folgenden Aktionen werden}} nicht erkannt: $1",
+	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|Das folgende Inhaltmodell existiert|Die folgenden Inhaltsmodelle existieren}} nicht: $1",
+	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|Die folgende Namensraumnummer existiert|Die folgenden Namensraumnummern existieren}} nicht: $1",
 	"gadgets-validate-invalidtargets": "Zulässige Werte für Ziele sind: mobile, desktop. Für ungültig {{PLURAL:$2|befundener Wert|befundene Werte}}: $1",
 	"gadgets-validate-invalidtitle": "Der Seitentitel „$1“ ist ungültig",
 	"gadgets-validate-nopage": "Seite „$1“ ist nicht vorhanden.",
-	"right-gadgets-edit": "JavaScript- und CSS-Seiten von Helferlein bearbeiten",
-	"action-gadgets-edit": "diese JavaScript- oder CSS-Seite des Helferleins zu bearbeiten",
 	"right-gadgets-definition-edit": "Definitionen von Helferlein bearbeiten",
 	"action-gadgets-definition-edit": "diese Definition des Helferleins zu bearbeiten",
 	"gadgets-wrong-contentmodel": "Seiten im {{ns:2302}}-Namensraum müssen das Inhaltsmodell GadgetDefinition haben.",
-	"gadgets-supports-urlload": "Dieses Helferlein unterstützt das Laden über eine URL mit dem Query-Parameter <code>?withgadget</code>"
+	"gadgets-supports-urlload": "Dieses Helferlein unterstützt das Laden über eine URL mit dem Query-Parameter <code>?withgadget</code>",
+	"gadgets-protected": "Du bist nicht berechtigt, Seiten im Namensraum {{ns:2300}} zu bearbeiten."
 }

@@ -35,8 +35,6 @@
 	"gadgets-not-found": "Spravica „$1“ nije pronađena.",
 	"gadgets-export-text": "Da biste izvezli $1 spravicu, kliknite na dugme „{{int:gadgets-export-download}}“, sačuvajte preuzetu datoteku,\npređite na ''Special:Import'' na željenoj vikiji i pošaljite spravicu. Nakon toga, dodajte sledeće na ''MediaWiki:Gadgets-definition'' stranicu:\n<pre>$2</pre>\nMorate imati određene dozvole na navedenoj vikiji (uključujući i pravo za uređivanje sistemskih poruka), dok uvoz preko datoteka mora biti omogućen.",
 	"gadgets-export-download": "Preuzmi",
-	"right-gadgets-edit": "uređivanje JavaScript i CSS stranica gedžeta",
-	"action-gadgets-edit": "uredite javaskript i CSS stranice ove spravice",
 	"right-gadgets-definition-edit": "uređivanje definicija gedžeta",
 	"action-gadgets-definition-edit": "uredite definiciju ove spravice"
 }

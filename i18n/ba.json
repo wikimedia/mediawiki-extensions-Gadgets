@@ -32,8 +32,6 @@
 	"gadgets-export-download": "Йөкләргә",
 	"gadgets-validate-notset": "<code>$1</code> үҙенсәнлеге билдәләнмәгән.",
 	"gadgets-validate-wrongtype": "Үҙенсәнлек <code>$1</code> <code>$3</code> төрө урынына <code>$2</code> төрөнә эйә булырға тейеш.",
-	"right-gadgets-edit": "JavaScript һәм CSS гаджеттар битен үҙгәртеү",
-	"action-gadgets-edit": "Был гаджеттың JavaScript йәки CSS битен мөхәррирләү",
 	"right-gadgets-definition-edit": "Гаджеттарҙың билдәләмәһен үҙгәртеү.",
 	"action-gadgets-definition-edit": "Был гаджеттың билдәләмәһен мөхәррирләү."
 }

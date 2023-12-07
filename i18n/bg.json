@@ -38,8 +38,6 @@
 	"gadgets-export-download": "Изтегляне",
 	"gadgets-validate-notset": "Свойството <code>$1</code> не е установено.",
 	"gadgets-validate-wrongtype": "Свойството <code>$1</code> трябва да бъде от тип <code>$2</code> вместо от тип <code>$3</code>.",
-	"right-gadgets-edit": "Редактиране на JavaScript и CSS страниците на джаджите",
-	"action-gadgets-edit": "редактиране на JavaScript или CSS страницата за тази джаджа",
 	"right-gadgets-definition-edit": "Редактиране на дефинициите на джаджите",
 	"action-gadgets-definition-edit": "редактиране на дефиницията на тази джаджа"
 }

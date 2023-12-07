@@ -32,8 +32,6 @@
 	"gadgets-requires-es6": "Dit lytsark wurket inkeld mei webblêders dy't ES6 stypje.",
 	"gadgets-validate-notset": "De eigenskip <code>$1</code> is net ynsteld.",
 	"gadgets-validate-wrongtype": "De eigenskip <code>$1</code> moat fan it type <code>$2</code> wêze ynstee fan <code>$3</code>.",
-	"right-gadgets-edit": "JavaScript- en CSS-siden fan lytsark bewurkje",
-	"action-gadgets-edit": "en bewurkje de JavaScript- of CSS-side fan dit lytsark",
 	"right-gadgets-definition-edit": "Definysjes fan lytsark bewurkje",
 	"action-gadgets-definition-edit": "en bewurkje de definysje fan dit lytsark",
 	"gadgets-wrong-contentmodel": "Siden yn 'e nammeromte '{{ns:2302}}' moatte fan it ynhâldsmodel GadgetDefinition wêze.",

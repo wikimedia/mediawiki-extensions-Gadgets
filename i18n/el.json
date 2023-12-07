@@ -45,8 +45,6 @@
 	"gadgets-requires-es6": "Αυτό το gadget υποστηρίζεται μόνο σε προγράμματα περιήγησης συμβατά με ES6",
 	"gadgets-validate-notset": "Η ιδιότητα <code>$1</code> δεν έχει οριστεί.",
 	"gadgets-validate-wrongtype": "Η ιδιότητα <code>$1</code> πρέπει να είναι τύπου <code>$2</code> αντί για <code>$3</code>.",
-	"right-gadgets-edit": "Επεξεργασία σελίδων JavaScript ή CSS της μικροεφαρμογής",
-	"action-gadgets-edit": "επεξεργαστείτε τις σελίδες JavaScript ή CSS αυτής της μικροεφαρμογής",
 	"right-gadgets-definition-edit": "Επεξεργασία ορισμών μικροεφαρμογών",
 	"action-gadgets-definition-edit": "επεξεργαστείτε τον ορισμό αυτής μικροεφαρμογής",
 	"gadgets-wrong-contentmodel": "Οι σελίδες στον χώρο ονομάτων {{ns:2302}} πρέπει να είναι μοντέλου περιεχομένου GadgetDefinition.",

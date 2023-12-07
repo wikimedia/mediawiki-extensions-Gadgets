@@ -37,8 +37,6 @@
 	"gadgets-requires-es6": "Esti accesoriu solo funciona en navegadores compatibles con ES6",
 	"gadgets-validate-notset": "La propiedá <code>$1</code> nun ta establecida.",
 	"gadgets-validate-wrongtype": "La propiedá <code>$1</code> tien de ser de tipu <code>$2</code> en cuenta de <code>$3</code>.",
-	"right-gadgets-edit": "Editar el JavaScript y páxines CSS del accesoriu",
-	"action-gadgets-edit": "editar el JavaScript o páxina CSS d'esti accesoriu",
 	"right-gadgets-definition-edit": "Editar les definiciones del accesoriu",
 	"action-gadgets-definition-edit": "editar esta definición del accesoriu"
 }

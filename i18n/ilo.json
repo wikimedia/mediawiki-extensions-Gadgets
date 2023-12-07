@@ -30,8 +30,6 @@
 	"gadgets-export-download": "Agikarga",
 	"gadgets-validate-notset": "Saan a naisaad ti tagikua ti <code>$1</code>.",
 	"gadgets-validate-wrongtype": "Ti tagikua ti <code>$1</code> ket nasken nga iti kita ti <code>$2</code> imbes a ti <code>$3</code>.",
-	"right-gadgets-edit": "Urnosen dagiti panid ti JavaScript ken CSS ti gadget",
-	"action-gadgets-edit": "urnosen daytoy a panid ti JavaScript wenno CSS ti gadget",
 	"right-gadgets-definition-edit": "Urnosen dagiti depinision ti gadget",
 	"action-gadgets-definition-edit": "urnosen daytoy a depinision ti gadget"
 }

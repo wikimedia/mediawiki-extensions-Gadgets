@@ -62,8 +62,6 @@
 	"gadgets-requires-es6": "此小工具仅在兼容ES6的浏览器上受支持",
 	"gadgets-validate-notset": "未设置属性<code>$1</code>。",
 	"gadgets-validate-wrongtype": "属性<code>$1</code>的类型必须为<code>$2</code>，而不是<code>$3</code>。",
-	"right-gadgets-edit": "编辑小工具的JavaScript和CSS页面",
-	"action-gadgets-edit": "编辑此小工具的JavaScript或CSS页面",
 	"right-gadgets-definition-edit": "编辑小工具定义",
 	"action-gadgets-definition-edit": "编辑此小工具的定义",
 	"gadgets-wrong-contentmodel": "{{ns:2302}}命名空间内的页面必须是小工具定义内容模型。",

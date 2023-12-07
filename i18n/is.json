@@ -26,6 +26,5 @@
 	"gadgets-not-found": "Smáforritið \"$1\" fannst ekki.",
 	"gadgets-export-text": "Til þess að flytja út smáforritið $1, smelltu á \"{{int:gadgets-export-download}}\", vistaðu skrána,\nfarðu á þann wiki sem á að flytja smáforritið á, farðu á kerfisíðuna Special:Import og hladdu því inn. Síðan bættu eftirfarandi við meldinguna MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nÞú verður af hafa tilskilin réttindi á þeim wiki sem á að færa smáforritið á (þar með talið réttindi til að breyta meldingum) og valkosturinn á að flytja inn skrár þarf að vera virkur.",
 	"gadgets-export-download": "Hlaða niður",
-	"right-gadgets-edit": "Breyta JavaScript og CSS síðum smátóla",
 	"right-gadgets-definition-edit": "Breyta skilgreiningum smáforrita"
 }

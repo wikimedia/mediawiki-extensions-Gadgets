@@ -53,8 +53,6 @@
 	"gadgets-requires-es6": "Цей гаджет підтримується лише в браузерах, сумісних із ES6",
 	"gadgets-validate-notset": "Властивість <code>$1</code> не встановлено.",
 	"gadgets-validate-wrongtype": "Тип властивості <code>$1</code> має бути <code>$2</code> замість <code>$3</code>.",
-	"right-gadgets-edit": "Редагування сторінок додатків на JavaScript та CSS",
-	"action-gadgets-edit": "редагування JavaScript- чи CSS-сторінки цього гаджета",
 	"right-gadgets-definition-edit": "Редагування визначень гаджетів",
 	"action-gadgets-definition-edit": "редагування визначення цього гаджета",
 	"gadgets-wrong-contentmodel": "Сторінки у просторі назв {{ns:2302}} повинні мати модель вмісту GadgetDefinition.",

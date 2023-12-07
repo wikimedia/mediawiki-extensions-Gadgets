@@ -49,8 +49,6 @@
 	"gadgets-requires-es6": "Denna finess stöds endast på webbläsare med stöd för ES6",
 	"gadgets-validate-notset": "Egenskapen <code>$1</code> är inte angiven.",
 	"gadgets-validate-wrongtype": "Egenskapen <code>$1</code> måste vara av typen <code>$2</code> istället för <code>$3</code>.",
-	"right-gadgets-edit": "Redigera finessens JavaScript- och CSS-sidor",
-	"action-gadgets-edit": "redigera denna finess JavaScript eller CSS-sida",
 	"right-gadgets-definition-edit": "Redigera finessens definitioner",
 	"action-gadgets-definition-edit": "redigera denna finessdefinition",
 	"gadgets-wrong-contentmodel": "Sidor i namnrymden {{ns:2302}} måste vara av innehållsmodellen GadgetDefinition.",

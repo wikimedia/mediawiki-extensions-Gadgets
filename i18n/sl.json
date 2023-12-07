@@ -60,8 +60,6 @@
 	"gadgets-validate-invalidtargets": "Dovoljene vrednosti za cilje so: mobile, desktop.  {{PLURAL:$2|one=Najdena je bila neveljavna vrednost|two=Najdeni sta bili neveljavni vrednosti|few=Najdene so bile neveljavne vrednosti|Najdene so bile neveljavne vrednosti}}: $1",
 	"gadgets-validate-invalidtitle": "Naslov strani »$1« ni veljaven",
 	"gadgets-validate-nopage": "Stran »$1« ne obstaja.",
-	"right-gadgets-edit": "Urejanje strani JavaScript in CSS pripomočkov",
-	"action-gadgets-edit": "urejanje te strani JavaScript ali CSS pripomočka",
 	"right-gadgets-definition-edit": "Urejanje opredelitev pripomočkov",
 	"action-gadgets-definition-edit": "urejanje opredelitve tega pripomočka",
 	"gadgets-wrong-contentmodel": "Vsebinski model strani v imenskem prostoru {{ns:2302}} mora biti GadgetDefinition.",

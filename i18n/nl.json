@@ -55,7 +55,7 @@
 	"gadgets-validate-es6default": "Gadgets waarvoor ES6 vereist is kunnen niet standaard worden ingeschakeld.",
 	"gadgets-validate-noentrypoint": "Pakketvlag genegeerd omdat er geen scriptbestanden zijn opgegeven.",
 	"gadgets-validate-noscripts": "Scripts worden genegeerd omdat deze gadget <code>type=styles</code> instelt.",
-	"gadgets-validate-stylepeers": "Peer-gadgets worden genegeerd omdat dit een gadget met alleen stijlen is. Stel <code>type=general</code> in op override.",
+	"gadgets-validate-stylepeers": "Peer-gadgets worden genegeerd omdat dit een gadget met alleen stijlen is. Stel <code>type=general</code> in om dit te omzeilen.",
 	"gadgets-validate-scriptsnotallowed": "Er worden geen scripts en gegevensbestanden gebruikt, omdat dit gadget <code>type=styles</code> instelt.",
 	"gadgets-validate-invalidjs": "Script $1 wordt niet gebruikt vanwege een ongeldig inhoudsmodel “$2”.",
 	"gadgets-validate-invalidcss": "Stijlblad $1 wordt niet gebruikt vanwege een ongeldig inhoudsmodel “$2”.",
@@ -68,10 +68,9 @@
 	"gadgets-validate-invalidtargets": "De toegestane waarden voor de bestemmingen zijn: mobile, desktop. Ongeldige waarde{{PLURAL:$2||n}} gevonden: $1",
 	"gadgets-validate-invalidtitle": "Paginatitel “$1” is ongeldig",
 	"gadgets-validate-nopage": "Pagina “$1” bestaat niet.",
-	"right-gadgets-edit": "JavaScript- en CSS-pagina’s van gadgets bewerken",
-	"action-gadgets-edit": "deze JavaScript- of CSS-pagina te bewerken",
 	"right-gadgets-definition-edit": "Gadget-definities bewerken",
 	"action-gadgets-definition-edit": "de definitie van deze gadget te bewerken",
 	"gadgets-wrong-contentmodel": "Pagina’s in de naamruimte {{ns:2302}} moeten het inhoudsmodel GadgetDefinition hebben.",
-	"gadgets-supports-urlload": "Deze gadget ondersteunt het laden via een URL met de queryparameter <code>?withgadget</code>."
+	"gadgets-supports-urlload": "Deze gadget ondersteunt het laden via een URL met de queryparameter <code>?withgadget</code>.",
+	"gadgets-protected": "U heeft geen toestemming om pagina's in de naamruimte {{ns:2300}} te bewerken."
 }

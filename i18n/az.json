@@ -36,8 +36,6 @@
 	"gadgets-export-download": "Yüklə",
 	"gadgets-validate-notset": "<code>$1</code> parametri təyin olunmayıb.",
 	"gadgets-validate-wrongtype": "<code>$1</code> parametrinin tipi <code>$3</code> yox <code>$2</code> olmalıdır.",
-	"right-gadgets-edit": "JavaScript və CSS qadcet səhifələrini redaktə etmək",
-	"action-gadgets-edit": "bu JavaScript və ya CSS qadcet səhifəsini redaktə etmək",
 	"right-gadgets-definition-edit": "Qadcet izahlarını redaktə etmək",
 	"action-gadgets-definition-edit": "bu qadcet izahını redaktə etmək"
 }

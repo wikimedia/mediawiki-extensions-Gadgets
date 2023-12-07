@@ -35,8 +35,6 @@
 	"gadgets-export-download": "దింపుకోండి",
 	"gadgets-validate-notset": " <code>$1</code> లక్షణానికి విలువ ఇవ్వలేదు.",
 	"gadgets-validate-wrongtype": "<code>$1</code> లక్షణం <code>$3</code> రకంగా కాక <code>$2</code> రకంగా వుండాలి",
-	"right-gadgets-edit": "ఉపకరణ జావాస్క్రిప్ట్, CSS పేజీలు సవరించు",
-	"action-gadgets-edit": "ఈ ఉపకరణ జావాస్క్రిప్ట్, CSS పేజీలు సవరించు",
 	"right-gadgets-definition-edit": "ఉపకరణ నిర్వచనాలు సవరించు",
 	"action-gadgets-definition-edit": "ఈ ఉపకరణ నిర్వచనం సవరించు"
 }

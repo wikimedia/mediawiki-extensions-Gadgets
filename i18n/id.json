@@ -42,8 +42,6 @@
 	"gadgets-export-download": "Unduh",
 	"gadgets-validate-notset": "Atribut <code>$1</code> tidak diatur.",
 	"gadgets-validate-wrongtype": "Atribut <code>$1</code> harusnya bertipe <code>$2</code> bukannya <code>$3</code>.",
-	"right-gadgets-edit": "Mengubah halaman JavaScript dan CSS perkakas",
-	"action-gadgets-edit": "mengubah halaman JavaScript atau CSS perkakas ini",
 	"right-gadgets-definition-edit": "Mengubah definisi perkakas",
 	"action-gadgets-definition-edit": "mengubah definisi perkakas ini",
 	"gadgets-wrong-contentmodel": "Halaman dalam ruang nama {{ns:2302}} harus mematuhi model konten GadgetDefinition.",

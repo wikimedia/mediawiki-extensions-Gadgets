@@ -30,8 +30,6 @@
 	"gadgets-export-download": "Scareche",
 	"gadgets-validate-notset": "'A probbietà <code>$1</code> non g'ha state 'mbostate.",
 	"gadgets-validate-wrongtype": "'A probbietà <code>$1</code> adda essere de tipe <code>$2</code> invece ca de tipe <code>$3</code>.",
-	"right-gadgets-edit": "Cange le accessorie JavaScript e le pàggene CSS",
-	"action-gadgets-edit": "cange stu accessorie JavaScript o pàgene CSS",
 	"right-gadgets-definition-edit": "Cange le definiziune de le gadget",
 	"action-gadgets-definition-edit": "cange 'a definizione de l'accessore"
 }

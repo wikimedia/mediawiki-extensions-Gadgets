@@ -30,8 +30,6 @@
 	"gadgets-export-download": "Preuzmi",
 	"gadgets-validate-notset": "Svojstvo <code>$1</code> nije zadano.",
 	"gadgets-validate-wrongtype": "Svojstvo <code>$1</code> mora da bude od tipa <code>$2</code> umjesto <code>$3</code>.",
-	"right-gadgets-edit": "Uređivanje JavaScript i CSS stranica gedžeta",
-	"action-gadgets-edit": "uređivanje JavaScript ili CSS stranice ovog gedžeta",
 	"right-gadgets-definition-edit": "Uređivanje definicija gedžeta",
 	"action-gadgets-definition-edit": "uređivanje ove definicije gedžeta"
 }

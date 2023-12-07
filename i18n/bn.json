@@ -38,8 +38,6 @@
 	"gadgets-export-download": "ডাউনলোড করুন",
 	"gadgets-requires-es6": "এই গ্যাজেটটি শুধুমাত্র ES6-অনুসারিত ব্রাউজারে সমর্থিত",
 	"gadgets-validate-notset": "বৈশিষ্ট্য <code>$1</code> নির্ধারণ করা হয়নি।",
-	"right-gadgets-edit": "গ্যাজেট জাভাস্ক্রিপ্ট এবং সিএসএস পাতায় সম্পাদনা",
-	"action-gadgets-edit": "এই গ্যাজেট জাভাস্ক্রিপ্ট বা সিএসএস পাতা সম্পাদনা",
 	"right-gadgets-definition-edit": "গ্যাজেট সংজ্ঞা সম্পাদনা",
 	"action-gadgets-definition-edit": "এই গ্যাজেট সংজ্ঞা সম্পাদনা"
 }

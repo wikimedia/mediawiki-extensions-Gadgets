@@ -30,8 +30,6 @@
 	"gadgets-not-found": "Gèjet \"$1\" ora ana.",
 	"gadgets-export-text": "Untuk mengekspor perkakas $1, klik tombol \"{{int:gadgets-export-download}}\", simpan berkas yang diunduh,\ntuju ke Special:Import pada wiki tujuan dan unggah berkas itu. Kemudian tambahkan berkas tersebut ke halaman MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nAnda harus memeroleh izin pada wiki tujuan (termasuk hak menyunting pesan sistem) dan mengimpor dari unggahan berkas yang harus diaktifkan.",
 	"gadgets-export-download": "Undhuh",
-	"right-gadgets-edit": "Besut kaca JavaScript lan CSS géjet",
-	"action-gadgets-edit": "besut kaca JavaScript utawa CSS géjet iki",
 	"right-gadgets-definition-edit": "Besut paricédaning géjet",
 	"action-gadgets-definition-edit": "besut paricédaning géjet iki"
 }

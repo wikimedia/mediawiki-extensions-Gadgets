@@ -42,8 +42,6 @@
 	"gadgets-requires-es6": "Гэты гаджэт падтрымліваецца толькі ў браўзерах, сумяшчальных з ES6",
 	"gadgets-validate-notset": "Уласцівасць <code>$1</code> не зададзеная.",
 	"gadgets-validate-wrongtype": "Уласцівасць <code>$1</code> мусіць быць тыпу <code>$2</code>, а не <code>$3</code>.",
-	"right-gadgets-edit": "Праўка старонак гаджэтаў на мовах JavaScript і CSS",
-	"action-gadgets-edit": "правіць старонкі гаджэтаў на мовах JavaScript і CSS",
 	"right-gadgets-definition-edit": "Праўка апісанняў гаджэтаў",
 	"action-gadgets-definition-edit": "правіць апісанне гэтага гаджэту",
 	"gadgets-wrong-contentmodel": "Старонкі ў прасторы імёнаў {{ns:2302}} павінны мець мадэль зместу GadgetDefinition.",

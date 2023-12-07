@@ -73,10 +73,9 @@
 	"gadgets-validate-invalidtargets": "Hedefler için izin verilen değerler şunlardır: taşınabilir, masaüstü. Geçersiz {{PLURAL:$2|değer|değerler}} bulundu: $1",
 	"gadgets-validate-invalidtitle": "\"$1\" sayfa başlığı geçersiz",
 	"gadgets-validate-nopage": "\"$1\" sayfası yok.",
-	"right-gadgets-edit": "Küçük araç, JavaScript ve CSS sayfalarını düzenle",
-	"action-gadgets-edit": "bu küçük aracı JavaScript veya CSS sayfasına düzenleme",
 	"right-gadgets-definition-edit": "Küçük araç tanımlarını düzenle",
 	"action-gadgets-definition-edit": "bu küçük araç tanımını düzenleme",
 	"gadgets-wrong-contentmodel": "{{ns:2302}} ad alanındaki sayfalar GadgetDefinition içerik modelinde olmalıdır.",
-	"gadgets-supports-urlload": "Bu küçük aracı, <code>?withgadget</code> sorgu parametresiyle URL üzerinden yüklemeyi destekler."
+	"gadgets-supports-urlload": "Bu küçük aracı, <code>?withgadget</code> sorgu parametresiyle URL üzerinden yüklemeyi destekler.",
+	"gadgets-protected": "{{ns:2300}} ad alanındaki sayfaları düzenleme izniniz yok."
 }
