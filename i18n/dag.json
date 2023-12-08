@@ -6,5 +6,6 @@
 	},
 	"prefs-gadgets": "Nɛma",
 	"gadgets": "Nɛma",
-	"gadgets-uses": "Di tuma"
+	"gadgets-uses": "Di tuma",
+	"gadgets-validate-invalidtitle": "Peeji ŋɔ yuli \"$1\" kani"
 }

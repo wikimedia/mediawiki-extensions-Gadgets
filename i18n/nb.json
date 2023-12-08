@@ -63,5 +63,6 @@
 	"right-gadgets-definition-edit": "Redigere tilleggsfunksjonsdefinisjonene",
 	"action-gadgets-definition-edit": "redigere denne tilleggsfunksjonens definisjon",
 	"gadgets-wrong-contentmodel": "Sider i navnerommet «{{ns:2302}}» må ha innholdsmodellen GadgetDefinition.",
-	"gadgets-supports-urlload": "Denne tilleggsfunksjonen støtter lasting via URL med URL-parameteren <code>?withgadget</code>."
+	"gadgets-supports-urlload": "Denne tilleggsfunksjonen støtter lasting via URL med URL-parameteren <code>?withgadget</code>.",
+	"gadgets-protected": "Du har ikke tillatelse til å redigere sider i navnerommet {{ns:2300}}."
 }

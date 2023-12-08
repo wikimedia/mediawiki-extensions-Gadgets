@@ -50,7 +50,7 @@
 	"gadgets-requires-es6": "Dieses Helferlein wird nur von ES6-kompatiblen Browsern unterstützt",
 	"gadgets-validate-notset": "Die Eigenschaft <code>$1</code> ist nicht festgelegt.",
 	"gadgets-validate-wrongtype": "Die Eigenschaft <code>$1</code> muss vom Typ <code>$2</code> sein anstatt <code>$3</code>.",
-	"gadgets-validate-json": "JSON-Dateien werden angegeben, aber nicht verwendet. Sie sind nur in Paket-Helferlein gültig.",
+	"gadgets-validate-json": "JSON-Dateien werden angegeben, aber nicht verwendet. Sie sind nur in gepackten Helferlein gültig.",
 	"gadgets-validate-es6default": "Helferlein, die ES6 erfordern, können standardmäßig nicht aktiviert werden.",
 	"gadgets-validate-noentrypoint": "Paketflag wird ignoriert, da keine Skriptdateien angegeben sind.",
 	"gadgets-validate-noscripts": "Skripte werden ignoriert, da dieses Helferlein <code>type=styles</code> festlegt.",
