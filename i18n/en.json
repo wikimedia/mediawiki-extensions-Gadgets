@@ -58,6 +58,7 @@
 	"gadgets-validate-invalidrights": "The following {{PLURAL:$2|right does|rights do}} not exist: $1",
 	"gadgets-validate-invalidtitle": "Page title \"$1\" is invalid",
 	"gadgets-validate-unknownpages": "Contains one or more pages without .js, .css or .json suffix. They would not be used.",
+	"gadgets-validate-duplicate": "A second definition of gadget $1 was detected and shall be ignored",
 	"gadgets-validate-nopage": "Page \"$1\" does not exist.",
 	"gadgets-supports-urlload": "This gadget supports loading via URL with <code>?withgadget</code> query parameter."
 }

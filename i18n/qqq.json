@@ -73,6 +73,7 @@
 	"gadgets-validate-invalidrights": "Warning message to indicate that the rights are not recognised. Parameters:\n* $1 - comma separated list of invalid rights, $2 - number of items in list $1",
 	"gadgets-validate-invalidtitle": "Warning message to indicate that the page title is invalid. Parameters:\n* $1 - page name",
 	"gadgets-validate-unknownpages": "Warning message to indicate that a gadget contains pages without .js, .css or .json suffix, which are not recognised.",
+	"gadgets-validate-duplicate": "Warning message to indicate that the second gadget definition with the same name would be ignored. Parameters:\n* $1 -gadget name",
 	"gadgets-validate-nopage": "Warning message to indicate the script/style/json page does not exist. Parameters:\n* $1 - page name",
 	"gadgets-supports-urlload": "Used in [[Special:Gadgets]], if the gadget supports ?withgadget query parameter."
 }

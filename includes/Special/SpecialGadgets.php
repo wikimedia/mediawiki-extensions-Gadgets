@@ -223,7 +223,7 @@ class SpecialGadgets extends SpecialPage {
 						$output->addHTML( '<br />' );
 					}
 					$output->addHTML( $this->msg( 'gadgets-packaged',
-						$this->gadgetRepo->titleWithoutPrefix( $gadget->getScripts()[0] ) ) );
+						$this->gadgetRepo->titleWithoutPrefix( $gadget->getScripts()[0], $gadget->getName() ) ) );
 					$needLineBreakAfter = true;
 				}
 

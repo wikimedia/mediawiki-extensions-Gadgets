@@ -86,9 +86,10 @@ abstract class GadgetRepo {
 	 * to `MediaWiki:Gadget-example.json`.
 	 *
 	 * @param string $titleText
+	 * @param string $gadgetId
 	 * @return string
 	 */
-	public function titleWithoutPrefix( string $titleText ): string {
+	public function titleWithoutPrefix( string $titleText, string $gadgetId ): string {
 		$numReplaces = 1; // there will only one occurrence of the prefix
 		return str_replace( self::RESOURCE_TITLE_PREFIX, '', $titleText, $numReplaces );
 	}
