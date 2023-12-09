@@ -2,16 +2,13 @@
 
 use MediaWiki\Extension\Gadgets\Gadget;
 use MediaWiki\Extension\Gadgets\Hooks as GadgetHooks;
-use MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo;
 use MediaWiki\Extension\Gadgets\StaticGadgetRepo;
-use Wikimedia\TestingAccessWrapper;
 
 /**
  * @group Gadgets
  * @group Database
  */
 class GadgetHooksTest extends MediaWikiIntegrationTestCase {
-	use GadgetTestTrait;
 
 	/**
 	 * @covers \MediaWiki\Extension\Gadgets\Hooks::onBeforePageDisplay
@@ -74,48 +71,34 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 	}
 
 	/**
-	 * @covers \MediaWiki\Extension\Gadgets\Gadget
 	 * @covers \MediaWiki\Extension\Gadgets\Hooks::onGetPreferences
-	 * @covers \MediaWiki\Extension\Gadgets\GadgetRepo
-	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo
 	 */
 	public function testPreferences() {
-		$prefs = [];
-		$testRightAllowed = 'gadget-test-right-allowed';
-		$testRightNotAllowed = 'gadget-test-right-notallowed';
 		$services = $this->getServiceContainer();
-		$repo = TestingAccessWrapper::newFromObject( new MediaWikiGadgetsDefinitionRepo(
-			$services->getMainWANObjectCache(), $services->getRevisionLookup()
-		) );
+		$repo = new StaticGadgetRepo( [
+			'foo' => new Gadget( [ 'name' => 'foo', 'styles' => 'foo.css' ] ),
+			'bar' => new Gadget( [ 'name' => 'bar', 'styles' => 'bar.css',
+				'category' => 'keep-section1' ] ),
+			'baz' => new Gadget( [ 'name' => 'baz', 'styles' => 'baz.css', 'requiredRights' => [ 'delete' ],
+				'category' => 'remove-section' ] ),
+			'quux' => new Gadget( [ 'name' => 'quux', 'styles' => 'quux.css', 'requiredRights' => [ 'read' ],
+				'category' => 'keep-section2' ] ),
+		] );
+		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup(), null );
 
-		$gadgetsDef = <<<EOT
-* foo | foo.js
-==keep-section1==
-* bar| bar.js
-==remove-section==
-* baz [rights=$testRightNotAllowed] |baz.js
-==keep-section2==
-* quux [rights=$testRightAllowed] | quux.js
-EOT;
-
-		$hooks = new GadgetHooks( $repo->object, $services->getUserOptionsLookup(), null );
-
-		/** @var MediaWikiGadgetsDefinitionRepo $repo */
-		$gadgets = $repo->fetchStructuredList( $gadgetsDef );
-		$this->assertGreaterThanOrEqual( 2, count( $gadgets ), "Gadget list parsed" );
-
-		$repo->definitions = $gadgets;
-
-		$user = $this->createMock( User::class );
-		$user->method( 'isAllowedAll' )
-			->willReturnCallback( static function ( ...$rights ) use ( $testRightNotAllowed ): bool {
-				return !in_array( $testRightNotAllowed, $rights, true );
-			} );
+		$user = $this->getTestUser()->getUser();
 		$hooks->onGetPreferences( $user, $prefs );
 
+		// Type is 'check' for visible preferences, 'api' for invisible ones
 		$this->assertEquals( 'check', $prefs['gadget-bar']['type'] );
 		$this->assertEquals( 'api', $prefs['gadget-baz']['type'],
 			'Must not show unavailable gadgets' );
 		$this->assertEquals( 'gadgets/gadget-section-keep-section2', $prefs['gadget-quux']['section'] );
+
+		$services->getUserGroupManager()->addUserToGroup( $user, 'sysop' );
+		$hooks->onGetPreferences( $user, $prefs );
+		$this->assertEquals( 'check', $prefs['gadget-bar']['type'] );
+		// Now that the user is a sysop, option should be visible
+		$this->assertEquals( 'check', $prefs['gadget-baz']['type'] );
 	}
 }

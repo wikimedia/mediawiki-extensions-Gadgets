@@ -157,31 +157,25 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	/**
 	 * Fetch list of gadgets and returns it as associative array of sections with gadgets
 	 * e.g. [ $name => $gadget1, etc. ]
-	 * @param string|null $forceNewText Injected text of MediaWiki:gadgets-definition [optional]
 	 * @return array[]
 	 */
-	public function fetchStructuredList( $forceNewText = null ) {
-		if ( $forceNewText === null ) {
-			// T157210: avoid using wfMessage() to avoid staleness due to cache layering
-			$title = Title::makeTitle( NS_MEDIAWIKI, 'Gadgets-definition' );
-			$revRecord = $this->revLookup->getRevisionByTitle( $title );
-			if ( !$revRecord
-				|| !$revRecord->getContent( SlotRecord::MAIN )
-				|| $revRecord->getContent( SlotRecord::MAIN )->isEmpty()
-			) {
-				return [];
-			}
-
-			$content = $revRecord->getContent( SlotRecord::MAIN );
-			$g = ( $content instanceof TextContent ) ? $content->getText() : '';
-		} else {
-			$g = $forceNewText;
+	public function fetchStructuredList() {
+		// T157210: avoid using wfMessage() to avoid staleness due to cache layering
+		$title = Title::makeTitle( NS_MEDIAWIKI, 'Gadgets-definition' );
+		$revRecord = $this->revLookup->getRevisionByTitle( $title );
+		if ( !$revRecord
+			|| !$revRecord->getContent( SlotRecord::MAIN )
+			|| $revRecord->getContent( SlotRecord::MAIN )->isEmpty()
+		) {
+			return [];
 		}
+
+		$content = $revRecord->getContent( SlotRecord::MAIN );
+		$g = ( $content instanceof TextContent ) ? $content->getText() : '';
 
 		$gadgets = $this->listFromDefinition( $g );
 
-		$source = $forceNewText !== null ? 'input text' : 'MediaWiki:Gadgets-definition';
-		wfDebug( __METHOD__ . ": $source parsed, cache entry should be updated\n" );
+		wfDebug( __METHOD__ . ": MediaWiki:Gadgets-definition parsed, cache entry should be updated\n" );
 
 		return $gadgets;
 	}
