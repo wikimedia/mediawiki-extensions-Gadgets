@@ -49,7 +49,7 @@ class GadgetDefinitionContent extends JsonContent {
 	 * @return string
 	 */
 	public function beautifyJSON() {
-		// @todo we should normalize entries in module.scripts and module.styles
+		// @todo we should normalize entries in module.pages
 		return FormatJson::encode( $this->getAssocArray(), "\t", FormatJson::UTF8_OK );
 	}
 

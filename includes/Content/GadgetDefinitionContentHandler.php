@@ -68,9 +68,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 				'supportsUrlLoad' => false,
 			],
 			'module' => [
-				'scripts' => [],
-				'styles' => [],
-				'datas' => [],
+				'pages' => [],
 				'peers' => [],
 				'dependencies' => [],
 				'messages' => [],
@@ -91,12 +89,10 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 		// Create a deep clone. FIXME: unserialize(serialize()) is hacky.
 		$data = unserialize( serialize( $content->getData()->getValue() ) );
 		if ( $data !== null ) {
-			foreach ( [ 'scripts', 'styles', 'datas' ] as $type ) {
-				if ( isset( $data->module->{$type} ) ) {
-					foreach ( $data->module->{$type} as &$page ) {
-						$title = Title::makeTitleSafe( NS_GADGET, $page );
-						$this->makeLink( $parserOutput, $page, $title );
-					}
+			if ( isset( $data->module->pages ) ) {
+				foreach ( $data->module->pages as &$page ) {
+					$title = Title::makeTitleSafe( NS_GADGET, $page );
+					$this->makeLink( $parserOutput, $page, $title );
 				}
 			}
 			foreach ( $data->module->dependencies as &$dep ) {

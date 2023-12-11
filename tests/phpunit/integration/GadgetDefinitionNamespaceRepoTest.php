@@ -13,7 +13,7 @@ class GadgetDefinitionNamespaceRepoTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testGetGadget() {
 		$this->editPage( 'Gadget definition:Test',
-			'{"module":{"scripts":["test.js"]}, "settings":{"default":true}}' );
+			'{"module":{"pages":["test.js"]}, "settings":{"default":true}}' );
 
 		$services = $this->getServiceContainer();
 		$repo = new GadgetDefinitionNamespaceRepo( $services->getMainWANObjectCache(), $services->getRevisionLookup() );
@@ -27,9 +27,9 @@ class GadgetDefinitionNamespaceRepoTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testGetGadgetIds() {
 		$this->editPage( 'Gadget definition:X1',
-			'{"module":{"scripts":["Gadget:test.js"]}, "settings":{"default":true}}' );
+			'{"module":{"pages":["Gadget:test.js"]}, "settings":{"default":true}}' );
 		$this->editPage( 'Gadget definition:X2',
-			'{"module":{"scripts":["Gadget:test.js"]}, "settings":{"default":true}}' );
+			'{"module":{"pages":["Gadget:test.js"]}, "settings":{"default":true}}' );
 
 		$services = $this->getServiceContainer();
 		$wanCache = $services->getMainWANObjectCache();

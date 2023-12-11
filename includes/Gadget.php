@@ -36,18 +36,14 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	public const GADGET_CLASS_VERSION = 15;
+	public const GADGET_CLASS_VERSION = 16;
 
 	public const CACHE_TTL = 86400;
 
 	/** @var string[] */
-	private $scripts = [];
-	/** @var string[] */
-	private $styles = [];
-	/** @var string[] */
-	private $datas = [];
-	/** @var string[] */
 	private $dependencies = [];
+	/** @var string[] */
+	private array $pages = [];
 	/** @var string[] */
 	private $peers = [];
 	/** @var string[] */
@@ -88,10 +84,8 @@ class Gadget {
 	public function __construct( array $options ) {
 		foreach ( $options as $member => $option ) {
 			switch ( $member ) {
-				case 'scripts':
-				case 'styles':
-				case 'datas':
 				case 'dependencies':
+				case 'pages':
 				case 'peers':
 				case 'messages':
 				case 'name':
@@ -132,13 +126,13 @@ class Gadget {
 		};
 		return [
 			'category' => $data['settings']['category'],
-			'datas' => array_map( $prefixGadgetNs, $data['module']['datas'] ),
 			'dependencies' => $data['module']['dependencies'],
 			'hidden' => $data['settings']['hidden'],
 			'messages' => $data['module']['messages'],
 			'name' => $id,
 			'onByDefault' => $data['settings']['default'],
 			'package' => $data['settings']['package'],
+			'pages' => array_map( $prefixGadgetNs, $data['module']['pages'] ),
 			'peers' => $data['module']['peers'],
 			'requiredActions' => $data['settings']['actions'],
 			'requiredContentModels' => $data['settings']['contentModels'],
@@ -147,8 +141,6 @@ class Gadget {
 			'requiredSkins' => $data['settings']['skins'],
 			'requiresES6' => $data['settings']['requiresES6'],
 			'resourceLoaded' => true,
-			'scripts' => array_map( $prefixGadgetNs, $data['module']['scripts'] ),
-			'styles' => array_map( $prefixGadgetNs, $data['module']['styles'] ),
 			'supportsUrlLoad' => $data['settings']['supportsUrlLoad'],
 			'targets' => $data['settings']['targets'],
 			'type' => $data['module']['type'],
@@ -162,13 +154,13 @@ class Gadget {
 	public function toArray(): array {
 		return [
 			'category' => $this->category,
-			'datas' => $this->datas,
 			'dependencies' => $this->dependencies,
 			'hidden' => $this->hidden,
 			'messages' => $this->messages,
 			'name' => $this->name,
 			'onByDefault' => $this->onByDefault,
 			'package' => $this->package,
+			'pages' => $this->pages,
 			'peers' => $this->peers,
 			'requiredActions' => $this->requiredActions,
 			'requiredContentModels' => $this->requiredContentModels,
@@ -177,8 +169,6 @@ class Gadget {
 			'requiredSkins' => $this->requiredSkins,
 			'requiresES6' => $this->requiresES6,
 			'resourceLoaded' => $this->resourceLoaded,
-			'scripts' => $this->scripts,
-			'styles' => $this->styles,
 			'supportsUrlLoad' => $this->supportsUrlLoad,
 			'targets' => $this->targets,
 			'type' => $this->type,
@@ -291,7 +281,7 @@ class Gadget {
 	 */
 	public function isPackaged(): bool {
 		// A packaged gadget needs to have a main script, so there must be at least one script
-		return $this->package && $this->supportsResourceLoader() && $this->scripts !== [];
+		return $this->package && $this->supportsResourceLoader() && $this->getScripts() !== [];
 	}
 
 	/**
@@ -375,7 +365,7 @@ class Gadget {
 	 * @return bool Whether this gadget has resources that can be loaded via ResourceLoader
 	 */
 	public function hasModule() {
-		return $this->styles || ( $this->supportsResourceLoader() && $this->scripts );
+		return $this->getStyles() || ( $this->supportsResourceLoader() && $this->getScripts() );
 	}
 
 	/**
@@ -389,28 +379,34 @@ class Gadget {
 	 * @return array Array of pages with JS (including namespace)
 	 */
 	public function getScripts() {
-		return $this->scripts;
+		return array_values( array_filter( $this->pages, static function ( $page ) {
+			return str_ends_with( $page, '.js' );
+		} ) );
 	}
 
 	/**
 	 * @return array Array of pages with CSS (including namespace)
 	 */
 	public function getStyles() {
-		return $this->styles;
+		return array_values( array_filter( $this->pages, static function ( $page ) {
+			return str_ends_with( $page, '.css' );
+		} ) );
 	}
 
 	/**
 	 * @return array Array of pages with JSON (including namespace)
 	 */
 	public function getJSONs(): array {
-		return $this->isPackaged() ? $this->datas : [];
+		return array_values( array_filter( $this->pages, static function ( $page ) {
+			return str_ends_with( $page, '.json' );
+		} ) );
 	}
 
 	/**
 	 * @return array Array of all of this gadget's resources
 	 */
 	public function getScriptsAndStyles() {
-		return array_merge( $this->scripts, $this->styles, $this->getJSONs() );
+		return array_merge( $this->getScripts(), $this->getStyles(), $this->getJSONs() );
 	}
 
 	/**
@@ -418,7 +414,7 @@ class Gadget {
 	 * @return string[]
 	 */
 	public function getLegacyScripts() {
-		return $this->supportsResourceLoader() ? [] : $this->scripts;
+		return $this->supportsResourceLoader() ? [] : $this->getScripts();
 	}
 
 	/**
@@ -498,7 +494,7 @@ class Gadget {
 			return $this->type;
 		}
 		// Similar to ResourceLoaderWikiModule default
-		if ( $this->styles && !$this->scripts && !$this->dependencies ) {
+		if ( $this->getStyles() && !$this->getScripts() && !$this->dependencies ) {
 			return 'styles';
 		}
 
@@ -517,18 +513,23 @@ class Gadget {
 			$warnings[] = "gadgets-validate-es6default";
 		}
 
+		// Gadget containing files with uncrecognised suffixes
+		if ( count( array_diff( $this->pages, $this->getScriptsAndStyles() ) ) !== 0 ) {
+			$warnings[] = "gadgets-validate-unknownpages";
+		}
+
 		// Non-package gadget containing JSON files
-		if ( !$this->package && count( $this->datas ) > 0 ) {
+		if ( !$this->package && count( $this->getJSONs() ) > 0 ) {
 			$warnings[] = "gadgets-validate-json";
 		}
 
 		// Package gadget without a script file in it (to serve as entry point)
-		if ( $this->package && count( $this->scripts ) === 0 ) {
+		if ( $this->package && count( $this->getScripts() ) === 0 ) {
 			$warnings[] = "gadgets-validate-noentrypoint";
 		}
 
 		// Gadget with type=styles having non-CSS files
-		if ( $this->type === 'styles' && count( $this->scripts ) > 0 ) {
+		if ( $this->type === 'styles' && count( $this->getScripts() ) > 0 ) {
 			$warnings[] = "gadgets-validate-scriptsnotallowed";
 		}
 

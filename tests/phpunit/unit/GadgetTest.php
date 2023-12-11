@@ -38,8 +38,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 				'requiresES6' => false,
 			],
 			'module' => [
-				'scripts' => [ 'foo.js' ],
-				'styles' => [ 'bar.css' ],
+				'pages' => [ 'foo.js', 'bar.css' ],
 				'datas' => [],
 				'dependencies' => [ 'moment' ],
 				'peers' => [],
@@ -81,12 +80,14 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	 * @covers \MediaWiki\Extension\Gadgets\Gadget
 	 */
 	public function testSimpleCases() {
-		$g = $this->makeGadget( '* foo bar| foo.css|foo.js|foo.bar' );
+		$g = $this->makeGadget( '* foo bar| foo.css|foo.js|foo.json|foo.bar' );
 		$this->assertEquals( 'foo_bar', $g->getName() );
 		$this->assertEquals( 'ext.gadget.foo_bar', Gadget::getModuleName( $g->getName() ) );
 		$this->assertEquals( [ 'MediaWiki:Gadget-foo.js' ], $g->getScripts() );
 		$this->assertEquals( [ 'MediaWiki:Gadget-foo.css' ], $g->getStyles() );
-		$this->assertEquals( [ 'MediaWiki:Gadget-foo.js', 'MediaWiki:Gadget-foo.css' ], $g->getScriptsAndStyles() );
+		$this->assertEquals( [ 'MediaWiki:Gadget-foo.json' ], $g->getJSONs() );
+		$this->assertEquals( [ 'MediaWiki:Gadget-foo.js', 'MediaWiki:Gadget-foo.css', 'MediaWiki:Gadget-foo.json' ],
+			$g->getScriptsAndStyles() );
 		$this->assertEquals( [ 'MediaWiki:Gadget-foo.js' ], $g->getLegacyScripts() );
 		$this->assertFalse( $g->supportsResourceLoader() );
 		$this->assertTrue( $g->hasModule() );

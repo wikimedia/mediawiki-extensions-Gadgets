@@ -87,17 +87,9 @@
 			"type": "object",
 			"additionalProperties": false,
 			"properties": {
-				"scripts": {
+				"pages": {
 					"type": "array",
-					"description": "List of JavaScript pages included in this gadget"
-				},
-				"styles": {
-					"type": "array",
-					"description": "List of CSS pages included in this gadget"
-				},
-				"datas": {
-					"type": "array",
-					"description": "List of JSON pages included in this gadget"
+					"description": "List of JS/CSS/JSON pages included in this gadget"
 				},
 				"dependencies": {
 					"type": "array",

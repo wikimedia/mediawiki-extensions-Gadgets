@@ -17,7 +17,7 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 	public function testDefaultGadget() {
 		$services = $this->getServiceContainer();
 		$repo = new StaticGadgetRepo( [
-			'g1' => new Gadget( [ 'name' => 'g1', 'onByDefault' => true, 'styles' => 'test.css' ] ),
+			'g1' => new Gadget( [ 'name' => 'g1', 'onByDefault' => true, 'pages' => [ 'test.css' ] ] ),
 		] );
 		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup(), null );
 		$out = new OutputPage( RequestContext::getMain() );
@@ -34,7 +34,7 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 	public function testEnabledGadget() {
 		$services = $this->getServiceContainer();
 		$repo = new StaticGadgetRepo( [
-			'g1' => new Gadget( [ 'name' => 'g1', 'scripts' => 'test.js', 'resourceLoaded' => true ] ),
+			'g1' => new Gadget( [ 'name' => 'g1', 'pages' => [ 'test.js' ], 'resourceLoaded' => true ] ),
 		] );
 		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup(), null );
 		$context = RequestContext::getMain();
@@ -58,9 +58,9 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 	 */
 	public function testDefaultUserOptions() {
 		$repo = new StaticGadgetRepo( [
-			'g1' => new Gadget( [ 'name' => 'g1', 'styles' => 'test.css', 'onByDefault' => true ] ),
-			'g2' => new Gadget( [ 'name' => 'g2', 'styles' => 'test.css' ] ),
-			'g3' => new Gadget( [ 'name' => 'g3', 'styles' => 'test.css', 'hidden' => true ] ),
+			'g1' => new Gadget( [ 'name' => 'g1', 'pages' => [ 'test.css' ], 'onByDefault' => true ] ),
+			'g2' => new Gadget( [ 'name' => 'g2', 'pages' => [ 'test.css' ] ] ),
+			'g3' => new Gadget( [ 'name' => 'g3', 'pages' => [ 'test.css' ], 'hidden' => true ] ),
 		] );
 		$this->setService( 'GadgetsRepo', $repo );
 		$optionsLookup = $this->getServiceContainer()->getUserOptionsLookup();
@@ -76,12 +76,12 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 	public function testPreferences() {
 		$services = $this->getServiceContainer();
 		$repo = new StaticGadgetRepo( [
-			'foo' => new Gadget( [ 'name' => 'foo', 'styles' => 'foo.css' ] ),
-			'bar' => new Gadget( [ 'name' => 'bar', 'styles' => 'bar.css',
+			'foo' => new Gadget( [ 'name' => 'foo', 'pages' => [ 'foo.css' ] ] ),
+			'bar' => new Gadget( [ 'name' => 'bar', 'pages' => [ 'bar.css' ],
 				'category' => 'keep-section1' ] ),
-			'baz' => new Gadget( [ 'name' => 'baz', 'styles' => 'baz.css', 'requiredRights' => [ 'delete' ],
+			'baz' => new Gadget( [ 'name' => 'baz', 'pages' => [ 'baz.css' ], 'requiredRights' => [ 'delete' ],
 				'category' => 'remove-section' ] ),
-			'quux' => new Gadget( [ 'name' => 'quux', 'styles' => 'quux.css', 'requiredRights' => [ 'read' ],
+			'quux' => new Gadget( [ 'name' => 'quux', 'pages' => [ 'quux.css' ], 'requiredRights' => [ 'read' ],
 				'category' => 'keep-section2' ] ),
 		] );
 		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup(), null );

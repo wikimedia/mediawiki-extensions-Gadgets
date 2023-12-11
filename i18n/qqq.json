@@ -70,6 +70,7 @@
 	"gadgets-validate-invalidnamespaces": "Warning message to indicate that the namespaces are not recognised. Parameters:\n* $1 - comma separated list of invalid namespaces, $2 - number of items in list $1",
 	"gadgets-validate-invalidtargets": "Warning message to indicate that the targets are not recognised. Parameters:\n* $1 - comma separated list of invalid targets, $2 - number of items in list $1",
 	"gadgets-validate-invalidtitle": "Warning message to indicate that the page title is invalid. Parameters:\n* $1 - page name",
+	"gadgets-validate-unknownpages": "Warning message to indicate that pages without .js, .css or .json suffix are not recognised.",
 	"gadgets-validate-nopage": "Warning message to indicate the script/style/json page does not exist. Parameters:\n* $1 - page name",
 	"right-gadgets-definition-edit": "{{doc-right|gadgets-definition-edit}}",
 	"action-gadgets-definition-edit": "{{doc-action|gadgets-definition-edit}}",
