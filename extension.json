@@ -125,14 +125,8 @@
 		"includes/ServiceWiring.php"
 	],
 	"config": {
-		"GadgetsRepoClass": {
-			"value": {
-				"class": "MediaWiki\\Extension\\Gadgets\\MediaWikiGadgetsDefinitionRepo",
-				"services": [
-					"MainWANObjectCache",
-					"RevisionLookup"
-				]
-			}
+		"GadgetsRepo": {
+			"value": "definition"
 		},
 		"SpecialGadgetUsageActiveUsers": {
 			"value": true
