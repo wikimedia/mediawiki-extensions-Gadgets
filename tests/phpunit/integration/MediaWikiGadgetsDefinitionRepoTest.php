@@ -39,7 +39,7 @@ EOT;
 	 */
 	public function testCacheInvalidationOnSave() {
 		$services = $this->getServiceContainer();
-		$wanCache = WANObjectCache::newEmpty();
+		$wanCache = new WANObjectCache( [ 'cache' => new HashBagOStuff ] );
 		$wanCache->useInterimHoldOffCaching( false );
 
 		$repo = new MediaWikiGadgetsDefinitionRepo( $wanCache, $services->getRevisionLookup() );
