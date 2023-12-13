@@ -86,7 +86,7 @@ abstract class GadgetRepo {
 	 * Get the script file name without the "MediaWiki:Gadget-" or "Gadget:" prefix.
 	 * This name is used by the client-side require() so that require("Data.json") resolves
 	 * to either "MediaWiki:Gadget-Data.json" or "Gadget:Data.json" depending on the
-	 * $wgGadgetsRepoClass configuration, enabling easy migration between the configuration modes.
+	 * $wgGadgetsRepo configuration, enabling easy migration between the configuration modes.
 	 *
 	 * @param string $titleText
 	 * @return string
