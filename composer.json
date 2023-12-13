@@ -16,7 +16,7 @@
 			"@phpcs",
 			"minus-x check ."
 		],
-		"phan": "phan -d . --long-progress-bar",
+		"phan": "phan -d . --long-progress-bar --allow-polyfill-parser",
 		"phpcs": "phpcs -sp --cache"
 	}
 }
