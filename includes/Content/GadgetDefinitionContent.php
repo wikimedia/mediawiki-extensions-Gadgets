@@ -63,7 +63,7 @@ class GadgetDefinitionContent extends JsonContent {
 				$this->validation = $this->getData();
 			} else {
 				$validator = new GadgetDefinitionValidator();
-				$this->validation = $validator->validate( $this->getAssocArray() );
+				$this->validation = $validator->validate( $this->getAssocArray(), true );
 			}
 		}
 		return $this->validation;
@@ -80,7 +80,7 @@ class GadgetDefinitionContent extends JsonContent {
 		$info = wfObjectToArray( $this->getData()->getValue() );
 		/** @var GadgetDefinitionContentHandler $handler */
 		$handler = $this->getContentHandler();
-		$info = wfArrayPlus2d( $info, $handler->getDefaultMetadata() );
+		$info = wfArrayPlus2d( $info, $handler->getEmptyDefinition() );
 
 		return $info;
 	}

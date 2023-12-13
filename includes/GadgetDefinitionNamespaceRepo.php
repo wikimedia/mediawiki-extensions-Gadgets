@@ -129,7 +129,10 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 					return null;
 				}
 
-				return Gadget::serializeDefinition( $id, $content->getAssocArray() );
+				$handler = $content->getContentHandler();
+				'@phan-var \MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContentHandler $handler';
+				$data = wfArrayPlus2d( $content->getAssocArray(), $handler->getDefaultMetadata() );
+				return Gadget::serializeDefinition( $id, $data );
 			},
 			[
 				'checkKeys' => [ $key ],
