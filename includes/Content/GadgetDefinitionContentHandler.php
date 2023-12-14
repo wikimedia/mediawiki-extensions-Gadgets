@@ -21,12 +21,10 @@
 namespace MediaWiki\Extension\Gadgets\Content;
 
 use Content;
-use DeferrableUpdate;
 use FormatJson;
 use JsonContentHandler;
 use Linker;
 use MediaWiki\Content\Renderer\ContentParseParams;
-use MediaWiki\Revision\SlotRenderingProvider;
 use MediaWiki\Title\Title;
 use ParserOutput;
 
@@ -79,40 +77,6 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 				'type' => '',
 			],
 		];
-	}
-
-	/**
-	 * @param Title $title The title of the page to supply the updates for.
-	 * @param string $role The role (slot) in which the content is being used.
-	 * @return DeferrableUpdate[] A list of DeferrableUpdate objects for putting information
-	 *        about this content object somewhere.
-	 */
-	public function getDeletionUpdates( Title $title, $role ) {
-		return array_merge(
-			parent::getDeletionUpdates( $title, $role ),
-			[ new GadgetDefinitionDeletionUpdate( $title ) ]
-		);
-	}
-
-	/**
-	 * @param Title $title The title of the page to supply the updates for.
-	 * @param Content $content The content to generate data updates for.
-	 * @param string $role The role (slot) in which the content is being used.
-	 * @param SlotRenderingProvider $slotOutput A provider that can be used to gain access to
-	 *        a ParserOutput of $content by calling $slotOutput->getSlotParserOutput( $role, false ).
-	 * @return DeferrableUpdate[] A list of DeferrableUpdate objects for putting information
-	 *        about this content object somewhere.
-	 */
-	public function getSecondaryDataUpdates(
-		Title $title,
-		Content $content,
-		$role,
-		SlotRenderingProvider $slotOutput
-	) {
-		return array_merge(
-			parent::getSecondaryDataUpdates( $title, $content, $role, $slotOutput ),
-			[ new GadgetDefinitionSecondaryDataUpdate( $title ) ]
-		);
 	}
 
 	/**
