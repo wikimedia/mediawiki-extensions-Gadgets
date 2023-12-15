@@ -22,6 +22,7 @@ namespace MediaWiki\Extension\Gadgets\Special;
 
 use Html;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
+use MediaWiki\Title\TitleValue;
 use OutputPage;
 use QueryPage;
 use Skin;
@@ -188,8 +189,15 @@ class SpecialGadgetUsage extends QueryPage {
 		$gadgetUserCount = $this->getLanguage()->formatNum( $result->value );
 		if ( $gadgetTitle ) {
 			$html = Html::openElement( 'tr', [] );
-			$html .= Html::element( 'td', [], $gadgetTitle );
+			// "Gadget" column
+			$link = $this->getLinkRenderer()->makeLink(
+				new TitleValue( NS_SPECIAL, 'Gadgets', 'gadget-' . $gadgetTitle ),
+				$gadgetTitle
+			);
+			$html .= Html::rawElement( 'td', [], $link );
+			// "Number of users" column
 			$html .= Html::element( 'td', [], $gadgetUserCount );
+			// "Active users" column
 			if ( $this->getConfig()->get( 'SpecialGadgetUsageActiveUsers' ) ) {
 				$activeUserCount = $this->getLanguage()->formatNum( $result->namespace );
 				$html .= Html::element( 'td', [], $activeUserCount );
@@ -246,9 +254,16 @@ class SpecialGadgetUsage extends QueryPage {
 			// Append default gadgets to the table with 'default' in the total and active user fields
 			foreach ( $defaultGadgets as $default ) {
 				$html = Html::openElement( 'tr', [] );
-				$html .= Html::element( 'td', [], $default );
+				// "Gadget" column
+				$link = $this->getLinkRenderer()->makeLink(
+					new TitleValue( NS_SPECIAL, 'Gadgets', 'gadget-' . $default ),
+					$default
+				);
+				$html .= Html::rawElement( 'td', [], $link );
+				// "Number of users" column
 				$html .= Html::element( 'td', [ 'data-sort-value' => 'Infinity' ],
 					$this->msg( 'gadgetusage-default' )->text() );
+				// "Active users" column
 				if ( $this->isActiveUsersEnabled() ) {
 					$html .= Html::element( 'td', [ 'data-sort-value' => 'Infinity' ],
 						$this->msg( 'gadgetusage-default' )->text() );
