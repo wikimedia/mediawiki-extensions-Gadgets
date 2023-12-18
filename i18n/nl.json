@@ -72,5 +72,5 @@
 	"action-gadgets-definition-edit": "de definitie van deze gadget te bewerken",
 	"gadgets-wrong-contentmodel": "Pagina’s in de naamruimte {{ns:2302}} moeten het inhoudsmodel GadgetDefinition hebben.",
 	"gadgets-supports-urlload": "Deze gadget ondersteunt het laden via een URL met de queryparameter <code>?withgadget</code>.",
-	"gadgets-protected": "U heeft geen toestemming om pagina's in de naamruimte {{ns:2300}} te bewerken."
+	"gadgets-protected": "U hebt geen toestemming om pagina’s in de naamruimte {{ns:2300}} te bewerken."
 }

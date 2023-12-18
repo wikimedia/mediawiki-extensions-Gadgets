@@ -43,7 +43,7 @@
 	"gadgets-requires-es6": "Ta pripomoček je podprt samo v brskalnikih, skladnih s standardom ES6",
 	"gadgets-validate-notset": "Lastnost <code>$1</code> ni nastavljena.",
 	"gadgets-validate-wrongtype": "Lastnost <code>$1</code> mora biti vrste <code>$2</code> namesto <code>$3</code>.",
-	"gadgets-validate-json": "Datoteke JSON so določene, vendar se ne uporabljajo. Veljavne so samo v paketih pripomočkov.",
+	"gadgets-validate-json": "Datoteke JSON so določene, vendar se ne uporabljajo. Veljavne so samo v zapakiranih pripomočkih.",
 	"gadgets-validate-es6default": "Pripomočkov, ki zahtevajo ES6, ni mogoče privzeto omogočiti.",
 	"gadgets-validate-noentrypoint": "Zastavica paketa je prezrta, ker ni določena nobena skriptna datoteka.",
 	"gadgets-validate-noscripts": "Skripti se ne uporabljajo, ker ta pripomoček nastavi <code>type=styles</code>.",
@@ -63,5 +63,6 @@
 	"right-gadgets-definition-edit": "Urejanje opredelitev pripomočkov",
 	"action-gadgets-definition-edit": "urejanje opredelitve tega pripomočka",
 	"gadgets-wrong-contentmodel": "Vsebinski model strani v imenskem prostoru {{ns:2302}} mora biti GadgetDefinition.",
-	"gadgets-supports-urlload": "Ta pripomoček podpira nalaganje prek URL-ja s poizvedbenim parametrom <code>?withgadget</code>."
+	"gadgets-supports-urlload": "Ta pripomoček podpira nalaganje prek URL-ja s poizvedbenim parametrom <code>?withgadget</code>.",
+	"gadgets-protected": "Za urejanje strani v imenskem prostoru {{ns:2300}} nimate dovoljenja."
 }
