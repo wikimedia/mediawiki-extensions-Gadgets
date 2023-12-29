@@ -61,8 +61,10 @@ class GadgetResourceLoaderModule extends RL\WikiModule {
 			foreach ( $gadget->getScripts() as $script ) {
 				$pages[$script] = [ 'type' => 'script' ];
 			}
-			foreach ( $gadget->getJSONs() as $json ) {
-				$pages[$json] = [ 'type' => 'data' ];
+			if ( $gadget->isPackaged() ) {
+				foreach ( $gadget->getJSONs() as $json ) {
+					$pages[$json] = [ 'type' => 'data' ];
+				}
 			}
 		}
 

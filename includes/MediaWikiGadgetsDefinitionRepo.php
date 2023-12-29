@@ -304,14 +304,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 
 		foreach ( preg_split( '/\s*\|\s*/', $pages, -1, PREG_SPLIT_NO_EMPTY ) as $page ) {
 			$page = $this->titlePrefix . $page;
-
-			if ( preg_match( '/\.json$/', $page ) ) {
-				$info['datas'][] = $page;
-			} elseif ( preg_match( '/\.js/', $page ) ) {
-				$info['scripts'][] = $page;
-			} elseif ( preg_match( '/\.css/', $page ) ) {
-				$info['styles'][] = $page;
-			}
+			$info['pages'][] = $page;
 		}
 
 		return new Gadget( $info );
