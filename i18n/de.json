@@ -66,6 +66,7 @@
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|Die folgende Namensraumnummer existiert|Die folgenden Namensraumnummern existieren}} nicht: $1",
 	"gadgets-validate-invalidtargets": "Zulässige Werte für Ziele sind: mobile, desktop. Für ungültig {{PLURAL:$2|befundener Wert|befundene Werte}}: $1",
 	"gadgets-validate-invalidtitle": "Der Seitentitel „$1“ ist ungültig",
+	"gadgets-validate-unknownpages": "Enthält eine oder mehrere Seiten ohne .js-, .css- oder .json-Suffix. Sie würden nicht verwendet werden.",
 	"gadgets-validate-nopage": "Seite „$1“ ist nicht vorhanden.",
 	"right-gadgets-definition-edit": "Definitionen von Helferlein bearbeiten",
 	"action-gadgets-definition-edit": "diese Definition des Helferleins zu bearbeiten",
