@@ -59,6 +59,7 @@
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|one=Naslednja številka imenskega prostora ne obstaja|two=Naslednji številki imenskih prostorov ne obstajata|few=Naslednje številke imenskih prostorov ne obstajajo|Naslednje številke imenskih prostorov ne obstajajo}}: $1",
 	"gadgets-validate-invalidtargets": "Dovoljene vrednosti za cilje so: mobile, desktop.  {{PLURAL:$2|one=Najdena je bila neveljavna vrednost|two=Najdeni sta bili neveljavni vrednosti|few=Najdene so bile neveljavne vrednosti|Najdene so bile neveljavne vrednosti}}: $1",
 	"gadgets-validate-invalidtitle": "Naslov strani »$1« ni veljaven",
+	"gadgets-validate-unknownpages": "Vsebuje eno ali več strani brez pripone .js, .css ali .json. Ne bi bile uporabljene.",
 	"gadgets-validate-nopage": "Stran »$1« ne obstaja.",
 	"right-gadgets-definition-edit": "Urejanje opredelitev pripomočkov",
 	"action-gadgets-definition-edit": "urejanje opredelitve tega pripomočka",

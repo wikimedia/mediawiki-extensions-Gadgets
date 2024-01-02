@@ -72,6 +72,7 @@
 	"gadgets-validate-invalidnamespaces": "Şu ad alanı {{PLURAL:$2|numarası|numaraları}} yok: $1",
 	"gadgets-validate-invalidtargets": "Hedefler için izin verilen değerler şunlardır: taşınabilir, masaüstü. Geçersiz {{PLURAL:$2|değer|değerler}} bulundu: $1",
 	"gadgets-validate-invalidtitle": "\"$1\" sayfa başlığı geçersiz",
+	"gadgets-validate-unknownpages": ".js, .css ya da .json son eki olmayan bir ya da daha fazla sayfa içeriyor. Bunlar kullanılmayacaklar.",
 	"gadgets-validate-nopage": "\"$1\" sayfası yok.",
 	"right-gadgets-definition-edit": "Küçük araç tanımlarını düzenle",
 	"action-gadgets-definition-edit": "bu küçük araç tanımını düzenleme",

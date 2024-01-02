@@ -59,6 +59,7 @@
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|מספר מרחב השם הבא אינו קיים|מספרי מרחב השם הבאים אינם קיימים}}: $1",
 	"gadgets-validate-invalidtargets": "הערכים המותרים עבור יעדים הם: mobile‏‏, desktop. {{PLURAL:$2|נמצא ערך בלתי־תקין|נמצאו ערכים בלתי־תקינים}}: $1",
 	"gadgets-validate-invalidtitle": "כותרת הדף \"$1\" אינה תקינה",
+	"gadgets-validate-unknownpages": "מכיל דף אחד או יותר שהסיומת ‎.js‏, ‎.css או ‎.json לא מופיעה בהם. לא ייעשה שימוש בהם.",
 	"gadgets-validate-nopage": "הדף $1 אינו קיים.",
 	"right-gadgets-definition-edit": "עריכת הגדרות של גאדג'טים",
 	"action-gadgets-definition-edit": "לערוך את הגדרת הגאדג'ט הזה",

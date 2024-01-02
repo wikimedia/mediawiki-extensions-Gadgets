@@ -55,6 +55,7 @@
 	"gadgets-validate-invalidnamespaces": "Le sequente numero{{PLURAL:$2||s}} de spatio de nomines non existe: $1",
 	"gadgets-validate-invalidtargets": "Le valores permittite pro le destinationes es: mobile, desktop. Valor{{PLURAL:$2||es}} non valide trovate: $1",
 	"gadgets-validate-invalidtitle": "Le titulo de pagina “$1” non es valide",
+	"gadgets-validate-unknownpages": "Contine un o plus paginas sin suffixo .js, .css o .json. Illos non esserea usate.",
 	"gadgets-validate-nopage": "Le pagina “$1” non existe.",
 	"right-gadgets-definition-edit": "Modificar definitiones de gadgets",
 	"action-gadgets-definition-edit": "modificar le definition de iste accessorio",

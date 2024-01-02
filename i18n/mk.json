@@ -56,6 +56,7 @@
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|Следниов број на именски простор не постои|Следниве броеви на именски простори не постои}}: $1",
 	"gadgets-validate-invalidtargets": "Допуштени вредности за целите се: mobile, desktop. Најдов {{PLURAL:$2|неважечка вредност|неважечки вредности}}: $1",
 	"gadgets-validate-invalidtitle": "„$1“ е неважечки наслов на страница",
+	"gadgets-validate-unknownpages": "Содржи една или повеќе страници без наставка .js, .css или .json. Тие нема да се користат.",
 	"gadgets-validate-nopage": "Страницата „$1“ не постои.",
 	"right-gadgets-definition-edit": "Менување на определбите на алатка",
 	"action-gadgets-definition-edit": "менување на определбата на оваа алатка",
