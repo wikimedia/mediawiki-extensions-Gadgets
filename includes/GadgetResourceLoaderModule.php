@@ -101,7 +101,7 @@ class GadgetResourceLoaderModule extends RL\WikiModule {
 	 * @return bool
 	 */
 	public function isPackaged(): bool {
-		return $this->gadget->isPackaged();
+		return $this->getGadget()->isPackaged();
 	}
 
 	/**

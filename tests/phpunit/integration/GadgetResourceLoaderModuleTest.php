@@ -15,19 +15,16 @@ use Wikimedia\TestingAccessWrapper;
 class GadgetResourceLoaderModuleTest extends MediaWikiIntegrationTestCase {
 	use GadgetTestTrait;
 
-	/**
-	 * @var Gadget
-	 */
+	/** @var Gadget */
 	private $gadget;
-	/**
-	 * @var TestingAccessWrapper
-	 */
+	/** @var TestingAccessWrapper */
 	private $gadgetModule;
 
 	protected function setUp(): void {
 		parent::setUp();
 		$this->gadget = $this->makeGadget( '*foo [ResourceLoader|package]|foo.js|foo.css|foo.json' );
 		$this->gadgetModule = $this->makeGadgetModule( $this->gadget );
+		$this->overrideConfigValue( MainConfigNames::ResourceLoaderValidateJS, true );
 	}
 
 	/**
@@ -51,25 +48,35 @@ class GadgetResourceLoaderModuleTest extends MediaWikiIntegrationTestCase {
 			$nonPackageGadgetModule->getPages( $context ) );
 	}
 
-	public function testEs6Gadget() {
-		$this->editPage( 'MediaWiki:Gadget-foo.js', '(() => {})();' );
-		$repo = new StaticGadgetRepo( [
-			'g1' => $this->makeGadget( '*g1 [ResourceLoader]|foo.js' ),
-			'g2' => $this->makeGadget( '*g1 [ResourceLoader|requiresES6]|foo.js' )
-		] );
-		$this->setService( 'GadgetsRepo', $repo );
-		$this->overrideConfigValue( MainConfigNames::ResourceLoaderValidateJS, true );
-		$rlContext = RL\Context::newDummyContext();
+	public static function provideValidateScript() {
+		yield 'valid ES5' => [ true, '[ResourceLoader]', 'var quux = function() {};' ];
+		// TODO: T75714
+		// yield 'valid ES6' => [ true, '[ResourceLoader]', 'let quux = (() => {})();' ];
+		yield 'invalid' => [ false, '[ResourceLoader]', 'boom quux = <3;' ];
 
-		$m1 = new GadgetResourceLoaderModule( [ 'id' => 'g1' ] );
-		$this->assertFalse( $m1->requiresES6() );
-		$m1->setConfig( $this->getServiceContainer()->getMainConfig() );
-		$this->assertStringContainsString( 'mw.log.error', $m1->getScript( $rlContext ) );
-
-		$m2 = new GadgetResourceLoaderModule( [ 'id' => 'g2' ] );
-		$this->assertTrue( $m2->requiresES6() );
-		$m2->setConfig( $this->getServiceContainer()->getMainConfig() );
-		$this->assertStringNotContainsString( 'mw.log.error', $m2->getScript( $rlContext ) );
+		yield 'requiresES6 allows ES5' => [ true, '[ResourceLoader|requiresES6]', 'var quux = function() {};' ];
+		yield 'requiresES6 allows ES6' => [ true, '[ResourceLoader|requiresES6]', 'let quux = (() => {})();' ];
+		yield 'requiresES6 allows invalid' => [ true, '[ResourceLoader|requiresES6]', 'boom quux = <3;' ];
 	}
 
+	/**
+	 * @dataProvider provideValidateScript
+	 */
+	public function testValidateScriptFile( $valid, $options, $content ) {
+		$this->editPage( 'MediaWiki:Gadget-foo.js', $content );
+		$repo = new StaticGadgetRepo( [
+			'example' => $this->makeGadget( "* example $options | foo.js" ),
+		] );
+		$this->setService( 'GadgetsRepo', $repo );
+		$rlContext = RL\Context::newDummyContext();
+
+		$module = new GadgetResourceLoaderModule( [ 'id' => 'example' ] );
+		$module->setConfig( $this->getServiceContainer()->getMainConfig() );
+		$actual = $module->getScript( $rlContext );
+
+		$expect = $valid ? 'quux' : 'mw.log.error';
+		$expectNot = $valid ? 'mw.log.error' : 'quux';
+		$this->assertStringContainsString( $expect, $actual );
+		$this->assertStringNotContainsString( $expectNot, $actual );
+	}
 }
