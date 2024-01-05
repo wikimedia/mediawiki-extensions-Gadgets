@@ -303,8 +303,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		}
 
 		foreach ( preg_split( '/\s*\|\s*/', $pages, -1, PREG_SPLIT_NO_EMPTY ) as $page ) {
-			$page = $this->titlePrefix . $page;
-			$info['pages'][] = $page;
+			$info['pages'][] = $this->titlePrefix . trim( $page );
 		}
 
 		return new Gadget( $info );
