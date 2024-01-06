@@ -20,15 +20,15 @@
 
 namespace MediaWiki\Extension\Gadgets\Special;
 
-use Html;
 use HTMLForm;
 use InvalidArgumentException;
 use MediaWiki\Extension\Gadgets\Gadget;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Parser\Sanitizer;
+use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
-use Sanitizer;
-use SpecialPage;
 use Xml;
 
 /**

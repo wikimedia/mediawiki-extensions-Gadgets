@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo;
+use MediaWiki\Title\Title;
 
 /**
  * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo

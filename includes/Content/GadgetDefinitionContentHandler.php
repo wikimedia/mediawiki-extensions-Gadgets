@@ -23,10 +23,10 @@ namespace MediaWiki\Extension\Gadgets\Content;
 use Content;
 use FormatJson;
 use JsonContentHandler;
-use Linker;
 use MediaWiki\Content\Renderer\ContentParseParams;
+use MediaWiki\Linker\Linker;
+use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
-use ParserOutput;
 
 class GadgetDefinitionContentHandler extends JsonContentHandler {
 	public function __construct() {

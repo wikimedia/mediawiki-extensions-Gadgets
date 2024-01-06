@@ -22,7 +22,7 @@ namespace MediaWiki\Extension\Gadgets\Content;
 
 use FormatJson;
 use JsonContent;
-use Status;
+use MediaWiki\Status\Status;
 
 class GadgetDefinitionContent extends JsonContent {
 

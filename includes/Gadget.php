@@ -23,8 +23,8 @@ namespace MediaWiki\Extension\Gadgets;
 use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\Authority;
+use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\User\UserIdentity;
-use ResourceLoader;
 use Skin;
 
 /**

@@ -20,11 +20,11 @@
 
 namespace MediaWiki\Extension\Gadgets\Special;
 
-use Html;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
+use MediaWiki\Html\Html;
+use MediaWiki\Output\OutputPage;
+use MediaWiki\SpecialPage\QueryPage;
 use MediaWiki\Title\TitleValue;
-use OutputPage;
-use QueryPage;
 use Skin;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;

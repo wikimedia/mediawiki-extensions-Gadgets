@@ -20,9 +20,9 @@
 
 namespace MediaWiki\Extension\Gadgets;
 
-use OutputPage;
+use MediaWiki\Output\OutputPage;
+use MediaWiki\User\User;
 use Skin;
-use User;
 
 /**
  * @author Siddharth VP

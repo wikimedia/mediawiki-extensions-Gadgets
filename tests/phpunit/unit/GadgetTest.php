@@ -1,6 +1,8 @@
 <?php
 
 use MediaWiki\Extension\Gadgets\Gadget;
+use MediaWiki\ResourceLoader\Module;
+use MediaWiki\User\User;
 
 /**
  * @group Gadgets
@@ -281,61 +283,61 @@ class GadgetTest extends MediaWikiUnitTestCase {
 				'Default (mixed)',
 				'* foo[ResourceLoader]|bar.css|bar.js',
 				'general',
-				ResourceLoaderModule::LOAD_GENERAL,
+				Module::LOAD_GENERAL,
 			],
 			[
 				'Default (styles only)',
 				'* foo[ResourceLoader]|bar.css',
 				'styles',
-				ResourceLoaderModule::LOAD_STYLES,
+				Module::LOAD_STYLES,
 			],
 			[
 				'Default (scripts only)',
 				'* foo[ResourceLoader]|bar.js',
 				'general',
-				ResourceLoaderModule::LOAD_GENERAL,
+				Module::LOAD_GENERAL,
 			],
 			[
 				'Default (styles only with dependencies)',
 				'* foo[ResourceLoader|dependencies=jquery.ui]|bar.css',
 				'general',
-				ResourceLoaderModule::LOAD_GENERAL,
+				Module::LOAD_GENERAL,
 			],
 			[
 				'Styles type (mixed)',
 				'* foo[ResourceLoader|type=styles]|bar.css|bar.js',
 				'styles',
-				ResourceLoaderModule::LOAD_STYLES,
+				Module::LOAD_STYLES,
 			],
 			[
 				'Styles type (styles only)',
 				'* foo[ResourceLoader|type=styles]|bar.css',
 				'styles',
-				ResourceLoaderModule::LOAD_STYLES,
+				Module::LOAD_STYLES,
 			],
 			[
 				'Styles type (scripts only)',
 				'* foo[ResourceLoader|type=styles]|bar.js',
 				'styles',
-				ResourceLoaderModule::LOAD_STYLES,
+				Module::LOAD_STYLES,
 			],
 			[
 				'General type (mixed)',
 				'* foo[ResourceLoader|type=general]|bar.css|bar.js',
 				'general',
-				ResourceLoaderModule::LOAD_GENERAL,
+				Module::LOAD_GENERAL,
 			],
 			[
 				'General type (styles only)',
 				'* foo[ResourceLoader|type=general]|bar.css',
 				'general',
-				ResourceLoaderModule::LOAD_GENERAL,
+				Module::LOAD_GENERAL,
 			],
 			[
 				'General type (scripts only)',
 				'* foo[ResourceLoader|type=general]|bar.js',
 				'general',
-				ResourceLoaderModule::LOAD_GENERAL,
+				Module::LOAD_GENERAL,
 			],
 		];
 	}

@@ -2,6 +2,8 @@
 
 use MediaWiki\Extension\Gadgets\Hooks as GadgetHooks;
 use MediaWiki\Extension\Gadgets\StaticGadgetRepo;
+use MediaWiki\Output\OutputPage;
+use MediaWiki\Title\Title;
 
 /**
  * @covers \MediaWiki\Extension\Gadgets\GadgetLoadConditions

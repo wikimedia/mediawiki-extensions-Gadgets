@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Gadgets\Content;
 
-use Status;
+use MediaWiki\Status\Status;
 
 /**
  * Class responsible for validating Gadget definition contents
