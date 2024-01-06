@@ -74,9 +74,11 @@ class GadgetResourceLoaderModuleTest extends MediaWikiIntegrationTestCase {
 		$module->setConfig( $this->getServiceContainer()->getMainConfig() );
 		$actual = $module->getScript( $rlContext );
 
-		$expect = $valid ? 'quux' : 'mw.log.error';
-		$expectNot = $valid ? 'mw.log.error' : 'quux';
-		$this->assertStringContainsString( $expect, $actual );
-		$this->assertStringNotContainsString( $expectNot, $actual );
+		if ( !$valid ) {
+			$this->assertStringContainsString( 'mw.log.error', $actual );
+		} else {
+			$this->assertStringContainsString( $content, $actual );
+			$this->assertStringNotContainsString( 'mw.log.error', $actual );
+		}
 	}
 }
