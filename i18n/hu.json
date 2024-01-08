@@ -37,6 +37,7 @@
 	"gadgets-export-text": "A(z) $1 segédeszköz exportálásához kattints a „{{int:gadgets-export-download}}“ gombra, mentsd el a fájlt, majd a célwikiben a Special:Import lapon töltsd fel. Ezután a MediaWiki:Gadgets-definition laphoz add hozzá a következőket:\n<pre>$2</pre>\nA célwikiben rendelkezned kell a megfelelő jogokkal (beleértve a rendszerüzenetek szerkesztését) és engedélyezve kell lennie a fájlimportálásnak.",
 	"gadgets-export-download": "Letöltés",
 	"gadgets-validate-notset": "A(z) <code>$1</code> tulajdonság nincs beállítva.",
+	"gadgets-validate-wrongtype": "A(z) <code>$1</code> tulajdonságnak <code>$2</code> típusúnak kell lennie, de <code>$3</code> típusú.",
 	"right-gadgets-edit": "segédeszközök JavaScript- és CSS-lapjainak szerkesztése",
 	"action-gadgets-edit": "ennek a segédeszköz-JavaScriptnek vagy -CSS-nek a szerkesztése",
 	"right-gadgets-definition-edit": "segédeszköz-definíciók szerkesztése",
