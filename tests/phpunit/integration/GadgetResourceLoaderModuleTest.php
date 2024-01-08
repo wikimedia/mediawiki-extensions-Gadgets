@@ -50,8 +50,7 @@ class GadgetResourceLoaderModuleTest extends MediaWikiIntegrationTestCase {
 
 	public static function provideValidateScript() {
 		yield 'valid ES5' => [ true, '[ResourceLoader]', 'var quux = function() {};' ];
-		// TODO: T75714
-		// yield 'valid ES6' => [ true, '[ResourceLoader]', 'let quux = (() => {})();' ];
+		yield 'valid ES6' => [ true, '[ResourceLoader]', 'let quux = (() => {})();' ];
 		yield 'invalid' => [ false, '[ResourceLoader]', 'boom quux = <3;' ];
 
 		yield 'requiresES6 allows ES5' => [ true, '[ResourceLoader|requiresES6]', 'var quux = function() {};' ];
