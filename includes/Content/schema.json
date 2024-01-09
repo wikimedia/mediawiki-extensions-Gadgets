@@ -39,8 +39,8 @@
 					"default": [ "desktop" ]
 				},
 				"skins": {
-					"description": "Skins supported by this gadget; empty or true if all skins are supported",
-					"type": [ "array", "boolean" ],
+					"description": "Skins supported by this gadget; empty if all skins are supported",
+					"type": "array",
 					"items": {
 						"type": "string"
 					}
