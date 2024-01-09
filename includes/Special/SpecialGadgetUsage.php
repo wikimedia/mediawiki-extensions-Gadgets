@@ -28,7 +28,9 @@ use MediaWiki\Title\TitleValue;
 use Skin;
 use stdClass;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IResultWrapper;
+use Wikimedia\Rdbms\LikeValue;
 
 /**
  * Special:GadgetUsage lists all the gadgets on the wiki along with number of users.
@@ -71,33 +73,38 @@ class SpecialGadgetUsage extends QueryPage {
 	 * This uses 1 of 2 possible queries, depending on $wgSpecialGadgetUsageActiveUsers.
 	 *
 	 * The simple query is essentially:
-	 * SELECT up_property, SUM(up_value)
+	 * SELECT up_property, COUNT(*)
 	 * FROM user_properties
-	 * WHERE up_property LIKE 'gadget-%'
+	 * WHERE up_property LIKE 'gadget-%' AND up_value NOT IN ('0','')
 	 * GROUP BY up_property;
 	 *
 	 * The more expensive query is:
-	 * SELECT up_property, SUM(up_value), count(qcc_title)
+	 * SELECT up_property, COUNT(*), count(qcc_title)
 	 * FROM user_properties
 	 * LEFT JOIN user ON up_user = user_id
-	 * LEFT JOIN querycachetwo ON user_name = qcc_title AND qcc_type = 'activeusers' AND up_value = 1
-	 * WHERE up_property LIKE 'gadget-%'
+	 * LEFT JOIN querycachetwo ON user_name = qcc_title AND qcc_type = 'activeusers'
+	 * WHERE up_property LIKE 'gadget-%' AND up_value NOT IN ('0','')
 	 * GROUP BY up_property;
 	 * @return array
 	 */
 	public function getQueryInfo() {
 		$dbr = wfGetDB( DB_REPLICA );
+
+		$conds = [
+			$dbr->expr( 'up_property', IExpression::LIKE, new LikeValue( 'gadget-', $dbr->anyString() ) ),
+			// Simulate php falsy condition to ignore disabled user preferences
+			$dbr->expr( 'up_value', '!=', [ '0', '' ] ),
+		];
+
 		if ( !$this->isActiveUsersEnabled() ) {
 			return [
 				'tables' => [ 'user_properties' ],
 				'fields' => [
 					'title' => 'up_property',
-					'value' => 'SUM( up_value )',
+					'value' => 'COUNT(*)',
 					'namespace' => NS_GADGET
 				],
-				'conds' => [
-					'up_property' . $dbr->buildLike( 'gadget-', $dbr->anyString() )
-				],
+				'conds' => $conds,
 				'options' => [
 					'GROUP BY' => [ 'up_property' ]
 				]
@@ -108,13 +115,11 @@ class SpecialGadgetUsage extends QueryPage {
 			'tables' => [ 'user_properties', 'user', 'querycachetwo' ],
 			'fields' => [
 				'title' => 'up_property',
-				'value' => 'SUM( up_value )',
+				'value' => 'COUNT(*)',
 				// Need to pick fields existing in the querycache table so that the results are cachable
 				'namespace' => 'COUNT( qcc_title )'
 			],
-			'conds' => [
-				'up_property' . $dbr->buildLike( 'gadget-', $dbr->anyString() )
-			],
+			'conds' => $conds,
 			'options' => [
 				'GROUP BY' => [ 'up_property' ]
 			],
@@ -127,8 +132,7 @@ class SpecialGadgetUsage extends QueryPage {
 				'querycachetwo' => [
 					'LEFT JOIN', [
 						'user_name = qcc_title',
-						'qcc_type = "activeusers"',
-						'up_value = 1'
+						'qcc_type' => 'activeusers',
 					]
 				]
 			]
