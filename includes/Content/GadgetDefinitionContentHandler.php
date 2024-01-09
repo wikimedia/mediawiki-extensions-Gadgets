@@ -48,7 +48,19 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 
 	public function makeEmptyContent() {
 		$class = $this->getContentClass();
-		return new $class( FormatJson::encode( $this->getDefaultMetadata(), "\t" ) );
+		return new $class( FormatJson::encode( $this->getEmptyDefinition(), "\t" ) );
+	}
+
+	public function getEmptyDefinition() {
+		return [
+			'settings' => [
+				'category' => '',
+			],
+			'module' => [
+				'pages' => [],
+				'dependencies' => [],
+			]
+		];
 	}
 
 	public function getDefaultMetadata() {
@@ -95,22 +107,28 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 					$this->makeLink( $parserOutput, $page, $title );
 				}
 			}
-			foreach ( $data->module->dependencies as &$dep ) {
-				if ( str_starts_with( $dep, 'ext.gadget.' ) ) {
-					$gadgetId = explode( 'ext.gadget.', $dep )[1];
-					$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $gadgetId );
-					$this->makeLink( $parserOutput, $dep, $title );
+			if ( isset( $data->module->dependencies ) ) {
+				foreach ( $data->module->dependencies as &$dep ) {
+					if ( str_starts_with( $dep, 'ext.gadget.' ) ) {
+						$gadgetId = explode( 'ext.gadget.', $dep )[ 1 ];
+						$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $gadgetId );
+						$this->makeLink( $parserOutput, $dep, $title );
+					}
 				}
 			}
-			foreach ( $data->module->peers as &$peer ) {
-				$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $peer );
-				$this->makeLink( $parserOutput, $peer, $title );
+			if ( isset( $data->module->peers ) ) {
+				foreach ( $data->module->peers as &$peer ) {
+					$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $peer );
+					$this->makeLink( $parserOutput, $peer, $title );
+				}
 			}
-			foreach ( $data->module->messages as &$msg ) {
-				$title = Title::makeTitleSafe( NS_MEDIAWIKI, $msg );
-				$this->makeLink( $parserOutput, $msg, $title );
+			if ( isset( $data->module->messages ) ) {
+				foreach ( $data->module->messages as &$msg ) {
+					$title = Title::makeTitleSafe( NS_MEDIAWIKI, $msg );
+					$this->makeLink( $parserOutput, $msg, $title );
+				}
 			}
-			if ( $data->settings->category ) {
+			if ( isset( $data->settings->category ) && $data->settings->category ) {
 				$this->makeLink(
 					$parserOutput,
 					$data->settings->category,
