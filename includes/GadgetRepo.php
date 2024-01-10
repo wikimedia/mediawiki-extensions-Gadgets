@@ -7,7 +7,6 @@ use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use Message;
-use RequestContext;
 
 abstract class GadgetRepo {
 
@@ -211,7 +210,6 @@ abstract class GadgetRepo {
 	 * @param string $message
 	 */
 	private function maybeAddWarnings( array $entries, callable $isInvalid, array &$warnings, string $message ) {
-		$lang = RequestContext::getMain()->getLanguage();
 		$invalidEntries = [];
 		foreach ( $entries as $entry ) {
 			if ( $isInvalid( $entry ) ) {
@@ -219,7 +217,9 @@ abstract class GadgetRepo {
 			}
 		}
 		if ( count( $invalidEntries ) ) {
-			$warnings[] = wfMessage( $message, $lang->commaList( $invalidEntries ), count( $invalidEntries ) );
+			$warnings[] = wfMessage( $message,
+				Message::listParam( $invalidEntries, 'comma' ),
+				count( $invalidEntries ) );
 		}
 	}
 
