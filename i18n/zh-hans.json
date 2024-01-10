@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Anakmalaysia",
+			"Anterdc99",
 			"Bencmq",
 			"Dimension",
 			"Diskdance",
@@ -64,10 +65,28 @@
 	"gadgets-export-download": "下载",
 	"gadgets-requires-es6": "此小工具仅在兼容ES6的浏览器上受支持",
 	"gadgets-validate-notset": "未设置属性<code>$1</code>。",
-	"gadgets-validate-wrongtype": "属性<code>$1</code>的类型必须为<code>$2</code>，而不是<code>$3</code>。",
+	"gadgets-validate-wrongtype": "属性<code>$1</code>必须为<code>$2</code>，而不是<code>$3</code>。",
+	"gadgets-validate-json": "JSON文件已指定但未使用。它们仅在被封装的小工具中有效。",
+	"gadgets-validate-es6default": "需要ES6的小工具无法默认启用。",
+	"gadgets-validate-noentrypoint": "由于未指定脚本文件，package标志被忽略。",
+	"gadgets-validate-noscripts": "此小工具设置了<code>type=styles</code>，因此脚本会被忽略。",
+	"gadgets-validate-stylepeers": "由于这是一个仅样式的小工具，对等小工具将被忽略。设置<code>type=general</code>以覆盖。",
+	"gadgets-validate-scriptsnotallowed": "此小工具设置了<code>type=styles</code>，因此不使用脚本和数据文件。",
+	"gadgets-validate-invalidjs": "由于内容模型“$2”无效，脚本$1未使用。",
+	"gadgets-validate-invalidcss": "由于内容模型“$2”无效，样式表$1未使用。",
+	"gadgets-validate-invalidjson": "由于内容模型“$2”无效，数据页$1未使用。",
+	"gadgets-validate-nopeer": "对等小工具“$1”被忽略，因为它不存在。",
+	"gadgets-validate-invalidpeer": "对等小工具“$1”被忽略，因为它不是仅样式的小工具。",
+	"gadgets-validate-invalidactions": "无法识别以下{{PLURAL:$2|操作}}：$1",
+	"gadgets-validate-invalidcontentmodels": "以下{{PLURAL:$2|内容模型}}不存在：$1",
+	"gadgets-validate-invalidnamespaces": "以下命名空间{{PLURAL:$2|编号}}不存在：$1",
+	"gadgets-validate-invalidtargets": "允许的targets值：mobile、desktop。发现了无效的{{PLURAL:$2|值}}：$1",
+	"gadgets-validate-invalidtitle": "页面标题“$1”无效",
+	"gadgets-validate-unknownpages": "包含一个或多个不带.js、.css或.json后缀的页面。它们不会被使用。",
 	"gadgets-validate-nopage": "页面“$1”不存在。",
 	"right-gadgets-definition-edit": "编辑小工具定义",
 	"action-gadgets-definition-edit": "编辑此小工具的定义",
 	"gadgets-wrong-contentmodel": "{{ns:2302}}命名空间内的页面必须是小工具定义内容模型。",
-	"gadgets-supports-urlload": "此小工具支持通过包含<code>?withgadget</code>查询的URL来加载。"
+	"gadgets-supports-urlload": "此小工具支持通过包含<code>?withgadget</code>查询的URL来加载。",
+	"gadgets-protected": "您无权编辑{{ns:2300}}命名空间中的页面。"
 }
