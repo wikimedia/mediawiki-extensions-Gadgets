@@ -106,7 +106,9 @@ abstract class GadgetRepo {
 			return wfMessage( $warningMsgKey );
 		}, $warningMsgKeys );
 
-		// Check for invalid values in namespaces, targets and contentModels
+		// Check for invalid values in skins, rights, namespaces, targets and contentModels
+		$this->checkInvalidLoadConditions( $gadget, 'skins', $warnings );
+		$this->checkInvalidLoadConditions( $gadget, 'rights', $warnings );
 		$this->checkInvalidLoadConditions( $gadget, 'namespaces', $warnings );
 		$this->checkInvalidLoadConditions( $gadget, 'targets', $warnings );
 		$this->checkInvalidLoadConditions( $gadget, 'contentModels', $warnings );
@@ -171,6 +173,22 @@ abstract class GadgetRepo {
 	 */
 	private function checkInvalidLoadConditions( Gadget $gadget, string $condition, array &$warnings ) {
 		switch ( $condition ) {
+			case 'skins':
+				$allSkins = array_keys( MediaWikiServices::getInstance()->getSkinFactory()->getInstalledSkins() );
+				$this->maybeAddWarnings( $gadget->getRequiredSkins(),
+					static function ( $skin ) use ( $allSkins ) {
+						return !in_array( $skin, $allSkins, true );
+					}, $warnings, "gadgets-validate-invalidskins" );
+				break;
+
+			case 'rights':
+				$allPerms = MediaWikiServices::getInstance()->getPermissionManager()->getAllPermissions();
+				$this->maybeAddWarnings( $gadget->getRequiredRights(),
+					static function ( $right ) use ( $allPerms ) {
+						return !in_array( $right, $allPerms, true );
+					}, $warnings, "gadgets-validate-invalidrights" );
+				break;
+
 			case 'namespaces':
 				$nsInfo = MediaWikiServices::getInstance()->getNamespaceInfo();
 				$this->maybeAddWarnings( $gadget->getRequiredNamespaces(),

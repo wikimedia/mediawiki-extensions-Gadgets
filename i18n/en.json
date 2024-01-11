@@ -55,6 +55,8 @@
 	"gadgets-validate-invalidcontentmodels": "The following content {{PLURAL:$2|model does|models do}} not exist: $1",
 	"gadgets-validate-invalidnamespaces": "The following namespace {{PLURAL:$2|number does|numbers do}} not exist: $1",
 	"gadgets-validate-invalidtargets": "Allowed values for targets are: mobile, desktop. Found invalid {{PLURAL:$2|value|values}}: $1",
+	"gadgets-validate-invalidskins": "The following {{PLURAL:$2|skin does|skins do}} not exist: $1",
+	"gadgets-validate-invalidrights": "The following {{PLURAL:$2|right does|rights do}} not exist: $1",
 	"gadgets-validate-invalidtitle": "Page title \"$1\" is invalid",
 	"gadgets-validate-unknownpages": "Contains one or more pages without .js, .css or .json suffix. They would not be used.",
 	"gadgets-validate-nopage": "Page \"$1\" does not exist.",
