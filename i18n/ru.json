@@ -55,7 +55,7 @@
 	"gadgets-export-download": "Скачать",
 	"gadgets-requires-es6": "Этот гаджет поддерживается только в браузерах, совместимых с ES6.",
 	"gadgets-validate-notset": "Свойство <code>$1</code> не установлено.",
-	"gadgets-validate-wrongtype": "Свойство <code>$1</code> должно иметь тип <code>$2</code> вместо типа <code>$3</code>.",
+	"gadgets-validate-wrongtype": "Свойство <code>$1</code> должно иметь <code>$2</code> вместо <code>$3</code>.",
 	"right-gadgets-definition-edit": "Правка описаний гаджетов",
 	"action-gadgets-definition-edit": "редактирование определения этого гаджета",
 	"gadgets-wrong-contentmodel": "Страницы в пространстве имён {{ns:2302}} должны иметь модель содержимого GadgetDefinition.",
