@@ -37,8 +37,8 @@
 	"gadgets-viewdescription": "Ver descrição",
 	"gadgets-uses": "Usos",
 	"gadgets-required-rights": "Requer {{PLURAL:$2|o seguinte privilégio|os seguintes privilégios}}:\n\n$1",
-	"gadgets-required-skins": "Disponível {{PLURAL:$2|no skin $1|nos seguintes skins: $1}}.",
-	"gadgets-required-actions": "Funciona {{PLURAL:$2|na ação de página \"$1\"|nas seguintes ações de página: $1}}",
+	"gadgets-required-skins": "Disponível {{PLURAL:$2|para o skin $1|para os seguintes skins: $1}}.",
+	"gadgets-required-actions": "Limitado {{PLURAL:$2|à ação de página \"$1\"|às seguintes ações de página: $1}}",
 	"gadgets-default": "Ativado para todos por padrão.",
 	"gadgets-legacy": "O gadget não está carregado. Por favor, migre para ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Mais informacões])",
 	"gadgets-packaged": "Este gadget está [https://www.mediawiki.org/wiki/ResourceLoader/Package_files empacotado], com o ponto de entrada sendo $1",
@@ -49,9 +49,11 @@
 	"gadgets-export-download": "Baixar",
 	"gadgets-requires-es6": "Este gadget é suportado apenas por navegadores compatíveis com ES6",
 	"gadgets-validate-notset": "A propriedade <code>$1</code> não está definida.",
-	"gadgets-validate-wrongtype": "A propriedade <code>$1</code> deve ser do tipo <code>$2</code> em vez de <code>$3</code>.",
+	"gadgets-validate-wrongtype": "A propriedade <code>$1</code> deve ser <code>$2</code> em vez de <code>$3</code>.",
+	"gadgets-validate-nopage": "A página \"$1\" não existe.",
 	"right-gadgets-definition-edit": "Editar as definições dos gadgets",
 	"action-gadgets-definition-edit": "editar a definição deste gadget",
 	"gadgets-wrong-contentmodel": "As páginas no espaço nominal {{ns:2302}} devem ser do modelo de conteúdo GadgetDefinition.",
-	"gadgets-supports-urlload": "Este gadget oferece suporte ao carregamento via URL com o parâmetro de consulta <code>?withgadget</code>."
+	"gadgets-supports-urlload": "Este gadget oferece suporte ao carregamento via URL com o parâmetro de consulta <code>?withgadget</code>.",
+	"gadgets-protected": "Você não possui permissão para editar páginas no namespace {{ns:2300}}."
 }

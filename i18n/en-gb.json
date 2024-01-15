@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Drkirstyross"
+		]
+	},
+	"gadgets-validate-invalidskins": "The following {{PLURAL:$2|skin does|skins do}} not exist: $1",
+	"gadgets-validate-invalidrights": "The following {{PLURAL:$2|right does|rights do}} not exist: $1"
+}
