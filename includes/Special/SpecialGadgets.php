@@ -29,7 +29,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
-use Xml;
 
 /**
  * Special:Gadgets renders the data of MediaWiki:Gadgets-definition.
@@ -112,7 +111,7 @@ class SpecialGadgets extends SpecialPage {
 				$ttext = $this->msg( "gadget-section-$section" )->parse();
 
 				if ( $listOpen ) {
-					$output->addHTML( Xml::closeElement( 'ul' ) . "\n" );
+					$output->addHTML( Html::closeElement( 'ul' ) . "\n" );
 					$listOpen = false;
 				}
 
