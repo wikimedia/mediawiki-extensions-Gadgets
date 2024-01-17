@@ -101,20 +101,19 @@ class SpecialGadgets extends SpecialPage {
 		$skinFactory = $services->getSkinFactory();
 		foreach ( $gadgets as $section => $entries ) {
 			if ( $section !== false && $section !== '' ) {
+				if ( $listOpen ) {
+					$output->addHTML( Html::closeElement( 'ul' ) . "\n" );
+					$listOpen = false;
+				}
+
+				// H2 section heading
 				$title = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-section-$section$langSuffix" );
 				$linkTarget = $title
 					? $linkRenderer->makeLink( $title, $this->msg( $editInterfaceMessage )->text(),
 						[], [ 'action' => 'edit' ] )
 					: htmlspecialchars( $section );
 				$links = "&#160; &#160; [$linkTarget]";
-
 				$headingText = $this->msg( "gadget-section-$section" )->parse();
-
-				if ( $listOpen ) {
-					$output->addHTML( Html::closeElement( 'ul' ) . "\n" );
-					$listOpen = false;
-				}
-
 				$output->addHTML( Html::rawElement( 'h2', [], $headingText . $links ) . "\n" );
 			}
 
