@@ -102,21 +102,21 @@ class SpecialGadgets extends SpecialPage {
 		$skinFactory = $services->getSkinFactory();
 		foreach ( $gadgets as $section => $entries ) {
 			if ( $section !== false && $section !== '' ) {
-				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-section-$section$langSuffix" );
-				$lnkTarget = $t
-					? $linkRenderer->makeLink( $t, $this->msg( $editInterfaceMessage )->text(),
+				$title = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-section-$section$langSuffix" );
+				$linkTarget = $title
+					? $linkRenderer->makeLink( $title, $this->msg( $editInterfaceMessage )->text(),
 						[], [ 'action' => 'edit' ] )
 					: htmlspecialchars( $section );
-				$lnk = "&#160; &#160; [$lnkTarget]";
+				$links = "&#160; &#160; [$linkTarget]";
 
-				$ttext = $this->msg( "gadget-section-$section" )->parse();
+				$headingText = $this->msg( "gadget-section-$section" )->parse();
 
 				if ( $listOpen ) {
 					$output->addHTML( Xml::closeElement( 'ul' ) . "\n" );
 					$listOpen = false;
 				}
 
-				$output->addHTML( Html::rawElement( 'h2', [], $ttext . $lnk ) . "\n" );
+				$output->addHTML( Html::rawElement( 'h2', [], $headingText . $links ) . "\n" );
 			}
 
 			/**
@@ -124,8 +124,8 @@ class SpecialGadgets extends SpecialPage {
 			 */
 			foreach ( $entries as $gadget ) {
 				$name = $gadget->getName();
-				$t = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-{$name}$langSuffix" );
-				if ( !$t ) {
+				$title = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-{$name}$langSuffix" );
+				if ( !$title ) {
 					continue;
 				}
 
@@ -140,7 +140,7 @@ class SpecialGadgets extends SpecialPage {
 					);
 				}
 				$links[] = $linkRenderer->makeLink(
-					$t,
+					$title,
 					$this->msg( $editInterfaceMessage )->text(),
 					[],
 					[ 'action' => 'edit' ]
@@ -176,22 +176,22 @@ class SpecialGadgets extends SpecialPage {
 					$this->msg( 'gadgets-uses' )->escaped() .
 					$this->msg( 'colon-separator' )->escaped()
 				);
-				$lnk = [];
+				$links = [];
 				foreach ( $gadget->getPeers() as $peer ) {
-					$lnk[] = Html::element(
+					$links[] = Html::element(
 						'a',
 						[ 'href' => '#' . $this->makeAnchor( $peer ) ],
 						$peer
 					);
 				}
 				foreach ( $gadget->getScriptsAndStyles() as $codePage ) {
-					$t = Title::newFromText( $codePage );
-					if ( !$t ) {
+					$title = Title::newFromText( $codePage );
+					if ( !$title ) {
 						continue;
 					}
-					$lnk[] = $linkRenderer->makeLink( $t, $t->getText() );
+					$links[] = $linkRenderer->makeLink( $title, $title->getText() );
 				}
-				$output->addHTML( $lang->commaList( $lnk ) );
+				$output->addHTML( $lang->commaList( $links ) );
 
 				if ( $gadget->isPackaged() ) {
 					if ( $needLineBreakAfter ) {
