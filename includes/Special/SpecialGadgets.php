@@ -120,7 +120,7 @@ class SpecialGadgets extends SpecialPage {
 			}
 
 			/**
-			 * @var $gadget Gadget
+			 * @var Gadget $gadget
 			 */
 			foreach ( $entries as $gadget ) {
 				$name = $gadget->getName();
