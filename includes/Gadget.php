@@ -66,8 +66,6 @@ class Gadget {
 	private $requiredNamespaces = [];
 	/** @var string[] */
 	private $requiredContentModels = [];
-	/** @var string[] used in Gadget::isTargetSupported */
-	private $targets = [ 'desktop', 'mobile' ];
 	/** @var bool */
 	private $onByDefault = false;
 	/** @var bool */
@@ -97,7 +95,6 @@ class Gadget {
 				case 'requiredSkins':
 				case 'requiredNamespaces':
 				case 'requiredContentModels':
-				case 'targets':
 				case 'onByDefault':
 				case 'type':
 				case 'hidden':
@@ -142,7 +139,6 @@ class Gadget {
 			'requiresES6' => $data['settings']['requiresES6'],
 			'resourceLoaded' => true,
 			'supportsUrlLoad' => $data['settings']['supportsUrlLoad'],
-			'targets' => $data['settings']['targets'],
 			'type' => $data['module']['type'],
 		];
 	}
@@ -170,7 +166,6 @@ class Gadget {
 			'requiresES6' => $this->requiresES6,
 			'resourceLoaded' => $this->resourceLoaded,
 			'supportsUrlLoad' => $this->supportsUrlLoad,
-			'targets' => $this->targets,
 			'type' => $this->type,
 			// Legacy  (specific to MediaWikiGadgetsDefinitionRepo)
 			'definition' => $this->definition,
@@ -309,15 +304,6 @@ class Gadget {
 	 */
 	public function isNamespaceSupported( int $namespace ) {
 		return !$this->requiredNamespaces || in_array( $namespace, $this->requiredNamespaces );
-	}
-
-	/**
-	 * Check whether the gadget should load on the mobile domain based on its definition.
-	 *
-	 * @return bool
-	 */
-	public function isTargetSupported( bool $isMobileView ): bool {
-		return in_array( $isMobileView ? 'mobile' : 'desktop', $this->targets, true );
 	}
 
 	/**

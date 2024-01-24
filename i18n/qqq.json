@@ -69,7 +69,6 @@
 	"gadgets-validate-invalidactions": "Warning message to indicate that the actions are not recognised. Parameters:\n* $1 - comma separated list of invalid actions, $2 - number of items in list $1",
 	"gadgets-validate-invalidcontentmodels": "Warning message to indicate that the content models are not recognised. Parameters:\n* $1 - comma separated list of invalid content models, $2 - number of items in list $1",
 	"gadgets-validate-invalidnamespaces": "Warning message to indicate that the namespaces are not recognised. Parameters:\n* $1 - comma separated list of invalid namespaces, $2 - number of items in list $1",
-	"gadgets-validate-invalidtargets": "Warning message to indicate that the targets are not recognised. Parameters:\n* $1 - comma separated list of invalid targets, $2 - number of items in list $1",
 	"gadgets-validate-invalidskins": "Warning message to indicate that the skins are not recognised. Parameters:\n* $1 - comma separated list of invalid skins, $2 - number of items in list $1",
 	"gadgets-validate-invalidrights": "Warning message to indicate that the rights are not recognised. Parameters:\n* $1 - comma separated list of invalid rights, $2 - number of items in list $1",
 	"gadgets-validate-invalidtitle": "Warning message to indicate that the page title is invalid. Parameters:\n* $1 - page name",

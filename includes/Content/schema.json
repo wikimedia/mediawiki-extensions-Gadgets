@@ -30,14 +30,6 @@
 					"type": "boolean",
 					"default": false
 				},
-				"targets": {
-					"description": "List of ResourceLoader targets the module can run on",
-					"type": "array",
-					"items": {
-						"type": "string"
-					},
-					"default": [ "desktop" ]
-				},
 				"skins": {
 					"description": "Skins supported by this gadget; empty if all skins are supported",
 					"type": "array",

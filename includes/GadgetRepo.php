@@ -106,11 +106,10 @@ abstract class GadgetRepo {
 			return wfMessage( $warningMsgKey );
 		}, $warningMsgKeys );
 
-		// Check for invalid values in skins, rights, namespaces, targets and contentModels
+		// Check for invalid values in skins, rights, namespaces, and contentModels
 		$this->checkInvalidLoadConditions( $gadget, 'skins', $warnings );
 		$this->checkInvalidLoadConditions( $gadget, 'rights', $warnings );
 		$this->checkInvalidLoadConditions( $gadget, 'namespaces', $warnings );
-		$this->checkInvalidLoadConditions( $gadget, 'targets', $warnings );
 		$this->checkInvalidLoadConditions( $gadget, 'contentModels', $warnings );
 
 		// Peer gadgets not being styles-only gadgets, or not being defined at all
@@ -195,14 +194,6 @@ abstract class GadgetRepo {
 					static function ( $ns ) use ( $nsInfo ) {
 						return !$nsInfo->exists( $ns );
 					}, $warnings, "gadgets-validate-invalidnamespaces"
-				);
-				break;
-
-			case 'targets':
-				$this->maybeAddWarnings( $gadget->toArray()['targets'],
-					static function ( $target ) {
-						return $target !== 'mobile' && $target !== 'desktop';
-					}, $warnings, "gadgets-validate-invalidtargets"
 				);
 				break;
 

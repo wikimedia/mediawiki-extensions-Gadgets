@@ -31,7 +31,6 @@ class GadgetTest extends MediaWikiUnitTestCase {
 				'package' => true,
 				'hidden' => false,
 				'actions' => [],
-				'targets' => [ 'desktop' ],
 				'skins' => [],
 				'namespaces' => [],
 				'contentModels' => [],
@@ -239,20 +238,6 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$this->assertTrue( $gModelCode->isContentModelSupported( 'javascript' ) );
 		$this->assertTrue( $gModelCode->isContentModelSupported( 'css' ) );
 		$this->assertFalse( $gModelCode->isContentModelSupported( 'wikitext' ) );
-	}
-
-	/**
-	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo::newFromDefinition
-	 */
-	public function testGadgetTargets() {
-		$gadget = new Gadget( [
-			'targets' => [ 'desktop' ]
-		] );
-
-		$this->assertFalse( $gadget->isTargetSupported( true ),
-			'Desktop-targeted code is not shipped in mobile mode.' );
-		$this->assertTrue( $gadget->isTargetSupported( false ),
-			'Desktop-targeted code is shipped in desktop mode.' );
 	}
 
 	/**

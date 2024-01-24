@@ -72,7 +72,6 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 				'requiresES6' => false,
 				'hidden' => false,
 				'skins' => [],
-				'targets' => [ 'desktop', 'mobile' ],
 				'actions' => [],
 				'namespaces' => [],
 				'contentModels' => [],

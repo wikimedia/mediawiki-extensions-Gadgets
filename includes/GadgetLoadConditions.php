@@ -68,7 +68,6 @@ class GadgetLoadConditions {
 			&& $gadget->isActionSupported( $this->action )
 			&& $gadget->isSkinSupported( $this->skin )
 			&& $gadget->isNamespaceSupported( $this->namespace )
-			&& $gadget->isContentModelSupported( $this->contentModel )
-			&& $gadget->isTargetSupported( $this->isMobileView );
+			&& $gadget->isContentModelSupported( $this->contentModel );
 	}
 }

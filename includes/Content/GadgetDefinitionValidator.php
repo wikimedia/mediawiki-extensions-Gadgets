@@ -22,7 +22,6 @@ class GadgetDefinitionValidator {
 		'settings.hidden' => [ 'is_bool', 'boolean' ],
 		'settings.package' => [ 'is_bool', 'boolean' ],
 		'settings.skins' => [ 'is_array', 'array', 'is_string', 'string' ],
-		'settings.targets' => [ 'is_array', 'array', [ __CLASS__, 'isValidTarget' ], 'desktop or mobile' ],
 		'settings.actions' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'settings.namespaces' => [ 'is_array', 'array', 'is_int', 'integer' ],
 		'settings.contentModels' => [ 'is_array', 'array', 'is_string', 'string' ],
@@ -36,10 +35,6 @@ class GadgetDefinitionValidator {
 		'module.messages' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'module.type' => [ [ __CLASS__, 'isValidType' ], 'general or styles' ],
 	];
-
-	public static function isValidTarget( string $target ): bool {
-		return $target === 'desktop' || $target === 'mobile';
-	}
 
 	public static function isValidTitleSuffix( string $title ): bool {
 		return str_ends_with( $title, '.js' ) || str_ends_with( $title, '.css' ) || str_ends_with( $title, '.json' );

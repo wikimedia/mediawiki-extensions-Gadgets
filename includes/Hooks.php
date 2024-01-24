@@ -214,7 +214,6 @@ class Hooks implements
 					!$safeMode
 					&& !$gadget->isHidden()
 					&& $gadget->isAllowed( $user )
-					&& $gadget->isTargetSupported( $isMobileView )
 					&& $gadget->isSkinSupported( $skin )
 				) {
 					$type = 'check';
