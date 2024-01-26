@@ -57,7 +57,6 @@ use MediaWiki\User\Hook\UserGetDefaultOptionsHook;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
 use MessageSpecifier;
-use MobileContext;
 use OOUI\HtmlSnippet;
 use RequestContext;
 use Skin;
@@ -83,18 +82,13 @@ class Hooks implements
 {
 	private GadgetRepo $gadgetRepo;
 	private UserOptionsLookup $userOptionsLookup;
-	/** @phan-suppress-next-line PhanUndeclaredTypeProperty */
-	private ?MobileContext $mobileContext;
 
 	public function __construct(
 		GadgetRepo $gadgetRepo,
-		UserOptionsLookup $userOptionsLookup,
-		// @phan-suppress-next-line PhanUndeclaredTypeParameter
-		?MobileContext $mobileContext
+		UserOptionsLookup $userOptionsLookup
 	) {
 		$this->gadgetRepo = $gadgetRepo;
 		$this->userOptionsLookup = $userOptionsLookup;
-		$this->mobileContext = $mobileContext;
 	}
 
 	/**
@@ -167,16 +161,6 @@ class Hooks implements
 	}
 
 	/**
-	 * Check whether the gadget should load on the mobile domain based on its definition.
-	 *
-	 * @return bool
-	 */
-	private function isMobileView(): bool {
-		// @phan-suppress-next-line PhanUndeclaredClassMethod
-		return $this->mobileContext && $this->mobileContext->shouldDisplayMobileView();
-	}
-
-	/**
 	 * GetPreferences hook handler.
 	 * @param User $user
 	 * @param array &$preferences Preference descriptions
@@ -205,7 +189,6 @@ class Hooks implements
 		}
 
 		$skin = RequestContext::getMain()->getSkin();
-		$isMobileView = $this->isMobileView();
 		foreach ( $gadgets as $section => $thisSection ) {
 			foreach ( $thisSection as $gadget ) {
 				// Only show option to enable gadget if it can be enabled
@@ -281,13 +264,12 @@ class Hooks implements
 	public function onBeforePageDisplay( $out, $skin ): void {
 		$repo = $this->gadgetRepo;
 		$ids = $repo->getGadgetIds();
-		$isMobileView = $this->isMobileView();
 		if ( !$ids ) {
 			return;
 		}
 
 		$enabledLegacyGadgets = [];
-		$conditions = new GadgetLoadConditions( $out, $isMobileView );
+		$conditions = new GadgetLoadConditions( $out );
 
 		/**
 		 * @var $gadget Gadget

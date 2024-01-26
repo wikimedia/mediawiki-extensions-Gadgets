@@ -96,9 +96,6 @@
 			"services": [
 				"GadgetsRepo",
 				"UserOptionsLookup"
-			],
-			"optional_services": [
-				"MobileFrontend.Context"
 			]
 		},
 		"GadgetCodeEditorHooks": {
