@@ -61,7 +61,6 @@
 	"gadgets-validate-invalidactions": "{{PLURAL:$2|A seguinte operação não é reconhecida|As seguintes operações não são reconhecidas}}: $1",
 	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|O seguinte modelo de conteúdo não existe|Os seguintes modelos de conteúdo não existem}}: $1",
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|O seguinte número de espaço nominal não existe|Os seguintes números de espaços nominais não existem}}: $1",
-	"gadgets-validate-invalidtargets": "Os valores permitidos como destinos são: móvel, secretária. {{PLURAL:$2|Foi encontrado o valor inválido|Foram encontrados os valores inválidos}}: $1",
 	"gadgets-validate-invalidskins": "{{PLURAL:$2|O seguinte tema não existe|Os seguintes temas não existem}}: $1.",
 	"gadgets-validate-invalidrights": "{{PLURAL:$2|O seguinte direito não existe|Os seguintes direitos não existem}}: $1",
 	"gadgets-validate-invalidtitle": "O título de página \"$1\" é inválido",

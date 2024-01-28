@@ -70,7 +70,6 @@
 	"gadgets-validate-invalidactions": "Şu {{PLURAL:$2|eylem|eylemler}} tanınmıyor: $1",
 	"gadgets-validate-invalidcontentmodels": "Şu içerik {{PLURAL:$2|modeli|modelleri}} yok: $1",
 	"gadgets-validate-invalidnamespaces": "Şu ad alanı {{PLURAL:$2|numarası|numaraları}} yok: $1",
-	"gadgets-validate-invalidtargets": "Hedefler için izin verilen değerler şunlardır: taşınabilir, masaüstü. Geçersiz {{PLURAL:$2|değer|değerler}} bulundu: $1",
 	"gadgets-validate-invalidskins": "Şu {{PLURAL:$2|görünüm|görünümler}} yok: $1",
 	"gadgets-validate-invalidrights": "Şu {{PLURAL:$2|hak|haklar}} yok: $1",
 	"gadgets-validate-invalidtitle": "\"$1\" sayfa başlığı geçersiz",

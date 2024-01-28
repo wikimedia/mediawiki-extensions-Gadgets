@@ -57,7 +57,6 @@
 	"gadgets-validate-invalidactions": "{{PLURAL:$2|הפעולה הבאה אינה מוכרת|הפעולות הבאות אינן מוכרות}}: $1",
 	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|מודל התוכן הבא אינו קיים|מודלי התוכן הבאים אינם קיימים}}: $1",
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|מספר מרחב השם הבא אינו קיים|מספרי מרחב השם הבאים אינם קיימים}}: $1",
-	"gadgets-validate-invalidtargets": "הערכים המותרים עבור יעדים הם: mobile‏‏, desktop. {{PLURAL:$2|נמצא ערך בלתי־תקין|נמצאו ערכים בלתי־תקינים}}: $1",
 	"gadgets-validate-invalidskins": "{{PLURAL:$2|העיצוב הבא אינו קיים|העיצובים הבאים אינם קיימים}}: $1.",
 	"gadgets-validate-invalidrights": "{{PLURAL:$2|ההרשאה הבאה אינה קיימת|ההרשאות הבאות אינן קיימות}}: $1.",
 	"gadgets-validate-invalidtitle": "כותרת הדף \"$1\" אינה תקינה",

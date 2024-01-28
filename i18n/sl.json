@@ -57,7 +57,6 @@
 	"gadgets-validate-invalidactions": "{{PLURAL:$2|one=Naslednje dejanje ni prepoznano|two=Naslednji dejanji nista prepoznani|few=Naslednja dejanja niso prepoznana|Naslednja dejanja niso prepoznana}}: $1",
 	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|one=Naslednji vsebinski model ne obstaja|two=Naslednja vsebinska modela ne obstajata|few=Naslednji vsebinski modeli ne obstajajo|Naslednji vsebinski modeli ne obstajajo}}: $1",
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|one=Naslednja številka imenskega prostora ne obstaja|two=Naslednji številki imenskih prostorov ne obstajata|few=Naslednje številke imenskih prostorov ne obstajajo|Naslednje številke imenskih prostorov ne obstajajo}}: $1",
-	"gadgets-validate-invalidtargets": "Dovoljene vrednosti za cilje so: mobile, desktop.  {{PLURAL:$2|one=Najdena je bila neveljavna vrednost|two=Najdeni sta bili neveljavni vrednosti|few=Najdene so bile neveljavne vrednosti|Najdene so bile neveljavne vrednosti}}: $1",
 	"gadgets-validate-invalidskins": "{{PLURAL:$2|Naslednja preobleka ne obstaja|Naslednji preobleki ne obstajata|Naslednje preobleke ne obstajajo}}: $1.",
 	"gadgets-validate-invalidrights": "{{PLURAL:$2|Naslednja pravica ne obstaja|Naslednji pravici ne obstajata|Naslednje pravice ne obstajajo}}: $1.",
 	"gadgets-validate-invalidtitle": "Naslov strani »$1« ni veljaven",

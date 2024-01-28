@@ -64,7 +64,6 @@
 	"gadgets-validate-invalidactions": "{{PLURAL:$2|Die folgende Aktion wird|Die folgenden Aktionen werden}} nicht erkannt: $1",
 	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|Das folgende Inhaltmodell existiert|Die folgenden Inhaltsmodelle existieren}} nicht: $1",
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|Die folgende Namensraumnummer existiert|Die folgenden Namensraumnummern existieren}} nicht: $1",
-	"gadgets-validate-invalidtargets": "Zulässige Werte für Ziele sind: mobile, desktop. Für ungültig {{PLURAL:$2|befundener Wert|befundene Werte}}: $1",
 	"gadgets-validate-invalidskins": "{{PLURAL:$2|Der folgende Skin existiert|Die folgenden Skins existieren}} nicht: $1",
 	"gadgets-validate-invalidrights": "{{PLURAL:$2|Das folgende Benutzerrecht existiert|Die folgenden Benutzerrechte existieren}} nicht: $1",
 	"gadgets-validate-invalidtitle": "Der Seitentitel „$1“ ist ungültig",

@@ -54,7 +54,6 @@
 	"gadgets-validate-invalidactions": "{{PLURAL:$2|Следново дејство не е препознаено|Следниве дејства не се препознаени}}: $1",
 	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|Следниов содржински модел не постои|Следниве содржински модели не постојат}}: $1",
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|Следниов број на именски простор не постои|Следниве броеви на именски простори не постои}}: $1",
-	"gadgets-validate-invalidtargets": "Допуштени вредности за целите се: mobile, desktop. Најдов {{PLURAL:$2|неважечка вредност|неважечки вредности}}: $1",
 	"gadgets-validate-invalidskins": "{{PLURAL:$2|Следново руво не постои|Следниве рува не постојат}}: $1",
 	"gadgets-validate-invalidrights": "{{PLURAL:$2|Следново право не постои|Следниве права не постојат}}: $1",
 	"gadgets-validate-invalidtitle": "„$1“ е неважечки наслов на страница",

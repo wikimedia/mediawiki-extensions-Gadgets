@@ -18,7 +18,6 @@
 	"gadgets-validate-invalidactions": "Yɛlɛ ama {{PLURAL:$2|action is|eebore}} ba leɛ teɛrɛ: $1",
 	"gadgets-validate-invalidcontentmodels": "A yelbulo ŋa {{PLURAL:$2|model does|model ba}} ba tona: $1",
 	"gadgets-validate-invalidnamespaces": "Yoevori ama {{PLURAL:$2|number does|nambare ba}} ba tona: $1",
-	"gadgets-validate-invalidtargets": "Tegerɛ bare ko a yelboɔre la : mobale, desktop. Ba nyɛ anaŋ tona {{PLURAL:$2|value|tegerɛ}}: $1",
 	"gadgets-validate-invalidtitle": "Peegyi yelzu \"$1\" ba tona",
 	"gadgets-validate-nopage": "Peegyi \"$1\" ba kyebe."
 }
