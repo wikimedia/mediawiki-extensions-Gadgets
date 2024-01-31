@@ -36,7 +36,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	public const GADGET_CLASS_VERSION = 16;
+	public const GADGET_CLASS_VERSION = 17;
 
 	public const CACHE_TTL = 86400;
 
