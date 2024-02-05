@@ -63,6 +63,8 @@
 	"gadgets-validate-invalidactions": "{{PLURAL:$2|Następująca akcja nie została rozpoznana|Następujące akcje nie zostały rozpoznane}}: $1",
 	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|Następujący model zawartości nie istnieje|Następujące modele zawartości nie istnieją}}: $1",
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|Następujący numer przestrzeni nazw nie istnieje|Następujące numery przestrzeni nazw nie istnieją}}: $1",
+	"gadgets-validate-invalidskins": "{{PLURAL:$2|Następująca skórka nie istnieje|Następujące skórki nie istnieją}}: $1",
+	"gadgets-validate-invalidrights": "Następujące {{PLURAL:$2|uprawnienie nie istnieje|uprawnienia nie istnieją}}: $1",
 	"gadgets-validate-invalidtitle": "Tytuł strony „$1” jest nieprawidłowy",
 	"gadgets-validate-unknownpages": "Zawiera jedną lub więcej stron bez końcówki .js, .css lub .json. Te strony nie zostaną załadowane.",
 	"gadgets-validate-nopage": "Strona „$1” nie istnieje.",
