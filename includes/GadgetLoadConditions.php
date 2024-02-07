@@ -38,22 +38,19 @@ class GadgetLoadConditions {
 	private $namespace;
 	/** @var string */
 	private $contentModel;
-	/** @var bool */
-	private $isMobileView;
 	/** @var string|null */
 	private $withGadgetParam;
 
 	/**
 	 * @param OutputPage $out
 	 */
-	public function __construct( OutputPage $out, bool $isMobileView = false ) {
+	public function __construct( OutputPage $out ) {
 		$this->user = $out->getUser();
 		$this->skin = $out->getSkin();
 		$this->action = $out->getContext()->getActionName();
 		$this->namespace = $out->getTitle()->getNamespace();
 		$this->contentModel = $out->getTitle()->getContentModel();
 		$this->withGadgetParam = $out->getRequest()->getRawVal( 'withgadget' );
-		$this->isMobileView = $isMobileView;
 	}
 
 	/**
