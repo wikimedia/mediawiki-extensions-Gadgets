@@ -44,6 +44,15 @@ class SpecialGadgets extends SpecialPage {
 	}
 
 	/**
+	 * Return title for Special:Gadgets heading and Special:Specialpages link.
+	 *
+	 * @return \Message
+	 */
+	public function getDescription() {
+		return $this->msg( 'special-gadgets' );
+	}
+
+	/**
 	 * @param string|null $par Parameters passed to the page
 	 */
 	public function execute( $par ) {
