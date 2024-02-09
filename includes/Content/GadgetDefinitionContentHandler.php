@@ -24,15 +24,18 @@ use Content;
 use FormatJson;
 use JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
+use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Extension\Gadgets\MediaWikiGadgetsJsonRepo;
 use MediaWiki\Linker\Linker;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;
 
 class GadgetDefinitionContentHandler extends JsonContentHandler {
-	public function __construct() {
-		parent::__construct( 'GadgetDefinition' );
+	private GadgetRepo $gadgetRepo;
+
+	public function __construct( string $modelId, GadgetRepo $gadgetRepo ) {
+		parent::__construct( $modelId );
+		$this->gadgetRepo = $gadgetRepo;
 	}
 
 	/**
@@ -108,12 +111,11 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 					$this->makeLink( $parserOutput, $page, $title );
 				}
 			}
-			$gadgetRepo = MediaWikiServices::getInstance()->getService( 'GadgetsRepo' );
 			if ( isset( $data->module->dependencies ) ) {
 				foreach ( $data->module->dependencies as &$dep ) {
 					if ( str_starts_with( $dep, 'ext.gadget.' ) ) {
 						$gadgetId = explode( 'ext.gadget.', $dep )[ 1 ];
-						$title = $gadgetRepo->getGadgetDefinitionTitle( $gadgetId );
+						$title = $this->gadgetRepo->getGadgetDefinitionTitle( $gadgetId );
 						if ( $title ) {
 							$this->makeLink( $parserOutput, $dep, $title );
 						}
@@ -122,7 +124,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 			}
 			if ( isset( $data->module->peers ) ) {
 				foreach ( $data->module->peers as &$peer ) {
-					$title = $gadgetRepo->getGadgetDefinitionTitle( $peer );
+					$title = $this->gadgetRepo->getGadgetDefinitionTitle( $peer );
 					if ( $title ) {
 						$this->makeLink( $parserOutput, $peer, $title );
 					}

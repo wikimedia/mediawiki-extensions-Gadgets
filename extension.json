@@ -12,7 +12,12 @@
 	},
 	"type": "other",
 	"ContentHandlers": {
-		"GadgetDefinition": "MediaWiki\\Extension\\Gadgets\\Content\\GadgetDefinitionContentHandler"
+		"GadgetDefinition": {
+			"class": "MediaWiki\\Extension\\Gadgets\\Content\\GadgetDefinitionContentHandler",
+			"services": [
+				"GadgetsRepo"
+			]
+		}
 	},
 	"SpecialPages": {
 		"Gadgets": {
