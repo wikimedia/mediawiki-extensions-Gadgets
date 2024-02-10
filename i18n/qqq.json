@@ -24,7 +24,7 @@
 	"prefs-description-gadgets": "Used in [[Special:Preferences]] for mobile to describe the Gadgets features section.",
 	"gadgets-prefstext": "In Gadgets extension. This is the explanation text displayed under the Gadgets tab in [[Special:Preferences#mw-prefsection-gadgets|Special:Preferences]].",
 	"gadgets-prefstext-safemode": "In Gadgets extension. Shown under the Gadgets tab in [[Special:Preferences#mw-prefsection-gadgets|Special:Preferences]] when safe mode is enabled (thus gadgets are disabled).",
-	"gadgets": "{{doc-special|Gadgets}}\n{{Identical|Gadgets}}",
+	"special-gadgets": "{{doc-special|Gadgets}}\n{{Identical|Gadgets}}",
 	"gadgetusage": "{{doc-special|Gadget usage statistics}}",
 	"gadgetusage-gadget": "Table column header on [[Special:GadgetUsage]]\n{{Identical|Gadget}}",
 	"gadgetusage-usercount": "Table column header on [[Special:GadgetUsage]]",
