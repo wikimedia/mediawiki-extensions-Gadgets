@@ -7,7 +7,7 @@
 	"gadgets-desc": "Agipalubos kadagiti agar-aramat nga agpili kadagiti naiduma a [[Special:Gadgets|CSS ken JavaScript a gadget]] iti [[Special:Preferences#mw-prefsection-gadgets|kakaykayatanda]]",
 	"prefs-gadgets": "Dagiti gadget",
 	"gadgets-prefstext": "Dita baba ket listaan kadagiti naipangruna a gadget a mabalinmo a pakabaelan para iti pakabilangam.\nDagitoy a gadget ket naibatay iti JavaScript, isu a masapul a pakabaelan ti  JavaScript iti  \"pagbasabasam\" tapno agbalin dagitoy.\nLaglagipen a dagitoy a gadget ket awan ti pagbanaganna iti daytoy panid ti kakaykayatan.\n\nLaglagipen pay a dagitoy a naipangruna a gadget ket saan a paset ti sopwer ti MediaWiki, ken kadawyan a pinarang-ay ken tinartaripato babaen dagiti agar-aramat iti lokal a wiki.\nDagiti lokal nga administrador ket mabalinda nga urnosen dagiti [[MediaWiki:Gadgets-definition|depinision]] ken dagiti [[Special:Gadgets|deskripsion]] kadagiti magun-od a gadget. Ti bilang dagiti agar-aramat para iti tunggal maysa a gadget iti daytoy a wiki ket nailista iti [[Special:GadgetUsage|estadistika ti panagusar ti Gadget]].",
-	"gadgets": "Dagiti gadget",
+	"special-gadgets": "Dagiti gadget",
 	"gadgetusage": "Estadistika ti panagusar ti gadget",
 	"gadgetusage-gadget": "Gadget",
 	"gadgetusage-usercount": "Bilang dagiti agar-aramat",

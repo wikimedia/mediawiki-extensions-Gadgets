@@ -13,7 +13,7 @@
 	"gadgets-desc": "A felhasználók saját [[Special:Gadgets|CSS és JavaScript eszközöket]] választhatnak ki a [[Special:Preferences#mw-prefsection-gadgets|beállításaiknál]]",
 	"prefs-gadgets": "Segédeszközök",
 	"gadgets-prefstext": "Az alábbi listában látható kiegészítő segédeszközök bekapcsolásával kényelmesebbé teheted a wiki használatát és szerkesztését.\nLegtöbbjük JavaScriptet használ, így ezt engedélyezned kell a böngésződben, hogy működjenek.\nA segédeszközök nem működnek ezen a beállításoldalon, így probléma esetén ki tudod őket kapcsolni.\n\nEzek az eszközök nem részei a MediaWiki szoftvernek, általában a wiki felhasználói tartják karban őket.\n[[MediaWiki:Gadgets-definition|Az elérhető segédeszközök definícióját]] a helyi felületadminisztrátorok, a [[Special:Gadgets|leírásokat]] pedig a helyi adminisztrátorok is módosíthatják; utóbbi lapon az egyes segédeszközök forráskódja is megtalálható. Az egyes segédeszközöket ezen a wikin használó felhasználók száma a [[Special:GadgetUsage|segédeszköz-használati statisztika]] oldalon látható.",
-	"gadgets": "Segédeszközök",
+	"special-gadgets": "Segédeszközök",
 	"gadgetusage": "Segédeszköz-használati statisztika",
 	"gadgetusage-gadget": "Segédeszköz",
 	"gadgetusage-usercount": "Használók száma",

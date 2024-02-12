@@ -9,7 +9,7 @@
 	"gadgets-desc": "Yn galluogi defnyddwyr i ddewis [[Special:Gadgets|teclynnau CSS a JavaScript]] yn eu [[Special:Preferences#mw-prefsection-gadgets|dewisiadau]]",
 	"prefs-gadgets": "Teclynnau",
 	"gadgets-prefstext": "Ceir rhestr isod o'r teclynnau y gallwch eu galluogi.\nMae'r rhan fwyaf o'r teclynnau yn defnyddio JavaScript, felly mae'n rhaid galluogi JavaScript ar eich porwr er mwyn iddynt weithio.\nSylwer na gaiff y teclynnau hyn unrhyw effaith ar y dudalen hon o ddewisiadau.\n\nSylwer hefyd nad yw'r teclynnau hyn yn ran o feddalwedd MediaWiki; fel arfer defnyddwyr y wici hwn sydd wedi datblygu'r teclynnau ac sydd yn eu cynnal.\nMae gweinyddwyr y wici hwn yn gallu golygu [[MediaWiki:Gadgets-definition|diffiniadau]] a [[Special:Gadgets|disgrifiadau]]'r teclynnau sydd ar gael.",
-	"gadgets": "Teclynnau",
+	"special-gadgets": "Teclynnau",
 	"gadgetusage": "Ystadegau defnyddio teclynnau",
 	"gadgetusage-gadget": "Teclynnau",
 	"gadgetusage-usercount": "Nifer y defnyddwyr",

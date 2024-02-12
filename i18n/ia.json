@@ -9,7 +9,7 @@
 	"prefs-description-gadgets": "Activar functiones additional pro tu conto.",
 	"gadgets-prefstext": "Infra es un lista de accessorios special que tu pote activar in tu conto.\nIste accessorios se basa pro le major parte sur JavaScript, dunque JavaScript debe esser active in tu navigator pro permitter que illos functiona.\nNota que iste accessorios non habera effecto in iste pagina de preferentias.\n\nNota etiam que iste accessorios special non face parte del software de MediaWiki, e es normalmente disveloppate e mantenite per usatores in tu wiki local.\nLe administratores local de interfacie pote modificar le [[MediaWiki:Gadgets-definition|definitiones]] del accessorios disponibile, e le administratores local pote modificar lor [[Special:Gadgets|descriptiones]], ubi tu pote vider le codice fonte de cata accessorio. Le numero de usatores de cata accessorio sur iste wiki es listate in le pagina [[Special:GadgetUsage|Statisticas de uso de accessorios]].",
 	"gadgets-prefstext-safemode": "Gadgets es actualmente indisponibile perque le modo secur ha essite activate. Per favor [[#mw-input-wpforcesafemode|disactiva le modo secur]] pro usar gadgets.",
-	"gadgets": "Gadgets",
+	"special-gadgets": "Gadgets",
 	"gadgetusage": "Statisticas de uso de accessorios",
 	"gadgetusage-gadget": "Accessorio",
 	"gadgetusage-usercount": "Numero de usatores",

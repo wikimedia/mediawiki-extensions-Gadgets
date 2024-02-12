@@ -30,7 +30,7 @@
 	"prefs-description-gadgets": "Activer des fonctionnalités supplémentaires pour votre compte.",
 	"gadgets-prefstext": "Ci-dessous apparaît une liste de gadgets que vous pouvez activer pour votre compte.\nIls font appel principalement à JavaScript qui doit donc être activé dans votre navigateur Web pour les faire fonctionner.\nNotez que ces gadgets n’auront aucun effet sur cette page de préférences.\n\nNotez également que ces gadgets spéciaux ne font pas partie du logiciel MediaWiki et qu’ils sont généralement développés et maintenus par les utilisateurs de votre wiki local.\nLes administrateurs d’interface locaux peuvent modifier les [[MediaWiki:Gadgets-definition|définitions]] des gadgets disponibles et les administrateurs locaux peuvent modifier leurs [[Special:Gadgets|descriptions]], où vous pouvez trouver le code source de chaque gadget. Le nombre d’utilisateurs pour chaque gadget sur ce wiki est listé dans les [[Special:GadgetUsage|statistiques d’utilisation des gadgets]].",
 	"gadgets-prefstext-safemode": "Les gadgets sont actuellement indisponibles car le mode sûr a été activé. Veuillez [[#mw-input-wpforcesafemode|désactiver le mode sûr]] pour utiliser les gadgets.",
-	"gadgets": "Gadgets",
+	"special-gadgets": "Gadgets",
 	"gadgetusage": "Statistiques d’utilisation des gadgets",
 	"gadgetusage-gadget": "Gadget",
 	"gadgetusage-usercount": "Nombre d’utilisateurs",

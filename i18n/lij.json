@@ -7,7 +7,7 @@
 	"gadgets-desc": "O consente a-i utenti de selessionâ [[Special:Gadgets|angæxi CSS e JavaScript]] inte proppie [[Special:Preferences#mw-prefsection-gadgets|preferense]]",
 	"prefs-gadgets": "Angæxi",
 	"gadgets-prefstext": "De sotta gh'è 'na lista di angæxi speciali (''gadget'') che ti poeu abilitâ pe-a to utensa.\nQuesti angæxi son pe-o ciu bazæ in sciô JavaScript, e quindi ti g'hæ da abilitâ JavaScript into to navegatô pe fâli fonsionâ.\nNotta che i angæxi no g'han effetto inte sta paggina de preferense.\n\nNotta ascì che sti angæxi speciali no son compreixi into software MediaWiki e son de sollito realizæ e mantegnui da-i utenti d'ogni scito wiki.\nI aministratoî de l'interfaccia do scito poeuan modificâ e [[MediaWiki:Gadgets-definition|definissioin]] di angæxi disponibbili, e i amministratoî do scito poeuan modificâ e so [[Special:Gadgets|descrissioin]], dovve ti poeu amiâ o coddexo vivagna d'ogni angæzo. O nummero di utenti pi ogni angæzo insce sto wiki o l'è elencou inte [[Special:GadgetUsage|statisteghe d'uzo di angæxi]].",
-	"gadgets": "Gadget",
+	"special-gadgets": "Gadget",
 	"gadgetusage": "Statisteghe insce l'uso di gadget",
 	"gadgetusage-gadget": "Angæzo",
 	"gadgetusage-usercount": "Nummero d'utenti",

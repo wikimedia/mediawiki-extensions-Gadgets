@@ -21,7 +21,7 @@
 	"prefs-description-gadgets": "Extra functies inschakelen voor uw account.",
 	"gadgets-prefstext": "Hieronder staat een lijst met handige toebehoren die u kunt inschakelen.\nDeze zgn. ''gadgets'' zijn voornamelijk gebaseerd op JavaScript en werken dus alleen als JavaScript in uw browser ingeschakeld is.\nDe gadgets hebben geen invloed op deze pagina met voorkeuren.\n\nDeze speciale gadgets zijn geen onderdeel van de MediaWiki-software en worden doorgaans ontwikkeld en onderhouden door gebruikers van uw wiki.\nDe beheerders van de lokale interface kunnen de [[MediaWiki:Gadgets-definition|definities]] van de beschikbare gadgets wijzigen, en de moderators van deze site kunnen de [[Special:Gadgets|beschrijvingen]] bewerken waar de broncode van iedere gadget te zien is. Het aantal gebruikers voor elke gadget op deze wiki staat vermeld onder [[Special:GadgetUsage|Statistieken gadgetgebruik]].",
 	"gadgets-prefstext-safemode": "Gadgets zijn momenteel niet beschikbaar omdat de veilige modus is ingeschakeld. [[#mw-input-wpforcesafemode|Schakel de veilige modus uit]] om gadgets te gebruiken.",
-	"gadgets": "Gadgets",
+	"special-gadgets": "Gadgets",
 	"gadgetusage": "Statistieken gadgetgebruik",
 	"gadgetusage-gadget": "Gadget",
 	"gadgetusage-usercount": "Aantal gebruikers",

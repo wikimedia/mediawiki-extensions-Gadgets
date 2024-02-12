@@ -8,7 +8,7 @@
 	"prefs-gadgets": "Lytsark",
 	"prefs-description-gadgets": "Skeakelje oanfoljende funksjes yn foar jo akkount.",
 	"gadgets-prefstext": "It ûndersteande is in list fan spesjalisearre lytsark dat jo ynskeakelje kinne foar jo akkount.\nDit lytsark is meastal basearre op JavaScript, dat JavaScript moat oanstean yn jo webblêder om it wurkje te litten.\nTink derom dat it lytsark gjin effekt hawwe sil op dizze foarkarreside.\n\nTink der ek om dat dit spesjalisearre lytsark gjin part fan 'e MediaWiki-programmatuer is, en ornaris ûntwikkele en ûnderholden wurdt troch meidoggers op jo lokale wiki.\nDêr wêr't jo de boarnekoade fan al it lytsark sjen kinne, kinne lokale omjouwingsbehearders de [[MediaWiki:Gadgets-definition|definysjes]] fan it beskikber lytsark bewurkje, en lokale behearders harren [[Special:Gadgets|beskriuwings]]. It tal brûkers fan alle lytsark op dizze wiki stiet yn in list op [[Special:GadgetUsage|Brûkmestatistiken Lytsark]].",
-	"gadgets": "Lytsark",
+	"special-gadgets": "Lytsark",
 	"gadgetusage": "Brûkmestatistiken Lytsark",
 	"gadgetusage-gadget": "Lytsark",
 	"gadgetusage-usercount": "Meidoggertal",

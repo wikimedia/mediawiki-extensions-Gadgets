@@ -6,7 +6,7 @@
 		]
 	},
 	"prefs-gadgets": "Gadget",
-	"gadgets": "Gadget",
+	"special-gadgets": "Gadget",
 	"gadgetusage": "उपकरणाच्या वापराची सांख्यिकी",
 	"gadgetusage-gadget": "उपकरण (गॅजेट)",
 	"gadgetusage-usercount": "वापरणाऱ्यांची संख्या",

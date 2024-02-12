@@ -26,7 +26,7 @@
 	"prefs-description-gadgets": "Hesabınız için ek özellikleri etkinleştirin.",
 	"gadgets-prefstext": "Hesabınız için etkinleştirebileceğiniz özel araçların listesi aşağıdadır.\nBu araçlar çoğunlukla JavaScript temellidir, bu nedenle çalışması için tarayıcınızda JavaScript'in etkinleştirilmesi gerekir.\nBu araçların şuan bulunduğunuz tercihler sayfasında herhangi bir etkisi olmayacağını unutmayın.\n\nAyrıca, bu özel araçların MediaWiki yazılımının bir parçası olmadığını, genellikle yerel vikinizdeki kullanıcılar tarafından geliştirildiğini ve sürdürüldüğünü unutmayın.\nYerel arayüz hizmetlileri mevcut araçların [[MediaWiki:Gadgets-definition|düzenleyebilir]] ve yerel hizmetliler, her aracın kaynak kodunu görebileceğiniz [[Special:Gadgets|açıklamalarını]] düzenleyebilir. Bu vikideki her araç için kullanıcı sayısı [[Special:GadgetUsage|Küçük araç kullanım istatistiklerinde]] listelenmiştir.",
 	"gadgets-prefstext-safemode": "Güvenli kip etkinleştirildiğinden küçük araçlar şu anda kullanılamıyor. Küçük araçları kullanmak için lütfen [[#mw-input-wpforcesafemode|güvenli kipi devre dışı bırakın]].",
-	"gadgets": "Küçük araçlar",
+	"special-gadgets": "Küçük araçlar",
 	"gadgetusage": "Küçük araç kullanım istatistikleri",
 	"gadgetusage-gadget": "Küçük araç",
 	"gadgetusage-usercount": "Kullanıcı sayısı",

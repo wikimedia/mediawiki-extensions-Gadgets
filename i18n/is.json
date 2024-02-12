@@ -10,7 +10,7 @@
 	"gadgets-desc": "Gerir notendum kleift að velja [[Special:Gadgets|CSS og JavaScript-forrit]] í [[Special:Preferences#mw-prefsection-gadgets|stillingum sínum]]",
 	"prefs-gadgets": "Smáforrit",
 	"gadgets-prefstext": "Eftirfarandi er listi yfir smáforrit sem þú getur notað á notandareikningi þínum. Þessi smáforrit eru að mestu byggð á JavaScript svo vafrinn þarf að styðja JavaScript til að þau virki. Athugaðu einnig að smáforritin hafa engin áhrif á stillingasíðunni.\n\nSmáforritin eru ekki hluti af MediaWiki-hugbúnaðinum heldur eru skrifuð og viðhaldin af notendum á þessu wiki-verkefni. Möppudýr geta breytt smáforritunum á [[MediaWiki:Gadgets-definition]] og [[Special:Gadgets]]. Fjöldi notenda sem nota hvert smáforrit fyrir sig er skráður á [[Special:GadgetUsage|Notkunarupplýsingar smáforrita]].",
-	"gadgets": "Smáforrit",
+	"special-gadgets": "Smáforrit",
 	"gadgetusage": "Tölfræði yfir notkun á smáforritum",
 	"gadgetusage-noresults": "Engin smáforrit fundust.",
 	"gadgetusage-activeusers": "Virkir notendur",

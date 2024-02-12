@@ -13,7 +13,7 @@
 	"prefs-gadgets": "Priemonės",
 	"prefs-description-gadgets": "Įgalinti papildomas savo paskyros funkcijas.",
 	"gadgets-prefstext": "Žemiau yra sąrašas specialių įrankių, kuriuos galite įjungti savo paskyrai.\nŠios priemonės daugiausiai naudoja JavaScript, todėl, kad jos veiktų, jūsų naršyklėje turi būti įjungtas JavaScript palaikymas.\nAtsiminkite, kad šios priemonės neturi įtakos jūsų nustatymų puslapiui.\n\nTaip pat žinokite, kad šie įrankiai nėra MediaWiki programinės įrangos dalis ir yra sukurtos bei palaikomos vietinio viki naudotojų. Vietiniai administratoriai gali redaguoti prieinamų įrankių [[MediaWiki:Gadgets-definition|apibrėžtis]] bei jų [[Special:Gadgets|aprašymus]], kur galite matyti kiekvieno įrankio šaltinio kodą.\nKiekvieno įrankio naudotojų skaičiai šioje viki pateikiami [[Special:GadgetUsage|Įrankių naudojimo statistikoje]].",
-	"gadgets": "Priemonės",
+	"special-gadgets": "Priemonės",
 	"gadgetusage": "Priemonių naudojimo statistika",
 	"gadgetusage-gadget": "Priemonė",
 	"gadgetusage-usercount": "Vartotojų skaičius",

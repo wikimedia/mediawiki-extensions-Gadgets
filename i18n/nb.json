@@ -13,7 +13,7 @@
 	"prefs-description-gadgets": "Slå på ekstra funksjoner for din konto.",
 	"gadgets-prefstext": "Nedenfor er en liste over tilleggsfunksjoner du kan slå på for kontoen din.\nDisse funksjonene er for det meste basert på JavaScript, så du må ha dette slått på i nettleseren din for at de skal fungere.\nMerk at funksjonene ikke vil ha noen innvirkning på denne innstillingssiden.\n\nMerk også at disse verktøyene ikke er del av MediaWiki-programvaren, og vanligvis utvikles og vedlikeholdes av brukere på den lokale wikien.\nLokale grensesnittadministratorer kan redigere [[MediaWiki:Gadgets-definition|definisjonene]] til tilgjengelige tilleggsfunksjoner, og lokale administratorer kan redigere [[Special:Gadgets|beskrivelsene]], hvor du kan se kildekodene til hver tilleggsfunksjon. Antall brukere for hvert verktøy kan ses på [[Special:GadgetUsage|denne statistikksiden]].",
 	"gadgets-prefstext-safemode": "Tilleggsfunksjoner er for tiden ikke tilgjengelige fordi sikkerhetsmodusen er aktivert. [[#mw-input-wpforcesafemode|Deaktiver sikkerhetsmodus]] for å bruke tilleggsfunksjoner.",
-	"gadgets": "Tilleggsfunksjoner",
+	"special-gadgets": "Tilleggsfunksjoner",
 	"gadgetusage": "Statistikk for bruk av tilleggsfunksjoner",
 	"gadgetusage-gadget": "Tilleggsfunksjon",
 	"gadgetusage-usercount": "Antall brukere",

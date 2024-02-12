@@ -36,7 +36,7 @@
 	"prefs-description-gadgets": "为您的账号启用额外功能。",
 	"gadgets-prefstext": "下面是您可以为账户启用的特殊小工具列表。这些小工具大多数基于JavaScript，所以您的浏览器需要启用JavaScript以使其生效。请注意这些小工具不会在这个参数设置页面上生效。\n\n同时请注意，这些特殊小工具不是MediaWiki软件的组成部分，而通常是由您的本地wiki的用户开发并维护的。本地界面管理员可以编辑可用小工具的[[MediaWiki:Gadgets-definition|定义]]，本地管理员可以编辑它们的描述[[Special:Gadgets|说明]]，在此处你可以看到各个小工具的源代码。该wiki上每个小工具的用户数量列于[[Special:GadgetUsage|小工具使用统计]]页面中。",
 	"gadgets-prefstext-safemode": "由于已启用安全模式，小工具目前不可用。请[[#mw-input-wpforcesafemode|禁用安全模式]]以使用小工具。",
-	"gadgets": "小工具",
+	"special-gadgets": "小工具",
 	"gadgetusage": "小工具使用统计",
 	"gadgetusage-gadget": "小工具",
 	"gadgetusage-usercount": "用户人数",
