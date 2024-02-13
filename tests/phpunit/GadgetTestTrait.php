@@ -7,7 +7,8 @@ use MediaWiki\Revision\RevisionLookup;
 use Wikimedia\TestingAccessWrapper;
 
 /**
- * A trait providing utility function for testing gadgets.
+ * Utility functions for testing gadgets.
+ *
  * This trait is intended to be used on subclasses of MediaWikiUnitTestCase
  * or MediaWikiIntegrationTestCase.
  */

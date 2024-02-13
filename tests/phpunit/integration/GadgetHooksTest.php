@@ -7,15 +7,13 @@ use MediaWiki\Output\OutputPage;
 use MediaWiki\Title\Title;
 
 /**
+ * @covers \MediaWiki\Extension\Gadgets\GadgetLoadConditions
+ * @covers \MediaWiki\Extension\Gadgets\Hooks
  * @group Gadgets
  * @group Database
  */
 class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 
-	/**
-	 * @covers \MediaWiki\Extension\Gadgets\Hooks::onBeforePageDisplay
-	 * @covers \MediaWiki\Extension\Gadgets\GadgetLoadConditions
-	 */
 	public function testDefaultGadget() {
 		$services = $this->getServiceContainer();
 		$repo = new StaticGadgetRepo( [
@@ -29,10 +27,6 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 		$this->assertArrayEquals( [ 'ext.gadget.g1' ], $out->getModuleStyles() );
 	}
 
-	/**
-	 * @covers \MediaWiki\Extension\Gadgets\Hooks::onBeforePageDisplay
-	 * @covers \MediaWiki\Extension\Gadgets\GadgetLoadConditions
-	 */
 	public function testEnabledGadget() {
 		$services = $this->getServiceContainer();
 		$repo = new StaticGadgetRepo( [
@@ -55,9 +49,6 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 		$this->assertArrayEquals( [ 'ext.gadget.g1' ], $out->getModules() );
 	}
 
-	/**
-	 * @covers \MediaWiki\Extension\Gadgets\Hooks::onUserGetDefaultOptions
-	 */
 	public function testDefaultUserOptions() {
 		$repo = new StaticGadgetRepo( [
 			'g1' => new Gadget( [ 'name' => 'g1', 'pages' => [ 'test.css' ], 'onByDefault' => true ] ),
@@ -72,9 +63,6 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 		$this->assertNull( $optionsLookup->getOption( $user, 'gadget-g3' ) );
 	}
 
-	/**
-	 * @covers \MediaWiki\Extension\Gadgets\Hooks::onGetPreferences
-	 */
 	public function testPreferences() {
 		$services = $this->getServiceContainer();
 		$repo = new StaticGadgetRepo( [
