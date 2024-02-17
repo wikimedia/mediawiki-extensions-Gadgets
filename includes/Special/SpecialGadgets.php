@@ -80,7 +80,7 @@ class SpecialGadgets extends SpecialPage {
 		$output = $this->getOutput();
 		$this->setHeaders();
 		$this->addHelpLink( 'Extension:Gadgets' );
-		$output->setPageTitle( $this->msg( 'gadgets-title' ) );
+		$output->setPageTitleMsg( $this->msg( 'gadgets-title' ) );
 		$output->addWikiMsg( 'gadgets-pagetext' );
 
 		$gadgets = $this->gadgetRepo->getStructuredList();
@@ -388,7 +388,7 @@ class SpecialGadgets extends SpecialPage {
 		}
 
 		$this->setHeaders();
-		$output->setPageTitle( $this->msg( 'gadgets-export-title' ) );
+		$output->setPageTitleMsg( $this->msg( 'gadgets-export-title' ) );
 		$output->addWikiMsg( 'gadgets-export-text', $gadget, $g->getDefinition() );
 
 		$exportList = "MediaWiki:gadget-$gadget\n";
