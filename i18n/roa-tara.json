@@ -18,6 +18,8 @@
 	"gadgetusage-default": "De base",
 	"gadgets-title": "Gadget",
 	"gadgets-pagetext": "Sotte stè 'n'elenghe de gadget speciale ca l'utinde ponne abbilità sus a lore [[Special:Preferences#mw-prefsection-gadgets|pàgene de le preferenze]], cumme definite da le [[MediaWiki:Gadgets-definition|definiziune]].\nStu riepileghe prevede 'nu facile facile accesse a le pàggene de le messagge d'u sisteme ca definiscene ogne descrizione e codece de le gadget.",
+	"gadgets-editdescription": "Cange 'a descrizione",
+	"gadgets-viewdescription": "'Ndruche 'a descrizione",
 	"gadgets-uses": "Ause",
 	"gadgets-required-rights": "Richiede {{PLURAL:$2|deritte|deritte}}:\n\n$1",
 	"gadgets-required-skins": "Disponibbele sus a {{PLURAL:$2|$1 'u skin|le seguende skin: $1}}.",
