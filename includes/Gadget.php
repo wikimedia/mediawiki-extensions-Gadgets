@@ -36,7 +36,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	public const GADGET_CLASS_VERSION = 17;
+	public const GADGET_CLASS_VERSION = 18;
 
 	public const CACHE_TTL = 86400;
 
@@ -64,6 +64,8 @@ class Gadget {
 	private $requiredSkins = [];
 	/** @var int[] */
 	private $requiredNamespaces = [];
+	/** @var string[] */
+	private $requiredCategories = [];
 	/** @var string[] */
 	private $requiredContentModels = [];
 	/** @var bool */
@@ -94,6 +96,7 @@ class Gadget {
 				case 'requiredActions':
 				case 'requiredSkins':
 				case 'requiredNamespaces':
+				case 'requiredCategories':
 				case 'requiredContentModels':
 				case 'onByDefault':
 				case 'type':
@@ -132,6 +135,7 @@ class Gadget {
 			'pages' => array_map( $prefixGadgetNs, $data['module']['pages'] ),
 			'peers' => $data['module']['peers'],
 			'requiredActions' => $data['settings']['actions'],
+			'requiredCategories' => $data['settings']['categories'],
 			'requiredContentModels' => $data['settings']['contentModels'],
 			'requiredNamespaces' => $data['settings']['namespaces'],
 			'requiredRights' => $data['settings']['rights'],
@@ -159,6 +163,7 @@ class Gadget {
 			'pages' => $this->pages,
 			'peers' => $this->peers,
 			'requiredActions' => $this->requiredActions,
+			'requiredCategories' => $this->requiredCategories,
 			'requiredContentModels' => $this->requiredContentModels,
 			'requiredNamespaces' => $this->requiredNamespaces,
 			'requiredRights' => $this->requiredRights,
@@ -304,6 +309,24 @@ class Gadget {
 	 */
 	public function isNamespaceSupported( int $namespace ) {
 		return !$this->requiredNamespaces || in_array( $namespace, $this->requiredNamespaces );
+	}
+
+	/**
+	 * Whether to load the gadget on pages in any of the given categories
+	 *
+	 * @param array $categories Category names (category title text, no namespace prefix, no dbkey-underscores)
+	 * @return bool
+	 */
+	public function isCategorySupported( array $categories ) {
+		if ( !$this->requiredCategories ) {
+			return true;
+		}
+		foreach ( $categories as $category ) {
+			if ( in_array( $category, $this->requiredCategories, true ) ) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -453,6 +476,14 @@ class Gadget {
 	 */
 	public function getRequiredNamespaces() {
 		return $this->requiredNamespaces;
+	}
+
+	/**
+	 * Returns categories in which this gadget loads
+	 * @return string[]
+	 */
+	public function getRequiredCategories() {
+		return $this->requiredCategories;
 	}
 
 	/**

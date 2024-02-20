@@ -29,6 +29,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 				'actions' => [],
 				'skins' => [],
 				'namespaces' => [],
+				'categories' => [],
 				'contentModels' => [],
 				'category' => 'misc',
 				'supportsUrlLoad' => false,
@@ -179,6 +180,28 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$this->assertTrue( $gMultiNamespace->isNamespaceSupported( 1 ) );
 		$this->assertTrue( $gMultiNamespace->isNamespaceSupported( 2 ) );
 		$this->assertFalse( $gMultiNamespace->isNamespaceSupported( 5 ) );
+	}
+
+	public function testCategoriesTag() {
+		$gUnsetCategory = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
+		$gCategoryFoo = $this->makeGadget( '*foo[ResourceLoader|categories=Foo]|foo.js' );
+		$gMultiCategory = $this->makeGadget( '*foo[ResourceLoader|categories=Foo,Bar baz,quux]|foo.js' );
+
+		$this->assertTrue( $gUnsetCategory->isCategorySupported( [ 'Foo' ] ) );
+
+		$this->assertTrue( $gCategoryFoo->isCategorySupported( [ 'Foo' ] ) );
+		$this->assertFalse( $gCategoryFoo->isCategorySupported( [ 'Bar' ] ) );
+		$this->assertFalse( $gCategoryFoo->isCategorySupported( [ 'Bar baz' ] ) );
+
+		$this->assertTrue( $gMultiCategory->isCategorySupported( [ 'Foo' ] ) );
+		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'Bar' ] ) );
+		$this->assertTrue( $gMultiCategory->isCategorySupported( [ 'Spam', 'Bar baz', 'Eggs' ] ) );
+		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'Spam', 'Eggs' ] ) );
+		// Load condition must use title text form
+		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'foo' ] ) );
+		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'Bar_baz' ] ) );
+		// Definition must use title text form, too
+		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'Quux' ] ) );
 	}
 
 	public function testContentModelsTags() {

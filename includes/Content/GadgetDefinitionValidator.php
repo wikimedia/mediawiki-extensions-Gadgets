@@ -24,6 +24,7 @@ class GadgetDefinitionValidator {
 		'settings.skins' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'settings.actions' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'settings.namespaces' => [ 'is_array', 'array', 'is_int', 'integer' ],
+		'settings.categories' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'settings.contentModels' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'settings.category' => [ 'is_string', 'string' ],
 		'settings.supportsUrlLoad' => [ 'is_bool', 'boolean' ],

@@ -36,6 +36,8 @@ class GadgetLoadConditions {
 	private $action;
 	/** @var int */
 	private $namespace;
+	/** @var string[] */
+	private $categories;
 	/** @var string */
 	private $contentModel;
 	/** @var string|null */
@@ -49,6 +51,7 @@ class GadgetLoadConditions {
 		$this->skin = $out->getSkin();
 		$this->action = $out->getContext()->getActionName();
 		$this->namespace = $out->getTitle()->getNamespace();
+		$this->categories = $out->getCategories();
 		$this->contentModel = $out->getTitle()->getContentModel();
 		$this->withGadgetParam = $out->getRequest()->getRawVal( 'withgadget' );
 	}
@@ -65,6 +68,7 @@ class GadgetLoadConditions {
 			&& $gadget->isActionSupported( $this->action )
 			&& $gadget->isSkinSupported( $this->skin )
 			&& $gadget->isNamespaceSupported( $this->namespace )
+			&& $gadget->isCategorySupported( $this->categories )
 			&& $gadget->isContentModelSupported( $this->contentModel );
 	}
 }
