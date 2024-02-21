@@ -7,7 +7,8 @@
 			"Passawuth",
 			"Ekminarin",
 			"Patsagorn Y.",
-			"RidJasper"
+			"RidJasper",
+			"Siam2019"
 		]
 	},
 	"gadgets-desc": "ให้ผู้ใช้สามารถเลือกใช้ [[Special:Gadgets|CSS และ จาวาสคริปต์]] ที่สร้างขึ้นเป็นการเฉพาะ ในหน้า [[Special:Preferences#mw-prefsection-gadgets|ตั้งค่า]] ได้",
@@ -33,5 +34,7 @@
 	"gadgets-export-title": "การส่งออกอุปกรณ์เสริม",
 	"gadgets-not-found": "ไม่พบอุปกรณ์เสริม \"$1\"",
 	"gadgets-export-text": "หากต้องการส่งออกอุปกรณ์เสริม $1 ให้คลิกที่ปุ่ม \"{{int:gadgets-export-download}}\" และบันทึกไฟล์ที่ดาวน์โหลด\nจากนั้นไปที่ Special:Import บนวิกิปลายทางและอัปโหลดไฟล์ดังกล่าว แล้วเพิ่มเนื้อหาดังต่อไปนี้ลงในหน้า MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nคุณต้องมีสิทธิอนุญาตที่เหมาะสมบนวิกิปลายทาง (รวมถึงสิทธิในการแก้ไขข้อความระบบ) และต้องเปิดใช้งานการนำเข้าจากการอัปโหลดไฟล์",
-	"gadgets-export-download": "ดาวน์โหลด"
+	"gadgets-export-download": "ดาวน์โหลด",
+	"right-gadgets-definition-edit": "แก้ไขคำจำกัดความของแกดเจ็ต",
+	"action-gadgets-definition-edit": "แก้ไขคำจำกัดความของแกดเจ็ตนี้"
 }
