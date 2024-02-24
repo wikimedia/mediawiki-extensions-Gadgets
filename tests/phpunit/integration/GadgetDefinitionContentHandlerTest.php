@@ -7,8 +7,8 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWikiIntegrationTestCase;
 
 /**
- * @covers \MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContentHandler
  * @covers \MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContent
+ * @covers \MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContentHandler
  * @group Gadgets
  * @group Database
  */

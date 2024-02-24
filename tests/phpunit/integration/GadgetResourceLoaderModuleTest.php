@@ -27,9 +27,6 @@ class GadgetResourceLoaderModuleTest extends MediaWikiIntegrationTestCase {
 		$this->overrideConfigValue( MainConfigNames::ResourceLoaderValidateJS, true );
 	}
 
-	/**
-	 * @covers \MediaWiki\Extension\Gadgets\GadgetResourceLoaderModule::getPages
-	 */
 	public function testGetPages() {
 		$context = $this->createMock( RL\Context::class );
 		$pages = $this->gadgetModule->getPages( $context );

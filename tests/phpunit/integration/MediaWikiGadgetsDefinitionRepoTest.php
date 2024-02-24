@@ -4,6 +4,8 @@ use MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo;
 use MediaWiki\Title\Title;
 
 /**
+ * @covers \MediaWiki\Extension\Gadgets\GadgetRepo
+ * @covers \MediaWiki\Extension\Gadgets\Hooks
  * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo
  * @group Gadgets
  * @group Database
@@ -37,12 +39,6 @@ EOT;
 		$this->assertEquals( [ 'MediaWiki:Gadget-g2.js' ], $repo->getGadget( 'g2' )->getScripts() );
 	}
 
-	/**
-	 * @covers \MediaWiki\Extension\Gadgets\Hooks::onPageSaveComplete
-	 * @covers \MediaWiki\Extension\Gadgets\Hooks::onPageDeleteComplete
-	 * @covers \MediaWiki\Extension\Gadgets\GadgetRepo::handlePageUpdate
-	 * @covers \MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo
-	 */
 	public function testCacheInvalidationOnSave() {
 		$services = $this->getServiceContainer();
 		$wanCache = new WANObjectCache( [ 'cache' => new HashBagOStuff ] );
