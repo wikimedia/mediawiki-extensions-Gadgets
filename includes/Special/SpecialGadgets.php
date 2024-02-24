@@ -99,7 +99,7 @@ class SpecialGadgets extends SpecialPage {
 
 		$listOpen = false;
 
-		$editDefinitionMessage = $this->getUser()->isAllowed( 'gadgets-definition-edit' )
+		$editDefinitionMessage = $this->getUser()->isAllowed( 'editsitejs' )
 			? 'edit'
 			: 'viewsource';
 		$editInterfaceMessage = $this->getUser()->isAllowed( 'editinterface' )

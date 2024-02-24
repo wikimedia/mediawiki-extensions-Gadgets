@@ -15,10 +15,8 @@ abstract class GadgetRepo {
 	 */
 	private static $instance;
 
-	/**
-	 * @var string
-	 */
-	protected $titlePrefix;
+	/** @internal */
+	public const RESOURCE_TITLE_PREFIX = 'MediaWiki:Gadget-';
 
 	/**
 	 * Get the ids of the gadgets provided by this repository
@@ -82,17 +80,17 @@ abstract class GadgetRepo {
 	}
 
 	/**
-	 * Get the script file name without the "MediaWiki:Gadget-" or "Gadget:" prefix.
-	 * This name is used by the client-side require() so that require("Data.json") resolves
-	 * to either "MediaWiki:Gadget-Data.json" or "Gadget:Data.json" depending on the
-	 * $wgGadgetsRepo configuration, enabling easy migration between the configuration modes.
+	 * Get the page name without "MediaWiki:Gadget-" prefix.
+	 *
+	 * This name is used by `mw.loader.require()` so that `require("./example.json")` resolves
+	 * to `MediaWiki:Gadget-example.json`.
 	 *
 	 * @param string $titleText
 	 * @return string
 	 */
 	public function titleWithoutPrefix( string $titleText ): string {
 		$numReplaces = 1; // there will only one occurrence of the prefix
-		return str_replace( $this->titlePrefix, '', $titleText, $numReplaces );
+		return str_replace( self::RESOURCE_TITLE_PREFIX, '', $titleText, $numReplaces );
 	}
 
 	/**

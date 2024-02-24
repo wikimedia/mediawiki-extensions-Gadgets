@@ -10,23 +10,23 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use WANObjectCache;
 use Wikimedia\Rdbms\Database;
+use Wikimedia\Rdbms\IExpression;
+use Wikimedia\Rdbms\LikeValue;
 
 /**
- * GadgetRepo implementation where each gadget has a page in
- * the Gadget definition namespace, and scripts and styles are
- * located in the Gadget namespace.
+ * Gadgets repo powered by `MediaWiki:Gadgets/<id>.json` pages.
+ *
+ * Each gadget has its own gadget definition page, using GadgetDefinitionContent.
  */
-class GadgetDefinitionNamespaceRepo extends GadgetRepo {
+class MediaWikiGadgetsJsonRepo extends GadgetRepo {
 	/**
 	 * How long in seconds the list of gadget ids and
 	 * individual gadgets should be cached for (1 day)
 	 */
 	private const CACHE_TTL = 86400;
 
-	/**
-	 * @var string
-	 */
-	protected $titlePrefix = 'Gadget:';
+	public const DEF_PREFIX = 'Gadgets/';
+	public const DEF_SUFFIX = '.json';
 
 	/**
 	 * @var WANObjectCache
@@ -52,7 +52,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 		$key = $this->getGadgetIdsKey();
 
 		$fname = __METHOD__;
-		return $this->wanCache->getWithSetCallback(
+		$titles = $this->wanCache->getWithSetCallback(
 			$key,
 			self::CACHE_TTL,
 			static function ( $oldValue, &$ttl, array &$setOpts ) use ( $fname ) {
@@ -62,25 +62,44 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 				return $dbr->newSelectQueryBuilder()
 					->select( 'page_title' )
 					->from( 'page' )
-					->where( [ 'page_namespace' => NS_GADGET_DEFINITION ] )
+					->where( [
+						'page_namespace' => NS_MEDIAWIKI,
+						'page_content_model' => 'GadgetDefinition',
+						$dbr->expr(
+							'page_title',
+							IExpression::LIKE,
+							new LikeValue( self::DEF_PREFIX, $dbr->anyString(), self::DEF_SUFFIX )
+						)
+					] )
 					->caller( $fname )
 					->fetchFieldValues();
 			},
 			[
 				'checkKeys' => [ $key ],
 				'pcTTL' => WANObjectCache::TTL_PROC_SHORT,
+				// Bump when changing the database query.
+				'version' => 2,
 				'lockTSE' => 30
 			]
 		);
+
+		$ids = [];
+		foreach ( $titles as $title ) {
+			$id = self::getGadgetId( $title );
+			if ( $id !== '' ) {
+				$ids[] = $id;
+			}
+		}
+		return $ids;
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function handlePageUpdate( LinkTarget $target ): void {
-		if ( $target->inNamespace( NS_GADGET_DEFINITION ) ) {
+		if ( $this->isGadgetDefinitionTitle( $target ) ) {
 			$this->purgeGadgetIdsList();
-			$this->purgeGadgetEntry( $target->getText() );
+			$this->purgeGadgetEntry( self::getGadgetId( $target->getText() ) );
 		}
 	}
 
@@ -92,10 +111,38 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	}
 
 	/**
+	 * @param string $title Gadget definition page title
+	 * @return string Gadget ID
+	 */
+	private static function getGadgetId( string $title ): string {
+		if ( !str_starts_with( $title, self::DEF_PREFIX ) || !str_ends_with( $title, self::DEF_SUFFIX ) ) {
+			throw new InvalidArgumentException( 'Invalid definition page title' );
+		}
+		return substr( $title, strlen( self::DEF_PREFIX ), -strlen( self::DEF_SUFFIX ) );
+	}
+
+	/**
+	 * @param LinkTarget $target
+	 * @return bool
+	 */
+	public static function isGadgetDefinitionTitle( LinkTarget $target ): bool {
+		if ( !$target->inNamespace( NS_MEDIAWIKI ) ) {
+			return false;
+		}
+		$title = $target->getText();
+		try {
+			self::getGadgetId( $title );
+			return true;
+		} catch ( InvalidArgumentException $e ) {
+			return false;
+		}
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getGadgetDefinitionTitle( string $id ): ?Title {
-		return Title::makeTitleSafe( NS_GADGET_DEFINITION, $id );
+		return Title::makeTitleSafe( NS_MEDIAWIKI, self::DEF_PREFIX . $id . self::DEF_SUFFIX );
 	}
 
 	/**
@@ -110,7 +157,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 			self::CACHE_TTL,
 			function ( $old, &$ttl, array &$setOpts ) use ( $id ) {
 				$setOpts += Database::getCacheSetOptions( wfGetDB( DB_REPLICA ) );
-				$title = Title::makeTitleSafe( NS_GADGET_DEFINITION, $id );
+				$title = $this->getGadgetDefinitionTitle( $id );
 				if ( !$title ) {
 					$ttl = WANObjectCache::TTL_UNCACHEABLE;
 					return null;
@@ -143,7 +190,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 		);
 
 		if ( $gadget === null ) {
-			throw new InvalidArgumentException( "No gadget registered for '$id'" );
+			throw new InvalidArgumentException( "Unknown gadget $id" );
 		}
 
 		return new Gadget( $gadget );
@@ -162,7 +209,7 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	 * @return string
 	 */
 	private function getGadgetIdsKey() {
-		return $this->wanCache->makeKey( 'gadgets', 'namespace', 'ids' );
+		return $this->wanCache->makeKey( 'gadgets-jsonrepo-ids' );
 	}
 
 	/**
@@ -170,7 +217,6 @@ class GadgetDefinitionNamespaceRepo extends GadgetRepo {
 	 * @return string
 	 */
 	private function getGadgetCacheKey( $id ) {
-		return $this->wanCache->makeKey(
-			'gadgets', 'object', md5( $id ), Gadget::GADGET_CLASS_VERSION );
+		return $this->wanCache->makeKey( 'gadgets-object', $id, Gadget::GADGET_CLASS_VERSION );
 	}
 }

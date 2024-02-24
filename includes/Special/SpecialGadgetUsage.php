@@ -102,7 +102,8 @@ class SpecialGadgetUsage extends QueryPage {
 				'fields' => [
 					'title' => 'up_property',
 					'value' => 'COUNT(*)',
-					'namespace' => NS_GADGET
+					// Required field, but unused
+					'namespace' => NS_MEDIAWIKI
 				],
 				'conds' => $conds,
 				'options' => [

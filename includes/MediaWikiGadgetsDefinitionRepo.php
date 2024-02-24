@@ -40,9 +40,6 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	/** @var array|null */
 	private $definitions;
 
-	/** @var string */
-	protected $titlePrefix = 'MediaWiki:Gadget-';
-
 	private WANObjectCache $wanCache;
 
 	private RevisionLookup $revLookup;
@@ -300,7 +297,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		}
 
 		foreach ( preg_split( '/\s*\|\s*/', $pages, -1, PREG_SPLIT_NO_EMPTY ) as $page ) {
-			$info['pages'][] = $this->titlePrefix . trim( $page );
+			$info['pages'][] = self::RESOURCE_TITLE_PREFIX . trim( $page );
 		}
 
 		return new Gadget( $info );
