@@ -27,8 +27,11 @@ EOT;
 		$this->editPage( 'MediaWiki:Gadgets-definition', $gadgetsDef );
 
 		$services = $this->getServiceContainer();
-		$repo = new MediaWikiGadgetsDefinitionRepo( $services->getMainWANObjectCache(),
-			$services->getRevisionLookup() );
+		$repo = new MediaWikiGadgetsDefinitionRepo(
+			$services->getConnectionProvider(),
+			$services->getMainWANObjectCache(),
+			$services->getRevisionLookup()
+		);
 		$gadgets = $repo->fetchStructuredList();
 		$this->assertCount( 6, $gadgets );
 
@@ -41,10 +44,11 @@ EOT;
 
 	public function testCacheInvalidationOnSave() {
 		$services = $this->getServiceContainer();
+		$dbProvider = $services->getConnectionProvider();
 		$wanCache = new WANObjectCache( [ 'cache' => new HashBagOStuff ] );
 		$wanCache->useInterimHoldOffCaching( false );
 
-		$repo = new MediaWikiGadgetsDefinitionRepo( $wanCache, $services->getRevisionLookup() );
+		$repo = new MediaWikiGadgetsDefinitionRepo( $dbProvider, $wanCache, $services->getRevisionLookup() );
 		$this->setService( 'GadgetsRepo', $repo );
 
 		$this->editPage( 'MediaWiki:Gadgets-definition', '* X1[ResourceLoader|default]|foo.js' );

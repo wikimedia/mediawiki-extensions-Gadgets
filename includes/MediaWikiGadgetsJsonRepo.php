@@ -10,6 +10,7 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use WANObjectCache;
 use Wikimedia\Rdbms\Database;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\LikeValue;
 
@@ -28,17 +29,16 @@ class MediaWikiGadgetsJsonRepo extends GadgetRepo {
 	public const DEF_PREFIX = 'Gadgets/';
 	public const DEF_SUFFIX = '.json';
 
-	/**
-	 * @var WANObjectCache
-	 */
-	private $wanCache;
+	private IConnectionProvider $dbProvider;
+	private WANObjectCache $wanCache;
+	private RevisionLookup $revLookup;
 
-	/**
-	 * @var RevisionLookup
-	 */
-	private $revLookup;
-
-	public function __construct( WANObjectCache $wanCache, RevisionLookup $revLookup ) {
+	public function __construct(
+		IConnectionProvider $dbProvider,
+		WANObjectCache $wanCache,
+		RevisionLookup $revLookup
+	) {
+		$this->dbProvider = $dbProvider;
 		$this->wanCache = $wanCache;
 		$this->revLookup = $revLookup;
 	}
@@ -52,11 +52,11 @@ class MediaWikiGadgetsJsonRepo extends GadgetRepo {
 		$key = $this->getGadgetIdsKey();
 
 		$fname = __METHOD__;
+		$dbr = $this->dbProvider->getReplicaDatabase();
 		$titles = $this->wanCache->getWithSetCallback(
 			$key,
 			self::CACHE_TTL,
-			static function ( $oldValue, &$ttl, array &$setOpts ) use ( $fname ) {
-				$dbr = wfGetDB( DB_REPLICA );
+			static function ( $oldValue, &$ttl, array &$setOpts ) use ( $fname, $dbr ) {
 				$setOpts += Database::getCacheSetOptions( $dbr );
 
 				return $dbr->newSelectQueryBuilder()
@@ -156,7 +156,7 @@ class MediaWikiGadgetsJsonRepo extends GadgetRepo {
 			$key,
 			self::CACHE_TTL,
 			function ( $old, &$ttl, array &$setOpts ) use ( $id ) {
-				$setOpts += Database::getCacheSetOptions( wfGetDB( DB_REPLICA ) );
+				$setOpts += Database::getCacheSetOptions( $this->dbProvider->getReplicaDatabase() );
 				$title = $this->getGadgetDefinitionTitle( $id );
 				if ( !$title ) {
 					$ttl = WANObjectCache::TTL_UNCACHEABLE;

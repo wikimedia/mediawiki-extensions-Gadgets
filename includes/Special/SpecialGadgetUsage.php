@@ -27,6 +27,7 @@ use MediaWiki\SpecialPage\QueryPage;
 use MediaWiki\Title\TitleValue;
 use Skin;
 use stdClass;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IResultWrapper;
@@ -39,10 +40,12 @@ use Wikimedia\Rdbms\LikeValue;
  */
 class SpecialGadgetUsage extends QueryPage {
 	private GadgetRepo $gadgetRepo;
+	private IConnectionProvider $dbProvider;
 
-	public function __construct( GadgetRepo $gadgetRepo ) {
+	public function __construct( GadgetRepo $gadgetRepo, IConnectionProvider $dbProvider ) {
 		parent::__construct( 'GadgetUsage' );
 		$this->gadgetRepo = $gadgetRepo;
+		$this->dbProvider = $dbProvider;
 		$this->limit = 1000; // Show all gadgets
 		$this->shownavigation = false;
 	}
@@ -88,7 +91,7 @@ class SpecialGadgetUsage extends QueryPage {
 	 * @return array
 	 */
 	public function getQueryInfo() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = $this->dbProvider->getReplicaDatabase();
 
 		$conds = [
 			$dbr->expr( 'up_property', IExpression::LIKE, new LikeValue( 'gadget-', $dbr->anyString() ) ),

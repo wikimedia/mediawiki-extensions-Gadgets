@@ -4,6 +4,7 @@ use MediaWiki\Extension\Gadgets\Gadget;
 use MediaWiki\Extension\Gadgets\GadgetResourceLoaderModule;
 use MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo;
 use MediaWiki\Revision\RevisionLookup;
+use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -18,9 +19,10 @@ trait GadgetTestTrait {
 	 * @return Gadget
 	 */
 	public function makeGadget( string $line ) {
+		$dbProvider = $this->createMock( IConnectionProvider::class );
 		$wanCache = WANObjectCache::newEmpty();
 		$revLookup = $this->createMock( RevisionLookup::class );
-		$repo = new MediaWikiGadgetsDefinitionRepo( $wanCache, $revLookup );
+		$repo = new MediaWikiGadgetsDefinitionRepo( $dbProvider, $wanCache, $revLookup );
 		return $repo->newFromDefinition( $line, 'misc' );
 	}
 

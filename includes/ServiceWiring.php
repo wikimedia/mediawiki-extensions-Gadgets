@@ -10,15 +10,16 @@ return [
 	'GadgetsRepo' => static function ( MediaWikiServices $services ): GadgetRepo {
 		$wanCache = $services->getMainWANObjectCache();
 		$revisionLookup = $services->getRevisionLookup();
+		$dbProvider = $services->getConnectionProvider();
 		switch ( $services->getMainConfig()->get( 'GadgetsRepo' ) ) {
 			case 'definition':
-				return new MediaWikiGadgetsDefinitionRepo( $wanCache, $revisionLookup );
+				return new MediaWikiGadgetsDefinitionRepo( $dbProvider, $wanCache, $revisionLookup );
 			case 'json':
-				return new MediaWikiGadgetsJsonRepo( $wanCache, $revisionLookup );
+				return new MediaWikiGadgetsJsonRepo( $dbProvider, $wanCache, $revisionLookup );
 			case 'json+definition':
 				return new MultiGadgetRepo( [
-					new MediaWikiGadgetsJsonRepo( $wanCache, $revisionLookup ),
-					new MediaWikiGadgetsDefinitionRepo( $wanCache, $revisionLookup )
+					new MediaWikiGadgetsJsonRepo( $dbProvider, $wanCache, $revisionLookup ),
+					new MediaWikiGadgetsDefinitionRepo( $dbProvider, $wanCache, $revisionLookup )
 				] );
 			default:
 				throw new InvalidArgumentException( 'Unexpected value for $wgGadgetsRepo' );

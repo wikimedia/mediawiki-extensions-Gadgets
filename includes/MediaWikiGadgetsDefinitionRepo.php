@@ -30,6 +30,7 @@ use ObjectCache;
 use TextContent;
 use WANObjectCache;
 use Wikimedia\Rdbms\Database;
+use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * Gadgets repo powered by MediaWiki:Gadgets-definition
@@ -40,11 +41,16 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	/** @var array|null */
 	private $definitions;
 
+	private IConnectionProvider $dbProvider;
 	private WANObjectCache $wanCache;
-
 	private RevisionLookup $revLookup;
 
-	public function __construct( WANObjectCache $wanCache, RevisionLookup $revLookup ) {
+	public function __construct(
+		IConnectionProvider $dbProvider,
+		WANObjectCache $wanCache,
+		RevisionLookup $revLookup
+	) {
+		$this->dbProvider = $dbProvider;
 		$this->wanCache = $wanCache;
 		$this->revLookup = $revLookup;
 	}
@@ -135,7 +141,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 						Gadget::CACHE_TTL,
 						function ( $old, &$ttl, &$setOpts ) {
 							// Reduce caching of known-stale data (T157210)
-							$setOpts += Database::getCacheSetOptions( wfGetDB( DB_REPLICA ) );
+							$setOpts += Database::getCacheSetOptions( $this->dbProvider->getReplicaDatabase() );
 
 							return $this->fetchStructuredList();
 						},

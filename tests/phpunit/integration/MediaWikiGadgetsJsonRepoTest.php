@@ -14,7 +14,11 @@ class MediaWikiGadgetsJsonRepoTest extends MediaWikiIntegrationTestCase {
 			'{"module":{"pages":["test.js"]}, "settings":{"default":true}}' );
 
 		$services = $this->getServiceContainer();
-		$repo = new MediaWikiGadgetsJsonRepo( $services->getMainWANObjectCache(), $services->getRevisionLookup() );
+		$repo = new MediaWikiGadgetsJsonRepo(
+			$services->getConnectionProvider(),
+			$services->getMainWANObjectCache(),
+			$services->getRevisionLookup()
+		);
 		$gadget = $repo->getGadget( 'test' );
 		$this->assertTrue( $gadget->isOnByDefault() );
 		$this->assertArrayEquals( [ "MediaWiki:Gadget-test.js" ], $gadget->getScripts() );
@@ -27,8 +31,9 @@ class MediaWikiGadgetsJsonRepoTest extends MediaWikiIntegrationTestCase {
 			'{"module":{"pages":["MediaWiki:Gadget-test.js"]}, "settings":{"default":true}}' );
 
 		$services = $this->getServiceContainer();
+		$dbProvider = $services->getConnectionProvider();
 		$wanCache = $services->getMainWANObjectCache();
-		$repo = new MediaWikiGadgetsJsonRepo( $wanCache, $services->getRevisionLookup() );
+		$repo = new MediaWikiGadgetsJsonRepo( $dbProvider, $wanCache, $services->getRevisionLookup() );
 		$wanCache->clearProcessCache();
 		$this->assertArrayEquals( [ 'X1', 'X2' ], $repo->getGadgetIds() );
 	}

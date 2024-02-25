@@ -29,7 +29,8 @@
 		"GadgetUsage": {
 			"class": "MediaWiki\\Extension\\Gadgets\\Special\\SpecialGadgetUsage",
 			"services": [
-				"GadgetsRepo"
+				"GadgetsRepo",
+				"ConnectionProvider"
 			]
 		}
 	},
