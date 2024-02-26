@@ -51,9 +51,5 @@
 	"gadgets-validate-notset": "A propriedade <code>$1</code> não está definida.",
 	"gadgets-validate-wrongtype": "A propriedade <code>$1</code> deve ser <code>$2</code> em vez de <code>$3</code>.",
 	"gadgets-validate-nopage": "A página \"$1\" não existe.",
-	"right-gadgets-definition-edit": "Editar as definições dos gadgets",
-	"action-gadgets-definition-edit": "editar a definição deste gadget",
-	"gadgets-wrong-contentmodel": "As páginas no espaço nominal {{ns:2302}} devem ser do modelo de conteúdo GadgetDefinition.",
-	"gadgets-supports-urlload": "Este gadget oferece suporte ao carregamento via URL com o parâmetro de consulta <code>?withgadget</code>.",
-	"gadgets-protected": "Você não possui permissão para editar páginas no namespace {{ns:2300}}."
+	"gadgets-supports-urlload": "Este gadget oferece suporte ao carregamento via URL com o parâmetro de consulta <code>?withgadget</code>."
 }

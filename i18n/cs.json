@@ -38,8 +38,5 @@
 	"gadgets-export-download": "Stáhnout",
 	"gadgets-validate-notset": "Není nastavena vlastnost <code>$1</code>.",
 	"gadgets-validate-wrongtype": "Vlastnost <code>$1</code> musí být typu <code>$2</code> namísto typu <code>$3</code>.",
-	"right-gadgets-definition-edit": "Editace definic udělátek",
-	"action-gadgets-definition-edit": "editovat definici tohoto udělátka",
-	"gadgets-wrong-contentmodel": "Stránky ve jmenném prostoru {{ns:2302}} musí mít jako model obsahu ''GadgetDefinition''.",
 	"gadgets-supports-urlload": "Toto udělátko podporuje načítání prostřednictví URL pomocí parametru <code>?withgadget</code>."
 }

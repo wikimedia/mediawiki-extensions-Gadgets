@@ -69,9 +69,5 @@
 	"gadgets-validate-invalidtitle": "Der Seitentitel „$1“ ist ungültig",
 	"gadgets-validate-unknownpages": "Enthält eine oder mehrere Seiten ohne .js-, .css- oder .json-Suffix. Sie würden nicht verwendet werden.",
 	"gadgets-validate-nopage": "Seite „$1“ ist nicht vorhanden.",
-	"right-gadgets-definition-edit": "Definitionen von Helferlein bearbeiten",
-	"action-gadgets-definition-edit": "diese Definition des Helferleins zu bearbeiten",
-	"gadgets-wrong-contentmodel": "Seiten im {{ns:2302}}-Namensraum müssen das Inhaltsmodell GadgetDefinition haben.",
-	"gadgets-supports-urlload": "Dieses Helferlein unterstützt das Laden über eine URL mit dem Query-Parameter <code>?withgadget</code>",
-	"gadgets-protected": "Du bist nicht berechtigt, Seiten im Namensraum {{ns:2300}} zu bearbeiten."
+	"gadgets-supports-urlload": "Dieses Helferlein unterstützt das Laden über eine URL mit dem Query-Parameter <code>?withgadget</code>"
 }

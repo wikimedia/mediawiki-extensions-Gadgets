@@ -33,7 +33,5 @@
 	"gadgets-export-text": "Para exportar o trebello $1, prema sobre o botón \"{{int:gadgets-export-download}}\", garde o ficheiro descargado,\nvaia á páxina especial Special:Import do wiki de destino e cárgueo. A continuación, engada o seguinte texto na páxina MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nDebe ter os permisos axeitados no wiki de destino (incluído o dereito de modificar as mensaxes do sistema) e a importación desde a carga de ficheiros debe estar activada.",
 	"gadgets-export-download": "Descargar",
 	"gadgets-validate-notset": "A propiedade <code>$1</code> non está establecida.",
-	"gadgets-validate-wrongtype": "A propiedade <code>$1</code> debe ser de tipo <code>$2</code> en vez de <code>$3</code>.",
-	"right-gadgets-definition-edit": "Editar as definicións dos trebellos",
-	"action-gadgets-definition-edit": "editar a definición deste trebello"
+	"gadgets-validate-wrongtype": "A propiedade <code>$1</code> debe ser de tipo <code>$2</code> en vez de <code>$3</code>."
 }

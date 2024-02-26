@@ -48,7 +48,5 @@
 	"gadgets-export-text": "$1 ガジェットを書き出すには、「{{int:gadgets-export-download}}」ボタンをクリックし、ダウンロードしたファイルを保存し、\n配布先ウィキの Special:Import に行ってアップロードしてください。そして、以下を MediaWiki:Gadgets-definition ページに追加してください:\n<pre>$2</pre>\nこの操作には、配布先のウィキで適切な権限 (システムメッセージの編集権限を含む) が必要で、さらにファイルのアップロードによるインポートが有効になっている必要があります。",
 	"gadgets-export-download": "ダウンロード",
 	"gadgets-validate-notset": "プロパティ <code>$1</code> が設定されていません。",
-	"gadgets-validate-wrongtype": "プロパティ <code>$1</code> は型 <code>$3</code> ではなく <code>$2</code> でなければなりません。",
-	"right-gadgets-definition-edit": "ガジェット定義を編集",
-	"action-gadgets-definition-edit": "このガジェット定義の編集"
+	"gadgets-validate-wrongtype": "プロパティ <code>$1</code> は型 <code>$3</code> ではなく <code>$2</code> でなければなりません。"
 }

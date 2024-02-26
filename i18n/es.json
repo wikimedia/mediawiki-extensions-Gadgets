@@ -51,8 +51,5 @@
 	"gadgets-requires-es6": "Este accesorio solo funciona en navegadores compatibles con ES6",
 	"gadgets-validate-notset": "La propiedad <code>$1</code> no está establecida.",
 	"gadgets-validate-wrongtype": "La propiedad <code>$1</code> debe ser de tipo <code>$2</code> en vez de <code>$3</code>.",
-	"right-gadgets-definition-edit": "Editar definiciones de accesorios",
-	"action-gadgets-definition-edit": "editar esta definición de accesorio",
-	"gadgets-wrong-contentmodel": "Las páginas del espacio de nombres {{ns:2302}} solo pueden tener el modelo de contenido «GadgetDefinition».",
 	"gadgets-supports-urlload": "Este accesorio admite su carga a través de una URL con el parámetro <code>?withgadget</code>."
 }

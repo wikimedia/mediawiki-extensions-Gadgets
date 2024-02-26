@@ -31,7 +31,5 @@
 	"gadgets-not-found": "\"$1\" гаджеты табылманы.",
 	"gadgets-export-download": "Йөкләргә",
 	"gadgets-validate-notset": "<code>$1</code> үҙенсәнлеге билдәләнмәгән.",
-	"gadgets-validate-wrongtype": "Үҙенсәнлек <code>$1</code> <code>$3</code> төрө урынына <code>$2</code> төрөнә эйә булырға тейеш.",
-	"right-gadgets-definition-edit": "Гаджеттарҙың билдәләмәһен үҙгәртеү.",
-	"action-gadgets-definition-edit": "Был гаджеттың билдәләмәһен мөхәррирләү."
+	"gadgets-validate-wrongtype": "Үҙенсәнлек <code>$1</code> <code>$3</code> төрө урынына <code>$2</code> төрөнә эйә булырға тейеш."
 }

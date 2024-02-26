@@ -48,8 +48,5 @@
 	"gadgets-requires-es6": "هذه الأداة الذكية مدعومة فقط في المتصفحات المتوافقة مع ES6",
 	"gadgets-validate-notset": "الخاصية <code>$1</code> ليست مضبوطة.",
 	"gadgets-validate-wrongtype": "الخاصية <code>$1</code> يجب أن تكون من النوع <code>$2</code> بدلا من <code>$3</code>.",
-	"right-gadgets-definition-edit": "تعديل تعريفات الإضافات",
-	"action-gadgets-definition-edit": "تعديل تعريف الادوات",
-	"gadgets-wrong-contentmodel": "يجب أن تكون الصفحات الموجودة في مساحة الاسم {{ns:2302}} من نموذج محتوى GadgetDefinition.",
 	"gadgets-supports-urlload": "تدعم هذه الأداة التحميل عبر عنوان URL باستخدام معلمة طلب البحث <code>?withgadget</code>."
 }

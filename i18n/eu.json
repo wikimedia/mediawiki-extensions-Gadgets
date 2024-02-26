@@ -27,7 +27,5 @@
 	"gadgets-export": "Esportatu",
 	"gadgets-export-title": "Gadgeten esportazioa",
 	"gadgets-not-found": "Ez da \"$1\" gadgeta aurkitu.",
-	"gadgets-export-download": "Deskargatu",
-	"right-gadgets-definition-edit": "Gadgetaren definizioak aldatu",
-	"action-gadgets-definition-edit": "Gadget honen definizioa aldatu"
+	"gadgets-export-download": "Deskargatu"
 }

@@ -29,7 +29,5 @@
 	"gadgets-not-found": "Spravica \"$1\" nije pronađena.",
 	"gadgets-export-download": "Preuzmi",
 	"gadgets-validate-notset": "Svojstvo <code>$1</code> nije zadano.",
-	"gadgets-validate-wrongtype": "Svojstvo <code>$1</code> mora da bude od tipa <code>$2</code> umjesto <code>$3</code>.",
-	"right-gadgets-definition-edit": "Uređivanje definicija gedžeta",
-	"action-gadgets-definition-edit": "uređivanje ove definicije gedžeta"
+	"gadgets-validate-wrongtype": "Svojstvo <code>$1</code> mora da bude od tipa <code>$2</code> umjesto <code>$3</code>."
 }

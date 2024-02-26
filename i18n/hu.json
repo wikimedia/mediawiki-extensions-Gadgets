@@ -52,7 +52,5 @@
 	"gadgets-validate-invalidtitle": "A(z) „$1” lapcím érvénytelen",
 	"gadgets-validate-unknownpages": "Egy vagy több olyan lap van megadva, ami nem .js-re, .css-re vagy .json-re végződik, ezek nem töltődnek be.",
 	"gadgets-validate-nopage": "A(z) „$1” lap nem létezik.",
-	"right-gadgets-definition-edit": "segédeszköz-definíciók szerkesztése",
-	"action-gadgets-definition-edit": "ennek a segédeszköz-definíciónak a szerkesztése",
 	"gadgets-supports-urlload": "Ez a segédeszköz betölthető a <code>?withgadget</code> URL-paraméterrel."
 }

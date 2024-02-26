@@ -38,7 +38,5 @@
 	"gadgets-export-text": "Qande gadgeto $1 teber rusnayış rê,\"{{int:gadgets-export-download}}\" rê hengnayış kerên,u dosya kı download biyo,star kerên.Wikiyê hedef de şo pela Special:Import rê and download kerên.Bahdo nuşteyê ke cerên de de yo pela MediaWiki:Gadgets-definition rê bınuse:<pre>$2</pre>\nWikiyê ke hedefo de desturê lazımo (vurnayışê mesacanê sistemi daxilo) u dosya ra zerê rê rusnayışi mısade lazımo.",
 	"gadgets-export-download": "Biya war",
 	"gadgets-validate-notset": "Xısusiyetê <code>$1</code> saz nêbiyo .",
-	"gadgets-validate-wrongtype": "Xısusiyetê <code>$1</code>, heruna <code>$3</code> dê wa zey <code>$2</code> bıbo .",
-	"right-gadgets-definition-edit": "Hacet weçine bıvurne",
-	"action-gadgets-definition-edit": "Ena Hacet weçine bıvurne"
+	"gadgets-validate-wrongtype": "Xısusiyetê <code>$1</code>, heruna <code>$3</code> dê wa zey <code>$2</code> bıbo ."
 }

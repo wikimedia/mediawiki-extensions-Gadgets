@@ -31,7 +31,5 @@
 	"gadgets-export-text": "Pe esportà 'a pazziella $1, cliccate ncopp' 'u buttone \"{{int:gadgets-export-download}}\", riggistrate 'u file scarrecato, ghiate 'a pàggene Special:Import ncopp' 'a Wiki 'e destinaziona e carrecatevello. Aroppo azzeccate 'a paggena ccà MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nAvita tenè permesse ghiuste ncopp' 'a wiki 'e destinaziona (ncludenno 'e deritte 'e cagnà mmasciate d' 'o sistema) e 'a mpurtaziona 'e file carrecate ave 'a sta appicciata.",
 	"gadgets-export-download": "Scarreca",
 	"gadgets-validate-notset": "'O codece <code>$1</code> 'e pruprietà nun è mpustato.",
-	"gadgets-validate-wrongtype": "'O codece <code>$1</code> 'e pruprietà adda essere 'e tipo <code>$2</code> mmece 'e <code>$3</code>.",
-	"right-gadgets-definition-edit": "Cagna 'e definiziuni d' 'e ppazzielle",
-	"action-gadgets-definition-edit": "cagna 'a definiziona 'e sta pazziella"
+	"gadgets-validate-wrongtype": "'O codece <code>$1</code> 'e pruprietà adda essere 'e tipo <code>$2</code> mmece 'e <code>$3</code>."
 }

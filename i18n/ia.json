@@ -56,9 +56,5 @@
 	"gadgets-validate-invalidtitle": "Le titulo de pagina “$1” non es valide",
 	"gadgets-validate-unknownpages": "Contine un o plus paginas sin suffixo .js, .css o .json. Illos non esserea usate.",
 	"gadgets-validate-nopage": "Le pagina “$1” non existe.",
-	"right-gadgets-definition-edit": "Modificar definitiones de gadgets",
-	"action-gadgets-definition-edit": "modificar le definition de iste accessorio",
-	"gadgets-wrong-contentmodel": "Paginas in le spatio de nomines {{ns:2302}} debe esser del modello de contento GadgetDefinition.",
-	"gadgets-supports-urlload": "Iste accessorio supporta le cargamento via URL con le parametro de consulta <code>?withgadget</code>.",
-	"gadgets-protected": "Tu non ha le permission de modificar paginas in le spatio de nomines {{ns:2300}}."
+	"gadgets-supports-urlload": "Iste accessorio supporta le cargamento via URL con le parametro de consulta <code>?withgadget</code>."
 }

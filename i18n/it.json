@@ -57,7 +57,5 @@
 	"gadgets-validate-invalidactions": "{{PLURAL:$2|La seguente azione non è riconosciuta|Le seguenti azione non sono riconosciute}}: $1",
 	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|Il seguente modello di contenuto non esiste|I seguenti modelli di contenuto non esistono}}: $1",
 	"gadgets-validate-invalidtitle": "Il titolo della pagina \"$1\" non è valido",
-	"gadgets-validate-nopage": "La pagina \"$1\" non esiste.",
-	"right-gadgets-definition-edit": "Modifica le definizioni dei gadget",
-	"action-gadgets-definition-edit": "modificare la definizione di questo gadget"
+	"gadgets-validate-nopage": "La pagina \"$1\" non esiste."
 }

@@ -34,8 +34,5 @@
 	"gadgets-export-download": "Descarega",
 	"gadgets-validate-notset": "La proprietà <code>$1</code> l'è minga impostada.",
 	"gadgets-validate-wrongtype": "La proprietà <code>$1</code> la gh'hà de vesser de tipo <code>$2</code> inscambi che <code>$3</code>.",
-	"right-gadgets-definition-edit": "Modifega i definizzion di acessori",
-	"action-gadgets-definition-edit": "modifegà i definizzin di acessori",
-	"gadgets-wrong-contentmodel": "I pagine del spazzi di nom {{ns:2302}} i gh'hann de vegnì del modell de contegnud GadgetDefinition.",
 	"gadgets-supports-urlload": "Quell acessori el suporta el caregament per mez de URL cont el parametro de query <code>?withgadget</code> ."
 }

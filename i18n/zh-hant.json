@@ -60,8 +60,5 @@
 	"gadgets-validate-wrongtype": "屬性 <code>$1</code> 必須是 <code>$2</code> 類型，而非 <code>$3</code>。",
 	"gadgets-validate-unknownpages": "包含一個或多個不帶.js、.css或.json後綴的頁面。它們不會被使用。",
 	"gadgets-validate-nopage": "頁面「$1」不存在。",
-	"right-gadgets-definition-edit": "編輯小工具定義",
-	"action-gadgets-definition-edit": "編輯此小工具的定義",
-	"gadgets-wrong-contentmodel": "在{{ns:2302}}命名空間的頁面必須是GadgetDefinition內容模型。",
 	"gadgets-supports-urlload": "此小工具支援透過包含<code>?withgadget</code>查詢參數的URL來載入。"
 }

@@ -66,9 +66,5 @@
 	"gadgets-validate-invalidtitle": "O título de página \"$1\" é inválido",
 	"gadgets-validate-unknownpages": "Contém uma ou mais páginas que não têm o sufixo .js, .css ou .json. Estas não seriam usadas.",
 	"gadgets-validate-nopage": "A página \"$1\" não existe.",
-	"right-gadgets-definition-edit": "Editar definições de ''gadgets''",
-	"action-gadgets-definition-edit": "editar esta definição do ''gadget''",
-	"gadgets-wrong-contentmodel": "As páginas do espaço nominal {{ns:2302}} têm de ser do modelo de conteúdo GadgetDefinition.",
-	"gadgets-supports-urlload": "Este ''gadget'' suporta carregamento via URL com o parâmetro de consulta <code>?withgadget</code>.",
-	"gadgets-protected": "Não tem permissão para editar páginas do espaço nominal {{ns:2300}}."
+	"gadgets-supports-urlload": "Este ''gadget'' suporta carregamento via URL com o parâmetro de consulta <code>?withgadget</code>."
 }

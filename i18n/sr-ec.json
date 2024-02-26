@@ -47,8 +47,5 @@
 	"gadgets-validate-invalidskins": "{{PLURAL:$2|Следећа тема не постоји|Следеће теме не постоје}}: $1",
 	"gadgets-validate-invalidrights": "{{PLURAL:$2|Следеће право не постоји|Следећа права не постоје}}: $1",
 	"gadgets-validate-invalidtitle": "Назив странице „$1” није ваљан",
-	"gadgets-validate-nopage": "Страница „$1” не постоји.",
-	"right-gadgets-definition-edit": "уређивање дефиниција геџета",
-	"action-gadgets-definition-edit": "уредите дефиницију ове справице",
-	"gadgets-protected": "Немате дозволу да уређујете странице у именском простору {{ns:2300}}."
+	"gadgets-validate-nopage": "Страница „$1” не постоји."
 }

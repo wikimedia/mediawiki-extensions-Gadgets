@@ -68,9 +68,5 @@
 	"gadgets-validate-invalidtitle": "Tytuł strony „$1” jest nieprawidłowy",
 	"gadgets-validate-unknownpages": "Zawiera jedną lub więcej stron bez końcówki .js, .css lub .json. Te strony nie zostaną załadowane.",
 	"gadgets-validate-nopage": "Strona „$1” nie istnieje.",
-	"right-gadgets-definition-edit": "Edycja definicji gadżetów",
-	"action-gadgets-definition-edit": "edytowania tej definicji gadżetu",
-	"gadgets-wrong-contentmodel": "Strony w przestrzeni nazw {{ns:2302}} muszą mieć model zawartości GadgetDefinition.",
-	"gadgets-supports-urlload": "Ten gadżet obsługuje ładowanie przez adres URL z parametrem <code>?withgadget</code>.",
-	"gadgets-protected": "Nie posiadasz uprawnień do edytowania stron w przestrzeni nazw „{{ns:2300}}”."
+	"gadgets-supports-urlload": "Ten gadżet obsługuje ładowanie przez adres URL z parametrem <code>?withgadget</code>."
 }

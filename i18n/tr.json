@@ -75,9 +75,5 @@
 	"gadgets-validate-invalidtitle": "\"$1\" sayfa başlığı geçersiz",
 	"gadgets-validate-unknownpages": ".js, .css ya da .json son eki olmayan bir ya da daha fazla sayfa içeriyor. Bunlar kullanılmayacaklar.",
 	"gadgets-validate-nopage": "\"$1\" sayfası yok.",
-	"right-gadgets-definition-edit": "Küçük araç tanımlarını düzenle",
-	"action-gadgets-definition-edit": "bu küçük araç tanımını düzenleme",
-	"gadgets-wrong-contentmodel": "{{ns:2302}} ad alanındaki sayfalar GadgetDefinition içerik modelinde olmalıdır.",
-	"gadgets-supports-urlload": "Bu küçük aracı, <code>?withgadget</code> sorgu parametresiyle URL üzerinden yüklemeyi destekler.",
-	"gadgets-protected": "{{ns:2300}} ad alanındaki sayfaları düzenleme izniniz yok."
+	"gadgets-supports-urlload": "Bu küçük aracı, <code>?withgadget</code> sorgu parametresiyle URL üzerinden yüklemeyi destekler."
 }

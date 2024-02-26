@@ -62,9 +62,5 @@
 	"gadgets-validate-invalidtitle": "Naslov strani »$1« ni veljaven",
 	"gadgets-validate-unknownpages": "Vsebuje eno ali več strani brez pripone .js, .css ali .json. Ne bi bile uporabljene.",
 	"gadgets-validate-nopage": "Stran »$1« ne obstaja.",
-	"right-gadgets-definition-edit": "Urejanje opredelitev pripomočkov",
-	"action-gadgets-definition-edit": "urejanje opredelitve tega pripomočka",
-	"gadgets-wrong-contentmodel": "Vsebinski model strani v imenskem prostoru {{ns:2302}} mora biti GadgetDefinition.",
-	"gadgets-supports-urlload": "Ta pripomoček podpira nalaganje prek URL-ja s poizvedbenim parametrom <code>?withgadget</code>.",
-	"gadgets-protected": "Za urejanje strani v imenskem prostoru {{ns:2300}} nimate dovoljenja."
+	"gadgets-supports-urlload": "Ta pripomoček podpira nalaganje prek URL-ja s poizvedbenim parametrom <code>?withgadget</code>."
 }

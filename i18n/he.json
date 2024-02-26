@@ -62,9 +62,5 @@
 	"gadgets-validate-invalidtitle": "כותרת הדף \"$1\" אינה תקינה",
 	"gadgets-validate-unknownpages": "מכיל דף אחד או יותר שהסיומת ‎.js‏, ‎.css או ‎.json לא מופיעה בהם. לא ייעשה שימוש בהם.",
 	"gadgets-validate-nopage": "הדף $1 אינו קיים.",
-	"right-gadgets-definition-edit": "עריכת הגדרות של גאדג'טים",
-	"action-gadgets-definition-edit": "לערוך את הגדרת הגאדג'ט הזה",
-	"gadgets-wrong-contentmodel": "דפים במרחב השם {{ns:2302}} צריכים להשתייך למודל התוכן GadgetDefinition.",
-	"gadgets-supports-urlload": "הגאדג'ט הזה תומך בטעינה דרך URL רק עם פרמטר השאילתה <code dir=\"ltr\">?withgadget</code>.",
-	"gadgets-protected": "אין לך הרשאה לערוך דפים במרחב השם {{ns:2300}}."
+	"gadgets-supports-urlload": "הגאדג'ט הזה תומך בטעינה דרך URL רק עם פרמטר השאילתה <code dir=\"ltr\">?withgadget</code>."
 }

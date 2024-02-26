@@ -34,7 +34,5 @@
 	"gadgets-export-text": "$1 ఉపకరణాన్ని ఎగుమతి చేయడానికి,  \"{{int:gadgets-export-download}}\" బటన్ పై నొక్కి, దిగుమతి చేయబడిన ఫైల్ ను భద్రపరచండి\nలక్ష్య వికీలో Special:Import పేజీకి వెళ్లి ఎగుమతి చేయండి.  తరువాత  MediaWiki:Gadgets-definition పేజీలో ఈ క్రింది వరుస చేర్చండి:\n<pre>$2</pre>\nలక్ష్య వికీపై మీకు సరిపోలిన అనుమతులు( సిస్టమ్ సందేశాలు సవరించగల హక్కులు కూడా), ఫైళ్ల అప్లోడ్ నుండి దిగుమతి చేసుకొనే హక్కు  చేతనమై వుండాలి.",
 	"gadgets-export-download": "దింపుకోండి",
 	"gadgets-validate-notset": " <code>$1</code> లక్షణానికి విలువ ఇవ్వలేదు.",
-	"gadgets-validate-wrongtype": "<code>$1</code> లక్షణం <code>$3</code> రకంగా కాక <code>$2</code> రకంగా వుండాలి",
-	"right-gadgets-definition-edit": "ఉపకరణ నిర్వచనాలు సవరించు",
-	"action-gadgets-definition-edit": "ఈ ఉపకరణ నిర్వచనం సవరించు"
+	"gadgets-validate-wrongtype": "<code>$1</code> లక్షణం <code>$3</code> రకంగా కాక <code>$2</code> రకంగా వుండాలి"
 }

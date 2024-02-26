@@ -29,7 +29,5 @@
 	"gadgets-export-text": "Pe esportâ l'angæzo $1, clicca in sciô pomello \"{{int:gadgets-export-download}}\", sarva o file descaregou,\nvanni a-a paggina Special:Import inta wiki de destinassion e carreghilo. Quindi azonzi quante segue a-a paggina MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nTe ghe voeu e permiscioin apropiæ inta wiki de destinassion (incioso o drito de modificâ i messaggi de scistema) e l'importassion da file a dev'ese abilitâ.",
 	"gadgets-export-download": "Scarrega",
 	"gadgets-validate-notset": "A propietæ <code>$1</code> a no l'è impostâ.",
-	"gadgets-validate-wrongtype": "A propietæ <code>$1</code> a dev'ese de tipo <code>$2</code> ansiché <code>$3</code>.",
-	"right-gadgets-definition-edit": "Modificâ e definissioin di angæxi",
-	"action-gadgets-definition-edit": "modificâ a definission de st'angæzo chie"
+	"gadgets-validate-wrongtype": "A propietæ <code>$1</code> a dev'ese de tipo <code>$2</code> ansiché <code>$3</code>."
 }

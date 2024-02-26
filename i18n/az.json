@@ -35,7 +35,5 @@
 	"gadgets-export-text": "$1 qadcetini ixrac etmək üçün \"{{int:gadgets-export-download}}\" düyməsinə basın, faylı yükləyin\nYükləmək istədiyiniz vikidə Special:Import səhifəsinə gedin və faylı oraya yükləyin. Daha sonra aşağıdakı kodu MediaWiki:Gadgets-definition səhifəsinə əlavə edin:\n<pre>$2</pre>\nHəmin vikidə (sistem mesajlarını redaktə etmək hüququ daxil olmaqla) müvafiq icazələriniz olmalıdır və fayl yükləmələrindən idxal aktiv olmalıdır.",
 	"gadgets-export-download": "Yüklə",
 	"gadgets-validate-notset": "<code>$1</code> parametri təyin olunmayıb.",
-	"gadgets-validate-wrongtype": "<code>$1</code> parametrinin tipi <code>$3</code> yox <code>$2</code> olmalıdır.",
-	"right-gadgets-definition-edit": "Qadcet izahlarını redaktə etmək",
-	"action-gadgets-definition-edit": "bu qadcet izahını redaktə etmək"
+	"gadgets-validate-wrongtype": "<code>$1</code> parametrinin tipi <code>$3</code> yox <code>$2</code> olmalıdır."
 }

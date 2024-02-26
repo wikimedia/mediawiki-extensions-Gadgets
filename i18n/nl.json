@@ -68,9 +68,5 @@
 	"gadgets-validate-invalidtitle": "Paginatitel “$1” is ongeldig",
 	"gadgets-validate-unknownpages": "Bevat een of meer pagina’s zonder het achtervoegsel .js, .css of .json. Ze zouden niet worden gebruikt.",
 	"gadgets-validate-nopage": "Pagina “$1” bestaat niet.",
-	"right-gadgets-definition-edit": "Gadget-definities bewerken",
-	"action-gadgets-definition-edit": "de definitie van deze gadget te bewerken",
-	"gadgets-wrong-contentmodel": "Pagina’s in de naamruimte {{ns:2302}} moeten het inhoudsmodel GadgetDefinition hebben.",
-	"gadgets-supports-urlload": "Deze gadget ondersteunt het laden via een URL met de queryparameter <code>?withgadget</code>.",
-	"gadgets-protected": "U hebt geen toestemming om pagina’s in de naamruimte {{ns:2300}} te bewerken."
+	"gadgets-supports-urlload": "Deze gadget ondersteunt het laden via een URL met de queryparameter <code>?withgadget</code>."
 }

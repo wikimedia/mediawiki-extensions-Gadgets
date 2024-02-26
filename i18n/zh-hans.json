@@ -83,9 +83,5 @@
 	"gadgets-validate-invalidtitle": "页面标题“$1”无效",
 	"gadgets-validate-unknownpages": "包含一个或多个不带.js、.css或.json后缀的页面。它们不会被使用。",
 	"gadgets-validate-nopage": "页面“$1”不存在。",
-	"right-gadgets-definition-edit": "编辑小工具定义",
-	"action-gadgets-definition-edit": "编辑此小工具的定义",
-	"gadgets-wrong-contentmodel": "{{ns:2302}}命名空间内的页面必须是小工具定义内容模型。",
-	"gadgets-supports-urlload": "此小工具支持通过包含<code>?withgadget</code>查询的URL来加载。",
-	"gadgets-protected": "您无权编辑{{ns:2300}}命名空间中的页面。"
+	"gadgets-supports-urlload": "此小工具支持通过包含<code>?withgadget</code>查询的URL来加载。"
 }
