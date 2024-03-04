@@ -49,7 +49,7 @@
 	"gadgets-validate-noscripts": "לסקריפטים לא הייתה השפעה כי הגאדג'ט הזה מגדיר <code>type=styles</code>.",
 	"gadgets-validate-stylepeers": "לגאדג'טים עמיתים אין השפעה כי זה גאדג'ט סגנונות בלבד. ישיש להגדיר <code>type=general</code> כדי לעקוף את זה.",
 	"gadgets-validate-scriptsnotallowed": "סקריפטים בקובצי נתונים אינם בשימוש כי הגאדג'ט הזה מגדיר <code>type=styles</code>.",
-	"gadgets-validate-invalidjs": "הסקריפט $1 אינו בשימוש, עקב מודל תוכן לא בלתי־תקין \"$2\".",
+	"gadgets-validate-invalidjs": "הסקריפט $1 אינו בשימוש, עקב מודל תוכן בלתי־תקין \"$2\".",
 	"gadgets-validate-invalidcss": "גיליון הסגנונות $1 אינו בשימוש, עקב מודל תוכן בלתי־תקין \"$2\".",
 	"gadgets-validate-invalidjson": "דף הנתונים $1 אינו בשימוש, עקב מודל תוכן בלתי־תקין \"$2\".",
 	"gadgets-validate-nopeer": "לגאדג'ט עמית \"$1\" אין השפעה כי הוא לא קיים.",
@@ -61,6 +61,7 @@
 	"gadgets-validate-invalidrights": "{{PLURAL:$2|ההרשאה הבאה אינה קיימת|ההרשאות הבאות אינן קיימות}}: $1.",
 	"gadgets-validate-invalidtitle": "כותרת הדף \"$1\" אינה תקינה",
 	"gadgets-validate-unknownpages": "מכיל דף אחד או יותר שהסיומת ‎.js‏, ‎.css או ‎.json לא מופיעה בהם. לא ייעשה שימוש בהם.",
+	"gadgets-validate-duplicate": "זוהתה הגדרה שנייה של הגאדג'ט $1 והמערכת תתעלם ממנה",
 	"gadgets-validate-nopage": "הדף $1 אינו קיים.",
 	"gadgets-supports-urlload": "הגאדג'ט הזה תומך בטעינה דרך URL רק עם פרמטר השאילתה <code dir=\"ltr\">?withgadget</code>."
 }

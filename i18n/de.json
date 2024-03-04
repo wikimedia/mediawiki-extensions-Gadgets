@@ -68,6 +68,7 @@
 	"gadgets-validate-invalidrights": "{{PLURAL:$2|Das folgende Benutzerrecht existiert|Die folgenden Benutzerrechte existieren}} nicht: $1",
 	"gadgets-validate-invalidtitle": "Der Seitentitel „$1“ ist ungültig",
 	"gadgets-validate-unknownpages": "Enthält eine oder mehrere Seiten ohne .js-, .css- oder .json-Suffix. Sie würden nicht verwendet werden.",
+	"gadgets-validate-duplicate": "Eine zweite Definition von Helferlein $1 wurde erkannt und wird ignoriert werden",
 	"gadgets-validate-nopage": "Seite „$1“ ist nicht vorhanden.",
 	"gadgets-supports-urlload": "Dieses Helferlein unterstützt das Laden über eine URL mit dem Query-Parameter <code>?withgadget</code>"
 }

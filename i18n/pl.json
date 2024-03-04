@@ -67,6 +67,7 @@
 	"gadgets-validate-invalidrights": "Następujące {{PLURAL:$2|uprawnienie nie istnieje|uprawnienia nie istnieją}}: $1",
 	"gadgets-validate-invalidtitle": "Tytuł strony „$1” jest nieprawidłowy",
 	"gadgets-validate-unknownpages": "Zawiera jedną lub więcej stron bez końcówki .js, .css lub .json. Te strony nie zostaną załadowane.",
+	"gadgets-validate-duplicate": "Została wykryta druga definicja gadżetu $1 i zostanie zignorowana",
 	"gadgets-validate-nopage": "Strona „$1” nie istnieje.",
 	"gadgets-supports-urlload": "Ten gadżet obsługuje ładowanie przez adres URL z parametrem <code>?withgadget</code>."
 }

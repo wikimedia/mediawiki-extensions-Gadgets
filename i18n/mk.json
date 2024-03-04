@@ -58,6 +58,7 @@
 	"gadgets-validate-invalidrights": "{{PLURAL:$2|Следново право не постои|Следниве права не постојат}}: $1",
 	"gadgets-validate-invalidtitle": "„$1“ е неважечки наслов на страница",
 	"gadgets-validate-unknownpages": "Содржи една или повеќе страници без наставка .js, .css или .json. Тие нема да се користат.",
+	"gadgets-validate-duplicate": "Пронајдена е втора дефиниција на алатката $1 и истата ќе биде занемарена",
 	"gadgets-validate-nopage": "Страницата „$1“ не постои.",
 	"gadgets-supports-urlload": "Оваа алатка поддржува вчитување преку со барачкиот параметар <code>?withgadget</code>."
 }
