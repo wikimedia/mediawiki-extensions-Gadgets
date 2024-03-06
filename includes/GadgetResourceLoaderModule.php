@@ -77,7 +77,8 @@ class GadgetResourceLoaderModule extends RL\WikiModule {
 	 * @return string
 	 */
 	public function getRequireKey( $titleText ): string {
-		return MediaWikiServices::getInstance()->getService( 'GadgetsRepo' )->titleWithoutPrefix( $titleText );
+		$repo = MediaWikiServices::getInstance()->getService( 'GadgetsRepo' );
+		return $repo->titleWithoutPrefix( $titleText, $this->id );
 	}
 
 	/**
