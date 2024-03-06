@@ -33,8 +33,10 @@ class GadgetResourceLoaderModule extends RL\WikiModule {
 	 */
 	private function getGadget() {
 		if ( !$this->gadget ) {
+			/** @var GadgetRepo $repo */
+			$repo = MediaWikiServices::getInstance()->getService( 'GadgetsRepo' );
 			try {
-				$this->gadget = MediaWikiServices::getInstance()->getService( 'GadgetsRepo' )->getGadget( $this->id );
+				$this->gadget = $repo->getGadget( $this->id );
 			} catch ( InvalidArgumentException $e ) {
 				// Fallback to a placeholder object...
 				$this->gadget = Gadget::newEmptyGadget( $this->id );
@@ -77,6 +79,7 @@ class GadgetResourceLoaderModule extends RL\WikiModule {
 	 * @return string
 	 */
 	public function getRequireKey( $titleText ): string {
+		/** @var GadgetRepo $repo */
 		$repo = MediaWikiServices::getInstance()->getService( 'GadgetsRepo' );
 		return $repo->titleWithoutPrefix( $titleText, $this->id );
 	}
