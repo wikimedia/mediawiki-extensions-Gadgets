@@ -17,7 +17,7 @@ class GadgetDefinitionValidator {
 	 */
 	protected static $propertyValidation = [
 		'settings' => [ 'is_array', 'array' ],
-		'settings.rights' => [ 'is_array', 'array' , 'is_string', 'string' ],
+		'settings.rights' => [ 'is_array', 'array', 'is_string', 'string' ],
 		'settings.default' => [ 'is_bool', 'boolean' ],
 		'settings.hidden' => [ 'is_bool', 'boolean' ],
 		'settings.package' => [ 'is_bool', 'boolean' ],

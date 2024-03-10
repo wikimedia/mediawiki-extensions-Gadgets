@@ -358,7 +358,7 @@ class SpecialGadgets extends SpecialPage {
 				if ( count( $warnings ) > 0 ) {
 					$output->addHTML( Html::warningBox( implode( '<br/>', array_map( static function ( $msg ) {
 						return $msg->parse();
-					},  $warnings ) ) ) );
+					}, $warnings ) ) ) );
 					$needLineBreakAfter = false;
 				}
 
