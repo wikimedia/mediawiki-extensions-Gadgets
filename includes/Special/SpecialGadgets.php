@@ -323,6 +323,19 @@ class SpecialGadgets extends SpecialPage {
 					$needLineBreakAfter = true;
 				}
 
+				// Portion: Show required categories (optional)
+				$categories = $gadget->getRequiredCategories();
+				if ( $categories ) {
+					if ( $needLineBreakAfter ) {
+						$output->addHTML( '<br />' );
+					}
+					$output->addHTML(
+						$this->msg( 'gadgets-required-categories', $lang->commaList( $categories ) )
+							->numParams( count( $categories ) )->parse()
+					);
+					$needLineBreakAfter = true;
+				}
+
 				// Portion: Show required content models (optional)
 				$contentModels = $gadget->getRequiredContentModels();
 				if ( $contentModels ) {

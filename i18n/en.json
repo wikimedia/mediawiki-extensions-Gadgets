@@ -28,6 +28,7 @@
 	"gadgets-required-skins": "Available for the {{PLURAL:$2|$1 skin|following skins: $1}}.",
 	"gadgets-required-actions": "Limited to the {{PLURAL:$2|\"$1\" page action|following page actions: $1}}.",
 	"gadgets-required-namespaces": "Limited to {{PLURAL:$2|namespace $1|the following namespaces: $1}}.",
+	"gadgets-required-categories": "Limited to {{PLURAL:$2|category $1|the following categories: $1}}.",
 	"gadgets-required-contentmodels": "Limited to {{PLURAL:$2|content model $1|the following content models: $1}}.",
 	"gadgets-default": "Enabled for everyone by default.",
 	"gadgets-legacy": "Gadget is not loaded. Please migrate to ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Learn more])",

@@ -282,6 +282,9 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 				case 'namespaces':
 					$info['requiredNamespaces'] = $params;
 					break;
+				case 'categories':
+					$info['requiredCategories'] = $params;
+					break;
 				case 'contentModels':
 					$info['requiredContentModels'] = $params;
 					break;
