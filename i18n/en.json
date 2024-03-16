@@ -24,7 +24,7 @@
 	"gadgets-editdescription": "Edit description",
 	"gadgets-viewdescription": "View description",
 	"gadgets-uses": "Uses",
-	"gadgets-required-rights": "Requires the following {{PLURAL:$2|right|rights}}:\n\n$1",
+	"gadgets-required-rights": "Requires the following {{PLURAL:$2|right|rights}}: $1.",
 	"gadgets-required-skins": "Available for the {{PLURAL:$2|$1 skin|following skins: $1}}.",
 	"gadgets-required-actions": "Limited to the {{PLURAL:$2|\"$1\" page action|following page actions: $1}}.",
 	"gadgets-required-namespaces": "Limited to {{PLURAL:$2|namespace $1|the following namespaces: $1}}.",

@@ -51,23 +51,23 @@ class Gadget {
 	/** @var string|null */
 	private $name;
 	/** @var string|null */
-	private $definition;
+	private $definition = null;
 	/** @var bool */
-	private $resourceLoaded = false;
+	private bool $resourceLoaded = false;
 	/** @var bool */
-	private $requiresES6 = false;
+	private bool $requiresES6 = false;
 	/** @var string[] */
-	private $requiredRights = [];
+	private array $requiredRights = [];
 	/** @var string[] */
-	private $requiredActions = [];
+	private array $requiredActions = [];
 	/** @var string[] */
-	private $requiredSkins = [];
-	/** @var int[] */
-	private $requiredNamespaces = [];
+	private array $requiredSkins = [];
+	/** @var int[]|string[] */
+	private array $requiredNamespaces = [];
 	/** @var string[] */
-	private $requiredCategories = [];
+	private array $requiredCategories = [];
 	/** @var string[] */
-	private $requiredContentModels = [];
+	private array $requiredContentModels = [];
 	/** @var bool */
 	private $onByDefault = false;
 	/** @var bool */
@@ -76,34 +76,34 @@ class Gadget {
 	private $package = false;
 	/** @var string */
 	private $type = '';
-	/** @var string|null */
-	private $category;
+	/** @var string */
+	private string $category = '';
 	/** @var bool */
 	private $supportsUrlLoad = false;
 
 	public function __construct( array $options ) {
 		foreach ( $options as $member => $option ) {
 			switch ( $member ) {
+				case 'category':
+				case 'definition':
 				case 'dependencies':
-				case 'pages':
-				case 'peers':
+				case 'hidden':
 				case 'messages':
 				case 'name':
-				case 'definition':
-				case 'resourceLoaded':
-				case 'requiresES6':
-				case 'requiredRights':
+				case 'onByDefault':
+				case 'package':
+				case 'pages':
+				case 'peers':
 				case 'requiredActions':
-				case 'requiredSkins':
-				case 'requiredNamespaces':
 				case 'requiredCategories':
 				case 'requiredContentModels':
-				case 'onByDefault':
-				case 'type':
-				case 'hidden':
-				case 'package':
-				case 'category':
+				case 'requiredNamespaces':
+				case 'requiredRights':
+				case 'requiredSkins':
+				case 'requiresES6':
+				case 'resourceLoaded':
 				case 'supportsUrlLoad':
+				case 'type':
 					$this->{$member} = $option;
 					break;
 				default:
@@ -228,7 +228,7 @@ class Gadget {
 	/**
 	 * @return string Name of category (aka section) our gadget belongs to. Empty string if none.
 	 */
-	public function getCategory() {
+	public function getCategory(): string {
 		return $this->category;
 	}
 
@@ -252,7 +252,7 @@ class Gadget {
 	}
 
 	/**
-	 * Checks whether given user has permissions to use this gadget
+	 * Checks whether a given user may enable this gadget
 	 *
 	 * @param Authority $user The user to check against
 	 * @return bool
@@ -308,6 +308,8 @@ class Gadget {
 	 * @return bool
 	 */
 	public function isNamespaceSupported( int $namespace ) {
+		// This is intentionally a non-strict in_array() because
+		// MediaWikiGadgetsDefinitionRepo sets numerical strings.
 		return !$this->requiredNamespaces || in_array( $namespace, $this->requiredNamespaces );
 	}
 
@@ -378,14 +380,15 @@ class Gadget {
 	}
 
 	/**
-	 * @return string Definition for this gadget from MediaWiki:gadgets-definition
+	 * @return string|null Definition for this gadget from MediaWiki:Gadgets-definition,
+	 *  or null if MediaWikiGadgetsJsonRepo is used.
 	 */
 	public function getDefinition() {
 		return $this->definition;
 	}
 
 	/**
-	 * @return array Array of pages with JS (including namespace)
+	 * @return string[] JS page names (including namespace)
 	 */
 	public function getScripts() {
 		return array_values( array_filter( $this->pages, static function ( $page ) {
@@ -394,7 +397,7 @@ class Gadget {
 	}
 
 	/**
-	 * @return array Array of pages with CSS (including namespace)
+	 * @return string[] CSS page names (including namespace)
 	 */
 	public function getStyles() {
 		return array_values( array_filter( $this->pages, static function ( $page ) {
@@ -403,7 +406,7 @@ class Gadget {
 	}
 
 	/**
-	 * @return array Array of pages with JSON (including namespace)
+	 * @return string[] JSON page names (including namespace)
 	 */
 	public function getJSONs(): array {
 		return array_values( array_filter( $this->pages, static function ( $page ) {
@@ -412,7 +415,7 @@ class Gadget {
 	}
 
 	/**
-	 * @return array Array of all of this gadget's resources
+	 * @return string[] All page names for this gadget's resources
 	 */
 	public function getScriptsAndStyles() {
 		return array_merge( $this->getScripts(), $this->getStyles(), $this->getJSONs() );
@@ -448,14 +451,14 @@ class Gadget {
 	}
 
 	/**
-	 * @return array
+	 * @return string[]
 	 */
 	public function getMessages() {
 		return $this->messages;
 	}
 
 	/**
-	 * Returns array of permissions required by this gadget
+	 * Get user rights required to enable this gadget
 	 * @return string[]
 	 */
 	public function getRequiredRights() {
@@ -463,7 +466,7 @@ class Gadget {
 	}
 
 	/**
-	 * Returns array of page actions on which the gadget loads
+	 * Get page actions on which the gadget loads
 	 * @return string[]
 	 */
 	public function getRequiredActions() {
@@ -471,8 +474,15 @@ class Gadget {
 	}
 
 	/**
-	 * Returns array of namespaces in which this gadget loads
-	 * @return int[]
+	 * Get page namespaces in which this gadget loads
+	 *
+	 * Use isNamespaceSupported() instead for basic checks, as
+	 * namespace IDs may be returned as numerical strings.
+	 *
+	 * Unknown namespaces and non-numerical values result in warnings
+	 * on Special:Gadgets, via GadgetRepo::checkInvalidLoadConditions.
+	 *
+	 * @return int[]|string[]
 	 */
 	public function getRequiredNamespaces() {
 		return $this->requiredNamespaces;
@@ -487,7 +497,7 @@ class Gadget {
 	}
 
 	/**
-	 * Returns array of skins where this gadget works
+	 * Get skins in which this gadget loads
 	 * @return string[]
 	 */
 	public function getRequiredSkins() {
@@ -495,7 +505,7 @@ class Gadget {
 	}
 
 	/**
-	 * Returns array of content models where this gadget works
+	 * Get page content models for which this gadget loads
 	 * @return string[]
 	 */
 	public function getRequiredContentModels() {
