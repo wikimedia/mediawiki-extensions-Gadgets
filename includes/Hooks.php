@@ -61,6 +61,8 @@ use OOUI\HtmlSnippet;
 use RequestContext;
 use Skin;
 use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IExpression;
+use Wikimedia\Rdbms\LikeValue;
 use Wikimedia\WrappedString;
 use WikiPage;
 use Xml;
@@ -398,7 +400,11 @@ class Hooks implements
 	 * @param IDatabase $db
 	 */
 	public function onDeleteUnknownPreferences( &$where, $db ) {
-		$where[] = 'up_property NOT' . $db->buildLike( 'gadget-', $db->anyString() );
+		$where[] = $db->expr(
+			'up_property',
+			IExpression::NOT_LIKE,
+			new LikeValue( 'gadget-', $db->anyString() )
+		);
 	}
 
 	/**
