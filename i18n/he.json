@@ -31,6 +31,7 @@
 	"gadgets-required-skins": "זמין {{PLURAL:$2|בערכות העיצוב הבאות: $1|בערכת העיצוב $1}}",
 	"gadgets-required-actions": "עובד {{PLURAL:$2|בפעולת הדף \"$1\"|בפעולות הדף הבאות: $1}}.",
 	"gadgets-required-namespaces": "עובד {{PLURAL:$2|במרחב השם|במרחבי השם הבאים:}} $1.",
+	"gadgets-required-categories": "מוגבל {{PLURAL:$2|לקטגוריה $1|לקטגוריות הבאות: $1}}",
 	"gadgets-required-contentmodels": "מוגבל לדפים שמודל התוכן שלהם {{PLURAL:$2|הוא $1|הוא אחד מהבאים: $1}}.",
 	"gadgets-default": "מופעל לכולם כברירת מחדל.",
 	"gadgets-legacy": "הגאדג'ט אינו טעון. נא לעדכן לשימוש ב־ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) מידע נוסף])",

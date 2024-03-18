@@ -38,6 +38,7 @@
 	"gadgets-required-skins": "Verfügbar für {{PLURAL:$2|die folgende Benutzeroberfläche|die folgenden Benutzeroberflächen}}: $1.",
 	"gadgets-required-actions": "Begrenzt auf die {{PLURAL:$2|Seitenaktion „$1“|folgenden Seitenaktionen: $1}}.",
 	"gadgets-required-namespaces": "Begrenzt auf {{PLURAL:$2|den Namensraum $1|die folgenden Namensräume: $1}}.",
+	"gadgets-required-categories": "Begrenzt auf {{PLURAL:$2|die Kategorie $1|die folgenden Kategorien: $1}}.",
 	"gadgets-required-contentmodels": "Begrenzt auf {{PLURAL:$2|das Inhaltsmodell $1|die folgenden Inhaltsmodelle: $1}}.",
 	"gadgets-default": "Für alle standardmäßig aktiviert.",
 	"gadgets-legacy": "Das Helferlein ist nicht geladen. Bitte stelle auf den ResourceLoader um. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Weitere Informationen])",

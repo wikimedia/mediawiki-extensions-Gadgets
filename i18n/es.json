@@ -3,6 +3,7 @@
 		"authors": [
 			"Crazymadlover",
 			"DannyS712",
+			"Eulalio",
 			"Fitoschido",
 			"Jakeukalane",
 			"Macofe",
@@ -39,6 +40,7 @@
 	"gadgets-required-skins": "Disponible en {{PLURAL:$2|la apariencia $1|las siguientes apariencias: $1}}.",
 	"gadgets-required-actions": "Limitado a {{PLURAL:$2|la acción «$1»|las siguientes acciones: $1}}.",
 	"gadgets-required-namespaces": "Limitado {{PLURAL:$2|al espacio de nombres «$1»|a los siguientes espacios de nombres: $1}}.",
+	"gadgets-required-categories": "Limitado a {{PLURAL:$2| categoría $1 |las siguientes categorías: $1}}.",
 	"gadgets-required-contentmodels": "Limitado {{PLURAL:$2|al modelo de contenido $1|a los siguientes modelos de contenido: $1}}.",
 	"gadgets-default": "Activado para todos de manera predeterminada.",
 	"gadgets-legacy": "No se ha cargado el accesorio. Este debe migrarse a ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Más información])",

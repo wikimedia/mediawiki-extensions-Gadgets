@@ -24,6 +24,7 @@
 	"gadgets-uses": "Benotzt",
 	"gadgets-required-rights": "Erfuerdert {{PLURAL:$2|d'Recht|dës Rechter}}: $1.",
 	"gadgets-required-skins": "Disponibel fir {{PLURAL:$2|d'Ausgesinn $1|dës $2 Ausgesinn: $1}}.",
+	"gadgets-required-categories": "Limitéiert op {{PLURAL:$2|d'Kategorie $1|déi folgend Kategorien: $1}}.",
 	"gadgets-default": "Fir jiddwereen als Standard ageschalt.",
 	"gadgets-export": "Export",
 	"gadgets-export-title": "Export vu Gadgeten",

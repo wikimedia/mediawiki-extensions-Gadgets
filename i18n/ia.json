@@ -27,6 +27,7 @@
 	"gadgets-required-skins": "Disponibile pro le {{PLURAL:$2|apparentia $1|sequente apparentias: $1}}.",
 	"gadgets-required-actions": "Limitate al {{PLURAL:$2|pagina de action “$1”|sequente paginas de action: $1}}.",
 	"gadgets-required-namespaces": "Limitate al {{PLURAL:$2|spatio de nomines $1|sequente spatios de nomines: $1}}.",
+	"gadgets-required-categories": "Limitate al {{PLURAL:$2|categoria $1|sequente categorias: $1}}.",
 	"gadgets-required-contentmodels": "Limitate al {{PLURAL:$2|modello de contento $1|le sequente modellos de contento: $1}}.",
 	"gadgets-default": "Activate pro omnes per predefinition.",
 	"gadgets-legacy": "Le accessorio non es cargate. Per favor migra a ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Leger plus])",
@@ -53,8 +54,11 @@
 	"gadgets-validate-invalidactions": "Le sequente action{{PLURAL:$2||es}} non es recognoscite: $1",
 	"gadgets-validate-invalidcontentmodels": "Le sequente modello{{PLURAL:$2||s}} de contento non existe: $1",
 	"gadgets-validate-invalidnamespaces": "Le sequente numero{{PLURAL:$2||s}} de spatio de nomines non existe: $1",
+	"gadgets-validate-invalidskins": "Le sequente apparentia{{PLURAL:$2||s}} non existe: $1",
+	"gadgets-validate-invalidrights": "Le sequente derecto{{PLURAL:$2||s}} non existe: $1",
 	"gadgets-validate-invalidtitle": "Le titulo de pagina “$1” non es valide",
 	"gadgets-validate-unknownpages": "Contine un o plus paginas sin suffixo .js, .css o .json. Illos non esserea usate.",
+	"gadgets-validate-duplicate": "Un secunde definition del accessorio $1 ha essite detegite e essera ignorate",
 	"gadgets-validate-nopage": "Le pagina “$1” non existe.",
 	"gadgets-supports-urlload": "Iste accessorio supporta le cargamento via URL con le parametro de consulta <code>?withgadget</code>."
 }
