@@ -28,6 +28,7 @@
 	"gadgets-required-skins": "Достапно за {{PLURAL:$2|рувото $1|следниве рува: $1}}.",
 	"gadgets-required-actions": "Ограничено на {{PLURAL:$2|дејството „$1“|следниве дејства: $1}}.",
 	"gadgets-required-namespaces": "Ограничено на {{PLURAL:$2|именскиот простор $1|следниве именски простори: $1}}.",
+	"gadgets-required-categories": "Ограничено на {{PLURAL:$2|категоријата $1|следниве категории: $1}}.",
 	"gadgets-required-contentmodels": "Ограничено на {{PLURAL:$2|содржинскиот модел $1|следниве содржински модели: $1}}.",
 	"gadgets-default": "Достапно за сите по основно",
 	"gadgets-legacy": "Алатката не е вчитана. Преселете се на „Вчитувач на ресурси“ (ResourceLoader). ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Дознајте повеќе])",
