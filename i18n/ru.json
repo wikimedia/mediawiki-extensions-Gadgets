@@ -21,7 +21,8 @@
 			"Vlad5250",
 			"WindEwriX",
 			"Александр Сигачёв",
-			"Лилиә"
+			"Лилиә",
+			"Amire80"
 		]
 	},
 	"gadgets-desc": "Позволяет участникам выбирать в своих [[Special:Preferences#mw-prefsection-gadgets|настройках]] те или иные [[Special:Gadgets|CSS- и JavaScript-гаджеты]]",
@@ -45,9 +46,9 @@
 	"gadgets-uses": "Использует",
 	"gadgets-required-rights": "{{PLURAL:$2|1=Требуется право|Требуются права}}:\n\n$1",
 	"gadgets-required-skins": "Доступен в {{PLURAL:$2|1=теме оформления «$1»|следующих темах оформления: $1}}.",
-	"gadgets-required-actions": "Ограничен {{PLURAL:$2|действием страницы <code>$1</code>|следующими действиями страницы: <code>$1</code>}}.",
-	"gadgets-required-namespaces": "Ограничен {{PLURAL:$2|пространством имён «$1»|следующими пространствами имён: $1}}.",
-	"gadgets-required-contentmodels": "Ограничен {{PLURAL:$2|моделью содержимого «$1»|следующими моделями содержимого: $1}}.",
+	"gadgets-required-actions": "Ограничен {{PLURAL:$2|1=действием страницы <code>$1</code>|следующими действиями страницы: <code>$1</code>}}.",
+	"gadgets-required-namespaces": "Ограничен {{PLURAL:$2|1=пространством имён «$1»|следующими пространствами имён: $1}}.",
+	"gadgets-required-contentmodels": "Ограничен {{PLURAL:$2|1=моделью содержимого «$1»|следующими моделями содержимого: $1}}.",
 	"gadgets-default": "Включён для всех по умолчанию.",
 	"gadgets-legacy": "Гаджет не загружен. Пожалуйста, исправьте код этого гаджета, чтобы он вызывался с помощью ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Узнать подробности])",
 	"gadgets-packaged": "Этот гаджет [https://www.mediawiki.org/wiki/ResourceLoader/Package_files упакован], точка входа — $1",
