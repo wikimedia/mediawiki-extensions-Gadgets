@@ -31,6 +31,7 @@
 	"gadgets-required-skins": "Tilgjengelig i {{PLURAL:$2|drakta $1|følgende drakter: $1}}.",
 	"gadgets-required-actions": "Begrenset til {{PLURAL:$2|sidehandlingen «$1»|følgende sidehandlinger: $1}}.",
 	"gadgets-required-namespaces": "Begrenset til {{PLURAL:$2|navnerommet $1|følgende navnerom: $1}}:",
+	"gadgets-required-categories": "Begrenset til {{PLURAL:$2|kategorien $1|følgende kategorier: $1}}.",
 	"gadgets-required-contentmodels": "Begrenset til {{PLURAL:$2|innholdsmodellen $1|følgende innholdsmodeller: $1}}.",
 	"gadgets-default": "Aktivert for alle som standard",
 	"gadgets-legacy": "Tilleggsfunksjonen ble ikke lastet. Vennligst gå over til å bruke ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Lær mer])",
