@@ -31,6 +31,7 @@
 	"gadgets-uses": "Користи",
 	"gadgets-required-rights": "Захтева {{PLURAL:$2|следеће право|следећа права}}:\n\n$1",
 	"gadgets-required-skins": "Доступно у {{PLURAL:$2|теми $1|следећим темама: $1}}.",
+	"gadgets-required-categories": "Ограничено на {{PLURAL:$2|следећу категорију $1|следеће категорије: $1}}.",
 	"gadgets-default": "Подразумевано укључен за сваког.",
 	"gadgets-legacy": "Справица није учитана. Пребаците се на „Учитавач ресурса” (ResourceLoader). ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Детаљније])",
 	"gadgets-export": "Извези",
