@@ -180,6 +180,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$this->assertTrue( $gMultiNamespace->isNamespaceSupported( 1 ) );
 		$this->assertTrue( $gMultiNamespace->isNamespaceSupported( 2 ) );
 		$this->assertFalse( $gMultiNamespace->isNamespaceSupported( 5 ) );
+
+		$this->assertSame( [ '1', '2', '3', '4' ], $gMultiNamespace->getRequiredNamespaces() );
 	}
 
 	public function testCategoriesTag() {

@@ -20,6 +20,7 @@
 
 namespace MediaWiki\Extension\Gadgets\Special;
 
+use ContentHandler;
 use HTMLForm;
 use InvalidArgumentException;
 use MediaWiki\Extension\Gadgets\Gadget;
@@ -253,7 +254,7 @@ class SpecialGadgets extends SpecialPage {
 				// Portion: Show required rights (optional)
 				$rights = [];
 				foreach ( $gadget->getRequiredRights() as $right ) {
-					$rights[] = '* ' . Html::element(
+					$rights[] = Html::element(
 						'code',
 						[ 'title' => $this->msg( "right-$right" )->plain() ],
 						$right
@@ -264,9 +265,9 @@ class SpecialGadgets extends SpecialPage {
 						$output->addHTML( '<br />' );
 					}
 					$output->addHTML(
-						$this->msg( 'gadgets-required-rights', implode( "\n", $rights ), count( $rights ) )->parse()
+						$this->msg( 'gadgets-required-rights', $lang->commaList( $rights ), count( $rights ) )->parse()
 					);
-					$needLineBreakAfter = false;
+					$needLineBreakAfter = true;
 				}
 
 				// Portion: Show required skins (optional)
@@ -292,7 +293,10 @@ class SpecialGadgets extends SpecialPage {
 				}
 
 				// Portion: Show required actions (optional)
-				$actions = $gadget->getRequiredActions();
+				$actions = [];
+				foreach ( $gadget->getRequiredActions() as $action ) {
+					$actions[] = Html::element( 'code', [], $action );
+				}
 				if ( $actions ) {
 					if ( $needLineBreakAfter ) {
 						$output->addHTML( '<br />' );
@@ -323,29 +327,46 @@ class SpecialGadgets extends SpecialPage {
 					$needLineBreakAfter = true;
 				}
 
-				// Portion: Show required categories (optional)
-				$categories = $gadget->getRequiredCategories();
-				if ( $categories ) {
-					if ( $needLineBreakAfter ) {
-						$output->addHTML( '<br />' );
-					}
-					$output->addHTML(
-						$this->msg( 'gadgets-required-categories', $lang->commaList( $categories ) )
-							->numParams( count( $categories ) )->parse()
-					);
-					$needLineBreakAfter = true;
-				}
-
 				// Portion: Show required content models (optional)
-				$contentModels = $gadget->getRequiredContentModels();
+				$contentModels = [];
+				foreach ( $gadget->getRequiredContentModels() as $model ) {
+					$contentModels[] = Html::element(
+						'code',
+						[ 'title' => ContentHandler::getLocalizedName( $model, $lang ) ],
+						$model
+					);
+				}
 				if ( $contentModels ) {
 					if ( $needLineBreakAfter ) {
 						$output->addHTML( '<br />' );
 					}
 					$output->addHTML(
-						$this->msg( 'gadgets-required-contentmodels', $lang->commaList( $contentModels ) )
-							->numParams( count( $contentModels ) )->parse()
+						$this->msg( 'gadgets-required-contentmodels',
+							$lang->commaList( $contentModels ),
+							count( $contentModels )
+						)->parse()
 					);
+					$needLineBreakAfter = true;
+				}
+
+				// Portion: Show required categories (optional)
+				$categories = [];
+				foreach ( $gadget->getRequiredCategories() as $category ) {
+					$title = Title::makeTitleSafe( NS_CATEGORY, $category );
+					$categories[] = $title
+						? $linkRenderer->makeLink( $title, $category )
+						: htmlspecialchars( $category );
+				}
+				if ( $categories ) {
+					if ( $needLineBreakAfter ) {
+						$output->addHTML( '<br />' );
+					}
+					$output->addHTML(
+						$this->msg( 'gadgets-required-categories' )
+							->rawParams( $lang->commaList( $categories ) )
+							->numParams( count( $categories ) )->parse()
+					);
+					$needLineBreakAfter = true;
 				}
 
 				if ( $gadget->supportsUrlLoad() ) {

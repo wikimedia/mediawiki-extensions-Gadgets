@@ -56,11 +56,7 @@ class GadgetLoadConditions {
 		$this->withGadgetParam = $out->getRequest()->getRawVal( 'withgadget' );
 	}
 
-	/**
-	 * @param Gadget $gadget
-	 * @return bool
-	 */
-	public function check( Gadget $gadget ) {
+	public function check( Gadget $gadget ): bool {
 		$urlLoad = $this->withGadgetParam === $gadget->getName() && $gadget->supportsUrlLoad();
 
 		return ( $gadget->isEnabled( $this->user ) || $urlLoad )

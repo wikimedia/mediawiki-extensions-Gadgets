@@ -29,10 +29,7 @@ use MediaWiki\Extension\Gadgets\GadgetRepo;
 use Wikimedia\ParamValidator\ParamValidator;
 
 class ApiQueryGadgets extends ApiQueryBase {
-	/**
-	 * @var array
-	 */
-	private $props;
+	private array $props;
 
 	/**
 	 * @var array|bool
@@ -44,15 +41,9 @@ class ApiQueryGadgets extends ApiQueryBase {
 	 */
 	private $neededIds;
 
-	/**
-	 * @var bool
-	 */
-	private $listAllowed;
+	private bool $listAllowed;
 
-	/**
-	 * @var bool
-	 */
-	private $listEnabled;
+	private bool $listEnabled;
 
 	private GadgetRepo $gadgetRepo;
 
@@ -79,10 +70,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 		$this->applyList( $this->getList() );
 	}
 
-	/**
-	 * @return array
-	 */
-	private function getList() {
+	private function getList(): array {
 		$gadgets = $this->gadgetRepo->getStructuredList();
 
 		if ( !$gadgets ) {
@@ -104,10 +92,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 		return $result;
 	}
 
-	/**
-	 * @param array $gadgets
-	 */
-	private function applyList( $gadgets ) {
+	private function applyList( array $gadgets ): void {
 		$data = [];
 		$result = $this->getResult();
 
@@ -136,12 +121,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 		$result->addValue( 'query', $this->getModuleName(), $data );
 	}
 
-	/**
-	 * @param Gadget $gadget
-	 *
-	 * @return bool
-	 */
-	private function isNeeded( Gadget $gadget ) {
+	private function isNeeded( Gadget $gadget ): bool {
 		$user = $this->getUser();
 
 		return ( $this->neededIds === false || isset( $this->neededIds[$gadget->getName()] ) )
@@ -149,56 +129,49 @@ class ApiQueryGadgets extends ApiQueryBase {
 			&& ( !$this->listEnabled || $gadget->isEnabled( $user ) );
 	}
 
-	/**
-	 * @param Gadget $g
-	 * @return array
-	 */
-	private function fakeMetadata( Gadget $g ) {
+	private function fakeMetadata( Gadget $g ): array {
 		return [
 			'settings' => [
-				'rights' => $g->getRequiredRights(),
-				'skins' => $g->getRequiredSkins(),
 				'actions' => $g->getRequiredActions(),
-				'namespaces' => $g->getRequiredNamespaces(),
 				'categories' => $g->getRequiredCategories(),
+				'category' => $g->getCategory(),
 				'contentModels' => $g->getRequiredContentModels(),
 				'default' => $g->isOnByDefault(),
 				'hidden' => $g->isHidden(),
-				'package' => $g->isPackaged(),
-				'shared' => false,
-				'category' => $g->getCategory(),
 				'legacyscripts' => (bool)$g->getLegacyScripts(),
+				'namespaces' => $g->getRequiredNamespaces(),
+				'package' => $g->isPackaged(),
 				'requiresES6' => $g->requiresES6(),
+				'rights' => $g->getRequiredRights(),
+				'shared' => false,
+				'skins' => $g->getRequiredSkins(),
 				'supportsUrlLoad' => $g->supportsUrlLoad(),
 			],
 			'module' => [
-				'scripts' => $g->getScripts(),
-				'styles' => $g->getStyles(),
 				'datas' => $g->getJSONs(),
 				'dependencies' => $g->getDependencies(),
-				'peers' => $g->getPeers(),
 				'messages' => $g->getMessages(),
+				'peers' => $g->getPeers(),
+				'scripts' => $g->getScripts(),
+				'styles' => $g->getStyles(),
 			]
 		];
 	}
 
-	/**
-	 * @param array[] &$metadata
-	 */
-	private function setIndexedTagNameForMetadata( &$metadata ) {
+	private function setIndexedTagNameForMetadata( array &$metadata ): void {
 		static $tagNames = [
-			'rights' => 'right',
-			'skins' => 'skin',
 			'actions' => 'action',
-			'namespaces' => 'namespace',
 			'categories' => 'category',
 			'contentModels' => 'contentModel',
-			'scripts' => 'script',
-			'styles' => 'style',
 			'datas' => 'data',
 			'dependencies' => 'dependency',
-			'peers' => 'peer',
 			'messages' => 'message',
+			'namespaces' => 'namespace',
+			'peers' => 'peer',
+			'rights' => 'right',
+			'scripts' => 'script',
+			'skins' => 'skin',
+			'styles' => 'style',
 		];
 
 		foreach ( $metadata as $data ) {
