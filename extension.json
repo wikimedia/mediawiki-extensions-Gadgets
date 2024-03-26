@@ -2,7 +2,9 @@
 	"name": "Gadgets",
 	"author": [
 		"Daniel Kinzler",
-		"Max Semenik"
+		"Max Semenik",
+		"Timo Tijhof",
+		"Siddharth VP"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:Gadgets",
 	"descriptionmsg": "gadgets-desc",
@@ -84,7 +86,6 @@
 		"BeforePageDisplay": "GadgetHooks",
 		"CodeEditorGetPageLanguage": "GadgetCodeEditorHooks",
 		"ContentHandlerDefaultModelFor": "GadgetHooks",
-		"EditFilterMergedContent": "GadgetHooks",
 		"UserGetDefaultOptions": "GadgetHooks",
 		"GetPreferences": "GadgetHooks",
 		"PreferencesGetLegend": "GadgetHooks",

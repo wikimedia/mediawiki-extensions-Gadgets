@@ -90,7 +90,8 @@ abstract class GadgetRepo {
 	 * @return string
 	 */
 	public function titleWithoutPrefix( string $titleText, string $gadgetId ): string {
-		$numReplaces = 1; // there will only one occurrence of the prefix
+		// there is only one occurrence of the prefix
+		$numReplaces = 1;
 		return str_replace( self::RESOURCE_TITLE_PREFIX, '', $titleText, $numReplaces );
 	}
 
@@ -138,10 +139,11 @@ abstract class GadgetRepo {
 	}
 
 	/**
-	 * Check titles used in gadget to verify existence and correct content model.
-	 * @param array $pages
+	 * Verify gadget resource pages exist and use the correct content model.
+	 *
+	 * @param string[] $pages Full page names
 	 * @param string $expectedContentModel
-	 * @param string $msg
+	 * @param string $msg Interface message key
 	 * @return Message[]
 	 */
 	private function checkTitles( array $pages, string $expectedContentModel, string $msg ): array {
