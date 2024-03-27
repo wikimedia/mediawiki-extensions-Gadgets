@@ -83,7 +83,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * Purge the definitions cache, for example when MediaWiki:Gadgets-definition is edited.
 	 */
 	private function purgeDefinitionCache(): void {
-		$srvCache = ObjectCache::getLocalServerInstance( 'hash' );
+		$srvCache = ObjectCache::getLocalServerInstance( CACHE_HASH );
 		$key = $this->makeDefinitionCacheKey( $this->wanCache );
 
 		$this->wanCache->delete( $key );
@@ -128,7 +128,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		// 1. process cache. Faster repeat calls.
 		if ( $this->definitions === null ) {
 			$wanCache = $this->wanCache;
-			$srvCache = ObjectCache::getLocalServerInstance( 'hash' );
+			$srvCache = ObjectCache::getLocalServerInstance( CACHE_HASH );
 			$key = $this->makeDefinitionCacheKey( $wanCache );
 			$this->definitions = $srvCache->getWithSetCallback(
 				$key,
