@@ -36,7 +36,7 @@
 	"gadgets-editdescription": "Editar descripción",
 	"gadgets-viewdescription": "Ver descripción",
 	"gadgets-uses": "Usos",
-	"gadgets-required-rights": "Requiere {{PLURAL:$2|el siguiente permiso|los siguientes permisos}}:\n\n$1",
+	"gadgets-required-rights": "Requiere lo siguiente {{PLURAL:$2|right|permisos}}:\n$1",
 	"gadgets-required-skins": "Disponible en {{PLURAL:$2|la apariencia $1|las siguientes apariencias: $1}}.",
 	"gadgets-required-actions": "Limitado a {{PLURAL:$2|la acción «$1»|las siguientes acciones: $1}}.",
 	"gadgets-required-namespaces": "Limitado {{PLURAL:$2|al espacio de nombres «$1»|a los siguientes espacios de nombres: $1}}.",

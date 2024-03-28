@@ -25,7 +25,7 @@
 	"gadgets-title": "Qadcetlər",
 	"gadgets-pagetext": "Aşağıda istifadəçilərin [[MediaWiki:Gadgets-definition|izahlar səhifəsində]] təyin edilmiş, [[Special:Preferences#mw-prefsection-gadgets|nizamlamalar səhifəsində]] aktivləşdirə biləcəyi xüsusi qadcetlərin siyahısı verilmişdir.\nBu səhifə, hər bir qadcetin təsvirini və kodunu təyin edən sistem mesajı səhifələrinə asanlıqla daxil olmağı təmin edir.",
 	"gadgets-uses": "İstifadə edir:",
-	"gadgets-required-rights": "Aşağıdakı {{PLURAL:$2|hüququ|hüquqları}} tələb edir:\n\n$1",
+	"gadgets-required-rights": "Aşağıdakı {{PLURAL:$2|hüququ|hüquqları}} tələb edir: $1",
 	"gadgets-required-skins": "{{PLURAL:$2|$1 dizaynında|$1 dizaynlarında}} mövcuddur.",
 	"gadgets-default": "Hərkəs üçün defolt olaraq aktivləşdirilib.",
 	"gadgets-legacy": "Qadcet yüklənmədi. Zəhmət olmasa ResourceLoader istifadə edin.\n([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Daha ətraflı])",

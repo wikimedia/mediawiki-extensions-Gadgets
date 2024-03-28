@@ -27,7 +27,7 @@
 	"gadgets-editdescription": "עריכת התיאור",
 	"gadgets-viewdescription": "הצגת התיאור",
 	"gadgets-uses": "משתמש בדפים",
-	"gadgets-required-rights": "{{PLURAL:$2|נדרשת ההרשאה הבאה|נדרשות ההרשאות הבאות}}:\n\n$1",
+	"gadgets-required-rights": "{{PLURAL:$2|נדרשת ההרשאה הבאה|נדרשות ההרשאות הבאות}}: $1",
 	"gadgets-required-skins": "זמין {{PLURAL:$2|בערכות העיצוב הבאות: $1|בערכת העיצוב $1}}",
 	"gadgets-required-actions": "עובד {{PLURAL:$2|בפעולת הדף \"$1\"|בפעולות הדף הבאות: $1}}.",
 	"gadgets-required-namespaces": "עובד {{PLURAL:$2|במרחב השם|במרחבי השם הבאים:}} $1.",

@@ -35,7 +35,7 @@
 	"gadgets-pagetext": "Di seguito sono elencati gli accessori (''gadget'') che gli utenti possono abilitare sulla propria pagina delle [[Special:Preferences#mw-prefsection-gadgets|preferenze]], seguendo le [[MediaWiki:Gadgets-definition|definizioni]]. Questa panoramica fornisce un comodo mezzo per accedere ai messaggi di sistema nei quali sono definiti la descrizione e il codice di ciascun accessorio.",
 	"gadgets-editdescription": "Modifica descrizione",
 	"gadgets-uses": "Usa",
-	"gadgets-required-rights": "Richiede {{PLURAL:$2|il seguente diritto|i seguenti diritti}}:\n\n$1",
+	"gadgets-required-rights": "Richiede {{PLURAL:$2|il seguente diritto|i seguenti diritti}}: $1.",
 	"gadgets-required-skins": "Disponibile per {{PLURAL:$2|il tema $1|i seguenti temi: $1}}.",
 	"gadgets-required-actions": "Limitato {{PLURAL:$2|all'azione di pagina \"$1\"|alle seguenti azioni di pagina: $1}}.",
 	"gadgets-required-namespaces": "Limitato {{PLURAL:$2|al namespace $1|ai namespace $1}}.",
