@@ -33,7 +33,7 @@
 	"gadgets-editdescription": "Edytuj opis",
 	"gadgets-viewdescription": "Pokaż opis",
 	"gadgets-uses": "Używa",
-	"gadgets-required-rights": "Wymaga {{PLURAL:$2|uprawnienia|następujących uprawnień:}}\n\n$1",
+	"gadgets-required-rights": "Wymaga {{PLURAL:$2|uprawnienia|następujących uprawnień:}} $1",
 	"gadgets-required-skins": "Działa wyłącznie na {{PLURAL:$2|skórce $1|skórkach: $1}}.",
 	"gadgets-required-actions": "Działa wyłącznie podczas {{PLURAL:$2|akcji „$1”|następujących akcji: $1}}.",
 	"gadgets-required-namespaces": "Działa wyłącznie w {{PLURAL:$2|przestrzeni nazw „$1”|przestrzeniach nazw: $1}}.",
