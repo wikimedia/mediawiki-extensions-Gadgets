@@ -2,12 +2,20 @@
 	"@metadata": {
 		"authors": [
 			"Babanwalia",
-			"Bgo eiu"
+			"Bgo eiu",
+			"Kuldeepburjbhalaike"
 		]
 	},
 	"prefs-gadgets": "ਗੈਜਟ",
 	"gadgets": "ਗੈਜਟ",
+	"gadgetusage-gadget": "ਗੈਜਟ",
+	"gadgetusage-usercount": "ਵਰਤੋਂਕਾਰਾਂ ਦੀ ਸੰਖਿਆ",
+	"gadgetusage-noresults": "ਕੋਈ ਗੈਜਟਸ ਨਹੀਂ ਮਿਲੇ।",
+	"gadgetusage-activeusers": "ਸਰਗਰਮ ਵਰਤੋਂਕਾਰ",
+	"gadgetusage-default": "ਡਿਫ਼ਾਲਟ",
 	"gadgets-title": "ਗੈਜਟ",
+	"gadgets-editdescription": "ਵੇਰਵਾ ਸੋਧੋ",
+	"gadgets-viewdescription": "ਵੇਰਵਾ ਵੇਖੋ",
 	"gadgets-uses": "ਵਰਤਦਾ ਹੈ",
 	"gadgets-default": "ਮੂਲ ਤੌਰ 'ਤੇ ਸਾਰਿਆਂ ਲਈ ਚਾਲੂ ਹੈ।",
 	"gadgets-export": "ਬਰਾਮਦ",
