@@ -50,7 +50,7 @@
 	"gadgets-editdescription": "添加说明",
 	"gadgets-viewdescription": "查看说明",
 	"gadgets-uses": "使用",
-	"gadgets-required-rights": "需要以下{{PLURAL:$2|权限}}：\n\n$1",
+	"gadgets-required-rights": "需要以下{{PLURAL:$2|权限}}：$1。",
 	"gadgets-required-skins": "可用于{{PLURAL:$2|$1皮肤|以下皮肤：$1}}。",
 	"gadgets-required-actions": "仅限{{PLURAL:$2|“$1”页面操作|以下页面操作：$1}}。",
 	"gadgets-required-namespaces": "仅限{{PLURAL:$2|“$1”命名空间|以下命名空间：$1}}。",

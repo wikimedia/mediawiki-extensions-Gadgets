@@ -24,7 +24,7 @@
 	"gadgets-editdescription": "muuda kirjeldust",
 	"gadgets-viewdescription": "vaata kirjeldust",
 	"gadgets-uses": "Kasutab",
-	"gadgets-required-rights": "Tarvis on {{PLURAL:$2|järgmist õigust|järgmisi õigusi}}:\n\n$1",
+	"gadgets-required-rights": "Tarvis on {{PLURAL:$2|järgmist õigust|järgmisi õigusi}}: $1.",
 	"gadgets-required-skins": "Saadaval {{PLURAL:$2|järgmise kujundusega|järgmiste kujundustega}}: $1.",
 	"gadgets-required-actions": "Töötab {{PLURAL:$2|lehetoimingul \"$1\"|järgmistel lehetoimingutel: $1}}.",
 	"gadgets-required-namespaces": "Töötab {{PLURAL:$2|nimeruumis $1|järgmistes nimeruumides: $1}}.",

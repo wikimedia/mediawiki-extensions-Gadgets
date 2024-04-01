@@ -27,7 +27,7 @@
 	"gadgets-editdescription": "Rediger beskrivelse",
 	"gadgets-viewdescription": "Vis beskrivelse",
 	"gadgets-uses": "Bruk",
-	"gadgets-required-rights": "Krever følgende {{PLURAL:$2|rettighet|rettigheter}}:\n\n$1",
+	"gadgets-required-rights": "Krever følgende {{PLURAL:$2|rettighet|rettigheter}}: $1.",
 	"gadgets-required-skins": "Tilgjengelig i {{PLURAL:$2|drakta $1|følgende drakter: $1}}.",
 	"gadgets-required-actions": "Begrenset til {{PLURAL:$2|sidehandlingen «$1»|følgende sidehandlinger: $1}}.",
 	"gadgets-required-namespaces": "Begrenset til {{PLURAL:$2|navnerommet $1|følgende navnerom: $1}}:",
