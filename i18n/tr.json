@@ -40,7 +40,7 @@
 	"gadgets-editdescription": "Açıklamayı düzenle",
 	"gadgets-viewdescription": "Açıklamayı gör",
 	"gadgets-uses": "Kullanımlar",
-	"gadgets-required-rights": "Aşağıda gösterilen {{PLURAL:$2|hak|haklar}} gereklidir:\n\n$1",
+	"gadgets-required-rights": "Şu {{PLURAL:$2|hak|haklar}} gereklidir: $1.",
 	"gadgets-required-skins": "{{PLURAL:$2|$1 teması|$1 temaları}} için kullanılabilir.",
 	"gadgets-required-actions": "{{PLURAL:$2|\"$1\" sayfa eylemiyle sınırlıdır|Aşağıdaki sayfa eylemleriyle sınırlıdır: $1}}.",
 	"gadgets-required-namespaces": "{{PLURAL:$2|$1 ad alanıyla|$1 ad alanlarıyla}} sınırlıdır.",
