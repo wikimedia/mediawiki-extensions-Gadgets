@@ -23,6 +23,7 @@
 	"gadgets-viewdescription": "Хьажа хаам",
 	"gadgets-uses": "Лелош йу",
 	"gadgets-required-rights": "{{PLURAL:$2|1=Оьшуш йу бакъо|Оьшуш йу бакъонаш}}:\n\n$1",
+	"gadgets-required-skins": "Лелош йу {{PLURAL:$2|1=«$1» теман тӀехь|рогӀерчу кечйаран темамашна тӀехь: $1}}.",
 	"gadgets-default": "Латайе массарна Ӏадйитаран кепаца.",
 	"gadgets-export": "Экспорт йан",
 	"gadgets-export-title": "Гаджет экспорт йар",
