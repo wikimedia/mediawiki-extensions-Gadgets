@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"B3rnas",
 			"Fúlvio",
 			"Hamilton Abreu",
 			"He7d3r",
@@ -31,7 +32,7 @@
 	"gadgets-editdescription": "Editar descrição",
 	"gadgets-viewdescription": "Ver descrição",
 	"gadgets-uses": "Utiliza",
-	"gadgets-required-rights": "Requer {{PLURAL:$2|o seguinte privilégio|os seguintes privilégios}}:\n\n$1",
+	"gadgets-required-rights": "Requer o seguinte {{PLURAL:$2| certo|direitos}}: $1 .",
 	"gadgets-required-skins": "Disponível para {{PLURAL:$2|o tema $1|os seguintes temas: $1}}",
 	"gadgets-required-actions": "Limitado {{PLURAL:$2|à operação de página \"$1\"|às seguintes operações de página: $1}}.",
 	"gadgets-required-namespaces": "Limitado {{PLURAL:$2|ao espaço nominal \"$1\"|aos seguintes espaços nominais: $1}}.",
