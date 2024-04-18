@@ -35,7 +35,7 @@
 	"gadgets-editdescription": "Beschrijving bewerken",
 	"gadgets-viewdescription": "Beschrijving bekijken",
 	"gadgets-uses": "Gebruikt",
-	"gadgets-required-rights": "{{PLURAL:$2|Het volgende recht is|De volgende rechten zijn}} vereist:\n\n$1.",
+	"gadgets-required-rights": "{{PLURAL:$2|Het volgende recht is|De volgende rechten zijn}} vereist: $1.",
 	"gadgets-required-skins": "Beschikbaar voor de {{PLURAL:$2|vormgeving $1|volgende vormgevingen: $1}}.",
 	"gadgets-required-actions": "Beperkt tot de {{PLURAL:$2|paginahandeling “$1”|volgende paginahandelingen: $1}}.",
 	"gadgets-required-namespaces": "Beperkt tot de {{PLURAL:$2|naamruimte $1|volgende naamruimten: $1}}.",
