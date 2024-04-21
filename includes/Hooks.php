@@ -60,8 +60,8 @@ use MessageSpecifier;
 use OOUI\HtmlSnippet;
 use RequestContext;
 use Skin;
-use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IExpression;
+use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\LikeValue;
 use Wikimedia\WrappedString;
 use WikiPage;
@@ -397,7 +397,7 @@ class Hooks implements
 	 * Prevent gadget preferences from being deleted.
 	 * @link https://www.mediawiki.org/wiki/Manual:Hooks/DeleteUnknownPreferences
 	 * @param string[] &$where Array of where clause conditions to add to.
-	 * @param IDatabase $db
+	 * @param IReadableDatabase $db
 	 */
 	public function onDeleteUnknownPreferences( &$where, $db ) {
 		$where[] = $db->expr(

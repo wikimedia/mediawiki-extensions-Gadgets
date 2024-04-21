@@ -28,8 +28,8 @@ use MediaWiki\Title\TitleValue;
 use Skin;
 use stdClass;
 use Wikimedia\Rdbms\IConnectionProvider;
-use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IExpression;
+use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\IResultWrapper;
 use Wikimedia\Rdbms\LikeValue;
 
@@ -239,7 +239,7 @@ class SpecialGadgetUsage extends QueryPage {
 	 *
 	 * @param OutputPage $out OutputPage to print to
 	 * @param Skin $skin User skin to use
-	 * @param IDatabase $dbr Database (read) connection to use
+	 * @param IReadableDatabase $dbr Database (read) connection to use
 	 * @param IResultWrapper $res Result pointer
 	 * @param int $num Number of available result rows
 	 * @param int $offset Paging offset
