@@ -54,6 +54,7 @@
 	"gadgets-required-skins": "可用于{{PLURAL:$2|$1皮肤|以下皮肤：$1}}。",
 	"gadgets-required-actions": "仅限{{PLURAL:$2|“$1”页面操作|以下页面操作：$1}}。",
 	"gadgets-required-namespaces": "仅限{{PLURAL:$2|“$1”命名空间|以下命名空间：$1}}。",
+	"gadgets-required-categories": "仅限{{PLURAL:$2|“$1”分类|以下分类：$1}}。",
 	"gadgets-required-contentmodels": "仅限{{PLURAL:$2|“$1”内容模型|以下内容模型：$1}}。",
 	"gadgets-default": "默认所有人启用。",
 	"gadgets-legacy": "未加载小工具。请迁移至ResourceLoader。\n（[https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) 了解更多]）",
@@ -80,8 +81,11 @@
 	"gadgets-validate-invalidactions": "无法识别以下{{PLURAL:$2|操作}}：$1",
 	"gadgets-validate-invalidcontentmodels": "以下{{PLURAL:$2|内容模型}}不存在：$1",
 	"gadgets-validate-invalidnamespaces": "以下命名空间{{PLURAL:$2|编号}}不存在：$1",
+	"gadgets-validate-invalidskins": "下列{{PLURAL:$2|皮肤}}不存在：$1",
+	"gadgets-validate-invalidrights": "下列{{PLURAL:$2|权限}}不存在：$1",
 	"gadgets-validate-invalidtitle": "页面标题“$1”无效",
 	"gadgets-validate-unknownpages": "包含一个或多个不带.js、.css或.json后缀的页面。它们不会被使用。",
+	"gadgets-validate-duplicate": "检测到小工具$1的另一个定义，将忽略",
 	"gadgets-validate-nopage": "页面“$1”不存在。",
 	"gadgets-supports-urlload": "此小工具支持通过包含<code>?withgadget</code>查询的URL来加载。"
 }
