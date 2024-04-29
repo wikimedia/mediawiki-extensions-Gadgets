@@ -65,7 +65,6 @@ use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\LikeValue;
 use Wikimedia\WrappedString;
 use WikiPage;
-use Xml;
 
 class Hooks implements
 	PageDeleteCompleteHook,
@@ -331,7 +330,7 @@ class Hooks implements
 		$special = SpecialPage::getTitleFor( 'Gadgets' );
 
 		return ResourceLoader::makeInlineScript(
-			Xml::encodeJsCall( 'mw.log.warn', [
+			Html::encodeJsCall( 'mw.log.warn', [
 				"Gadget \"$id\" was not loaded. Please migrate it to use ResourceLoader. " .
 				'See <' . $special->getCanonicalURL() . '>.'
 			] )
