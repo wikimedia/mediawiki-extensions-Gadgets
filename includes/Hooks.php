@@ -23,17 +23,12 @@
 namespace MediaWiki\Extension\Gadgets;
 
 use ApiMessage;
-use Content;
-use Exception;
 use HTMLForm;
-use IContextSource;
 use InvalidArgumentException;
 use ManualLogEntry;
-use MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContent;
 use MediaWiki\Extension\Gadgets\Special\SpecialGadgetUsage;
 use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\DeleteUnknownPreferencesHook;
-use MediaWiki\Hook\EditFilterMergedContentHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Hook\PreferencesGetLegendHook;
 use MediaWiki\Html\Html;
@@ -49,7 +44,6 @@ use MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\SpecialPage\Hook\WgQueryPagesHook;
 use MediaWiki\SpecialPage\SpecialPage;
-use MediaWiki\Status\Status;
 use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Title\Title;
 use MediaWiki\Title\TitleValue;
@@ -75,7 +69,6 @@ class Hooks implements
 	PreferencesGetLegendHook,
 	ResourceLoaderRegisterModulesHook,
 	BeforePageDisplayHook,
-	EditFilterMergedContentHook,
 	ContentHandlerDefaultModelForHook,
 	WgQueryPagesHook,
 	DeleteUnknownPreferencesHook,
@@ -335,37 +328,6 @@ class Hooks implements
 				'See <' . $special->getCanonicalURL() . '>.'
 			] )
 		);
-	}
-
-	/**
-	 * Valid gadget definition page after content is modified
-	 *
-	 * @param IContextSource $context
-	 * @param Content $content
-	 * @param Status $status
-	 * @param string $summary
-	 * @param User $user
-	 * @param bool $minoredit
-	 * @throws Exception
-	 * @return bool
-	 */
-	public function onEditFilterMergedContent(
-		IContextSource $context,
-		Content $content,
-		Status $status,
-		$summary,
-		User $user,
-		$minoredit
-	) {
-		if ( $content instanceof GadgetDefinitionContent ) {
-			$validateStatus = $content->validate();
-			if ( !$validateStatus->isGood() ) {
-				$status->merge( $validateStatus );
-				return false;
-			}
-		}
-
-		return true;
 	}
 
 	/**
