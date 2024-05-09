@@ -24,7 +24,7 @@
 	"gadgets-editdescription": "Измени опис",
 	"gadgets-viewdescription": "Погл. опис",
 	"gadgets-uses": "Користи",
-	"gadgets-required-rights": "{{PLURAL:$2|Го бара следново право|Ги бара следниве права}}:\n\n$1",
+	"gadgets-required-rights": "{{PLURAL:$2|Го бара следново право|Ги бара следниве права}}: $1",
 	"gadgets-required-skins": "Достапно за {{PLURAL:$2|рувото $1|следниве рува: $1}}.",
 	"gadgets-required-actions": "Ограничено на {{PLURAL:$2|дејството „$1“|следниве дејства: $1}}.",
 	"gadgets-required-namespaces": "Ограничено на {{PLURAL:$2|именскиот простор $1|следниве именски простори: $1}}.",
