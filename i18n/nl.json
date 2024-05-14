@@ -39,6 +39,7 @@
 	"gadgets-required-skins": "Beschikbaar voor de {{PLURAL:$2|vormgeving $1|volgende vormgevingen: $1}}.",
 	"gadgets-required-actions": "Beperkt tot de {{PLURAL:$2|paginahandeling “$1”|volgende paginahandelingen: $1}}.",
 	"gadgets-required-namespaces": "Beperkt tot de {{PLURAL:$2|naamruimte $1|volgende naamruimten: $1}}.",
+	"gadgets-required-categories": "Beperkt tot de {{PLURAL:$2|categorie $1|volgende categorieën: $1}}.",
 	"gadgets-required-contentmodels": "Beperkt tot {{PLURAL:$2|het inhoudsmodel $1|de volgende inhoudsmodellen: $1}}.",
 	"gadgets-default": "Standaard ingeschakeld voor iedereen.",
 	"gadgets-legacy": "De gadget is niet geladen. Schakel over naar het gebruik van ResourceLoader ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) meer lezen]).",
@@ -65,8 +66,11 @@
 	"gadgets-validate-invalidactions": "De volgende {{PLURAL:$2|handeling wordt|handelingen worden}} niet herkend: $1",
 	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|Het volgende inhoudsmodel bestaat|De volgende inhoudsmodellen bestaan}} niet: $1",
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|Het volgende naamruimtenummer bestaat|De volgende naamruimtenummers bestaan}} niet: $1",
+	"gadgets-validate-invalidskins": "De volgende {{PLURAL:$2|vormgeving bestaat|vormgevingen bestaan}} niet: $1",
+	"gadgets-validate-invalidrights": "{{PLURAL:$2|Het volgende recht bestaat|De volgende rechten bestaan}} niet: $1",
 	"gadgets-validate-invalidtitle": "Paginatitel “$1” is ongeldig",
 	"gadgets-validate-unknownpages": "Bevat een of meer pagina’s zonder het achtervoegsel .js, .css of .json. Ze zouden niet worden gebruikt.",
+	"gadgets-validate-duplicate": "Er is een tweede definitie van gadget $1 gedetecteerd, die zal worden genegeerd",
 	"gadgets-validate-nopage": "Pagina “$1” bestaat niet.",
 	"gadgets-supports-urlload": "Deze gadget ondersteunt het laden via een URL met de queryparameter <code>?withgadget</code>."
 }
