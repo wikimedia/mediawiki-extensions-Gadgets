@@ -22,7 +22,8 @@ trait GadgetTestTrait {
 		$dbProvider = $this->createMock( IConnectionProvider::class );
 		$wanCache = WANObjectCache::newEmpty();
 		$revLookup = $this->createMock( RevisionLookup::class );
-		$repo = new MediaWikiGadgetsDefinitionRepo( $dbProvider, $wanCache, $revLookup );
+		$srvCache = new HashBagOStuff();
+		$repo = new MediaWikiGadgetsDefinitionRepo( $dbProvider, $wanCache, $revLookup, $srvCache );
 		return $repo->newFromDefinition( $line, 'misc' );
 	}
 

@@ -20,13 +20,13 @@
 
 namespace MediaWiki\Extension\Gadgets;
 
+use BagOStuff;
 use InvalidArgumentException;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
-use ObjectCache;
 use TextContent;
 use WANObjectCache;
 use Wikimedia\Rdbms\Database;
@@ -44,15 +44,19 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	private IConnectionProvider $dbProvider;
 	private WANObjectCache $wanCache;
 	private RevisionLookup $revLookup;
+	/** @var \BagOStuff */
+	private BagOStuff $srvCache;
 
 	public function __construct(
 		IConnectionProvider $dbProvider,
 		WANObjectCache $wanCache,
-		RevisionLookup $revLookup
+		RevisionLookup $revLookup,
+		BagOStuff $srvCache
 	) {
 		$this->dbProvider = $dbProvider;
 		$this->wanCache = $wanCache;
 		$this->revLookup = $revLookup;
+		$this->srvCache = $srvCache;
 	}
 
 	/**
@@ -83,7 +87,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * Purge the definitions cache, for example when MediaWiki:Gadgets-definition is edited.
 	 */
 	private function purgeDefinitionCache(): void {
-		$srvCache = ObjectCache::getLocalServerInstance( CACHE_HASH );
+		$srvCache = $this->srvCache;
 		$key = $this->makeDefinitionCacheKey( $this->wanCache );
 
 		$this->wanCache->delete( $key );
@@ -128,7 +132,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		// 1. process cache. Faster repeat calls.
 		if ( $this->definitions === null ) {
 			$wanCache = $this->wanCache;
-			$srvCache = ObjectCache::getLocalServerInstance( CACHE_HASH );
+			$srvCache = $this->srvCache;
 			$key = $this->makeDefinitionCacheKey( $wanCache );
 			$this->definitions = $srvCache->getWithSetCallback(
 				$key,
