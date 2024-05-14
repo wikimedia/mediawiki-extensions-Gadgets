@@ -198,7 +198,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 
 		foreach ( $lines as $line ) {
 			$m = [];
-			if ( preg_match( '/^==+ *([^*:\s|]+?)\s*==+\s*$/', $line, $m ) ) {
+			if ( preg_match( '/^==+ *([^*:\s|]+)\s*(?<!=)==+\s*$/', $line, $m ) ) {
 				$section = $m[1];
 			} else {
 				$gadget = $this->newFromDefinition( $line, $section );
