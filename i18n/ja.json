@@ -17,7 +17,8 @@
 			"Sujiniku",
 			"Whym",
 			"Yusuke1109",
-			"青子守歌"
+			"青子守歌",
+			"Dragoniez"
 		]
 	},
 	"gadgets-desc": "利用者が [[Special:Gadgets|CSS や JavaScript のカスタム ガジェット]]を[[Special:Preferences#mw-prefsection-gadgets|{{int:preferences}}]]で選択できるようにする",
@@ -42,15 +43,18 @@
 	"gadgets-required-skins": "{{PLURAL:$2|$1外装で利用できます|以下の外装で利用できます: $1}}。",
 	"gadgets-default": "既定では全員に有効です。",
 	"gadgets-legacy": "ガジェットが読み込まれていません。ResourceLoader に移行してください。([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) 詳細])",
+	"gadgets-packaged": "このガジェットは<code>$1</code>をエントリーポイントとして[https://www.mediawiki.org/wiki/ResourceLoader/Package_files パッケージ化]されています。",
 	"gadgets-export": "書き出し",
 	"gadgets-export-title": "ガジェットの書き出し",
 	"gadgets-not-found": "ガジェット「$1」が見つかりません。",
 	"gadgets-export-text": "$1 ガジェットを書き出すには、「{{int:gadgets-export-download}}」ボタンをクリックし、ダウンロードしたファイルを保存し、\n配布先ウィキの Special:Import に行ってアップロードしてください。そして、以下を MediaWiki:Gadgets-definition ページに追加してください:\n<pre>$2</pre>\nこの操作には、配布先のウィキで適切な権限 (システムメッセージの編集権限を含む) が必要で、さらにファイルのアップロードによるインポートが有効になっている必要があります。",
 	"gadgets-export-download": "ダウンロード",
+	"gadgets-requires-es6": "このガジェットはES6対応ブラウザでのみ使用できます",
 	"gadgets-validate-notset": "プロパティ <code>$1</code> が設定されていません。",
 	"gadgets-validate-wrongtype": "プロパティ <code>$1</code> は型 <code>$3</code> ではなく <code>$2</code> でなければなりません。",
 	"right-gadgets-edit": "ガジェットの JavaScript および CSS ページを編集",
 	"action-gadgets-edit": "このガジェットの JavaScript または CSS ページの編集",
 	"right-gadgets-definition-edit": "ガジェット定義を編集",
-	"action-gadgets-definition-edit": "このガジェット定義の編集"
+	"action-gadgets-definition-edit": "このガジェット定義の編集",
+	"gadgets-supports-urlload": "このガジェットは<code>?withgadget</code>のURLパラメータを使用してロードできます。"
 }
