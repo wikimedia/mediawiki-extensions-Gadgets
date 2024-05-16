@@ -14,7 +14,8 @@
 			"Ryo567",
 			"Sanbec",
 			"Themasterriot",
-			"Vivaelcelta"
+			"Vivaelcelta",
+			"No se"
 		]
 	},
 	"gadgets-desc": "Permite a los usuarios seleccionar [[Special:Gadgets|accesorios de CSS y JavaScript]] personalizados en sus [[Special:Preferences#mw-prefsection-gadgets|preferencias]].",
@@ -53,5 +54,8 @@
 	"gadgets-requires-es6": "Este accesorio solo funciona en navegadores compatibles con ES6",
 	"gadgets-validate-notset": "La propiedad <code>$1</code> no está establecida.",
 	"gadgets-validate-wrongtype": "La propiedad <code>$1</code> debe ser de tipo <code>$2</code> en vez de <code>$3</code>.",
+	"gadgets-validate-invalidskins": "L{{PLURAL:$2|a siguiente apariencia no existe|as siguientes apariencias no existen}}: $1",
+	"gadgets-validate-invalidrights": "{{PLURAL:$2|El siguiente permiso no existe|Los siguientes permisos no existen}}: $1",
+	"gadgets-validate-duplicate": "Se detectó una segunda definición de gadget $1 y se ignorará",
 	"gadgets-supports-urlload": "Este accesorio admite su carga a través de una URL con el parámetro <code>?withgadget</code>."
 }
