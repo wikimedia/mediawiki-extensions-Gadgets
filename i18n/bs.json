@@ -21,6 +21,7 @@
 	"gadgetusage-default": "Standardni",
 	"gadgets-title": "Dodaci",
 	"gadgets-pagetext": "Ispod je spisak posebnih dodataka koje korisnici mogu omogućiti na svojim [[Special:Preferences#mw-prefsection-gadgets|postavkama]], kako je to definisano u [[MediaWiki:Gadgets-definition|definicijama dodataka]].\nOvaj pregled daje jednostavan pristup sistemu stranica poruka koje definišu svaki dodatak i njihov opis i kod.",
+	"gadgets-editdescription": "Uredi opis",
 	"gadgets-uses": "Upotrebe",
 	"gadgets-required-rights": "Zahtijeva {{PLURAL:$2|sljedeće pravo|sljedeća prava}}:\n\n$1",
 	"gadgets-default": "Omogućeno za svakog po postavkama.",
