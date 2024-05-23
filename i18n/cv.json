@@ -14,5 +14,8 @@
 	"gadgetusage-activeusers": "Хастар ӗҫлекен хутшӑнакансем",
 	"gadgetusage-default": "Ахаль чухнехилле",
 	"gadgets-title": "Гаджетсем",
+	"gadgets-editdescription": "Ӑнлантарӑва тӳрлет",
+	"gadgets-viewdescription": "Ӑнлантарупа паллаш",
+	"gadgets-uses": "Усӑ курать",
 	"gadgets-not-found": "\"$1\" гаджечĕ тупăнмарĕ."
 }
