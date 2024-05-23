@@ -18,13 +18,14 @@
 			"Whym",
 			"Yusuke1109",
 			"青子守歌",
-			"Dragoniez"
+			"Dragoniez",
+			"Ant176"
 		]
 	},
 	"gadgets-desc": "利用者が [[Special:Gadgets|CSS や JavaScript のカスタム ガジェット]]を[[Special:Preferences#mw-prefsection-gadgets|{{int:preferences}}]]で選択できるようにする",
 	"prefs-gadgets": "ガジェット",
 	"prefs-description-gadgets": "自分のアカウントに対して追加の機能を有効化します。",
-	"gadgets-prefstext": "以下はあなたのアカウントで利用できる特殊なガジェットの一覧です。\nこれらのガジェットのほとんどは JavaScript ベースであるため、動作させるにはご使用中のブラウザーの JavaScript を有効にする必要があります。\n{{int:preferences}}ページではこれらのガジェットが機能しないことにご注意ください。\n\nまた、これらのガジェットは MediaWiki ソフトウェアの一部ではなく、通常はローカルウィキの利用者が開発/メンテナンスをしていることにもご注意ください。\nローカルのインターフェース管理者は利用できるガジェットについて、その[[MediaWiki:Gadgets-definition|定義]]や[[Special:Gadgets|説明]]を開くと、ガジェット単位でソースコードを表示して編集できます。このウィキにおける各ガジェットの利者数は、[[Special:GadgetUsage|専用の使用統計]]ページで確認できます。",
+	"gadgets-prefstext": "以下はあなたのアカウントで利用できる特殊なガジェットの一覧です。\nこれらのガジェットのほとんどは JavaScript ベースであるため、動作させるにはご使用中のブラウザーの JavaScript を有効にする必要があります。\n{{int:preferences}}ページではこれらのガジェットが機能しないことにご注意ください。\n\nまた、これらのガジェットは MediaWiki ソフトウェアの一部ではなく、通常はローカルウィキの利用者が開発/メンテナンスをしていることにもご注意ください。\nローカルのインターフェース管理者は利用できるガジェットについて、その[[MediaWiki:Gadgets-definition|定義]]や[[Special:Gadgets|説明]]を開くと、ガジェット単位でソースコードを表示して編集できます。このウィキにおける各ガジェットの利用者数は、[[Special:GadgetUsage|専用の使用統計]]ページで確認できます。",
 	"gadgets-prefstext-safemode": "セーフモードが有効化されているため、ガジェットを使用できません。ガジェットを使用するには、[[#mw-input-wpforcesafemode|セーフモードを無効化]]してください。",
 	"special-gadgets": "ガジェット",
 	"gadgetusage": "ガジェットの使用状況の統計",
