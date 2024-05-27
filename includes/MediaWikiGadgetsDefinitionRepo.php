@@ -44,7 +44,6 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	private IConnectionProvider $dbProvider;
 	private WANObjectCache $wanCache;
 	private RevisionLookup $revLookup;
-	/** @var \BagOStuff */
 	private BagOStuff $srvCache;
 
 	public function __construct(
@@ -87,11 +86,10 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * Purge the definitions cache, for example when MediaWiki:Gadgets-definition is edited.
 	 */
 	private function purgeDefinitionCache(): void {
-		$srvCache = $this->srvCache;
 		$key = $this->makeDefinitionCacheKey( $this->wanCache );
 
 		$this->wanCache->delete( $key );
-		$srvCache->delete( $key );
+		$this->srvCache->delete( $key );
 		$this->definitions = null;
 	}
 
@@ -131,15 +129,13 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		//
 		// 1. process cache. Faster repeat calls.
 		if ( $this->definitions === null ) {
-			$wanCache = $this->wanCache;
-			$srvCache = $this->srvCache;
-			$key = $this->makeDefinitionCacheKey( $wanCache );
-			$this->definitions = $srvCache->getWithSetCallback(
+			$key = $this->makeDefinitionCacheKey( $this->wanCache );
+			$this->definitions = $this->srvCache->getWithSetCallback(
 				$key,
 				// between 7 and 15 seconds to avoid memcached/lockTSE stampede (T203786)
 				mt_rand( 7, 15 ),
-				function () use ( $wanCache, $key ) {
-					return $wanCache->getWithSetCallback(
+				function () use ( $key ) {
+					return $this->wanCache->getWithSetCallback(
 						$key,
 						// 1 day
 						Gadget::CACHE_TTL,
