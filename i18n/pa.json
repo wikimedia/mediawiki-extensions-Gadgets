@@ -3,6 +3,7 @@
 		"authors": [
 			"Babanwalia",
 			"Bgo eiu",
+			"Cabal",
 			"Kuldeepburjbhalaike"
 		]
 	},
@@ -26,6 +27,6 @@
 	"gadgets-export-title": "ਗੈਜਟ ਬਰਾਮਦ",
 	"gadgets-not-found": "ਗੈਜਟ \"$1\" ਨਹੀਂ ਲੱਭਿਆ।",
 	"gadgets-export-download": "ਡਾਊਨਲੋਡ ਕਰੋ",
-	"gadgets-validate-invalidtitle": "ਪੰਨਾ ਸਿਰਲੇਖ \"$1\" ਅਵੈਧ ਹੈ",
+	"gadgets-validate-invalidtitle": "ਸਫ਼ੇ ਦਾ ਸਿਰਲੇਖ \"$1\" ਗਲਤ ਹੈ",
 	"gadgets-validate-nopage": "ਸਫ਼ਾ \"$1\" ਮੌਜੂਦ ਨਹੀਂ ਹੈ।"
 }
