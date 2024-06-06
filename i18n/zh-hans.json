@@ -64,7 +64,7 @@
 	"gadgets-not-found": "找不到“$1”小工具。",
 	"gadgets-export-text": "要导出$1小工具，请单击“{{int:gadgets-export-download}}”按钮，保存下载的文件，前往目标wiki的Special:Import并将文件上传。然后添加以下内容至MediaWiki:Gadgets-definition页面：\n<pre>$2</pre>\n您必须在目标wiki上拥有适当的权限（包括编辑系统消息的权限），并且启用从文件上传导入。",
 	"gadgets-export-download": "下载",
-	"gadgets-requires-es6": "此小工具仅在兼容ES6的浏览器上受支持",
+	"gadgets-requires-es6": "此小工具仅支持兼容ES6的浏览器",
 	"gadgets-validate-notset": "未设置属性<code>$1</code>。",
 	"gadgets-validate-wrongtype": "属性<code>$1</code>必须为<code>$2</code>，而不是<code>$3</code>。",
 	"gadgets-validate-json": "JSON文件已指定但未使用。它们仅在被封装的小工具中有效。",
