@@ -23,15 +23,16 @@
 namespace MediaWiki\Extension\Gadgets;
 
 use ApiMessage;
-use HTMLForm;
 use InvalidArgumentException;
 use ManualLogEntry;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Gadgets\Special\SpecialGadgetUsage;
-use MediaWiki\Hook\BeforePageDisplayHook;
 use MediaWiki\Hook\DeleteUnknownPreferencesHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
 use MediaWiki\Hook\PreferencesGetLegendHook;
 use MediaWiki\Html\Html;
+use MediaWiki\HTMLForm\HTMLForm;
+use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Page\Hook\PageDeleteCompleteHook;
 use MediaWiki\Page\ProperPageIdentity;
@@ -52,7 +53,6 @@ use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
 use MessageSpecifier;
 use OOUI\HtmlSnippet;
-use RequestContext;
 use Skin;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IReadableDatabase;

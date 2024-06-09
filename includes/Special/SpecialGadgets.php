@@ -21,12 +21,13 @@
 namespace MediaWiki\Extension\Gadgets\Special;
 
 use ContentHandler;
-use HTMLForm;
 use InvalidArgumentException;
 use MediaWiki\Extension\Gadgets\Gadget;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Html\Html;
+use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Message\Message;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
@@ -47,7 +48,7 @@ class SpecialGadgets extends SpecialPage {
 	/**
 	 * Return title for Special:Gadgets heading and Special:Specialpages link.
 	 *
-	 * @return \Message
+	 * @return Message
 	 */
 	public function getDescription() {
 		return $this->msg( 'special-gadgets' );
