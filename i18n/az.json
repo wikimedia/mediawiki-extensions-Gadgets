@@ -32,6 +32,7 @@
 	"gadgets-uses": "İstifadə edir:",
 	"gadgets-required-rights": "Aşağıdakı {{PLURAL:$2|hüququ|hüquqları}} tələb edir: $1",
 	"gadgets-required-skins": "{{PLURAL:$2|$1 dizaynında|$1 dizaynlarında}} mövcuddur.",
+	"gadgets-required-actions": "{{PLURAL:$2|1=\"$1\" səhifə fəaliyyətləri}} ilə məhdudlaşır.",
 	"gadgets-default": "Hərkəs üçün defolt olaraq aktivləşdirilib.",
 	"gadgets-legacy": "Qadcet yüklənmədi. Zəhmət olmasa ResourceLoader istifadə edin.\n([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Daha ətraflı])",
 	"gadgets-export": "İxrac",
