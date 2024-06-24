@@ -7,7 +7,8 @@
 			"Toghrul Rahimli",
 			"Vago",
 			"Vugar 1981",
-			"Wertuose"
+			"Wertuose",
+			"Nemoralis"
 		]
 	},
 	"gadgets-desc": "İstifadəçilərə [[Special:Preferences#mw-prefsection-gadgets|nizamlamalarda ]] özəl [[Special:Gadgets|CSS və JavaScript qadcetlərini]] seçməyə imkan verir.",
@@ -24,6 +25,8 @@
 	"gadgetusage-default": "Defolt",
 	"gadgets-title": "Qadcetlər",
 	"gadgets-pagetext": "Aşağıda istifadəçilərin [[MediaWiki:Gadgets-definition|izahlar səhifəsində]] təyin edilmiş, [[Special:Preferences#mw-prefsection-gadgets|nizamlamalar səhifəsində]] aktivləşdirə biləcəyi xüsusi qadcetlərin siyahısı verilmişdir.\nBu səhifə, hər bir qadcetin təsvirini və kodunu təyin edən sistem mesajı səhifələrinə asanlıqla daxil olmağı təmin edir.",
+	"gadgets-editdescription": "Təsviri redaktə et",
+	"gadgets-viewdescription": "Təsvirə bax",
 	"gadgets-uses": "İstifadə edir:",
 	"gadgets-required-rights": "Aşağıdakı {{PLURAL:$2|hüququ|hüquqları}} tələb edir:\n\n$1",
 	"gadgets-required-skins": "{{PLURAL:$2|$1 dizaynında|$1 dizaynlarında}} mövcuddur.",
