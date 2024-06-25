@@ -7,11 +7,13 @@
 			"Toghrul Rahimli",
 			"Vago",
 			"Vugar 1981",
-			"Wertuose"
+			"Wertuose",
+			"Nemoralis"
 		]
 	},
 	"gadgets-desc": "İstifadəçilərə [[Special:Preferences#mw-prefsection-gadgets|nizamlamalarda ]] özəl [[Special:Gadgets|CSS və JavaScript qadcetlərini]] seçməyə imkan verir.",
 	"prefs-gadgets": "Qadcetlər",
+	"prefs-description-gadgets": "Hesabınız üçün əlavə funksiyaları aktivləşdirin.",
 	"gadgets-prefstext": "Aşağıda profiliniz üçün aktivləşdirə biləcəyiniz xüsusi qadcetlərin siyahısı yerləşir. Bu qadcetlər, əsasən \"JavaScript\" kodlarına əsaslanır. Buna görə də brauzerinizdə \"JavaScript\" icazəsi olmalıdır. Qadcetlərin \"Nizamlamalar\" səhifəsində heç bir təsiri olmadığını unutmayın.\n\nHəmçinin bu xüsusi qadcetlər \"MediaViki\" proqramının bir hissəsidir və ümumiyyətlə yerli vikidəki istifadəçilər tərəfindən yazılır və saxlanılır. Lokal [[Project:İnterfeys inzibatçıları|interfeys inzibatçıları]] mövcud olan qadcetlərin [[MediaWiki:Gadgets-definition|izahlarını]] və [[Special:Gadgets|təsvirlərini]] redaktə edə bilərlər. Bu vikidəki hər qadcet üçün olan statistika [[Special:GadgetUsage|Qadcet istifadə statistikasında]] verilmişdir.",
 	"gadgets": "Qadcetlər",
 	"gadgetusage": "Qadcet istifadə statistikası",
@@ -24,6 +26,8 @@
 	"gadgetusage-default": "Defolt",
 	"gadgets-title": "Qadcetlər",
 	"gadgets-pagetext": "Aşağıda istifadəçilərin [[MediaWiki:Gadgets-definition|izahlar səhifəsində]] təyin edilmiş, [[Special:Preferences#mw-prefsection-gadgets|nizamlamalar səhifəsində]] aktivləşdirə biləcəyi xüsusi qadcetlərin siyahısı verilmişdir.\nBu səhifə, hər bir qadcetin təsvirini və kodunu təyin edən sistem mesajı səhifələrinə asanlıqla daxil olmağı təmin edir.",
+	"gadgets-editdescription": "Təsviri redaktə et",
+	"gadgets-viewdescription": "Təsvirə bax",
 	"gadgets-uses": "İstifadə edir:",
 	"gadgets-required-rights": "Aşağıdakı {{PLURAL:$2|hüququ|hüquqları}} tələb edir:\n\n$1",
 	"gadgets-required-skins": "{{PLURAL:$2|$1 dizaynında|$1 dizaynlarında}} mövcuddur.",
