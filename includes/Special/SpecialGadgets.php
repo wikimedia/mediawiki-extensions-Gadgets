@@ -22,15 +22,16 @@ namespace MediaWiki\Extension\Gadgets\Special;
 
 use ContentHandler;
 use InvalidArgumentException;
+use Language;
 use MediaWiki\Extension\Gadgets\Gadget;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Html\Html;
 use MediaWiki\HTMLForm\HTMLForm;
-use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
+use SkinFactory;
 
 /**
  * Special:Gadgets renders the data of MediaWiki:Gadgets-definition.
@@ -38,11 +39,19 @@ use MediaWiki\Title\Title;
  * @copyright 2007 Daniel Kinzler
  */
 class SpecialGadgets extends SpecialPage {
+	private Language $contentLanguage;
 	private GadgetRepo $gadgetRepo;
+	private SkinFactory $skinFactory;
 
-	public function __construct( GadgetRepo $gadgetRepo ) {
+	public function __construct(
+		Language $contentLanguage,
+		GadgetRepo $gadgetRepo,
+		SkinFactory $skinFactory
+	) {
 		parent::__construct( 'Gadgets' );
+		$this->contentLanguage = $contentLanguage;
 		$this->gadgetRepo = $gadgetRepo;
+		$this->skinFactory = $skinFactory;
 	}
 
 	/**
@@ -90,12 +99,10 @@ class SpecialGadgets extends SpecialPage {
 			return;
 		}
 
-		$services = MediaWikiServices::getInstance();
-
 		$output->disallowUserJs();
 		$lang = $this->getLanguage();
 		$langSuffix = "";
-		if ( !$lang->equals( $services->getContentLanguage() ) ) {
+		if ( !$lang->equals( $this->contentLanguage ) ) {
 			$langSuffix = "/" . $lang->getCode();
 		}
 
@@ -109,7 +116,6 @@ class SpecialGadgets extends SpecialPage {
 			: 'gadgets-viewdescription';
 
 		$linkRenderer = $this->getLinkRenderer();
-		$skinFactory = $services->getSkinFactory();
 		foreach ( $gadgets as $section => $entries ) {
 			if ( $section !== false && $section !== '' ) {
 				if ( $listOpen ) {
@@ -274,7 +280,7 @@ class SpecialGadgets extends SpecialPage {
 				// Portion: Show required skins (optional)
 				$requiredSkins = $gadget->getRequiredSkins();
 				$skins = [];
-				$validskins = $skinFactory->getSkinNames();
+				$validskins = $this->skinFactory->getSkinNames();
 				foreach ( $requiredSkins as $skinid ) {
 					if ( isset( $validskins[$skinid] ) ) {
 						$skins[] = $this->msg( "skinname-$skinid" )->plain();

@@ -25,7 +25,9 @@
 		"Gadgets": {
 			"class": "MediaWiki\\Extension\\Gadgets\\Special\\SpecialGadgets",
 			"services": [
-				"GadgetsRepo"
+				"ContentLanguage",
+				"GadgetsRepo",
+				"SkinFactory"
 			]
 		},
 		"GadgetUsage": {
