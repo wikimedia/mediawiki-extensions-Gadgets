@@ -388,7 +388,7 @@ class SpecialGadgets extends SpecialPage {
 				}
 
 				// Show warnings
-				$warnings = GadgetRepo::singleton()->validationWarnings( $gadget );
+				$warnings = $this->gadgetRepo->validationWarnings( $gadget );
 
 				if ( count( $warnings ) > 0 ) {
 					$output->addHTML( Html::warningBox( implode( '<br/>', array_map( static function ( $msg ) {
