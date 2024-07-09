@@ -56,5 +56,6 @@
 	"gadgets-validate-invalidrights": "{{PLURAL:$2|РогӀера бакъо йац|РогӀера бакъонаш йац}}: $1.",
 	"gadgets-validate-invalidtitle": "АгӀонан корта \"$1\" нийса бац",
 	"gadgets-validate-unknownpages": "Цхьаъ йа масех агӀо йу .js, .css, .json суффиксаш йоцуш. Уьш лелора йац.",
-	"gadgets-validate-nopage": "«$1» агӀо йац"
+	"gadgets-validate-nopage": "«$1» агӀо йац",
+	"gadgets-supports-urlload": "Гаджето гӀо до URL чохь <code>?withgadget</code> параметр лелош, чуйаккхарна."
 }
