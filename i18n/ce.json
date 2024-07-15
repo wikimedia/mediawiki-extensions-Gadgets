@@ -14,6 +14,7 @@
 	"gadgetusage-usercount": "Декъашхойн дукхалла",
 	"gadgetusage-noresults": "Гаджеташ цакарий",
 	"gadgetusage-intro": "ХӀокху таблица тӀехь гойту хӀокху вики чохь гаджеташ латина болу декъашхойн дукхалла. Жигара декъашхо лору {{PLURAL:$1|тӀаьххьара $1 дийнахь}} хийцамаш бинарг. ХӀокху могӀам тӀехь массарна Ӏадйитаран кепаца латина йолу гаджеташ ца гойту, цул совнах хӀинца болх беш йоцу гаджеташ могӀам тӀехь хила мега.",
+	"gadgetusage-intro-noactive": "ХӀокху таблицехь гойтуш ду хӀокху вики тӀехь хӀора гаджет дӀахӀоттийначу декъашхойн дукхалла. ХӀокху могӀамехь йац массарна а Ӏад йитаран кепаца дӀахӀоттийна йолу гаджетийн статистика, кхин болх ца бо гаджеташ а йукъайаха тарло.",
 	"gadgetusage-activeusers": "Жигара декъашхой",
 	"gadgetusage-default": "Ӏадйитаран кеп",
 	"gadgets-title": "Гаджеташ",
@@ -23,6 +24,8 @@
 	"gadgets-uses": "Лелош йу",
 	"gadgets-required-rights": "{{PLURAL:$2|1=Оьшуш йу бакъо|Оьшуш йу бакъонаш}}:\n\n$1",
 	"gadgets-default": "Латайе массарна Ӏадйитаран кепаца.",
+	"gadgets-legacy": "Гаджет чудаьккхина дац. Дехар до, оцу гаджетан код нисйе, цунах 1000 цӀе йолуш. ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Мадарра])",
+	"gadgets-packaged": "ХӀара гаджет [https://www.mediawiki.org/wiki/ResourceLoader/Package_files дӀайуьзна йу], чуйогӀу меттиг — $1",
 	"gadgets-export": "Экспорт йан",
 	"gadgets-export-title": "Гаджет экспорт йар",
 	"gadgets-not-found": "Гаджет «$1» цакарий.",
@@ -30,5 +33,6 @@
 	"gadgets-export-download": "Схьаэца",
 	"gadgets-validate-notset": "Билгало <code>$1</code> дӀахӀоттийна йац.",
 	"right-gadgets-definition-edit": "Гаджетийн хаамаш нисбар",
-	"action-gadgets-definition-edit": "хӀара гаджет билгалйар хийцар"
+	"action-gadgets-definition-edit": "хӀара гаджет билгалйар хийцар",
+	"gadgets-supports-urlload": "Гаджето гӀо до URL чохь <code>?withgadget</code> параметр лелош, чуйаккхарна."
 }
