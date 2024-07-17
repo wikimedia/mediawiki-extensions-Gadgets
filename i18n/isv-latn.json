@@ -4,5 +4,15 @@
 			"IJzeren Jan"
 		]
 	},
-	"prefs-gadgets": "Gadžety"
+	"prefs-gadgets": "Gadžety",
+	"gadgetusage": "Statistika upotrěby gadžetov",
+	"gadgetusage-gadget": "Gadžet",
+	"gadgetusage-usercount": "Kolikost koristnikov",
+	"gadgetusage-noresults": "Ne najden nijedin gadžet.",
+	"gadgetusage-activeusers": "Aktivni koristniki",
+	"gadgetusage-default": "Standardno",
+	"gadgets-title": "Gadžety",
+	"gadgets-editdescription": "Praviti opis",
+	"gadgets-viewdescription": "Prěgleděti opis",
+	"gadgets-uses": "Upotrěbjaje"
 }
