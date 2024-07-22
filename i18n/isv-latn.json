@@ -4,5 +4,24 @@
 			"IJzeren Jan"
 		]
 	},
-	"prefs-gadgets": "Gadžety"
+	"gadgets-desc": "Pozvaljaje koristnikam izbiranje prisposobjenyh [[Special:Gadgets|CSS- i JavaScript-gadžetov]] v svojih [[Special:Preferences#mw-prefsection-gadgets|nastavjenjah]]",
+	"prefs-gadgets": "Gadžety",
+	"gadgets-prefstext": "Niže vy nahodite spisok specialnyh gadžetov, ktore možete vključiti za svoje koristničsko konto.\nVečinstvo tyh gadžetov jest osnovano na JavaScript’u, zato vaš prěgledač povinen jest iměti vključeny JavaScript, da by one rabotali.\nImajte v vidu, že te gadžety ne budut iměti vliv na tutu stranicu s nastavjenjami.\n\nTakože imajte v vidu, že tute specialne gadžety ne sut čest MediaWiki-softvera. Jih obyčno tvoret i poddrživajut koristniki vašej lokalnoj viki.\n\nAdministratori lokalnogo interfejsa mogut izpraviti [[MediaWiki:Gadgets-definition|definicije]] dostupnyh gadžetov, a oni takože mogut izpraviti jihne [[Special:Gadgets|opisy]], v ktoryh možete uviděti izvorny kod vsakogo gadžeta. Kolikost koristnikov vsakogo gadžeta najdete na stranici [[Special:GadgetUsage|statistiky upotrěbjanja gadžetov]].",
+	"gadgetusage": "Statistika upotrěby gadžetov",
+	"gadgetusage-gadget": "Gadžet",
+	"gadgetusage-usercount": "Kolikost koristnikov",
+	"gadgetusage-noresults": "Ne najden nijedin gadžet.",
+	"gadgetusage-intro": "Tuta tabela pokazyvaje kolikost koristnikov, ktori imajut vključeny dany gadžet v tutoj viki. Aktivnym koristnikom uznavaje se někto, ktory v tečenju {{PLURAL:$1|poslědnjego dnja|poslědnjih $1 dnjev}} sdělal pravku. Spisok izključaje statistiky za gadžety, ktore sut standardno vključene za vsih, a može vključiti gadžety, ktore uže ne sut dostupne.",
+	"gadgetusage-intro-noactive": "Tuta tabela pokazyvaje kolikost koristnikov, ktori imajut vključeny dany gadžet v tutoj viki. Spisok izključaje statistiky za gadžety, ktore sut standardno vključene za vsih, a može vključiti gadžety, ktore uže ne sut dostupne.",
+	"gadgetusage-activeusers": "Aktivni koristniki",
+	"gadgetusage-default": "Standardno",
+	"gadgets-title": "Gadžety",
+	"gadgets-pagetext": "Niže nahodite spisok specialnyh gadžetov, ktore koristniki mogut vključiti na svojej [[Special:Preferences#mw-prefsection-gadgets|stranici s nastavjenjami]], sostavjeny na osnově [[MediaWiki:Gadgets-definition|definicij gadžetov]].\nTutoj spisok davaje legky dostup k sistemnym soobčenjam, ktore oprěděljajut opis i kod vsakogo gadžeta.",
+	"gadgets-editdescription": "Praviti opis",
+	"gadgets-viewdescription": "Prěgleděti opis",
+	"gadgets-uses": "Upotrěbjaje",
+	"gadgets-default": "Standardno vključeny za vsih.",
+	"gadgets-export": "Eksportovati",
+	"gadgets-export-title": "Eksport gadžeta",
+	"gadgets-not-found": "Gadžet «$1» ne najden."
 }

@@ -34,7 +34,7 @@
 	"gadgets-required-rights": "يتطلب {{PLURAL:$2|الحق|الحقوق}} التالية:\n\n$1",
 	"gadgets-required-skins": "متاحة على {{PLURAL:$2| واجهة واحدة|الواجهات $1 التالية}}.",
 	"gadgets-required-actions": "يعمل على {{PLURAL:$2|إجراء صفحة «$1»|إجراءات الصفحة التالية: $1}}.",
-	"gadgets-default": "تمكين الجميع بشكل افتراضي.",
+	"gadgets-default": "ممكنة الجميع افتراضيَّا.",
 	"gadgets-legacy": "الإضافة لم يتم تحميلها. من فضلك تحول إلى ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) اعرف المزيد])",
 	"gadgets-packaged": "هذه الأداة [https://www.mediawiki.org/wiki/ResourceLoader/Package_files مدمجة]، مع نقطة دخول تساوي $1",
 	"gadgets-export": "صدّر",
