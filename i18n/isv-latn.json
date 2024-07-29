@@ -21,7 +21,12 @@
 	"gadgets-viewdescription": "Prěgleděti opis",
 	"gadgets-uses": "Upotrěbjaje",
 	"gadgets-default": "Standardno vključeny za vsih.",
+	"gadgets-legacy": "Gadžet ne jest včitany. Prosimo, prěměstite go do ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Veče informacij])",
+	"gadgets-packaged": "Tutoj gadžet jest [https://www.mediawiki.org/wiki/ResourceLoader/Package_files spakovany], s vhodnoju točkoju $1",
 	"gadgets-export": "Eksportovati",
 	"gadgets-export-title": "Eksport gadžeta",
-	"gadgets-not-found": "Gadžet «$1» ne najden."
+	"gadgets-not-found": "Gadžet «$1» ne najden.",
+	"gadgets-export-download": "Daunlodovati",
+	"gadgets-validate-notset": "Svojstvo <code>$1</code> ne jest ustavjeno.",
+	"gadgets-supports-urlload": "Tutoj gadžet poddrživaje včityvanje črěz URL s parametrom zapyta <code>?withgadget</code>."
 }
