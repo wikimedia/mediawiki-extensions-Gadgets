@@ -7,6 +7,7 @@
 			"Nike",
 			"Olli",
 			"Pyscowicz",
+			"Samoasambia",
 			"Stryn"
 		]
 	},
@@ -14,6 +15,7 @@
 	"prefs-gadgets": "Pienoisohjelmat",
 	"prefs-description-gadgets": "Ota käyttöön lisäominaisuuksia",
 	"gadgets-prefstext": "Alla on lista pienoisohjelmista, joita käyttäjät voivat ottaa käyttöön. Nämä pienoisohjelmat pohjautuvat usein JavaScriptiin, joten toimiakseen selaimessasi pitää olla JavaScript käytössä.\n\nHuomioi myös, että nämä pienoisohjelmat eivät ole osa MediaWiki-ohjelmistoa – tavallisesti niitä kehittävät ja ylläpitävät paikallisen wikin käyttäjät. Paikalliset ylläpitäjät voivat muokata saatavilla olevia pienoisohjelmia [[MediaWiki:Gadgets-definition|määrityssivulla]] ja [[Special:Gadgets|kuvauksista]]. Tämän wikin jokaisen pienoisohjelman käyttäjämäärä on kerrottu [[Special:GadgetUsage|pienoisohjelmien käyttötilastoissa]].",
+	"gadgets-prefstext-safemode": "Pienoisonjelmat eivät ole tällä hetkellä saatavilla, koska turvallinen tila on käytössä. [[#mw-input-wpforcesafemode|Poista turvallinen tila käytöstä]] käyttääksesi pienoisohjelmia.",
 	"special-gadgets": "Pienoisohjelmat",
 	"gadgetusage": "Pienoisohjelmien käyttötilastot",
 	"gadgetusage-gadget": "Pienoisohjelma",
