@@ -23,7 +23,7 @@
 	"gadgets-viewdescription": "Prěgleděti opis",
 	"gadgets-uses": "Upotrěbjaje",
 	"gadgets-required-skins": "Dostupny za {{PLURAL:$2|slědujuču vizualnu temu|slědujuče vizualne temy}}: $1.",
-	"gadgets-required-actions": "Ograničeny do {{PLURAL:$2|dějanja na stranici «$1»|slědujučih dějananij na stranicah: $1}}.",
+	"gadgets-required-actions": "Ograničeny do {{PLURAL:$2|dějanja na stranici «$1»|slědujučih dějanij na stranicah: $1}}.",
 	"gadgets-required-namespaces": "Ograničeny do {{PLURAL:$2|imennogo prostora «$1»|slědujučih imennyh prostorov: $1}}.",
 	"gadgets-required-contentmodels": "Ograničeny do {{PLURAL:$2|modela sodržanja «$1»|slědujučih modelov sodržanja: $1}}.",
 	"gadgets-default": "Standardno vključeny za vsih.",

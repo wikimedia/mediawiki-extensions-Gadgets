@@ -24,7 +24,7 @@
 	"gadgets-pagetext": "Embaixo hai unha lista dos trebellos especiais que os usuarios poden habilitar na súa páxina de preferencias, tal e como se describe nas [[MediaWiki:Gadgets-definition|definicións]].\nEste panorama xeral é de doado acceso ao sistema das páxinas de mensaxes que define cada descrición e código dos trebellos.",
 	"gadgets-uses": "Usa",
 	"gadgets-required-rights": "{{PLURAL:$2|Cómpre o seguinte dereito|Cómpren os seguintes dereitos}}:\n\n$1",
-	"gadgets-required-skins": "Dispoñible {{PLURAL:$2|na aparencia $1|nas seguintes aparencias: $1}}.",
+	"gadgets-required-skins": "Dispoñible para {{PLURAL:$2|a aparencia $1|as seguintes aparencias: $1}}.",
 	"gadgets-default": "Activado para todos por defecto.",
 	"gadgets-legacy": "O trebello non está cargado. Por favor, migre a ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Máis información])",
 	"gadgets-export": "Exportar",
