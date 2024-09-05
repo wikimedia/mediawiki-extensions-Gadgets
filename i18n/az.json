@@ -36,7 +36,7 @@
 	"gadgets-required-namespaces": "{{PLURAL:$2|$1 ad fəzası ilə|Aşağıdakı ad fəzaları ilə məhdudlaşır: $2}}",
 	"gadgets-required-categories": "{{PLURAL:$2|$1 kateqoriyası ilə|Aşağıdakı kateqoriyalar ilə məhdudlaşır: $2}}",
 	"gadgets-default": "Hərkəs üçün defolt olaraq aktivləşdirilib.",
-	"gadgets-legacy": "Qadcet yüklənmədi. Zəhmət olmasa ResourceLoader istifadə edin.\n([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Daha ətraflı])",
+	"gadgets-legacy": "Qadcet yüklənmədi. Zəhmət olmasa, ResourceLoader istifadə edin.\n([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Daha ətraflı])",
 	"gadgets-export": "İxrac",
 	"gadgets-export-title": "Qadcet ixracı",
 	"gadgets-not-found": "\"$1\" qadceti tapılmadı.",
