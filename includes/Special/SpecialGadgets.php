@@ -27,6 +27,7 @@ use MediaWiki\Extension\Gadgets\Gadget;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Html\Html;
 use MediaWiki\HTMLForm\HTMLForm;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Message\Message;
 use MediaWiki\Parser\Sanitizer;
 use MediaWiki\SpecialPage\SpecialPage;
@@ -417,8 +418,6 @@ class SpecialGadgets extends SpecialPage {
 	 * @param string $gadget Name of gadget to export
 	 */
 	public function showExportForm( $gadget ) {
-		global $wgScript;
-
 		$this->addHelpLink( 'Extension:Gadgets' );
 		$output = $this->getOutput();
 		try {
@@ -443,7 +442,7 @@ class SpecialGadgets extends SpecialPage {
 			->addHiddenField( 'pages', $exportList )
 			->addHiddenField( 'wpDownload', '1' )
 			->addHiddenField( 'templates', '1' )
-			->setAction( $wgScript )
+			->setAction( $this->getConfig()->get( MainConfigNames::Script ) )
 			->setMethod( 'get' )
 			->setSubmitText( $this->msg( 'gadgets-export-download' )->text() )
 			->prepareForm()
