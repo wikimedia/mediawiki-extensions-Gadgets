@@ -30,7 +30,7 @@
 	"gadgets-required-namespaces": "Дозатоьхна {{PLURAL:$2|1=цӀерийн меттиго \"$1\"|хӀокху рогӀерчу цӀерийн меттигаша: $1}}.",
 	"gadgets-required-contentmodels": "Дозатоьхна {{PLURAL:$2|1=чулацаман модело \"$1\"|хӀокху рогӀерчу чулацаман моделаша: $1}}.",
 	"gadgets-default": "Латайе массарна Ӏадйитаран кепаца.",
-	"gadgets-legacy": "Гаджет чудаьккхина дац. Дехар до, оцу гаджетан код нисйе, цунах 1000 цӀе йолуш. ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Мадарра])",
+	"gadgets-legacy": "Гаджет чудаьккхина дац. Дехар до, оцу гаджетан код нисйе, цуьнах 1000 цӀе йолуш. ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Мадарра])",
 	"gadgets-packaged": "ХӀара гаджет [https://www.mediawiki.org/wiki/ResourceLoader/Package_files дӀайуьзна йу], чуйогӀу меттиг — $1",
 	"gadgets-export": "Экспорт йан",
 	"gadgets-export-title": "Гаджет экспорт йар",
