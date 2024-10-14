@@ -24,7 +24,7 @@
 	"gadgets-uses": "Лелош йу",
 	"gadgets-required-rights": "{{PLURAL:$2|1=Оьшуш йу бакъо|Оьшуш йу бакъонаш}}:\n\n$1",
 	"gadgets-default": "Латайе массарна Ӏадйитаран кепаца.",
-	"gadgets-legacy": "Гаджет чудаьккхина дац. Дехар до, оцу гаджетан код нисйе, цунах 1000 цӀе йолуш. ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Мадарра])",
+	"gadgets-legacy": "Гаджет чудаьккхина дац. Дехар до, оцу гаджетан код нисйе, цуьнах 1000 цӀе йолуш. ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Мадарра])",
 	"gadgets-packaged": "ХӀара гаджет [https://www.mediawiki.org/wiki/ResourceLoader/Package_files дӀайуьзна йу], чуйогӀу меттиг — $1",
 	"gadgets-export": "Экспорт йан",
 	"gadgets-export-title": "Гаджет экспорт йар",
