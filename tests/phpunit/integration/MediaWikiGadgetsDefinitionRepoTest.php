@@ -2,6 +2,8 @@
 
 use MediaWiki\Extension\Gadgets\MediaWikiGadgetsDefinitionRepo;
 use MediaWiki\Title\Title;
+use Wikimedia\ObjectCache\HashBagOStuff;
+use Wikimedia\ObjectCache\WANObjectCache;
 
 /**
  * @covers \MediaWiki\Extension\Gadgets\GadgetRepo

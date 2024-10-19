@@ -22,9 +22,9 @@
 
 namespace MediaWiki\Extension\Gadgets;
 
-use ApiMessage;
 use InvalidArgumentException;
 use ManualLogEntry;
+use MediaWiki\Api\ApiMessage;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Gadgets\Special\SpecialGadgetUsage;
 use MediaWiki\Hook\DeleteUnknownPreferencesHook;
@@ -51,9 +51,9 @@ use MediaWiki\Title\TitleValue;
 use MediaWiki\User\Hook\UserGetDefaultOptionsHook;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
-use MessageSpecifier;
 use OOUI\HtmlSnippet;
 use Skin;
+use Wikimedia\Message\MessageSpecifier;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\LikeValue;

@@ -20,13 +20,13 @@
 
 namespace MediaWiki\Extension\Gadgets\Special;
 
-use ContentHandler;
 use InvalidArgumentException;
-use Language;
+use MediaWiki\Content\ContentHandler;
 use MediaWiki\Extension\Gadgets\Gadget;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Html\Html;
 use MediaWiki\HTMLForm\HTMLForm;
+use MediaWiki\Language\Language;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Message\Message;
 use MediaWiki\Parser\Sanitizer;

@@ -20,13 +20,13 @@
 
 namespace MediaWiki\Extension\Gadgets\Content;
 
-use Content;
-use FormatJson;
-use JsonContentHandler;
+use MediaWiki\Content\Content;
+use MediaWiki\Content\JsonContentHandler;
 use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Content\ValidationParams;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Extension\Gadgets\MediaWikiGadgetsJsonRepo;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Parser\ParserOutput;
 use MediaWiki\Title\Title;

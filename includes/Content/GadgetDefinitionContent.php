@@ -20,8 +20,8 @@
 
 namespace MediaWiki\Extension\Gadgets\Content;
 
-use FormatJson;
-use JsonContent;
+use MediaWiki\Content\JsonContent;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\Status\Status;
 
 class GadgetDefinitionContent extends JsonContent {
