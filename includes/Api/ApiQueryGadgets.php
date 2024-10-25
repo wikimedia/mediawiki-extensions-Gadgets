@@ -47,7 +47,11 @@ class ApiQueryGadgets extends ApiQueryBase {
 
 	private GadgetRepo $gadgetRepo;
 
-	public function __construct( ApiQuery $queryModule, $moduleName, GadgetRepo $gadgetRepo ) {
+	public function __construct(
+		ApiQuery $queryModule,
+		string $moduleName,
+		GadgetRepo $gadgetRepo
+	) {
 		parent::__construct( $queryModule, $moduleName, 'ga' );
 		$this->gadgetRepo = $gadgetRepo;
 	}
