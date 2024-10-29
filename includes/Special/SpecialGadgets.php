@@ -281,7 +281,7 @@ class SpecialGadgets extends SpecialPage {
 				// Portion: Show required skins (optional)
 				$requiredSkins = $gadget->getRequiredSkins();
 				$skins = [];
-				$validskins = $this->skinFactory->getSkinNames();
+				$validskins = $this->skinFactory->getInstalledSkins();
 				foreach ( $requiredSkins as $skinid ) {
 					if ( isset( $validskins[$skinid] ) ) {
 						$skins[] = $this->msg( "skinname-$skinid" )->plain();
