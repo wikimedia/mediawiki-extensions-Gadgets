@@ -51,7 +51,9 @@ use MediaWiki\Title\TitleValue;
 use MediaWiki\User\Hook\UserGetDefaultOptionsHook;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
+use OOUI\FieldLayout;
 use OOUI\HtmlSnippet;
+use OOUI\MessageWidget;
 use Skin;
 use Wikimedia\Message\MessageSpecifier;
 use Wikimedia\Rdbms\IExpression;
@@ -176,9 +178,15 @@ class Hooks implements
 		if ( $safeMode ) {
 			$preferences['gadgets-safemode'] = [
 				'type' => 'info',
-				'default' => Html::warningBox( wfMessage( 'gadgets-prefstext-safemode' )->parse() ),
 				'section' => 'gadgets',
 				'raw' => true,
+				'rawrow' => true,
+				'default' => new FieldLayout(
+					new MessageWidget( [
+						'label' => new HtmlSnippet( wfMessage( 'gadgets-prefstext-safemode' )->parse() ),
+						'type' => 'warning',
+					] )
+				),
 			];
 		}
 
