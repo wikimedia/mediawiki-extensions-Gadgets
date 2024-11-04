@@ -9,7 +9,8 @@
 			"Malafaya",
 			"Mansil",
 			"Vitorvicentevalente",
-			555
+			555,
+			"B3rnas"
 		]
 	},
 	"gadgets-desc": "Permite que os utilizadores selecionem [[Special:Gadgets|''gadgets'' em JavaScript e CSS]] personalizados nas suas [[Special:Preferences#mw-prefsection-gadgets|preferências]]",
