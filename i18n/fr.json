@@ -26,7 +26,8 @@
 			"Hecatonchire",
 			"MacOS Weed",
 			"Mahabarata",
-			"SleaY"
+			"SleaY",
+			"Escargot bleu"
 		]
 	},
 	"gadgets-desc": "Permet aux utilisateurs de choisir des [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences#mw-prefsection-gadgets|préférences]]",
@@ -50,7 +51,7 @@
 	"gadgets-uses": "Utilise",
 	"gadgets-required-rights": "Nécessite le{{PLURAL:$2||s}} droit{{PLURAL:$2||s}} suivant{{PLURAL:$2||s}} :\n\n$1.",
 	"gadgets-required-skins": "Disponible sur {{PLURAL:$2|l’habillage suivant|les habillages suivants}} : $1.",
-	"gadgets-required-actions": "Limité à {{PLURAL:$2|l’action de page « $1 »|les actions de page suivantes : $1}}.",
+	"gadgets-required-actions": "Limité {{PLURAL:$2|à l’action de page « $1 »|aux actions de page suivantes : $1}}.",
 	"gadgets-required-namespaces": "Limité {{PLURAL:$2|à l’espace de noms $1|aux espaces de nom : $1}}.",
 	"gadgets-required-contentmodels": "Limité {{PLURAL:$2|au modèle de contenu $1|aux modèles de contenu suivants : $1}}.",
 	"gadgets-default": "Activé pour tout le monde par défaut.",
