@@ -61,5 +61,6 @@
 	"gadgets-validate-unknownpages": "Contains one or more pages without .js, .css or .json suffix. They would not be used.",
 	"gadgets-validate-duplicate": "A second definition of gadget $1 was detected and shall be ignored",
 	"gadgets-validate-nopage": "Page \"$1\" does not exist.",
-	"gadgets-supports-urlload": "This gadget supports loading via URL with <code>?withgadget</code> query parameter."
+	"gadgets-supports-urlload": "This gadget supports loading via URL with <code>?withgadget</code> query parameter.",
+	"gadgets-hidden": "This gadget is [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden hidden], meaning it will not show up on the preferences page."
 }

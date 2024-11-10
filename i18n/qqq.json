@@ -77,5 +77,6 @@
 	"gadgets-validate-unknownpages": "Warning message to indicate that a gadget contains pages without .js, .css or .json suffix, which are not recognised.",
 	"gadgets-validate-duplicate": "Warning message to indicate that the second gadget definition with the same name would be ignored. Parameters:\n* $1 -gadget name",
 	"gadgets-validate-nopage": "Warning message to indicate the script/style/json page does not exist. Parameters:\n* $1 - page name",
-	"gadgets-supports-urlload": "Used in [[Special:Gadgets]], if the gadget supports ?withgadget query parameter."
+	"gadgets-supports-urlload": "Used in [[Special:Gadgets]], if the gadget supports ?withgadget query parameter.",
+	"gadgets-hidden": "Used in [[Special:Gadgets]], if the gadget is hidden."
 }
