@@ -376,7 +376,16 @@ class SpecialGadgets extends SpecialPage {
 					);
 					$needLineBreakAfter = true;
 				}
+				// Show if hidden
+				if ( $gadget->isHidden() ) {
+					if ( $needLineBreakAfter ) {
+						$output->addHTML( '<br />' );
+					}
+					$output->addHTML( $this->msg( 'gadgets-hidden' )->parse() );
+					$needLineBreakAfter = true;
+				}
 
+				// Show if supports URL load
 				if ( $gadget->supportsUrlLoad() ) {
 					if ( $needLineBreakAfter ) {
 						$output->addHTML( '<br />' );
