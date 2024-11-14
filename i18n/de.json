@@ -71,5 +71,6 @@
 	"gadgets-validate-unknownpages": "Enthält eine oder mehrere Seiten ohne .js-, .css- oder .json-Suffix. Sie würden nicht verwendet werden.",
 	"gadgets-validate-duplicate": "Eine zweite Definition von Helferlein $1 wurde erkannt und wird ignoriert werden",
 	"gadgets-validate-nopage": "Seite „$1“ ist nicht vorhanden.",
-	"gadgets-supports-urlload": "Dieses Helferlein unterstützt das Laden über eine URL mit dem Query-Parameter <code>?withgadget</code>"
+	"gadgets-supports-urlload": "Dieses Helferlein unterstützt das Laden über eine URL mit dem Query-Parameter <code>?withgadget</code>",
+	"gadgets-hidden": "Dieses Helferlein ist [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden versteckt], was bedeutet, dass es in den Einstellungen nicht angezeigt wird."
 }

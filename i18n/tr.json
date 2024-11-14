@@ -77,5 +77,6 @@
 	"gadgets-validate-unknownpages": ".js, .css ya da .json son eki olmayan bir ya da daha fazla sayfa içeriyor. Bunlar kullanılmayacaklar.",
 	"gadgets-validate-duplicate": "$1 küçük aracının ikinci bir tanımı algılandı ve göz ardı edilecek",
 	"gadgets-validate-nopage": "\"$1\" sayfası yok.",
-	"gadgets-supports-urlload": "Bu küçük aracı, <code>?withgadget</code> sorgu parametresiyle URL üzerinden yüklemeyi destekler."
+	"gadgets-supports-urlload": "Bu küçük aracı, <code>?withgadget</code> sorgu parametresiyle URL üzerinden yüklemeyi destekler.",
+	"gadgets-hidden": "Bu küçük araç [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden gizli], bu yüzden tercihler sayfasında görünmeyecektir."
 }

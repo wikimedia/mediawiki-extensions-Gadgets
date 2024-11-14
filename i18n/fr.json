@@ -86,5 +86,6 @@
 	"gadgets-validate-unknownpages": "Contient une ou plusieurs pages sans suffixe .js, .css ou .json. Elles ne seront pas utilisées.",
 	"gadgets-validate-duplicate": "Une deuxième définition du gadget $1 a été détectée et doit être ignorée",
 	"gadgets-validate-nopage": "La page « $1 » n’existe pas.",
-	"gadgets-supports-urlload": "Ce gadget prend en charge le chargement via URL avec le paramètre de requête <code>?withgadget</code>."
+	"gadgets-supports-urlload": "Ce gadget prend en charge le chargement via URL avec le paramètre de requête <code>?withgadget</code>.",
+	"gadgets-hidden": "Ce gadget est [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden caché] ce qui signifie qu'il n'apparaîtra pas sur la page des préférences."
 }
