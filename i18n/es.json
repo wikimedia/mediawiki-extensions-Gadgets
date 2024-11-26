@@ -3,6 +3,7 @@
 		"authors": [
 			"Crazymadlover",
 			"DannyS712",
+			"Dgstranz",
 			"Eulalio",
 			"Fitoschido",
 			"Jakeukalane",
@@ -57,6 +58,7 @@
 	"gadgets-validate-wrongtype": "La propiedad <code>$1</code> debe ser de tipo <code>$2</code>.",
 	"gadgets-validate-invalidskins": "L{{PLURAL:$2|a siguiente apariencia no existe|as siguientes apariencias no existen}}: $1",
 	"gadgets-validate-invalidrights": "{{PLURAL:$2|El siguiente permiso no existe|Los siguientes permisos no existen}}: $1",
+	"gadgets-validate-invalidtitle": "El título de página «$1» no es válido.",
 	"gadgets-validate-duplicate": "Se detectó una segunda definición de gadget $1 y se ignorará",
 	"gadgets-validate-nopage": "La página «$1» no existe.",
 	"gadgets-supports-urlload": "Este accesorio admite su carga a través de una URL con el parámetro <code>?withgadget</code>."
