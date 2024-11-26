@@ -35,13 +35,20 @@
 	"gadgets-required-actions": "{{PLURAL:$2|1=\"$1\" səhifə fəaliyyətləri}} ilə məhdudlaşır.",
 	"gadgets-required-namespaces": "{{PLURAL:$2|$1 ad fəzası ilə|Aşağıdakı ad fəzaları ilə məhdudlaşır: $2}}",
 	"gadgets-required-categories": "{{PLURAL:$2|$1 kateqoriyası ilə|Aşağıdakı kateqoriyalar ilə məhdudlaşır: $2}}",
+	"gadgets-required-contentmodels": "{{PLURAL:$2|$1 məzmun modeli ilə məhdudlaşır|Aşağıdakı məzmun modelləri ilə məhdudlaşır: $1}}",
 	"gadgets-default": "Hərkəs üçün defolt olaraq aktivləşdirilib.",
 	"gadgets-legacy": "Qadcet yüklənmədi. Zəhmət olmasa, ResourceLoader istifadə edin.\n([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Daha ətraflı])",
+	"gadgets-packaged": "Bu qadcet [https://www.mediawiki.org/wiki/ResourceLoader/Package_files paketləşdirilib], giriş nöqtəsi: $1",
 	"gadgets-export": "İxrac",
 	"gadgets-export-title": "Qadcet ixracı",
 	"gadgets-not-found": "\"$1\" qadceti tapılmadı.",
 	"gadgets-export-text": "$1 qadcetini ixrac etmək üçün \"{{int:gadgets-export-download}}\" düyməsinə basın, faylı yükləyin\nYükləmək istədiyiniz vikidə Special:Import səhifəsinə gedin və faylı oraya yükləyin. Daha sonra aşağıdakı kodu MediaWiki:Gadgets-definition səhifəsinə əlavə edin:\n<pre>$2</pre>\nHəmin vikidə (sistem mesajlarını redaktə etmək hüququ daxil olmaqla) müvafiq icazələriniz olmalıdır və fayl yükləmələrindən idxal aktiv olmalıdır.",
 	"gadgets-export-download": "Yüklə",
+	"gadgets-requires-es6": "Bu qadcet yalnız ES6 olan brauzerlərdə dəstəklənir",
 	"gadgets-validate-notset": "<code>$1</code> parametri təyin olunmayıb.",
-	"gadgets-validate-wrongtype": "<code>$1</code> parametrinin tipi <code>$2</code> olmalıdır."
+	"gadgets-validate-wrongtype": "<code>$1</code> parametrinin tipi <code>$2</code> olmalıdır.",
+	"gadgets-validate-json": "JSON faylları göstərilib, lakin istifadə edilmir. Onlar yalnız paketləşdirilmiş qadcetlərdə etibarlıdır.",
+	"gadgets-validate-es6default": "ES6 tələb edən qadcetlər defolt olaraq aktiv edilə bilməz.",
+	"gadgets-validate-noentrypoint": "Heç bir skript faylı göstərilmədiyi üçün paket bayrağı nəzərə alınmadı.",
+	"gadgets-validate-noscripts": "Skriptlər rədd edildi, çünki bu qadcet <code>type=styles</code> təyin edir."
 }
