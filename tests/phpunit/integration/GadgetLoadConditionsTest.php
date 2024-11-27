@@ -42,7 +42,7 @@ class GadgetLoadConditionsTest extends MediaWikiIntegrationTestCase {
 		$repo = new StaticGadgetRepo( $gadgets );
 
 		$out = new OutputPage( $context );
-		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup(), null );
+		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup() );
 		$hooks->onBeforePageDisplay( $out, $context->getSkin() );
 
 		return $out;

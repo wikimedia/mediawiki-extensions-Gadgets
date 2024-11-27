@@ -20,7 +20,7 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 		$repo = new StaticGadgetRepo( [
 			'g1' => new Gadget( [ 'name' => 'g1', 'onByDefault' => true, 'pages' => [ 'test.css' ] ] ),
 		] );
-		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup(), null );
+		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup() );
 		$out = new OutputPage( RequestContext::getMain() );
 		$out->setTitle( Title::newMainPage() );
 		$skin = $this->createMock( Skin::class );
@@ -33,7 +33,7 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 		$repo = new StaticGadgetRepo( [
 			'g1' => new Gadget( [ 'name' => 'g1', 'pages' => [ 'test.js' ], 'resourceLoaded' => true ] ),
 		] );
-		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup(), null );
+		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup() );
 		$context = RequestContext::getMain();
 		$out = new OutputPage( $context );
 		$out->setTitle( Title::newMainPage() );
@@ -75,7 +75,7 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 			'quux' => new Gadget( [ 'name' => 'quux', 'pages' => [ 'quux.css' ], 'requiredRights' => [ 'read' ],
 				'category' => 'keep-section2' ] ),
 		] );
-		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup(), null );
+		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup() );
 
 		$user = $this->getTestUser()->getUser();
 		$hooks->onGetPreferences( $user, $prefs );
