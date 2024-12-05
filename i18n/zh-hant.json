@@ -20,7 +20,8 @@
 			"Translatealcd",
 			"Waihorace",
 			"Winston Sung",
-			"Xiplus"
+			"Xiplus",
+			"列维劳德"
 		]
 	},
 	"gadgets-desc": "讓使用者可以於[[Special:Preferences#mw-prefsection-gadgets|偏好設定]]自訂 [[Special:Gadgets|CSS 與 JavaScript 小工具]]",
@@ -79,5 +80,6 @@
 	"gadgets-validate-unknownpages": "包含一個或多個不帶.js、.css或.json後綴的頁面。它們不會被使用。",
 	"gadgets-validate-duplicate": "偵測到小工具$1的另一種定義，將會忽略",
 	"gadgets-validate-nopage": "頁面「$1」不存在。",
-	"gadgets-supports-urlload": "此小工具支援透過包含<code>?withgadget</code>查詢參數的URL來載入。"
+	"gadgets-supports-urlload": "此小工具支援透過包含<code>?withgadget</code>查詢參數的URL來載入。",
+	"gadgets-hidden": "這個小工具已 [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden 隱藏]，將不會顯示於偏好設定頁面。"
 }
