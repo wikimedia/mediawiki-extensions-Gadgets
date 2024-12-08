@@ -53,6 +53,10 @@ class GadgetDefinitionValidator {
 		'module.type' => self::TYPE_MODULE_TYPE,
 	];
 
+	/**
+	 * @param mixed $title
+	 * @return bool
+	 */
 	public static function isResourcePageSuffix( $title ): bool {
 		return is_string( $title ) && (
 			str_ends_with( $title, '.js' ) || str_ends_with( $title, '.css' ) || str_ends_with( $title, '.json' )
