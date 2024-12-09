@@ -143,9 +143,6 @@ class Hooks implements
 			return;
 		}
 
-		/**
-		 * @var $gadget Gadget
-		 */
 		foreach ( $gadgets as $thisSection ) {
 			foreach ( $thisSection as $gadgetId => $gadget ) {
 				// Hidden gadgets don't need to be added here, T299071
@@ -273,9 +270,6 @@ class Hooks implements
 		$enabledLegacyGadgets = [];
 		$conditions = new GadgetLoadConditions( $out );
 
-		/**
-		 * @var $gadget Gadget
-		 */
 		foreach ( $ids as $id ) {
 			try {
 				$gadget = $repo->getGadget( $id );

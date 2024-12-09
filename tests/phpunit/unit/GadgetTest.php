@@ -128,7 +128,6 @@ class GadgetTest extends MediaWikiUnitTestCase {
 				}
 			);
 
-		/** @var User $user */
 		$gUnset = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
 		$gAllowed = $this->makeGadget( '*bar[ResourceLoader|rights=test]|bar.js' );
 		$gNotAllowed = $this->makeGadget( '*baz[ResourceLoader|rights=nope]|baz.js' );
