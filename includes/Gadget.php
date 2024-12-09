@@ -276,12 +276,9 @@ class Gadget {
 		return $this->hidden;
 	}
 
-	/**
-	 * @return bool
-	 */
 	public function isPackaged(): bool {
 		// A packaged gadget needs to have a main script, so there must be at least one script
-		return $this->package && $this->supportsResourceLoader() && $this->getScripts() !== [];
+		return $this->package && $this->supportsResourceLoader() && $this->getScripts();
 	}
 
 	/**
@@ -291,7 +288,7 @@ class Gadget {
 	 * @return bool
 	 */
 	public function isActionSupported( string $action ): bool {
-		if ( count( $this->requiredActions ) === 0 ) {
+		if ( !$this->requiredActions ) {
 			return true;
 		}
 		// Don't require specifying 'submit' action in addition to 'edit'
@@ -541,27 +538,27 @@ class Gadget {
 		}
 
 		// Gadget containing files with uncrecognised suffixes
-		if ( count( array_diff( $this->pages, $this->getScriptsAndStyles() ) ) !== 0 ) {
+		if ( array_diff( $this->pages, $this->getScriptsAndStyles() ) ) {
 			$warnings[] = "gadgets-validate-unknownpages";
 		}
 
 		// Non-package gadget containing JSON files
-		if ( !$this->package && count( $this->getJSONs() ) > 0 ) {
+		if ( !$this->package && $this->getJSONs() ) {
 			$warnings[] = "gadgets-validate-json";
 		}
 
 		// Package gadget without a script file in it (to serve as entry point)
-		if ( $this->package && count( $this->getScripts() ) === 0 ) {
+		if ( $this->package && !$this->getScripts() ) {
 			$warnings[] = "gadgets-validate-noentrypoint";
 		}
 
 		// Gadget with type=styles having non-CSS files
-		if ( $this->type === 'styles' && count( $this->getScripts() ) > 0 ) {
+		if ( $this->type === 'styles' && $this->getScripts() ) {
 			$warnings[] = "gadgets-validate-scriptsnotallowed";
 		}
 
 		// Style-only gadgets having peers
-		if ( $this->getType() === 'styles' && count( $this->peers ) > 0 ) {
+		if ( $this->getType() === 'styles' && $this->peers ) {
 			$warnings[] = "gadgets-validate-stylepeers";
 		}
 
