@@ -23,7 +23,7 @@
 	"gadgets-required-skins": "{{PLURAL:$2|$1 ਸਕਿਨ ਲਈ ਉਪਲਬਧ ਹੈ|ਹੇਠੀਆਂ ਦਿੱਤੀਆਂ ਸਕਿਨਾਂ ਲਈ ਉਪਲਬਧ ਹੈ: $1}}।",
 	"gadgets-default": "ਮੂਲ ਤੌਰ 'ਤੇ ਸਾਰਿਆਂ ਲਈ ਚਾਲੂ ਹੈ।",
 	"gadgets-export": "ਬਰਾਮਦ",
-	"gadgets-export-title": "ਗੈਜਟ ਬਰਾਮਦ",
+	"gadgets-export-title": "ਜੰਤਰ ਬਰਾਮਦ",
 	"gadgets-not-found": "ਗੈਜਟ \"$1\" ਨਹੀਂ ਲੱਭਿਆ।",
 	"gadgets-export-download": "ਡਾਊਨਲੋਡ ਕਰੋ"
 }
