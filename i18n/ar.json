@@ -49,5 +49,6 @@
 	"gadgets-requires-es6": "هذه الأداة الذكية مدعومة فقط في المتصفحات المتوافقة مع ES6",
 	"gadgets-validate-notset": "الخاصية <code>$1</code> ليست مضبوطة.",
 	"gadgets-validate-wrongtype": "يجب أن يكون العقار <code>$1</code> من نوع <code>$2</code>.",
-	"gadgets-supports-urlload": "تدعم هذه الأداة التحميل عبر عنوان URL باستخدام معلمة طلب البحث <code>?withgadget</code>."
+	"gadgets-supports-urlload": "تدعم هذه الأداة التحميل عبر عنوان URL باستخدام معلمة طلب البحث <code>?withgadget</code>.",
+	"gadgets-hidden": "هذه الإضافة [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden مخفية]، مما يعني أنها لن تظهر في صفحة التفضيلات."
 }
