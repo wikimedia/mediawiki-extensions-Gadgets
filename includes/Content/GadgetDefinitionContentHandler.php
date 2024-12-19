@@ -72,6 +72,9 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 		return $status;
 	}
 
+	/**
+	 * @return array<string,array>
+	 */
 	public function getEmptyDefinition() {
 		return [
 			'settings' => [
@@ -84,6 +87,9 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 		];
 	}
 
+	/**
+	 * @return array<string,array>
+	 */
 	public function getDefaultMetadata() {
 		return [
 			'settings' => [
