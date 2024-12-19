@@ -127,18 +127,22 @@ class GadgetResourceLoaderModule extends RL\WikiModule {
 			: RL\Module::LOAD_GENERAL;
 	}
 
+	/** @inheritDoc */
 	public function getMessages() {
 		return $this->getGadget()->getMessages();
 	}
 
+	/** @inheritDoc */
 	public function getSkins(): ?array {
 		return $this->getGadget()->getRequiredSkins() ?: null;
 	}
 
+	/** @inheritDoc */
 	public function requiresES6(): bool {
 		return $this->getGadget()->requiresES6();
 	}
 
+	/** @inheritDoc */
 	public function getGroup() {
 		return $this->requiresES6() ? 'es6-gadget' : self::GROUP_SITE;
 	}

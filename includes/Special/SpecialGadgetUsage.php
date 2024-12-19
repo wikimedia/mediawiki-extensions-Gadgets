@@ -67,6 +67,7 @@ class SpecialGadgetUsage extends QueryPage {
 		return $this->getConfig()->get( 'SpecialGadgetUsageActiveUsers' );
 	}
 
+	/** @inheritDoc */
 	public function isExpensive() {
 		return true;
 	}
@@ -143,6 +144,7 @@ class SpecialGadgetUsage extends QueryPage {
 		];
 	}
 
+	/** @inheritDoc */
 	public function getOrderFields() {
 		return [ 'value' ];
 	}
