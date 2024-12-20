@@ -46,7 +46,8 @@ class SpecialGadgetUsage extends QueryPage {
 		parent::__construct( 'GadgetUsage' );
 		$this->gadgetRepo = $gadgetRepo;
 		$this->dbProvider = $dbProvider;
-		$this->limit = 1000; // Show all gadgets
+		// Show all gadgets
+		$this->limit = 1000;
 		$this->shownavigation = false;
 	}
 
