@@ -73,17 +73,17 @@ class ApiQueryGadgetCategories extends ApiQueryBase {
 		$gadgets = $this->gadgetRepo->getStructuredList();
 
 		if ( $gadgets ) {
-			foreach ( $gadgets as $category => $list ) {
-				if ( $this->neededNames && !isset( $this->neededNames[$category] ) ) {
+			foreach ( $gadgets as $section => $list ) {
+				if ( $this->neededNames && !isset( $this->neededNames[$section] ) ) {
 					continue;
 				}
 				$row = [];
 				if ( isset( $this->props['name'] ) ) {
-					$row['name'] = $category;
+					$row['name'] = $section;
 				}
 
-				if ( ( $category !== "" ) && isset( $this->props['title'] ) ) {
-					$row['desc'] = $this->msg( "gadget-section-$category" )->parse();
+				if ( ( $section !== "" ) && isset( $this->props['title'] ) ) {
+					$row['desc'] = $this->msg( "gadget-section-$section" )->parse();
 				}
 
 				if ( isset( $this->props['members'] ) ) {

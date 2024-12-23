@@ -69,11 +69,11 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 		$repo = new StaticGadgetRepo( [
 			'foo' => new Gadget( [ 'name' => 'foo', 'pages' => [ 'foo.css' ] ] ),
 			'bar' => new Gadget( [ 'name' => 'bar', 'pages' => [ 'bar.css' ],
-				'category' => 'keep-section1' ] ),
+				'section' => 'keep-section1' ] ),
 			'baz' => new Gadget( [ 'name' => 'baz', 'pages' => [ 'baz.css' ], 'requiredRights' => [ 'delete' ],
-				'category' => 'remove-section' ] ),
+				'section' => 'remove-section' ] ),
 			'quux' => new Gadget( [ 'name' => 'quux', 'pages' => [ 'quux.css' ], 'requiredRights' => [ 'read' ],
-				'category' => 'keep-section2' ] ),
+				'section' => 'keep-section2' ] ),
 		] );
 		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup(), null );
 

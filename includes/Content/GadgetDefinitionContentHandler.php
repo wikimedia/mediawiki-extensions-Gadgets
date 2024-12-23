@@ -78,7 +78,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 	public function getEmptyDefinition() {
 		return [
 			'settings' => [
-				'category' => '',
+				'section' => '',
 			],
 			'module' => [
 				'pages' => [],
@@ -103,7 +103,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 				'namespaces' => [],
 				'categories' => [],
 				'contentModels' => [],
-				'category' => '',
+				'section' => '',
 				'supportsUrlLoad' => false,
 			],
 			'module' => [
@@ -159,11 +159,11 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 					$this->makeLink( $parserOutput, $msg, $title );
 				}
 			}
-			if ( isset( $data->settings->category ) && $data->settings->category ) {
+			if ( isset( $data->settings->section ) && $data->settings->section ) {
 				$this->makeLink(
 					$parserOutput,
-					$data->settings->category,
-					Title::makeTitleSafe( NS_MEDIAWIKI, "gadget-section-" . $data->settings->category )
+					$data->settings->section,
+					Title::makeTitleSafe( NS_MEDIAWIKI, "gadget-section-" . $data->settings->section )
 				);
 			}
 		}

@@ -61,9 +61,9 @@ abstract class GadgetRepo {
 	}
 
 	/**
-	 * Get a lists of Gadget objects by category
+	 * Get a lists of Gadget objects by section
 	 *
-	 * @return array<string,Gadget[]> `[ 'category' => [ 'name' => $gadget ] ]`
+	 * @return array<string,Gadget[]> `[ 'section' => [ 'name' => $gadget ] ]`
 	 */
 	public function getStructuredList() {
 		$list = [];
@@ -73,7 +73,7 @@ abstract class GadgetRepo {
 			} catch ( InvalidArgumentException $e ) {
 				continue;
 			}
-			$list[$gadget->getCategory()][$gadget->getName()] = $gadget;
+			$list[$gadget->getSection()][$gadget->getName()] = $gadget;
 		}
 
 		return $list;

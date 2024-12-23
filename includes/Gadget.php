@@ -36,7 +36,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	public const GADGET_CLASS_VERSION = 18;
+	public const GADGET_CLASS_VERSION = 19;
 
 	public const CACHE_TTL = 86400;
 
@@ -77,14 +77,14 @@ class Gadget {
 	/** @var string */
 	private $type = '';
 	/** @var string */
-	private string $category = '';
+	private string $section = '';
 	/** @var bool */
 	private $supportsUrlLoad = false;
 
 	public function __construct( array $options ) {
 		foreach ( $options as $member => $option ) {
 			switch ( $member ) {
-				case 'category':
+				case 'section':
 				case 'definition':
 				case 'dependencies':
 				case 'hidden':
@@ -125,7 +125,7 @@ class Gadget {
 			return GadgetRepo::RESOURCE_TITLE_PREFIX . $page;
 		};
 		return [
-			'category' => $data['settings']['category'],
+			'section' => $data['settings']['section'],
 			'dependencies' => $data['module']['dependencies'],
 			'hidden' => $data['settings']['hidden'],
 			'messages' => $data['module']['messages'],
@@ -153,7 +153,7 @@ class Gadget {
 	 */
 	public function toArray(): array {
 		return [
-			'category' => $this->category,
+			'section' => $this->section,
 			'dependencies' => $this->dependencies,
 			'hidden' => $this->hidden,
 			'messages' => $this->messages,
@@ -226,10 +226,10 @@ class Gadget {
 	}
 
 	/**
-	 * @return string Name of category (aka section) our gadget belongs to. Empty string if none.
+	 * @return string Name of section our gadget belongs to. Empty string if none.
 	 */
-	public function getCategory(): string {
-		return $this->category;
+	public function getSection(): string {
+		return $this->section;
 	}
 
 	/**
