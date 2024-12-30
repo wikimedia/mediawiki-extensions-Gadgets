@@ -36,6 +36,7 @@
 	"gadgets-required-skins": "قابل دسترس در {{PLURAL:$2|پوستهٔ $1|پوسته‌های $1}}.",
 	"gadgets-default": "به‌طور پیش‌فرض برای همه فعال است.",
 	"gadgets-legacy": "ابزار بارگیری نشده است. لطفاً به ResourceLoader مهاجرت کنید. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) اطلاعات بیشتر])",
+	"gadgets-packaged": "این ابزار [https://www.mediawiki.org/wiki/ResourceLoader/Package_files بسته‌بندی‌شده] است و نقطهٔ ورودی آن $1 است.",
 	"gadgets-export": "برون‌بری",
 	"gadgets-export-title": "برون‌بری ابزار",
 	"gadgets-not-found": "ابزار «$1» یافت نشد.",
@@ -47,5 +48,6 @@
 	"action-gadgets-edit": "ویرایش صفحهٔ جاوااسکریپت و سی‌اس‌اس این ابزار",
 	"right-gadgets-definition-edit": "ویرایش تعریف‌های ابزار",
 	"action-gadgets-definition-edit": "ویرایش تنظیمات این ابزار",
-	"gadgets-wrong-contentmodel": "صفحه‌های موجود در فضای نام {{ns:2302}} باید دارای مدل محتوای توضیحات ابزار (GadgetDefinition) باشند."
+	"gadgets-wrong-contentmodel": "صفحه‌های موجود در فضای نام {{ns:2302}} باید دارای مدل محتوای توضیحات ابزار (GadgetDefinition) باشند.",
+	"gadgets-supports-urlload": "این ابزار از بارگیری به‌واسطهٔ نشانی وب با استفاده از پارامتر پرسمان <code dir=\"ltr\">?withgadget</code> پشتیبانی می‌کند."
 }
