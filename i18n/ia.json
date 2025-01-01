@@ -60,5 +60,6 @@
 	"gadgets-validate-unknownpages": "Contine un o plus paginas sin suffixo .js, .css o .json. Illos non esserea usate.",
 	"gadgets-validate-duplicate": "Un secunde definition del accessorio $1 ha essite detegite e essera ignorate",
 	"gadgets-validate-nopage": "Le pagina “$1” non existe.",
-	"gadgets-supports-urlload": "Iste accessorio supporta le cargamento via URL con le parametro de consulta <code>?withgadget</code>."
+	"gadgets-supports-urlload": "Iste accessorio supporta le cargamento via URL con le parametro de consulta <code>?withgadget</code>.",
+	"gadgets-hidden": "Iste accessorio es [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden celate] e non apparera sur le pagina de preferentias."
 }
