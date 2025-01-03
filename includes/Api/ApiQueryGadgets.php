@@ -82,8 +82,8 @@ class ApiQueryGadgets extends ApiQueryBase {
 		}
 
 		$result = [];
-		foreach ( $gadgets as $category => $list ) {
-			if ( $this->categories && !isset( $this->categories[$category] ) ) {
+		foreach ( $gadgets as $section => $list ) {
+			if ( $this->categories && !isset( $this->categories[$section] ) ) {
 				continue;
 			}
 
@@ -138,7 +138,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'settings' => [
 				'actions' => $g->getRequiredActions(),
 				'categories' => $g->getRequiredCategories(),
-				'category' => $g->getCategory(),
+				'section' => $g->getSection(),
 				'contentModels' => $g->getRequiredContentModels(),
 				'default' => $g->isOnByDefault(),
 				'hidden' => $g->isHidden(),

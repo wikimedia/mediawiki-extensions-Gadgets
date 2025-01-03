@@ -31,7 +31,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 				'namespaces' => [],
 				'categories' => [],
 				'contentModels' => [],
-				'category' => 'misc',
+				'section' => 'misc',
 				'supportsUrlLoad' => false,
 				'requiresES6' => false,
 			],

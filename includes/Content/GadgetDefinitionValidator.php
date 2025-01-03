@@ -34,7 +34,7 @@ class GadgetDefinitionValidator {
 		'settings' => self::TYPE_ARRAY,
 		'settings.actions' => self::TYPE_ARRAY + [ 'child' => self::TYPE_STRING ],
 		'settings.categories' => self::TYPE_ARRAY + [ 'child' => self::TYPE_STRING ],
-		'settings.category' => self::TYPE_STRING,
+		'settings.section' => self::TYPE_STRING,
 		'settings.contentModels' => self::TYPE_ARRAY + [ 'child' => self::TYPE_STRING ],
 		'settings.default' => self::TYPE_BOOL,
 		'settings.hidden' => self::TYPE_BOOL,
