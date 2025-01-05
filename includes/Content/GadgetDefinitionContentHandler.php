@@ -139,24 +139,26 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 					if ( str_starts_with( $dep, 'ext.gadget.' ) ) {
 						$gadgetId = explode( 'ext.gadget.', $dep )[ 1 ];
 						$title = $this->gadgetRepo->getGadgetDefinitionTitle( $gadgetId );
-						if ( $title ) {
-							$this->makeLink( $parserOutput, $dep, $title );
-						}
+						$this->makeLink( $parserOutput, $dep, $title );
 					}
 				}
 			}
 			if ( isset( $data->module->peers ) ) {
 				foreach ( $data->module->peers as &$peer ) {
 					$title = $this->gadgetRepo->getGadgetDefinitionTitle( $peer );
-					if ( $title ) {
-						$this->makeLink( $parserOutput, $peer, $title );
-					}
+					$this->makeLink( $parserOutput, $peer, $title );
 				}
 			}
 			if ( isset( $data->module->messages ) ) {
 				foreach ( $data->module->messages as &$msg ) {
 					$title = Title::makeTitleSafe( NS_MEDIAWIKI, $msg );
 					$this->makeLink( $parserOutput, $msg, $title );
+				}
+			}
+			if ( isset( $data->settings->categories ) ) {
+				foreach ( $data->settings->categories as &$category ) {
+					$title = Title::makeTitleSafe( NS_CATEGORY, $category );
+					$this->makeLink( $parserOutput, $category, $title );
 				}
 			}
 			if ( isset( $data->settings->section ) && $data->settings->section ) {
