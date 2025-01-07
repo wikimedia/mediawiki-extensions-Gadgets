@@ -18,6 +18,8 @@
 	"apihelp-query+gadgets-summary": "يرجع قائمة بالإضافات المستخدمة في هذة الويكي.",
 	"apihelp-query+gadgets-param-prop": "ما هي معلومات الأداة التي يجب الحصول عليها:",
 	"apihelp-query+gadgets-paramvalue-prop-id": "معرف الإضافة الداخلي.",
+	"apihelp-query+gadgets-paramvalue-prop-metadata": "بيانات تعريفية للأداة.",
+	"apihelp-query+gadgets-paramvalue-prop-desc": "تم تحويل وصف الأداة إلى HTML (يمكن أن يكون بطيئًا، استخدمه فقط إذا لزم الأمر حقًا).",
 	"apihelp-query+gadgets-param-categories": "الإضافات من أي تصنيفات للاسترجاع.",
 	"apihelp-query+gadgets-param-ids": "معرفات الإضافات للاسترداد.",
 	"apihelp-query+gadgets-param-allowedonly": "اسرد فقط الإضافات المسموحة للمستخدم الحالي.",
