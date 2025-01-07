@@ -267,6 +267,9 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 				case 'peers':
 					$info['peers'] = $params;
 					break;
+				case 'codexIcons':
+					$info['codexIcons'] = $params;
+					break;
 				case 'rights':
 					$info['requiredRights'] = $params;
 					break;

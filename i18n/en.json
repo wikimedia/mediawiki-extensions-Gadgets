@@ -43,6 +43,7 @@
 	"gadgets-validate-notset": "The property <code>$1</code> is not set.",
 	"gadgets-validate-wrongtype": "The property <code>$1</code> must be of type <code>$2</code>.",
 	"gadgets-validate-json": "JSON files are specified but not used. They are only valid in packaged gadgets.",
+	"gadgets-validate-icons": "Codex icons can be included only in packaged gadgets.",
 	"gadgets-validate-es6default": "Gadgets requiring ES6 cannot be enabled by default.",
 	"gadgets-validate-noentrypoint": "Package flag ignored as no script files are specified.",
 	"gadgets-validate-noscripts": "Scripts are ignored, because this gadget sets <code>type=styles</code>.",

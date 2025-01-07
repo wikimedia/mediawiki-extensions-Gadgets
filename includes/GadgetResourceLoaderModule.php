@@ -73,6 +73,22 @@ class GadgetResourceLoaderModule extends RL\WikiModule {
 	}
 
 	/**
+	 * @inheritDoc
+	 */
+	public function getScript( RL\Context $context ) {
+		$module = parent::getScript( $context );
+
+		if ( $this->isPackaged() && $this->gadget->getCodexIcons() ) {
+			// Add codex icons to the gadget module
+			$module['files']['icons.json'] = [
+				'type' => 'data',
+				'content' => RL\CodexModule::getIcons( $context, $this->getConfig(), $this->gadget->getCodexIcons() ),
+			];
+		}
+		return $module;
+	}
+
+	/**
 	 * @param string $titleText
 	 * @return string
 	 */

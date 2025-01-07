@@ -112,6 +112,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 				'peers' => [],
 				'dependencies' => [],
 				'messages' => [],
+				'codexIcons' => [],
 				'type' => '',
 			],
 		];

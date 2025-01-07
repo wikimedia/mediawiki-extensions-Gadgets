@@ -41,6 +41,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 				'datas' => [],
 				'dependencies' => [ 'moment' ],
 				'peers' => [],
+				'codexIcons' => [],
 				'messages' => [ 'blanknamespace' ],
 				'type' => 'general',
 			]
@@ -58,6 +59,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$this->assertCount( 0, $g->getJSONs() );
 		$this->assertCount( 1, $g->getDependencies() );
 		$this->assertCount( 1, $g->getMessages() );
+		$this->assertCount( 0, $g->getCodexIcons() );
 
 		// Ensure parity and internal consistency
 		// between Gadget::serializeDefinition and Gadget::toArray

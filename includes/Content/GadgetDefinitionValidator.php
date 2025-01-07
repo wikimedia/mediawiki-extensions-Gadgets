@@ -46,6 +46,7 @@ class GadgetDefinitionValidator {
 		'settings.supportsUrlLoad' => self::TYPE_BOOL,
 
 		'module' => self::TYPE_ARRAY,
+		'module.codexIcons' => self::TYPE_ARRAY + [ 'child' => self::TYPE_STRING ],
 		'module.dependencies' => self::TYPE_ARRAY + [ 'child' => self::TYPE_STRING ],
 		'module.messages' => self::TYPE_ARRAY + [ 'child' => self::TYPE_STRING ],
 		'module.pages' => self::TYPE_ARRAY + [ 'child' => self::TYPE_PAGE_SUFFIX ],

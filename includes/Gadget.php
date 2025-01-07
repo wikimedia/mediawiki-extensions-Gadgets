@@ -36,7 +36,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	public const GADGET_CLASS_VERSION = 20;
+	public const GADGET_CLASS_VERSION = 21;
 
 	public const CACHE_TTL = 86400;
 
@@ -77,11 +77,14 @@ class Gadget {
 	private string $section = '';
 	/** @var bool */
 	private $supportsUrlLoad = false;
+	/** @var string[] */
+	private array $codexIcons = [];
 
 	public function __construct( array $options ) {
 		foreach ( $options as $member => $option ) {
 			switch ( $member ) {
 				case 'section':
+				case 'codexIcons':
 				case 'definition':
 				case 'dependencies':
 				case 'hidden':
@@ -123,6 +126,7 @@ class Gadget {
 		};
 		return [
 			'section' => $data['settings']['section'],
+			'codexIcons' => $data['module']['codexIcons'],
 			'dependencies' => $data['module']['dependencies'],
 			'hidden' => $data['settings']['hidden'],
 			'messages' => $data['module']['messages'],
@@ -150,6 +154,7 @@ class Gadget {
 	public function toArray(): array {
 		return [
 			'section' => $this->section,
+			'codexIcons' => $this->codexIcons,
 			'dependencies' => $this->dependencies,
 			'hidden' => $this->hidden,
 			'messages' => $this->messages,
@@ -418,6 +423,13 @@ class Gadget {
 	}
 
 	/**
+	 * @return string[] Codex icons to include in the gadget module
+	 */
+	public function getCodexIcons(): array {
+		return $this->codexIcons;
+	}
+
+	/**
 	 * @return string[] All page names for this gadget's resources
 	 */
 	public function getScriptsAndStyles() {
@@ -551,6 +563,11 @@ class Gadget {
 		// Non-package gadget containing JSON files
 		if ( !$this->package && $this->getJSONs() ) {
 			$warnings[] = "gadgets-validate-json";
+		}
+
+		// Non-package gadget containing Codex icons
+		if ( !$this->package && count( $this->getCodexIcons() ) > 0 ) {
+			$warnings[] = "gadgets-validate-icons";
 		}
 
 		// Package gadget without a script file in it (to serve as entry point)
