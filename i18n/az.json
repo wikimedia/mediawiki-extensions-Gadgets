@@ -49,5 +49,6 @@
 	"right-gadgets-edit": "JavaScript və CSS qadcet səhifələrini redaktə etmək",
 	"action-gadgets-edit": "bu JavaScript və ya CSS qadcet səhifəsini redaktə etmək",
 	"right-gadgets-definition-edit": "Qadcet izahlarını redaktə etmək",
-	"action-gadgets-definition-edit": "bu qadcet izahını redaktə etmək"
+	"action-gadgets-definition-edit": "bu qadcet izahını redaktə etmək",
+	"gadgets-supports-urlload": "Bu qadcet <code>?withgadget</code> sorğu parametri ilə URL vasitəsilə yükləməni dəstəkləyir."
 }
