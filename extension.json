@@ -83,8 +83,6 @@
 		}
 	},
 	"Hooks": {
-		"PageDeleteComplete": "GadgetHooks",
-		"PageSaveComplete": "GadgetHooks",
 		"BeforePageDisplay": "GadgetHooks",
 		"CodeEditorGetPageLanguage": "GadgetCodeEditorHooks",
 		"ContentHandlerDefaultModelFor": "GadgetHooks",
@@ -97,6 +95,18 @@
 		"PreferencesGetIcon": "GadgetHooks",
 		"getUserPermissionsErrors": "GadgetHooks"
 	},
+	"DomainEventIngresses": [
+		{
+			"events": [
+				"PageRevisionUpdated",
+				"PageDeleted"
+			],
+			"class": "MediaWiki\\Extension\\Gadgets\\EventIngress",
+			"services": [
+				"GadgetsRepo"
+			]
+		}
+	],
 	"ServiceWiringFiles": [
 		"includes/ServiceWiring.php"
 	],

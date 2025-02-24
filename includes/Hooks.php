@@ -23,7 +23,6 @@
 namespace MediaWiki\Extension\Gadgets;
 
 use InvalidArgumentException;
-use ManualLogEntry;
 use MediaWiki\Api\ApiMessage;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Gadgets\Special\SpecialGadgetUsage;
@@ -34,20 +33,14 @@ use MediaWiki\Html\Html;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
-use MediaWiki\Page\Hook\PageDeleteCompleteHook;
-use MediaWiki\Page\ProperPageIdentity;
-use MediaWiki\Permissions\Authority;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsHook;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook;
-use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\SpecialPage\Hook\WgQueryPagesHook;
 use MediaWiki\SpecialPage\SpecialPage;
-use MediaWiki\Storage\Hook\PageSaveCompleteHook;
 use MediaWiki\Title\Title;
-use MediaWiki\Title\TitleValue;
 use MediaWiki\User\Hook\UserGetDefaultOptionsHook;
 use MediaWiki\User\Options\UserOptionsLookup;
 use MediaWiki\User\User;
@@ -60,11 +53,8 @@ use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\LikeValue;
 use Wikimedia\WrappedString;
-use WikiPage;
 
 class Hooks implements
-	PageDeleteCompleteHook,
-	PageSaveCompleteHook,
 	UserGetDefaultOptionsHook,
 	GetPreferencesHook,
 	PreferencesGetIconHook,
@@ -85,52 +75,6 @@ class Hooks implements
 	) {
 		$this->gadgetRepo = $gadgetRepo;
 		$this->userOptionsLookup = $userOptionsLookup;
-	}
-
-	/**
-	 * Handle MediaWiki\Page\Hook\PageSaveCompleteHook
-	 *
-	 * @param WikiPage $wikiPage
-	 * @param mixed $userIdentity unused
-	 * @param string $summary
-	 * @param int $flags
-	 * @param mixed $revisionRecord unused
-	 * @param mixed $editResult unused
-	 */
-	public function onPageSaveComplete(
-		$wikiPage,
-		$userIdentity,
-		$summary,
-		$flags,
-		$revisionRecord,
-		$editResult
-	): void {
-		$title = $wikiPage->getTitle();
-		$this->gadgetRepo->handlePageUpdate( $title );
-	}
-
-	/**
-	 * Handle MediaWiki\Page\Hook\PageDeleteCompleteHook
-	 *
-	 * @param ProperPageIdentity $page
-	 * @param Authority $deleter
-	 * @param string $reason
-	 * @param int $pageID
-	 * @param RevisionRecord $deletedRev Last revision
-	 * @param ManualLogEntry $logEntry
-	 * @param int $archivedRevisionCount Number of revisions deleted
-	 */
-	public function onPageDeleteComplete(
-		ProperPageIdentity $page,
-		Authority $deleter,
-		string $reason,
-		int $pageID,
-		RevisionRecord $deletedRev,
-		ManualLogEntry $logEntry,
-		int $archivedRevisionCount
-	): void {
-		$title = TitleValue::newFromPage( $page );
-		$this->gadgetRepo->handlePageUpdate( $title );
 	}
 
 	/**
