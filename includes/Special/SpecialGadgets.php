@@ -241,6 +241,7 @@ class SpecialGadgets extends SpecialPage {
 					if ( $needLineBreakAfter ) {
 						$output->addHTML( '<br />' );
 					}
+					$output->addModuleStyles( 'mediawiki.codex.messagebox.styles' );
 					$output->addHTML( Html::errorBox(
 						$this->msg( 'gadgets-legacy' )->parse(),
 						'',
@@ -407,6 +408,7 @@ class SpecialGadgets extends SpecialPage {
 				$warnings = $this->gadgetRepo->validationWarnings( $gadget );
 
 				if ( count( $warnings ) > 0 ) {
+					$output->addModuleStyles( 'mediawiki.codex.messagebox.styles' );
 					$output->addHTML( Html::warningBox( implode( '<br/>', array_map( static function ( $msg ) {
 						return $msg->parse();
 					}, $warnings ) ) ) );
