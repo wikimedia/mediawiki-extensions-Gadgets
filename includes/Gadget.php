@@ -52,9 +52,7 @@ class Gadget {
 	private $name;
 	/** @var string|null */
 	private $definition = null;
-	/** @var bool */
 	private bool $resourceLoaded = false;
-	/** @var bool */
 	private bool $requiresES6 = false;
 	/** @var string[] */
 	private array $requiredRights = [];
@@ -76,7 +74,6 @@ class Gadget {
 	private $package = false;
 	/** @var string */
 	private $type = '';
-	/** @var string */
 	private string $section = '';
 	/** @var bool */
 	private $supportsUrlLoad = false;
@@ -149,7 +146,6 @@ class Gadget {
 
 	/**
 	 * Serialize to an array
-	 * @return array
 	 */
 	public function toArray(): array {
 		return [
@@ -181,7 +177,7 @@ class Gadget {
 	 * Get a placeholder object to use if a gadget doesn't exist
 	 *
 	 * @param string $id name
-	 * @return Gadget
+	 * @return self
 	 */
 	public static function newEmptyGadget( $id ) {
 		return new self( [ 'name' => $id ] );
@@ -276,9 +272,6 @@ class Gadget {
 		return $this->hidden;
 	}
 
-	/**
-	 * @return bool
-	 */
 	public function isPackaged(): bool {
 		// A packaged gadget needs to have a main script, so there must be at least one script
 		return $this->package && $this->supportsResourceLoader() && $this->getScripts() !== [];

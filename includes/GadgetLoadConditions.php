@@ -43,9 +43,6 @@ class GadgetLoadConditions {
 	/** @var string|null */
 	private $withGadgetParam;
 
-	/**
-	 * @param OutputPage $out
-	 */
 	public function __construct( OutputPage $out ) {
 		$this->user = $out->getUser();
 		$this->skin = $out->getSkin();

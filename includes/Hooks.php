@@ -247,7 +247,6 @@ class Hooks implements
 
 	/**
 	 * ResourceLoaderRegisterModules hook handler.
-	 * @param ResourceLoader $resourceLoader
 	 */
 	public function onResourceLoaderRegisterModules( ResourceLoader $resourceLoader ): void {
 		foreach ( $this->gadgetRepo->getGadgetIds() as $id ) {
