@@ -96,13 +96,13 @@ class ApiQueryGadgets extends ApiQueryBase {
 		return $result;
 	}
 
+	/**
+	 * @param Gadget[] $gadgets
+	 */
 	private function applyList( array $gadgets ): void {
 		$data = [];
 		$result = $this->getResult();
 
-		/**
-		 * @var $g Gadget
-		 */
 		foreach ( $gadgets as $g ) {
 			$row = [];
 			if ( isset( $this->props['id'] ) ) {
