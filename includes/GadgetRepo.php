@@ -240,7 +240,7 @@ abstract class GadgetRepo {
 				$invalidEntries[] = $entry;
 			}
 		}
-		if ( count( $invalidEntries ) ) {
+		if ( $invalidEntries ) {
 			$warnings[] = wfMessage( $message,
 				Message::listParam( $invalidEntries, 'comma' ),
 				count( $invalidEntries ) );

@@ -121,12 +121,9 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$user = $this->getMockBuilder( User::class )
 			->onlyMethods( [ 'isAllowedAll' ] )
 			->getMock();
-		$user->method( 'isAllowedAll' )
-			->willReturnCallback(
-				static function ( ...$rights ) {
-					return array_diff( $rights, [ 'test' ] ) === [];
-				}
-			);
+		$user->method( 'isAllowedAll' )->willReturnCallback(
+			static fn ( string ...$rights ) => !array_diff( $rights, [ 'test' ] )
+		);
 
 		$gUnset = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
 		$gAllowed = $this->makeGadget( '*bar[ResourceLoader|rights=test]|bar.js' );

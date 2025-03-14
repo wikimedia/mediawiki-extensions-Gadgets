@@ -70,7 +70,7 @@ class SpecialGadgets extends SpecialPage {
 	public function execute( $par ) {
 		$parts = $par !== null ? explode( '/', $par ) : [];
 
-		if ( count( $parts ) === 2 && $parts[0] === 'export' ) {
+		if ( count( $parts ) >= 2 && $parts[0] === 'export' ) {
 			$this->showExportForm( $parts[1] );
 		} else {
 			$this->showMainForm();
@@ -407,7 +407,7 @@ class SpecialGadgets extends SpecialPage {
 				// Show warnings
 				$warnings = $this->gadgetRepo->validationWarnings( $gadget );
 
-				if ( count( $warnings ) > 0 ) {
+				if ( $warnings ) {
 					$output->addModuleStyles( 'mediawiki.codex.messagebox.styles' );
 					$output->addHTML( Html::warningBox( implode( '<br/>', array_map( static function ( $msg ) {
 						return $msg->parse();
