@@ -10,7 +10,7 @@
 	"descriptionmsg": "gadgets-desc",
 	"license-name": "GPL-2.0-or-later",
 	"requires": {
-		"MediaWiki": ">= 1.43"
+		"MediaWiki": ">= 1.44"
 	},
 	"type": "other",
 	"ContentHandlers": {
