@@ -56,5 +56,6 @@
 	"right-gadgets-edit": "Modifica i gadget JavaScript e le pagine CSS",
 	"action-gadgets-edit": "modificare questo gadget Javascript o pagina CSS",
 	"right-gadgets-definition-edit": "Modifica le definizioni dei gadget",
-	"action-gadgets-definition-edit": "modificare la definizione di questo gadget"
+	"action-gadgets-definition-edit": "modificare la definizione di questo gadget",
+	"gadgets-supports-urlload": "Questo accessorio supporta il caricamento tramite URL con il parametro query <code>?withgadget</code> ."
 }

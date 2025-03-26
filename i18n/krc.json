@@ -2,9 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Ernác",
-			"Iltever"
+			"Iltever",
+			"Къарачайлы"
 		]
 	},
+	"prefs-gadgets": "Гаджетле",
 	"gadgets": "Гаджетле",
+	"gadgets-title": "Гаджетле",
 	"gadgets-export-download": "Эндир"
 }
