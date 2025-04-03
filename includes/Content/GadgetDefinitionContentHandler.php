@@ -53,6 +53,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 		return GadgetDefinitionContent::class;
 	}
 
+	/** @inheritDoc */
 	public function makeEmptyContent() {
 		$class = $this->getContentClass();
 		return new $class( FormatJson::encode( $this->getEmptyDefinition(), "\t" ) );
