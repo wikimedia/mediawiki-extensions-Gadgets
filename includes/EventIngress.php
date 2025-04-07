@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\Gadgets;
 
-use MediaWiki\DomainEvent\EventIngressBase;
+use MediaWiki\DomainEvent\DomainEventIngress;
 use MediaWiki\Page\Event\PageDeletedEvent;
 use MediaWiki\Page\Event\PageRevisionUpdatedEvent;
 use MediaWiki\Title\TitleValue;
@@ -11,7 +11,7 @@ use MediaWiki\Title\TitleValue;
  * Event subscriber acting as an ingress for relevant events emitted
  * by MediaWiki core.
  */
-class EventIngress extends EventIngressBase {
+class EventIngress extends DomainEventIngress {
 	private GadgetRepo $gadgetRepo;
 
 	public function __construct(
