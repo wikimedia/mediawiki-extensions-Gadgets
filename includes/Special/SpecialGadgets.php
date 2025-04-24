@@ -30,9 +30,9 @@ use MediaWiki\Language\Language;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Message\Message;
 use MediaWiki\Parser\Sanitizer;
+use MediaWiki\Skin\SkinFactory;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Title\Title;
-use SkinFactory;
 
 /**
  * Special:Gadgets renders the data of MediaWiki:Gadgets-definition.

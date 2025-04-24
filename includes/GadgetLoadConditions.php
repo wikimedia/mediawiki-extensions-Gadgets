@@ -21,8 +21,8 @@
 namespace MediaWiki\Extension\Gadgets;
 
 use MediaWiki\Output\OutputPage;
+use MediaWiki\Skin\Skin;
 use MediaWiki\User\User;
-use Skin;
 
 /**
  * @author Siddharth VP

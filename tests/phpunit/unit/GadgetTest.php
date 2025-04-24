@@ -2,6 +2,7 @@
 
 use MediaWiki\Extension\Gadgets\Gadget;
 use MediaWiki\ResourceLoader\Module;
+use MediaWiki\Skin\SkinFallback;
 use MediaWiki\User\User;
 
 /**

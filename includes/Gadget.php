@@ -24,8 +24,8 @@ use InvalidArgumentException;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\ResourceLoader\ResourceLoader;
+use MediaWiki\Skin\Skin;
 use MediaWiki\User\UserIdentity;
-use Skin;
 
 /**
  * Represents one gadget definition.
