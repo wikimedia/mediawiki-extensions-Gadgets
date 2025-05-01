@@ -133,6 +133,18 @@ class Hooks implements
 
 		$skin = RequestContext::getMain()->getSkin();
 		foreach ( $gadgets as $section => $thisSection ) {
+			if ( $section !== '' ) {
+				$sectionInfoMsg = wfMessage( "gadgets-section-info-$section" );
+				if ( !$sectionInfoMsg->isDisabled() ) {
+					$preferences['gadgets-section-info-' . $section] = [
+						'type' => 'info',
+						'default' => $sectionInfoMsg->parse(),
+						'section' => "gadgets/gadget-section-$section",
+						'raw' => true,
+					];
+				}
+			}
+
 			foreach ( $thisSection as $gadget ) {
 				// Only show option to enable gadget if it can be enabled
 				$type = 'api';
