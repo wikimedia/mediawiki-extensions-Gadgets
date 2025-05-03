@@ -186,21 +186,21 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$gCategoryFoo = $this->makeGadget( '*foo[ResourceLoader|categories=Foo]|foo.js' );
 		$gMultiCategory = $this->makeGadget( '*foo[ResourceLoader|categories=Foo,Bar baz,quux]|foo.js' );
 
-		$this->assertTrue( $gUnsetCategory->isCategorySupported( [ 'Foo' ] ) );
+		$this->assertTrue( $gUnsetCategory->isCategorySupported( [ 'Foo' => 1 ] ) );
 
-		$this->assertTrue( $gCategoryFoo->isCategorySupported( [ 'Foo' ] ) );
-		$this->assertFalse( $gCategoryFoo->isCategorySupported( [ 'Bar' ] ) );
-		$this->assertFalse( $gCategoryFoo->isCategorySupported( [ 'Bar baz' ] ) );
+		$this->assertTrue( $gCategoryFoo->isCategorySupported( [ 'Foo' => 1 ] ) );
+		$this->assertFalse( $gCategoryFoo->isCategorySupported( [ 'Bar' => 1 ] ) );
+		$this->assertFalse( $gCategoryFoo->isCategorySupported( [ 'Bar baz' => 1 ] ) );
 
-		$this->assertTrue( $gMultiCategory->isCategorySupported( [ 'Foo' ] ) );
-		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'Bar' ] ) );
-		$this->assertTrue( $gMultiCategory->isCategorySupported( [ 'Spam', 'Bar baz', 'Eggs' ] ) );
-		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'Spam', 'Eggs' ] ) );
+		$this->assertTrue( $gMultiCategory->isCategorySupported( [ 'Foo' => 1 ] ) );
+		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'Bar' => 1 ] ) );
+		$this->assertTrue( $gMultiCategory->isCategorySupported( [ 'Spam' => 1, 'Bar baz' => 1, 'Eggs' => 1 ] ) );
+		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'Spam' => 1, 'Eggs' => 1 ] ) );
 		// Load condition must use title text form
-		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'foo' ] ) );
-		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'Bar_baz' ] ) );
+		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'foo' => 1 ] ) );
+		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'Bar_baz' => 1 ] ) );
 		// Definition must use title text form, too
-		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'Quux' ] ) );
+		$this->assertFalse( $gMultiCategory->isCategorySupported( [ 'Quux' => 1 ] ) );
 	}
 
 	public function testContentModelsTags() {

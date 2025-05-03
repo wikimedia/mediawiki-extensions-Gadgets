@@ -36,7 +36,7 @@ class GadgetLoadConditions {
 	private $action;
 	/** @var int */
 	private $namespace;
-	/** @var string[] */
+	/** @var array<string,int> */
 	private $categories;
 	/** @var string */
 	private $contentModel;
@@ -48,7 +48,7 @@ class GadgetLoadConditions {
 		$this->skin = $out->getSkin();
 		$this->action = $out->getContext()->getActionName();
 		$this->namespace = $out->getTitle()->getNamespace();
-		$this->categories = $out->getCategories();
+		$this->categories = array_fill_keys( $out->getCategories(), 1 );
 		$this->contentModel = $out->getTitle()->getContentModel();
 		$this->withGadgetParam = $out->getRequest()->getRawVal( 'withgadget' );
 	}

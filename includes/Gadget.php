@@ -309,15 +309,16 @@ class Gadget {
 	/**
 	 * Whether to load the gadget on pages in any of the given categories
 	 *
-	 * @param array $categories Category names (category title text, no namespace prefix, no dbkey-underscores)
+	 * @param array $categories Associative array with keys as category names (category title text,
+	 * no namespace prefix, no dbkey-underscores) and with value as 1 for all keys.
 	 * @return bool
 	 */
 	public function isCategorySupported( array $categories ) {
 		if ( !$this->requiredCategories ) {
 			return true;
 		}
-		foreach ( $categories as $category ) {
-			if ( in_array( $category, $this->requiredCategories, true ) ) {
+		foreach ( $this->requiredCategories as $category ) {
+			if ( isset( $categories[$category] ) ) {
 				return true;
 			}
 		}
