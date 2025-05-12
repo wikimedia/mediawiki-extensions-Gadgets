@@ -134,9 +134,9 @@ class Hooks implements
 		$skin = RequestContext::getMain()->getSkin();
 		foreach ( $gadgets as $section => $thisSection ) {
 			if ( $section !== '' ) {
-				$sectionInfoMsg = wfMessage( "gadgets-section-info-$section" );
+				$sectionInfoMsg = wfMessage( "gadget-section-info-$section" );
 				if ( !$sectionInfoMsg->isDisabled() ) {
-					$preferences['gadgets-section-info-' . $section] = [
+					$preferences['gadget-section-info-' . $section] = [
 						'type' => 'info',
 						'default' => $sectionInfoMsg->parse(),
 						'section' => "gadgets/gadget-section-$section",
