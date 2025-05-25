@@ -67,17 +67,15 @@ class GadgetResourceLoaderModule extends RL\WikiModule {
 			$pages[$style] = [ 'type' => 'style' ];
 		}
 
-		if ( $gadget->supportsResourceLoader() ) {
-			foreach ( $gadget->getScripts() as $script ) {
-				$pages[$script] = [ 'type' => 'script' ];
+		foreach ( $gadget->getScripts() as $script ) {
+			$pages[$script] = [ 'type' => 'script' ];
+		}
+		if ( $gadget->isPackaged() ) {
+			foreach ( $gadget->getVues() as $vue ) {
+				$pages[$vue] = [ 'type' => 'script-vue' ];
 			}
-			if ( $gadget->isPackaged() ) {
-				foreach ( $gadget->getVues() as $vue ) {
-					$pages[$vue] = [ 'type' => 'script-vue' ];
-				}
-				foreach ( $gadget->getJSONs() as $json ) {
-					$pages[$json] = [ 'type' => 'data' ];
-				}
+			foreach ( $gadget->getJSONs() as $json ) {
+				$pages[$json] = [ 'type' => 'data' ];
 			}
 		}
 

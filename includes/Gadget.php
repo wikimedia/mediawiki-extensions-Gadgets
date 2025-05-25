@@ -35,7 +35,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	public const GADGET_CLASS_VERSION = 21;
+	public const GADGET_CLASS_VERSION = 22;
 
 	public const CACHE_TTL = 86400;
 
@@ -51,7 +51,6 @@ class Gadget {
 	private $name;
 	/** @var string|null */
 	private $definition;
-	private bool $resourceLoaded;
 	private bool $requiresES6;
 	/** @var string[] */
 	private array $requiredRights;
@@ -98,7 +97,6 @@ class Gadget {
 		$this->requiredRights = $options['requiredRights'] ?? [];
 		$this->requiredSkins = $options['requiredSkins'] ?? [];
 		$this->requiresES6 = $options['requiresES6'] ?? false;
-		$this->resourceLoaded = $options['resourceLoaded'] ?? false;
 		$this->supportsUrlLoad = $options['supportsUrlLoad'] ?? false;
 		$this->type = $options['type'] ?? '';
 	}
@@ -133,7 +131,6 @@ class Gadget {
 			'requiredRights' => $data['settings']['rights'],
 			'requiredSkins' => $data['settings']['skins'],
 			'requiresES6' => $data['settings']['requiresES6'],
-			'resourceLoaded' => true,
 			'supportsUrlLoad' => $data['settings']['supportsUrlLoad'],
 			'type' => $data['module']['type'],
 		];
@@ -161,7 +158,6 @@ class Gadget {
 			'requiredRights' => $this->requiredRights,
 			'requiredSkins' => $this->requiredSkins,
 			'requiresES6' => $this->requiresES6,
-			'resourceLoaded' => $this->resourceLoaded,
 			'supportsUrlLoad' => $this->supportsUrlLoad,
 			'type' => $this->type,
 			// Legacy  (specific to MediaWikiGadgetsDefinitionRepo)
@@ -270,7 +266,7 @@ class Gadget {
 
 	public function isPackaged(): bool {
 		// A packaged gadget needs to have a main script, so there must be at least one script
-		return $this->package && $this->supportsResourceLoader() && $this->getScripts();
+		return $this->package && $this->getScripts();
 	}
 
 	/**
@@ -349,13 +345,6 @@ class Gadget {
 	}
 
 	/**
-	 * @return bool Whether all of this gadget's JS components support ResourceLoader
-	 */
-	public function supportsResourceLoader() {
-		return $this->resourceLoaded;
-	}
-
-	/**
 	 * @return bool Whether this gadget requires ES6
 	 */
 	public function requiresES6(): bool {
@@ -366,7 +355,7 @@ class Gadget {
 	 * @return bool Whether this gadget has resources that can be loaded via ResourceLoader
 	 */
 	public function hasModule() {
-		return $this->getStyles() || ( $this->supportsResourceLoader() && $this->getScripts() );
+		return $this->getStyles() || $this->getScripts();
 	}
 
 	/**
@@ -425,14 +414,6 @@ class Gadget {
 	 */
 	public function getScriptsAndStyles() {
 		return array_merge( $this->getScripts(), $this->getStyles(), $this->getJSONs(), $this->getVues() );
-	}
-
-	/**
-	 * Returns list of scripts that don't support ResourceLoader
-	 * @return string[]
-	 */
-	public function getLegacyScripts() {
-		return $this->supportsResourceLoader() ? [] : $this->getScripts();
 	}
 
 	/**

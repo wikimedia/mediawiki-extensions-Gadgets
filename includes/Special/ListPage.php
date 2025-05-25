@@ -160,20 +160,6 @@ class ListPage extends ActionPage {
 					$needLineBreakAfter = true;
 				}
 
-				// Portion: Legacy scripts
-				if ( $gadget->getLegacyScripts() ) {
-					if ( $needLineBreakAfter ) {
-						$output->addHTML( '<br />' );
-					}
-					$output->addModuleStyles( 'mediawiki.codex.messagebox.styles' );
-					$output->addHTML( Html::errorBox(
-						$this->msg( 'gadgets-legacy' )->parse(),
-						'',
-						'mw-gadget-legacy'
-					) );
-					$needLineBreakAfter = false;
-				}
-
 				if ( $gadget->requiresES6() ) {
 					if ( $needLineBreakAfter ) {
 						$output->addHTML( '<br />' );

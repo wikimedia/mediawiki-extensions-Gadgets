@@ -139,7 +139,6 @@ class ApiQueryGadgets extends ApiQueryBase {
 				'contentModels' => $g->getRequiredContentModels(),
 				'default' => $g->isOnByDefault(),
 				'hidden' => $g->isHidden(),
-				'legacyscripts' => (bool)$g->getLegacyScripts(),
 				'namespaces' => $g->getRequiredNamespaces(),
 				'package' => $g->isPackaged(),
 				'requiresES6' => $g->requiresES6(),

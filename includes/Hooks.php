@@ -29,7 +29,6 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Gadgets\Special\SpecialGadgetUsage;
 use MediaWiki\Hook\DeleteUnknownPreferencesHook;
 use MediaWiki\Hook\PreferencesGetIconHook;
-use MediaWiki\Html\Html;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
 use MediaWiki\Output\OutputPage;
@@ -39,7 +38,6 @@ use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook;
 use MediaWiki\SpecialPage\Hook\WgQueryPagesHook;
-use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Specials\Hook\PreferencesGetLegendHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\Hook\UserGetDefaultOptionsHook;
@@ -52,8 +50,6 @@ use Wikimedia\Message\MessageSpecifier;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\LikeValue;
-use Wikimedia\WrappedString;
-use Wikimedia\WrappedStringList;
 
 class Hooks implements
 	UserGetDefaultOptionsHook,
@@ -215,27 +211,6 @@ class Hooks implements
 	/** @inheritDoc */
 	public function onBeforePageDisplay( $out, $skin ): void {
 		$this->addGadgetsToOutput( $out );
-
-		$ids = $this->gadgetRepo->getGadgetIds();
-		if ( $ids ) {
-			$enabledLegacyGadgets = [];
-			$conditions = new GadgetLoadConditions( $out );
-			foreach ( $ids as $id ) {
-				try {
-					$gadget = $this->gadgetRepo->getGadget( $id );
-				} catch ( InvalidArgumentException ) {
-					continue;
-				}
-				if ( $gadget->getLegacyScripts() && $conditions->check( $gadget ) ) {
-					$enabledLegacyGadgets[] = $id;
-				}
-			}
-			$strings = [];
-			foreach ( $enabledLegacyGadgets as $id ) {
-				$strings[] = $this->makeLegacyWarning( $id );
-			}
-			$out->addHTML( WrappedStringList::join( "\n", $strings ) );
-		}
 	}
 
 	private function addGadgetsToOutput( OutputPage $out ): void {
@@ -280,21 +255,6 @@ class Hooks implements
 				}
 			}
 		}
-	}
-
-	/**
-	 * @param string $id
-	 * @return string|WrappedString HTML
-	 */
-	private function makeLegacyWarning( $id ) {
-		$special = SpecialPage::getTitleFor( 'Gadgets' );
-
-		return ResourceLoader::makeInlineScript(
-			Html::encodeJsCall( 'mw.log.warn', [
-				"Gadget \"$id\" was not loaded. Please migrate it to use ResourceLoader. " .
-				'See <' . $special->getCanonicalURL() . '>.'
-			] )
-		);
 	}
 
 	/**

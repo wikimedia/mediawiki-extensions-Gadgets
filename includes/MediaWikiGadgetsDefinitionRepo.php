@@ -35,7 +35,7 @@ use Wikimedia\Rdbms\IConnectionProvider;
  * Gadgets repo powered by MediaWiki:Gadgets-definition
  */
 class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
-	private const CACHE_VERSION = 4;
+	private const CACHE_VERSION = 5;
 
 	/** @var array|null */
 	private $definitions;
@@ -242,9 +242,6 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 			}
 
 			switch ( $option ) {
-				case 'ResourceLoader':
-					$info['resourceLoaded'] = true;
-					break;
 				case 'requiresES6':
 					$info['requiresES6'] = true;
 					break;

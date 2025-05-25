@@ -33,7 +33,7 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 	public function testEnabledGadget() {
 		$services = $this->getServiceContainer();
 		$repo = new StaticGadgetRepo( [
-			'g1' => new Gadget( [ 'name' => 'g1', 'pages' => [ 'test.js' ], 'resourceLoaded' => true ] ),
+			'g1' => new Gadget( [ 'name' => 'g1', 'pages' => [ 'test.js' ] ] ),
 		] );
 		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup() );
 		$context = RequestContext::getMain();

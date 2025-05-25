@@ -53,7 +53,6 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$this->assertTrue( $g->isPackaged() );
 		$this->assertFalse( $g->isHidden() );
 		$this->assertFalse( $g->supportsUrlLoad() );
-		$this->assertTrue( $g->supportsResourceLoader() );
 		$this->assertCount( 1, $g->getScripts() );
 		$this->assertCount( 1, $g->getStyles() );
 		$this->assertCount( 0, $g->getJSONs() );
@@ -82,16 +81,12 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( [ 'MediaWiki:Gadget-foo.json' ], $g->getJSONs() );
 		$this->assertEquals( [ 'MediaWiki:Gadget-foo.js', 'MediaWiki:Gadget-foo.css', 'MediaWiki:Gadget-foo.json' ],
 			$g->getScriptsAndStyles() );
-		$this->assertEquals( [ 'MediaWiki:Gadget-foo.js' ], $g->getLegacyScripts() );
-		$this->assertFalse( $g->supportsResourceLoader() );
 		$this->assertTrue( $g->hasModule() );
 	}
 
 	public function testRLtag() {
 		$g = $this->makeGadget( '*foo [ResourceLoader]|foo.js|foo.css' );
 		$this->assertEquals( 'foo', $g->getName() );
-		$this->assertTrue( $g->supportsResourceLoader() );
-		$this->assertCount( 0, $g->getLegacyScripts() );
 	}
 
 	public function testPackaged() {
@@ -104,8 +99,6 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$this->assertEquals( [ 'MediaWiki:Gadget-foo.vue' ], $g->getVues() );
 		$this->assertEquals( [ 'MediaWiki:Gadget-foo.js', 'MediaWiki:Gadget-foo.css', 'MediaWiki:Gadget-foo.json',
 			'MediaWiki:Gadget-foo.vue' ], $g->getScriptsAndStyles() );
-		$this->assertEquals( [], $g->getLegacyScripts() );
-		$this->assertTrue( $g->supportsResourceLoader() );
 		$this->assertTrue( $g->hasModule() );
 	}
 
@@ -224,7 +217,6 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	public function testDependencies() {
 		$g = $this->makeGadget( '* foo[ResourceLoader|dependencies=jquery.ui]|bar.js' );
 		$this->assertEquals( [ 'MediaWiki:Gadget-bar.js' ], $g->getScripts() );
-		$this->assertTrue( $g->supportsResourceLoader() );
 		$this->assertEquals( [ 'jquery.ui' ], $g->getDependencies() );
 	}
 
