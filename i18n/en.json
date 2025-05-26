@@ -23,6 +23,8 @@
 	"gadgets-pagetext": "Below is a list of special gadgets users can enable on their [[Special:Preferences#mw-prefsection-gadgets|preferences page]], as defined by the [[MediaWiki:Gadgets-definition|definitions]].\nThis overview provides easy access to the system message pages that define each gadget's description and code.",
 	"gadgets-editdescription": "Edit description",
 	"gadgets-viewdescription": "View description",
+	"gadgets-editsectiontitle": "Edit section title",
+	"gadgets-viewsectiontitle": "View section title",
 	"gadgets-uses": "Uses",
 	"gadgets-required-rights": "Requires the following {{PLURAL:$2|right|rights}}: $1.",
 	"gadgets-required-skins": "Available for the {{PLURAL:$2|$1 skin|following skins: $1}}.",

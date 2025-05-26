@@ -115,6 +115,9 @@ class SpecialGadgets extends SpecialPage {
 		$editInterfaceMessage = $this->getUser()->isAllowed( 'editinterface' )
 			? 'gadgets-editdescription'
 			: 'gadgets-viewdescription';
+		$editInterfaceMessageSection = $this->getUser()->isAllowed( 'editinterface' )
+			? 'gadgets-editsectiontitle'
+			: 'gadgets-viewsectiontitle';
 
 		$linkRenderer = $this->getLinkRenderer();
 		foreach ( $gadgets as $section => $entries ) {
@@ -125,32 +128,17 @@ class SpecialGadgets extends SpecialPage {
 				}
 
 				// H2 section heading
-				$headingText = Html::rawElement(
-					'span',
-					[ 'class' => 'mw-headline' ],
-					$this->msg( "gadget-section-$section" )->parse()
-				);
+				$headingText = $this->msg( "gadget-section-$section" )->parse();
+				$output->addHTML( Html::rawElement( 'h2', [], $headingText ) . "\n" );
+
+				// Edit link for the section heading
 				$title = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-section-$section$langSuffix" );
-				$leftBracket = Html::rawElement(
-					'span',
-					[ 'class' => 'mw-editsection-bracket' ],
-					'['
-				);
 				$linkTarget = $title
-					? $linkRenderer->makeLink( $title, $this->msg( $editInterfaceMessage )->text(),
+					? $linkRenderer->makeLink( $title, $this->msg( $editInterfaceMessageSection )->text(),
 						[], [ 'action' => 'edit' ] )
 					: htmlspecialchars( $section );
-				$rightBracket = Html::rawElement(
-					'span',
-					[ 'class' => 'mw-editsection-bracket' ],
-					']'
-				);
-				$editDescriptionLink = Html::rawElement(
-					'span',
-					[ 'class' => 'mw-editsection' ],
-					$leftBracket . $linkTarget . $rightBracket
-				);
-				$output->addHTML( Html::rawElement( 'h2', [], $headingText . $editDescriptionLink ) . "\n" );
+				$output->addHTML( Html::rawElement( 'p', [],
+					$this->msg( 'parentheses' )->rawParams( $linkTarget )->escaped() ) . "\n" );
 			}
 
 			/**

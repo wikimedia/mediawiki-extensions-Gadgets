@@ -39,6 +39,8 @@
 	"gadgets-pagetext": "Used as intro text in [[Special:Gadgets]].",
 	"gadgets-editdescription": "Link for editing the gadget description shown in Special:Preferences. Used on [[Special:Gadgets]].",
 	"gadgets-viewdescription": "Link for viewing the gadget description shown in Special:Preferences. Used on [[Special:Gadgets]] instead of {{msg-mw|Gadgets-editdescription}} when the user does not have permissions to edit.",
+	"gadgets-editsectiontitle": "Link for editing a section title (heading) in the list of gadgets shown in Special:Preferences. Used on [[Special:Gadgets]].",
+	"gadgets-viewsectiontitle": "Link for viewing a section title (heading) in the list of gadgets shown in Special:Preferences. Used on [[Special:Gadgets]] instead of {{msg-mw|Gadgets-editsectiontitle}} when the user does not have permissions to edit.",
 	"gadgets-uses": "This is used as a verb in third-person singular. It appears in front of a script name. Example: \"''Uses: Gadget-UTCLiveClock.js''\"\n\nSee [[mw:Special:Gadgets|Gadgets page in mediawiki.org]]\n{{Identical|Use}}",
 	"gadgets-required-rights": "Parameters:\n* $1 - a comma-separated list.\n* $2 - the number of items in list $1 for PLURAL use.",
 	"gadgets-required-skins": "Parameters:\n* $1 - a comma-separated list.\n* $2 - the number of items in list $1 for PLURAL use.",
