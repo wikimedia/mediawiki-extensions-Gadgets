@@ -23,7 +23,8 @@
 			"Winston Sung",
 			"Xiplus",
 			"列维劳德",
-			"張詠涵"
+			"張詠涵",
+			"Shrubs"
 		]
 	},
 	"gadgets-desc": "讓使用者可以於[[Special:Preferences#mw-prefsection-gadgets|偏好設定]]自訂 [[Special:Gadgets|CSS 與 JavaScript 小工具]]",
@@ -83,7 +84,7 @@
 	"gadgets-validate-duplicate": "偵測到小工具$1的另一種定義，將會忽略",
 	"gadgets-validate-nopage": "頁面「$1」不存在。",
 	"gadgets-validate-invaliddependencies": "以下{{PLURAL:$2|個依賴項缺失}}：$1",
-	"gadgets-validate-deprecateddependencies": "以下{{PLURAL:$2|個依賴項已}}廢棄：$1",
+	"gadgets-validate-deprecateddependencies": "以下{{PLURAL:$2|依賴項}}已廢棄：$1。",
 	"gadgets-supports-urlload": "此小工具支援透過包含<code>?withgadget</code>查詢參數的URL來載入。",
 	"gadgets-hidden": "這個小工具已 [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden 隱藏]，將不會顯示於偏好設定頁面。"
 }
