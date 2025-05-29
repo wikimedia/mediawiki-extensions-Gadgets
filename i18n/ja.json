@@ -61,7 +61,7 @@
 	"gadgets-validate-notset": "プロパティ <code>$1</code> が設定されていません。",
 	"gadgets-validate-wrongtype": "プロパティ <code>$1</code> は型 <code>$3</code> ではなく <code>$2</code> でなければなりません。",
 	"gadgets-validate-json": "JSONファイルが指定されていますが使用されていません。JSONファイルはパッケージ化されたガジェットでのみ有効です。",
-	"gadgets-validate-es6default": "ES6を要求するガジェットはデフォルトで有効化できません。",
+	"gadgets-validate-es6default": "ES6 を要求するガジェットは既定で有効化できません。",
 	"gadgets-validate-noentrypoint": "スクリプトファイルが指定されていないため、パッケージフラグが無視されています。",
 	"gadgets-validate-noscripts": "このガジェットは<code>type=styles</code>を指定しているため、スクリプトが無視されています。",
 	"gadgets-validate-stylepeers": "これはスタイルガジェットのため、ピアガジェットが無視されています。<code>type=general</code>で上書きしてください。",
