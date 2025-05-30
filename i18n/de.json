@@ -34,6 +34,8 @@
 	"gadgets-pagetext": "Liste besonderer, in [[MediaWiki:Gadgets-definition]] festgelegter Helferlein, die für alle Benutzer in den [[Special:Preferences#mw-prefsection-gadgets|persönlichen Einstellungen]] verfügbar sind.\nDiese Übersicht bietet direkten Zugang zu den MediaWiki-Systemnachrichten, welche die Beschreibung sowie den Programmcode jedes Helferleins enthalten.",
 	"gadgets-editdescription": "Beschreibung bearbeiten",
 	"gadgets-viewdescription": "Beschreibung anzeigen",
+	"gadgets-editsectiontitle": "Titel des Abschnitts bearbeiten",
+	"gadgets-viewsectiontitle": "Titel des Abschnitts anzeigen",
 	"gadgets-uses": "Benutzt",
 	"gadgets-required-rights": "Erfordert die {{PLURAL:$2|folgende Berechtigung|folgenden Berechtigungen}}: $1",
 	"gadgets-required-skins": "Verfügbar für {{PLURAL:$2|die folgende Benutzeroberfläche|die folgenden Benutzeroberflächen}}: $1.",
