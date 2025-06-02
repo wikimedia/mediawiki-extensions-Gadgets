@@ -26,6 +26,8 @@
 	"gadgets-pagetext": "Embaixo hai unha lista dos trebellos especiais que os usuarios poden habilitar na súa [[Special:Preferences#mw-prefsection-gadgets|páxina de preferencias]], segundo as [[MediaWiki:Gadgets-definition|definicións]] dos mesmos.\nEsta vista xeral proporciona un acceso doado ás páxinas de mensaxes do sistema que definen a descrición e o código de cada trebello.",
 	"gadgets-editdescription": "Editar a descrición",
 	"gadgets-viewdescription": "Ver a descrición",
+	"gadgets-editsectiontitle": "Editar o título da sección",
+	"gadgets-viewsectiontitle": "Ver o título da sección",
 	"gadgets-uses": "Usa",
 	"gadgets-required-rights": "{{PLURAL:$2|Cómpre o seguinte dereito|Cómpren os seguintes dereitos}}: $1",
 	"gadgets-required-skins": "Dispoñible para {{PLURAL:$2|a aparencia $1|as seguintes aparencias: $1}}.",

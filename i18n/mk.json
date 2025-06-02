@@ -23,6 +23,8 @@
 	"gadgets-pagetext": "Ова е список на псоебни алатки кои корисниците можат да ги активираат на нивната [[Special:Preferences#mw-prefsection-gadgets|страница за нагодување]], наведени во [[MediaWiki:Gadgets-definition|определувањата]].\nОвој преглед дава лесен пристап до системските пораки кои го определуваат описот и кодот на секоја алатка.",
 	"gadgets-editdescription": "Измени опис",
 	"gadgets-viewdescription": "Погл. опис",
+	"gadgets-editsectiontitle": "Уреди наслов на оддел",
+	"gadgets-viewsectiontitle": "Погл. наслов на оддел",
 	"gadgets-uses": "Користи",
 	"gadgets-required-rights": "{{PLURAL:$2|Го бара следново право|Ги бара следниве права}}: $1",
 	"gadgets-required-skins": "Достапно за {{PLURAL:$2|рувото $1|следниве рува: $1}}.",

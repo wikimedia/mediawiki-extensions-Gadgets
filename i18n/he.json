@@ -26,6 +26,8 @@
 	"gadgets-pagetext": "זוהי רשימה של סקריפטים שמשתמשים יכולים להתקין באמצעות [[Special:Preferences#mw-prefsection-gadgets|דף ההעדפות]] שלהם, כפי שהוגדרו ב[[MediaWiki:Gadgets-definition|הודעת המערכת המתאימה]].\nמכאן ניתן לגשת בקלות לדפי הודעות המערכת שמגדירים את התיאור והקוד של כל סקריפט.",
 	"gadgets-editdescription": "עריכת התיאור",
 	"gadgets-viewdescription": "הצגת התיאור",
+	"gadgets-editsectiontitle": "עריכת כותרת פרק",
+	"gadgets-viewsectiontitle": "צפייה בכותרת פרק",
 	"gadgets-uses": "משתמש בדפים",
 	"gadgets-required-rights": "{{PLURAL:$2|נדרשת ההרשאה הבאה|נדרשות ההרשאות הבאות}}: $1",
 	"gadgets-required-skins": "זמין {{PLURAL:$2|בערכות העיצוב הבאות: $1|בערכת העיצוב $1}}",

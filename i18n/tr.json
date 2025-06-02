@@ -39,6 +39,8 @@
 	"gadgets-pagetext": "Aşağıdaki kullanıcıların [[Special:Preferences#mw-prefsection-gadgets|tercihler sayfasında]] etkin hale getirebileceği, [[MediaWiki:Gadgets-definition|tanımlarla]] belirtildiği gibi, özel küçüj araçların bir listesidir.\nBu genel bakış, her küçük aracın tanımını ve kodunu belirten sistem mesaj sayfalarına kolay erişim sağlar.",
 	"gadgets-editdescription": "Açıklamayı düzenle",
 	"gadgets-viewdescription": "Açıklamayı gör",
+	"gadgets-editsectiontitle": "Bölüm başlığını düzenle",
+	"gadgets-viewsectiontitle": "Bölüm başlığını görüntüle",
 	"gadgets-uses": "Kullanımlar",
 	"gadgets-required-rights": "Şu {{PLURAL:$2|hak|haklar}} gereklidir: $1.",
 	"gadgets-required-skins": "{{PLURAL:$2|$1 teması|$1 temaları}} için kullanılabilir.",
