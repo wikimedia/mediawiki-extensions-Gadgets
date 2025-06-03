@@ -22,6 +22,8 @@
 	"gadgets-pagetext": "Infra es un lista de accessorios special que le usatores pote activar in lor [[Special:Preferences#mw-prefsection-gadgets|paginas de preferentias]], secundo le [[MediaWiki:Gadgets-definition|definitiones]].\nIste vista general permitte le accesso commode al paginas de messages de systema que defini le description e codice de cata accessorio.",
 	"gadgets-editdescription": "Modificar description",
 	"gadgets-viewdescription": "Vider description",
+	"gadgets-editsectiontitle": "Modificar titulo de section",
+	"gadgets-viewsectiontitle": "Vider titulo de section",
 	"gadgets-uses": "Usa",
 	"gadgets-required-rights": "Require le sequente {{PLURAL:$2|derecto|derectos}}: $1.",
 	"gadgets-required-skins": "Disponibile pro le {{PLURAL:$2|apparentia $1|sequente apparentias: $1}}.",
