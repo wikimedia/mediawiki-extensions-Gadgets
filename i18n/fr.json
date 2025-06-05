@@ -27,7 +27,8 @@
 			"Zetud",
 			"SleaY",
 			"Mahabarata",
-			"Escargot bleu"
+			"Escargot bleu",
+			"NicoScribe"
 		]
 	},
 	"gadgets-desc": "Permet aux utilisateurs de choisir des [[Special:Gadgets|gadgets CSS et Javascripts]] personnalisés dans leurs [[Special:Preferences#mw-prefsection-gadgets|préférences]]",
