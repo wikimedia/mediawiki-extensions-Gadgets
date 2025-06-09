@@ -16,6 +16,8 @@
 	"gadgetusage-activeusers": "فعاله کارنان",
 	"gadgetusage-default": "تلواليز",
 	"gadgets-title": "گاډجېټ",
+	"gadgets-editsectiontitle": "برخې سرليک سمول",
+	"gadgets-viewsectiontitle": "برخې سرليک کتل",
 	"gadgets-uses": "کارونې",
 	"gadgets-export": "صادرول",
 	"gadgets-not-found": "د \"$1\" گاډجېټ و نه موندل شو.",
