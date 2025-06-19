@@ -138,6 +138,7 @@ class SpecialGadgetUsage extends QueryPage {
 				'querycachetwo' => [
 					'LEFT JOIN', [
 						'user_name = qcc_title',
+						'qcc_namespace' => NS_USER,
 						'qcc_type' => 'activeusers',
 					]
 				]
