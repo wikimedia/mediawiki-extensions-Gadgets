@@ -246,29 +246,4 @@ abstract class GadgetRepo {
 				count( $invalidEntries ) );
 		}
 	}
-
-	/**
-	 * Get the configured default GadgetRepo.
-	 *
-	 * @deprecated Use the GadgetsRepo service instead
-	 * @return GadgetRepo
-	 */
-	public static function singleton() {
-		wfDeprecated( __METHOD__, '1.42' );
-		if ( self::$instance === null ) {
-			return MediaWikiServices::getInstance()->getService( 'GadgetsRepo' );
-		}
-		return self::$instance;
-	}
-
-	/**
-	 * Should only be used by unit tests
-	 *
-	 * @deprecated Use the GadgetsRepo service instead
-	 * @param GadgetRepo|null $repo
-	 */
-	public static function setSingleton( $repo = null ) {
-		wfDeprecated( __METHOD__, '1.42' );
-		self::$instance = $repo;
-	}
 }
