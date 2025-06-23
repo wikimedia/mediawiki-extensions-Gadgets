@@ -82,6 +82,6 @@
 	"gadgets-validate-nopage": "ページ「$1」は存在しません。",
 	"gadgets-validate-invaliddependencies": "次の{{PLURAL:$2|依存関係が}}ありません: $1 。",
 	"gadgets-validate-deprecateddependencies": "次の{{PLURAL:$2|依存関係は}}非推奨です: $1 。",
-	"gadgets-supports-urlload": "このガジェットは<code>?withgadget</code>のURLパラメータを使用してロードできます。",
+	"gadgets-supports-urlload": "このガジェットは、<code>?withgadget</code> のクエリパラメーターを使用して URL から読み込めます。",
 	"gadgets-hidden": "このガジェットは[https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden 非表示]であるため、個人設定ページに表示されません。"
 }
