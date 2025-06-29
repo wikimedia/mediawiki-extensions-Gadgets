@@ -20,14 +20,17 @@
 
 namespace MediaWiki\Extension\Gadgets\Special;
 
+use InvalidArgumentException;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Html\Html;
+use MediaWiki\Json\FormatJson;
 use MediaWiki\MainConfigNames;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Skin\Skin;
 use MediaWiki\SpecialPage\QueryPage;
 use MediaWiki\Title\TitleValue;
 use stdClass;
+use Wikimedia\Rdbms\FakeResultWrapper;
 use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IReadableDatabase;
@@ -40,6 +43,13 @@ use Wikimedia\Rdbms\LikeValue;
  * @copyright 2015 Niharika Kohli
  */
 class SpecialGadgetUsage extends QueryPage {
+	/**
+	 * If a gadget is default, consider this to be the number of users for the table sort
+	 * parameter. The number of opt-outs is deducted from this number so that after sorting,
+	 * gadgets with least opt-outs are at the top.
+	 */
+	private const DEFAULT_SORT_VALUE = 10_000_000_000;
+
 	public function __construct(
 		private readonly GadgetRepo $gadgetRepo,
 		private readonly IConnectionProvider $dbProvider,
@@ -67,11 +77,15 @@ class SpecialGadgetUsage extends QueryPage {
 	 * Define the database query that is used to generate the stats table.
 	 * The query is essentially:
 	 *
-	 * SELECT up_property, COUNT(*), count(qcc_title)
+	 * SELECT up_property,
+	 * 		COUNT(CASE WHEN up_value NOT IN ('0', '') THEN 1 END),
+	 * 		COUNT(CASE WHEN up_value IN ('0','') THEN 1 END),
+	 * 		COUNT(CASE WHEN up_value NOT IN ('0', '') AND qcc_title THEN 1 END),
+	 * 		COUNT(CASE WHEN up_value IN ('0', '') AND qcc_title THEN 1 END)
 	 * FROM user_properties
 	 * LEFT JOIN user ON up_user = user_id
 	 * LEFT JOIN querycachetwo ON user_name = qcc_title AND qcc_namespace = 2 AND qcc_type = 'activeusers'
-	 * WHERE up_property LIKE 'gadget-%' AND up_value NOT IN ('0','')
+	 * WHERE up_property LIKE 'gadget-%'
 	 * GROUP BY up_property;
 	 *
 	 * @return array
@@ -79,18 +93,22 @@ class SpecialGadgetUsage extends QueryPage {
 	public function getQueryInfo() {
 		$dbr = $this->dbProvider->getReplicaDatabase();
 
+		$on = $dbr->expr( 'up_value', '!=', [ '0', '' ] );
+		$off = $dbr->expr( 'up_value', '=', [ '0', '' ] );
+		$activeOn = $on->and( 'qcc_title', '!=', null );
+		$activeOff = $off->and( 'qcc_title', '!=', null );
+
 		return [
 			'tables' => [ 'user_properties', 'user', 'querycachetwo' ],
 			'fields' => [
-				'title' => 'up_property',
-				'value' => 'COUNT(*)',
-				// Need to pick fields existing in the querycache table so that the results are cachable
-				'namespace' => 'COUNT( qcc_title )'
+				'name' => 'up_property',
+				'on' => 'COUNT(' . $dbr->conditional( $on, '1', 'NULL' ) . ')',
+				'off' => 'COUNT(' . $dbr->conditional( $off, '1', 'NULL' ) . ')',
+				'activeOn' => 'COUNT(' . $dbr->conditional( $activeOn, '1', 'NULL' ) . ')',
+				'activeOff' => 'COUNT(' . $dbr->conditional( $activeOff, '1', 'NULL' ) . ')',
 			],
 			'conds' => [
-				$dbr->expr( 'up_property', IExpression::LIKE, new LikeValue( 'gadget-', $dbr->anyString() ) ),
-				// Simulate php falsy condition to ignore disabled user preferences
-				$dbr->expr( 'up_value', '!=', [ '0', '' ] ),
+				$dbr->expr( 'up_property', IExpression::LIKE, new LikeValue( 'gadget-', $dbr->anyString() ) )
 			],
 			'options' => [
 				'GROUP BY' => [ 'up_property' ]
@@ -114,7 +132,39 @@ class SpecialGadgetUsage extends QueryPage {
 
 	/** @inheritDoc */
 	public function getOrderFields() {
-		return [ 'value' ];
+		return [ $this->dbProvider->getReplicaDatabase()->addIdentifierQuotes( 'on' ) ];
+	}
+
+	/**
+	 * Wrap the DB output in a FakeResultWrapper with a format that makes it cachable in querycache table.
+	 * Note: changing the encoding format changes the API output for list=querypage&qppage=GadgetUsage.
+	 * @inheritDoc
+	 */
+	public function reallyDoQuery( $limit, $offset = false ) {
+		$res = parent::reallyDoQuery( $limit, $offset );
+		if ( $this->usesExternalSource() ) {
+			return $res;
+		}
+
+		$rows = [];
+		foreach ( $res as $row ) {
+			$title = FormatJson::encode( [
+				'name' => $row->name,
+				'on' => (int)$row->on,
+				'off' => (int)$row->off,
+				'activeOn' => (int)$row->activeOn,
+				'activeOff' => (int)$row->activeOff,
+			] );
+			$rows[] = (object)[
+				// Preserve underscores when ApiQueryQueryPage normalizes titles to use spaces.
+				'title' => str_replace( '_', '\\u005f', $title ),
+				'value' => $row->on,
+				// Avoid a namespace prefix in the API so the title remains valid JSON.
+				'namespace' => NS_MAIN,
+			];
+		}
+
+		return new FakeResultWrapper( $rows );
 	}
 
 	/**
@@ -160,41 +210,75 @@ class SpecialGadgetUsage extends QueryPage {
 	 * @return string|bool String of HTML
 	 */
 	public function formatResult( $skin, $result ) {
-		$gadgetTitle = substr( $result->title, 7 );
-		$gadgetUserCount = $this->getLanguage()->formatNum( $result->value );
+		$data = $this->decodeFakeTitle( $result->title );
+		if ( !$data ) {
+			return false;
+		}
+		$gadgetTitle = substr( $data->name, 7 );
+		$isDefault = $this->isGadgetDefault( $gadgetTitle );
+		if ( $isDefault === null ) {
+			// Gadget doesn't exist any more
+			return false;
+		}
 		if ( $gadgetTitle ) {
 			$html = '';
+
 			// "Gadget" column
 			$link = $this->getLinkRenderer()->makeLink(
 				new TitleValue( NS_SPECIAL, 'Gadgets', 'gadget-' . $gadgetTitle ),
 				$gadgetTitle
 			);
 			$html .= Html::rawElement( 'td', [], $link );
+
 			// "Number of users" column
-			$html .= Html::element( 'td', [], $gadgetUserCount );
+			if ( $isDefault ) {
+				$attrs = [ 'data-sort-value' => self::DEFAULT_SORT_VALUE - $data->off ];
+				$html .= Html::element( 'td', $attrs,
+					$this->msg( 'gadgetusage-default-optouts' )->numParams( $data->off )->text() );
+			} else {
+				$html .= Html::element( 'td', [], $this->getLanguage()->formatNum( $data->on ) );
+			}
+
 			// "Active users" column
-			$activeUserCount = $this->getLanguage()->formatNum( $result->namespace );
-			$html .= Html::element( 'td', [], $activeUserCount );
+			if ( $isDefault ) {
+				$attrs = [ 'data-sort-value' => self::DEFAULT_SORT_VALUE - $data->activeOff ];
+				$html .= Html::element( 'td', $attrs,
+					$this->msg( 'gadgetusage-default-optouts' )->numParams( $data->activeOff )->text() );
+			} else {
+				$activeUserCount = $this->getLanguage()->formatNum( $data->activeOn );
+				$html .= Html::element( 'td', [], $activeUserCount );
+			}
 			return Html::rawElement( 'tr', [], $html );
 		}
+		// TODO: also display gadgets with 0 users (which don't show up because they're not in user_properties table),
+		// as well as default gadgets with 0 opt-outs.
 		return false;
 	}
 
-	/**
-	 * Get a list of default gadgets
-	 * @param array $gadgetIds list of gagdet ids registered in the wiki
-	 * @return array
-	 */
-	protected function getDefaultGadgets( $gadgetIds ) {
-		$gadgetsList = [];
-		foreach ( $gadgetIds as $g ) {
-			$gadget = $this->gadgetRepo->getGadget( $g );
-			if ( $gadget->isOnByDefault() ) {
-				$gadgetsList[] = $gadget->getName();
-			}
+	private function decodeFakeTitle( string $str ): ?stdClass {
+		if ( !str_starts_with( $str, '{' ) || !str_ends_with( $str, '}' ) ) {
+			// Unexpected format, or truncated title due to gadget name being too long
+			return null;
 		}
-		asort( $gadgetsList, SORT_STRING | SORT_FLAG_CASE );
-		return $gadgetsList;
+		$data = FormatJson::decode( $str );
+		if ( !$data || !isset( $data->name ) || !isset( $data->on ) || !isset( $data->off ) ||
+			!isset( $data->activeOn ) || !isset( $data->activeOff ) ) {
+			return null;
+		}
+		return $data;
+	}
+
+	/**
+	 * @param string $gadgetName
+	 * @return bool|null Whether the gadget is default. Null if gadget doesn't exist.
+	 */
+	private function isGadgetDefault( string $gadgetName ): ?bool {
+		try {
+			$gadget = $this->gadgetRepo->getGadget( $gadgetName );
+			return $gadget->isOnByDefault();
+		} catch ( InvalidArgumentException ) {
+			return null;
+		}
 	}
 
 	/**
@@ -209,43 +293,17 @@ class SpecialGadgetUsage extends QueryPage {
 	 * @param int $offset Paging offset
 	 */
 	protected function outputResults( $out, $skin, $dbr, $res, $num, $offset ) {
-		$gadgetIds = $this->gadgetRepo->getGadgetIds();
-		$defaultGadgets = $this->getDefaultGadgets( $gadgetIds );
 		$out->addHtml(
 			$this->msg( 'gadgetusage-intro' )
 				->numParams( $this->getConfig()->get( MainConfigNames::ActiveUserDays ) )->parseAsBlock()
 		);
 		if ( $num > 0 ) {
 			$this->outputTableStart();
-			// Append default gadgets to the table with 'default' in the total and active user fields
-			foreach ( $defaultGadgets as $default ) {
-				$html = '';
-				// "Gadget" column
-				$link = $this->getLinkRenderer()->makeLink(
-					new TitleValue( NS_SPECIAL, 'Gadgets', 'gadget-' . $default ),
-					$default
-				);
-				$html .= Html::rawElement( 'td', [], $link );
-				// "Number of users" column
-				$html .= Html::element( 'td', [ 'data-sort-value' => 'Infinity' ],
-					$this->msg( 'gadgetusage-default' )->text() );
-				// "Active users" column
-				// @phan-suppress-next-line PhanPluginDuplicateAdjacentStatement
-				$html .= Html::element( 'td', [ 'data-sort-value' => 'Infinity' ],
-					$this->msg( 'gadgetusage-default' )->text() );
-				$out->addHTML( Html::rawElement( 'tr', [], $html ) );
-			}
-			foreach ( $res as $row ) {
-				// Remove the 'gadget-' part of the result string and compare if it's present
-				// in $defaultGadgets, if not we format it and add it to the output
-				$name = substr( $row->title, 7 );
 
-				// Only pick gadgets which are in the list $gadgetIds to make sure they exist
-				if ( !in_array( $name, $defaultGadgets, true ) && in_array( $name, $gadgetIds, true ) ) {
-					$line = $this->formatResult( $skin, $row );
-					if ( $line ) {
-						$out->addHTML( $line );
-					}
+			foreach ( $res as $row ) {
+				$line = $this->formatResult( $skin, $row );
+				if ( $line ) {
+					$out->addHTML( $line );
 				}
 			}
 			// Close table element
