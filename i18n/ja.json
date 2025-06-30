@@ -57,5 +57,5 @@
 	"action-gadgets-edit": "このガジェットの JavaScript または CSS ページの編集",
 	"right-gadgets-definition-edit": "ガジェット定義を編集",
 	"action-gadgets-definition-edit": "このガジェット定義の編集",
-	"gadgets-supports-urlload": "このガジェットは<code>?withgadget</code>のURLパラメータを使用してロードできます。"
+	"gadgets-supports-urlload": "このガジェットは、<code>?withgadget</code> のクエリパラメーターを使用して URL から読み込めます。"
 }
