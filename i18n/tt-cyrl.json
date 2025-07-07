@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Ерней",
+			"Ильгиз",
 			"Ильнар"
 		]
 	},
@@ -13,6 +14,8 @@
 	"gadgetusage-activeusers": "Актив кулланучылар",
 	"gadgetusage-default": "Гадәттәге",
 	"gadgets-title": "Гаджетлар",
+	"gadgets-editdescription": "Тасвирламаны үзгәрт",
+	"gadgets-viewdescription": "Тасвирламаны күрсәт",
 	"gadgets-uses": "Кулланыла",
 	"gadgets-export": "Экспортлау",
 	"gadgets-export-title": "Гаджетны экспортлау",
