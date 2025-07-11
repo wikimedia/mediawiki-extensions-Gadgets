@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"apihelp-query+gadgetcategories-summary": "د ويښيارتوکي برخو لړليک راگرځوي.",
+	"apihelp-query+gadgetcategories-param-prop": "د ويښيارتوکي کومې برخې مالومات دې واخيستل شي:",
+	"apihelp-query+gadgetcategories-paramvalue-prop-name": "دنننۍ برخې نوم.",
+	"apihelp-query+gadgetcategories-paramvalue-prop-title": "د برخې سرلیک.",
+	"apihelp-query+gadgetcategories-paramvalue-prop-members": "په برخه کې د ويښيارتوکو شمېر.",
+	"apihelp-query+gadgetcategories-param-names": "د برخو نومونه چې بايد ترلاسه شي.",
+	"apihelp-query+gadgetcategories-example-1": "د شته ويښيارتوکي برخو لړليک راخيستل",
+	"apihelp-query+gadgetcategories-example-2": "د \"foo\" او \"bar\" په نوم برخو ټول مالومات اخيستل",
+	"apihelp-query+gadgets-summary": "دې ويکي کې د کارېدونکو ويښيارتوکو لړليک راگرڅوي.",
+	"apihelp-query+gadgets-param-prop": "د کوم ويښيارتوکي مالومات راواخيستل شي:",
+	"apihelp-query+gadgets-paramvalue-prop-id": "د دننني ويښيارتوکي پېژند.",
+	"apihelp-query+gadgets-paramvalue-prop-metadata": "د ويښيارتوکي مېټااومتوک.",
+	"apihelp-query+gadgets-paramvalue-prop-desc": "د ويښيارتوکي څرگنداوی په اېچ‌ټي‌اېم‌اېل بدل شوی (کېدای شي ورو وي، یوازې هغه وخت يې وکاروئ چې ورته رښتينې اړتیا وي)."
+}
