@@ -70,7 +70,7 @@ abstract class GadgetRepo {
 		foreach ( $this->getGadgetIds() as $id ) {
 			try {
 				$gadget = $this->getGadget( $id );
-			} catch ( InvalidArgumentException $e ) {
+			} catch ( InvalidArgumentException ) {
 				continue;
 			}
 			$list[$gadget->getSection()][$gadget->getName()] = $gadget;
@@ -120,7 +120,7 @@ abstract class GadgetRepo {
 				if ( $peerGadget->getType() !== 'styles' ) {
 					$warnings[] = wfMessage( "gadgets-validate-invalidpeer", $peer );
 				}
-			} catch ( InvalidArgumentException $ex ) {
+			} catch ( InvalidArgumentException ) {
 				$warnings[] = wfMessage( "gadgets-validate-nopeer", $peer );
 			}
 		}

@@ -421,7 +421,7 @@ class SpecialGadgets extends SpecialPage {
 		$output = $this->getOutput();
 		try {
 			$g = $this->gadgetRepo->getGadget( $gadget );
-		} catch ( InvalidArgumentException $e ) {
+		} catch ( InvalidArgumentException ) {
 			$output->showErrorPage( 'error', 'gadgets-not-found', [ $gadget ] );
 			return;
 		}

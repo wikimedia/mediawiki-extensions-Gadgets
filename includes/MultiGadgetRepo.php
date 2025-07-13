@@ -51,7 +51,7 @@ class MultiGadgetRepo extends GadgetRepo {
 		foreach ( $this->repos as $repo ) {
 			try {
 				return $repo->getGadget( $id );
-			} catch ( InvalidArgumentException $e ) {
+			} catch ( InvalidArgumentException ) {
 				// Try next repo
 			}
 		}
@@ -85,7 +85,7 @@ class MultiGadgetRepo extends GadgetRepo {
 				$repo->getGadget( $id );
 				// return repo if it didn't throw
 				return $repo;
-			} catch ( InvalidArgumentException $e ) {
+			} catch ( InvalidArgumentException ) {
 			}
 		}
 		throw new InvalidArgumentException( "No repo found for gadget $id" );
@@ -122,7 +122,7 @@ class MultiGadgetRepo extends GadgetRepo {
 				} else {
 					$found = true;
 				}
-			} catch ( InvalidArgumentException $e ) {
+			} catch ( InvalidArgumentException ) {
 			}
 		}
 		return false;

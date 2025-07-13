@@ -34,7 +34,7 @@ class GadgetResourceLoaderModule extends RL\WikiModule {
 			$repo = MediaWikiServices::getInstance()->getService( 'GadgetsRepo' );
 			try {
 				$this->gadget = $repo->getGadget( $this->id );
-			} catch ( InvalidArgumentException $e ) {
+			} catch ( InvalidArgumentException ) {
 				// Fallback to a placeholder object...
 				$this->gadget = Gadget::newEmptyGadget( $this->id );
 			}

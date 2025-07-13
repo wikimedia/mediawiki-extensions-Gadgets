@@ -228,7 +228,7 @@ class Hooks implements
 		foreach ( $ids as $id ) {
 			try {
 				$gadget = $repo->getGadget( $id );
-			} catch ( InvalidArgumentException $e ) {
+			} catch ( InvalidArgumentException ) {
 				continue;
 			}
 
@@ -243,7 +243,7 @@ class Hooks implements
 						foreach ( $gadget->getPeers() as $peerName ) {
 							try {
 								$peers[] = $repo->getGadget( $peerName );
-							} catch ( InvalidArgumentException $e ) {
+							} catch ( InvalidArgumentException ) {
 								// Ignore, warning is emitted on Special:Gadgets
 							}
 						}

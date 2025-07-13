@@ -129,7 +129,7 @@ class MediaWikiGadgetsJsonRepo extends GadgetRepo {
 		try {
 			self::getGadgetId( $title );
 			return true;
-		} catch ( InvalidArgumentException $e ) {
+		} catch ( InvalidArgumentException ) {
 			return false;
 		}
 	}
