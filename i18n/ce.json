@@ -23,6 +23,7 @@
 	"gadgets-pagetext": "Бухахь гайтина гаджетийн могӀам, декъашхошна шайн [[Special:Preferences#mw-prefsection-gadgets|нисдаран гӀирсан]] тӀехь дӀахӀотто аьтто болу, [[MediaWiki:Gadgets-definition|гаджеташ билгалдохучу агӀонан]] тӀехь кхоьллина долу.\nХӀокху могӀамо аьтто бо хӀора гаджетан дийцар а, код а билгалйоккхуш йолчу системин хаамийн агӀонашна тӀекхача.",
 	"gadgets-editdescription": "Нисбе хаам",
 	"gadgets-viewdescription": "Хьажа хаам",
+	"gadgets-editsectiontitle": "Декъан цӀе хийца",
 	"gadgets-uses": "Лелош йу",
 	"gadgets-required-rights": "{{PLURAL:$2|1=Оьшуш йу бакъо|Оьшуш йу бакъонаш}}:\n\n$1.",
 	"gadgets-required-skins": "Лелош йу {{PLURAL:$2|1=«$1» теман тӀехь|рогӀерчу кечйаран темамашна тӀехь: $1}}.",
