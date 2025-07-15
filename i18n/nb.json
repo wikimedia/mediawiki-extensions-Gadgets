@@ -19,7 +19,6 @@
 	"gadgetusage-usercount": "Antall brukere",
 	"gadgetusage-noresults": "Ingen tilleggsfunksjoner funnet.",
 	"gadgetusage-intro": "Denne tabellen viser antall brukere som har slått på hver tilleggsfunksjon på denne wikien. En aktiv bruker er en som har gjort en redigering {{PLURAL:|den siste dagen|de siste $1 dagene}}. Denne listen har ikke med statistikk for tilleggsfunksjoner som er slått på som standard for alle, og kan inneholde tilleggsfunksjoner som ikke lenger er tilgjengelige.",
-	"gadgetusage-intro-noactive": "Denne tabellen viser antallet brukere som har slått på hver tilleggsfunksjon på denne wikien. Denne listen har ikke med statistikk for tilleggsfunksjoner som er slått på for alle som standard, og kan inkludere tilleggsfunksjoner som ikke lenger er tilgjengelige.",
 	"gadgetusage-activeusers": "Aktive brukere",
 	"gadgetusage-default": "Standard",
 	"gadgets-title": "Tilleggsfunksjoner",

@@ -15,7 +15,6 @@
 	"gadgetusage-usercount": "Numero de usatores",
 	"gadgetusage-noresults": "Nulle accessorio trovate.",
 	"gadgetusage-intro": "Iste tabella indica le numero de usatores que ha activate cata accessorio sur iste wiki. Un usator active es contate como un persona que ha facite un modification in le ultime {{PLURAL:$1|die|$1 dies}}. Iste lista exclude le statisticas pro le accessorios que es activate pro tote le usatores per predefinition e pote includer accessorios que non es plus disponibile.",
-	"gadgetusage-intro-noactive": "Iste tabella indica le numero de usatores que ha activate cata accessorio sur iste wiki. Iste lista exclude le statisticas pro le accessorios que es activate pro tote le usatores per predefinition e pote includer accessorios que non es plus disponibile.",
 	"gadgetusage-activeusers": "Usatores active",
 	"gadgetusage-default": "Predefinite",
 	"gadgets-title": "Gadgets",

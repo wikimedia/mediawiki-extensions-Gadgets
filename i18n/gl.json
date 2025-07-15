@@ -19,7 +19,6 @@
 	"gadgetusage-usercount": "Número de usuarios",
 	"gadgetusage-noresults": "Non se atoparon trebellos.",
 	"gadgetusage-intro": "Esta táboa indica o número de usuarios que teñen activado cada trebello neste wiki. Un usuario activo é alguén que fixo algunha edición {{PLURAL:$1|no último día|nos últimos $1 días}}. A lista non inclúe estatísticas para os trebellos activados para todos por defecto e podería incluír trebellos que xa non están dispoñibles.",
-	"gadgetusage-intro-noactive": "Esta táboa indica o número de usuarios que teñen activado cada trebello neste wiki. A lista non inclúe estatísticas para os trebellos activados para todos por defecto e podería incluír trebellos que xa non están dispoñibles.",
 	"gadgetusage-activeusers": "Usuarios activos",
 	"gadgetusage-default": "Por defecto",
 	"gadgets-title": "Trebellos",

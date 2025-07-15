@@ -18,7 +18,6 @@
 	"gadgetusage-usercount": "Số người dùng",
 	"gadgetusage-noresults": "Không tìm thấy tiện ích nào.",
 	"gadgetusage-intro": "Bảng này cung cấp thông tin về số người dùng đã kích hoạt các tiện ích trên wiki này. Người dùng tích cực là người đã thực hiện một sửa đổi {{PLURAL:$1|vào ngày qua|trong $1 ngày qua}}. Danh sách này bỏ qua thống kê về các tiện ích được kích hoạt cho mọi người theo mặc định và có thể bao gồm cả các tiện ích hiện trước đây mà hiện không còn nữa.",
-	"gadgetusage-intro-noactive": "Bảng này cho biết số người dùng mỗi tiện ích trên wiki này. Danh sách này bỏ qua các tiện ích được kích hoạt cho mọi người theo mặc định và có thể bao gồm cả các tiện ích không còn được thiết lập.",
 	"gadgetusage-activeusers": "Số thành viên tích cực",
 	"gadgetusage-default": "Mặc định",
 	"gadgets-title": "Tiện ích",

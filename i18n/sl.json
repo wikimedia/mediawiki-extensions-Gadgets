@@ -19,7 +19,6 @@
 	"gadgetusage-usercount": "Število uporabnikov",
 	"gadgetusage-noresults": "Ni najdenih pripomočkov.",
 	"gadgetusage-intro": "Ta tabela beleži število uporabnikov z vključenim posameznim pripomočkom. Kot dejaven uporabnik je označen tisti, ki je zabeležil urejanje v {{PLURAL:$1|zadnjem|zadnjima|zadnjih}} {{PLURAL:$1|dnevu|$1 dnevoma|$1 dnevih}}. Ta statistika ne vključuje pripomočkov, ki so za vse vključeni privzeto, možno pa je, da vključuje nekatere, ki niso več na voljo.",
-	"gadgetusage-intro-noactive": "Ta tabela beleži število uporabnikov z vključenim posameznim pripomočkom. Ta statistika ne vključuje pripomočkov, ki so za vse vključeni privzeto, lahko pa vključuje nekatere, ki niso več na voljo.",
 	"gadgetusage-activeusers": "Dejavni uporabniki",
 	"gadgetusage-default": "Privzeto",
 	"gadgets-title": "Pripomočki",

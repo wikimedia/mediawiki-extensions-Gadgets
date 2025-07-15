@@ -26,7 +26,6 @@
 	"gadgetusage-usercount": "Liczba użytkowników",
 	"gadgetusage-noresults": "Nie znaleziono gadżetów.",
 	"gadgetusage-intro": "Ten wykaz przedstawia liczbę użytkowników, którzy aktywowali poszczególne gadżety w tej wiki. Użytkownik aktywny to taki, który wykonał edycję w ciągu {{PLURAL:$1|ostatniego dnia|ostatnich $1 dni}}. Lista nie zawiera statystyk gadżetów aktywowanych domyślnie dla wszystkich i może uwzględniać gadżety, które już nie są dostępne.",
-	"gadgetusage-intro-noactive": "Ten wykaz przedstawia liczbę użytkowników, którzy aktywowali poszczególne gadżety w tej wiki. Ta lista nie zawiera statystyk gadżetów włączonych domyślnie dla każdego oraz może zawierać gadżety, które nie są już dłużej dostępne.",
 	"gadgetusage-activeusers": "Użytkownicy aktywni",
 	"gadgetusage-default": "Domyślny",
 	"gadgets-title": "Gadżety",

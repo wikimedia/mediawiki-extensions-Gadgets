@@ -27,7 +27,6 @@
 	"gadgetusage-usercount": "Aantal gebruikers",
 	"gadgetusage-noresults": "Geen gadgets gevonden.",
 	"gadgetusage-intro": "Deze tabel geeft het aantal van de gebruikers weer die op deze wiki een bepaalde gadget geactiveerd hebben. Een actieve gebruiker is iemand die in de afgelopen {{PLURAL:$1|dag|$1 dagen}} een bewerking heeft gemaakt. Niet opgenomen in deze lijst zijn statistieken voor gadgets die standaard voor iedereen zijn ingeschakeld. Ook kunnen er gadgets in de lijst staan die niet langer beschikbaar zijn.",
-	"gadgetusage-intro-noactive": "In deze tabel wordt voor iedere gadget het aantal van de gebruikers aangegeven die deze hebben ingeschakeld. De voor alle gebruikers standaard ingeschakelde gadgets zijn niet in deze lijst opgenomen. Ook kunnen er gadgets in de lijst staan die niet langer beschikbaar zijn.",
 	"gadgetusage-activeusers": "Actieve gebruikers",
 	"gadgetusage-default": "Standaard",
 	"gadgets-title": "Gadgets",

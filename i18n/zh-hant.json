@@ -38,7 +38,6 @@
 	"gadgetusage-usercount": "使用者數量",
 	"gadgetusage-noresults": "找不到小工具。",
 	"gadgetusage-intro": "此表格說明此wiki上啟用個別小工具的用戶數量。在過去{{PLURAL:$1|一日|$1日}}曾作出編輯的用戶會被視為活躍。此列表不包括預設所有人都啟用的小工具，部份小工具亦可能已不再可用。",
-	"gadgetusage-intro-noactive": "此表格表明出使用者在此 wiki 所啟用的各小工具數目。這排除了按預設為所有人啟用的小工具之統計內容，並可能包含不再可用的小工具。",
 	"gadgetusage-activeusers": "活動使用者",
 	"gadgetusage-default": "預設",
 	"gadgets-title": "小工具",

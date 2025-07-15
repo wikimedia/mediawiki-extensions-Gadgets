@@ -16,7 +16,6 @@
 	"gadgetusage-usercount": "Kasutajaid",
 	"gadgetusage-noresults": "Tööriistu ei leidu.",
 	"gadgetusage-intro": "Siin tabelis on näidatud, mitu kasutajat selles vikis igat tööriista kasutab. Aktiivseks kasutajaks loetakse kasutajat, kes on teinud viimase {{PLURAL:$1|päeva|$1 päeva}} jooksul mõne muudatuse. Siit on välja jäetud tööriistad, mis on kõigil vaikimisi sisse lülitatud. Siin võib olla ära toodud tööriistu, mis pole enam kasutuses.",
-	"gadgetusage-intro-noactive": "Siin tabelis on näidatud, mitu kasutajat selles vikis igat tööriista kasutab. Siit on välja jäetud tööriistad, mis on kõigil vaikimisi sisse lülitatud. Siin võib olla ära toodud tööriistu, mis pole enam kasutuses.",
 	"gadgetusage-activeusers": "Aktiivseid kasutajaid",
 	"gadgetusage-default": "Vaikimisi",
 	"gadgets-title": "Tööriistad",

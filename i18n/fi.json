@@ -22,7 +22,6 @@
 	"gadgetusage-usercount": "Käyttäjien määrä",
 	"gadgetusage-noresults": "Pienoishjelmia ei löytynyt.",
 	"gadgetusage-intro": "Tämä taulukko kertoo jokaisen tämän wikin pienoisohjelman käyttäjämäärän. Aktiiviseksi käyttäjäksi lasketaan sellainen, joka on muokannut viimeisen {{PLURAL:$1|päivän|$1 päivän}} aikana. Tämä luettelo ei sisällä kaikilla oletuksena käytössä olevia pienoisohjelmia ja saattaa sisältää pienoisohjelmia, jotka eivät enää ole käytössä.",
-	"gadgetusage-intro-noactive": "Tämä taulukko kertoo jokaisen tämän wikin pienoisohjelman käyttäjämäärän. Tämä luettelo ei sisällä kaikilla oletuksena käytössä olevia pienoisohjelmia ja saattaa sisältää pienoisohjelmia, jotka eivät enää ole käytössä.",
 	"gadgetusage-activeusers": "Aktiiviset käyttäjät",
 	"gadgetusage-default": "Oletus",
 	"gadgets-title": "Pienoisohjelmat",
