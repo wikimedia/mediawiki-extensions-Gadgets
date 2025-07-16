@@ -79,12 +79,22 @@
 			]
 		},
 		"GadgetCodeEditorHooks": {
-			"class": "MediaWiki\\Extension\\Gadgets\\CodeEditorHooks"
+			"class": "MediaWiki\\Extension\\Gadgets\\CodeEditorHooks",
+			"services": [
+				"MainConfig"
+			]
+		},
+		"GadgetCodeMirrorHooks": {
+			"class": "MediaWiki\\Extension\\Gadgets\\CodeMirrorHooks",
+			"services": [
+				"MainConfig"
+			]
 		}
 	},
 	"Hooks": {
 		"BeforePageDisplay": "GadgetHooks",
 		"CodeEditorGetPageLanguage": "GadgetCodeEditorHooks",
+		"CodeMirrorGetMode": "GadgetCodeMirrorHooks",
 		"ContentHandlerDefaultModelFor": "GadgetHooks",
 		"UserGetDefaultOptions": "GadgetHooks",
 		"GetPreferences": "GadgetHooks",
@@ -113,6 +123,14 @@
 	"config": {
 		"GadgetsRepo": {
 			"value": "definition"
+		},
+		"GadgetsDefinitionsUseCodeEditor": {
+			"value": true,
+			"description": "Use CodeEditor for editing gadget definitions."
+		},
+		"GadgetsDefinitionsUseCodeMirror": {
+			"value": false,
+			"description": "Use CodeMirror for editing gadget definitions."
 		}
 	},
 	"manifest_version": 2
