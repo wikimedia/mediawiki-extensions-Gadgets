@@ -33,6 +33,8 @@
 	"gadgets-pagetext": "Hieronder staan de speciale toebehoren (''gadgets'') die gebruikers via hun [[Special:Preferences#mw-prefsection-gadgets|voorkeuren]] kunnen inschakelen, zoals vastgelegd in de [[MediaWiki:Gadgets-definition|definities]].\nIn dit overzicht kunt u voor elke gadget eenvoudig de systeembericht-pagina vinden met de beschrijving en de programmacode ervan.",
 	"gadgets-editdescription": "Beschrijving bewerken",
 	"gadgets-viewdescription": "Beschrijving bekijken",
+	"gadgets-editsectiontitle": "Sectietitel bewerken",
+	"gadgets-viewsectiontitle": "Sectietitel bekijken",
 	"gadgets-uses": "Gebruikt",
 	"gadgets-required-rights": "{{PLURAL:$2|Het volgende recht is|De volgende rechten zijn}} vereist: $1.",
 	"gadgets-required-skins": "Beschikbaar voor de {{PLURAL:$2|vormgeving $1|volgende vormgevingen: $1}}.",
