@@ -45,15 +45,12 @@ class ApiQueryGadgets extends ApiQueryBase {
 
 	private bool $listEnabled;
 
-	private GadgetRepo $gadgetRepo;
-
 	public function __construct(
 		ApiQuery $queryModule,
 		string $moduleName,
-		GadgetRepo $gadgetRepo
+		private readonly GadgetRepo $gadgetRepo,
 	) {
 		parent::__construct( $queryModule, $moduleName, 'ga' );
-		$this->gadgetRepo = $gadgetRepo;
 	}
 
 	public function execute() {

@@ -40,19 +40,12 @@ use MediaWiki\Title\Title;
  * @copyright 2007 Daniel Kinzler
  */
 class SpecialGadgets extends SpecialPage {
-	private Language $contentLanguage;
-	private GadgetRepo $gadgetRepo;
-	private SkinFactory $skinFactory;
-
 	public function __construct(
-		Language $contentLanguage,
-		GadgetRepo $gadgetRepo,
-		SkinFactory $skinFactory
+		private readonly Language $contentLanguage,
+		private readonly GadgetRepo $gadgetRepo,
+		private readonly SkinFactory $skinFactory,
 	) {
 		parent::__construct( 'Gadgets' );
-		$this->contentLanguage = $contentLanguage;
-		$this->gadgetRepo = $gadgetRepo;
-		$this->skinFactory = $skinFactory;
 	}
 
 	/**

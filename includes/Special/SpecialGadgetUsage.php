@@ -39,13 +39,11 @@ use Wikimedia\Rdbms\LikeValue;
  * @copyright 2015 Niharika Kohli
  */
 class SpecialGadgetUsage extends QueryPage {
-	private GadgetRepo $gadgetRepo;
-	private IConnectionProvider $dbProvider;
-
-	public function __construct( GadgetRepo $gadgetRepo, IConnectionProvider $dbProvider ) {
+	public function __construct(
+		private readonly GadgetRepo $gadgetRepo,
+		private readonly IConnectionProvider $dbProvider,
+	) {
 		parent::__construct( 'GadgetUsage' );
-		$this->gadgetRepo = $gadgetRepo;
-		$this->dbProvider = $dbProvider;
 		// Show all gadgets
 		$this->limit = 1000;
 		$this->shownavigation = false;

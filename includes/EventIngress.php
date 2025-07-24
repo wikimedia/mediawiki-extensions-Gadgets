@@ -12,12 +12,9 @@ use MediaWiki\Title\TitleValue;
  * by MediaWiki core.
  */
 class EventIngress extends DomainEventIngress {
-	private GadgetRepo $gadgetRepo;
-
 	public function __construct(
-		GadgetRepo $gadgetRepo
+		private readonly GadgetRepo $gadgetRepo,
 	) {
-		$this->gadgetRepo = $gadgetRepo;
 	}
 
 	/**

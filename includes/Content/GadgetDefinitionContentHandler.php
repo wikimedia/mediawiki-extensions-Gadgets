@@ -33,11 +33,11 @@ use MediaWiki\Title\Title;
 use StatusValue;
 
 class GadgetDefinitionContentHandler extends JsonContentHandler {
-	private GadgetRepo $gadgetRepo;
-
-	public function __construct( string $modelId, GadgetRepo $gadgetRepo ) {
+	public function __construct(
+		string $modelId,
+		private readonly GadgetRepo $gadgetRepo,
+	) {
 		parent::__construct( $modelId );
-		$this->gadgetRepo = $gadgetRepo;
 	}
 
 	/**

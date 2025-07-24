@@ -66,15 +66,10 @@ class Hooks implements
 	DeleteUnknownPreferencesHook,
 	GetUserPermissionsErrorsHook
 {
-	private GadgetRepo $gadgetRepo;
-	private UserOptionsLookup $userOptionsLookup;
-
 	public function __construct(
-		GadgetRepo $gadgetRepo,
-		UserOptionsLookup $userOptionsLookup
+		private readonly GadgetRepo $gadgetRepo,
+		private readonly UserOptionsLookup $userOptionsLookup,
 	) {
-		$this->gadgetRepo = $gadgetRepo;
-		$this->userOptionsLookup = $userOptionsLookup;
 	}
 
 	/**

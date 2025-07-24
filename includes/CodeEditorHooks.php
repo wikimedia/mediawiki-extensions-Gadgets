@@ -11,7 +11,7 @@ use MediaWiki\Title\Title;
  */
 class CodeEditorHooks implements CodeEditorGetPageLanguageHook {
 
-	private bool $useCodeEditor;
+	private readonly bool $useCodeEditor;
 
 	public function __construct(
 		Config $config

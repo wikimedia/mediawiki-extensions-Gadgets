@@ -12,7 +12,7 @@ use MediaWiki\Title\Title;
  */
 class CodeMirrorHooks implements CodeMirrorGetModeHook {
 
-	private bool $useCodeMirror;
+	private readonly bool $useCodeMirror;
 
 	public function __construct( Config $config ) {
 		$this->useCodeMirror = $config->get( 'ScribuntoUseCodeMirror' );

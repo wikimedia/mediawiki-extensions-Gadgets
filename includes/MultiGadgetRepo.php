@@ -33,15 +33,9 @@ use MediaWiki\Title\Title;
 class MultiGadgetRepo extends GadgetRepo {
 
 	/**
-	 * @var GadgetRepo[]
-	 */
-	private array $repos;
-
-	/**
 	 * @param GadgetRepo[] $repos
 	 */
-	public function __construct( array $repos ) {
-		$this->repos = $repos;
+	public function __construct( private readonly array $repos ) {
 	}
 
 	/**
