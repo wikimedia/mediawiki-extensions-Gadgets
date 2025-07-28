@@ -43,6 +43,7 @@
 	"gadgets-validate-notset": "Својството <code>$1</code> не е зададено.",
 	"gadgets-validate-wrongtype": "Својството <code>$1</code> мора да биде од типот <code>$2</code>.",
 	"gadgets-validate-json": "Има укажано JSON-податотеки кои не се користат. Тие важат само во пакувани алатки.",
+	"gadgets-validate-icons": "Иконите Codex може да се вклучат само во спакувани алатки.",
 	"gadgets-validate-es6default": "Алатките што бараат ES6 не може да се овозможат по основно.",
 	"gadgets-validate-noentrypoint": "Ознаката на пакетот е занемарена бидејќи нема укажано податотеки за скрипта.",
 	"gadgets-validate-noscripts": "Скриптите се занемарени бидејќи алаткава го задава <code>type=styles</code>.",

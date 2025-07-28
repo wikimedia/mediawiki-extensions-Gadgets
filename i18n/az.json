@@ -49,6 +49,7 @@
 	"gadgets-validate-notset": "<code>$1</code> parametri təyin olunmayıb.",
 	"gadgets-validate-wrongtype": "<code>$1</code> parametrinin tipi <code>$2</code> olmalıdır.",
 	"gadgets-validate-json": "JSON faylları göstərilib, lakin istifadə edilmir. Onlar yalnız paketləşdirilmiş qadcetlərdə etibarlıdır.",
+	"gadgets-validate-icons": "Codex ikonaları yalnız paketlənmiş qadcetlərə daxil edilə bilər.",
 	"gadgets-validate-es6default": "ES6 tələb edən qadcetlər defolt olaraq aktiv edilə bilməz.",
 	"gadgets-validate-noentrypoint": "Heç bir skript faylı göstərilmədiyi üçün paket bayrağı nəzərə alınmadı.",
 	"gadgets-validate-noscripts": "Skriptlər rədd edildi, çünki bu qadcet <code>type=styles</code> təyin edir.",

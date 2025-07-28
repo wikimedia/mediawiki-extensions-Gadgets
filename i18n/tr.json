@@ -59,6 +59,7 @@
 	"gadgets-validate-notset": "<code>$1</code> özelliği ayarlanmadı.",
 	"gadgets-validate-wrongtype": "<code>$1</code> özelliği, <code>$2</code> türünde olmalıdır.",
 	"gadgets-validate-json": "JSON dosyaları belirtilmiş ancak kullanılmıyor. Sadece paketlenmiş küçük araçlarda geçerlidir.",
+	"gadgets-validate-icons": "Codex simgeleri yalnızca paketlenmiş küçük araçlara eklenebilir.",
 	"gadgets-validate-es6default": "ES6 gerektiren küçük araçlar varsayılan olarak etkinleştirilemez.",
 	"gadgets-validate-noentrypoint": "Hiçbir betik dosyası belirtilmediğinden paket bayrağı yoksayıldı.",
 	"gadgets-validate-noscripts": "Betikler yok sayıldı, çünkü bu küçük araç <code>type=styles</code> ayarlıyor.",
