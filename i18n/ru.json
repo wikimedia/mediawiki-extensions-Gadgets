@@ -21,6 +21,7 @@
 			"UniCollab",
 			"VasilievVV",
 			"Vlad5250",
+			"Vonavy",
 			"WindEwriX",
 			"Александр Сигачёв",
 			"Лилиә"
@@ -43,6 +44,8 @@
 	"gadgets-pagetext": "Ниже приведён список гаджетов, которые участники могут включить в своих [[Special:Preferences#mw-prefsection-gadgets|настройках]], составленный на основе [[MediaWiki:Gadgets-definition|страницы определений гаджетов]].\nЭтот список позволяет легко перейти к страницам системных сообщений, определяющих описания и исходный код гаджетов.",
 	"gadgets-editdescription": "Править описание",
 	"gadgets-viewdescription": "Просмотр описания",
+	"gadgets-editsectiontitle": "Править заголовок раздела",
+	"gadgets-viewsectiontitle": "Просмотреть заголовок раздела",
 	"gadgets-uses": "Использует",
 	"gadgets-required-rights": "{{PLURAL:$2|1=Требуется право|Требуются права}}:\n\n$1",
 	"gadgets-required-skins": "Доступен в {{PLURAL:$2|1=теме оформления «$1»|следующих темах оформления: $1}}.",
@@ -62,6 +65,7 @@
 	"gadgets-validate-notset": "Свойство <code>$1</code> не установлено.",
 	"gadgets-validate-wrongtype": "Свойство <code>$1</code> должно иметь тип <code>$2</code>.",
 	"gadgets-validate-json": "JSON-файлы указаны, но не используются. Они могут использоваться только в упакованных гаджетах.",
+	"gadgets-validate-icons": "Иконки Codex могут быть включены только в упакованные гаджеты.",
 	"gadgets-validate-es6default": "Гаджеты, требующие ES6, не могут быть включены по умолчанию.",
 	"gadgets-validate-noentrypoint": "Флаг упакованного гаджета проигнорирован, так как не указано файлов скриптов.",
 	"gadgets-validate-noscripts": "Скрипты проигнорированы, так как у этого гаджета указан <code>type=styles</code>.",
@@ -81,5 +85,8 @@
 	"gadgets-validate-unknownpages": "Содержит одну или больше страниц без суффиксов .js, .css или .json. Они не будут использованы.",
 	"gadgets-validate-duplicate": "Найдено повторное определение гаджета $1, оно будет проигнорировано.",
 	"gadgets-validate-nopage": "Страница «$1» не существует.",
-	"gadgets-supports-urlload": "Гаджет поддерживает загрузку с использованием параметра <code>?withgadget</code> в URL."
+	"gadgets-validate-invaliddependencies": "{{PLURAL:$2|Отсутствует зависимость|Отсутствуют следующие зависимости}}: $1",
+	"gadgets-validate-deprecateddependencies": "{{PLURAL:$2|Зависимость устарела|Следующие зависимости устарели}}: $1",
+	"gadgets-supports-urlload": "Гаджет поддерживает загрузку с использованием параметра <code>?withgadget</code> в URL.",
+	"gadgets-hidden": "Этот гаджет [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden скрыт]. Это означает, что он не будет отображаться на странице настроек."
 }
