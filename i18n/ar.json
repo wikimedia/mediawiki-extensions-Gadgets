@@ -52,6 +52,7 @@
 	"gadgets-validate-notset": "الخاصية <code>$1</code> ليست مضبوطة.",
 	"gadgets-validate-wrongtype": "يجب أن يكون العقار <code>$1</code> من نوع <code>$2</code>.",
 	"gadgets-validate-json": "تم تحديد ملفات JSON ولكنها غير مستخدمة. وهي صالحة فقط في الأدوات المعبأة.",
+	"gadgets-validate-icons": "لا يمكن تضمين أيقونات Codex إلا في الأدوات المجمعة.",
 	"gadgets-validate-es6default": "لا يمكن تمكين الأدوات التي تتطلب ES6 بشكل افتراضي.",
 	"gadgets-validate-noentrypoint": "تم تجاهل علم الحزمة بسبب عدم تحديد ملفات نصية.",
 	"gadgets-validate-noscripts": "يتم تجاهل البرامج النصية، لأن هذه الأداة تحدد <code>type=styles</code>.",
