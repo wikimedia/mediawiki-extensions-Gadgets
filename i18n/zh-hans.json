@@ -24,6 +24,7 @@
 			"Tiger",
 			"Xiaomingyan",
 			"Yfdyh000",
+			"優枰",
 			"列维劳德",
 			"孟天皓",
 			"御坂美琴",
@@ -92,5 +93,5 @@
 	"gadgets-validate-invaliddependencies": "缺少以下{{PLURAL:$2|依赖}}：$1。",
 	"gadgets-validate-deprecateddependencies": "以下{{PLURAL:$2|依赖}}已弃用：$1。",
 	"gadgets-supports-urlload": "此小工具支持通过包含<code>?withgadget</code>查询的URL来加载。",
-	"gadgets-hidden": "这个小工具已[https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden 隐藏]，将不会在参数设置页面上显示。"
+	"gadgets-hidden": "此小工具已[https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden 隐藏]，不会显示于参数设置页面。"
 }
