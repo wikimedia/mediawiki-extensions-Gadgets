@@ -4,7 +4,8 @@
 			"Dirruw'o",
 			"Okras",
 			"Putnik",
-			"Vlad5250"
+			"Vlad5250",
+			"Vonavy"
 		]
 	},
 	"apihelp-query+gadgetcategories-summary": "Возвращает список категорий гаджетов.",
@@ -14,6 +15,9 @@
 	"apihelp-query+gadgetcategories-example-2": "Получить всю информацию о категориях с названиями «Foo» и «Bar»",
 	"apihelp-query+gadgets-summary": "Возвращает список гаджетов, используемых в этой вики.",
 	"apihelp-query+gadgets-param-prop": "Какую информацию о гаджете получить:",
+	"apihelp-query+gadgets-paramvalue-prop-id": "Внутренний идентификатор гаджета.",
+	"apihelp-query+gadgets-paramvalue-prop-metadata": "Метаданные гаджета.",
+	"apihelp-query+gadgets-paramvalue-prop-desc": "Описание гаджета, преобразованое в HTML (может быть медленным, используйте только при крайней необходимости).",
 	"apihelp-query+gadgets-param-categories": "Гаджеты из каких категорий получать.",
 	"apihelp-query+gadgets-param-ids": "Идентификаторы гаджетов для получения.",
 	"apihelp-query+gadgets-param-allowedonly": "Перечислить только гаджеты, разрешённые текущему участнику.",
