@@ -23,7 +23,8 @@
 			"Vlad5250",
 			"WindEwriX",
 			"Александр Сигачёв",
-			"Лилиә"
+			"Лилиә",
+			"Vonavy"
 		]
 	},
 	"gadgets-desc": "Позволяет участникам выбирать в своих [[Special:Preferences#mw-prefsection-gadgets|настройках]] те или иные [[Special:Gadgets|CSS- и JavaScript-гаджеты]]",
@@ -82,5 +83,8 @@
 	"gadgets-validate-unknownpages": "Содержит одну или больше страниц без суффиксов .js, .css или .json. Они не будут использованы.",
 	"gadgets-validate-duplicate": "Найдено повторное определение гаджета $1, оно будет проигнорировано.",
 	"gadgets-validate-nopage": "Страница «$1» не существует.",
-	"gadgets-supports-urlload": "Гаджет поддерживает загрузку с использованием параметра <code>?withgadget</code> в URL."
+	"gadgets-validate-invaliddependencies": "{{PLURAL:$2|Отсутствует зависимость|Отсутствуют следующие зависимости}}: $1",
+	"gadgets-validate-deprecateddependencies": "{{PLURAL:$2|Зависимость устарела|Следующие зависимости устарели}}: $1",
+	"gadgets-supports-urlload": "Гаджет поддерживает загрузку с использованием параметра <code>?withgadget</code> в URL.",
+	"gadgets-hidden": "Этот гаджет [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden скрыт]. Это означает, что он не будет отображаться на странице настроек."
 }
