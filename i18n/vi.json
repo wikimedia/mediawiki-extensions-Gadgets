@@ -65,7 +65,7 @@
 	"gadgets-validate-duplicate": "Một định nghĩa thứ hai của tiện ích $1 đã được phát hiện và sẽ bị bỏ qua",
 	"gadgets-validate-nopage": "Trang “$1” không tồn tại.",
 	"gadgets-validate-invaliddependencies": "{{PLURAL:$2|}}Dependency sau đây bị thiếu: $1.",
-	"gadgets-validate-deprecateddependencies": "{{PLURAL:$2|}}Dependency sau đây đã lỗi thời: $1.",
+	"gadgets-validate-deprecateddependencies": "{{PLURAL:$2|}}Dependency sau đây không còn được sử dụng: $1.",
 	"gadgets-supports-urlload": "Có thể tải tiện ích này bằng cách thêm tham số truy vấn <code>?withgadget</code> vào URL.",
 	"gadgets-hidden": "Tiện ích này [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden bị ẩn], nghĩa là nó sẽ không hiển thị trên trang tùy chọn."
 }
