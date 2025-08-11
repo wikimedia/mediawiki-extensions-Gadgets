@@ -21,7 +21,7 @@
 	"gadgetusage-activeusers": "Dejavni uporabniki",
 	"gadgetusage-default": "Privzeto",
 	"gadgets-title": "Pripomočki",
-	"gadgets-pagetext": "Spodaj je seznam posebnih pripomočkov (opisanih z [[MediaWiki:Gadgets-definition|opredelitvami]]), ki jih lahko uporabniki vključijo v svojih [[Special:Preferences#mw-prefsection-gadgets|nastavitvah]].\nTa pregled omogoča preprost dostop do sistema za dolocitev opisa in kode posameznih pripomočkov.",
+	"gadgets-pagetext": "Spodaj je seznam posebnih pripomočkov (opisanih z [[MediaWiki:Gadgets-definition|opredelitvami]]), ki jih lahko uporabniki vključijo v svojih [[Special:Preferences#mw-prefsection-gadgets|nastavitvah]].\nTa pregled omogoča preprost dostop do sistema za določitev opisa in kode posameznih pripomočkov.",
 	"gadgets-editdescription": "Uredi opis",
 	"gadgets-viewdescription": "Ogled opisa",
 	"gadgets-uses": "Uporablja",
