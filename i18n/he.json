@@ -46,6 +46,7 @@
 	"gadgets-validate-notset": "המאפיין <code>$1</code> אינו מוגדר.",
 	"gadgets-validate-wrongtype": "המאפיין <code>$1</code> צריך להיות מסוג <code>$2</code>.",
 	"gadgets-validate-json": "קובצי JSON צוינו אך אינם בשימוש. הם תקפים רק בגאדג'טים ארוזים בחבילות.",
+	"gadgets-validate-icons": "ניתן לכלול סמלי קודקס רק בגאדג'טים ארוזים בחבילה.",
 	"gadgets-validate-es6default": "לא ניתן להפעיל גאדג'טים הדורשים ES6 כברירת מחדל.",
 	"gadgets-validate-noentrypoint": "לדגל Package לא הייתה השפעה מכיוון שלא צוינו קובצי סקריפט.",
 	"gadgets-validate-noscripts": "לסקריפטים לא הייתה השפעה כי הגאדג'ט הזה מגדיר <code>type=styles</code>.",
