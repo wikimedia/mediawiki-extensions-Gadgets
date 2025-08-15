@@ -10,11 +10,6 @@ use MediaWiki\Title\Title;
 
 abstract class GadgetRepo {
 
-	/**
-	 * @var GadgetRepo|null
-	 */
-	private static $instance;
-
 	/** @internal */
 	public const RESOURCE_TITLE_PREFIX = 'MediaWiki:Gadget-';
 
