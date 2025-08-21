@@ -7,6 +7,7 @@ use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
 use MediaWiki\Title\Title;
+use Wikimedia\Message\ListType;
 
 abstract class GadgetRepo {
 
@@ -237,7 +238,7 @@ abstract class GadgetRepo {
 		}
 		if ( $invalidEntries ) {
 			$warnings[] = wfMessage( $message,
-				Message::listParam( $invalidEntries, 'comma' ),
+				Message::listParam( $invalidEntries, ListType::COMMA ),
 				count( $invalidEntries ) );
 		}
 	}
