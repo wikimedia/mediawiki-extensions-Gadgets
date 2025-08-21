@@ -67,5 +67,5 @@
 	"gadgets-validate-invaliddependencies": "{{PLURAL:$2|}}Dependency sau đây bị thiếu: $1.",
 	"gadgets-validate-deprecateddependencies": "{{PLURAL:$2|}}Dependency sau đây không còn được sử dụng: $1.",
 	"gadgets-supports-urlload": "Có thể tải tiện ích này bằng cách thêm tham số truy vấn <code>?withgadget</code> vào URL.",
-	"gadgets-hidden": "Tiện ích này [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden bị ẩn], nghĩa là nó sẽ không hiển thị trên trang tùy chọn."
+	"gadgets-hidden": "Tiện ích này hiện không hiển thị trên trang tùy chọn vì nó đã [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden bị ẩn]."
 }
