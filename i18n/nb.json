@@ -25,6 +25,8 @@
 	"gadgets-pagetext": "Nedenfor er en liste over tilleggsfunksjoner brukere kan slå på i [[Special:Preferences#mw-prefsection-gadgets|innstillingene]], som definert på [[MediaWiki:Gadgets-definition]]. Denne oversikten gir lett tilgang til systembeskjedsidene som definerer hvert verktøys beskrivelse og kode.",
 	"gadgets-editdescription": "Rediger beskrivelse",
 	"gadgets-viewdescription": "Vis beskrivelse",
+	"gadgets-editsectiontitle": "Rediger seksjonstittel",
+	"gadgets-viewsectiontitle": "Vis seksjonstittel",
 	"gadgets-uses": "Bruk",
 	"gadgets-required-rights": "Krever følgende {{PLURAL:$2|rettighet|rettigheter}}: $1.",
 	"gadgets-required-skins": "Tilgjengelig i {{PLURAL:$2|drakta $1|følgende drakter: $1}}.",
@@ -44,6 +46,7 @@
 	"gadgets-validate-notset": "Egenskapen <code>$1</code> er ikke satt.",
 	"gadgets-validate-wrongtype": "Egenskapen <code>$1</code> må være av typen <code>$2</code>.",
 	"gadgets-validate-json": "JSON-filer er angitt, men brukes ikke. De er kun gyldige i pakketilleggsfunksjoner.",
+	"gadgets-validate-icons": "Codex-ikoner kan kun inkluderes i pakkede tilleggsfunksjoner.",
 	"gadgets-validate-es6default": "Tilleggsfunksjoner som krever ES6 kan ikke aktiveres som standard",
 	"gadgets-validate-noentrypoint": "Pakkeflagg ignoreres siden ingen skriptfiler er angitt.",
 	"gadgets-validate-noscripts": "Skript ignoreres fordi denne tilleggsfunksjonen settec <code>type=styles</code>.",
@@ -63,6 +66,8 @@
 	"gadgets-validate-unknownpages": "Inneholder én eller flere sider uten .js-, .css- eller .json-filendelse. Den/de vil ikke bli brukt.",
 	"gadgets-validate-duplicate": "En annen definisjon av tilleggsfunksjonen $1 ble oppdaget, og skal ignoreres",
 	"gadgets-validate-nopage": "Siden «$1» finnes ikke.",
+	"gadgets-validate-invaliddependencies": "Følgende {{PLURAL:$2|avhengighet|avhengigheter}} mangler: $1.",
+	"gadgets-validate-deprecateddependencies": "Følgende {{PLURAL:$2|avhengighet er utdatert|avhengigheter er utdaterte}}: $1.",
 	"gadgets-supports-urlload": "Denne tilleggsfunksjonen støtter lasting via URL med URL-parameteren <code>?withgadget</code>.",
 	"gadgets-hidden": "Denne tillggsfunksjonen er [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden skjult], noe som betyr at den ikke blir vist på innstillingssiden."
 }
