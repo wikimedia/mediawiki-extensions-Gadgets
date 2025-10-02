@@ -32,6 +32,7 @@
 	"gadgets-pagetext": "Poniżej znajduje się lista specjalnych gadżetów, które użytkownicy mogą włączyć na swojej [[Special:Preferences#mw-prefsection-gadgets|stronie preferencji]]. Lista ta jest zdefiniowana na stronie [[MediaWiki:Gadgets-definition|definicji]].\nPoniższy przegląd ułatwia dostęp do komunikatów systemu, które definiują opis i kod każdego z gadżetów.",
 	"gadgets-editdescription": "Edytuj opis",
 	"gadgets-viewdescription": "Pokaż opis",
+	"gadgets-editsectiontitle": "Edytuj tytuł sekcji",
 	"gadgets-uses": "Używa",
 	"gadgets-required-rights": "Wymaga {{PLURAL:$2|uprawnienia|następujących uprawnień:}} $1",
 	"gadgets-required-skins": "Działa wyłącznie na {{PLURAL:$2|skórce $1|skórkach: $1}}.",
