@@ -173,9 +173,9 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 		}
 
 		if ( !$cpoParams->getGenerateHtml() || !$content->isValid() ) {
-			$parserOutput->setText( '' );
+			$parserOutput->setContentHolderText( '' );
 		} else {
-			$parserOutput->setText( $content->rootValueTable( $data ) );
+			$parserOutput->setContentHolderText( $content->rootValueTable( $data ) );
 			$parserOutput->addModuleStyles( [ 'mediawiki.content.json' ] );
 		}
 	}
