@@ -122,15 +122,16 @@
 	],
 	"config": {
 		"GadgetsRepo": {
-			"value": "definition"
+			"value": "definition",
+			"description": "When set to `definition`, gadgets are managed via MediaWiki:Gadgets-definition. When set to `json`, they're managed via JSON subpages of MediaWiki:Gadgets/. It can also be set to `json+definition` to allow both, enabling migration from one to the other."
 		},
 		"GadgetsDefinitionsUseCodeEditor": {
 			"value": true,
-			"description": "Use CodeEditor for editing gadget definitions."
+			"description": "Use CodeEditor for editing JSON gadget definition pages."
 		},
 		"GadgetsDefinitionsUseCodeMirror": {
 			"value": false,
-			"description": "Use CodeMirror for editing gadget definitions."
+			"description": "Use CodeMirror for editing JSON gadget definition pages."
 		}
 	},
 	"manifest_version": 2
