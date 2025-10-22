@@ -156,6 +156,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 				'peers' => $g->getPeers(),
 				'scripts' => $g->getScripts(),
 				'styles' => $g->getStyles(),
+				'vues' => $g->getVues(),
 			]
 		];
 	}
@@ -175,6 +176,7 @@ class ApiQueryGadgets extends ApiQueryBase {
 			'scripts' => 'script',
 			'skins' => 'skin',
 			'styles' => 'style',
+			'vues' => 'vue',
 		];
 
 		foreach ( $metadata as $data ) {
