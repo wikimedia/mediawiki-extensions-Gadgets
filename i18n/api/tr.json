@@ -3,7 +3,8 @@
 		"authors": [
 			"Arystanbek",
 			"BaRaN6161 TURK",
-			"MuratTheTurkish"
+			"MuratTheTurkish",
+			"SaldırganSincap"
 		]
 	},
 	"apihelp-query+gadgetcategories-summary": "Küçük araç kategorilerinin bir listesini döndürür.",
@@ -12,7 +13,7 @@
 	"apihelp-query+gadgetcategories-example-1": "Mevcut küçük araç kategorilerinin bir listesini alın",
 	"apihelp-query+gadgetcategories-example-2": "\"foo\" ve \"bar\" adlı kategoriler hakkında tüm bilgileri alın",
 	"apihelp-query+gadgets-summary": "Bu vikide kullanılan küçük araçlarını bir listesini döndürür.",
-	"apihelp-query+gadgets-param-prop": "Küçük aracı bilgilerini alacaksınız:\n;id:İç küçük aracı kimliği.\n;meta:Küçük araç meta verisi.\n;desc:Küçük aracı açıklama HTML'si (yavaş olabilir, gerçekten gerekirse yalnızca kullanmak olabilir) dönüştü.",
+	"apihelp-query+gadgets-param-prop": "Hangi küçük araç bilgilerini edinecek:",
 	"apihelp-query+gadgets-param-categories": "Kategorilerden alınacak küçük araçlar.",
 	"apihelp-query+gadgets-param-ids": "Alınacak küçük araçların kimlikleri.",
 	"apihelp-query+gadgets-param-allowedonly": "Yalnızca mevcut kullanıcıya izin verilen küçük araçları listeleyin.",
