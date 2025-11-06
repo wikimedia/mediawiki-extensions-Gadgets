@@ -95,7 +95,6 @@
 		"BeforePageDisplay": "GadgetHooks",
 		"CodeEditorGetPageLanguage": "GadgetCodeEditorHooks",
 		"CodeMirrorGetMode": "GadgetCodeMirrorHooks",
-		"OutputPageBeforeHTML": "GadgetHooks",
 		"ContentHandlerDefaultModelFor": "GadgetHooks",
 		"UserGetDefaultOptions": "GadgetHooks",
 		"GetPreferences": "GadgetHooks",

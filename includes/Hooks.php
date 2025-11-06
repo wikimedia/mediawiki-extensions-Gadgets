@@ -32,7 +32,6 @@ use MediaWiki\Hook\PreferencesGetLegendHook;
 use MediaWiki\Html\Html;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\Output\Hook\BeforePageDisplayHook;
-use MediaWiki\Output\Hook\OutputPageBeforeHTMLHook;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsHook;
 use MediaWiki\Preferences\Hook\GetPreferencesHook;
@@ -62,7 +61,6 @@ class Hooks implements
 	PreferencesGetLegendHook,
 	ResourceLoaderRegisterModulesHook,
 	BeforePageDisplayHook,
-	OutputPageBeforeHTMLHook,
 	ContentHandlerDefaultModelForHook,
 	WgQueryPagesHook,
 	DeleteUnknownPreferencesHook,
@@ -208,17 +206,18 @@ class Hooks implements
 	}
 
 	/**
-	 * OutputPageBeforeHTML hook handler.
+	 * BeforePageDisplay hook handler.
 	 * @param OutputPage $out
-	 * @param string &$text Text that will be displayed, in HTML
+	 * @param Skin $skin
 	 */
-	public function onOutputPageBeforeHTML( $out, &$text ): void {
+	public function onBeforePageDisplay( $out, $skin ): void {
 		$repo = $this->gadgetRepo;
 		$ids = $repo->getGadgetIds();
 		if ( !$ids ) {
 			return;
 		}
 
+		$enabledLegacyGadgets = [];
 		$conditions = new GadgetLoadConditions( $out );
 
 		foreach ( $ids as $id ) {
@@ -254,34 +253,10 @@ class Hooks implements
 						}
 					}
 				}
-			}
-		}
-	}
 
-	/**
-	 * BeforePageDisplay hook handler.
-	 * @param OutputPage $out
-	 * @param Skin $skin
-	 */
-	public function onBeforePageDisplay( $out, $skin ): void {
-		$repo = $this->gadgetRepo;
-		$ids = $repo->getGadgetIds();
-		if ( !$ids ) {
-			return;
-		}
-
-		$enabledLegacyGadgets = [];
-		$conditions = new GadgetLoadConditions( $out );
-
-		foreach ( $ids as $id ) {
-			try {
-				$gadget = $repo->getGadget( $id );
-			} catch ( InvalidArgumentException ) {
-				continue;
-			}
-
-			if ( $gadget->getLegacyScripts() && $conditions->check( $gadget ) ) {
-				$enabledLegacyGadgets[] = $id;
+				if ( $gadget->getLegacyScripts() ) {
+					$enabledLegacyGadgets[] = $id;
+				}
 			}
 		}
 
