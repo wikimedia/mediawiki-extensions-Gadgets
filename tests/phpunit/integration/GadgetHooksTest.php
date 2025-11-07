@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Api\ApiBase;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Gadgets\Gadget;
 use MediaWiki\Extension\Gadgets\Hooks as GadgetHooks;
@@ -92,5 +93,26 @@ class GadgetHooksTest extends MediaWikiIntegrationTestCase {
 		$this->assertEquals( 'check', $prefs['gadget-bar']['type'] );
 		// Now that the user is a sysop, option should be visible
 		$this->assertEquals( 'check', $prefs['gadget-baz']['type'] );
+	}
+
+	public function testApiParseMakeOutputPageAddsGadgets() {
+		$services = $this->getServiceContainer();
+		$repo = new StaticGadgetRepo( [
+			'g1' => new Gadget( [
+				'name' => 'g1',
+				'onByDefault' => true,
+				'pages' => [ 'test.js' ],
+				'resourceLoaded' => true,
+				'requiredCategories' => [ 'Foo' ],
+			] ),
+		] );
+		$hooks = new GadgetHooks( $repo, $services->getUserOptionsLookup() );
+		$out = new OutputPage( RequestContext::getMain() );
+		$out->setTitle( Title::newMainPage() );
+		$out->addCategoryLinks( [ 'Foo' => '' ] );
+
+		$hooks->onApiParseMakeOutputPage( $this->createMock( ApiBase::class ), $out );
+
+		$this->assertArrayEquals( [ 'ext.gadget.g1' ], $out->getModules() );
 	}
 }

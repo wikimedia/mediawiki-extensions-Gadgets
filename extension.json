@@ -90,6 +90,7 @@
 		}
 	},
 	"Hooks": {
+		"ApiParseMakeOutputPage": "GadgetHooks",
 		"BeforePageDisplay": "GadgetHooks",
 		"CodeEditorGetPageLanguage": "GadgetCodeEditorHooks",
 		"CodeMirrorGetMode": "GadgetCodeMirrorHooks",

@@ -24,6 +24,7 @@ namespace MediaWiki\Extension\Gadgets;
 
 use InvalidArgumentException;
 use MediaWiki\Api\ApiMessage;
+use MediaWiki\Api\Hook\ApiParseMakeOutputPageHook;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\Gadgets\Special\SpecialGadgetUsage;
 use MediaWiki\Hook\DeleteUnknownPreferencesHook;
@@ -37,7 +38,6 @@ use MediaWiki\Preferences\Hook\GetPreferencesHook;
 use MediaWiki\ResourceLoader\Hook\ResourceLoaderRegisterModulesHook;
 use MediaWiki\ResourceLoader\ResourceLoader;
 use MediaWiki\Revision\Hook\ContentHandlerDefaultModelForHook;
-use MediaWiki\Skin\Skin;
 use MediaWiki\SpecialPage\Hook\WgQueryPagesHook;
 use MediaWiki\SpecialPage\SpecialPage;
 use MediaWiki\Specials\Hook\PreferencesGetLegendHook;
@@ -61,6 +61,7 @@ class Hooks implements
 	PreferencesGetIconHook,
 	PreferencesGetLegendHook,
 	ResourceLoaderRegisterModulesHook,
+	ApiParseMakeOutputPageHook,
 	BeforePageDisplayHook,
 	ContentHandlerDefaultModelForHook,
 	WgQueryPagesHook,
@@ -206,19 +207,44 @@ class Hooks implements
 		}
 	}
 
-	/**
-	 * BeforePageDisplay hook handler.
-	 * @param OutputPage $out
-	 * @param Skin $skin
-	 */
+	/** @inheritDoc */
+	public function onApiParseMakeOutputPage( $module, $output ): void {
+		$this->addGadgetsToOutput( $output );
+	}
+
+	/** @inheritDoc */
 	public function onBeforePageDisplay( $out, $skin ): void {
+		$this->addGadgetsToOutput( $out );
+
+		$ids = $this->gadgetRepo->getGadgetIds();
+		if ( $ids ) {
+			$enabledLegacyGadgets = [];
+			$conditions = new GadgetLoadConditions( $out );
+			foreach ( $ids as $id ) {
+				try {
+					$gadget = $this->gadgetRepo->getGadget( $id );
+				} catch ( InvalidArgumentException ) {
+					continue;
+				}
+				if ( $gadget->getLegacyScripts() && $conditions->check( $gadget ) ) {
+					$enabledLegacyGadgets[] = $id;
+				}
+			}
+			$strings = [];
+			foreach ( $enabledLegacyGadgets as $id ) {
+				$strings[] = $this->makeLegacyWarning( $id );
+			}
+			$out->addHTML( WrappedStringList::join( "\n", $strings ) );
+		}
+	}
+
+	private function addGadgetsToOutput( OutputPage $out ): void {
 		$repo = $this->gadgetRepo;
 		$ids = $repo->getGadgetIds();
 		if ( !$ids ) {
 			return;
 		}
 
-		$enabledLegacyGadgets = [];
 		$conditions = new GadgetLoadConditions( $out );
 
 		foreach ( $ids as $id ) {
@@ -228,44 +254,32 @@ class Hooks implements
 				continue;
 			}
 
-			if ( $conditions->check( $gadget ) ) {
-				if ( $gadget->hasModule() ) {
-					if ( $gadget->getType() === 'styles' ) {
-						$out->addModuleStyles( Gadget::getModuleName( $gadget->getName() ) );
-					} else {
-						$out->addModules( Gadget::getModuleName( $gadget->getName() ) );
+			if ( $conditions->check( $gadget ) && $gadget->hasModule() ) {
+				if ( $gadget->getType() === 'styles' ) {
+					$out->addModuleStyles( Gadget::getModuleName( $gadget->getName() ) );
+				} else {
+					$out->addModules( Gadget::getModuleName( $gadget->getName() ) );
 
-						$peers = [];
-						foreach ( $gadget->getPeers() as $peerName ) {
-							try {
-								$peers[] = $repo->getGadget( $peerName );
-							} catch ( InvalidArgumentException ) {
-								// Ignore, warning is emitted on Special:Gadgets
-							}
-						}
-						// Load peer modules
-						foreach ( $peers as $peer ) {
-							if ( $peer->getType() === 'styles' ) {
-								$out->addModuleStyles( Gadget::getModuleName( $peer->getName() ) );
-							}
-							// Else, if not type=styles: Use dependencies instead.
-							// Note: No need for recursion as styles modules don't support
-							// either of 'dependencies' and 'peers'.
+					$peers = [];
+					foreach ( $gadget->getPeers() as $peerName ) {
+						try {
+							$peers[] = $repo->getGadget( $peerName );
+						} catch ( InvalidArgumentException ) {
+							// Ignore, warning is emitted on Special:Gadgets
 						}
 					}
-				}
-
-				if ( $gadget->getLegacyScripts() ) {
-					$enabledLegacyGadgets[] = $id;
+					// Load peer modules
+					foreach ( $peers as $peer ) {
+						if ( $peer->getType() === 'styles' ) {
+							$out->addModuleStyles( Gadget::getModuleName( $peer->getName() ) );
+						}
+						// Else, if not type=styles: Use dependencies instead.
+						// Note: No need for recursion as styles modules don't support
+						// either of 'dependencies' and 'peers'.
+					}
 				}
 			}
 		}
-
-		$strings = [];
-		foreach ( $enabledLegacyGadgets as $id ) {
-			$strings[] = $this->makeLegacyWarning( $id );
-		}
-		$out->addHTML( WrappedStringList::join( "\n", $strings ) );
 	}
 
 	/**
