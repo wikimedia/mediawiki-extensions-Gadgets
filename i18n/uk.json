@@ -18,7 +18,8 @@
 			"Sodmy",
 			"Ата",
 			"Пан Хаунд",
-			"Тест"
+			"Тест",
+			"MonX94"
 		]
 	},
 	"gadgets-desc": "Дозволяє користувачам обирати [[Special:Gadgets|CSS- та JavaScript-додатки]] у своїх [[Special:Preferences#mw-prefsection-gadgets|налаштуваннях]]",
@@ -42,6 +43,7 @@
 	"gadgets-required-rights": "{{PLURAL:$2|1=Потрібне право|Потрібні такі права}}: $1",
 	"gadgets-required-skins": "Доступно для {{PLURAL:$2|1=теми $1|таких тем оформлення: $1}}.",
 	"gadgets-required-actions": "Обмежено до {{PLURAL:$2|дії «$1» на сторінці|таких дій на сторінці: $1}}.",
+	"gadgets-required-categories": "Обмежений {{PLURAL:$2|категорією $1|категоріями: $1}}.",
 	"gadgets-default": "Увімкнено для всіх за замовчуванням.",
 	"gadgets-legacy": "Гаджет не завантажено. Будь ласка, здійсніть міграцію на ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Дізнатися більше])",
 	"gadgets-packaged": "Цей додаток [https://www.mediawiki.org/wiki/ResourceLoader/Package_files запаковано], його точка входу — $1",
@@ -53,5 +55,6 @@
 	"gadgets-requires-es6": "Цей гаджет підтримується лише в браузерах, сумісних із ES6",
 	"gadgets-validate-notset": "Властивість <code>$1</code> не встановлено.",
 	"gadgets-validate-wrongtype": "Тип властивості <code>$1</code> має бути <code>$2</code>.",
+	"gadgets-validate-nopage": "Сторінка \"$1\" не існує.",
 	"gadgets-supports-urlload": "Цей додаток підтримує завантаження через використання параметра <code>?withgadget</code> в URL."
 }
