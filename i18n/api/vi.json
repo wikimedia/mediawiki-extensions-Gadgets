@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Minh Nguyen"
+			"Minh Nguyen",
+			"NguoiDungKhongDinhDanh"
 		]
 	},
 	"apihelp-query+gadgetcategories-description": "Cho ra danh sách thể loại tiện ích.",
