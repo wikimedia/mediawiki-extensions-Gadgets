@@ -7,7 +7,7 @@
 			"Woytecr"
 		]
 	},
-	"apihelp-query+gadgetcategories-summary": "Zwraca listę kategorii gadżetów.",
+	"apihelp-query+gadgetcategories-summary": "Zwraca listę sekcji gadżetów.",
 	"apihelp-query+gadgetcategories-param-prop": "Jakie informacje o kategorii gadżetów pobrać:\n;name:Wewnętrzna nazwa kategorii.\n;title:Tytuł kategorii.\n;members:Liczba gadżetów w kategorii.",
 	"apihelp-query+gadgetcategories-param-names": "Nazwy kategorii do pobrania.",
 	"apihelp-query+gadgetcategories-example-1": "Pobierz listę istniejących kategorii gadżetów",
