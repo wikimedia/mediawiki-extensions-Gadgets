@@ -51,5 +51,7 @@
 	"gadgets-validate-notset": "A propriedade <code>$1</code> não está definida.",
 	"gadgets-validate-wrongtype": "A propriedade <code>$1</code> deve ser <code>$2</code> em vez de <code>$3</code>.",
 	"gadgets-validate-nopage": "A página \"$1\" não existe.",
-	"gadgets-supports-urlload": "Este gadget oferece suporte ao carregamento via URL com o parâmetro de consulta <code>?withgadget</code>."
+	"gadgets-validate-deprecateddependencies": "{{PLURAL:$2|A seguinte dependência está obsoleta|As seguintes dependências estão obsoletas}}: $1.",
+	"gadgets-supports-urlload": "Este gadget oferece suporte ao carregamento via URL com o parâmetro de consulta <code>?withgadget</code>.",
+	"gadgets-hidden": "Este gadget está [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden oculto], ou seja, não aparecerá na página de preferências."
 }
