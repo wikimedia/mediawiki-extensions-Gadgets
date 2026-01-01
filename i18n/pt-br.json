@@ -34,6 +34,8 @@
 	"gadgets-pagetext": "Segue-se uma lista de \"gadgets\" que podem ser ativados pelos usuários através de [[Special:Preferences#mw-prefsection-gadgets|suas páginas de preferências]], definidos em [[MediaWiki:Gadgets-definition|suas definições]].\nEsta lista possibilita um acesso fácil para as mensagens de sistema que definem as descrições e códigos de cada um dos gadgets.",
 	"gadgets-editdescription": "Editar descrição",
 	"gadgets-viewdescription": "Ver descrição",
+	"gadgets-editsectiontitle": "Editar título da seção",
+	"gadgets-viewsectiontitle": "Exibir título da seção",
 	"gadgets-uses": "Usos",
 	"gadgets-required-rights": "Requer {{PLURAL:$2|o seguinte privilégio|os seguintes privilégios}}:\n\n$1",
 	"gadgets-required-skins": "Disponível {{PLURAL:$2|para o skin $1|para os seguintes skins: $1}}.",
@@ -50,5 +52,7 @@
 	"gadgets-validate-notset": "A propriedade <code>$1</code> não está definida.",
 	"gadgets-validate-wrongtype": "A propriedade <code>$1</code> deve ser <code>$2</code> em vez de <code>$3</code>.",
 	"gadgets-validate-nopage": "A página \"$1\" não existe.",
-	"gadgets-supports-urlload": "Este gadget oferece suporte ao carregamento via URL com o parâmetro de consulta <code>?withgadget</code>."
+	"gadgets-validate-deprecateddependencies": "{{PLURAL:$2|A seguinte dependência está obsoleta|As seguintes dependências estão obsoletas}}: $1.",
+	"gadgets-supports-urlload": "Este gadget oferece suporte ao carregamento via URL com o parâmetro de consulta <code>?withgadget</code>.",
+	"gadgets-hidden": "Este gadget está [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden oculto], ou seja, não aparecerá na página de preferências."
 }
