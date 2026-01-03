@@ -53,6 +53,7 @@ use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\IReadableDatabase;
 use Wikimedia\Rdbms\LikeValue;
 use Wikimedia\WrappedString;
+use Wikimedia\WrappedStringList;
 
 class Hooks implements
 	UserGetDefaultOptionsHook,
@@ -264,7 +265,7 @@ class Hooks implements
 		foreach ( $enabledLegacyGadgets as $id ) {
 			$strings[] = $this->makeLegacyWarning( $id );
 		}
-		$out->addHTML( WrappedString::join( "\n", $strings ) );
+		$out->addHTML( WrappedStringList::join( "\n", $strings ) );
 	}
 
 	/**
