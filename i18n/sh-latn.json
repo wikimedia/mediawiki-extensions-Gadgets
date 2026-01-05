@@ -8,6 +8,7 @@
 	"gadgets-desc": "Omogućava korisnicima u svojim [[Special:Preferences#mw-prefsection-gadgets|podešavanjima]] da odaberu svoje prilagođene [[Special:Gadgets|CSS i JavaScript spravice]]",
 	"prefs-gadgets": "Spravice",
 	"prefs-description-gadgets": "Omogućite dodatne mogućnosti za svoj račun.",
+	"gadgets-prefstext": "Ispod se nalazi lista spravica koje možete uključiti za svoj račun.\nOve spravice uglavnom se temelje na JavaScriptu, pa on mora biti omogućen u vašem pregledniku da bi ispravno radile.\nImajte na umu da spravice nemaju utjecaj na ovu stranicu s postavkama.\n\nTakođer imajte na umu da spravice nisu dio softvera MediaWiki te da ih obično razvijaju i održavaju korisnici na lokalnom projektu.\nLokalni administratori interfejsa mogu mijenjati [[MediaWiki:Gadgets-definition|definicije]] dostupnih spravica, a lokalni administratori mogu mijenjati njihove [[Special:Gadgets|opise]], gdje možete vidjeti izvorni kod svake spravice. Broj korisnika svake spravice na ovom projektu naveden je u [[Special:GadgetUsage|statistici korištenja spravica]].",
 	"special-gadgets": "Spravice",
 	"gadgetusage": "Statistika korištenja spravica",
 	"gadgetusage-gadget": "Gadget",
