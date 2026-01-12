@@ -21,6 +21,8 @@
 	"gadgets-pagetext": "Niže nahodite spisok specialnyh gadžetov, ktore koristniki mogut vključiti na svojej [[Special:Preferences#mw-prefsection-gadgets|stranici s nastavjenjami]], sostavjeny na osnově [[MediaWiki:Gadgets-definition|definicij gadžetov]].\nTutoj spisok davaje legky dostup k sistemnym soobčenjam, ktore oprěděljajut opis i kod vsakogo gadžeta.",
 	"gadgets-editdescription": "Praviti opis",
 	"gadgets-viewdescription": "Prěgleděti opis",
+	"gadgets-editsectiontitle": "Praviti zaglavje razděla",
+	"gadgets-viewsectiontitle": "Pokazati zaglavje razděla",
 	"gadgets-uses": "Upotrěbjaje",
 	"gadgets-required-rights": "Trěbuje {{PLURAL:$2|slědujuče pravo|slědujuče prava}}: $1.",
 	"gadgets-required-skins": "Dostupny za {{PLURAL:$2|slědujuču vizualnu temu|slědujuče vizualne temy}}: $1.",
@@ -40,6 +42,7 @@
 	"gadgets-validate-notset": "Svojstvo <code>$1</code> ne jest ustavjeno.",
 	"gadgets-validate-wrongtype": "Svojstvo <code>$1</code> povinna jest iměti tip <code>$2</code>.",
 	"gadgets-validate-json": "JSON-fajly sut ukazane, ale ne upotrěbjane. One upotrěbjajut se samo v spakovanyh gadžetah.",
+	"gadgets-validate-icons": "Ikonky Codex mogut byti vključene samo v upakovanyh gadžetah.",
 	"gadgets-validate-es6default": "Gadžety trěbujuče ES6 ne mogut byti standardno vključene.",
 	"gadgets-validate-noentrypoint": "Oznaka za paket jest ignorovana, ibo ne jest ukazany nijedin fajl s skriptom.",
 	"gadgets-validate-noscripts": "Skripty sut ignorovane, ibo tutoj gadžet imaje ustavjeny parametr <code>type=styles</code>",
@@ -62,5 +65,7 @@
 	"gadgets-validate-invaliddependencies": "{{PLURAL:$2|Nedostavaje slědujuča zavisnost|Nedostavajut slědujuče zavisnosti}}: $1.",
 	"gadgets-validate-deprecateddependencies": "{{PLURAL:$2|Slědujuča zavisnost jest zastarěla|Slědujuče zavisnosti sut zastarěle}}: $1.",
 	"gadgets-supports-urlload": "Tutoj gadžet poddrživaje včityvanje črěz URL s parametrom zapyta <code>?withgadget</code>.",
-	"gadgets-hidden": "Tutoj gadžet jest [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden ukryty], čto znači, že ne javi se na stranici vaših nastavjenij."
+	"gadgets-hidden": "Tutoj gadžet jest [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden ukryty], čto znači, že ne javi se na stranici vaših nastavjenij.",
+	"gadgets-subpage-invalid": "Nepravilna podstranica «<nowiki>$1</nowiki>»",
+	"gadgets-subpage-toofewparams": "Nedostatočno parametrov za podstranicu (nepravilny link)."
 }
