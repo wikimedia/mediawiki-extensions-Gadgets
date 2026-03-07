@@ -155,7 +155,8 @@ class ListPage extends ActionPage {
 						$output->addHTML( '<br />' );
 					}
 					$output->addHTML( $this->msg( 'gadgets-packaged',
-						$this->gadgetRepo->titleWithoutPrefix( $gadget->getScripts()[0], $gadget->getName() ) ) );
+						$this->gadgetRepo->titleWithoutPrefix( $gadget->getScripts()[0], $gadget->getName() )
+					)->parse() );
 					$needLineBreakAfter = true;
 				}
 
