@@ -106,7 +106,7 @@
 	"DomainEventIngresses": [
 		{
 			"events": [
-				"PageRevisionUpdated",
+				"PageLatestRevisionChanged",
 				"PageDeleted"
 			],
 			"class": "MediaWiki\\Extension\\Gadgets\\EventIngress",
