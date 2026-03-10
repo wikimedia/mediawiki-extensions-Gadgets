@@ -103,8 +103,6 @@ class SpecialGadgets extends SpecialPage {
 			return null;
 		}
 		/** @var ActionPage $page */
-		// ObjectFactory::createObject accepts an array, not just a callable (phan bug)
-		// @phan-suppress-next-line PhanTypeInvalidCallableArrayKey
 		$page = $this->objectFactory->createObject(
 			self::SUBPAGE_LIST[$name],
 			[
