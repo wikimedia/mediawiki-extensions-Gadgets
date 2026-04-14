@@ -20,7 +20,7 @@
 
 namespace MediaWiki\Extension\Gadgets\Special;
 
-use ErrorPageError;
+use MediaWiki\Exception\ErrorPageError;
 use MediaWiki\Message\Message;
 use MediaWiki\SpecialPage\SpecialPage;
 use Wikimedia\ObjectFactory\ObjectFactory;

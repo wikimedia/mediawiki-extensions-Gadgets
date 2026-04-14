@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Gadgets\Special;
 
+use MediaWiki\Language\MessageLocalizer;
 use MediaWiki\Message\Message;
-use MessageLocalizer;
 use Wikimedia\Message\MessageSpecifier;
 
 /**

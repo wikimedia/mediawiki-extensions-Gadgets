@@ -2,8 +2,8 @@
 
 namespace MediaWiki\Extension\Gadgets\Special;
 
-use ErrorPageError;
 use InvalidArgumentException;
+use MediaWiki\Exception\ErrorPageError;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\HTMLForm\HTMLForm;
 use MediaWiki\MainConfigNames;
