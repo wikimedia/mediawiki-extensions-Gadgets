@@ -10,6 +10,7 @@
 			"Namoroka",
 			"Priviet",
 			"SeoJeongHo",
+			"Tensama0415",
 			"Yearning",
 			"Ykhwong",
 			"아라"
@@ -33,6 +34,7 @@
 	"gadgets-editdescription": "설명 편집",
 	"gadgets-viewdescription": "설명 보기",
 	"gadgets-editsectiontitle": "문단 제목 편집",
+	"gadgets-viewsectiontitle": "문단 제목 보기",
 	"gadgets-uses": "다음 코드를 사용",
 	"gadgets-required-rights": "다음 {{PLURAL:$2|권한}}이 필요합니다: $1.",
 	"gadgets-required-skins": "{{PLURAL:$2|$1 스킨|다음 스킨: $1}}에 사용 가능.",
@@ -67,6 +69,8 @@
 	"gadgets-validate-nopage": "\"$1\" 문서는 존재하지 않습니다.",
 	"gadgets-validate-invaliddependencies": "다음의 {{PLURAL:$2|의존성이}} 없습니다: $1.",
 	"gadgets-validate-deprecateddependencies": "다음의 {{PLURAL:$2|의존성은}} 구식입니다: $1.",
-	"gadgets-supports-urlload": "이 소도구는 <code>?withgadget</code> 쿼리 변수 URL을 통해 불러오기를 지원합니다.",
-	"gadgets-hidden": "이 소도구는 [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden 숨겨져] 있으므로, 환경 설정 문서에 표시되지 않습니다."
+	"gadgets-supports-urlload": "이 소도구는 <code>?withgadget</code> 쿼리 매개변수 URL을 통해 불러오기를 지원합니다.",
+	"gadgets-hidden": "이 소도구는 [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden 숨겨져] 있으므로, 환경 설정 문서에 표시되지 않습니다.",
+	"gadgets-subpage-invalid": "\"<nowiki>$1</nowiki>\" 하위 문서가 잘못되었습니다.",
+	"gadgets-subpage-toofewparams": "하위 문서 매개변수가 충분하지 않습니다 (잘못된 링크)."
 }
