@@ -11,6 +11,7 @@
 	"prefs-gadgets": "Udělátka",
 	"prefs-description-gadgets": "Zapněte si na svém účtu doplňkové funkce.",
 	"gadgets-prefstext": "Níže je přehled speciálních udělátek, která si můžete ve svém účtu zapnout.\nTato udělátka jsou založena převážně na JavaScriptu, takže je pro jejich funkčnost nutné mít v prohlížeči JavaScript zapnutý.\nUdělátka nejsou aplikována na této stránce nastavení.\n\nUvědomte si také, že speciální udělátka nejsou součástí softwaru MediaWiki a&nbsp;jsou vytvářena a&nbsp;spravována uživateli této wiki.\nMístní správci rozhraní mohou upravovat [[MediaWiki:Gadgets-definition|definice]] dostupných udělátek a&nbsp;místní správci mohou upravovat jejich [[Special:Gadgets|popisy]], kde naleznete také jejich zdrojové kódy. Počty uživatelů každého udělátka na této wiki jsou zaznamenány ve [[Special:GadgetUsage|statistice užívání udělátek]].",
+	"gadgets-prefstext-safemode": "Udělátka jsou momentálně nedostupná, protože byl zapnut bezpečný režim. Pokud chcete používat udělátka, [[#mw-input-wpforcesafemode|vypněte prosím bezpečný režim]].",
 	"special-gadgets": "Udělátka",
 	"gadgetusage": "Statistika využití udělátek",
 	"gadgetusage-gadget": "Udělátko",
@@ -28,6 +29,9 @@
 	"gadgets-required-rights": "Vyžaduje následující {{PLURAL:$2|oprávnění}}: $1.",
 	"gadgets-required-skins": "Dostupné {{PLURAL:$2|pro vzhled $1|pro následující vzhledy: $1}}.",
 	"gadgets-required-actions": "Omezeno na {{PLURAL:$2|akci stránky „$1“|následující akce stránky: $1}}.",
+	"gadgets-required-namespaces": "Omezeno na {{PLURAL:$2|jmenný prostor $1|následující jmenné prostory: $1}}.",
+	"gadgets-required-categories": "Omezeno na {{PLURAL:$2|kategorii $1|následující kategorie: $1}}.",
+	"gadgets-required-contentmodels": "Omezeno na {{PLURAL:$2|model obsahu $1|následující modely obsahu: $1}}.",
 	"gadgets-default": "Implicitně zapnuto všem.",
 	"gadgets-legacy": "Udělátko se nenačítá. Převeďte ho prosím na ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Více informací])",
 	"gadgets-packaged": "Toto udělátko používá [https://www.mediawiki.org/wiki/ResourceLoader/Package_files balíčky], vstupním bodem je $1",
@@ -36,7 +40,10 @@
 	"gadgets-not-found": "Udělátko „$1“ nebylo nalezeno.",
 	"gadgets-export-text": "Chcete-li exportovat udělátko $1, klikněte na tlačítko „{{int:gadgets-export-download}}“, uložte stažený soubor, na cílové wiki přejděte na stránku Special:Import a soubor načtěte. Poté na tamní stránku MediaWiki:Gadgets-definition přidejte následující:\n<pre>$2</pre>\nNa cílové wiki musíte mít příslušná oprávnění (včetně práva editovat systémová hlášení) a musí tam být povolen import načtením souboru.",
 	"gadgets-export-download": "Stáhnout",
+	"gadgets-requires-es6": "Toto udělátko je podporováno pouze na prohlížečích podporujících ES6.",
 	"gadgets-validate-notset": "Není nastavena vlastnost <code>$1</code>.",
-	"gadgets-validate-wrongtype": "Vlastnost <code>$1</code> musí být typu <code>$2</code> namísto typu <code>$3</code>.",
-	"gadgets-supports-urlload": "Toto udělátko podporuje načítání prostřednictví URL pomocí parametru <code>?withgadget</code>."
+	"gadgets-validate-wrongtype": "Vlastnost <code>$1</code> musí být typu <code>$2</code>.",
+	"gadgets-validate-es6default": "Udělátka vyžadující ES6 nemohou být implicitně zapnuta.",
+	"gadgets-supports-urlload": "Toto udělátko podporuje načítání prostřednictví URL pomocí parametru <code>?withgadget</code>.",
+	"gadgets-hidden": "Toto udělátko je [https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Gadgets#hidden skryté], což znamená, že se nezobrazuje na stránce nastavení."
 }
