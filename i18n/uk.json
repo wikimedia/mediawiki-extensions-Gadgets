@@ -72,6 +72,7 @@
 	"gadgets-validate-invalidcontentmodels": "{{PLURAL:$2|Наступної моделі|Наступних моделей}} вмісту не існує: $1",
 	"gadgets-validate-invalidnamespaces": "{{PLURAL:$2|Наступного номера|Наступних номерів}} простору назв не існує: $1",
 	"gadgets-validate-invalidskins": "{{PLURAL:$2|Наступної теми|Наступних тем}} не існує: $1",
+	"gadgets-validate-invalidrights": "{{PLURAL:$2|Наступних прав}} не існує: $1",
 	"gadgets-validate-invalidtitle": "Недійсна назва сторінки: «$1»",
 	"gadgets-validate-unknownpages": "Містить одну або більше сторінок без суфіксу .js, .css або .json. Вони не будуть використані.",
 	"gadgets-validate-duplicate": "Виявлено друге визначення додатка $1, яке буде проігноровано.",

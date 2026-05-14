@@ -58,7 +58,7 @@
 	"gadgets-validate-es6default": "ES6가 필요한 소도구는 기본적으로 활성화할 수 없습니다.",
 	"gadgets-validate-noentrypoint": "스크립트 파일이 지정되지 않았으므로 패키지 플래그가 무시됩니다.",
 	"gadgets-validate-noscripts": "이 소도구는 <code>type=styles</code>를 설정하므로 스크립트는 무시됩니다.",
-	"gadgets-validate-stylepeers": "이 소도구는 스타일 전용 소도구이므로 피어 소도구들은 무시됩니다. 덮어쓰려면 <code>type=general</code>로 설정하세요.",
+	"gadgets-validate-stylepeers": "이 소도구는 스타일 전용 소도구이므로 피어 소도구들은 무시됩니다. 재정의하려면 <code>type=general</code>로 설정하세요.",
 	"gadgets-validate-scriptsnotallowed": "이 소도구는 <code>type=styles</code>를 설정하므로 스크립트와 데이터 파일은 사용되지 않습니다.",
 	"gadgets-validate-invalidjs": "유효하지 않은 \"$2\" 콘텐츠 모델로 인해 $1 스크립트는 사용되지 않습니다.",
 	"gadgets-validate-invalidcss": "유효하지 않은 \"$2\" 콘텐츠 모델로 인해 $1 스타일시트는 사용되지 않습니다.",
