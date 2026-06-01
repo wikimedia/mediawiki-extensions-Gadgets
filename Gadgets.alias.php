@@ -413,7 +413,8 @@ $specialPageAliases['tt-cyrl'] = [
 
 /** Ukrainian (українська) */
 $specialPageAliases['uk'] = [
-	'Gadgets' => [ 'Додатки', 'Гаджеты' ],
+	'Gadgets' => [ 'Додатки', 'Гаджети', 'Гаджеты' ],
+	'GadgetUsage' => [ 'Використання_додатків', 'Використання_гаджетів' ],
 ];
 
 /** Urdu (اردو) */
