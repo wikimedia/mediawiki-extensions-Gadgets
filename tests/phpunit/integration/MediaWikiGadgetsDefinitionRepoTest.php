@@ -69,7 +69,7 @@ EOT;
 		$this->assertFalse( $repo->getGadget( 'X1' )->isOnByDefault() );
 
 		$this->deletePage( $services->getWikiPageFactory()->newFromTitle(
-			Title::newFromText( 'MediaWiki:Gadgets-definition' ) ) );
+			Title::makeTitle( NS_MEDIAWIKI, 'Gadgets-definition' ) ) );
 		$this->assertEquals( [], $repo->getGadgetIds() );
 	}
 
