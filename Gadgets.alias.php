@@ -366,7 +366,8 @@ $specialPageAliases['si'] = [
 
 /** Slovak (slovenčina) */
 $specialPageAliases['sk'] = [
-	'Gadgets' => [ 'Hračky' ],
+	'Gadgets' => [ 'Hračky', 'Nástroje' ],
+	'GadgetUsage' => [ 'VyužitieNástrojov' ],
 ];
 
 /** Slovenian (slovenščina) */
