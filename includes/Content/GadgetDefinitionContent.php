@@ -23,6 +23,7 @@ namespace MediaWiki\Extension\Gadgets\Content;
 use MediaWiki\Content\JsonContent;
 use MediaWiki\Json\FormatJson;
 use MediaWiki\Status\Status;
+use Wikimedia\ArrayUtils\ArrayUtils;
 
 class GadgetDefinitionContent extends JsonContent {
 
@@ -88,7 +89,7 @@ class GadgetDefinitionContent extends JsonContent {
 		$info = wfObjectToArray( $this->getData()->getValue() );
 		/** @var GadgetDefinitionContentHandler $handler */
 		$handler = $this->getContentHandler();
-		$info = wfArrayPlus2d( $info, $handler->getEmptyDefinition() );
+		$info = ArrayUtils::arrayPlus2d( $info, $handler->getEmptyDefinition() );
 
 		return $info;
 	}

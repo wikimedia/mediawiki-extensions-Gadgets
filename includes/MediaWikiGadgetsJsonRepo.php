@@ -8,6 +8,7 @@ use MediaWiki\Linker\LinkTarget;
 use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
+use Wikimedia\ArrayUtils\ArrayUtils;
 use Wikimedia\ObjectCache\WANObjectCache;
 use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IConnectionProvider;
@@ -167,7 +168,7 @@ class MediaWikiGadgetsJsonRepo extends GadgetRepo {
 
 				$handler = $content->getContentHandler();
 				'@phan-var \MediaWiki\Extension\Gadgets\Content\GadgetDefinitionContentHandler $handler';
-				$data = wfArrayPlus2d( $content->getAssocArray(), $handler->getDefaultMetadata() );
+				$data = ArrayUtils::arrayPlus2d( $content->getAssocArray(), $handler->getDefaultMetadata() );
 				return Gadget::serializeDefinition( $id, $data );
 			},
 			[
