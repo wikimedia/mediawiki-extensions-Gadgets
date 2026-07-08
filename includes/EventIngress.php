@@ -40,7 +40,7 @@ class EventIngress
 	public function handlePageDeletedEvent(
 		PageDeletedEvent $event
 	): void {
-		$title = TitleValue::newFromPage( $event->getPage() );
+		$title = TitleValue::newFromPage( $event->getDeletedPage() );
 		$this->gadgetRepo->handlePageUpdate( $title );
 	}
 
