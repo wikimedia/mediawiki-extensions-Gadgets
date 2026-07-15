@@ -204,6 +204,11 @@ $specialPageAliases['id'] = [
 	'Gadgets' => [ 'Alat', 'Gadget' ],
 ];
 
+/** Interslavic Latin (medžuslovjansky latinica) */
+$specialPageAliases['isv-latn'] = [
+	'Gadgets' => [ 'Gadžety' ],
+];
+
 /** Italian (italiano) */
 $specialPageAliases['it'] = [
 	'Gadgets' => [ 'Accessori' ],
