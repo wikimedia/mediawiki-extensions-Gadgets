@@ -31,7 +31,7 @@
 	"gadgets-required-skins": "Disponibel fir {{PLURAL:$2|d'Benotzeruewerfläch $1|déi follgend Benotzeruewerflächen: $1}}.",
 	"gadgets-required-actions": "Begrenzt op {{PLURAL:$2|d'Säitenaktioun „$1“|déi follgend Säitenaktiounen: $1}}.",
 	"gadgets-required-namespaces": "Begrenzt op {{PLURAL:$2|den Nummraum $1|déi follgend Nummraim: $1}}",
-	"gadgets-required-categories": "Limitéiert op {{PLURAL:$2|d'Kategorie $1|déi folgend Kategorien: $1}}.",
+	"gadgets-required-categories": "Limitéiert op {{PLURAL:$2|d'Kategorie $1|déi follgend Kategorien: $1}}.",
 	"gadgets-required-contentmodels": "Begrenzt op {{PLURAL:$2|den Inhaltsmodell $1|déi follgend Inhaltsmodeller: $1}}",
 	"gadgets-default": "Fir jiddwereen als Standard ageschalt.",
 	"gadgets-legacy": "De Gadget ass net gelueden. Migréiert wgl. op ResourceLoader. ([https://www.mediawiki.org/wiki/Special:MyLanguage/ResourceLoader/Migration_guide_(users) Méi gewuer ginn])",
