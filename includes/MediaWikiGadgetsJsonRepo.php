@@ -10,7 +10,6 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use Wikimedia\ArrayUtils\ArrayUtils;
 use Wikimedia\ObjectCache\WANObjectCache;
-use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\Rdbms\IExpression;
 use Wikimedia\Rdbms\LikeValue;
@@ -50,9 +49,7 @@ class MediaWikiGadgetsJsonRepo extends GadgetRepo {
 		$titles = $this->wanCache->getWithSetCallback(
 			$key,
 			self::CACHE_TTL,
-			static function ( $oldValue, &$ttl, array &$setOpts ) use ( $fname, $dbr ) {
-				$setOpts += Database::getCacheSetOptions( $dbr );
-
+			static function () use ( $fname, $dbr ) {
 				return $dbr->newSelectQueryBuilder()
 					->select( 'page_title' )
 					->from( 'page' )
@@ -145,8 +142,7 @@ class MediaWikiGadgetsJsonRepo extends GadgetRepo {
 		$gadget = $this->wanCache->getWithSetCallback(
 			$key,
 			self::CACHE_TTL,
-			function ( $old, &$ttl, array &$setOpts ) use ( $id ) {
-				$setOpts += Database::getCacheSetOptions( $this->dbProvider->getReplicaDatabase() );
+			function ( $old, &$ttl ) use ( $id ) {
 				$title = $this->getGadgetDefinitionTitle( $id );
 				if ( !$title ) {
 					$ttl = WANObjectCache::TTL_UNCACHEABLE;

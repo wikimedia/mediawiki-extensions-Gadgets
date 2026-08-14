@@ -29,7 +29,6 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use Wikimedia\ObjectCache\BagOStuff;
 use Wikimedia\ObjectCache\WANObjectCache;
-use Wikimedia\Rdbms\Database;
 use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
@@ -130,10 +129,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 						$key,
 						// 1 day
 						Gadget::CACHE_TTL,
-						function ( $old, &$ttl, &$setOpts ) {
-							// Reduce caching of known-stale data (T157210)
-							$setOpts += Database::getCacheSetOptions( $this->dbProvider->getReplicaDatabase() );
-
+						function () {
 							return $this->fetchStructuredList();
 						},
 						[
