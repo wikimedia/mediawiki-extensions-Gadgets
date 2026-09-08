@@ -35,7 +35,7 @@ class Gadget {
 	/**
 	 * Increment this when changing class structure
 	 */
-	public const GADGET_CLASS_VERSION = 22;
+	public const GADGET_CLASS_VERSION = 23;
 
 	public const CACHE_TTL = 86400;
 
@@ -51,7 +51,6 @@ class Gadget {
 	private $name;
 	/** @var string|null */
 	private $definition;
-	private bool $requiresES6;
 	/** @var string[] */
 	private array $requiredRights;
 	/** @var string[] */
@@ -96,7 +95,6 @@ class Gadget {
 		$this->requiredNamespaces = $options['requiredNamespaces'] ?? [];
 		$this->requiredRights = $options['requiredRights'] ?? [];
 		$this->requiredSkins = $options['requiredSkins'] ?? [];
-		$this->requiresES6 = $options['requiresES6'] ?? false;
 		$this->supportsUrlLoad = $options['supportsUrlLoad'] ?? false;
 		$this->type = $options['type'] ?? '';
 	}
@@ -130,7 +128,6 @@ class Gadget {
 			'requiredNamespaces' => $data['settings']['namespaces'],
 			'requiredRights' => $data['settings']['rights'],
 			'requiredSkins' => $data['settings']['skins'],
-			'requiresES6' => $data['settings']['requiresES6'],
 			'supportsUrlLoad' => $data['settings']['supportsUrlLoad'],
 			'type' => $data['module']['type'],
 		];
@@ -157,7 +154,6 @@ class Gadget {
 			'requiredNamespaces' => $this->requiredNamespaces,
 			'requiredRights' => $this->requiredRights,
 			'requiredSkins' => $this->requiredSkins,
-			'requiresES6' => $this->requiresES6,
 			'supportsUrlLoad' => $this->supportsUrlLoad,
 			'type' => $this->type,
 			// Legacy  (specific to MediaWikiGadgetsDefinitionRepo)
@@ -345,13 +341,6 @@ class Gadget {
 	}
 
 	/**
-	 * @return bool Whether this gadget requires ES6
-	 */
-	public function requiresES6(): bool {
-		return $this->requiresES6 && !$this->onByDefault;
-	}
-
-	/**
 	 * @return bool Whether this gadget has resources that can be loaded via ResourceLoader
 	 */
 	public function hasModule() {
@@ -521,11 +510,6 @@ class Gadget {
 	 */
 	public function getValidationWarnings(): array {
 		$warnings = [];
-
-		// Default gadget requiring ES6
-		if ( $this->onByDefault && $this->requiresES6 ) {
-			$warnings[] = "gadgets-validate-es6default";
-		}
 
 		// Gadget containing files with uncrecognised suffixes
 		if ( array_diff( $this->pages, $this->getScriptsAndStyles() ) ) {

@@ -1,8 +1,6 @@
 <?php
 
 use MediaWiki\Extension\Gadgets\Gadget;
-use MediaWiki\Extension\Gadgets\GadgetResourceLoaderModule;
-use MediaWiki\Extension\Gadgets\StaticGadgetRepo;
 use MediaWiki\MainConfigNames;
 use MediaWiki\ResourceLoader as RL;
 use Wikimedia\TestingAccessWrapper;
@@ -22,7 +20,7 @@ class GadgetResourceLoaderModuleTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp(): void {
 		parent::setUp();
-		$this->gadget = $this->makeGadget( '*foo [ResourceLoader|package]|foo.js|foo.css|foo.json' );
+		$this->gadget = $this->makeGadget( '*foo [package]|foo.js|foo.css|foo.json' );
 		$this->gadgetModule = $this->makeGadgetModule( $this->gadget );
 		$this->overrideConfigValue( MainConfigNames::ResourceLoaderValidateJS, true );
 	}
@@ -39,7 +37,7 @@ class GadgetResourceLoaderModuleTest extends MediaWikiIntegrationTestCase {
 			[ 'type' => 'data' ]
 		] );
 
-		$nonPackageGadget = $this->makeGadget( '*foo [ResourceLoader]|foo.js|foo.css|foo.json' );
+		$nonPackageGadget = $this->makeGadget( '*foo|foo.js|foo.css|foo.json' );
 		$nonPackageGadgetModule = $this->makeGadgetModule( $nonPackageGadget );
 		$this->assertArrayNotHasKey( 'MediaWiki:Gadget-foo.json',
 			$nonPackageGadgetModule->getPages( $context ) );
@@ -47,45 +45,12 @@ class GadgetResourceLoaderModuleTest extends MediaWikiIntegrationTestCase {
 
 	public function testCodexIcons() {
 		$context = $this->createMock( RL\Context::class );
-		$g = $this->makeGadget( '*foo [ResourceLoader|package|codexIcons=cdxIconInfo]|foo.js|foo.vue' );
+		$g = $this->makeGadget( '*foo [package|codexIcons=cdxIconInfo]|foo.js|foo.vue' );
 		$this->assertEquals( [ 'cdxIconInfo' ], $g->getCodexIcons() );
 		$module = $this->makeGadgetModule( $g );
 		$module->getConfig()->set( MainConfigNames::CodexDevelopmentDir, null );
 		$content = $module->getScript( $context );
 		$this->assertArrayHasKey( 'icons.json', $content['files'] );
 		$this->assertArrayHasKey( 'cdxIconInfo', $content['files']['icons.json']['content'] );
-	}
-
-	public static function provideValidateScript() {
-		yield 'valid ES5' => [ true, '[ResourceLoader]', 'var quux = function() {};' ];
-		yield 'valid ES6' => [ true, '[ResourceLoader]', 'let quux = (() => {})();' ];
-		yield 'invalid' => [ false, '[ResourceLoader]', 'boom quux = <3;' ];
-
-		yield 'requiresES6 allows ES5' => [ true, '[ResourceLoader|requiresES6]', 'var quux = function() {};' ];
-		yield 'requiresES6 allows ES6' => [ true, '[ResourceLoader|requiresES6]', 'let quux = (() => {})();' ];
-		yield 'requiresES6 allows invalid' => [ true, '[ResourceLoader|requiresES6]', 'boom quux = <3;' ];
-	}
-
-	/**
-	 * @dataProvider provideValidateScript
-	 */
-	public function testValidateScriptFile( $valid, $options, $content ) {
-		$this->editPage( 'MediaWiki:Gadget-foo.js', $content );
-		$repo = new StaticGadgetRepo( [
-			'example' => $this->makeGadget( "* example $options | foo.js" ),
-		] );
-		$this->setService( 'GadgetsRepo', $repo );
-		$rlContext = RL\Context::newDummyContext();
-
-		$module = new GadgetResourceLoaderModule( [ 'id' => 'example' ] );
-		$module->setConfig( $this->getServiceContainer()->getMainConfig() );
-		$actual = $module->getScript( $rlContext );
-
-		if ( !$valid ) {
-			$this->assertStringContainsString( 'mw.log.error', $actual );
-		} else {
-			$this->assertStringContainsString( $content, $actual );
-			$this->assertStringNotContainsString( 'mw.log.error', $actual );
-		}
 	}
 }

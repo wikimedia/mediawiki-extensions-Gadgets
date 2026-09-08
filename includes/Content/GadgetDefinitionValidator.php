@@ -40,7 +40,6 @@ class GadgetDefinitionValidator {
 		'settings.hidden' => self::TYPE_BOOL,
 		'settings.namespaces' => self::TYPE_ARRAY + [ 'child' => self::TYPE_INT ],
 		'settings.package' => self::TYPE_BOOL,
-		'settings.requiresES6' => self::TYPE_BOOL,
 		'settings.rights' => self::TYPE_ARRAY + [ 'child' => self::TYPE_STRING ],
 		'settings.skins' => self::TYPE_ARRAY + [ 'child' => self::TYPE_STRING ],
 		'settings.supportsUrlLoad' => self::TYPE_BOOL,

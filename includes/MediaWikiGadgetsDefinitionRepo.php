@@ -34,7 +34,7 @@ use Wikimedia\ObjectCache\WANObjectCache;
  * Gadgets repo powered by MediaWiki:Gadgets-definition
  */
 class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
-	private const CACHE_VERSION = 5;
+	private const CACHE_VERSION = 6;
 
 	/** @var array|null */
 	private $definitions;
@@ -238,9 +238,6 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 			}
 
 			switch ( $option ) {
-				case 'requiresES6':
-					$info['requiresES6'] = true;
-					break;
 				case 'dependencies':
 					$info['dependencies'] = $params;
 					break;

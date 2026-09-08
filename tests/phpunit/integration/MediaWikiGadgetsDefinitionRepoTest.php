@@ -23,8 +23,8 @@ class MediaWikiGadgetsDefinitionRepoTest extends MediaWikiIntegrationTestCase {
 * baz [rights=read] |baz.js
 ==keep-section2==
 * quux [rights=read] | quux.js
-* g1 [ResourceLoader | default | namespaces=2 | rights=editmyuserjs] | g1.js <!-- comment -->
-* g2 [ResourceLoader | default | namespaces=2 | rights=editmyuserjs] | <!-- comment --> g2.js
+* g1 [default | namespaces=2 | rights=editmyuserjs] | g1.js <!-- comment -->
+* g2 [default | namespaces=2 | rights=editmyuserjs] | <!-- comment --> g2.js
 EOT;
 		$this->editPage( 'MediaWiki:Gadgets-definition', $gadgetsDef );
 
@@ -53,17 +53,17 @@ EOT;
 		$repo = new MediaWikiGadgetsDefinitionRepo( $wanCache, $services->getRevisionLookup(), $srvCache );
 		$this->setService( 'GadgetsRepo', $repo );
 
-		$this->editPage( 'MediaWiki:Gadgets-definition', '* X1[ResourceLoader|default]|foo.js' );
+		$this->editPage( 'MediaWiki:Gadgets-definition', '* X1[default]|foo.js' );
 		$this->assertEquals( [ 'X1' ], $repo->getGadgetIds() );
 		$this->assertTrue( $repo->getGadget( 'X1' )->isOnByDefault() );
 
-		$this->editPage( 'MediaWiki:Gadgets-definition', "* X1[ResourceLoader|default]|foo.js\n" .
-			"* X2[ResourceLoader|default]|foo.css" );
+		$this->editPage( 'MediaWiki:Gadgets-definition', "* X1[default]|foo.js\n" .
+			"* X2[default]|foo.css" );
 		$this->assertEquals( [ 'X1', 'X2' ], $repo->getGadgetIds() );
 
 		// Disable X1 by default
-		$this->editPage( 'MediaWiki:Gadgets-definition', "* X1[ResourceLoader]|foo.js\n" .
-			"* X2[ResourceLoader|default]|foo.css" );
+		$this->editPage( 'MediaWiki:Gadgets-definition', "* X1|foo.js\n" .
+			"* X2[default]|foo.css" );
 		$this->assertFalse( $repo->getGadget( 'X1' )->isOnByDefault() );
 
 		$this->deletePage( $services->getWikiPageFactory()->newFromTitle(

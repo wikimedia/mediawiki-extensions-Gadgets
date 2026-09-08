@@ -55,8 +55,8 @@ class GadgetLoadConditionsTest extends MediaWikiIntegrationTestCase {
 
 	public function testLoadByUrl() {
 		$defs = [
-			"*g1 [ResourceLoader]|test.js",
-			"*g2 [ResourceLoader|supportsUrlLoad]|test.js",
+			"*g1|test.js",
+			"*g2 [supportsUrlLoad]|test.js",
 		];
 		$this->assertArrayEquals( [], $this->getLoadedModules( $this->setupContext(), $defs ) );
 
@@ -66,9 +66,9 @@ class GadgetLoadConditionsTest extends MediaWikiIntegrationTestCase {
 
 	public function testContentModelRestriction() {
 		$defs = [
-			"*g1 [ResourceLoader|default]|test.js",
-			"*g2 [ResourceLoader|default|contentModels=javascript]|test.js",
-			"*g3 [ResourceLoader|default|contentModels=wikitext]|test.js"
+			"*g1 [default]|test.js",
+			"*g2 [default|contentModels=javascript]|test.js",
+			"*g3 [default|contentModels=wikitext]|test.js"
 		];
 		$this->assertArrayEquals( [ 'ext.gadget.g1', 'ext.gadget.g2' ],
 			$this->getLoadedModules( $this->setupContext( [ 'title' => 'MediaWiki:Common.js' ] ), $defs ) );
@@ -79,9 +79,9 @@ class GadgetLoadConditionsTest extends MediaWikiIntegrationTestCase {
 
 	public function testNamespaceRestriction() {
 		$defs = [
-			"*g1 [ResourceLoader|default]|test.js",
-			"*g2 [ResourceLoader|default|namespaces=0]|test.js",
-			"*g3 [ResourceLoader|default|namespaces=1]|test.js"
+			"*g1 [default]|test.js",
+			"*g2 [default|namespaces=0]|test.js",
+			"*g3 [default|namespaces=1]|test.js"
 		];
 		$this->assertArrayEquals( [ 'ext.gadget.g1', 'ext.gadget.g2' ],
 			$this->getLoadedModules( $this->setupContext(), $defs ) );
@@ -92,9 +92,9 @@ class GadgetLoadConditionsTest extends MediaWikiIntegrationTestCase {
 
 	public function testSkinRestriction() {
 		$defs = [
-			"*g1 [ResourceLoader|default]|test.js",
-			"*g2 [ResourceLoader|default|skins=vector]|test.js",
-			"*g3 [ResourceLoader|default|skins=minerva]|test.js"
+			"*g1 [default]|test.js",
+			"*g2 [default|skins=vector]|test.js",
+			"*g3 [default|skins=minerva]|test.js"
 		];
 		$this->assertArrayEquals( [ 'ext.gadget.g1', 'ext.gadget.g2' ],
 			$this->getLoadedModules( $this->setupContext( [ 'skin' => 'vector' ] ), $defs ) );
@@ -105,9 +105,9 @@ class GadgetLoadConditionsTest extends MediaWikiIntegrationTestCase {
 
 	public function testActionRestriction() {
 		$defs = [
-			"*g1 [ResourceLoader|default]|test.js",
-			"*g2 [ResourceLoader|default|actions=view]|test.js",
-			"*g3 [ResourceLoader|default|actions=edit]|test.js"
+			"*g1 [default]|test.js",
+			"*g2 [default|actions=view]|test.js",
+			"*g3 [default|actions=edit]|test.js"
 		];
 		$this->assertArrayEquals( [ 'ext.gadget.g1', 'ext.gadget.g2' ],
 			$this->getLoadedModules( $this->setupContext( [ 'action' => 'view' ] ), $defs ) );
@@ -118,9 +118,9 @@ class GadgetLoadConditionsTest extends MediaWikiIntegrationTestCase {
 
 	public function testRightRestriction() {
 		$defs = [
-			"*g1 [ResourceLoader|default]|test.js",
-			"*g2 [ResourceLoader|default|rights=read]|test.js",
-			"*g3 [ResourceLoader|default|rights=delete]|test.js"
+			"*g1 [default]|test.js",
+			"*g2 [default|rights=read]|test.js",
+			"*g3 [default|rights=delete]|test.js"
 		];
 		$this->assertArrayEquals( [ 'ext.gadget.g1', 'ext.gadget.g2' ],
 			$this->getLoadedModules( $this->setupContext( [ 'userGroups' => [] ] ), $defs ) );

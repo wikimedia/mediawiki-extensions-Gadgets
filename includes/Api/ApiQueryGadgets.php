@@ -141,7 +141,6 @@ class ApiQueryGadgets extends ApiQueryBase {
 				'hidden' => $g->isHidden(),
 				'namespaces' => $g->getRequiredNamespaces(),
 				'package' => $g->isPackaged(),
-				'requiresES6' => $g->requiresES6(),
 				'rights' => $g->getRequiredRights(),
 				'shared' => false,
 				'skins' => $g->getRequiredSkins(),

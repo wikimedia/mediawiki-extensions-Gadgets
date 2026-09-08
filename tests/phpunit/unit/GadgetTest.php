@@ -15,7 +15,7 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	use GadgetTestTrait;
 
 	public function testToArray() {
-		$g = $this->makeGadget( '*bar[ResourceLoader|rights=test]|bar.js|foo.css | foo.json' );
+		$g = $this->makeGadget( '*bar[rights=test]|bar.js|foo.css | foo.json' );
 		$gNewFromSerialized = new Gadget( $g->toArray() );
 		$this->assertArrayEquals( $g->toArray(), $gNewFromSerialized->toArray() );
 	}
@@ -34,7 +34,6 @@ class GadgetTest extends MediaWikiUnitTestCase {
 				'contentModels' => [],
 				'section' => 'misc',
 				'supportsUrlLoad' => false,
-				'requiresES6' => false,
 			],
 			'module' => [
 				'pages' => [ 'foo.js', 'bar.css' ],
@@ -84,13 +83,8 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$this->assertTrue( $g->hasModule() );
 	}
 
-	public function testRLtag() {
-		$g = $this->makeGadget( '*foo [ResourceLoader]|foo.js|foo.css' );
-		$this->assertEquals( 'foo', $g->getName() );
-	}
-
 	public function testPackaged() {
-		$g = $this->makeGadget( '* foo bar[ResourceLoader|package]| foo.css|foo.js|foo.bar|foo.json|foo.vue' );
+		$g = $this->makeGadget( '* foo bar[package]| foo.css|foo.js|foo.bar|foo.json|foo.vue' );
 		$this->assertEquals( 'foo_bar', $g->getName() );
 		$this->assertEquals( 'ext.gadget.foo_bar', Gadget::getModuleName( $g->getName() ) );
 		$this->assertEquals( [ 'MediaWiki:Gadget-foo.js' ], $g->getScripts() );
@@ -103,10 +97,10 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testSupportsUrlLoad() {
-		$directLoadAllowedByDefault = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$directLoadAllowed1 = $this->makeGadget( '*bar[ResourceLoader|supportsUrlLoad]|bar.js' );
-		$directLoadAllowed2 = $this->makeGadget( '*bar[ResourceLoader|supportsUrlLoad=true]|bar.js' );
-		$directLoadNotAllowed = $this->makeGadget( '*baz[ResourceLoader|supportsUrlLoad=false]|baz.js' );
+		$directLoadAllowedByDefault = $this->makeGadget( '*foo|foo.js' );
+		$directLoadAllowed1 = $this->makeGadget( '*bar[supportsUrlLoad]|bar.js' );
+		$directLoadAllowed2 = $this->makeGadget( '*bar[supportsUrlLoad=true]|bar.js' );
+		$directLoadNotAllowed = $this->makeGadget( '*baz[supportsUrlLoad=false]|baz.js' );
 
 		$this->assertFalse( $directLoadAllowedByDefault->supportsUrlLoad() );
 		$this->assertTrue( $directLoadAllowed1->supportsUrlLoad() );
@@ -122,18 +116,18 @@ class GadgetTest extends MediaWikiUnitTestCase {
 			static fn ( string ...$rights ) => !array_diff( $rights, [ 'test' ] )
 		);
 
-		$gUnset = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$gAllowed = $this->makeGadget( '*bar[ResourceLoader|rights=test]|bar.js' );
-		$gNotAllowed = $this->makeGadget( '*baz[ResourceLoader|rights=nope]|baz.js' );
+		$gUnset = $this->makeGadget( '*foo|foo.js' );
+		$gAllowed = $this->makeGadget( '*bar[rights=test]|bar.js' );
+		$gNotAllowed = $this->makeGadget( '*baz[rights=nope]|baz.js' );
 		$this->assertTrue( $gUnset->isAllowed( $user ) );
 		$this->assertTrue( $gAllowed->isAllowed( $user ) );
 		$this->assertFalse( $gNotAllowed->isAllowed( $user ) );
 	}
 
 	public function testSkinsTag() {
-		$gUnset = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$gSkinSupported = $this->makeGadget( '*bar[ResourceLoader|skins=fallback]|bar.js' );
-		$gSkinNotSupported = $this->makeGadget( '*baz[ResourceLoader|skins=bar]|baz.js' );
+		$gUnset = $this->makeGadget( '*foo|foo.js' );
+		$gSkinSupported = $this->makeGadget( '*bar[skins=fallback]|bar.js' );
+		$gSkinNotSupported = $this->makeGadget( '*baz[skins=bar]|baz.js' );
 		$skin = new SkinFallback();
 		$this->assertTrue( $gUnset->isSkinSupported( $skin ) );
 		$this->assertTrue( $gSkinSupported->isSkinSupported( $skin ) );
@@ -141,9 +135,9 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testActionsTag() {
-		$gUnset = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$gActionSupported = $this->makeGadget( '*bar[ResourceLoader|actions=edit]|bar.js' );
-		$gActionNotSupported = $this->makeGadget( '*baz[ResourceLoader|actions=history]|baz.js' );
+		$gUnset = $this->makeGadget( '*foo|foo.js' );
+		$gActionSupported = $this->makeGadget( '*bar[actions=edit]|bar.js' );
+		$gActionNotSupported = $this->makeGadget( '*baz[actions=history]|baz.js' );
 		$this->assertTrue( $gUnset->isActionSupported( 'edit' ) );
 		$this->assertTrue( $gActionSupported->isActionSupported( 'edit' ) );
 		$this->assertFalse( $gActionNotSupported->isActionSupported( 'edit' ) );
@@ -151,16 +145,16 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		// special case
 		$this->assertTrue( $gActionSupported->isActionSupported( 'submit' ) );
 
-		$gMultiActions = $this->makeGadget( '*bar[ResourceLoader|actions=unknown,history]|bar.js' );
+		$gMultiActions = $this->makeGadget( '*bar[actions=unknown,history]|bar.js' );
 		$this->assertTrue( $gMultiActions->isActionSupported( 'history' ) );
 		$this->assertFalse( $gMultiActions->isActionSupported( 'view' ) );
 	}
 
 	public function testNamespacesTag() {
-		$gUnsetNamespace = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$gNamespace0 = $this->makeGadget( '*bar[ResourceLoader|namespaces=0]|bar.js' );
-		$gNamespace1 = $this->makeGadget( '*bar[ResourceLoader|namespaces=1]|bar.js' );
-		$gMultiNamespace = $this->makeGadget( '*bar[ResourceLoader|namespaces=1,2,3,4]|bar.js' );
+		$gUnsetNamespace = $this->makeGadget( '*foo|foo.js' );
+		$gNamespace0 = $this->makeGadget( '*bar[namespaces=0]|bar.js' );
+		$gNamespace1 = $this->makeGadget( '*bar[namespaces=1]|bar.js' );
+		$gMultiNamespace = $this->makeGadget( '*bar[namespaces=1,2,3,4]|bar.js' );
 
 		$this->assertTrue( $gUnsetNamespace->isNamespaceSupported( 5 ) );
 
@@ -178,9 +172,9 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testCategoriesTag() {
-		$gUnsetCategory = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$gCategoryFoo = $this->makeGadget( '*foo[ResourceLoader|categories=Foo]|foo.js' );
-		$gMultiCategory = $this->makeGadget( '*foo[ResourceLoader|categories=Foo,Bar baz,quux]|foo.js' );
+		$gUnsetCategory = $this->makeGadget( '*foo|foo.js' );
+		$gCategoryFoo = $this->makeGadget( '*foo[categories=Foo]|foo.js' );
+		$gMultiCategory = $this->makeGadget( '*foo[categories=Foo,Bar baz,quux]|foo.js' );
 
 		$this->assertTrue( $gUnsetCategory->isCategorySupported( [ 'Foo' => 1 ] ) );
 
@@ -200,9 +194,9 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testContentModelsTags() {
-		$gUnsetModel = $this->makeGadget( '*foo[ResourceLoader]|foo.js' );
-		$gModelWikitext = $this->makeGadget( '*bar[ResourceLoader|contentModels=wikitext]|bar.js' );
-		$gModelCode = $this->makeGadget( '*bar[ResourceLoader|contentModels=javascript,css]|bar.js' );
+		$gUnsetModel = $this->makeGadget( '*foo|foo.js' );
+		$gModelWikitext = $this->makeGadget( '*bar[contentModels=wikitext]|bar.js' );
+		$gModelCode = $this->makeGadget( '*bar[contentModels=javascript,css]|bar.js' );
 
 		$this->assertTrue( $gUnsetModel->isContentModelSupported( 'wikitext' ) );
 
@@ -215,77 +209,77 @@ class GadgetTest extends MediaWikiUnitTestCase {
 	}
 
 	public function testDependencies() {
-		$g = $this->makeGadget( '* foo[ResourceLoader|dependencies=jquery.ui]|bar.js' );
+		$g = $this->makeGadget( '* foo[dependencies=mediawiki.util]|bar.js' );
 		$this->assertEquals( [ 'MediaWiki:Gadget-bar.js' ], $g->getScripts() );
-		$this->assertEquals( [ 'jquery.ui' ], $g->getDependencies() );
+		$this->assertEquals( [ 'mediawiki.util' ], $g->getDependencies() );
 	}
 
-	public function testES6() {
-		$es6gadget = $this->makeGadget( '* foo[ResourceLoader|requiresES6]|bar.js' );
-		$es5gadget = $this->makeGadget( '* foo[ResourceLoader]|bar.js' );
-		$this->assertTrue( $es6gadget->requiresES6() );
-		$this->assertFalse( $es5gadget->requiresES6() );
+	public function testRemovedOptions() {
+		$g = $this->makeGadget( '* foo[ResourceLoader|requiresES6|namespaces=0]|bar.js' );
+		$this->assertEquals( 'foo', $g->getName() );
+		$this->assertEquals( [ 'MediaWiki:Gadget-bar.js' ], $g->getScripts() );
+		$this->assertFalse( $g->isNamespaceSupported( 1 ) );
 	}
 
 	public static function provideGetType() {
 		return [
 			[
 				'Default (mixed)',
-				'* foo[ResourceLoader]|bar.css|bar.js',
+				'* foo|bar.css|bar.js',
 				'general',
 				Module::LOAD_GENERAL,
 			],
 			[
 				'Default (styles only)',
-				'* foo[ResourceLoader]|bar.css',
+				'* foo|bar.css',
 				'styles',
 				Module::LOAD_STYLES,
 			],
 			[
 				'Default (scripts only)',
-				'* foo[ResourceLoader]|bar.js',
+				'* foo|bar.js',
 				'general',
 				Module::LOAD_GENERAL,
 			],
 			[
 				'Default (styles only with dependencies)',
-				'* foo[ResourceLoader|dependencies=jquery.ui]|bar.css',
+				'* foo[dependencies=mediawiki.util]|bar.css',
 				'general',
 				Module::LOAD_GENERAL,
 			],
 			[
 				'Styles type (mixed)',
-				'* foo[ResourceLoader|type=styles]|bar.css|bar.js',
+				'* foo[type=styles]|bar.css|bar.js',
 				'styles',
 				Module::LOAD_STYLES,
 			],
 			[
 				'Styles type (styles only)',
-				'* foo[ResourceLoader|type=styles]|bar.css',
+				'* foo[type=styles]|bar.css',
 				'styles',
 				Module::LOAD_STYLES,
 			],
 			[
 				'Styles type (scripts only)',
-				'* foo[ResourceLoader|type=styles]|bar.js',
+				'* foo[type=styles]|bar.js',
 				'styles',
 				Module::LOAD_STYLES,
 			],
 			[
 				'General type (mixed)',
-				'* foo[ResourceLoader|type=general]|bar.css|bar.js',
+				'* foo[type=general]|bar.css|bar.js',
 				'general',
 				Module::LOAD_GENERAL,
 			],
 			[
 				'General type (styles only)',
-				'* foo[ResourceLoader|type=general]|bar.css',
+				'* foo[type=general]|bar.css',
 				'general',
 				Module::LOAD_GENERAL,
 			],
 			[
 				'General type (scripts only)',
-				'* foo[ResourceLoader|type=general]|bar.js',
+				'* foo[type=general]|bar.js',
 				'general',
 				Module::LOAD_GENERAL,
 			],
@@ -305,29 +299,29 @@ class GadgetTest extends MediaWikiUnitTestCase {
 		$g = $this->makeGadget( '* foo[hidden]|bar.js' );
 		$this->assertTrue( $g->isHidden() );
 
-		$g = $this->makeGadget( '* foo[ResourceLoader|hidden]|bar.js' );
+		$g = $this->makeGadget( '* foo[hidden]|bar.js' );
 		$this->assertTrue( $g->isHidden() );
 
-		$g = $this->makeGadget( '* foo[ResourceLoader]|bar.js' );
+		$g = $this->makeGadget( '* foo|bar.js' );
 		$this->assertFalse( $g->isHidden() );
 	}
 
 	public static function provideWarnings() {
 		return [
 			[
-				'* foo[ResourceLoader|package]|foo.css',
+				'* foo[package]|foo.css',
 				[ 'gadgets-validate-noentrypoint' ]
 			],
 			[
-				'* foo[ResourceLoader]|foo.js,foo.json',
+				'* foo|foo.js,foo.json',
 				[ 'gadgets-validate-json' ]
 			],
 			[
-				'* foo[ResourceLoader|type=styles]|foo.js|foo.css',
+				'* foo[type=styles]|foo.js|foo.css',
 				[ 'gadgets-validate-scriptsnotallowed' ]
 			],
 			[
-				'* foo[ResourceLoader|type=styles|peers=bar]|foo.js|foo.json|foo.css',
+				'* foo[type=styles|peers=bar]|foo.js|foo.json|foo.css',
 				[ 'gadgets-validate-scriptsnotallowed', 'gadgets-validate-stylepeers', 'gadgets-validate-json' ]
 			]
 		];
