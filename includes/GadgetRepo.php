@@ -55,7 +55,7 @@ abstract class GadgetRepo {
 	 *
 	 * @return array<string,Gadget[]> `[ 'section' => [ 'name' => $gadget ] ]`
 	 */
-	public function getStructuredList() {
+	public function getStructuredList(): array {
 		$list = [];
 		foreach ( $this->getGadgetIds() as $id ) {
 			try {

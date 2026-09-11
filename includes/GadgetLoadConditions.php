@@ -28,20 +28,15 @@ use MediaWiki\User\User;
  * @author Siddharth VP
  */
 class GadgetLoadConditions {
-	/** @var User */
-	private $user;
-	/** @var Skin */
-	private $skin;
-	/** @var string */
-	private $action;
-	/** @var int */
-	private $namespace;
+
+	private User $user;
+	private Skin $skin;
+	private string $action;
+	private int $namespace;
 	/** @var array<string,int> */
-	private $categories;
-	/** @var string */
-	private $contentModel;
-	/** @var string|null */
-	private $withGadgetParam;
+	private array $categories;
+	private string $contentModel;
+	private ?string $withGadgetParam;
 
 	public function __construct( OutputPage $out ) {
 		$this->user = $out->getUser();

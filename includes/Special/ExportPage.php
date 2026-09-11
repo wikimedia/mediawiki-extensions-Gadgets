@@ -20,7 +20,7 @@ class ExportPage extends ActionPage {
 
 	/**
 	 * Exports a gadget with its dependencies in a serialized form
-	 * @param array $params
+	 * @param string[] $params
 	 */
 	public function execute( array $params ) {
 		if ( !isset( $params[0] ) ) {

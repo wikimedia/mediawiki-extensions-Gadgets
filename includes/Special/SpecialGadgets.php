@@ -89,11 +89,9 @@ class SpecialGadgets extends SpecialPage {
 	}
 
 	/**
-	 * Get a _ActionPage subclass object for the given subpage name
-	 * @param string $name
-	 * @return null|ActionPage
+	 * Get an {@link ActionPage} subclass object for the given subpage name
 	 */
-	private function getSubpage( string $name ) {
+	private function getSubpage( string $name ): ?ActionPage {
 		if ( !isset( self::SUBPAGE_LIST[$name] ) ) {
 			return null;
 		}

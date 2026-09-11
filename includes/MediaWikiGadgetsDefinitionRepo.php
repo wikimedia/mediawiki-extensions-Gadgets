@@ -36,8 +36,8 @@ use Wikimedia\ObjectCache\WANObjectCache;
 class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	private const CACHE_VERSION = 6;
 
-	/** @var array|null */
-	private $definitions;
+	/** @var array<string,array>|null */
+	private ?array $definitions = null;
 
 	public function __construct(
 		private readonly WANObjectCache $wanCache,
@@ -81,11 +81,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 		$this->definitions = null;
 	}
 
-	/**
-	 * @param WANObjectCache $cache
-	 * @return string
-	 */
-	private function makeDefinitionCacheKey( WANObjectCache $cache ) {
+	private function makeDefinitionCacheKey( WANObjectCache $cache ): string {
 		return $cache->makeKey(
 			'gadgets-definition',
 			Gadget::GADGET_CLASS_VERSION,
@@ -96,7 +92,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	/**
 	 * Get list of gadgets.
 	 *
-	 * @return array[] List of Gadget objects
+	 * @return array<string,array> List of Gadget objects
 	 */
 	protected function loadGadgets(): array {
 		if ( defined( 'MW_PHPUNIT_TEST' ) && MediaWikiServices::getInstance()->isStorageDisabled() ) {
@@ -143,7 +139,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	/**
 	 * Fetch list of gadgets and returns it as associative array of sections with gadgets
 	 * e.g. [ $name => $gadget1, etc. ]
-	 * @return array[]
+	 * @return array<string,array>
 	 */
 	public function fetchStructuredList() {
 		// T157210: avoid using wfMessage() to avoid staleness due to cache layering
@@ -170,7 +166,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	 * Generates a structured list of Gadget objects from a definition
 	 *
 	 * @param string $definition
-	 * @return array[] List of Gadget objects indexed by the gadget's name.
+	 * @return array<string,array> List of Gadget objects indexed by the gadget's name.
 	 */
 	private function listFromDefinition( $definition ): array {
 		$definition = preg_replace( '/<!--.*?-->/s', '', $definition );
@@ -227,7 +223,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 			'definition' => $definition,
 		];
 
-		foreach ( preg_split( '/\s*\|\s*/', $options, -1, PREG_SPLIT_NO_EMPTY ) as $option ) {
+		foreach ( preg_split( '/\s*\|+\s*/', $options, -1, PREG_SPLIT_NO_EMPTY ) as $option ) {
 			$arr = preg_split( '/\s*=\s*/', $option, 2 );
 			$option = $arr[0];
 			if ( isset( $arr[1] ) ) {
@@ -285,7 +281,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 			}
 		}
 
-		foreach ( preg_split( '/\s*\|\s*/', $pages, -1, PREG_SPLIT_NO_EMPTY ) as $page ) {
+		foreach ( preg_split( '/\s*\|+\s*/', $pages, -1, PREG_SPLIT_NO_EMPTY ) as $page ) {
 			$info['pages'][] = self::RESOURCE_TITLE_PREFIX . trim( $page );
 		}
 

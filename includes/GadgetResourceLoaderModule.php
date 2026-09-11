@@ -12,24 +12,19 @@ use MediaWiki\ResourceLoader as RL;
  * around the Gadget class.
  */
 class GadgetResourceLoaderModule extends RL\WikiModule {
-	/**
-	 * @var string
-	 */
-	private $id;
 
-	/**
-	 * @var Gadget
-	 */
-	private $gadget;
+	private string $id;
+	private ?Gadget $gadget = null;
 
 	public function __construct( array $options ) {
+		parent::__construct( $options );
 		$this->id = $options['id'];
 	}
 
 	/**
 	 * @return Gadget instance this module is about
 	 */
-	private function getGadget() {
+	private function getGadget(): Gadget {
 		if ( !$this->gadget ) {
 			/** @var GadgetRepo $repo */
 			$repo = MediaWikiServices::getInstance()->getService( 'GadgetsRepo' );

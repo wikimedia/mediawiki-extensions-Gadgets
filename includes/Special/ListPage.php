@@ -56,7 +56,7 @@ class ListPage extends ActionPage {
 
 		$linkRenderer = $this->specialPage->getLinkRenderer();
 		foreach ( $gadgets as $section => $entries ) {
-			if ( $section !== false && $section !== '' ) {
+			if ( $section !== '' ) {
 				if ( $listOpen ) {
 					$output->addHTML( Html::closeElement( 'ul' ) . "\n" );
 					$listOpen = false;

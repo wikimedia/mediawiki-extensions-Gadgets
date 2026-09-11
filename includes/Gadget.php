@@ -40,17 +40,17 @@ class Gadget {
 	public const CACHE_TTL = 86400;
 
 	/** @var string[] */
-	private $dependencies;
+	private array $dependencies;
 	/** @var string[] */
 	private array $pages;
 	/** @var string[] */
-	private $peers;
+	private array $peers;
 	/** @var string[] */
-	private $messages;
+	private array $messages;
 	/** @var string|null */
-	private $name;
+	private ?string $name;
 	/** @var string|null */
-	private $definition;
+	private ?string $definition;
 	/** @var string[] */
 	private array $requiredRights;
 	/** @var string[] */
@@ -63,17 +63,12 @@ class Gadget {
 	private array $requiredCategories;
 	/** @var string[] */
 	private array $requiredContentModels;
-	/** @var bool */
-	private $onByDefault;
-	/** @var bool */
-	private $hidden;
-	/** @var bool */
-	private $package;
-	/** @var string */
-	private $type;
+	private bool $onByDefault;
+	private bool $hidden;
+	private bool $package;
+	private string $type;
 	private string $section;
-	/** @var bool */
-	private $supportsUrlLoad;
+	private bool $supportsUrlLoad;
 	/** @var string[] */
 	private array $codexIcons;
 
@@ -288,7 +283,7 @@ class Gadget {
 	 * @param int $namespace Namespace ID
 	 * @return bool
 	 */
-	public function isNamespaceSupported( int $namespace ) {
+	public function isNamespaceSupported( int $namespace ): bool {
 		// This is intentionally a non-strict in_array() because
 		// MediaWikiGadgetsDefinitionRepo sets numerical strings.
 		return !$this->requiredNamespaces || in_array( $namespace, $this->requiredNamespaces );
@@ -297,11 +292,11 @@ class Gadget {
 	/**
 	 * Whether to load the gadget on pages in any of the given categories
 	 *
-	 * @param array $categories Associative array with keys as category names (category title text,
+	 * @param array<string,int> $categories Associative array with keys as category names (category title text,
 	 * no namespace prefix, no dbkey-underscores) and with value as 1 for all keys.
 	 * @return bool
 	 */
-	public function isCategorySupported( array $categories ) {
+	public function isCategorySupported( array $categories ): bool {
 		if ( !$this->requiredCategories ) {
 			return true;
 		}
@@ -422,14 +417,14 @@ class Gadget {
 	 *
 	 * @return string[]
 	 */
-	public function getPeers() {
+	public function getPeers(): array {
 		return $this->peers;
 	}
 
 	/**
 	 * @return string[]
 	 */
-	public function getMessages() {
+	public function getMessages(): array {
 		return $this->messages;
 	}
 
@@ -437,7 +432,7 @@ class Gadget {
 	 * Get user rights required to enable this gadget
 	 * @return string[]
 	 */
-	public function getRequiredRights() {
+	public function getRequiredRights(): array {
 		return $this->requiredRights;
 	}
 
@@ -445,7 +440,7 @@ class Gadget {
 	 * Get page actions on which the gadget loads
 	 * @return string[]
 	 */
-	public function getRequiredActions() {
+	public function getRequiredActions(): array {
 		return $this->requiredActions;
 	}
 
@@ -460,7 +455,7 @@ class Gadget {
 	 *
 	 * @return int[]|string[]
 	 */
-	public function getRequiredNamespaces() {
+	public function getRequiredNamespaces(): array {
 		return $this->requiredNamespaces;
 	}
 
@@ -468,7 +463,7 @@ class Gadget {
 	 * Returns categories in which this gadget loads
 	 * @return string[]
 	 */
-	public function getRequiredCategories() {
+	public function getRequiredCategories(): array {
 		return $this->requiredCategories;
 	}
 
@@ -476,7 +471,7 @@ class Gadget {
 	 * Get skins in which this gadget loads
 	 * @return string[]
 	 */
-	public function getRequiredSkins() {
+	public function getRequiredSkins(): array {
 		return $this->requiredSkins;
 	}
 
@@ -484,7 +479,7 @@ class Gadget {
 	 * Get page content models for which this gadget loads
 	 * @return string[]
 	 */
-	public function getRequiredContentModels() {
+	public function getRequiredContentModels(): array {
 		return $this->requiredContentModels;
 	}
 
@@ -492,7 +487,7 @@ class Gadget {
 	 * Returns the load type of this Gadget's ResourceLoader module
 	 * @return string 'styles' or 'general'
 	 */
-	public function getType() {
+	public function getType(): string {
 		if ( $this->type === 'styles' || $this->type === 'general' ) {
 			return $this->type;
 		}

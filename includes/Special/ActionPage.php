@@ -19,7 +19,7 @@ abstract class ActionPage implements MessageLocalizer {
 
 	/**
 	 * Execute the subpage.
-	 * @param array $params Array of subpage parameters.
+	 * @param string[] $params Array of subpage parameters.
 	 */
 	abstract public function execute( array $params );
 

@@ -35,7 +35,7 @@ trait GadgetTestTrait {
 	 */
 	public function makeGadgetModule( Gadget $g ) {
 		$module = TestingAccessWrapper::newFromObject(
-			new GadgetResourceLoaderModule( [ 'id' => null ] )
+			new GadgetResourceLoaderModule( [ 'id' => '' ] )
 		);
 		$module->gadget = $g;
 		$module->setConfig( new HashConfig( [
