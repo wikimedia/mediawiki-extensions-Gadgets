@@ -8,7 +8,6 @@ use MediaWiki\MainConfigNames;
 use MediaWiki\Revision\RevisionLookup;
 use Wikimedia\ObjectCache\HashBagOStuff;
 use Wikimedia\ObjectCache\WANObjectCache;
-use Wikimedia\Rdbms\IConnectionProvider;
 use Wikimedia\TestingAccessWrapper;
 
 /**
@@ -23,11 +22,10 @@ trait GadgetTestTrait {
 	 * @return Gadget
 	 */
 	public function makeGadget( string $line ) {
-		$dbProvider = $this->createMock( IConnectionProvider::class );
 		$wanCache = WANObjectCache::newEmpty();
 		$revLookup = $this->createMock( RevisionLookup::class );
 		$srvCache = new HashBagOStuff();
-		$repo = new MediaWikiGadgetsDefinitionRepo( $dbProvider, $wanCache, $revLookup, $srvCache );
+		$repo = new MediaWikiGadgetsDefinitionRepo( $wanCache, $revLookup, $srvCache );
 		return $repo->newFromDefinition( $line, 'misc' );
 	}
 

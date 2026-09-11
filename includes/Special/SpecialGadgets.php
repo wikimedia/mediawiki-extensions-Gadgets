@@ -69,15 +69,10 @@ class SpecialGadgets extends SpecialPage {
 		return 'wiki';
 	}
 
-	/**
-	 * @param string|null $par Parameters passed to the page
-	 */
-	public function execute( $par ) {
-		$parts = $par ? explode( '/', $par, 1 ) : [];
-		$subPage = $parts[0] ?? 'list';
-
-		$params = explode( '/', $subPage );
-		$pageName = array_shift( $params );
+	/** @inheritDoc */
+	public function execute( $subPage ) {
+		$params = $subPage ? explode( '/', $subPage ) : [];
+		$pageName = array_shift( $params ) ?? 'list';
 		$page = $this->getSubpage( $pageName );
 		if ( !$page ) {
 			$this->getOutput()->setStatusCode( 404 );

@@ -29,7 +29,6 @@ use MediaWiki\Revision\SlotRecord;
 use MediaWiki\Title\Title;
 use Wikimedia\ObjectCache\BagOStuff;
 use Wikimedia\ObjectCache\WANObjectCache;
-use Wikimedia\Rdbms\IConnectionProvider;
 
 /**
  * Gadgets repo powered by MediaWiki:Gadgets-definition
@@ -41,7 +40,6 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 	private $definitions;
 
 	public function __construct(
-		private readonly IConnectionProvider $dbProvider,
 		private readonly WANObjectCache $wanCache,
 		private readonly RevisionLookup $revLookup,
 		private readonly BagOStuff $srvCache,
@@ -129,9 +127,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 						$key,
 						// 1 day
 						Gadget::CACHE_TTL,
-						function () {
-							return $this->fetchStructuredList();
-						},
+						$this->fetchStructuredList( ... ),
 						[
 							'version' => 2,
 							// Avoid database stampede

@@ -80,6 +80,7 @@ class MultiGadgetRepo extends GadgetRepo {
 				// return repo if it didn't throw
 				return $repo;
 			} catch ( InvalidArgumentException ) {
+				// Try next repo
 			}
 		}
 		throw new InvalidArgumentException( "No repo found for gadget $id" );
@@ -106,17 +107,17 @@ class MultiGadgetRepo extends GadgetRepo {
 	 * @return bool
 	 */
 	private function isDefinedTwice( string $id ) {
-		$found = false;
+		$found = 0;
 		foreach ( $this->repos as $repo ) {
 			try {
 				$repo->getGadget( $id );
-				if ( $found ) {
+				$found++;
+				if ( $found > 1 ) {
 					// found it a second time
 					return true;
-				} else {
-					$found = true;
 				}
 			} catch ( InvalidArgumentException ) {
+				// Try next repo
 			}
 		}
 		return false;

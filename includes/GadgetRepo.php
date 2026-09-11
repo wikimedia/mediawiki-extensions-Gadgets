@@ -37,9 +37,6 @@ abstract class GadgetRepo {
 	 * Invalidate any caches based on the provided page (after create, edit, or delete).
 	 *
 	 * This must be called on create and delete as well (T39228).
-	 *
-	 * @param LinkTarget $target
-	 * @return void
 	 */
 	public function handlePageUpdate( LinkTarget $target ): void {
 	}
@@ -48,9 +45,6 @@ abstract class GadgetRepo {
 	 * Given a gadget ID, return the title of the page where the gadget is
 	 * defined (or null if the given repo does not have per-gadget definition
 	 * pages).
-	 *
-	 * @param string $id
-	 * @return Title|null
 	 */
 	public function getGadgetDefinitionTitle( string $id ): ?Title {
 		return null;
@@ -80,15 +74,9 @@ abstract class GadgetRepo {
 	 *
 	 * This name is used by `mw.loader.require()` so that `require("./example.json")` resolves
 	 * to `MediaWiki:Gadget-example.json`.
-	 *
-	 * @param string $titleText
-	 * @param string $gadgetId
-	 * @return string
 	 */
 	public function titleWithoutPrefix( string $titleText, string $gadgetId ): string {
-		// there is only one occurrence of the prefix
-		$numReplaces = 1;
-		return str_replace( self::RESOURCE_TITLE_PREFIX, '', $titleText, $numReplaces );
+		return str_replace( self::RESOURCE_TITLE_PREFIX, '', $titleText );
 	}
 
 	/**
