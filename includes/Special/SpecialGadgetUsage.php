@@ -22,6 +22,7 @@ namespace MediaWiki\Extension\Gadgets\Special;
 
 use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Html\Html;
+use MediaWiki\MainConfigNames;
 use MediaWiki\Output\OutputPage;
 use MediaWiki\Skin\Skin;
 use MediaWiki\SpecialPage\QueryPage;
@@ -212,7 +213,7 @@ class SpecialGadgetUsage extends QueryPage {
 		$defaultGadgets = $this->getDefaultGadgets( $gadgetIds );
 		$out->addHtml(
 			$this->msg( 'gadgetusage-intro' )
-				->numParams( $this->getConfig()->get( 'ActiveUserDays' ) )->parseAsBlock()
+				->numParams( $this->getConfig()->get( MainConfigNames::ActiveUserDays ) )->parseAsBlock()
 		);
 		if ( $num > 0 ) {
 			$this->outputTableStart();
