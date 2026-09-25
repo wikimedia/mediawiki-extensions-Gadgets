@@ -33,7 +33,6 @@
 	"gadgets-not-found": "Nun s'alcontró l'accesoriu \"$1\".",
 	"gadgets-export-text": "Pa esportar l'accesoriu $1, calca nel botón \"{{int:gadgets-export-download}}\", guarda'l ficheru descargáu,\nvete a Special:Import na wiki de destín y xúbelu. Darréu amiesta lo siguiente na páxina MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nHas de tener los permisos afayadizos na wiki de destín (incluyendo permisu pa editar los mensaxes del sistema) y tien de tar activada la importación dende los ficheros xubíos.",
 	"gadgets-export-download": "Descargar",
-	"gadgets-requires-es6": "Esti accesoriu solo funciona en navegadores compatibles con ES6",
 	"gadgets-validate-notset": "La propiedá <code>$1</code> nun ta establecida.",
 	"gadgets-validate-wrongtype": "La propiedá <code>$1</code> tien de ser de tipu <code>$2</code> en cuenta de <code>$3</code>."
 }

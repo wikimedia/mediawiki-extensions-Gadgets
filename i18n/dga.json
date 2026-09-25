@@ -5,7 +5,6 @@
 		]
 	},
 	"gadgets-validate-json": "JSON pɛllɛ kyaane la kyɛ ba toŋ. Pakegye gagyɛte poɔ yoŋ la ka a tona.",
-	"gadgets-validate-es6default": "Gagyɛtere naŋ irikɔɛ ES6 koŋ baŋ eŋ difiliti eŋɛ.",
 	"gadgets-validate-noentrypoint": "Pakegye flag ka ba leɛ kaare tere aŋa gampɛle sɛgeraa pɛllɛ zaa naŋ ba kyaane iri.",
 	"gadgets-validate-noscripts": "Ba leɛ la kpaare ko gampɛle sɛgere, bonso a gagyɛte ŋa sɛte <code>type=styles</code>.",
 	"gadgets-validate-stylepeers": "Kpaare leɛ ko la gagyɛte sentaa, bonso aŋa e la gɔɔroŋ-yoŋ gagyɛte. Sɛte <code>type=general</code> na e zuo.",

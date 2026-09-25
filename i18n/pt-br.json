@@ -48,7 +48,6 @@
 	"gadgets-not-found": "O gadget \"$1\" não encontrado.",
 	"gadgets-export-text": "Para exportar o gadget $1, clique no botão \"{{int:gadgets-export-download}}\", salve o arquivo transferido,\nvá à página Special:Import no wiki de destino e faça o upload do arquivo. Depois, adicione o seguinte à página MediaWiki:Gadgets-definition:\n<pre>$2</pre>\nÉ necessário que você tenha, no wiki de destino, as permissões necessárias (incluindo o privilégio de editar mensagens de sistema) e a importação por upload de arquivos deve estar ativada.",
 	"gadgets-export-download": "Baixar",
-	"gadgets-requires-es6": "Este gadget é suportado apenas por navegadores compatíveis com ES6",
 	"gadgets-validate-notset": "A propriedade <code>$1</code> não está definida.",
 	"gadgets-validate-wrongtype": "A propriedade <code>$1</code> deve ser do tipo <code>$2</code>.",
 	"gadgets-validate-invalidtitle": "O título de página \"$1\" é inválido",
