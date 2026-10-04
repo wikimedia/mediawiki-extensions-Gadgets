@@ -3,7 +3,6 @@
 namespace MediaWiki\Extension\Gadgets\Special;
 
 use MediaWiki\Content\ContentHandler;
-use MediaWiki\Extension\Gadgets\Gadget;
 use MediaWiki\Extension\Gadgets\GadgetRepo;
 use MediaWiki\Html\Html;
 use MediaWiki\Language\Language;
@@ -76,9 +75,6 @@ class ListPage extends ActionPage {
 						$this->msg( 'parentheses' )->rawParams( $linkTarget )->escaped() ) . "\n" );
 			}
 
-			/**
-			 * @var Gadget $gadget
-			 */
 			foreach ( $entries as $gadget ) {
 				$name = $gadget->getName();
 				$title = Title::makeTitleSafe( NS_MEDIAWIKI, "Gadget-{$name}$langSuffix" );
@@ -120,16 +116,10 @@ class ListPage extends ActionPage {
 					Html::openElement( 'li', [ 'id' => $this->makeAnchor( $name ) ] ) .
 					$nameHtml . $actionsHtml
 				);
-				// Whether the next portion of the list item contents needs
-				// a line break between it and the next portion.
-				// This is set to false after lists, but true after lines of text.
-				$needLineBreakAfter = true;
 
-				// Portion: Show files, dependencies, speers
-				if ( $needLineBreakAfter ) {
-					$output->addHTML( '<br />' );
-				}
+				// Portion: Show files, dependencies, peers
 				$output->addHTML(
+					'<br>' .
 					$this->msg( 'gadgets-uses' )->escaped() .
 					$this->msg( 'colon-separator' )->escaped()
 				);
@@ -151,13 +141,9 @@ class ListPage extends ActionPage {
 				$output->addHTML( $lang->commaList( $links ) );
 
 				if ( $gadget->isPackaged() ) {
-					if ( $needLineBreakAfter ) {
-						$output->addHTML( '<br />' );
-					}
-					$output->addHTML( $this->msg( 'gadgets-packaged',
+					$output->addHTML( '<br>' . $this->msg( 'gadgets-packaged',
 						$this->gadgetRepo->titleWithoutPrefix( $gadget->getScripts()[0], $gadget->getName() )
 					)->parse() );
-					$needLineBreakAfter = true;
 				}
 
 				// Portion: Show required rights (optional)
@@ -170,35 +156,29 @@ class ListPage extends ActionPage {
 					);
 				}
 				if ( $rights ) {
-					if ( $needLineBreakAfter ) {
-						$output->addHTML( '<br />' );
-					}
 					$output->addHTML(
+						'<br>' .
 						$this->msg( 'gadgets-required-rights', $lang->commaList( $rights ), count( $rights ) )->parse()
 					);
-					$needLineBreakAfter = true;
 				}
 
 				// Portion: Show required skins (optional)
 				$requiredSkins = $gadget->getRequiredSkins();
 				$skins = [];
-				$validskins = $this->skinFactory->getInstalledSkins();
-				foreach ( $requiredSkins as $skinid ) {
-					if ( isset( $validskins[$skinid] ) ) {
-						$skins[] = $this->msg( "skinname-$skinid" )->plain();
+				$validSkins = $this->skinFactory->getInstalledSkins();
+				foreach ( $requiredSkins as $skinId ) {
+					if ( isset( $validSkins[$skinId] ) ) {
+						$skins[] = $this->msg( "skinname-$skinId" )->plain();
 					} else {
-						$skins[] = $skinid;
+						$skins[] = $skinId;
 					}
 				}
 				if ( $skins ) {
-					if ( $needLineBreakAfter ) {
-						$output->addHTML( '<br />' );
-					}
 					$output->addHTML(
+						'<br>' .
 						$this->msg( 'gadgets-required-skins', $lang->commaList( $skins ) )
 							->numParams( count( $skins ) )->parse()
 					);
-					$needLineBreakAfter = true;
 				}
 
 				// Portion: Show required actions (optional)
@@ -207,23 +187,18 @@ class ListPage extends ActionPage {
 					$actions[] = Html::element( 'code', [], $action );
 				}
 				if ( $actions ) {
-					if ( $needLineBreakAfter ) {
-						$output->addHTML( '<br />' );
-					}
 					$output->addHTML(
+						'<br>' .
 						$this->msg( 'gadgets-required-actions', $lang->commaList( $actions ) )
 							->numParams( count( $actions ) )->parse()
 					);
-					$needLineBreakAfter = true;
 				}
 
 				// Portion: Show required namespaces (optional)
 				$namespaces = $gadget->getRequiredNamespaces();
 				if ( $namespaces ) {
-					if ( $needLineBreakAfter ) {
-						$output->addHTML( '<br />' );
-					}
 					$output->addHTML(
+						'<br>' .
 						$this->msg(
 							'gadgets-required-namespaces',
 							$lang->commaList( array_map( function ( int $ns ) use ( $lang ) {
@@ -233,7 +208,6 @@ class ListPage extends ActionPage {
 							}, $namespaces ) )
 						)->numParams( count( $namespaces ) )->parse()
 					);
-					$needLineBreakAfter = true;
 				}
 
 				// Portion: Show required content models (optional)
@@ -246,16 +220,13 @@ class ListPage extends ActionPage {
 					);
 				}
 				if ( $contentModels ) {
-					if ( $needLineBreakAfter ) {
-						$output->addHTML( '<br />' );
-					}
 					$output->addHTML(
+						'<br>' .
 						$this->msg( 'gadgets-required-contentmodels',
 							$lang->commaList( $contentModels ),
 							count( $contentModels )
 						)->parse()
 					);
-					$needLineBreakAfter = true;
 				}
 
 				// Portion: Show required categories (optional)
@@ -267,41 +238,26 @@ class ListPage extends ActionPage {
 						: htmlspecialchars( $category );
 				}
 				if ( $categories ) {
-					if ( $needLineBreakAfter ) {
-						$output->addHTML( '<br />' );
-					}
 					$output->addHTML(
+						'<br>' .
 						$this->msg( 'gadgets-required-categories' )
 							->rawParams( $lang->commaList( $categories ) )
 							->numParams( count( $categories ) )->parse()
 					);
-					$needLineBreakAfter = true;
 				}
 				// Show if hidden
 				if ( $gadget->isHidden() ) {
-					if ( $needLineBreakAfter ) {
-						$output->addHTML( '<br />' );
-					}
-					$output->addHTML( $this->msg( 'gadgets-hidden' )->parse() );
-					$needLineBreakAfter = true;
+					$output->addHTML( '<br>' . $this->msg( 'gadgets-hidden' )->parse() );
 				}
 
 				// Show if supports URL load
 				if ( $gadget->supportsUrlLoad() ) {
-					if ( $needLineBreakAfter ) {
-						$output->addHTML( '<br />' );
-					}
-					$output->addHTML( $this->msg( 'gadgets-supports-urlload' )->parse() );
-					$needLineBreakAfter = true;
+					$output->addHTML( '<br>' . $this->msg( 'gadgets-supports-urlload' )->parse() );
 				}
 
 				// Portion: Show on by default (optional)
 				if ( $gadget->isOnByDefault() ) {
-					if ( $needLineBreakAfter ) {
-						$output->addHTML( '<br />' );
-					}
-					$output->addHTML( $this->msg( 'gadgets-default' )->parse() );
-					$needLineBreakAfter = true;
+					$output->addHTML( '<br>' . $this->msg( 'gadgets-default' )->parse() );
 				}
 
 				// Show warnings
@@ -309,10 +265,9 @@ class ListPage extends ActionPage {
 
 				if ( $warnings ) {
 					$output->addModuleStyles( 'mediawiki.codex.messagebox.styles' );
-					$output->addHTML( Html::warningBox( implode( '<br/>', array_map( static function ( $msg ) {
+					$output->addHTML( Html::warningBox( implode( '<br>', array_map( static function ( $msg ) {
 						return $msg->parse();
 					}, $warnings ) ) ) );
-					$needLineBreakAfter = false;
 				}
 
 				$output->addHTML( Html::closeElement( 'li' ) . "\n" );
