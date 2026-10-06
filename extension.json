@@ -125,11 +125,11 @@
 			"description": "When set to `definition`, gadgets are managed via MediaWiki:Gadgets-definition. When set to `json`, they're managed via JSON subpages of MediaWiki:Gadgets/. It can also be set to `json+definition` to allow both, enabling migration from one to the other."
 		},
 		"GadgetsDefinitionsUseCodeEditor": {
-			"value": true,
+			"value": false,
 			"description": "Use CodeEditor for editing JSON gadget definition pages."
 		},
 		"GadgetsDefinitionsUseCodeMirror": {
-			"value": false,
+			"value": true,
 			"description": "Use CodeMirror for editing JSON gadget definition pages."
 		}
 	},
