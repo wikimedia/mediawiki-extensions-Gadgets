@@ -60,10 +60,10 @@ class MediaWikiGadgetsJsonRepo extends GadgetRepo {
 					->fetchFieldValues();
 			},
 			[
-				'checkKeys' => [ $key ],
-				'pcTTL' => WANObjectCache::TTL_PROC_SHORT,
-				// Bump when changing the database query.
+				// Bump when changing the database query
 				'version' => 2,
+				'checkKeys' => [ $key ],
+				'pcTTL' => WANObjectCache::TTL_PROC_LONG,
 				'lockTSE' => 30
 			]
 		);
