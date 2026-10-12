@@ -121,10 +121,10 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 				function () use ( $key ) {
 					return $this->wanCache->getWithSetCallback(
 						$key,
-						// 1 day
-						Gadget::CACHE_TTL,
+						WANObjectCache::TTL_DAY,
 						$this->fetchStructuredList( ... ),
 						[
+							// Bump when changing the listFromDefinition() parser
 							'version' => 2,
 							// Avoid database stampede
 							'lockTSE' => 300,

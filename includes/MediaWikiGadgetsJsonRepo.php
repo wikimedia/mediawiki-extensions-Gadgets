@@ -20,12 +20,6 @@ use Wikimedia\Rdbms\LikeValue;
  * Each gadget has its own gadget definition page, using GadgetDefinitionContent.
  */
 class MediaWikiGadgetsJsonRepo extends GadgetRepo {
-	/**
-	 * How long in seconds the list of gadget ids and
-	 * individual gadgets should be cached for (1 day)
-	 */
-	private const CACHE_TTL = 86400;
-
 	public const DEF_PREFIX = 'Gadgets/';
 	public const DEF_SUFFIX = '.json';
 
@@ -48,7 +42,7 @@ class MediaWikiGadgetsJsonRepo extends GadgetRepo {
 		$dbr = $this->dbProvider->getReplicaDatabase();
 		$titles = $this->wanCache->getWithSetCallback(
 			$key,
-			self::CACHE_TTL,
+			WANObjectCache::TTL_DAY,
 			static function () use ( $fname, $dbr ) {
 				return $dbr->newSelectQueryBuilder()
 					->select( 'page_title' )
@@ -141,7 +135,7 @@ class MediaWikiGadgetsJsonRepo extends GadgetRepo {
 		$key = $this->getGadgetCacheKey( $id );
 		$gadget = $this->wanCache->getWithSetCallback(
 			$key,
-			self::CACHE_TTL,
+			WANObjectCache::TTL_DAY,
 			function ( $old, &$ttl ) use ( $id ) {
 				$title = $this->getGadgetDefinitionTitle( $id );
 				if ( !$title ) {

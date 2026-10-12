@@ -37,8 +37,6 @@ class Gadget {
 	 */
 	public const GADGET_CLASS_VERSION = 23;
 
-	public const CACHE_TTL = 86400;
-
 	/** @var string[] */
 	private array $dependencies;
 	/** @var string[] */
