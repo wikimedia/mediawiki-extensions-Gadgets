@@ -138,7 +138,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 					return $this->wanCache->getWithSetCallback(
 						$key,
 						// 1 day
-						Gadget::CACHE_TTL,
+						WANObjectCache::TTL_DAY,
 						function ( $old, &$ttl, &$setOpts ) {
 							// Reduce caching of known-stale data (T157210)
 							$setOpts += Database::getCacheSetOptions( $this->dbProvider->getReplicaDatabase() );
@@ -146,6 +146,7 @@ class MediaWikiGadgetsDefinitionRepo extends GadgetRepo {
 							return $this->fetchStructuredList();
 						},
 						[
+							// Bump when changing the listFromDefinition() parser
 							'version' => 2,
 							// Avoid database stampede
 							'lockTSE' => 300,
