@@ -126,6 +126,14 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 		ParserOutput &$parserOutput
 	) {
 		'@phan-var GadgetDefinitionContent $content';
+		// Content that fails validation can still reach here, for example from previews,
+		// edit stashing or action=parse. Its properties may not have the types the code
+		// below expects (T428773), and its HTML is empty anyway, so don't record any links.
+		if ( !$content->isValid() ) {
+			$parserOutput->setContentHolderText( '' );
+			return;
+		}
+
 		// Create a deep clone. FIXME: unserialize(serialize()) is hacky.
 		$data = unserialize( serialize( $content->getData()->getValue() ) );
 		if ( $data !== null ) {
@@ -171,7 +179,7 @@ class GadgetDefinitionContentHandler extends JsonContentHandler {
 			}
 		}
 
-		if ( !$cpoParams->getGenerateHtml() || !$content->isValid() ) {
+		if ( !$cpoParams->getGenerateHtml() ) {
 			$parserOutput->setContentHolderText( '' );
 		} else {
 			$parserOutput->setContentHolderText( $content->rootValueTable( $data ) );
