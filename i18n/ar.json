@@ -26,7 +26,6 @@
 	"gadgetusage-noresults": "لم يتم العثور على الأدوات.",
 	"gadgetusage-intro": "هذا الجدول يعرض عدد المستخدمين الذين قاموا بتفعيل كل إضافة على هذه الويكي. المستخدم النشط هو شخص قام بتعديل في آخر {{PLURAL:$1||يوم|يومين|$1 أيام|$1 يومًا|$1 يومٍ}}.",
 	"gadgetusage-activeusers": "مستخدمين نشطين",
-	"gadgetusage-default": "افتراضي",
 	"gadgets-title": "إضافات",
 	"gadgets-pagetext": "بالأسفل قائمة بالإضافات الخاصة التي يمكن أن يقوم المستخدمون بتفعيلها على [[Special:Preferences#mw-prefsection-gadgets|صفحة تفضيلاتهم]]، معرفة بواسطة [[MediaWiki:Gadgets-definition|التعريفات]].\nهذا العرض يوفر دخولا سهلا لصفحات رسائل النظام التي تعرف وصف وكود كل إضافة.",
 	"gadgets-editdescription": "عدل الوصف",

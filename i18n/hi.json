@@ -21,7 +21,6 @@
 	"gadgetusage-usercount": "सदस्यों की संख्या",
 	"gadgetusage-noresults": "कोई गैजेट नहीं मिला।",
 	"gadgetusage-activeusers": "सक्रिय सदस्य",
-	"gadgetusage-default": "प्राथमिक",
 	"gadgets-title": "उपकरण",
 	"gadgets-pagetext": "नीचे सभी [[MediaWiki:Gadgets-definition|परिभाषित]] विशेष उपकरणों की सूची दी गई है, जिन्हें सदस्य [[Special:Preferences#mw-prefsection-gadgets|अपनी वरीयताओं]] से सक्षम कर सकते हैं।\nयह समीक्षा सभी उपकरणों के विवरण और कोड वाले अंतरफल संदेश पृष्ठों की कड़ियाँ प्रदान करती है।",
 	"gadgets-uses": "उपयोग",

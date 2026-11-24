@@ -21,7 +21,6 @@
 	"gadgetusage-noresults": "Nema pronađenih gadžeta.",
 	"gadgetusage-intro": "Tabela prikazuje broj korisnika koji su omogućili spravice na ovom vikiju. U aktivne korisnike se ubrajaju oni koji su napravili izmene u {{PLURAL:$1|prethodnom danu|prethodnih $1 dana}}. Spisak ne uključuje statistike za spravice koje su svima podrazumevane i može uključivati spravice koje više nisu dostupne.",
 	"gadgetusage-activeusers": "Aktivni korisnici",
-	"gadgetusage-default": "Podrazumevano",
 	"gadgets-title": "Spravice",
 	"gadgets-pagetext": "Ispod je spisak posebnih gadžeta koje korisnici mogu da omoguće na svojoj [[Special:Preferences#mw-prefsection-gadgets|stranici za podešavanje]], kao što je navedeno u [[MediaWiki:Gadgets-definition|definicijama]].\nOvaj pregled pruža brz pristup sistemskim porukama koje definišu svaki opis i kod gadžeta.",
 	"gadgets-editdescription": "Uredi opis",

@@ -19,7 +19,6 @@
 	"gadgetusage-noresults": "Keng Gadgete fonnt.",
 	"gadgetusage-intro": "An dëser Tabell steet fir all Gadget op dëser Wiki d'Zuel vun de Benotzer, déi dëse Gadget aktivéiert hunn. Als aktive Benotzer gëtt ee gezielt, wann een {{PLURAL:$1|am leschten Dag|an deene leschten $1 Deeg}} eng Ännerung gemaach huet. Net enthalen an der Lëscht sinn d'Zuele fir Gadgeten, déi standardméisseg fir jiddereen aktivéiert sinn. Dogéint kënne Gadgeten enthale sinn, déi net méi disponibel sinn.",
 	"gadgetusage-activeusers": "Aktiv Benotzer",
-	"gadgetusage-default": "Standard",
 	"gadgets-title": "Gadgeten",
 	"gadgets-pagetext": "Ënnendrënner ass eng Lëscht vu spezielle Gadgeten, déi d'Benotzer an hire [[Special:Preferences#mw-prefsection-gadgets|Benotzer-Astellungen]] aktivéiere kënnen, wéi se an den [[MediaWiki:Gadgets-definition|Definitiounen]] definéiert sinn.\nDës Iwwersiicht liwwert en einfachen Zougang op d'Systemmessage-Säiten, déi d'Beschreiwung an de Code vun all Gadget definéieren.",
 	"gadgets-editdescription": "Beschreiwung änneren",

@@ -27,7 +27,6 @@
 	"gadgetusage-noresults": "Inga finesser hittades.",
 	"gadgetusage-intro": "Denna tabell visar antalet användare som har aktiverat respektive finess via sina inställningar på denna wiki. En aktiv användare är någon som har gjort en redigering {{PLURAL:$1|den senaste dagen|de senaste $1 dagarna}}. Listan visar ingen statistik för finesser som har aktiverats för alla som standard och kan innehålla finesser som inte längre finns.",
 	"gadgetusage-activeusers": "Aktiva användare",
-	"gadgetusage-default": "Standard",
 	"gadgets-title": "Finesser",
 	"gadgets-pagetext": "Härunder finns en lista över finesser som användare kan aktivera i sina [[Special:Preferences#mw-prefsection-gadgets|inställningar]], definierad av [[MediaWiki:Gadgets-definition|definitionerna]].\nDen här översikten ger enkel åtkomst till de systemmeddelanden som definierar beskrivningarna och koden för varje finess.",
 	"gadgets-editdescription": "Redigera beskrivning",

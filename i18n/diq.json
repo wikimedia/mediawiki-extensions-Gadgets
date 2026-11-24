@@ -23,7 +23,6 @@
 	"gadgetusage-noresults": "Hacet nivineya.",
 	"gadgetusage-intro": "Bu tablo, bu küçük araçtaki her bir küçük aracı etkinleştiren kullanıcıların sayısını gösterir. Aktif bir kullanıcı, son {{PLURAL:$1|gün|$1 gün}} düzenleme yapan biri olarak sayılır. Bu liste, varsayılan olarak herkes için etkin olan küçük araçların istatistiklerini hariç tutar ve artık bulunmayan küçük araçları içerebilir.",
 	"gadgetusage-activeusers": "Karberê aktivi",
-	"gadgetusage-default": "Hesabyaye",
 	"gadgets-title": "Hacetê werdi",
 	"gadgets-pagetext": "Cêr de yew listeya hacetanê xasan esta ke aıma senê [[Special:Preferences#mw-prefsection-gadgets|xesabê xo]] de akerê, seke [[MediaWiki:Gadgets-definition|selasnayış]] senê nışan bıkerê.\n\nNa degme weynayış, enê haceta dehana rehat cıresayışi rê imkan dana.",
 	"gadgets-uses": "Gureneno",

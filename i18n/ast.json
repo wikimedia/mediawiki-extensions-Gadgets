@@ -18,7 +18,6 @@
 	"gadgetusage-noresults": "Nun s'alcontraron accesorios.",
 	"gadgetusage-intro": "Esta tabla indica'l númberu d'usuarios que tien activáu cada accesoriu nesta wiki. Un usuariu activu ye aquel que realizó una edición {{PLURAL:$1|nel últimu día|nos últimos $1 díes}}. Esta llista nun incluye estadístiques de los accesorios activaos pa toos de mou predetermináu y puede incluir accesorios que yá nun tean disponibles.",
 	"gadgetusage-activeusers": "Usuarios activos",
-	"gadgetusage-default": "Predetermináu",
 	"gadgets-title": "Accesorios",
 	"gadgets-pagetext": "Embaxo amuésase una llista de los accesorios especiales que los usuarios puen activar na so [[Special:Preferences#mw-prefsection-gadgets|páxina de preferencies]], según queden definíos poles [[MediaWiki:Gadgets-definition|definiciones]].\nEsta visión xeneral proporciona un accesu fácil a les páxines de mensaxes del sistema que definen la descripción y el códigu de cada accesoriu.",
 	"gadgets-editdescription": "Editar la descripción",

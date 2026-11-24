@@ -48,7 +48,6 @@
 	"gadgetusage-noresults": "没有找到小工具。",
 	"gadgetusage-intro": "此表格展示了在此wiki上启用了每个小工具的用户数量。活跃用户视为最近{{PLURAL:$1|一天|$1天}}内做出编辑的用户。此列表不含为所有人默认启用的小工具的统计数据，并可能包含不再可用的小工具。",
 	"gadgetusage-activeusers": "活跃用户",
-	"gadgetusage-default": "默认",
 	"gadgets-title": "小工具",
 	"gadgets-pagetext": "下面是用户可以在其[[Special:Preferences#mw-prefsection-gadgets|参数设置页面]]启用的特殊小工具的列表，这些小工具是由[[MediaWiki:Gadgets-definition|定义页]]定义的。这个概览可以让您便捷访问定义了每个小工具的描述和代码的系统消息页面。",
 	"gadgets-editdescription": "编辑描述",

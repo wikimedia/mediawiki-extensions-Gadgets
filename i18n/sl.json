@@ -20,7 +20,6 @@
 	"gadgetusage-noresults": "Ni najdenih pripomočkov.",
 	"gadgetusage-intro": "Ta tabela beleži število uporabnikov z vključenim posameznim pripomočkom. Kot dejaven uporabnik je označen tisti, ki je zabeležil urejanje v {{PLURAL:$1|zadnjem|zadnjima|zadnjih}} {{PLURAL:$1|dnevu|$1 dnevoma|$1 dnevih}}. Ta statistika ne vključuje pripomočkov, ki so za vse vključeni privzeto, možno pa je, da vključuje nekatere, ki niso več na voljo.",
 	"gadgetusage-activeusers": "Dejavni uporabniki",
-	"gadgetusage-default": "Privzeto",
 	"gadgets-title": "Pripomočki",
 	"gadgets-pagetext": "Spodaj je seznam posebnih pripomočkov (opisanih z [[MediaWiki:Gadgets-definition|opredelitvami]]), ki jih lahko uporabniki vključijo v svojih [[Special:Preferences#mw-prefsection-gadgets|nastavitvah]].\nTa pregled omogoča preprost dostop do sistema za določitev opisa in kode posameznih pripomočkov.",
 	"gadgets-editdescription": "Uredi opis",

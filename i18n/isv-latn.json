@@ -16,7 +16,6 @@
 	"gadgetusage-noresults": "Ne najden nijedin gadžet.",
 	"gadgetusage-intro": "Tuta tabela pokazyvaje kolikost koristnikov, ktori imajut vključeny dany gadžet v tutoj viki. Aktivnym koristnikom uznavaje se někto, ktory v tečenju {{PLURAL:$1|poslědnjego dnja|poslědnjih $1 dnjev}} sdělal pravku. Spisok izključaje statistiky za gadžety, ktore sut standardno vključene za vsih, a može vključiti gadžety, ktore uže ne sut dostupne.",
 	"gadgetusage-activeusers": "Aktivni koristniki",
-	"gadgetusage-default": "Standardno",
 	"gadgets-title": "Gadžety",
 	"gadgets-pagetext": "Niže nahodite spisok specialnyh gadžetov, ktore koristniki mogut vključiti na svojej [[Special:Preferences#mw-prefsection-gadgets|stranici s nastavjenjami]], sostavjeny na osnově [[MediaWiki:Gadgets-definition|definicij gadžetov]].\nTutoj spisok davaje legky dostup k sistemnym soobčenjam, ktore oprěděljajut opis i kod vsakogo gadžeta.",
 	"gadgets-editdescription": "Praviti opis",

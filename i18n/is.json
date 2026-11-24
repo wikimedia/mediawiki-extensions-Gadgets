@@ -15,7 +15,6 @@
 	"gadgetusage": "Tölfræði yfir notkun græja",
 	"gadgetusage-noresults": "Engar græjur fundust.",
 	"gadgetusage-activeusers": "Virkir notendur",
-	"gadgetusage-default": "Sjálfgefið",
 	"gadgets-title": "Græjur",
 	"gadgets-pagetext": "Fyrir neðan er listi yfir sérstakar græjur sem notendur geta virkjað á [[Special:Preferences#mw-prefsection-gadgets|kjörstillingasíðu]], eins og þær eru skilgreindar af [[MediaWiki:Gadgets-definition|skilgreiningunum]].\nÞetta yfirlit veitir greiðan aðgang að kerfisskilaboðasíðum sem skilgreina lýsingu og kóða hverrar græju.",
 	"gadgets-uses": "Notar",

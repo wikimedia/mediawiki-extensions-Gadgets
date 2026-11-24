@@ -20,7 +20,6 @@
 	"gadgetusage-noresults": "Nem található segédeszköz.",
 	"gadgetusage-intro": "Ez a táblázat azt mutatja, hogy hányan engedélyezték az egyes segédeszközöket ezen a wikin. Aktívnak számít valaki, aki szerkesztett a legutóbbi $1 napon. A lista nem tartalmaz statisztikát alapértelmezetten mindenkinek bekapcsolt segédeszközökhöz, de tartalmazhat már nem elérhetőeket is.",
 	"gadgetusage-activeusers": "Aktív szerkesztők",
-	"gadgetusage-default": "Alapértelmezett",
 	"gadgets-title": "Segédeszközök",
 	"gadgets-pagetext": "Itt látható azon segédeszközök listája, amiket a felhasználók bekapcsolhatnak a [[Special:Preferences#mw-prefsection-gadgets|beállításaiknál]]. A lista a [[MediaWiki:Gadgets-definition|definíciókat]] tartalmazó lapon módosítható.\nEz az áttekintő lap egyszerű hozzáférést nyújt az eszközök kódját, illetve leírását tartalmazó rendszerüzenet-lapokhoz.",
 	"gadgets-editdescription": "Leírás szerkesztése",

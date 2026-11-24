@@ -24,7 +24,6 @@
 	"gadgetusage-noresults": "No s'ha trobat cap giny.",
 	"gadgetusage-intro": "Aquesta taula indica el nombre d'usuaris que tenen activat cada giny en aquest wiki. Pot incloure ginys que ja no estan disponibles. Un usuari actiu es compta com algú que ha fet una modificació en  {{PLURAL:$1|el darrer dia|els darrers $1 dies}}. Aquesta llista exclou les estadístiques dels ginys habilitats per a tothom de manera predeterminada i pot incloure ginys que ja no estan disponibles.",
 	"gadgetusage-activeusers": "Usuaris actius",
-	"gadgetusage-default": "Per defecte",
 	"gadgets-title": "Ginys",
 	"gadgets-pagetext": "A continuació teniu una llista de ginys especials que els usuaris poden activar a la seva [[Special:Preferences#mw-prefsection-gadgets|pàgina de preferències]], segons les [[MediaWiki:Gadgets-definition|seves definicions]].\nAquesta llista permet un fàcil accés a les pàgines del sistema que defineixen la descripció i el codi de cada giny.",
 	"gadgets-uses": "Usa",

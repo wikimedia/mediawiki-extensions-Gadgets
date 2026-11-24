@@ -16,7 +16,6 @@
 	"gadgetusage-usercount": "Nombro de uzantoj",
 	"gadgetusage-noresults": "Neniu aldonaĵo troviĝis.",
 	"gadgetusage-activeusers": "Aktivaj uzantoj",
-	"gadgetusage-default": "Defaŭlta",
 	"gadgets-title": "Aldonaĵoj",
 	"gadgets-pagetext": "Jen listo da specialaj aldonaĵoj kiujn uzantoj povas aktivigi en [[Special:Preferences#mw-prefsection-gadgets|siaj preferoj]], kiel difinite en [[MediaWiki:Gadgets-definition|difinoj]].\nĈi tiu superrigardo provizas facilan aliron al la sistemaj mesaĝoj kiuj difinas la priskribon kaj la kodon de ĉiuj aldonaĵoj.",
 	"gadgets-uses": "uzas",

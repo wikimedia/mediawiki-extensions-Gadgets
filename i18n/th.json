@@ -23,7 +23,6 @@
 	"gadgetusage-usercount": "จำนวนผู้ใช้",
 	"gadgetusage-noresults": "ไม่พบอุปกรณ์เสริมใด",
 	"gadgetusage-activeusers": "ผู้ใช้ที่ยังมีความเคลื่อนไหว",
-	"gadgetusage-default": "ค่าเริ่มต้น",
 	"gadgets-title": "อุปกรณ์เสริม",
 	"gadgets-pagetext": "ด้านล่างเป็นรายการอุปกรณ์เสริมพิเศษที่ผู้ใช้สามารถเปิดใช้งานได้ใน[[Special:Preferences#mw-prefsection-gadgets|หน้าการตั้งค่า]] โดยอุปกรณ์เสริมทั้งหมดได้ถูกกำหนดค่าไว้ใน[[MediaWiki:Gadgets-definition|คำนิยาม]]\nโดยภาพรวมนี้จะช่วยให้เข้าถึงหน้าข้อความระบบที่กำหนดคำอธิบายและโค้ดของอุปกรณ์เสริมแต่ละตัวได้ง่ายขึ้น",
 	"gadgets-editdescription": "แก้ไขคำอธิบาย",

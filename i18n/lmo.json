@@ -14,7 +14,6 @@
 	"gadgetusage-noresults": "Nissun acessori trovad",
 	"gadgetusage-intro": "Questa tabella chì l'indica el numer de utent ch'a ha ativad un acessori in su questa wiki chì. Un utent ativ l'è considerad come un quaidun che l'hà fad una modifega {{PLURAL:$1|in del'ultima sgiornada|in di ultim $1 dì}}. Questa lista chì la esclud i statistiche per i accessori ativad per tucc in manera predefinida e la po includ anca di acessori ch'a inn pu disponibil.",
 	"gadgetusage-activeusers": "Utent ativ",
-	"gadgetusage-default": "Predefinid",
 	"gadgets-title": "Acessori",
 	"gadgets-pagetext": "Chì de sota a gh'è la lista di acessori che i utent i poden ativà in su la soa pagina di [[Special:Preferences#mw-prefsection-gadgets|preferenze]], tant 'me che l'è definid in di [[MediaWiki:Gadgets-definition|definizzion]]. Questa veduda la foniss un mez comod de andágh dent ai pagine di messagg de sistema che definissen la descrizzion e 'l codes per ciaschedun di acessori.",
 	"gadgets-editdescription": "Modifega la descrizzion",

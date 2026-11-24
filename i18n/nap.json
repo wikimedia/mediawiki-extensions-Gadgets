@@ -16,7 +16,6 @@
 	"gadgetusage-noresults": "Nisciuna pazziella truvata",
 	"gadgetusage-intro": "Sta tabbella ndicasse 'o nummero 'e utente c'avisser'appicciato ogne pazziella ind'a stu wiki. N'utente attivo se cuntasse comm'a coccherunno c'avesse fatto nu cagnamiento dint'a ll' {{PLURAL:$1|ùrdemo juorno|ùrdeme $1 ghiuorne}}. St'elenco lassa fore 'e statistiche p' 'e ppazzielle appicciate pe tuttuquante 'e manera predeterminata e putesse ncludere pazielle ca nun stessero cchiù a disposizione.",
 	"gadgetusage-activeusers": "Utente attive",
-	"gadgetusage-default": "'E bbase",
 	"gadgets-title": "Pazzielle",
 	"gadgets-pagetext": "Ccà abbascio nce sta n'elenco d' 'e ppazzielle speciali pe putè n'utente appiccià int' 'a [[Special:Preferences#mw-prefsection-gadgets|paggena 'e mpustaziune d' 'a soja]], comme sta definito p' 'e [[MediaWiki:Gadgets-definition|definiziune]].\nStu rechiamo ve desse n'accesso semprice dint' 'o sistema 'e ppaggene 'e mmasciata ca definissero descrizione e codece pe ogne pazziella.",
 	"gadgets-uses": "Ause",

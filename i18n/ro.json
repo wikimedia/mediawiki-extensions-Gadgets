@@ -23,7 +23,6 @@
 	"gadgetusage-usercount": "Număr de utilizatori",
 	"gadgetusage-noresults": "Niciun gadget găsit.",
 	"gadgetusage-activeusers": "Utilizatori activi",
-	"gadgetusage-default": "Implicit",
 	"gadgets-title": "Gadgeturi",
 	"gadgets-uses": "Utilizări",
 	"gadgets-required-rights": "Necesită {{PLURAL:$2|următorul drept|următoarele drepturi}}:\n\n$1",

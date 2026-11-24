@@ -20,7 +20,6 @@
 	"gadgetusage-usercount": "Erabiltzaile-kopurua",
 	"gadgetusage-noresults": "Ez da gadgetik aurkitu.",
 	"gadgetusage-activeusers": "Lankide aktiboak",
-	"gadgetusage-default": "Lehenetsia",
 	"gadgets-title": "Gadgetak",
 	"gadgets-pagetext": "Erabiltzaile bakoitzak bere [[Special:Preferences#mw-prefsection-gadgets|hobespen orrian]] erabili ditzakeen gadgeten zerrenda bat agertzen da behean, [[MediaWiki:Gadgets-definition|definizioek]] zehaztu bezala.\nIkuspegi orokor honek gadget bakoitza definitzen duen deskribapen eta kode orrietarako lotura errazak eskaintzen ditu.",
 	"gadgets-uses": "Erabilerak",

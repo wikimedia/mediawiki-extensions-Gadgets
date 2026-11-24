@@ -28,7 +28,6 @@
 	"gadgetusage-noresults": "Geen gadgets gevonden.",
 	"gadgetusage-intro": "Deze tabel geeft het aantal van de gebruikers weer die op deze wiki een bepaalde gadget geactiveerd hebben. Een actieve gebruiker is iemand die in de afgelopen {{PLURAL:$1|dag|$1 dagen}} een bewerking heeft gemaakt. Niet opgenomen in deze lijst zijn statistieken voor gadgets die standaard voor iedereen zijn ingeschakeld. Ook kunnen er gadgets in de lijst staan die niet langer beschikbaar zijn.",
 	"gadgetusage-activeusers": "Actieve gebruikers",
-	"gadgetusage-default": "Standaard",
 	"gadgets-title": "Gadgets",
 	"gadgets-pagetext": "Hieronder staan de speciale toebehoren (''gadgets'') die gebruikers via hun [[Special:Preferences#mw-prefsection-gadgets|voorkeuren]] kunnen inschakelen, zoals vastgelegd in de [[MediaWiki:Gadgets-definition|definities]].\nIn dit overzicht kunt u voor elke gadget eenvoudig de systeembericht-pagina vinden met de beschrijving en de programmacode ervan.",
 	"gadgets-editdescription": "Beschrijving bewerken",
